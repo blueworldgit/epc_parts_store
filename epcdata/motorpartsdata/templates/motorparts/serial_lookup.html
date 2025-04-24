@@ -1,0 +1,30 @@
+{% extends "motorparts/base.html" %}
+{% block title %}Serial Lookup{% endblock %}
+{% block content %}
+
+<h2 class="mb-4">Search for Serial Number</h2>
+
+<form method="get" action="{% url 'serial_lookup' %}" class="mb-4">
+    <div class="input-group">
+        <input type="text" name="serial" class="form-control" placeholder="Enter serial number">
+        <button type="submit" class="btn btn-primary">Search</button>
+    </div>
+</form>
+
+{% if serial %}
+    <h3 class="mb-3">Results for: <span class="text-primary">{{ serial }}</span></h3>
+{% endif %}
+
+{% if parent_titles %}
+    <ul class="list-group">
+        {% for parent in parent_titles %}
+            <li class="list-group-item">
+                <a href="{% url 'parent_detail' parent.id %}">{{ parent.title }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+{% elif serial %}
+    <div class="alert alert-warning">No parent titles found for this serial.</div>
+{% endif %}
+
+{% endblock %}

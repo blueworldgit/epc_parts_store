@@ -1,0 +1,43 @@
+{% extends "motorparts/base.html" %}
+{% block title %}Parts{% endblock %}
+{% block content %}
+
+<h2 class="mb-4">Parts for Child Title: <span class="text-info">{{ child.title }}</span></h2>
+
+<div class="mb-4">
+    <h4>SVG View</h4>
+    <div class="border p-3 bg-light">
+        {{ child.svg_code|safe }}
+    </div>
+</div>
+
+<table class="table table-bordered table-striped">
+    <thead class="table-dark">
+        <tr>
+            <th>Call Out</th>
+            <th>Part Number</th>
+            <th>Usage Name</th>
+            <th>Qty</th>
+            <th>LR</th>
+            <th>Remark</th>
+            <th>NN Note</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for part in parts %}
+            <tr>
+                <td>{{ part.call_out_order }}</td>
+                <td>{{ part.part_number }}</td>
+                <td>{{ part.usage_name }}</td>
+                <td>{{ part.unit_qty }}</td>
+                <td>{{ part.lr }}</td>
+                <td>{{ part.remark }}</td>
+                <td>{{ part.nn_note }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<a href="{% url 'parent_detail' child.parent.id %}" class="btn btn-secondary">← Back to Parent</a>
+
+{% endblock %}

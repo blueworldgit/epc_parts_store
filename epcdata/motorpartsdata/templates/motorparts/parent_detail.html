@@ -1,0 +1,17 @@
+{% extends "motorparts/base.html" %}
+{% block title %}Child Titles{% endblock %}
+{% block content %}
+
+<h2 class="mb-4">Child Titles for Parent: <span class="text-success">{{ parent.title }}</span></h2>
+
+<ul class="list-group">
+    {% for child in child_titles %}
+        <li class="list-group-item">
+            <a href="{% url 'child_detail' child.id %}">{{ child.title }}</a>
+        </li>
+    {% endfor %}
+</ul>
+
+<a href="{% url 'serial_lookup' %}?serial={{ parent.serial_number.serial }}" class="btn btn-secondary mt-3">← Back to Serial</a>
+
+{% endblock %}

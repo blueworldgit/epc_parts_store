@@ -1,0 +1,67 @@
+# Django-specific files
+*.log
+*.pot
+*.pyc
+__pycache__/
+local_settings.py
+db.sqlite3
+media
+
+# Virtual Environment
+.env
+venv/
+env/
+
+# IDEs
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# PyInstaller
+*.manifest
+*.spec
+
+# General Python
+*.py[cod]
+*$py.class
+
+# Coverage
+.coverage
+htmlcov/
+
+# Distribution / Packaging
+dist/
+build/
+*.egg-info/
+
+# Translations
+*.mo
+
+# Temporary files
+*~
+# Backup files
+*.bak
+*.orig
+
+# Logs
+*.log
+
+# Bytecode
+*.pyc
+*.pyo
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+
+# Node Modules (if you use any frontend stuff)
+node_modules/
+
+# Static files, if collected
+static/
