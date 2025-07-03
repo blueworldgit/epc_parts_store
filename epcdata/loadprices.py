@@ -92,8 +92,22 @@ def process_json_file(json_path):
         part_instances = Part.objects.filter(part_number=part_number_value)
         
         if not part_instances.exists():
-            logger.error(f"Part with number '{part_number_value}' not found in database")
-            return
+            # Extract part number from filename as fallback
+            filename = os.path.basename(json_path)
+            filename_part_number = filename.replace('.json', '')
+            
+            logger.warning(f"Part with number '{part_number_value}' not found in database, trying filename part number '{filename_part_number}'")
+            
+            # Try searching with the filename part number
+            part_instances = Part.objects.filter(part_number=filename_part_number)
+            
+            if not part_instances.exists():
+                logger.error(f"Part with number '{filename_part_number}' (from filename) also not found in database")
+                return
+            else:
+                logger.info(f"Found part(s) using filename part number '{filename_part_number}'")
+                # Update the part_number_value for logging purposes
+                part_number_value = filename_part_number
         
         logger.info(f"Found {part_instances.count()} parts with number '{part_number_value}'")
         
