@@ -27,7 +27,7 @@
         {% for part in parts %}
             <tr>
                 <td>{{ part.call_out_order }}</td>
-                <td>{{ part.part_number }}</td>
+                <td><a href="{% url 'part_pricing_detail' part.part_number %}" class="text-decoration-none fw-bold">{{ part.part_number }}</a></td>
                 <td>{{ part.usage_name }}</td>
                 <td>{{ part.unit_qty }}</td>
                 <td>{{ part.lr }}</td>

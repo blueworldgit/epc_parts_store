@@ -38,3 +38,22 @@ class Part(models.Model):
 
     def __str__(self):
         return f"{self.part_number} - {self.usage_name}"
+    
+
+
+class PricingData(models.Model):
+    part_number = models.ForeignKey(Part, on_delete=models.CASCADE, related_name='pricing_data') #index 3 in json
+    replacement = models.CharField(max_length=100, blank=True, null=True) #index 8
+    description = models.CharField(max_length=100, blank=True, null=True) #index 4
+    active = models.CharField(max_length=100, blank=True, null=True) #index 5
+    oldest = models.CharField(max_length=100, blank=True, null=True) # index 10
+    range_code = models.CharField(max_length=100, blank=True, null=True) #index 55
+    discount_code= models.CharField(max_length=100, blank=True, null=True) #index 13
+    class_code = models.CharField(max_length=100, blank=True, null=True) #index 14
+    vat_code  = models.CharField(max_length=100, blank=True, null=True)
+    list_price = models.CharField(max_length=100, blank=True, null=True)
+    vor = models.CharField(max_length=100, blank=True, null=True)
+    stock_order = models.CharField(max_length=100, blank=True, null=True)
+    replacement_code = models.CharField(max_length=100, blank=True, null=True)
+    whs = models.CharField(max_length=100, blank=True, null=True)
+    stock_available = models.CharField(max_length=100, blank=True, null=True)

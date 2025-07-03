@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import SerialNumber, ParentTitle, ChildTitle, Part
+from .models import SerialNumber, ParentTitle, ChildTitle, Part, PricingData
 
 class SerialNumberSerializer(serializers.ModelSerializer):
     class Meta:
@@ -20,3 +20,11 @@ class PartSerializer(serializers.ModelSerializer):
     class Meta:
         model = Part
         fields = '__all__'
+
+
+
+class PricingDataSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = PricingData
+        fields = '__all__'
+

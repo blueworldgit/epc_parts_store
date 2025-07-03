@@ -1,0 +1,56 @@
+from motorpartsdata.models import SerialNumber, Part, PricingData
+
+serial_input = "LSH14C4C5NA129710"  # Replace with your serial number
+
+try:
+    serial = SerialNumber.objects.get(serial=serial_input)
+except SerialNumber.DoesNotExist:
+    print(f"Serial number '{serial_input}' not found.")
+    result = []
+else:
+    parts = Part.objects.filter(
+        child_title__parent__serial_number=serial
+    ).distinct()
+    missing = []
+    for part in parts:
+        if not PricingData.objects.filter(part_number=part).exists():
+            missing.append(part.part_number)
+    # Remove duplicates just in case
+    result = list(sorted(set(missing)))
+
+# Save to next.txt
+with open("next.txt", "w", encoding="utf-8") as f:
+    f.write(str(result))
+
+print("Missing part numbers saved to next.txt")
+print(result)
+
+
+
+
+
+from motorpartsdata.models import SerialNumber, Part
+
+serial1 = "LSH14C4C5NA129710"  # Replace with your first serial number
+serial2 = "LSH14J7C2MA122115"  # Replace with your second serial number
+
+try:
+    s1 = SerialNumber.objects.get(serial=serial1)
+    s2 = SerialNumber.objects.get(serial=serial2)
+except SerialNumber.DoesNotExist as e:
+    print(f"Serial not found: {e}")
+    common = []
+else:
+    parts1 = set(
+        Part.objects.filter(child_title__parent__serial_number=s1)
+        .values_list("part_number", flat=True)
+    )
+    parts2 = set(
+        Part.objects.filter(child_title__parent__serial_number=s2)
+        .values_list("part_number", flat=True)
+    )
+    common = sorted(parts1 & parts2)
+
+    size=length(common)
+
+print("Common part numbers:", common)

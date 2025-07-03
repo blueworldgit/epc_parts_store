@@ -1,0 +1,141 @@
+{% extends 'motorparts/base.html' %}
+
+{% block title %}Part Pricing Detail - {{ part_number }}{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-12">
+            <h2>Pricing Details for Part: <span class="text-primary">{{ part_number }}</span></h2>
+            
+            {% if error %}
+                <div class="alert alert-danger">
+                    <strong>Error:</strong> {{ error }}
+                </div>
+                <a href="javascript:history.back()" class="btn btn-primary">← Go Back</a>
+            {% else %}
+                <!-- Part Information -->
+                <div class="card mb-4">
+                    <div class="card-header bg-primary text-white">
+                        <h5 class="mb-0">Part Information</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p><strong>Part Number:</strong> {{ part.part_number }}</p>
+                                <p><strong>Usage Name:</strong> {{ part.usage_name }}</p>
+                                <p><strong>Unit Quantity:</strong> {{ part.unit_qty }}</p>
+                            </div>
+                            <div class="col-md-6">
+                                <p><strong>Call Out Order:</strong> {{ part.call_out_order }}</p>
+                                <p><strong>L/R:</strong> {{ part.lr|default:"N/A" }}</p>
+                                <p><strong>Child Title:</strong> {{ part.child_title.title }}</p>
+                            </div>
+                        </div>
+                        {% if part.remark %}
+                            <p><strong>Remark:</strong> {{ part.remark }}</p>
+                        {% endif %}
+                        {% if part.nn_note %}
+                            <p><strong>NN Note:</strong> {{ part.nn_note }}</p>
+                        {% endif %}
+                    </div>
+                </div>
+
+                <!-- Pricing Information -->
+                <div class="card">
+                    <div class="card-header {% if has_pricing %}bg-success{% else %}bg-warning{% endif %} text-white">
+                        <h5 class="mb-0">Pricing Information</h5>
+                    </div>
+                    <div class="card-body">
+                        {% if has_pricing %}
+                            <div class="table-responsive">
+                                <table class="table table-bordered">
+                                    <tbody>
+                                        <tr>
+                                            <th width="30%">Description</th>
+                                            <td>{{ pricing_data.description|default:"N/A" }}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>List Price</th>
+                                            <td><strong class="text-success">{{ pricing_data.list_price|default:"N/A" }}</strong></td>
+                                        </tr>
+                                        <tr>
+                                            <th>Stock Order</th>
+                                            <td>{{ pricing_data.stock_order|default:"N/A" }}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Active</th>
+                                            <td>{{ pricing_data.active|default:"N/A" }}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Replacement</th>
+                                            <td>{{ pricing_data.replacement|default:"N/A" }}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Replacement Code</th>
+                                            <td>{{ pricing_data.replacement_code|default:"N/A" }}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Oldest</th>
+                                            <td>{{ pricing_data.oldest|default:"N/A" }}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Range Code</th>
+                                            <td>{{ pricing_data.range_code|default:"N/A" }}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Discount Code</th>
+                                            <td>{{ pricing_data.discount_code|default:"N/A" }}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Class Code</th>
+                                            <td>{{ pricing_data.class_code|default:"N/A" }}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>VAT Code</th>
+                                            <td>{{ pricing_data.vat_code|default:"N/A" }}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>VOR</th>
+                                            <td>{{ pricing_data.vor|default:"N/A" }}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Warehouse</th>
+                                            <td>{{ pricing_data.whs|default:"N/A" }}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Stock Available</th>
+                                            <td><strong class="text-info">{{ pricing_data.stock_available|default:"N/A" }}</strong></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        {% else %}
+                            <div class="alert alert-warning">
+                                <h5>No Pricing Data Available</h5>
+                                <p>This part does not have pricing information in the database.</p>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+
+                <div class="mt-4">
+                    <a href="javascript:history.back()" class="btn btn-primary">← Go Back</a>
+                    <button class="btn btn-secondary" onclick="window.print()">🖨️ Print</button>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+<style>
+    @media print {
+        .btn { display: none; }
+        .card { break-inside: avoid; }
+    }
+    
+    .table th {
+        background-color: #f8f9fa;
+    }
+</style>
+{% endblock %}

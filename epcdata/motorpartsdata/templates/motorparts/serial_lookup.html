@@ -13,6 +13,11 @@
 
 {% if serial %}
     <h3 class="mb-3">Results for: <span class="text-primary">{{ serial }}</span></h3>
+    <div class="mb-3">
+        <a href="{% url 'parts_pricing' serial %}" class="btn btn-success">
+            📊 View Parts Pricing Summary
+        </a>
+    </div>
 {% endif %}
 
 {% if parent_titles %}

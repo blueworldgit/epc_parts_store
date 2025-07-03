@@ -1,0 +1,128 @@
+{% extends 'motorparts/base.html' %}
+
+{% block title %}Parts Pricing - {{ serial_number }}{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-12">
+            <h2>Parts Pricing for Serial Number: {{ serial_number }}</h2>
+            
+            {% if error %}
+                <div class="alert alert-danger">
+                    <strong>Error:</strong> {{ error }}
+                </div>
+                <a href="{% url 'serial_lookup' %}" class="btn btn-primary">← Back to Serial Lookup</a>
+            {% else %}
+                <div class="row mb-3">
+                    <div class="col-md-4">
+                        <div class="card text-center">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ total_parts }}</h5>
+                                <p class="card-text">Total Parts</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card text-center bg-success text-white">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ with_pricing }}</h5>
+                                <p class="card-text">With Pricing Data</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card text-center bg-warning text-dark">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ missing_pricing }}</h5>
+                                <p class="card-text">Missing Pricing Data</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {% if parts_data %}
+                    <div class="table-responsive">
+                        <table class="table table-striped table-hover">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th>Part Number</th>
+                                    <th>Usage Name</th>
+                                    <th>Description</th>
+                                    <th>List Price</th>
+                                    <th>Stock Order</th>
+                                    <th>Parent Title</th>
+                                    <th>Child Title</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for item in parts_data %}
+                                    <tr {% if not item.has_pricing %}class="table-warning"{% endif %}>
+                                        <td><strong>{{ item.part.part_number }}</strong></td>
+                                        <td>{{ item.part.usage_name }}</td>
+                                        <td>
+                                            {% if item.has_pricing %}
+                                                {{ item.description }}
+                                            {% else %}
+                                                <span class="text-danger fw-bold">{{ item.description }}</span>
+                                            {% endif %}
+                                        </td>
+                                        <td>
+                                            {% if item.has_pricing %}
+                                                {{ item.list_price }}
+                                            {% else %}
+                                                <span class="text-danger fw-bold">{{ item.list_price }}</span>
+                                            {% endif %}
+                                        </td>
+                                        <td>
+                                            {% if item.has_pricing %}
+                                                {{ item.stock_order }}
+                                            {% else %}
+                                                <span class="text-danger fw-bold">{{ item.stock_order }}</span>
+                                            {% endif %}
+                                        </td>
+                                        <td><small class="text-muted">{{ item.parent_title }}</small></td>
+                                        <td><small class="text-muted">{{ item.child_title }}</small></td>
+                                        <td>
+                                            {% if item.has_pricing %}
+                                                <span class="badge bg-success">Has Pricing</span>
+                                            {% else %}
+                                                <span class="badge bg-warning text-dark">Data Missing</span>
+                                            {% endif %}
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                {% else %}
+                    <div class="alert alert-info">
+                        <strong>No parts found</strong> for serial number {{ serial_number }}.
+                    </div>
+                {% endif %}
+
+                <div class="mt-4">
+                    <a href="{% url 'serial_lookup' %}" class="btn btn-primary">← Back to Serial Lookup</a>
+                    <button class="btn btn-secondary" onclick="window.print()">🖨️ Print</button>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+<style>
+    @media print {
+        .btn { display: none; }
+        .card { break-inside: avoid; }
+    }
+    
+    .table-warning td {
+        background-color: #fff3cd !important;
+    }
+    
+    .fw-bold {
+        font-weight: bold !important;
+    }
+</style>
+{% endblock %}
