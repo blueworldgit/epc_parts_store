@@ -4,13 +4,22 @@ from .models import SerialNumber, ParentTitle, ChildTitle, Part, PricingData
 def serial_lookup(request):
     serial_value = request.GET.get('serial')
     parent_titles = []
+    
+    # Get all existing serial numbers for the dropdown
+    all_serials = SerialNumber.objects.all().order_by('serial')
+    
     if serial_value:
         try:
             serial = SerialNumber.objects.get(serial=serial_value)
             parent_titles = serial.parent_titles.all()
         except SerialNumber.DoesNotExist:
             serial = None
-    return render(request, 'motorparts/serial_lookup.html', {'serial': serial_value, 'parent_titles': parent_titles})
+    
+    return render(request, 'motorparts/serial_lookup.html', {
+        'serial': serial_value, 
+        'parent_titles': parent_titles,
+        'all_serials': all_serials
+    })
 
 def parent_detail(request, parent_id):
     parent = get_object_or_404(ParentTitle, id=parent_id)
