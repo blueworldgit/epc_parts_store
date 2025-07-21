@@ -34,6 +34,9 @@ from motorpartsdata.serializers import (
     PartSerializer
 )
 
+# Import category auto-creation utilities
+from category_auto_creator import auto_create_categories_for_data
+
 def process_html_file(html_path, serial_instance, parent_instance):
     """Process an HTML file using your existing BeautifulSoup parsing logic"""
     try:
@@ -64,6 +67,12 @@ def process_html_file(html_path, serial_instance, parent_instance):
         if child_serializer.is_valid():
             child_instance = child_serializer.save()
             logger.info(f"Created child title: {title_content}")
+            
+            # Auto-create Oscar category for new child
+            try:
+                auto_create_categories_for_data(child_instance=child_instance)
+            except Exception as e:
+                logger.warning(f"Could not create Oscar category for child: {e}")
             
             # Now extract parts data using your approach
             # Get the extra information first (orientation and remarks)
@@ -169,6 +178,12 @@ def process_directory(root_dir):
             if serial_serializer.is_valid():
                 serial_instance = serial_serializer.save()
                 logger.info(f"Created serial number: {serial_data['serial']}")
+                
+                # Auto-create Oscar category for new serial
+                try:
+                    auto_create_categories_for_data(serial_instance=serial_instance)
+                except Exception as e:
+                    logger.warning(f"Could not create Oscar category for serial: {e}")
             else:
                 logger.error(f"Serial number serializer errors: {serial_serializer.errors}")
                 return
@@ -208,6 +223,12 @@ def process_directory(root_dir):
                     if parent_serializer.is_valid():
                         parent_instance = parent_serializer.save()
                         logger.info(f"Created parent title: {parent_data['title']}")
+                        
+                        # Auto-create Oscar category for new parent
+                        try:
+                            auto_create_categories_for_data(parent_instance=parent_instance)
+                        except Exception as e:
+                            logger.warning(f"Could not create Oscar category for parent: {e}")
                     else:
                         logger.error(f"Parent title serializer errors: {parent_serializer.errors}")
                         continue

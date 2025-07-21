@@ -34,18 +34,13 @@ ALLOWED_HOSTS = []
 
 
 # Application definition
+import oscar
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
+    # Your apps  
     'motorpartsdata',
     'rest_framework',
-
-]
+] + oscar.INSTALLED_APPS
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -55,6 +50,9 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    
+    # Oscar middleware
+    'oscar.apps.basket.middleware.BasketMiddleware',
 ]
 
 ROOT_URLCONF = 'epcdata.urls'
@@ -62,7 +60,7 @@ ROOT_URLCONF = 'epcdata.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -70,6 +68,11 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                
+                # Oscar context processors (Oscar 3.2 compatible)
+                'oscar.apps.search.context_processors.search_form',
+                'oscar.apps.checkout.context_processors.checkout',
+                'oscar.core.context_processors.metadata',
             ],
         },
     },
@@ -84,7 +87,7 @@ WSGI_APPLICATION = 'epcdata.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': os.getenv('DB_ENGINE', 'django.db.backends.postgresql'),
-        'NAME': os.getenv('DB_NAME', 'motorpartsdata'),
+        'NAME': os.getenv('DB_NAME', 'epcdataeccomerce'),
         'USER': os.getenv('DB_USER', 'postgres'),
         'PASSWORD': os.getenv('DB_PASSWORD', 'letmein123'),
         'HOST': os.getenv('DB_HOST', 'localhost'),
@@ -130,6 +133,33 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+# Media files
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+# Sites framework
+SITE_ID = 1
+
+# Oscar configuration
+from oscar.defaults import *
+
+# Oscar settings
+OSCAR_DEFAULT_CURRENCY = 'GBP'
+OSCAR_SHOP_NAME = 'EPC Motor Parts Store'
+OSCAR_SHOP_TAGLINE = 'Your trusted motor parts supplier'
+
+# Configure Oscar URLs for "View on site" functio
+# nality
+OSCAR_HOMEPAGE = '/'
+
+# Haystack (for Oscar search)
+HAYSTACK_CONNECTIONS = {
+    'default': {
+        'ENGINE': 'haystack.backends.simple_backend.SimpleEngine',
+    },
+}
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
