@@ -34,33 +34,6 @@ from motorpartsdata.serializers import (
     PartSerializer
 )
 
-# Import Oscar category creation helpers
-from oscar.apps.catalogue.models import Category
-
-def get_or_create_oscar_category(name, description, slug, parent=None):
-    """
-    Create or get an Oscar category using add_root/add_child to avoid null depth errors.
-    """
-    try:
-        if parent:
-            # Try to find existing child
-            cat = None
-            for child in parent.get_children():
-                if child.name == name:
-                    cat = child
-                    break
-            if cat:
-                return cat
-            return parent.add_child(name=name, description=description, slug=slug)
-        else:
-            cat = Category.objects.filter(name=name, depth=1).first()
-            if cat:
-                return cat
-            return Category.add_root(name=name, description=description, slug=slug)
-    except Exception as e:
-        logger.error(f"Error creating Oscar category '{name}': {e}")
-        return None
-
 def process_html_file(html_path, serial_instance, parent_instance):
     """Process an HTML file using your existing BeautifulSoup parsing logic"""
     try:
@@ -86,29 +59,11 @@ def process_html_file(html_path, serial_instance, parent_instance):
             "parent": parent_instance.id,
             "svg_code": svg_content,
         }
+        
         child_serializer = ChildTitleSerializer(data=child_data)
         if child_serializer.is_valid():
             child_instance = child_serializer.save()
             logger.info(f"Created child title: {title_content}")
-
-            # Oscar category creation (Serial > Parent > Child)
-            serial_cat = get_or_create_oscar_category(
-                name=f"Serial: {serial_instance.serial}",
-                description=f"Parts for serial number {serial_instance.serial}",
-                slug=f"serial-{serial_instance.serial}"
-            )
-            parent_cat = get_or_create_oscar_category(
-                name=f"Parent: {parent_instance.title}",
-                description=f"Parent category: {parent_instance.title}",
-                slug=f"parent-{parent_instance.id}",
-                parent=serial_cat
-            )
-            get_or_create_oscar_category(
-                name=f"Child: {child_instance.title}",
-                description=f"Child category: {child_instance.title}",
-                slug=f"child-{child_instance.id}",
-                parent=parent_cat
-            )
             
             # Now extract parts data using your approach
             # Get the extra information first (orientation and remarks)
@@ -214,13 +169,6 @@ def process_directory(root_dir):
             if serial_serializer.is_valid():
                 serial_instance = serial_serializer.save()
                 logger.info(f"Created serial number: {serial_data['serial']}")
-                
-                # Oscar category creation for serial
-                get_or_create_oscar_category(
-                    name=f"Serial: {serial_instance.serial}",
-                    description=f"Parts for serial number {serial_instance.serial}",
-                    slug=f"serial-{serial_instance.serial}"
-                )
             else:
                 logger.error(f"Serial number serializer errors: {serial_serializer.errors}")
                 return
@@ -260,19 +208,6 @@ def process_directory(root_dir):
                     if parent_serializer.is_valid():
                         parent_instance = parent_serializer.save()
                         logger.info(f"Created parent title: {parent_data['title']}")
-                        
-                        # Oscar category creation for parent (as child of serial)
-                        serial_cat = get_or_create_oscar_category(
-                            name=f"Serial: {serial_instance.serial}",
-                            description=f"Parts for serial number {serial_instance.serial}",
-                            slug=f"serial-{serial_instance.serial}"
-                        )
-                        get_or_create_oscar_category(
-                            name=f"Parent: {parent_instance.title}",
-                            description=f"Parent category: {parent_instance.title}",
-                            slug=f"parent-{parent_instance.id}",
-                            parent=serial_cat
-                        )
                     else:
                         logger.error(f"Parent title serializer errors: {parent_serializer.errors}")
                         continue

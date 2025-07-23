@@ -147,12 +147,8 @@ urlpatterns = [
     path('checkout/', include((apps.get_app_config('checkout').urls[0], apps.get_app_config('checkout').name), namespace=apps.get_app_config('checkout').namespace)),
     path('catalogue/', include((apps.get_app_config('catalogue').urls[0], apps.get_app_config('catalogue').name), namespace=apps.get_app_config('catalogue').namespace)),
     path('search/', include((apps.get_app_config('search').urls[0], apps.get_app_config('search').name), namespace=apps.get_app_config('search').namespace)),
-    
-    # Product detail URLs with proper namespace for Oscar admin integration
-    path('products/', include(([
-        path('<slug:product_slug>-<int:pk>/', product_detail, name='detail'),
-        path('<int:pk>/', product_detail, name='detail-simple'),  # Fallback for pk only
-    ], 'products'), namespace='products')),
+    path('offers/', include((apps.get_app_config('offer').urls[0], apps.get_app_config('offer').name), namespace=apps.get_app_config('offer').namespace)),
+    path('wishlists/', include((apps.get_app_config('wishlists').urls[0], apps.get_app_config('wishlists').name), namespace=apps.get_app_config('wishlists').namespace)),
     
     # Product detail URLs with proper namespace for Oscar admin integration
     path('products/', include(([
@@ -161,7 +157,7 @@ urlpatterns = [
     ], 'products'), namespace='products')),
     
     # Alternative URL without namespace
-    path('products/<int:pk>/', product_detail, name='product_detail'),
+    path('product/<int:pk>/', product_detail, name='product_detail'),
     
     path('', homepage, name='homepage'),  # Simple homepage
 ]

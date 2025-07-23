@@ -30,7 +30,7 @@ SECRET_KEY = os.getenv('SECRET_KEY', 'django-insecure-aiqpmaxs^h@-@r#-nvtu)%p73-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('DEBUG', 'True').lower() == 'true'
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '[::1]', 'testserver']
 
 
 # Application definition
@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     # Your apps  
     'motorpartsdata',
     'rest_framework',
+    'sorl.thumbnail',  # Required for Oscar image thumbnails
 ] + oscar.INSTALLED_APPS
 
 MIDDLEWARE = [
@@ -87,7 +88,7 @@ WSGI_APPLICATION = 'epcdata.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': os.getenv('DB_ENGINE', 'django.db.backends.postgresql'),
-        'NAME': os.getenv('DB_NAME', 'epcdataeccomerce'),
+        'NAME': os.getenv('DB_NAME', 'parts_store'),
         'USER': os.getenv('DB_USER', 'postgres'),
         'PASSWORD': os.getenv('DB_PASSWORD', 'letmein123'),
         'HOST': os.getenv('DB_HOST', 'localhost'),
@@ -165,3 +166,24 @@ HAYSTACK_CONNECTIONS = {
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Logging configuration for debugging
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['console'],
+            'level': 'INFO',
+        },
+        'oscar': {
+            'handlers': ['console'],
+            'level': 'INFO',
+        },
+    },
+}
