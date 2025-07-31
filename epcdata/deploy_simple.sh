@@ -1,5 +1,13 @@
 #!/bin/bash
-# Simple deployment script for VPS
+# Secho "📁 Collecting static files (this will fix the CSS loading)..."
+python manage.py collectstatic --noinput
+
+echo "🔄 Restarting Django server..."
+# Kill existing Django process (if running)
+pkill -f "python.*manage.py.*runserver" 2>/dev/null || true
+
+# Start Django server in background
+nohup python manage.py runserver 0.0.0.0:8000 > django.log 2>&1 &loyment script for VPS
 # Run this script ON YOUR VPS after you've pushed changes to GitHub
 
 echo "🚀 Starting deployment..."

@@ -79,6 +79,15 @@ MIDDLEWARE = [
     'oscar.apps.basket.middleware.BasketMiddleware',
 ]
 
+# Debugging: Enable debug for static files in production temporarily
+if DEBUG:
+    WHITENOISE_AUTOREFRESH = True
+    WHITENOISE_USE_FINDERS = True
+    # Add debug info for static files
+    import logging
+    logging.getLogger('whitenoise').setLevel(logging.DEBUG)
+    logging.getLogger('django.contrib.staticfiles').setLevel(logging.DEBUG)
+
 ROOT_URLCONF = 'epcdata.urls'
 
 TEMPLATES = [
