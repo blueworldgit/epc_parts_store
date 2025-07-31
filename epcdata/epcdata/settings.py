@@ -31,6 +31,7 @@ if is_production:
     elif os.path.exists(BASE_DIR / '.env.production'):
         load_dotenv(BASE_DIR / '.env.production')
         print("Loading production environment from .env.production")
+    print(f"DEBUG: Production mode - ALLOWED_HOSTS env var = {os.getenv('ALLOWED_HOSTS', 'NOT SET')}")
 else:
     # Load local development environment variables
     if os.path.exists(BASE_DIR / '.env'):
@@ -38,6 +39,7 @@ else:
         print("Loading local environment from .env")
     else:
         print("No .env file found, using default settings")
+    print(f"DEBUG: Local mode - ALLOWED_HOSTS env var = {os.getenv('ALLOWED_HOSTS', 'NOT SET')}")
 
 
 # Quick-start development settings - unsuitable for production
@@ -50,7 +52,9 @@ SECRET_KEY = os.getenv('SECRET_KEY', 'django-insecure-aiqpmaxs^h@-@r#-nvtu)%p73-
 DEBUG = os.getenv('DEBUG', 'True').lower() == 'true'
 
 # Allow hosts from environment variable or use defaults
-ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '80.95.207.42,vanparts-direct.co.uk,www.vanparts-direct.co.uk,localhost,127.0.0.1,[::1]').split(',')
+ALLOWED_HOSTS_STR = os.getenv('ALLOWED_HOSTS', '80.95.207.42,vanparts-direct.co.uk,www.vanparts-direct.co.uk,localhost,127.0.0.1,[::1]')
+ALLOWED_HOSTS = [host.strip() for host in ALLOWED_HOSTS_STR.split(',')]
+print(f"DEBUG: ALLOWED_HOSTS = {ALLOWED_HOSTS}")
 
 # Security settings for production
 SECURE_CROSS_ORIGIN_OPENER_POLICY = None  # Fix the COOP header warning
