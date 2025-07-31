@@ -49,7 +49,7 @@ SECRET_KEY = os.getenv('SECRET_KEY', 'django-insecure-aiqpmaxs^h@-@r#-nvtu)%p73-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('DEBUG', 'True').lower() == 'true'
 
-ALLOWED_HOSTS = ['80.95.207.42', 'localhost', '127.0.0.1', '[::1]']
+ALLOWED_HOSTS = ['*']
 
 # Security settings for production
 SECURE_CROSS_ORIGIN_OPENER_POLICY = None  # Fix the COOP header warning
