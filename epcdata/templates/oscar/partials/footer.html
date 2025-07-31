@@ -1,0 +1,159 @@
+{% load static %}
+{% load i18n %}
+
+<!-- Begin Uren's Footer Area -->
+<div class="uren-footer_area">
+    <div class="footer-top_area">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="newsletter-area">
+                        <h3 class="title">{% trans "Join Our Newsletter Now" %}</h3>
+                        <p class="short-desc">{% trans "Get E-mail updates about our latest shop and special offers." %}</p>
+                        <div class="newsletter-form_wrap">
+                            <form action="#" method="post" class="newsletters-form">
+                                {% csrf_token %}
+                                <div class="newsletter-form_input">
+                                    <input type="email" name="email" placeholder="{% trans 'Enter your email address' %}" required>
+                                    <button type="submit" class="newsletter-form_btn">{% trans "Subscribe" %}</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-middle_area">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="footer-widgets_info">
+                        <!-- No Logo as requested -->
+                        <div class="widget-short_desc">
+                            <p>{{ settings.OSCAR_SHOP_TAGLINE|default:"We are your trusted partner for quality motor parts and accessories." }}</p>
+                        </div>
+                        <div class="widgets-essential_stuff">
+                            <ul>
+                                <li class="uren-address"><i class="ion-ios-location"></i>{% trans "Unit 1-10, Cherry Tree Road, Tibenham, NR161PH" %}</li>
+                                <li class="uren-phone"><i class="ion-ios-telephone"></i>{% trans "01953 665421" %}</li>
+                                <li class="uren-email"><i class="ion-android-mail"></i>sales@vanpartsdirect4u.co.uk</li>
+                            </ul>
+                        </div>
+                        <div class="uren-social_link">
+                            <ul>
+                                <li class="facebook">
+                                    <a href="#" data-toggle="tooltip" target="_blank" data-original-title="Facebook">
+                                        <i class="fab fa-facebook"></i>
+                                    </a>
+                                </li>
+                                <li class="twitter">
+                                    <a href="#" data-toggle="tooltip" target="_blank" data-original-title="Twitter">
+                                        <i class="fab fa-twitter"></i>
+                                    </a>
+                                </li>
+                                <li class="google-plus">
+                                    <a href="#" data-toggle="tooltip" target="_blank" data-original-title="Google Plus">
+                                        <i class="fab fa-google-plus"></i>
+                                    </a>
+                                </li>
+                                <li class="instagram">
+                                    <a href="#" data-toggle="tooltip" target="_blank" data-original-title="Instagram">
+                                        <i class="fab fa-instagram"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <div class="footer-widgets_area">
+                        <div class="row">
+                            <div class="col-lg-3 col-md-6">
+                                <div class="footer-widgets_title">
+                                    <h6>{% trans "Quick Links" %}</h6>
+                                </div>
+                                <div class="footer-widgets_info">
+                                    <ul>
+                                        <li><a href="{% url 'homepage' %}">{% trans "Home" %}</a></li>
+                                        <li><a href="{% url 'catalogue:index' %}">{% trans "Shop" %}</a></li>
+                                        <li><a href="{% url 'customer:summary' %}">{% trans "My Account" %}</a></li>
+                                        <li><a href="{% url 'basket:summary' %}">{% trans "Shopping Cart" %}</a></li>
+                                        <li><a href="{% url 'customer:wishlists-list' %}">{% trans "Wishlist" %}</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-6">
+                                <div class="footer-widgets_title">
+                                    <h6>{% trans "Information" %}</h6>
+                                </div>
+                                <div class="footer-widgets_info">
+                                    <ul>
+                                        <li><a href="#">{% trans "About Us" %}</a></li>
+                                        <li><a href="#">{% trans "Contact Us" %}</a></li>
+                                        <li><a href="#">{% trans "Terms & Conditions" %}</a></li>
+                                        <li><a href="#">{% trans "Privacy Policy" %}</a></li>
+                                        <li><a href="#">{% trans "Returns & Exchanges" %}</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-6">
+                                <div class="footer-widgets_title">
+                                    <h6>{% trans "Categories" %}</h6>
+                                </div>
+                                <div class="footer-widgets_info">
+                                    <ul>
+                                        {% for category in categories|slice:":5" %}
+                                        <li><a href="{% url 'catalogue:category' category_slug=category.slug pk=category.pk %}">{{ category.name }}</a></li>
+                                        {% empty %}
+                                        <li><a href="{% url 'catalogue:index' %}">{% trans "Car Parts" %}</a></li>
+                                        <li><a href="{% url 'catalogue:index' %}">{% trans "Tools & Accessories" %}</a></li>
+                                        <li><a href="{% url 'catalogue:index' %}">{% trans "Suspension" %}</a></li>
+                                        <li><a href="{% url 'catalogue:index' %}">{% trans "Turbo System" %}</a></li>
+                                        <li><a href="{% url 'catalogue:index' %}">{% trans "Oils & Fluids" %}</a></li>
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-6">
+                                <div class="footer-widgets_title">
+                                    <h6>{% trans "Customer Service" %}</h6>
+                                </div>
+                                <div class="footer-widgets_info">
+                                    <ul>
+                                        <li><a href="{% url 'customer:login' %}">{% trans "Login" %}</a></li>
+                                        <li><a href="{% url 'customer:register' %}">{% trans "Register" %}</a></li>
+                                        <li><a href="{% url 'customer:order-list' %}">{% trans "Order History" %}</a></li>
+                                        <li><a href="#">{% trans "Shipping Info" %}</a></li>
+                                        <li><a href="#">{% trans "FAQ" %}</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom_area">
+        <div class="container-fluid">
+            <div class="footer-bottom_nav">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6">
+                        <div class="copyright">
+                            <span>&copy; {% now "Y" %} {{ settings.OSCAR_SHOP_NAME|default:"EPC Motor Parts Store" }}. {% trans "All rights reserved." %}</span>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6">
+                        <div class="payment">
+                            <a href="#">
+                                <img src="{% static 'motortemplate/uren/assets/images/payment/1.png' %}" alt="{% trans 'Payment Methods' %}">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Uren's Footer Area End Here -->

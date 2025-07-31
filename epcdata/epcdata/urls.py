@@ -134,9 +134,6 @@ urlpatterns = [
     path('i18n/', include('django.conf.urls.i18n')),
     path('api/', include('motorpartsdata.urls')),  # Your API endpoints under /api/
     
-    # Authentication URLs
-    path('accounts/', include('django.contrib.auth.urls')),
-    
     # SVG diagram endpoint
     path('svg-diagram/<str:upc>/', svg_diagram_view, name='svg_diagram'),
     
@@ -159,7 +156,11 @@ urlpatterns = [
     # Alternative URL without namespace
     path('product/<int:pk>/', product_detail, name='product_detail'),
     
-    path('', homepage, name='homepage'),  # Simple homepage
+    # Move the current homepage to /backendstuff
+    path('backendstuff/', homepage, name='backend_homepage'),
+    
+    # Redirect root to catalogue
+    path('', lambda request: redirect('/catalogue/'), name='homepage'),
 ]
 
 # Serve media files in development

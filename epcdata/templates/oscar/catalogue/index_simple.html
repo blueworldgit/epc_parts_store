@@ -1,0 +1,61 @@
+{% extends 'oscar/base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}{% trans "Shop" %} - {{ settings.OSCAR_SHOP_NAME }}{% endblock %}
+
+{% block page_title %}{% trans "Welcome to" %} {{ settings.OSCAR_SHOP_NAME }}{% endblock %}
+
+{% block breadcrumb_items %}
+    <li class="active">{% trans "Shop" %}</li>
+{% endblock %}
+
+{% block content %}
+<!-- Begin Uren's Slider area -->
+<div class="slider-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="text-center py-5">
+                    <h1>{% trans "Welcome to EPC Motor Parts Store" %}</h1>
+                    <p class="lead">{% trans "Your trusted motor parts supplier" %}</p>
+                    <a class="btn btn-primary btn-lg" href="/catalogue/">{% trans "Browse Products" %}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Featured Products -->
+<div class="container my-5">
+    <div class="row">
+        <div class="col-12">
+            <h2 class="text-center mb-4">{% trans "Featured Products" %}</h2>
+            <div class="row">
+                {% for product in featured_products %}
+                <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ product.title }}</h5>
+                            <p class="card-text">
+                                {% if product.stockrecords.first %}
+                                    Price: £{{ product.stockrecords.first.price }}
+                                {% else %}
+                                    Price not available
+                                {% endif %}
+                            </p>
+                            <a href="{{ product.get_absolute_url }}" class="btn btn-primary">{% trans "View Details" %}</a>
+                        </div>
+                    </div>
+                </div>
+                {% empty %}
+                <div class="col-12 text-center">
+                    <p>{% trans "No featured products available" %}</p>
+                    <a href="/catalogue/" class="btn btn-primary">{% trans "Browse All Products" %}</a>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

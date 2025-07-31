@@ -1,0 +1,108 @@
+{% extends 'oscar/base.html' %}
+{% load static %}
+{% load i18n %}
+{% load currency_filters %}
+
+{% block title %}{% trans "Order confirmation" %} - {{ settings.OSCAR_SHOP_NAME }}{% endblock %}
+
+{% block page_title %}{% trans "Order confirmation" %}{% endblock %}
+
+{% block breadcrumb_items %}
+    <li><a href="{% url 'homepage' %}">{% trans "Home" %}</a></li>
+    <li><a href="{% url 'basket:summary' %}">{% trans "Cart" %}</a></li>
+    <li><a href="{% url 'checkout:index' %}">{% trans "Checkout" %}</a></li>
+    <li class="active">{% trans "Confirmation" %}</li>
+{% endblock %}
+
+{% block content %}
+<!-- Begin Uren's Thank You Area -->
+<div class="uren-thankyou-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="thankyou-content text-center">
+                    <div class="thankyou-icon mb-4">
+                        <i class="ion-checkmark-round" style="font-size: 72px; color: #28a745;"></i>
+                    </div>
+                    
+                    <h1 class="thankyou-title">{% trans "Thank you for your order!" %}</h1>
+                    
+                    {% if order %}
+                        <div class="order-details">
+                            <h3>{% trans "Order" %} #{{ order.number }}</h3>
+                            <p class="lead">{% trans "Your order has been received and is being processed." %}</p>
+                            
+                            <div class="order-summary mt-4">
+                                <div class="row justify-content-center">
+                                    <div class="col-md-8">
+                                        <div class="card">
+                                            <div class="card-header">
+                                                <h4>{% trans "Order Summary" %}</h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="table-responsive">
+                                                    <table class="table">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>{% trans "Product" %}</th>
+                                                                <th>{% trans "Quantity" %}</th>
+                                                                <th>{% trans "Total" %}</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            {% for line in order.lines.all %}
+                                                            <tr>
+                                                                <td>{{ line.title }}</td>
+                                                                <td>{{ line.quantity }}</td>
+                                                                <td>{{ line.line_price_incl_tax|currency }}</td>
+                                                            </tr>
+                                                            {% endfor %}
+                                                        </tbody>
+                                                        <tfoot>
+                                                            <tr>
+                                                                <th colspan="2">{% trans "Order Total" %}</th>
+                                                                <th>{{ order.total_incl_tax|currency }}</th>
+                                                            </tr>
+                                                        </tfoot>
+                                                    </table>
+                                                </div>
+                                                
+                                                {% if order.shipping_address %}
+                                                <div class="shipping-info mt-3">
+                                                    <h6>{% trans "Shipping Address:" %}</h6>
+                                                    <address>
+                                                        {% for field in order.shipping_address.active_address_fields %}
+                                                            {{ field }}{% if not forloop.last %}<br/>{% endif %}
+                                                        {% endfor %}
+                                                    </address>
+                                                </div>
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+                    
+                    <div class="thankyou-actions mt-4">
+                        {% if user.is_authenticated %}
+                            <a href="{% url 'customer:order-list' %}" class="uren-btn uren-btn_dark me-3">{% trans "View your orders" %}</a>
+                        {% endif %}
+                        <a href="{% url 'catalogue:index' %}" class="uren-btn">{% trans "Continue shopping" %}</a>
+                    </div>
+                    
+                    <div class="contact-info mt-5">
+                        <p>{% trans "If you have any questions about your order, please contact us:" %}</p>
+                        <p>
+                            <strong>{% trans "Email:" %}</strong> sales@vanpartsdirect4u.co.uk<br>
+                            <strong>{% trans "Phone:" %}</strong> 01953 665421
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Uren's Thank You Area End Here -->
+{% endblock %}

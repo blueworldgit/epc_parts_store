@@ -1,0 +1,61 @@
+{% load static %}
+{% load i18n %}
+
+<div class="mobile-menu_wrapper" id="mobileMenu">
+    <div class="offcanvas-menu-inner">
+        <div class="container">
+            <a href="#" class="btn-close"><i class="ion-android-close"></i></a>
+            <div class="offcanvas-inner_search">
+                <form action="{% url 'search:search' %}" method="get" class="inner-searchbox">
+                    <input type="text" name="q" placeholder="{% trans 'Search for item...' %}" value="{{ query }}">
+                    <button class="search_btn" type="submit"><i class="ion-ios-search-strong"></i></button>
+                </form>
+            </div>
+            <nav class="offcanvas-navigation">
+                <ul class="mobile-menu">
+                    <li class="menu-item-has-children active">
+                        <a href="{% url 'homepage' %}"><span class="mm-text">{% trans "Home" %}</span></a>
+                    </li>
+                    <li class="menu-item-has-children">
+                        <a href="{% url 'catalogue:index' %}">
+                            <span class="mm-text">{% trans "Shop" %}</span>
+                        </a>
+                        <ul class="sub-menu">
+                            {% for category in categories %}
+                            <li class="menu-item-has-children">
+                                <a href="{% url 'catalogue:category' category_slug=category.slug pk=category.pk %}">{{ category.name }}</a>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </li>
+                    <li class="menu-item-has-children">
+                        <a href="{% url 'customer:summary' %}">
+                            <span class="mm-text">{% trans "Account" %}</span>
+                        </a>
+                    </li>
+                    <li class="menu-item-has-children">
+                        <a href="{% url 'backend_homepage' %}">
+                            <span class="mm-text">{% trans "Admin" %}</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <nav class="offcanvas-navigation user-setting_area">
+                <ul class="mobile-menu">
+                    <li class="menu-item-has-children active">
+                        <a href="javascript:void(0)"><span class="mm-text">{% trans "User Setting" %}</span></a>
+                        <ul class="sub-menu">
+                            {% if user.is_authenticated %}
+                                <li><a href="{% url 'customer:summary' %}">{% trans "My Account" %}</a></li>
+                                <li><a href="{% url 'customer:logout' %}">{% trans "Logout" %}</a></li>
+                            {% else %}
+                                <li><a href="{% url 'customer:login' %}">{% trans "Login" %}</a></li>
+                                <li><a href="{% url 'customer:register' %}">{% trans "Register" %}</a></li>
+                            {% endif %}
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>

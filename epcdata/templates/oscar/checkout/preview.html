@@ -1,0 +1,120 @@
+{% extends "oscar/checkout/layout.html" %}
+{% load i18n %}
+{% load currency_filters %}
+
+{% block checkout_nav %}
+    {% include 'oscar/checkout/nav.html' with step=3 %}
+{% endblock %}
+
+{% block checkout_form %}
+<div class="order-preview">
+    <h4>{% trans "Review your order" %}</h4>
+    
+    {% if shipping_address %}
+        <div class="shipping-info">
+            <h5>{% trans "Shipping Address" %}</h5>
+            <div class="card">
+                <div class="card-body">
+                    <address>
+                        {% for field in shipping_address.active_address_fields %}
+                            {{ field }}{% if not forloop.last %}<br/>{% endif %}
+                        {% endfor %}
+                    </address>
+                    {% if shipping_address.phone_number %}
+                        <p><strong>{% trans "Phone:" %}</strong> {{ shipping_address.phone_number }}</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    {% endif %}
+    
+    {% if shipping_method %}
+        <div class="shipping-method">
+            <h5>{% trans "Shipping Method" %}</h5>
+            <div class="card">
+                <div class="card-body">
+                    <p><strong>{{ shipping_method.name }}</strong></p>
+                    <p>{{ shipping_method.description }}</p>
+                    {% if shipping_method.charge_incl_tax %}
+                        <p>{% trans "Cost:" %} {{ shipping_method.charge_incl_tax|currency }}</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    {% endif %}
+    
+    <div class="order-items">
+        <h5>{% trans "Order Items" %}</h5>
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>{% trans "Product" %}</th>
+                        <th>{% trans "Quantity" %}</th>
+                        <th>{% trans "Price" %}</th>
+                        <th>{% trans "Total" %}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for line in basket.all_lines %}
+                    <tr>
+                        <td>
+                            <div class="d-flex align-items-center">
+                                {% if line.product.primary_image and line.product.primary_image.original and line.product.primary_image.original.url %}
+                                    <img src="{{ line.product.primary_image.original.url }}" alt="{{ line.product.get_title }}" style="width: 50px; height: 50px; object-fit: cover; margin-right: 10px;">
+                                {% else %}
+                                    <img src="/media/cache/bc/07/bc0729419b53eb2d0651e42b837daf02.jpg" alt="{{ line.product.get_title }}" style="width: 50px; height: 50px; object-fit: cover; margin-right: 10px;">
+                                {% endif %}
+                                <div>
+                                    <strong>{{ line.description }}</strong>
+                                    {% if line.product.upc %}
+                                        <br><small class="text-muted">{% trans "UPC:" %} {{ line.product.upc }}</small>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </td>
+                        <td>{{ line.quantity }}</td>
+                        <td>
+                            {% if line.is_tax_known %}
+                                {{ line.unit_price_incl_tax|currency:line.price_currency }}
+                            {% else %}
+                                {{ line.unit_price_excl_tax|currency:line.price_currency }}
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if line.is_tax_known %}
+                                {{ line.line_price_incl_tax|currency:line.price_currency }}
+                            {% else %}
+                                {{ line.line_price_excl_tax|currency:line.price_currency }}
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+    {% if payment_kwargs %}
+        <div class="payment-info">
+            <h5>{% trans "Payment Information" %}</h5>
+            <div class="card">
+                <div class="card-body">
+                    <p>{% trans "Payment method details will be processed securely." %}</p>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+</div>
+{% endblock %}
+
+{% block checkout_actions %}
+<div class="place-order">
+    <form action="{% url 'checkout:preview' %}" method="post">
+        {% csrf_token %}
+        <button type="submit" class="uren-btn uren-btn_dark uren-btn_fullwidth" onclick="this.value='{% trans 'Submitting...' %}'; this.disabled=true; this.form.submit();">
+            {% trans "Place order" %}
+        </button>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,51 @@
+{% load static %}
+{% load i18n %}
+{% load currency_filters %}
+{% load basket_tags %}
+
+<div class="offcanvas-minicart_wrapper" id="miniCart">
+    <div class="offcanvas-menu-inner">
+        <a href="#" class="btn-close"><i class="ion-android-close"></i></a>
+        <div class="minicart-content">
+            <div class="minicart-heading">
+                <h4>{% trans "Shopping Cart" %}</h4>
+            </div>
+            <ul class="minicart-list">
+                {% for line in basket.all_lines %}
+                <li class="minicart-product">
+                    <a class="product-item_remove" href="#" onclick="removeFromBasket({{ line.pk }}); return false;"><i class="ion-android-close"></i></a>
+                    <div class="product-item_img">
+                        {% if line.product.primary_image and line.product.primary_image.original and line.product.primary_image.original.url %}
+                            <img src="{{ line.product.primary_image.original.url }}" alt="{{ line.product.title }}">
+                        {% else %}
+                            <img src="/media/cache/bc/07/bc0729419b53eb2d0651e42b837daf02.jpg" alt="{{ line.product.title }}" style="width: 50px; height: 50px; object-fit: cover;">
+                        {% endif %}
+                    </div>
+                    <div class="product-item_content">
+                        <a class="product-item_title" href="{{ line.product.get_absolute_url }}">{{ line.product.title }}</a>
+                        <span class="product-item_quantity">{{ line.quantity }} x {{ line.unit_price_incl_tax|currency }}</span>
+                    </div>
+                </li>
+                {% empty %}
+                <li class="minicart-product">
+                    <div class="product-item_content">
+                        <span class="product-item_title">{% trans "Your basket is empty" %}</span>
+                    </div>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% if basket.all_lines %}
+        <div class="minicart-item_total">
+            <span>{% trans "Subtotal" %}</span>
+            <span class="ammount">{{ basket.total_incl_tax|currency }}</span>
+        </div>
+        <div class="minicart-btn_area">
+            <a href="{% url 'basket:summary' %}" class="uren-btn uren-btn_dark uren-btn_fullwidth">{% trans "View Basket" %}</a>
+        </div>
+        <div class="minicart-btn_area">
+            <a href="{% url 'checkout:index' %}" class="uren-btn uren-btn_dark uren-btn_fullwidth">{% trans "Checkout" %}</a>
+        </div>
+        {% endif %}
+    </div>
+</div>

@@ -1,0 +1,65 @@
+{% extends "oscar/checkout/layout.html" %}
+{% load i18n %}
+{% load widget_tweaks %}
+
+{% block checkout_nav %}
+    {% include 'oscar/checkout/nav.html' with step=2 %}
+{% endblock %}
+
+{% block checkout_form %}
+<div class="payment-details">
+    <h4>{% trans "Payment Information" %}</h4>
+    
+    {% if payment_forms %}
+        {% for form in payment_forms %}
+            <div class="payment-form">
+                <form action="{% url 'checkout:payment-details' %}" method="post" class="checkout-form">
+                    {% csrf_token %}
+                    
+                    {% if form.non_field_errors %}
+                        <div class="alert alert-danger">
+                            {{ form.non_field_errors }}
+                        </div>
+                    {% endif %}
+                    
+                    {% for field in form %}
+                        <div class="checkout-form-list">
+                            {{ field.label_tag }}
+                            {% render_field field class+="form-control" %}
+                            {% if field.errors %}
+                                <div class="text-danger">{{ field.errors }}</div>
+                            {% endif %}
+                        </div>
+                    {% endfor %}
+                </form>
+            </div>
+        {% endfor %}
+    {% else %}
+        <div class="payment-placeholder">
+            <p class="alert alert-info">
+                {% trans "No payment is required for this order." %}
+            </p>
+        </div>
+    {% endif %}
+    
+    <div class="payment-methods">
+        <h5>{% trans "We accept" %}</h5>
+        <div class="payment-icons">
+            <img src="{% static 'motortemplate/uren/assets/images/payment/1.png' %}" alt="Payment Methods" class="img-fluid">
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block checkout_actions %}
+<div class="payment-method">
+    <button type="submit" form="checkout-form" class="uren-btn uren-btn_dark uren-btn_fullwidth">{% trans "Continue to order review" %}</button>
+</div>
+{% endblock %}
+
+{% block extrajs %}
+{{ block.super }}
+<script>
+    // Add any payment form validation or processing here
+</script>
+{% endblock %}

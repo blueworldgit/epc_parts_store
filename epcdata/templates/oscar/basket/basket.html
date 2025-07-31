@@ -1,0 +1,71 @@
+{% extends 'oscar/base.html' %}
+{% load static %}
+{% load i18n %}
+{% load currency_filters %}
+{% load basket_tags %}
+
+{% block title %}{% trans "Shopping Cart" %} - {{ settings.OSCAR_SHOP_NAME }}{% endblock %}
+
+{% block page_title %}{% trans "Shopping Cart" %}{% endblock %}
+
+{% block breadcrumb_items %}
+    <li><a href="{% url 'homepage' %}">{% trans "Home" %}</a></li>
+    <li class="active">{% trans "Shopping Cart" %}</li>
+{% endblock %}
+
+{% block content %}
+<!-- Begin Uren's Cart Area -->
+<div class="uren-cart-area">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                {% if basket.is_empty %}
+                    <div class="uren-cart-area">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="cart-table table-responsive">
+                                        <div class="text-center py-5">
+                                            <h3>{% trans "Your basket is empty" %}</h3>
+                                            <p>{% trans "You have no items in your shopping cart." %}</p>
+                                            <a href="{% url 'catalogue:index' %}" class="uren-btn uren-btn_dark">{% trans "Continue Shopping" %}</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% else %}
+                    {% include 'oscar/basket/partials/basket_content.html' %}
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Uren's Cart Area End Here -->
+{% endblock %}
+
+{% block extrajs %}
+{{ block.super }}
+<script>
+    // Initialize Oscar basket functionality
+    if (typeof oscar !== 'undefined' && oscar.basket) {
+        var options = {
+            'basketURL': '{% url "basket:summary" %}'
+        };
+        oscar.basket.init(options);
+    }
+    
+    // Remove from basket function
+    function removeFromBasket(lineId) {
+        var form = document.querySelector('#line_' + lineId + ' form');
+        if (form) {
+            var deleteInput = form.querySelector('input[name$="DELETE"]');
+            if (deleteInput) {
+                deleteInput.value = 'on';
+                form.submit();
+            }
+        }
+    }
+</script>
+{% endblock %}

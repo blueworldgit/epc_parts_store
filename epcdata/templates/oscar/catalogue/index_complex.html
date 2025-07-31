@@ -1,0 +1,336 @@
+{% extends 'oscar/base.html' %}
+{% load static %}
+{% load i18n %}
+{% load currency_filters %}
+{% load product_tags %}
+{% load parts_tags %}
+
+{% block title %}{% trans "Shop" %} - {{ settings.OSCAR_SHOP_NAME }}{% endblock %}
+
+{% block page_title %}{% trans "Welcome to" %} {{ settings.OSCAR_SHOP_NAME }}{% endblock %}
+
+{% block breadcrumb_items %}
+    <li class="active">{% trans "Shop" %}</li>
+{% endblock %}
+
+{% block content %}
+<!-- Begin Uren's Slider area -->
+<div class="slider-area">
+    <div class="slider-active uren-slick-slider" data-slick-setting='{
+        "autoplay": true,
+        "autoplaySpeed": 8000,
+        "slidesToShow": 1,
+        "arrows": false,
+        "dots": true,
+        "fade": true
+    }'>
+        <div class="single-slider slider-height_1 bg-image" data-bg="{% static 'motortemplate/uren/assets/images/slider/1.jpg' %}">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-md-7 col-sm-8 col-xs-12">
+                        <div class="slider-content">
+                            <h2 class="slider-text_heading">{% trans "Premium Motor Parts" %}</h2>
+                            <p class="slider-text_short">{% trans "Find quality automotive parts and accessories for your vehicle. Professional grade components at competitive prices." %}</p>
+                            <div class="uren-btn-ps_center">
+                                <a class="uren-btn" href="{% url 'catalogue:index' %}">{% trans "Shop Now" %}</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="single-slider slider-height_1 bg-image" data-bg="{% static 'motortemplate/uren/assets/images/slider/2.jpg' %}">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-md-7 col-sm-8 col-xs-12">
+                        <div class="slider-content">
+                            <h2 class="slider-text_heading">{% trans "Tools & Accessories" %}</h2>
+                            <p class="slider-text_short">{% trans "Professional automotive tools and accessories. Everything you need for maintenance and repairs." %}</p>
+                            <div class="uren-btn-ps_center">
+                                <a class="uren-btn" href="{% url 'catalogue:index' %}">{% trans "Explore" %}</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Uren's Slider area End Here -->
+
+<!-- Featured Categories -->
+<div class="featured-categories_area">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="section-title_wrapper text-center">
+                    <h2 class="section-title">{% trans "Featured Categories" %}</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            {% for category in categories|slice:":6" %}
+            <div class="col-lg-2 col-md-4 col-sm-4">
+                <div class="featured-categories_single">
+                    <div class="featured-categories_img">
+                        <a href="{% url 'catalogue:category' category_slug=category.slug pk=category.pk %}">
+                            <img src="{% static 'motortemplate/uren/assets/images/featured-categories/1.png' %}" alt="{{ category.name }}">
+                        </a>
+                    </div>
+                    <div class="featured-categories_content">
+                        <h4 class="featured-categories_name">
+                            <a href="{% url 'catalogue:category' category_slug=category.slug pk=category.pk %}">{{ category.name }}</a>
+                        </h4>
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+            <div class="col-12 text-center">
+                <p>{% trans "No categories available" %}</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<!-- Begin Uren's Product area -->
+<div class="product-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="section-title_wrapper text-center">
+                    <h2 class="section-title">{% trans "Featured Products" %}</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="product-slider uren-slick-slider" data-slick-setting='{
+                    "autoplay": true,
+                    "autoplaySpeed": 6000,
+                    "slidesToShow": 4,
+                    "responsive": [
+                        {"breakpoint": 992, "settings": {"slidesToShow": 3}},
+                        {"breakpoint": 768, "settings": {"slidesToShow": 2}},
+                        {"breakpoint": 575, "settings": {"slidesToShow": 1}}
+                    ]
+                }'>
+                    {% for product in featured_products %}
+                    <div class="product-item">
+                        <div class="product-img">
+                            <a href="{{ product.get_absolute_url }}">
+                                {% if product.primary_image %}
+                                    <img class="primary-img" src="{{ product.primary_image.original.url }}" alt="{{ product.title }}">
+                                {% else %}
+                                    {% get_product_svg product as svg_content %}
+                                    {% if svg_content %}
+                                        <div class="svg-container" style="width: 100%; height: 200px; display: flex; align-items: center; justify-content: center; border: 1px solid #ddd;">
+                                            {{ svg_content|safe }}
+                                        </div>
+                                    {% else %}
+                                        <img class="primary-img" src="{% static 'motortemplate/uren/assets/images/product/medium-size/1.jpg' %}" alt="{{ product.title }}">
+                                    {% endif %}
+                                {% endif %}
+                            </a>
+                            <div class="product-add_action">
+                                <ul>
+                                    <li><a href="{{ product.get_absolute_url }}" data-toggle="tooltip" title="{% trans 'Quick View' %}"><i class="ion-android-open"></i></a></li>
+                                    <li>
+                                        <form method="post" action="{% url 'customer:wishlists-add-product' product.pk %}">
+                                            {% csrf_token %}
+                                            <button type="submit" data-toggle="tooltip" title="{% trans 'Add to Wishlist' %}"><i class="ion-heart"></i></button>
+                                        </form>
+                                    </li>
+                                    {% if product.has_stockrecords %}
+                                    <li>
+                                        <form method="post" action="{% url 'basket:add' pk=product.pk %}">
+                                            {% csrf_token %}
+                                            <input type="hidden" name="quantity" value="1">
+                                            <button type="submit" data-toggle="tooltip" title="{% trans 'Add to Cart' %}"><i class="ion-bag"></i></button>
+                                        </form>
+                                    </li>
+                                    {% endif %}
+                                </ul>
+                            </div>
+                            {% if product.is_on_sale %}
+                            <div class="product-badge-area">
+                                <span class="product-badge sale">{% trans "Sale" %}</span>
+                            </div>
+                            {% endif %}
+                        </div>
+                        <div class="product-content">
+                            <div class="product-desc_info">
+                                <div class="product-rating">
+                                    <ul>
+                                        <li><i class="fa fa-star text-dark"></i></li>
+                                        <li><i class="fa fa-star text-dark"></i></li>
+                                        <li><i class="fa fa-star text-dark"></i></li>
+                                        <li><i class="fa fa-star text-dark"></i></li>
+                                        <li><i class="fa fa-star-o text-dark"></i></li>
+                                    </ul>
+                                </div>
+                                <h6><a class="product-name" href="{{ product.get_absolute_url }}">{{ product.title }}</a></h6>
+                                <div class="product-price">
+                                    {% if product.has_stockrecords %}
+                                        {% if product.is_on_sale %}
+                                            <span class="old-price">{{ product.original_price|currency }}</span>
+                                            <span class="new-price">{{ product.price_incl_tax|currency }}</span>
+                                        {% else %}
+                                            <span class="new-price">{{ product.price_incl_tax|currency }}</span>
+                                        {% endif %}
+                                    {% else %}
+                                        <span class="new-price">{% trans "Price not available" %}</span>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% empty %}
+                    <div class="col-12 text-center">
+                        <p>{% trans "No featured products available" %}</p>
+                        <a href="{% url 'catalogue:index' %}" class="uren-btn">{% trans "Browse All Products" %}</a>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Uren's Product area End Here -->
+
+<!-- Banner Area -->
+<div class="banner-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="banner-item img-hover_effect">
+                    <div class="banner-img">
+                        <img src="{% static 'motortemplate/uren/assets/images/banner/1-1.jpg' %}" alt="Banner">
+                    </div>
+                    <div class="banner-content text-center">
+                        <span class="banner-text_subtitle">{% trans "Best Quality" %}</span>
+                        <h3 class="banner-text_title">{% trans "Motor Parts" %}</h3>
+                        <a href="{% url 'catalogue:index' %}" class="uren-btn banner-btn">{% trans "Shop Now" %}</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="banner-item img-hover_effect">
+                    <div class="banner-img">
+                        <img src="{% static 'motortemplate/uren/assets/images/banner/1-2.jpg' %}" alt="Banner">
+                    </div>
+                    <div class="banner-content text-center">
+                        <span class="banner-text_subtitle">{% trans "Professional" %}</span>
+                        <h3 class="banner-text_title">{% trans "Tools & Equipment" %}</h3>
+                        <a href="{% url 'catalogue:index' %}" class="uren-btn banner-btn">{% trans "Explore" %}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Newsletter -->
+<div class="newsletter-area">
+    <div class="newsletter-bg bg-image" data-bg="{% static 'motortemplate/uren/assets/images/newsletters/bg-1.jpg' %}">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="newsletter-content text-center">
+                        <h2 class="newsletter-title">{% trans "Subscribe to Newsletter" %}</h2>
+                        <p class="newsletter-desc">{% trans "Get updates on new parts and special offers" %}</p>
+                        <div class="newsletter-form">
+                            <form action="#" method="post">
+                                <input type="email" name="email" placeholder="{% trans 'Enter your email address' %}" required>
+                                <button type="submit" class="newsletter-btn">{% trans "Subscribe" %}</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+.svg-container svg {
+    max-width: 100%;
+    max-height: 180px;
+    width: auto;
+    height: auto;
+}
+
+.product-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: #ff6b6b;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 3px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.bg-image {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+[data-bg] {
+    background-image: attr(data-bg url);
+}
+</style>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+$(document).ready(function() {
+    // Initialize background images
+    $('[data-bg]').each(function() {
+        var bg = $(this).data('bg');
+        $(this).css('background-image', 'url(' + bg + ')');
+    });
+    
+    // Initialize slick sliders
+    $('.slider-active').slick({
+        autoplay: true,
+        autoplaySpeed: 8000,
+        slidesToShow: 1,
+        arrows: false,
+        dots: true,
+        fade: true
+    });
+    
+    $('.product-slider').slick({
+        autoplay: true,
+        autoplaySpeed: 6000,
+        slidesToShow: 4,
+        slidesToScroll: 1,
+        responsive: [
+            {
+                breakpoint: 992,
+                settings: {
+                    slidesToShow: 3
+                }
+            },
+            {
+                breakpoint: 768,
+                settings: {
+                    slidesToShow: 2
+                }
+            },
+            {
+                breakpoint: 575,
+                settings: {
+                    slidesToShow: 1
+                }
+            }
+        ]
+    });
+});
+</script>
+{% endblock %}

@@ -1,0 +1,77 @@
+{% load i18n %}
+{% load catalogue_tags %}
+
+<div class="uren-sidebar-catagories_area">
+    <div class="category-module uren-sidebar_categories">
+        <div class="category-module_heading">
+            <h5>{% trans "Product Categories" %}</h5>
+        </div>
+        <div class="module-body">
+            <ul class="module-list_item">
+                {% for category in root_categories %}
+                    <li class="{% if category.get_children %}has-sub{% endif %}">
+                        <a href="{% url 'catalogue:category' category_slug=category.slug pk=category.pk %}">{{ category.name }}</a>
+                        {% if category.get_children %}
+                            <ul class="module-sub-list">
+                                {% for child in category.get_children %}
+                                    <li>
+                                        <a href="{% url 'catalogue:category' category_slug=child.slug pk=child.pk %}">{{ child.name }}</a>
+                                        {% if child.get_children %}
+                                            <ul class="module-sub-sub-list">
+                                                {% for grandchild in child.get_children %}
+                                                    <li>
+                                                        <a href="{% url 'catalogue:category' category_slug=grandchild.slug pk=grandchild.pk %}">{{ grandchild.name }}</a>
+                                                    </li>
+                                                {% endfor %}
+                                            </ul>
+                                        {% endif %}
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
+                    </li>
+                {% empty %}
+                    <li><em>{% trans "No categories available" %}</em></li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    
+    <div class="uren-sidebar_categories">
+        <div class="sidebar-categories_heading">
+            <h5>{% trans "Filter by Price" %}</h5>
+        </div>
+        <div class="sidebar-categories_content">
+            <div class="price-filter">
+                <div id="slider-range"></div>
+                <div class="filter-input">
+                    <div class="filter-button">
+                        <button class="sidebar-btn">{% trans "Filter" %}</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="uren-sidebar_categories">
+        <div class="sidebar-categories_heading">
+            <h5>{% trans "Brand" %}</h5>
+        </div>
+        <div class="sidebar-categories_content">
+            <ul class="sidebar-checkbox_list">
+                <li>
+                    <a href="#">Automotive Parts <span>(15)</span></a>
+                </li>
+                <li>
+                    <a href="#">Engine Components <span>(9)</span></a>
+                </li>
+                <li>
+                    <a href="#">Brake Systems <span>(12)</span></a>
+                </li>
+                <li>
+                    <a href="#">Transmission <span>(7)</span></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,300 @@
+{% extends 'oscar/base.html' %}
+{% load static %}
+{% load i18n %}
+{% load currency_filters %}
+{% load product_tags %}
+{% load parts_tags %}
+
+{% block title %}
+    {% if summary %}{{ summary }} - {% endif %}{{ settings.OSCAR_SHOP_NAME }}
+{% endblock %}
+
+{% block page_title %}{% trans "Shop" %}{% endblock %}
+
+{% block breadcrumb_items %}
+    <li class="active">{% trans "Shop" %}</li>
+{% endblock %}
+
+{% block content %}
+<div class="shop-content_wrapper">
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Left Sidebar -->
+            <div class="col-lg-3 col-md-5 order-2 order-lg-1 order-md-1">
+                <div class="uren-sidebar-catagories_area">
+                    <!-- Categories Filter -->
+                    <div class="category-module uren-sidebar_categories">
+                        <div class="category-module_heading">
+                            <h3>{% trans "Categories" %}</h3>
+                        </div>
+                        <div class="module-body">
+                            <ul class="sidebar-checkbox_list">
+                                {% for category in categories %}
+                                <li>
+                                    <a href="{% url 'catalogue:category' category_slug=category.slug pk=category.pk %}">
+                                        {{ category.name }}
+                                        <span class="count">({{ category.get_num_products }})</span>
+                                    </a>
+                                </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Price Filter -->
+                    <div class="uren-sidebar_categories">
+                        <div class="uren-categories_title">
+                            <h3>{% trans "Price" %}</h3>
+                        </div>
+                        <div class="price-filter">
+                            <form method="get">
+                                <div class="price-slider-amount">
+                                    <input type="text" id="amount" name="price_range" readonly>
+                                </div>
+                                <div id="slider-range"></div>
+                                <button type="submit" class="btn btn-primary">{% trans "Filter" %}</button>
+                            </form>
+                        </div>
+                    </div>
+                    
+                    <!-- Brand Filter (if you have brands) -->
+                    <div class="uren-sidebar_categories">
+                        <div class="uren-categories_title">
+                            <h3>{% trans "Brands" %}</h3>
+                        </div>
+                        <ul class="sidebar-checkbox_list">
+                            <li><label><input type="checkbox"> BMW <span class="count">(15)</span></label></li>
+                            <li><label><input type="checkbox"> Mercedes <span class="count">(23)</span></label></li>
+                            <li><label><input type="checkbox"> Audi <span class="count">(18)</span></label></li>
+                            <li><label><input type="checkbox"> Ford <span class="count">(12)</span></label></li>
+                            <li><label><input type="checkbox"> Toyota <span class="count">(27)</span></label></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Sidebar Banner -->
+                <div class="sidebar-banner_area">
+                    <div class="banner-item img-hover_effect">
+                        <a href="{% url 'catalogue:index' %}">
+                            <img src="{% static 'motortemplate/uren/assets/images/banner/1.jpg' %}" alt="Banner">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Main Content -->
+            <div class="col-lg-9 col-md-7 order-1 order-lg-2 order-md-2">
+                <!-- Shop Toolbar -->
+                <div class="shop-toolbar">
+                    <div class="product-view-mode">
+                        <a class="grid-3" data-target="gridview-3" data-toggle="tooltip" title="Grid View"><i class="fa fa-th"></i></a>
+                        <a class="list" data-target="listview" data-toggle="tooltip" title="List View"><i class="fa fa-th-list"></i></a>
+                    </div>
+                    <div class="product-item-selection_area">
+                        <div class="product-short">
+                            <label class="select-label">{% trans "Sort By:" %}</label>
+                            <select class="nice-select" onchange="location = this.value;">
+                                <option value="?order=title">{% trans "Name A-Z" %}</option>
+                                <option value="?order=-title">{% trans "Name Z-A" %}</option>
+                                <option value="?order=price">{% trans "Price Low-High" %}</option>
+                                <option value="?order=-price">{% trans "Price High-Low" %}</option>
+                                <option value="?order=-date_created">{% trans "Newest First" %}</option>
+                            </select>
+                        </div>
+                        <div class="product-short">
+                            <label class="select-label">{% trans "Show:" %}</label>
+                            <select class="nice-select" onchange="location = this.value;">
+                                <option value="?per_page=12">12</option>
+                                <option value="?per_page=24">24</option>
+                                <option value="?per_page=36">36</option>
+                                <option value="?per_page=48">48</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Products Grid -->
+                <div class="shop-product-wrap grid gridview-3 img-hover-effect_area row">
+                    {% for product in products %}
+                    <div class="col-lg-4 col-md-6 col-sm-6">
+                        <div class="product-item">
+                            <div class="product-img">
+                                <a href="{{ product.get_absolute_url }}">
+                                    {% if product.primary_image %}
+                                        <img class="primary-img" src="{{ product.primary_image.original.url }}" alt="{{ product.title }}">
+                                    {% else %}
+                                        <!-- Try to get SVG from related Part model -->
+                                        {% with svg_content=product.svg_diagram %}
+                                        {% if svg_content %}
+                                            <div class="svg-container" style="width: 100%; height: 200px; display: flex; align-items: center; justify-content: center; border: 1px solid #ddd;">
+                                                {{ svg_content|safe }}
+                                            </div>
+                                        {% else %}
+                                            <img class="primary-img" src="{% static 'motortemplate/uren/assets/images/product/medium-size/1.jpg' %}" alt="{{ product.title }}">
+                                        {% endif %}
+                                        {% endwith %}
+                                    {% endif %}
+                                </a>
+                                <div class="product-add_action">
+                                    <ul>
+                                        <li><a href="{{ product.get_absolute_url }}" data-toggle="tooltip" title="{% trans 'Quick View' %}"><i class="ion-android-open"></i></a></li>
+                                        <li>
+                                            <form method="post" action="{% url 'customer:wishlists-add-product' product.pk %}">
+                                                {% csrf_token %}
+                                                <button type="submit" data-toggle="tooltip" title="{% trans 'Add to Wishlist' %}"><i class="ion-heart"></i></button>
+                                            </form>
+                                        </li>
+                                        {% if product.has_stockrecords %}
+                                        <li>
+                                            <form method="post" action="{% url 'basket:add' pk=product.pk %}">
+                                                {% csrf_token %}
+                                                <input type="hidden" name="quantity" value="1">
+                                                <button type="submit" data-toggle="tooltip" title="{% trans 'Add to Cart' %}"><i class="ion-bag"></i></button>
+                                            </form>
+                                        </li>
+                                        {% endif %}
+                                    </ul>
+                                </div>
+                                {% if product.is_on_sale %}
+                                <div class="product-badge-area">
+                                    <span class="product-badge sale">{% trans "Sale" %}</span>
+                                </div>
+                                {% endif %}
+                            </div>
+                            <div class="product-content">
+                                <div class="product-desc_info">
+                                    <div class="product-rating">
+                                        <ul>
+                                            <li><i class="fa fa-star text-dark"></i></li>
+                                            <li><i class="fa fa-star text-dark"></i></li>
+                                            <li><i class="fa fa-star text-dark"></i></li>
+                                            <li><i class="fa fa-star text-dark"></i></li>
+                                            <li><i class="fa fa-star-o text-dark"></i></li>
+                                        </ul>
+                                    </div>
+                                    <h6><a class="product-name" href="{{ product.get_absolute_url }}">{{ product.title }}</a></h6>
+                                    <div class="product-price">
+                                        {% if product.has_stockrecords %}
+                                            {% if product.is_on_sale %}
+                                                <span class="old-price">{{ product.original_price|currency }}</span>
+                                                <span class="new-price">{{ product.price_incl_tax|currency }}</span>
+                                            {% else %}
+                                                <span class="new-price">{{ product.price_incl_tax|currency }}</span>
+                                            {% endif %}
+                                        {% else %}
+                                            <span class="new-price">{% trans "Price not available" %}</span>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% empty %}
+                    <div class="col-12">
+                        <div class="text-center">
+                            <h3>{% trans "No products found" %}</h3>
+                            <p>{% trans "Try adjusting your filters or search terms." %}</p>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                
+                <!-- Pagination -->
+                {% if page_obj.has_other_pages %}
+                <div class="uren-pagination_area">
+                    <nav class="uren-pagination">
+                        <ul class="pagination justify-content-center">
+                            {% if page_obj.has_previous %}
+                                <li class="page-item">
+                                    <a class="page-link" href="?page={{ page_obj.previous_page_number }}" aria-label="Previous">
+                                        <span aria-hidden="true">&laquo;</span>
+                                    </a>
+                                </li>
+                            {% endif %}
+                            
+                            {% for num in page_obj.paginator.page_range %}
+                                {% if page_obj.number == num %}
+                                    <li class="page-item active"><span class="page-link">{{ num }}</span></li>
+                                {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+                                    <li class="page-item"><a class="page-link" href="?page={{ num }}">{{ num }}</a></li>
+                                {% endif %}
+                            {% endfor %}
+                            
+                            {% if page_obj.has_next %}
+                                <li class="page-item">
+                                    <a class="page-link" href="?page={{ page_obj.next_page_number }}" aria-label="Next">
+                                        <span aria-hidden="true">&raquo;</span>
+                                    </a>
+                                </li>
+                            {% endif %}
+                        </ul>
+                    </nav>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+.svg-container svg {
+    max-width: 100%;
+    max-height: 180px;
+    width: auto;
+    height: auto;
+}
+
+.product-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: #ff6b6b;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 3px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.product-badge.sale {
+    background: #ff6b6b;
+}
+
+.count {
+    float: right;
+    color: #999;
+}
+</style>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+$(document).ready(function() {
+    // Initialize price slider if needed
+    if ($("#slider-range").length) {
+        $("#slider-range").slider({
+            range: true,
+            min: 0,
+            max: 1000,
+            values: [0, 1000],
+            slide: function(event, ui) {
+                $("#amount").val("£" + ui.values[0] + " - £" + ui.values[1]);
+            }
+        });
+        $("#amount").val("£" + $("#slider-range").slider("values", 0) +
+            " - £" + $("#slider-range").slider("values", 1));
+    }
+    
+    // Product view mode switcher
+    $('.product-view-mode a').on('click', function(e) {
+        e.preventDefault();
+        var target = $(this).data('target');
+        $('.shop-product-wrap').removeClass('gridview-3 listview').addClass(target);
+        $('.product-view-mode a').removeClass('active');
+        $(this).addClass('active');
+    });
+});
+</script>
+{% endblock %}

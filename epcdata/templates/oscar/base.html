@@ -1,0 +1,260 @@
+{% load static %}
+{% load i18n %}
+<!doctype html>
+<html class="no-js" lang="{% get_current_language as LANGUAGE_CODE %}{{ LANGUAGE_CODE }}">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>{% block title %}{{ settings.OSCAR_SHOP_NAME }} - {{ settings.OSCAR_SHOP_TAGLINE }}{% endblock %}</title>
+    <meta name="robots" content="index, follow" />
+    <meta name="description" content="{% block description %}{{ settings.OSCAR_SHOP_TAGLINE }}{% endblock %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'motortemplate/uren/assets/images/favicon.ico' %}">
+
+    <!-- CSS -->
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'motortemplate/uren/assets/css/vendor/bootstrap.min.css' %}">
+    <!-- Fontawesome -->
+    <link rel="stylesheet" href="{% static 'motortemplate/uren/assets/css/vendor/font-awesome.css' %}">
+    <!-- Fontawesome Star -->
+    <link rel="stylesheet" href="{% static 'motortemplate/uren/assets/css/vendor/fontawesome-stars.css' %}">
+    <!-- Ion Icon -->
+    <link rel="stylesheet" href="{% static 'motortemplate/uren/assets/css/vendor/ion-fonts.css' %}">
+    <!-- Slick CSS -->
+    <link rel="stylesheet" href="{% static 'motortemplate/uren/assets/css/plugins/slick.css' %}">
+    <!-- Animation -->
+    <link rel="stylesheet" href="{% static 'motortemplate/uren/assets/css/plugins/animate.css' %}">
+    <!-- jQuery Ui -->
+    <link rel="stylesheet" href="{% static 'motortemplate/uren/assets/css/plugins/jquery-ui.min.css' %}">
+    <!-- Lightgallery -->
+    <link rel="stylesheet" href="{% static 'motortemplate/uren/assets/css/plugins/lightgallery.min.css' %}">
+    <!-- Nice Select -->
+    <link rel="stylesheet" href="{% static 'motortemplate/uren/assets/css/plugins/nice-select.css' %}">
+
+    <!-- Main Style CSS -->
+    <link rel="stylesheet" href="{% static 'motortemplate/uren/assets/css/style.css' %}">
+    
+    <!-- Temporary CSS overrides -->
+    <link rel="stylesheet" href="{% static 'temp.css' %}">
+    
+    <!-- Inline CSS to hide logo -->
+    <style>
+        .header-logo_area {
+            display: none !important;
+        }
+        .header-sticky_logo {
+            display: none !important;
+        }
+    </style>
+    
+    {% block extra_css %}{% endblock %}
+
+    {% block extra_head %}{% endblock %}
+</head>
+
+<body class="template-color-1">
+
+    <div class="main-wrapper">
+
+        <!-- Begin Loading Area -->
+        <div class="loading">
+            <div class="text-center middle">
+                <div class="lds-ellipsis">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+        </div>
+        <!-- Loading Area End Here -->
+
+        <!-- Begin Uren's Header Main Area -->
+        {% include 'oscar/partials/header.html' %}
+        <!-- Uren's Header Main Area End Here -->
+
+        <!-- Begin Uren's Breadcrumb Area -->
+        {% block breadcrumbs %}
+        <div class="breadcrumb-area">
+            <div class="container">
+                <div class="breadcrumb-content">
+                    <h2>{% block page_title %}{% endblock %}</h2>
+                    <ul>
+                        <li><a href="{% url 'homepage' %}">{% trans "Home" %}</a></li>
+                        {% block breadcrumb_items %}{% endblock %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+        {% endblock %}
+        <!-- Uren's Breadcrumb Area End Here -->
+
+        <!-- Main Content -->
+        {% block content %}{% endblock %}
+        
+        <!-- Begin Uren's Footer Area -->
+        {% include 'oscar/partials/footer.html' %}
+        <!-- Uren's Footer Area End Here -->
+
+    </div>
+
+    <!-- JS -->
+    <!-- jQuery -->
+    <script src="{% static 'motortemplate/uren/assets/js/vendor/jquery-1.12.4.min.js' %}"></script>
+    <!-- Missing jQuery Plugins - Define early to avoid errors -->
+    <script>
+        // Add missing scrollUp function
+        $.fn.scrollUp = function(options) {
+            var settings = $.extend({
+                scrollText: 'Scroll to top',
+                scrollSpeed: 300,
+                easingType: 'linear'
+            }, options);
+            
+            return this.each(function() {
+                var $this = $(this);
+                $this.click(function() {
+                    $('html, body').animate({scrollTop: 0}, settings.scrollSpeed, settings.easingType);
+                    return false;
+                });
+            });
+        };
+        
+        // Also add as a direct jQuery method
+        $.scrollUp = function(options) {
+            var settings = $.extend({
+                scrollText: 'Scroll to top',
+                scrollSpeed: 300,
+                easingType: 'linear'
+            }, options);
+            
+            $('html, body').animate({scrollTop: 0}, settings.scrollSpeed, settings.easingType);
+        };
+        
+        // Add missing counterUp function
+        $.fn.counterUp = function(options) {
+            var settings = $.extend({
+                delay: 10,
+                time: 1000
+            }, options);
+            
+            return this.each(function() {
+                var $this = $(this);
+                var countTo = parseInt($this.text()) || parseInt($this.attr('data-count')) || 100;
+                
+                $({ countNum: 0 }).animate({
+                    countNum: countTo
+                }, {
+                    duration: settings.time,
+                    easing: 'swing',
+                    step: function() {
+                        $this.text(Math.floor(this.countNum));
+                    },
+                    complete: function() {
+                        $this.text(countTo);
+                    }
+                });
+            });
+        };
+        
+        // Add missing theiaStickySidebar function
+        $.fn.theiaStickySidebar = function(options) {
+            return this.each(function() {
+                // Simple sticky functionality
+                var $this = $(this);
+                var offset = $this.offset().top;
+                
+                $(window).scroll(function() {
+                    if ($(window).scrollTop() > offset) {
+                        $this.addClass('sticky');
+                    } else {
+                        $this.removeClass('sticky');
+                    }
+                });
+            });
+        };
+        
+        // Add missing barrating function
+        $.fn.barrating = function(options) {
+            return this.each(function() {
+                var $this = $(this);
+                // Simple star rating display
+                if ($this.is('select')) {
+                    var value = $this.val();
+                    var stars = '';
+                    for (var i = 1; i <= 5; i++) {
+                        if (i <= value) {
+                            stars += '<i class="fa fa-star text-warning"></i>';
+                        } else {
+                            stars += '<i class="fa fa-star-o text-muted"></i>';
+                        }
+                    }
+                    $this.after('<div class="rating-stars">' + stars + '</div>');
+                    $this.hide();
+                }
+            });
+        };
+        
+        // Add other commonly missing functions
+        $.fn.meanmenu = function(options) { return this; };
+        $.fn.owlCarousel = function(options) { return this; };
+        $.fn.magnificPopup = function(options) { return this; };
+        $.fn.isotope = function(options) { return this; };
+        $.fn.masonry = function(options) { return this; };
+        $.fn.waypoint = function(options) { return this; };
+        $.fn.parallax = function(options) { return this; };
+        $.fn.zoom = function(options) { return this; };
+        $.fn.flexslider = function(options) { return this; };
+        $.fn.bxSlider = function(options) { return this; };
+        $.fn.fancybox = function(options) { return this; };
+    </script>
+    <!-- Bootstrap -->
+    <script src="{% static 'motortemplate/uren/assets/js/vendor/bootstrap.min.js' %}"></script>
+    <!-- Slick -->
+    <script src="{% static 'motortemplate/uren/assets/js/plugins/slick.min.js' %}"></script>
+    <!-- Nice Select -->
+    <script src="{% static 'motortemplate/uren/assets/js/plugins/jquery.nice-select.js' %}"></script>
+    <!-- jQuery UI -->
+    <script src="{% static 'motortemplate/uren/assets/js/plugins/jquery-ui.min.js' %}"></script>
+    <!-- Lightgallery -->
+    <script src="{% static 'motortemplate/uren/assets/js/plugins/lightgallery.min.js' %}"></script>
+    <!-- Main Script -->
+    <script src="{% static 'motortemplate/uren/assets/js/main.js' %}"></script>
+    
+    <!-- Custom Basket Functions -->
+    <script>
+    function removeFromBasket(lineId) {
+        fetch('{% url "basket:summary" %}', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+                'X-CSRFToken': '{{ csrf_token }}'
+            },
+            body: `form-TOTAL_FORMS=1&form-INITIAL_FORMS=1&form-MIN_NUM_FORMS=0&form-MAX_NUM_FORMS=1000&form-0-id=${lineId}&form-0-DELETE=on`
+        })
+        .then(response => {
+            if (response.ok) {
+                location.reload();
+            } else {
+                console.error('Failed to remove item from basket');
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+    }
+    
+    // Restore default Oscar form behavior
+    $(document).ready(function() {
+        // Let Oscar handle cart forms naturally
+        console.log('Oscar cart forms initialized');
+    });
+    </script>
+    
+    {% block extra_js %}{% endblock %}
+
+</body>
+</html>

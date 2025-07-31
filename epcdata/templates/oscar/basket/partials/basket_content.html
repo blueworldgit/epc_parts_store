@@ -1,0 +1,140 @@
+{% load i18n %}
+{% load image_tags %}
+{% load currency_filters %}
+{% load purchase_info_tags %}
+{% load widget_tweaks %}
+
+{% if basket_warnings %}
+    <div class="alert alert-warning">
+        <h5>{% trans "Important messages about items in your basket" %}</h5>
+        {% for warning in basket_warnings %}
+            <div>{{ warning }}</div>
+        {% endfor %}
+    </div>
+{% endif %}
+
+{% if upsell_messages %}
+    <div class="alert alert-info">
+        <h3>{% trans "You could be missing out on offers!" %}</h3>
+        {% for upsell in upsell_messages %}
+            {% blocktrans with message=upsell.message url=upsell.offer.get_absolute_url offer_name=upsell.offer.name %}
+                <div>{{ message }} to qualify for the <a href="{{ url }}">{{ offer_name }}</a> special offer</div>
+            {% endblocktrans %}
+        {% endfor %}
+    </div>
+{% endif %}
+
+{% if not basket.is_empty %}
+<div class="uren-cart-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <form action="{% url 'basket:summary' %}" method="post" class="cart-table table-responsive" id="basket_formset">
+                    {% csrf_token %}
+                    {{ formset.management_form }}
+                    
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th class="pro-thumbnail">{% trans "Product" %}</th>
+                                <th class="pro-title">{% trans "Name" %}</th>
+                                <th class="pro-price">{% trans "Price" %}</th>
+                                <th class="pro-quantity">{% trans "Quantity" %}</th>
+                                <th class="pro-subtotal">{% trans "Total" %}</th>
+                                <th class="pro-remove">{% trans "Remove" %}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for form in formset %}
+                                {% with line=form.instance product=form.instance.product %}
+                                    {% purchase_info_for_line request line as session %}
+                                    <tr id="line_{{ forloop.counter0 }}">
+                                        <td class="pro-thumbnail">
+                                            {{ form.id }}
+                                            {% if product.primary_image and product.primary_image.original and product.primary_image.original.url %}
+                                                <a href="{{ product.get_absolute_url }}">
+                                                    <img src="{{ product.primary_image.original.url }}" alt="{{ product.get_title }}" style="width: 80px; height: 80px; object-fit: cover;">
+                                                </a>
+                                            {% else %}
+                                                <a href="{{ product.get_absolute_url }}">
+                                                    <img src="/media/cache/bc/07/bc0729419b53eb2d0651e42b837daf02.jpg" alt="{{ product.get_title }}" style="width: 80px; height: 80px; object-fit: cover;">
+                                                </a>
+                                            {% endif %}
+                                        </td>
+                                        <td class="pro-title">
+                                            <a href="{{ product.get_absolute_url }}">{{ line.description }}</a>
+                                            <p class="availability {{ session.availability.code }}">{{ session.availability.message }}</p>
+                                            {% if product.upc %}
+                                                <small class="text-muted">{% trans "UPC:" %} {{ product.upc }}</small>
+                                            {% endif %}
+                                        </td>
+                                        <td class="pro-price">
+                                            {% if not line.unit_price_incl_tax and not line.unit_price_excl_tax %}
+                                                <span>&mdash;</span>
+                                            {% else %}
+                                                {% if line.is_tax_known %}
+                                                    <span>{{ line.unit_price_incl_tax|currency:line.price_currency }}</span>
+                                                {% else %}
+                                                    <span>{{ line.unit_price_excl_tax|currency:line.price_currency }}</span>
+                                                {% endif %}
+                                            {% endif %}
+                                        </td>
+                                        <td class="pro-quantity">
+                                            <div class="pro-qty">
+                                                <div class="cart-plus-minus">
+                                                    {% render_field form.quantity class+="cart-plus-minus-box" %}
+                                                </div>
+                                            </div>
+                                            {% for field_errors in form.errors.values %}
+                                                {% for error in field_errors %}
+                                                    <div class="text-danger"><small>{{ error }}</small></div>
+                                                {% endfor %}
+                                            {% endfor %}
+                                        </td>
+                                        <td class="pro-subtotal">
+                                            {% if not line.line_price_incl_tax and not line.line_price_excl_tax %}
+                                                <span>&mdash;</span>
+                                            {% else %}
+                                                {% if line.is_tax_known %}
+                                                    <span>{{ line.line_price_incl_tax|currency:line.price_currency }}</span>
+                                                {% else %}
+                                                    <span>{{ line.line_price_excl_tax|currency:line.price_currency }}</span>
+                                                {% endif %}
+                                            {% endif %}
+                                        </td>
+                                        <td class="pro-remove">
+                                            <a href="javascript:void(0)" onclick="removeFromBasket({{ forloop.counter0 }})"><i class="ion-trash-a"></i></a>
+                                            <div style="display:none">
+                                                {{ form.save_for_later }}
+                                                {{ form.DELETE }}
+                                            </div>
+                                        </td>
+                                    </tr>
+                                {% endwith %}
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </form>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-5 ml-auto">
+                <div class="cart-page-total">
+                    <h2>{% trans "Cart totals" %}</h2>
+                    <ul>
+                        <li>{% trans "Subtotal" %} <span>{{ basket.total_excl_tax|currency }}</span></li>
+                        {% if basket.total_tax %}
+                            <li>{% trans "Tax" %} <span>{{ basket.total_tax|currency }}</span></li>
+                        {% endif %}
+                        <li>{% trans "Total" %} <span>{{ basket.total_incl_tax|currency }}</span></li>
+                    </ul>
+                    <div class="cart-page_btn">
+                        <button type="submit" form="basket_formset" class="uren-btn cart-btn">{% trans "Update cart" %}</button>
+                        <a href="{% url 'checkout:index' %}" class="uren-btn uren-btn_dark">{% trans "Proceed to checkout" %}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}

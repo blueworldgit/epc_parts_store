@@ -1,0 +1,410 @@
+{% extends 'oscar/base.html' %}
+{% load static %}
+{% load i18n %}
+{% load currency_filters %}
+{% load product_tags %}
+{% load parts_tags %}
+
+{% block title %}{{ product.title }} - {{ settings.OSCAR_SHOP_NAME }}{% endblock %}
+
+{% block page_title %}{{ product.title }}{% endblock %}
+
+{% block breadcrumb_items %}
+    <li><a href="{% url 'catalogue:index' %}">{% trans "Shop" %}</a></li>
+    {% for category in product.categories.all %}
+        <li><a href="{% url 'catalogue:category' category_slug=category.slug pk=category.pk %}">{{ category.name }}</a></li>
+    {% endfor %}
+    <li class="active">{{ product.title }}</li>
+{% endblock %}
+
+{% block content %}
+<div class="single-product-main_area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="product-large-image-wrapper">
+                    <div class="product-large-image tab-content">
+                        <div class="tab-pane fade show active" id="image-1">
+                            {% get_product_svg product as svg_content %}
+                            {% if svg_content %}
+                                <div class="svg-diagram-container" style="width: 100%; min-height: 400px; display: flex; align-items: center; justify-content: center; border: 1px solid #ddd; background: #f9f9f9; padding: 20px;">
+                                    {{ svg_content|safe }}
+                                </div>
+                                <p class="text-success mt-2"><small><i class="fa fa-check"></i> {% trans "Technical diagram from database" %}</small></p>
+                            {% elif product.primary_image and product.primary_image.original and product.primary_image.original.url %}
+                                <img src="{{ product.primary_image.original.url }}" alt="{{ product.title }}" style="width: 100%; height: auto;">
+                                <p class="text-info mt-2"><small><i class="fa fa-image"></i> {% trans "Product image" %}</small></p>
+                            {% else %}
+                                <img src="/media/cache/bc/07/bc0729419b53eb2d0651e42b837daf02.jpg" alt="{{ product.title }}" style="width: 100%; height: auto;">
+                                <p class="text-warning mt-2"><small><i class="fa fa-exclamation-triangle"></i> {% trans "Default no-image placeholder" %}</small></p>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="product-details">
+                    <h1 class="product-name">{{ product.title }}</h1>
+                    
+                    <div class="rating-box pt-20">
+                        <ul class="rating rating-with-review-item">
+                            <li><i class="fa fa-star-o"></i></li>
+                            <li><i class="fa fa-star-o"></i></li>
+                            <li><i class="fa fa-star-o"></i></li>
+                            <li><i class="fa fa-star-o"></i></li>
+                            <li><i class="fa fa-star-o"></i></li>
+                            <li class="review-item"><a href="#reviews">{% trans "Read Review" %}</a></li>
+                            <li class="review-item"><a href="#reviews">{% trans "Write Review" %}</a></li>
+                        </ul>
+                    </div>
+                    
+                    {% if product.has_stockrecords %}
+                    <div class="price-box pt-20">
+                        <span class="new-price new-price-2">{{ product.price_incl_tax|currency }}</span>
+                        {% if product.is_on_sale %}
+                            <span class="old-price">{{ product.original_price|currency }}</span>
+                        {% endif %}
+                    </div>
+                    {% endif %}
+                    
+                    <div class="product-desc">
+                        <p><span>{% trans "UPC:" %} {{ product.upc|default:"Not set" }}</span></p>
+                        <p><small>{% debug_product_info product %}</small></p>
+                        {% if product.description %}
+                            <p>{{ product.description|linebreaks }}</p>
+                        {% endif %}
+                    </div>
+                    
+                    {% if product.has_stockrecords %}
+                        {% if product.stockrecords.first and product.stockrecords.first.price and product.stockrecords.first.num_in_stock and product.stockrecords.first.num_in_stock > 0 %}
+                        <div class="single-actions">
+                            <form method="post" action="{% url 'basket:add' pk=product.pk %}" class="product-action">
+                                {% csrf_token %}
+                                <div class="product-quantity">
+                                    <label for="quantity">{% trans "Quantity:" %}</label>
+                                    <div class="cart-plus-minus">
+                                        <input class="cart-plus-minus-box" name="quantity" value="1" type="text">
+                                    </div>
+                                </div>
+                                <div class="product-option">
+                                    <button class="btn uren-btn" type="submit">{% trans "Add to Cart" %}</button>
+                                </div>
+                            </form>
+                        {% else %}
+                        <div class="single-actions">
+                            <div class="product-option">
+                                <a href="mailto:sales@vanpartsdirect4u.co.uk?subject=Enquiry: {{ product.title|urlencode }} ({{ product.upc|default:'No UPC'|urlencode }})&body=Hello,%0A%0AI would like to enquire about the following product:%0A%0AProduct: {{ product.title|urlencode }}%0AUPC: {{ product.upc|default:'No UPC'|urlencode }}%0A%0APlease let me know about availability and pricing.%0A%0AThank you." class="btn uren-btn" style="background-color: #ffc107; border-color: #ffc107; color: #212529;">{% trans "Enquire" %}</a>
+                                <p class="text-warning mt-2"><small>{% trans "Contact for availability" %}</small></p>
+                            </div>
+                        {% endif %}
+                        
+                        <div class="product-additional-btn">
+                            <form method="post" action="{% url 'customer:wishlists-add-product' product.pk %}" class="wishlist-form">
+                                {% csrf_token %}
+                                <button type="submit" class="wishlist-btn">
+                                    <i class="fa fa-heart-o"></i>
+                                    {% trans "Add to Wishlist" %}
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                    {% else %}
+                    <div class="single-actions">
+                        <p class="text-danger">{% trans "This product is currently unavailable." %}</p>
+                    </div>
+                    {% endif %}
+                    
+                    <div class="product-summary">
+                        <div class="product-details-info">
+                            <div class="product-details-info-list">
+                                <ul>
+                                    {% if product.product_class %}
+                                    <li><span>{% trans "Category:" %}</span> {{ product.product_class.name }}</li>
+                                    {% endif %}
+                                    {% if product.categories.all %}
+                                    <li><span>{% trans "Categories:" %}</span> 
+                                        {% for category in product.categories.all %}
+                                            <a href="{% url 'catalogue:category' category_slug=category.slug pk=category.pk %}">{{ category.name }}</a>{% if not forloop.last %}, {% endif %}
+                                        {% endfor %}
+                                    </li>
+                                    {% endif %}
+                                    {% for stockrecord in product.stockrecords.all %}
+                                    <li><span>{% trans "Stock:" %}</span> 
+                                        {% if stockrecord.num_in_stock %}
+                                            {{ stockrecord.num_in_stock }} {% trans "units available" %}
+                                        {% else %}
+                                            {% trans "In stock" %}
+                                        {% endif %}
+                                    </li>
+                                    {% if stockrecord.partner %}
+                                    <li><span>{% trans "Supplier:" %}</span> {{ stockrecord.partner.name }}</li>
+                                    {% endif %}
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Product Details Tab Section -->
+<div class="product-details-tab">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="product-details-tab_wrapper" data-aos="fade-up" data-aos-delay="0">
+                    <span class="product-details-tab_title">{% trans "Product Details" %}</span>
+                    <div class="product-details-tab_content">
+                        <div class="nav product-details-tab_btn" role="tablist">
+                            <a class="nav-item nav-link active" id="description-tab" data-toggle="tab" href="#description" role="tab" aria-controls="description" aria-selected="true">{% trans "Description" %}</a>
+                            <a class="nav-item nav-link" id="specification-tab" data-toggle="tab" href="#specification" role="tab" aria-controls="specification" aria-selected="false">{% trans "Technical Diagram" %}</a>
+                            <a class="nav-item nav-link" id="reviews-tab" data-toggle="tab" href="#reviews" role="tab" aria-controls="reviews" aria-selected="false">{% trans "Reviews" %}</a>
+                        </div>
+                    </div>
+                    <div class="product-details-tab_content tab-content">
+                        <div class="tab-pane fade show active" id="description" role="tabpanel" aria-labelledby="description-tab">
+                            <div class="product-description">
+                                <p>{{ product.description|default:"No description available."|linebreaks }}</p>
+                                
+                                {% if product.attributes.all %}
+                                <div class="product-attributes">
+                                    <h4>{% trans "Specifications" %}</h4>
+                                    <ul>
+                                        {% for attribute in product.attributes.all %}
+                                        <li><strong>{{ attribute.attribute.name }}:</strong> {{ attribute.value }}</li>
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="specification" role="tabpanel" aria-labelledby="specification-tab">
+                            <div class="product-specification">
+                                {% get_product_svg product as svg_content %}
+                                {% if svg_content %}
+                                    <h4>{% trans "Technical Diagram" %}</h4>
+                                    <div class="svg-diagram-full" style="border: 1px solid #ddd; padding: 20px; background: #f9f9f9; text-align: center; overflow: auto;">
+                                        {{ svg_content|safe }}
+                                    </div>
+                                    <p class="mt-3"><em>{% trans "Interactive technical diagram showing part details and relationships." %}</em></p>
+                                {% else %}
+                                    <p>{% trans "No technical diagram available for this product." %}</p>
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="reviews" role="tabpanel" aria-labelledby="reviews-tab">
+                            <div class="reviews-wrapper">
+                                <div class="reviews-comment">
+                                    <div class="comment-item">
+                                        <p>{% trans "No reviews yet. Be the first to review this product!" %}</p>
+                                    </div>
+                                </div>
+                                <div class="reviews-form">
+                                    <form action="#" method="post">
+                                        <h2>{% trans "Add a Review" %}</h2>
+                                        <div class="form-group row">
+                                            <div class="col">
+                                                <label for="con_name">{% trans "Name" %}</label>
+                                                <input id="con_name" name="name" class="form-control" type="text">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <div class="col">
+                                                <label for="con_email">{% trans "Email" %}</label>
+                                                <input id="con_email" name="email" class="form-control" type="email">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <div class="col">
+                                                <label for="con_message">{% trans "Review" %}</label>
+                                                <textarea id="con_message" name="message" class="form-control"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <div class="col">
+                                                <button class="btn uren-btn" type="submit">{% trans "Submit Review" %}</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Related Products Section -->
+<div class="product-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="section-title_wrapper text-center">
+                    <h2 class="section-title">{% trans "Related Products" %}</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="product-slider uren-slick-slider" data-slick-setting='{
+                    "autoplay": true,
+                    "autoplaySpeed": 6000,
+                    "slidesToShow": 4,
+                    "responsive": [
+                        {"breakpoint": 992, "settings": {"slidesToShow": 3}},
+                        {"breakpoint": 768, "settings": {"slidesToShow": 2}},
+                        {"breakpoint": 575, "settings": {"slidesToShow": 1}}
+                    ]
+                }'>
+                    {% for related_product in product.related_products %}
+                    <div class="product-item">
+                        <div class="product-img">
+                            <a href="{{ related_product.get_absolute_url }}">
+                                {% if related_product.primary_image %}
+                                    <img class="primary-img" src="{{ related_product.primary_image.original.url }}" alt="{{ related_product.title }}">
+                                {% else %}
+                                    <img class="primary-img" src="{% static 'motortemplate/uren/assets/images/product/medium-size/1.jpg' %}" alt="{{ related_product.title }}">
+                                {% endif %}
+                            </a>
+                        </div>
+                        <div class="product-content">
+                            <div class="product-desc_info">
+                                <h6><a class="product-name" href="{{ related_product.get_absolute_url }}">{{ related_product.title }}</a></h6>
+                                <div class="product-price">
+                                    {% if related_product.has_stockrecords %}
+                                        <span class="new-price">{{ related_product.price_incl_tax|currency }}</span>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+.svg-diagram-container svg,
+.svg-diagram-full svg {
+    max-width: 100%;
+    height: auto;
+}
+
+.svg-diagram-full {
+    max-height: 600px;
+    overflow: auto;
+}
+
+.product-attributes ul {
+    list-style: none;
+    padding: 0;
+}
+
+.product-attributes li {
+    padding: 5px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.cart-plus-minus {
+    position: relative;
+    display: inline-block;
+}
+
+.cart-plus-minus-box {
+    border: 1px solid #ddd;
+    width: 80px;
+    height: 45px;
+    text-align: center;
+    padding: 0 15px;
+}
+
+.wishlist-btn {
+    background: none;
+    border: 1px solid #ddd;
+    padding: 10px 15px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.wishlist-btn:hover {
+    background: #f8f9fa;
+}
+
+.product-details-info-list ul {
+    list-style: none;
+    padding: 0;
+}
+
+.product-details-info-list li {
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.product-details-info-list span {
+    font-weight: bold;
+    min-width: 100px;
+    display: inline-block;
+}
+</style>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+$(document).ready(function() {
+    // Initialize slick slider for related products
+    $('.product-slider').slick({
+        autoplay: true,
+        autoplaySpeed: 6000,
+        slidesToShow: 4,
+        slidesToScroll: 1,
+        responsive: [
+            {
+                breakpoint: 992,
+                settings: {
+                    slidesToShow: 3
+                }
+            },
+            {
+                breakpoint: 768,
+                settings: {
+                    slidesToShow: 2
+                }
+            },
+            {
+                breakpoint: 575,
+                settings: {
+                    slidesToShow: 1
+                }
+            }
+        ]
+    });
+    
+    // Quantity controls
+    $('.cart-plus-minus').append('<div class="dec qtybutton">-</div><div class="inc qtybutton">+</div>');
+    
+    $('.qtybutton').on('click', function() {
+        var $button = $(this);
+        var $input = $button.parent().find('input');
+        var oldValue = parseInt($input.val());
+        var newVal;
+        
+        if ($button.hasClass('inc')) {
+            newVal = oldValue + 1;
+        } else {
+            newVal = Math.max(1, oldValue - 1);
+        }
+        
+        $input.val(newVal);
+    });
+});
+</script>
+{% endblock %}

@@ -1,0 +1,245 @@
+{% load static %}
+{% load i18n %}
+{% load basket_tags %}
+{% load currency_filters %}
+{% load parts_tags %}
+
+<header class="header-main_area bg--sapphire">
+    <div class="header-top_area d-lg-block d-none">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xl-7 col-lg-8">
+                    <div class="main-menu_area position-relative">
+                        <nav class="main-nav">
+                            <ul>
+                                <li class="dropdown-holder">
+                                    <a href="{% url 'homepage' %}">{% trans "Home" %}</a>
+                                </li>
+                                <li class="megamenu-holder active">
+                                    <a href="{% url 'catalogue:index' %}">{% trans "Shop" %} <i class="ion-ios-arrow-down"></i></a>
+                                    <ul class="hm-megamenu">
+                                        <li><span class="megamenu-title">{% trans "Categories" %}</span>
+                                            <ul>
+                                                {% for category in categories %}
+                                                <li><a href="{% url 'catalogue:category' category_slug=category.slug pk=category.pk %}">{{ category.name }}</a></li>
+                                                {% endfor %}
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li><a href="{% url 'catalogue:index' %}">{% trans "All Products" %}</a></li>
+                                <li class=""><a href="javascript:void(0)">{% trans "Account" %} <i class="ion-ios-arrow-down"></i></a>
+                                    <ul class="hm-dropdown">
+                                        {% if user.is_authenticated %}
+                                            <li><a href="{% url 'customer:summary' %}">{% trans "My Account" %}</a></li>
+                                            <li><a href="{% url 'customer:order-list' %}">{% trans "Order History" %}</a></li>
+                                            <li><a href="{% url 'customer:logout' %}">{% trans "Logout" %}</a></li>
+                                        {% else %}
+                                            <li><a href="{% url 'customer:login' %}">{% trans "Login" %}</a></li>
+                                            <li><a href="{% url 'customer:register' %}">{% trans "Register" %}</a></li>
+                                        {% endif %}
+                                        <li><a href="{% url 'customer:wishlists-list' %}">{% trans "Wishlist" %}</a></li>
+                                    </ul>
+                                </li>
+                                <li class=""><a href="{% url 'backend_homepage' %}">{% trans "Admin" %}</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+                <div class="col-xl-5 col-lg-4">
+                    <div class="ht-right_area">
+                        <div class="ht-menu">
+                            <ul>
+                                <li><a href="javascript:void(0)">{% trans "Currency" %}<i class="fa fa-chevron-down"></i></a>
+                                    <ul class="ht-dropdown ht-currency">
+                                        <li class="active"><a href="javascript:void(0)">£ {% trans "Pound Sterling" %}</a></li>
+                                        <li><a href="javascript:void(0)">€ EUR</a></li>
+                                        <li><a href="javascript:void(0)">$ {% trans "US Dollar" %}</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="javascript:void(0)">{% trans "Language" %} <i class="fa fa-chevron-down"></i></a>
+                                    <ul class="ht-dropdown">
+                                        <li class="active"><a href="javascript:void(0)"><img src="{% static 'motortemplate/uren/assets/images/menu/icon/1.jpg' %}" alt="Language Icon">{% trans "English" %}</a></li>
+                                    </ul>
+                                </li>
+                                {% if user.is_authenticated %}
+                                <li><a href="{% url 'customer:summary' %}">{{ user.get_full_name|default:user.username }}<i class="fa fa-chevron-down"></i></a>
+                                    <ul class="ht-dropdown ht-my_account">
+                                        <li><a href="{% url 'customer:summary' %}">{% trans "My Account" %}</a></li>
+                                        <li><a href="{% url 'customer:logout' %}">{% trans "Logout" %}</a></li>
+                                    </ul>
+                                </li>
+                                {% else %}
+                                <li><a href="{% url 'customer:login' %}">{% trans "My Account" %}<i class="fa fa-chevron-down"></i></a>
+                                    <ul class="ht-dropdown ht-my_account">
+                                        <li><a href="{% url 'customer:register' %}">{% trans "Register" %}</a></li>
+                                        <li class="active"><a href="{% url 'customer:login' %}">{% trans "Login" %}</a></li>
+                                    </ul>
+                                </li>
+                                {% endif %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Sticky Header -->
+    <div class="header-top_area header-sticky bg--sapphire">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xl-8 col-lg-7 d-lg-block d-none">
+                    <div class="main-menu_area position-relative">
+                        <nav class="main-nav">
+                            <ul>
+                                <li class="dropdown-holder">
+                                    <a href="{% url 'homepage' %}">{% trans "Home" %}</a>
+                                </li>
+                                <li class="megamenu-holder active">
+                                    <a href="{% url 'catalogue:index' %}">{% trans "Shop" %} <i class="ion-ios-arrow-down"></i></a>
+                                </li>
+                                <li><a href="{% url 'catalogue:index' %}">{% trans "All Products" %}</a></li>
+                                <li><a href="{% url 'customer:summary' %}">{% trans "Account" %}</a></li>
+                                <li><a href="{% url 'backend_homepage' %}">{% trans "Admin" %}</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+                <div class="col-sm-3 d-block d-lg-none">
+                    <div class="header-logo_area header-sticky_logo">
+                        <a href="{% url 'homepage' %}">
+                            <img src="{% static 'motortemplate/uren/assets/images/menu/logo/1.png' %}" alt="{{ settings.OSCAR_SHOP_NAME }}">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-lg-5 col-sm-9">
+                    <div class="header-right_area">
+                        <ul>
+                            <li class="mobile-menu_wrap d-flex d-lg-none">
+                                <a href="#mobileMenu" class="mobile-menu_btn toolbar-btn color--white">
+                                    <i class="ion-navicon"></i>
+                                </a>
+                            </li>
+                            <li class="minicart-wrap">
+                                <a href="#miniCart" class="minicart-btn toolbar-btn">
+                                    <div class="minicart-count_area">
+                                        <span class="item-count">{{ basket.num_items|default:0 }}</span>
+                                        <i class="ion-bag"></i>
+                                    </div>
+                                    <div class="minicart-front_text">
+                                        <span>{% trans "Cart:" %}</span>
+                                        <span class="total-price">{{ basket.total_incl_tax|default:"0.00" }}</span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="contact-us_wrap">
+                                <a href="tel://01953665421"><i class="ion-android-call"></i>01953 665421</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Header Middle with Logo and Search -->
+    <div class="header-middle_area">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="custom-logo_col col-12">
+                    <div class="header-logo_area">
+                        <a href="{% url 'homepage' %}">
+                            <img src="{% static 'motortemplate/uren/assets/images/menu/logo/1.png' %}" alt="{{ settings.OSCAR_SHOP_NAME }}">
+                        </a>
+                    </div>
+                </div>
+                <div class="custom-category_col col-12">
+                    <div class="category-menu category-menu-hidden">
+                        <div class="category-heading">
+                            <h2 class="categories-toggle">
+                                <span>{% trans "Shop By" %}</span>
+                                <span>{% trans "Category" %}</span>
+                            </h2>
+                        </div>
+                        <div id="cate-toggle" class="category-menu-list">
+                            <ul>
+                                {% for category in categories %}
+                                    {% for parent_cat in category.get_children %}
+                                        <li class="right-menu">
+                                            <a href="{% url 'catalogue:category' category_slug=parent_cat.slug pk=parent_cat.pk %}">
+                                                {{ parent_cat.name|beautify_category_name }}
+                                            </a>
+                                            {% with grandchildren=parent_cat.get_children %}
+                                                {% if grandchildren %}
+                                                    <ul class="mega-menu">
+                                                        {% for child_cat in grandchildren %}
+                                                            <li><a href="{% url 'catalogue:category' category_slug=child_cat.slug pk=child_cat.pk %}">{{ child_cat.name|beautify_category_name }}</a></li>
+                                                        {% endfor %}
+                                                    </ul>
+                                                {% endif %}
+                                            {% endwith %}
+                                        </li>
+                                    {% endfor %}
+                                {% empty %}
+                                    <li class="right-menu"><a href="{% url 'catalogue:index' %}">Car Parts</a></li>
+                                    <li class="right-menu"><a href="{% url 'catalogue:index' %}">Tools & Accessories</a></li>
+                                    <li class="right-menu"><a href="{% url 'catalogue:index' %}">Suspension Systems</a></li>
+                                    <li class="right-menu"><a href="{% url 'catalogue:index' %}">Body Parts</a></li>
+                                    <li><a href="{% url 'catalogue:index' %}">Interior</a></li>
+                                    <li><a href="{% url 'catalogue:index' %}">Exterior</a></li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="custom-search_col col-12">
+                    <div class="hm-form_area">
+                        <form action="{% url 'search:search' %}" method="get" class="hm-searchbox">
+                            <select class="nice-select select-search-category" name="selected_facets">
+                                <option value="">{% trans "All Categories" %}</option>
+                                {% for category in categories %}
+                                <option value="category_exact:{{ category.name }}">{{ category.name }}</option>
+                                {% endfor %}
+                            </select>
+                            <input type="text" name="q" placeholder="{% trans 'Enter your search key ...' %}" value="{{ query }}">
+                            <button class="header-search_btn" type="submit">
+                                <i class="ion-ios-search-strong"><span>{% trans "Search" %}</span></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+                <div class="custom-cart_col col-12">
+                    <div class="header-right_area">
+                        <ul>
+                            <li class="mobile-menu_wrap d-flex d-lg-none">
+                                <a href="#mobileMenu" class="mobile-menu_btn toolbar-btn color--white">
+                                    <i class="ion-navicon"></i>
+                                </a>
+                            </li>
+                            <li class="minicart-wrap">
+                                <a href="#miniCart" class="minicart-btn toolbar-btn">
+                                    <div class="minicart-count_area">
+                                        <span class="item-count">{{ basket.num_items|default:0 }}</span>
+                                        <i class="ion-bag"></i>
+                                    </div>
+                                    <div class="minicart-front_text">
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="contact-us_wrap">
+                                <a href="tel://01953665421"><i class="ion-android-call"></i>01953 665421</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Mini Cart -->
+    {% include 'oscar/partials/mini_cart.html' %}
+    
+    <!-- Mobile Menu -->
+    {% include 'oscar/partials/mobile_menu.html' %}
+</header>

@@ -1,0 +1,79 @@
+{% extends 'oscar/base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}
+    {% trans "Login" %} - {{ block.super }}
+{% endblock %}
+
+{% block page_title %}{% trans "Login" %}{% endblock %}
+
+{% block breadcrumb_items %}
+    <li class="active">{% trans "Login" %}</li>
+{% endblock %}
+
+{% block content %}
+<div class="login-registration_area">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-6 col-md-8">
+                <div class="login-register_wrapper">
+                    <div class="account-form_area">
+                        <h3 class="account-sub_title">{% trans "Sign In" %}</h3>
+                        <div class="account-form">
+                            <form method="post" action="{% url 'customer:login' %}" class="login-form">
+                                {% csrf_token %}
+                                
+                                {% if form.non_field_errors %}
+                                    <div class="alert alert-danger">
+                                        {{ form.non_field_errors }}
+                                    </div>
+                                {% endif %}
+                                
+                                <div class="default-form-box">
+                                    <label for="{{ form.login.id_for_label }}">{{ form.login.label }}</label>
+                                    {{ form.login }}
+                                    {% if form.login.errors %}
+                                        <div class="text-danger">{{ form.login.errors }}</div>
+                                    {% endif %}
+                                </div>
+                                
+                                <div class="default-form-box">
+                                    <label for="{{ form.password.id_for_label }}">{{ form.password.label }}</label>
+                                    {{ form.password }}
+                                    {% if form.password.errors %}
+                                        <div class="text-danger">{{ form.password.errors }}</div>
+                                    {% endif %}
+                                </div>
+                                
+                                <div class="login_submit">
+                                    <button class="uren-btn uren-btn_dark uren-btn_fullwidth" type="submit">
+                                        {% trans "Sign In" %}
+                                    </button>
+                                    <div class="remember_account">
+                                        <div class="form-check">
+                                            {{ form.remember }}
+                                            <label class="form-check-label" for="{{ form.remember.id_for_label }}">
+                                                {{ form.remember.label }}
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="account_social-desc">
+                                    <p>{% trans "Don't have an account?" %} <a href="{% url 'customer:register' %}">{% trans "Create one here" %}</a></p>
+                                    <!-- Password reset functionality not available in current configuration -->
+                                </div>
+                                
+                                {% if redirect_field_value %}
+                                    <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}">
+                                {% endif %}
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

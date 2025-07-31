@@ -1,0 +1,102 @@
+{% load i18n %}
+
+<div class="sidebar-widget">
+    <h5 class="widget-title">{% trans "Categories" %}</h5>
+    <div class="widget-content">
+        <ul class="sidebar-menu">
+            {% for category in categories %}
+                <li class="has-submenu">
+                    <a href="{% url 'catalogue:category' category_slug=category.slug pk=category.pk %}">
+                        {{ category.name }}
+                        {% if category.get_children %}
+                            <i class="fa fa-angle-right"></i>
+                        {% endif %}
+                    </a>
+                    {% if category.get_children %}
+                        <ul class="submenu">
+                            {% for child in category.get_children %}
+                                <li>
+                                    <a href="{% url 'catalogue:category' category_slug=child.slug pk=child.pk %}">
+                                        {{ child.name }}
+                                    </a>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                </li>
+            {% empty %}
+                <li><em>{% trans "No categories available" %}</em></li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+
+<style>
+.sidebar-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar-menu li {
+    border-bottom: 1px solid #eee;
+    position: relative;
+}
+
+.sidebar-menu li a {
+    display: block;
+    padding: 12px 15px;
+    color: #333;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.sidebar-menu li a:hover {
+    background-color: #f8f9fa;
+    color: #007bff;
+    padding-left: 20px;
+}
+
+.sidebar-menu li.has-submenu > a {
+    position: relative;
+}
+
+.sidebar-menu li.has-submenu > a i {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: transform 0.3s ease;
+}
+
+.sidebar-menu li.has-submenu:hover > a i {
+    transform: translateY(-50%) rotate(90deg);
+}
+
+.submenu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background-color: #f8f9fa;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+.sidebar-menu li.has-submenu:hover .submenu {
+    max-height: 500px;
+}
+
+.submenu li a {
+    padding: 8px 30px;
+    font-size: 14px;
+    font-weight: 400;
+    border-left: 3px solid transparent;
+}
+
+.submenu li a:hover {
+    border-left-color: #007bff;
+    background-color: #e9ecef;
+}
+</style>
