@@ -1,5 +1,27 @@
 #!/bin/bash
-# Secho "📁 Collecting static files (this will fix the CSS loading)..."
+# Secho echo "� Activating virtual environment..."
+source ../env/bin/activate
+
+echo "🔧 Setting up production environment..."
+# Copy production environment file if it doesn't exist
+if [ ! -f .prod ]; then
+    if [ -f .env.production ]; then
+        cp .env.production .prod
+        echo "Created .prod from .env.production"
+    else
+        echo "Warning: No .env.production file found!"
+    fi
+fi
+
+echo "📊 Collecting static files (this will fix the CSS loading)..."
+python manage.py collectstatic --noinput
+
+echo "🔄 Restarting Django server..."
+# Kill existing Django process (if running)
+pkill -f "python.*manage.py.*runserver" 2>/dev/null || true
+
+# Start Django server in background
+nohup python manage.py runserver 0.0.0.0:8000 > django.log 2>&1 &ng static files (this will fix the CSS loading)..."
 python manage.py collectstatic --noinput
 
 echo "🔄 Restarting Django server..."

@@ -17,8 +17,27 @@ from dotenv import load_dotenv
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# Load environment variables from .env file
-load_dotenv(BASE_DIR / '.env')
+# Determine which environment file to load
+# Check for production environment indicator
+is_production = (os.environ.get('DJANGO_ENV') == 'production' or 
+                os.path.exists(BASE_DIR / '.env.production') or 
+                os.path.exists(BASE_DIR / '.prod'))
+
+if is_production:
+    # Try to load production environment variables (prefer .prod over .env.production)
+    if os.path.exists(BASE_DIR / '.prod'):
+        load_dotenv(BASE_DIR / '.prod')
+        print("Loading production environment from .prod")
+    elif os.path.exists(BASE_DIR / '.env.production'):
+        load_dotenv(BASE_DIR / '.env.production')
+        print("Loading production environment from .env.production")
+else:
+    # Load local development environment variables
+    if os.path.exists(BASE_DIR / '.env'):
+        load_dotenv(BASE_DIR / '.env')
+        print("Loading local environment from .env")
+    else:
+        print("No .env file found, using default settings")
 
 
 # Quick-start development settings - unsuitable for production
