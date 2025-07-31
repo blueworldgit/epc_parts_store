@@ -1,4 +1,5 @@
 from django.db import models
+from django_countries.fields import CountryField
 
 # Serial number, always unique
 class SerialNumber(models.Model):
@@ -57,3 +58,50 @@ class PricingData(models.Model):
     replacement_code = models.CharField(max_length=100, blank=True, null=True)
     whs = models.CharField(max_length=100, blank=True, null=True)
     stock_available = models.CharField(max_length=100, blank=True, null=True)
+
+
+class ShippingAddress(models.Model):
+    """Model for managing shipping addresses with country selection"""
+    name = models.CharField(max_length=255)
+    address_line_1 = models.CharField(max_length=255)
+    address_line_2 = models.CharField(max_length=255, blank=True, null=True)
+    city = models.CharField(max_length=100)
+    state_province = models.CharField(max_length=100, blank=True, null=True)
+    postal_code = models.CharField(max_length=20)
+    country = CountryField()  # This provides the country dropdown
+    phone = models.CharField(max_length=20, blank=True, null=True)
+    email = models.EmailField(blank=True, null=True)
+    is_default = models.BooleanField(default=False)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        verbose_name = "Shipping Address"
+        verbose_name_plural = "Shipping Addresses"
+
+    def __str__(self):
+        return f"{self.name} - {self.city}, {self.country}"
+
+
+class ShippingMethod(models.Model):
+    """Model for managing shipping methods by country"""
+    name = models.CharField(max_length=100)
+    description = models.TextField(blank=True, null=True)
+    countries = CountryField(multiple=True)  # Multiple countries supported
+    price = models.DecimalField(max_digits=10, decimal_places=2)
+    estimated_days_min = models.IntegerField(help_text="Minimum delivery days")
+    estimated_days_max = models.IntegerField(help_text="Maximum delivery days")
+    is_active = models.BooleanField(default=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        verbose_name = "Shipping Method"
+        verbose_name_plural = "Shipping Methods"
+
+    def __str__(self):
+        return f"{self.name} - £{self.price}"
+
+    def delivery_estimate(self):
+        if self.estimated_days_min == self.estimated_days_max:
+            return f"{self.estimated_days_min} days"
+        return f"{self.estimated_days_min}-{self.estimated_days_max} days"

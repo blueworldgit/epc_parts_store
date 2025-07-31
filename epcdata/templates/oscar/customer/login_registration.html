@@ -1,6 +1,7 @@
-{% extends 'oscar/base.html' %}
+{% extends 'oscar/storefront_base.html' %}
 {% load static %}
 {% load i18n %}
+{% load widget_tweaks %}
 
 {% block title %}
     {% trans "Login" %} - {{ block.super }}
@@ -21,7 +22,7 @@
                     <div class="account-form_area">
                         <h3 class="account-sub_title">{% trans "Sign In" %}</h3>
                         <div class="account-form">
-                            <form method="post" action="{% url 'customer:login' %}" class="login-form">
+                            <form method="post" action="" class="login-form">
                                 {% csrf_token %}
                                 
                                 {% if form.non_field_errors %}
@@ -30,43 +31,36 @@
                                     </div>
                                 {% endif %}
                                 
+                                {% if form.errors %}
+                                    <div class="alert alert-danger">
+                                        <h4>Form Errors:</h4>
+                                        {{ form.errors }}
+                                    </div>
+                                {% endif %}
+                                
                                 <div class="default-form-box">
-                                    <label for="{{ form.login.id_for_label }}">{{ form.login.label }}</label>
-                                    {{ form.login }}
-                                    {% if form.login.errors %}
-                                        <div class="text-danger">{{ form.login.errors }}</div>
-                                    {% endif %}
+                                    <label for="id_username">Username or Email:</label>
+                                    <input type="text" name="username" id="id_username" class="form-control" required>
                                 </div>
                                 
                                 <div class="default-form-box">
-                                    <label for="{{ form.password.id_for_label }}">{{ form.password.label }}</label>
-                                    {{ form.password }}
-                                    {% if form.password.errors %}
-                                        <div class="text-danger">{{ form.password.errors }}</div>
-                                    {% endif %}
+                                    <label for="id_password">Password:</label>
+                                    <input type="password" name="password" id="id_password" class="form-control" required>
                                 </div>
                                 
                                 <div class="login_submit">
                                     <button class="uren-btn uren-btn_dark uren-btn_fullwidth" type="submit">
                                         {% trans "Sign In" %}
                                     </button>
-                                    <div class="remember_account">
-                                        <div class="form-check">
-                                            {{ form.remember }}
-                                            <label class="form-check-label" for="{{ form.remember.id_for_label }}">
-                                                {{ form.remember.label }}
-                                            </label>
-                                        </div>
-                                    </div>
                                 </div>
                                 
                                 <div class="account_social-desc">
-                                    <p>{% trans "Don't have an account?" %} <a href="{% url 'customer:register' %}">{% trans "Create one here" %}</a></p>
-                                    <!-- Password reset functionality not available in current configuration -->
+                                    <p>{% trans "Don't have an account?" %} <a href="/admin/">{% trans "Access Admin Panel" %}</a></p>
+                                    <p><a href="/">{% trans "Back to Home" %}</a></p>
                                 </div>
                                 
-                                {% if redirect_field_value %}
-                                    <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}">
+                                {% if next %}
+                                    <input type="hidden" name="next" value="{{ next }}">
                                 {% endif %}
                             </form>
                         </div>

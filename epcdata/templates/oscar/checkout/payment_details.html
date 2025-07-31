@@ -1,6 +1,7 @@
 {% extends "oscar/checkout/layout.html" %}
 {% load i18n %}
 {% load widget_tweaks %}
+{% load static %}
 
 {% block checkout_nav %}
     {% include 'oscar/checkout/nav.html' with step=2 %}
@@ -13,7 +14,7 @@
     {% if payment_forms %}
         {% for form in payment_forms %}
             <div class="payment-form">
-                <form action="{% url 'checkout:payment-details' %}" method="post" class="checkout-form">
+                <form action="{% url 'checkout:payment-details' %}" method="post" class="checkout-form" id="checkout-form">
                     {% csrf_token %}
                     
                     {% if form.non_field_errors %}
@@ -47,6 +48,9 @@
         <div class="payment-icons">
             <img src="{% static 'motortemplate/uren/assets/images/payment/1.png' %}" alt="Payment Methods" class="img-fluid">
         </div>
+        <p class="payment-security">
+            <i class="fa fa-lock"></i> {% trans "Your payment is secured by Worldpay's industry-leading security" %}
+        </p>
     </div>
 </div>
 {% endblock %}
@@ -60,6 +64,27 @@
 {% block extrajs %}
 {{ block.super }}
 <script>
-    // Add any payment form validation or processing here
+    // Ensure jQuery is loaded before running any scripts
+    if (typeof jQuery !== 'undefined') {
+        $(document).ready(function() {
+            console.log('Payment details page loaded with jQuery version:', $.fn.jquery);
+            
+            // Form submission handling
+            $('#checkout-form').on('submit', function(e) {
+                console.log('Payment form submitted');
+            });
+        });
+    } else {
+        console.error('jQuery is not available on payment details page');
+        // Fallback for basic functionality without jQuery
+        document.addEventListener('DOMContentLoaded', function() {
+            var form = document.getElementById('checkout-form');
+            if (form) {
+                form.addEventListener('submit', function(e) {
+                    console.log('Payment form submitted (vanilla JS)');
+                });
+            }
+        });
+    }
 </script>
 {% endblock %}

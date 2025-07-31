@@ -1,0 +1,68 @@
+{% extends "oscar/storefront_base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}
+    {% trans "Checkout" %} | {{ block.super }}
+{% endblock %}
+
+{% block body_class %}{{ block.super }} checkout{% endblock %}
+
+{% block content %}
+    <!-- Breadcrumb Area Start -->
+    <div class="breadcrumb-area pt-35 pb-35 bg-gray" style="background-color: #f8f8f8;">
+        <div class="container">
+            <div class="breadcrumb-content text-center">
+                <ul>
+                    <li>
+                        <a href="{% url 'catalogue:index' %}">{% trans "Home" %}</a>
+                    </li>
+                    <li class="active">{% trans "Checkout" %}</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- Breadcrumb Area End -->
+
+    <!-- Checkout Area Start -->
+    <div class="checkout-area pt-60 pb-30">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    {% block checkout_nav %}{% endblock %}
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-8 col-md-12">
+                    {% block checkout_form %}{% endblock %}
+                </div>
+                <div class="col-lg-4 col-md-12">
+                    {% block checkout_sidebar %}
+                        <div class="checkout-sidebar">
+                            <h4>{% trans "Order Summary" %}</h4>
+                            <!-- Order summary content will go here -->
+                        </div>
+                    {% endblock %}
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-12">
+                    {% block checkout_actions %}{% endblock %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Checkout Area End -->
+{% endblock %}
+
+{% block scripts %}
+    {{ block.super }}
+    <script>
+        // Ensure jQuery is available for checkout functionality
+        if (typeof jQuery === 'undefined') {
+            console.error('jQuery is not loaded. Checkout functionality may not work properly.');
+        }
+    </script>
+{% endblock %}

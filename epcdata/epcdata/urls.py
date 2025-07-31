@@ -7,6 +7,7 @@ from django.http import HttpResponse
 from django.template.response import TemplateResponse
 from svg_views import svg_diagram_view
 from django.apps import apps
+from customer_views import customer_login_view
 
 def product_detail(request, pk, product_slug=None):
     """Simple product detail view"""
@@ -134,8 +135,14 @@ urlpatterns = [
     path('i18n/', include('django.conf.urls.i18n')),
     path('api/', include('motorpartsdata.urls')),  # Your API endpoints under /api/
     
+    # Payment URLs
+    path('payment/', include('payment.urls')),
+    
     # SVG diagram endpoint
     path('svg-diagram/<str:upc>/', svg_diagram_view, name='svg_diagram'),
+    
+    # Custom login override (must come before Oscar URLs)
+    path('accounts/login/', customer_login_view, name='account_login'),
     
     # Oscar URLs with proper app configuration for 3.2
     path('dashboard/', include((apps.get_app_config('dashboard').urls[0], apps.get_app_config('dashboard').name), namespace=apps.get_app_config('dashboard').namespace)),

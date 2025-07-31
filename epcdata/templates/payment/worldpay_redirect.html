@@ -1,0 +1,85 @@
+{% extends "oscar/base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}
+    {% trans "Redirecting to payment..." %} | {{ block.super }}
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="card">
+                <div class="card-header">
+                    <h3>{% trans "Secure Payment" %}</h3>
+                </div>
+                <div class="card-body">
+                    <p class="lead">{% trans "You will be redirected to Worldpay's secure payment page to complete your payment." %}</p>
+                    
+                    <div class="payment-summary mb-4">
+                        <h4>{% trans "Order Total" %}: {{ order_total.incl_tax|currency }}</h4>
+                    </div>
+                    
+                    <div class="payment-security mb-4">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <img src="{% static 'motortemplate/uren/assets/images/payment/1.png' %}" alt="Payment Methods" class="img-fluid">
+                            </div>
+                            <div class="col-md-6">
+                                <p><i class="fa fa-lock"></i> {% trans "Your payment is secured by Worldpay's industry-leading security." %}</p>
+                                <p><i class="fa fa-shield"></i> {% trans "Your card details are never stored on our servers." %}</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <form method="post" action="{{ worldpay_url }}" id="worldpay-form">
+                        {% for field in form %}
+                            {{ field }}
+                        {% endfor %}
+                        
+                        <div class="payment-actions">
+                            <button type="submit" class="btn btn-primary btn-lg uren-btn uren-btn_dark">
+                                <i class="fa fa-credit-card"></i> {% trans "Proceed to Payment" %}
+                            </button>
+                            <a href="{% url 'checkout:payment-details' %}" class="btn btn-secondary ml-2">
+                                {% trans "Cancel" %}
+                            </a>
+                        </div>
+                    </form>
+                    
+                    <div class="auto-redirect mt-4">
+                        <p class="text-muted small">
+                            {% trans "You will be automatically redirected in" %} <span id="countdown">10</span> {% trans "seconds" %}...
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extrajs %}
+<script>
+    // Auto-submit form after 10 seconds
+    let countdown = 10;
+    const countdownElement = document.getElementById('countdown');
+    const form = document.getElementById('worldpay-form');
+    
+    const timer = setInterval(function() {
+        countdown--;
+        countdownElement.textContent = countdown;
+        
+        if (countdown <= 0) {
+            clearInterval(timer);
+            form.submit();
+        }
+    }, 1000);
+    
+    // Allow manual form submission
+    form.addEventListener('submit', function() {
+        clearInterval(timer);
+    });
+</script>
+{% endblock %}

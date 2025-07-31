@@ -36,12 +36,28 @@ ALLOWED_HOSTS = ['localhost', '127.0.0.1', '[::1]', 'testserver']
 # Application definition
 import oscar
 
+# Define custom apps that should replace Oscar's defaults
+CUSTOM_OSCAR_APPS = [
+    'checkout',  # Our custom checkout app
+]
+
+# Get Oscar's apps and replace checkout with our custom one
+OSCAR_APPS = []
+for app in oscar.INSTALLED_APPS:
+    if 'checkout' in app and 'checkout' not in OSCAR_APPS:
+        # Skip Oscar's checkout app, we'll use our custom one
+        continue
+    OSCAR_APPS.append(app)
+
 INSTALLED_APPS = [
-    # Your apps  
+    # Your apps first (so they can override Oscar apps)
     'motorpartsdata',
+    'payment',  # Custom payment app for Worldpay
+    'checkout',  # Custom checkout app (must be before Oscar apps)
     'rest_framework',
     'sorl.thumbnail',  # Required for Oscar image thumbnails
-] + oscar.INSTALLED_APPS
+    'django_countries',  # For country selection in shipping
+] + OSCAR_APPS
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -157,6 +173,9 @@ OSCAR_DEFAULT_CURRENCY = 'GBP'
 OSCAR_SHOP_NAME = 'EPC Motor Parts Store'
 OSCAR_SHOP_TAGLINE = 'Your trusted motor parts supplier'
 
+# Disable email confirmation for user registration in development
+OSCAR_SEND_REGISTRATION_EMAIL = False
+
 # Configure Oscar URLs for "View on site" functio
 # nality
 OSCAR_HOMEPAGE = '/'
@@ -193,3 +212,34 @@ LOGGING = {
         },
     },
 }
+
+# Authentication settings
+LOGIN_URL = '/accounts/login/'
+LOGIN_REDIRECT_URL = '/accounts/'
+LOGOUT_REDIRECT_URL = '/'
+
+# Authentication backends
+AUTHENTICATION_BACKENDS = [
+    'oscar.apps.customer.auth_backends.EmailBackend',
+    'django.contrib.auth.backends.ModelBackend',
+]
+
+# Email configuration for development
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+# Alternatively, to disable emails completely in development:
+# EMAIL_BACKEND = 'django.core.mail.backends.dummy.EmailBackend'
+
+# Django Countries Configuration
+COUNTRIES_FIRST = ['GB', 'US', 'IE', 'FR', 'DE']  # Prioritize common shipping countries
+COUNTRIES_FIRST_REPEAT = True  # Show priority countries at top and in alphabetical order
+COUNTRIES_FIRST_BREAK = '────────────'  # Visual separator in dropdown
+
+# Worldpay Configuration
+# You need to get these values from your Worldpay dashboard
+WORLDPAY_INSTALLATION_ID = os.getenv('WORLDPAY_INSTALLATION_ID', 'YOUR_INSTALLATION_ID')
+WORLDPAY_SECRET_KEY = os.getenv('WORLDPAY_SECRET_KEY', 'YOUR_SECRET_KEY')  # Optional but recommended
+WORLDPAY_TEST_MODE = os.getenv('WORLDPAY_TEST_MODE', 'True').lower() == 'true'  # Set to False for production
+
+# Worldpay Callback Password (set this in your Worldpay dashboard)
+WORLDPAY_CALLBACK_PASSWORD = os.getenv('WORLDPAY_CALLBACK_PASSWORD', 'YOUR_CALLBACK_PASSWORD')
