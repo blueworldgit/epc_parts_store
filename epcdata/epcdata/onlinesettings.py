@@ -79,6 +79,15 @@ MIDDLEWARE = [
     'oscar.apps.basket.middleware.BasketMiddleware',
 ]
 
+# Debugging: Enable debug for static files in production temporarily
+if DEBUG:
+    WHITENOISE_AUTOREFRESH = True
+    WHITENOISE_USE_FINDERS = True
+    # Add debug info for static files
+    import logging
+    logging.getLogger('whitenoise').setLevel(logging.DEBUG)
+    logging.getLogger('django.contrib.staticfiles').setLevel(logging.DEBUG)
+
 ROOT_URLCONF = 'epcdata.urls'
 
 TEMPLATES = [
@@ -205,7 +214,8 @@ OSCAR_SHOP_TAGLINE = 'Your trusted motor parts supplier'
 # Disable email confirmation for user registration in development
 OSCAR_SEND_REGISTRATION_EMAIL = False
 
-# Configure Oscar URLs for "View on site" functionality
+# Configure Oscar URLs for "View on site" functio
+# nality
 OSCAR_HOMEPAGE = '/'
 
 # Haystack (for Oscar search)
@@ -269,7 +279,7 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 # Django Countries Configuration
 COUNTRIES_FIRST = ['GB', 'US', 'IE', 'FR', 'DE']  # Prioritize common shipping countries
 COUNTRIES_FIRST_REPEAT = True  # Show priority countries at top and in alphabetical order
-COUNTRIES_FIRST_BREAK = '────────────'  # Visual separator in dropdown
+COUNTRIES_FIRST_BREAK = 'â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€'  # Visual separator in dropdown
 
 # Worldpay Configuration
 # You need to get these values from your Worldpay dashboard
@@ -279,3 +289,4 @@ WORLDPAY_TEST_MODE = os.getenv('WORLDPAY_TEST_MODE', 'True').lower() == 'true'  
 
 # Worldpay Callback Password (set this in your Worldpay dashboard)
 WORLDPAY_CALLBACK_PASSWORD = os.getenv('WORLDPAY_CALLBACK_PASSWORD', 'YOUR_CALLBACK_PASSWORD')
+
