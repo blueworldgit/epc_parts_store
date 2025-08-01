@@ -1,0 +1,260 @@
+{% extends 'oscar/storefront_base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}
+    {% trans "My Profile" %} - {{ block.super }}
+{% endblock %}
+
+{% block page_title %}{% trans "My Profile" %}{% endblock %}
+
+{% block breadcrumb_items %}
+    <li><a href="{% url 'customer:summary' %}">{% trans "Account" %}</a></li>
+    <li class="active">{% trans "Profile" %}</li>
+{% endblock %}
+
+{% block content %}
+<div class="account-page-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-4">
+                <div class="myaccount-tab-menu nav" role="tablist">
+                    <a href="{% url 'customer:summary' %}" class="{% if request.resolver_match.url_name == 'summary' %}active{% endif %}">
+                        <i class="fa fa-dashboard"></i> {% trans "Dashboard" %}
+                    </a>
+                    <a href="{% url 'customer:order-list' %}" class="{% if 'order' in request.resolver_match.url_name %}active{% endif %}">
+                        <i class="fa fa-shopping-cart"></i> {% trans "Orders" %}
+                    </a>
+                    <a href="{% url 'customer:profile-view' %}" class="{% if 'profile' in request.resolver_match.url_name %}active{% endif %}">
+                        <i class="fa fa-user"></i> {% trans "Account Details" %}
+                    </a>
+                    <a href="{% url 'customer:address-list' %}" class="{% if 'address' in request.resolver_match.url_name %}active{% endif %}">
+                        <i class="fa fa-map-marker"></i> {% trans "Addresses" %}
+                    </a>
+                    <a href="{% url 'customer:wishlists-list' %}" class="{% if 'wishlist' in request.resolver_match.url_name %}active{% endif %}">
+                        <i class="fa fa-heart"></i> {% trans "Wishlist" %}
+                    </a>
+                    <a href="{% url 'customer:logout' %}">
+                        <i class="fa fa-sign-out"></i> {% trans "Logout" %}
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-9 col-md-8">
+                <div class="tab-content" id="myaccountContent">
+                    <div class="tab-pane active" id="account-info">
+                        <div class="myaccount-content">
+                            <h3>{% trans "Account Details" %}</h3>
+                            <div class="account-details-form">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="single-input-item">
+                                            <label>{% trans "Email Address" %}</label>
+                                            <p class="form-control-static">{{ user.email }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                {% block profile_fields %}
+                                    {% for field in profile_fields %}
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <div class="single-input-item">
+                                                    <label>{{ field.name }}</label>
+                                                    <p class="form-control-static">{{ field.value|default:"-" }}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+                                {% endblock %}
+                                
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="single-input-item">
+                                            <label>{% trans "Date Registered" %}</label>
+                                            <p class="form-control-static">{{ user.date_joined|date:"F j, Y" }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="single-input-item">
+                                    <div class="btn-group" role="group">
+                                        <a href="{% url 'customer:profile-update' %}" class="uren-btn uren-btn_dark">
+                                            <i class="fa fa-edit"></i> {% trans "Edit Profile" %}
+                                        </a>
+                                        <a href="{% url 'customer:change-password' %}" class="uren-btn uren-btn_dark">
+                                            <i class="fa fa-lock"></i> {% trans "Change Password" %}
+                                        </a>
+                                        <a id="delete_profile" href="{% url 'customer:profile-delete' %}" class="uren-btn uren-btn_danger" onclick="return confirm('Are you sure you want to delete your profile? This action cannot be undone.');">
+                                            <i class="fa fa-trash"></i> {% trans "Delete Profile" %}
+                                        </a>
+                                    </div>
+                                </div>
+                                
+                                <div class="account-info-wrapper">
+                                    <h4>{% trans "Account Information" %}</h4>
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="entries-wrapper">
+                                                <div class="entries-info">
+                                                    <div class="single-entry">
+                                                        <div class="entry-label">{% trans "Username:" %}</div>
+                                                        <div class="entry-value">{{ user.email }}</div>
+                                                    </div>
+                                                    <div class="single-entry">
+                                                        <div class="entry-label">{% trans "First Name:" %}</div>
+                                                        <div class="entry-value">{{ user.first_name|default:"-" }}</div>
+                                                    </div>
+                                                    <div class="single-entry">
+                                                        <div class="entry-label">{% trans "Last Name:" %}</div>
+                                                        <div class="entry-value">{{ user.last_name|default:"-" }}</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="entries-wrapper">
+                                                <div class="entries-info">
+                                                    <div class="single-entry">
+                                                        <div class="entry-label">{% trans "Last Login:" %}</div>
+                                                        <div class="entry-value">{{ user.last_login|date:"F j, Y g:i A"|default:"-" }}</div>
+                                                    </div>
+                                                    <div class="single-entry">
+                                                        <div class="entry-label">{% trans "Account Status:" %}</div>
+                                                        <div class="entry-value">
+                                                            {% if user.is_active %}
+                                                                <span class="text-success">{% trans "Active" %}</span>
+                                                            {% else %}
+                                                                <span class="text-danger">{% trans "Inactive" %}</span>
+                                                            {% endif %}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.myaccount-tab-menu {
+    border: 1px solid #e5e5e5;
+    background: #f8f8f8;
+}
+
+.myaccount-tab-menu a {
+    display: block;
+    padding: 15px 20px;
+    color: #333;
+    text-decoration: none;
+    border-bottom: 1px solid #e5e5e5;
+    transition: all 0.3s ease;
+}
+
+.myaccount-tab-menu a:hover,
+.myaccount-tab-menu a.active {
+    background: #007bff;
+    color: white;
+}
+
+.myaccount-tab-menu a i {
+    margin-right: 10px;
+    width: 16px;
+}
+
+.myaccount-content h3 {
+    margin-bottom: 30px;
+    color: #333;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 10px;
+}
+
+.single-input-item {
+    margin-bottom: 20px;
+}
+
+.single-input-item label {
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.form-control-static {
+    padding: 10px 15px;
+    background: #f8f8f8;
+    border: 1px solid #e5e5e5;
+    border-radius: 4px;
+    margin: 0;
+}
+
+.btn-group {
+    gap: 10px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.uren-btn_danger {
+    background-color: #dc3545;
+    border-color: #dc3545;
+    color: white;
+}
+
+.uren-btn_danger:hover {
+    background-color: #c82333;
+    border-color: #bd2130;
+}
+
+.account-info-wrapper {
+    margin-top: 40px;
+    padding: 20px;
+    background: #f8f8f8;
+    border-radius: 6px;
+}
+
+.account-info-wrapper h4 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.entries-info {
+    background: white;
+    border-radius: 4px;
+    padding: 20px;
+}
+
+.single-entry {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.single-entry:last-child {
+    border-bottom: none;
+}
+
+.entry-label {
+    font-weight: 600;
+    color: #666;
+}
+
+.entry-value {
+    color: #333;
+}
+
+.text-success {
+    color: #28a745 !important;
+}
+
+.text-danger {
+    color: #dc3545 !important;
+}
+</style>
+{% endblock %}

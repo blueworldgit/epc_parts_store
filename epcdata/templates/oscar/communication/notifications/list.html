@@ -1,0 +1,462 @@
+{% extends 'oscar/storefront_base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}
+    {% if list_type == 'inbox' %}{% trans "Notifications Inbox" %}{% else %}{% trans "Notifications Archive" %}{% endif %} - {{ block.super }}
+{% endblock %}
+
+{% block page_title %}
+    {% if list_type == 'inbox' %}{% trans "Notifications Inbox" %}{% else %}{% trans "Notifications Archive" %}{% endif %}
+{% endblock %}
+
+{% block breadcrumb_items %}
+    <li><a href="{% url 'customer:summary' %}">{% trans "Account" %}</a></li>
+    <li class="active">
+        {% if list_type == 'inbox' %}{% trans "Notifications Inbox" %}{% else %}{% trans "Notifications Archive" %}{% endif %}
+    </li>
+{% endblock %}
+
+{% block content %}
+<div class="account-page-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-4">
+                <div class="myaccount-tab-menu nav" role="tablist">
+                    <a href="{% url 'customer:summary' %}" class="{% if request.resolver_match.url_name == 'summary' %}active{% endif %}">
+                        <i class="fa fa-dashboard"></i> {% trans "Dashboard" %}
+                    </a>
+                    <a href="{% url 'customer:order-list' %}" class="{% if 'order' in request.resolver_match.url_name %}active{% endif %}">
+                        <i class="fa fa-shopping-cart"></i> {% trans "Orders" %}
+                    </a>
+                    <a href="{% url 'customer:profile-view' %}" class="{% if 'profile' in request.resolver_match.url_name %}active{% endif %}">
+                        <i class="fa fa-user"></i> {% trans "Account Details" %}
+                    </a>
+                    <a href="{% url 'customer:address-list' %}" class="{% if 'address' in request.resolver_match.url_name %}active{% endif %}">
+                        <i class="fa fa-map-marker"></i> {% trans "Addresses" %}
+                    </a>
+                    <a href="{% url 'customer:notifications-inbox' %}" class="{% if 'notification' in request.resolver_match.url_name %}active{% endif %}">
+                        <i class="fa fa-bell"></i> {% trans "Notifications" %}
+                    </a>
+                    <a href="{% url 'customer:wishlists-list' %}" class="{% if 'wishlist' in request.resolver_match.url_name %}active{% endif %}">
+                        <i class="fa fa-heart"></i> {% trans "Wishlist" %}
+                    </a>
+                    <a href="{% url 'customer:logout' %}">
+                        <i class="fa fa-sign-out"></i> {% trans "Logout" %}
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-9 col-md-8">
+                <div class="tab-content" id="myaccountContent">
+                    <div class="tab-pane active" id="notifications">
+                        <div class="myaccount-content">
+                            <h3>{% trans "Notifications" %}</h3>
+                            
+                            <div class="notification-tabs">
+                                <ul class="nav nav-tabs">
+                                    <li class="nav-item">
+                                        <a href="{% url 'customer:notifications-inbox' %}" class="nav-link{% if list_type == 'inbox' %} active{% endif %}">
+                                            <i class="fa fa-inbox"></i> {% trans 'Inbox' %}
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="{% url 'customer:notifications-archive' %}" class="nav-link{% if list_type == 'archive' %} active{% endif %}">
+                                            <i class="fa fa-archive"></i> {% trans 'Archive' context 'noun' %}
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            {% if notifications %}
+                                {% if notifications.has_other_pages %}
+                                    <nav aria-label="Notifications pagination" class="top-pagination">
+                                        <ul class="pagination">
+                                            {% if notifications.has_previous %}
+                                                <li class="page-item">
+                                                    <a class="page-link" href="?page={{ notifications.previous_page_number }}">{% trans "Previous" %}</a>
+                                                </li>
+                                            {% endif %}
+                                            
+                                            {% for num in notifications.paginator.page_range %}
+                                                {% if notifications.number == num %}
+                                                    <li class="page-item active">
+                                                        <span class="page-link">{{ num }}</span>
+                                                    </li>
+                                                {% else %}
+                                                    <li class="page-item">
+                                                        <a class="page-link" href="?page={{ num }}">{{ num }}</a>
+                                                    </li>
+                                                {% endif %}
+                                            {% endfor %}
+                                            
+                                            {% if notifications.has_next %}
+                                                <li class="page-item">
+                                                    <a class="page-link" href="?page={{ notifications.next_page_number }}">{% trans "Next" %}</a>
+                                                </li>
+                                            {% endif %}
+                                        </ul>
+                                    </nav>
+                                {% endif %}
+
+                                <div class="notifications-list">
+                                    <form action="{% url 'customer:notifications-update' %}" method="post" id="notifications-form">
+                                        {% csrf_token %}
+                                        
+                                        <div class="bulk-actions">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <label class="select-all-label">
+                                                        <input type="checkbox" id="select-all"> {% trans "Select All" %}
+                                                    </label>
+                                                </div>
+                                                <div class="col-md-6 text-right">
+                                                    {% if list_type == 'inbox' %}
+                                                        <button type="submit" name="action" value="archive" class="uren-btn uren-btn_small uren-btn_secondary">
+                                                            <i class="fa fa-archive"></i> {% trans "Archive Selected" %}
+                                                        </button>
+                                                    {% endif %}
+                                                    <button type="submit" name="action" value="delete" class="uren-btn uren-btn_small uren-btn_danger" 
+                                                            onclick="return confirm('Are you sure you want to delete the selected notifications?');">
+                                                        <i class="fa fa-trash"></i> {% trans "Delete Selected" %}
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="notifications-grid">
+                                            {% for notification in notifications %}
+                                                <div class="notification-card {% if not notification.is_read %}unread{% endif %}">
+                                                    <div class="notification-header">
+                                                        <div class="notification-select">
+                                                            <input type="checkbox" name="selected_notification" value="{{ notification.id }}"/>
+                                                        </div>
+                                                        <div class="notification-icon">
+                                                            {% if notification.is_read %}
+                                                                <i class="fa fa-envelope-open"></i>
+                                                            {% else %}
+                                                                <i class="fa fa-envelope"></i>
+                                                            {% endif %}
+                                                        </div>
+                                                        <div class="notification-date">
+                                                            {{ notification.date_sent|date:"M j, Y" }}
+                                                        </div>
+                                                    </div>
+                                                    
+                                                    <div class="notification-content">
+                                                        <h5 class="notification-subject">
+                                                            {% if notification.is_read %}
+                                                                {{ notification.subject|safe }}
+                                                            {% else %}
+                                                                <strong>{{ notification.subject|safe }}</strong>
+                                                            {% endif %}
+                                                        </h5>
+                                                    </div>
+                                                    
+                                                    <div class="notification-actions">
+                                                        <a href="{% url 'customer:notifications-detail' pk=notification.pk %}" class="uren-btn uren-btn_small">
+                                                            <i class="fa fa-eye"></i> {% trans 'View' %}
+                                                        </a>
+                                                        {% if list_type == 'inbox' %}
+                                                            <a class="uren-btn uren-btn_small uren-btn_secondary" href="#" data-behaviours="archive">
+                                                                <i class="fa fa-archive"></i> {% trans 'Archive' context 'verb' %}
+                                                            </a>
+                                                        {% endif %}
+                                                        <a class="uren-btn uren-btn_small uren-btn_danger" href="#" data-behaviours="delete">
+                                                            <i class="fa fa-trash"></i> {% trans 'Delete' %}
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            {% endfor %}
+                                        </div>
+                                    </form>
+                                </div>
+
+                                {% if notifications.has_other_pages %}
+                                    <nav aria-label="Notifications pagination" class="bottom-pagination">
+                                        <ul class="pagination">
+                                            {% if notifications.has_previous %}
+                                                <li class="page-item">
+                                                    <a class="page-link" href="?page={{ notifications.previous_page_number }}">{% trans "Previous" %}</a>
+                                                </li>
+                                            {% endif %}
+                                            
+                                            {% for num in notifications.paginator.page_range %}
+                                                {% if notifications.number == num %}
+                                                    <li class="page-item active">
+                                                        <span class="page-link">{{ num }}</span>
+                                                    </li>
+                                                {% else %}
+                                                    <li class="page-item">
+                                                        <a class="page-link" href="?page={{ num }}">{{ num }}</a>
+                                                    </li>
+                                                {% endif %}
+                                            {% endfor %}
+                                            
+                                            {% if notifications.has_next %}
+                                                <li class="page-item">
+                                                    <a class="page-link" href="?page={{ notifications.next_page_number }}">{% trans "Next" %}</a>
+                                                </li>
+                                            {% endif %}
+                                        </ul>
+                                    </nav>
+                                {% endif %}
+                            {% else %}
+                                <div class="no-notifications">
+                                    <div class="empty-state">
+                                        <i class="fa fa-bell fa-3x text-muted"></i>
+                                        <h4>
+                                            {% if list_type == 'inbox' %}
+                                                {% trans "Your inbox is empty" %}
+                                            {% else %}
+                                                {% trans "Your archive is empty" %}
+                                            {% endif %}
+                                        </h4>
+                                        <p>
+                                            {% if list_type == 'inbox' %}
+                                                {% trans "You don't have any new notifications." %}
+                                            {% else %}
+                                                {% trans "You don't have any archived notifications." %}
+                                            {% endif %}
+                                        </p>
+                                    </div>
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.myaccount-tab-menu {
+    border: 1px solid #e5e5e5;
+    background: #f8f8f8;
+}
+
+.myaccount-tab-menu a {
+    display: block;
+    padding: 15px 20px;
+    color: #333;
+    text-decoration: none;
+    border-bottom: 1px solid #e5e5e5;
+    transition: all 0.3s ease;
+}
+
+.myaccount-tab-menu a:hover,
+.myaccount-tab-menu a.active {
+    background: #007bff;
+    color: white;
+}
+
+.myaccount-tab-menu a i {
+    margin-right: 10px;
+    width: 16px;
+}
+
+.myaccount-content h3 {
+    margin-bottom: 30px;
+    color: #333;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 10px;
+}
+
+.notification-tabs {
+    margin-bottom: 30px;
+}
+
+.notification-tabs .nav-tabs {
+    border-bottom: 2px solid #e5e5e5;
+}
+
+.notification-tabs .nav-link {
+    padding: 12px 24px;
+    border: none;
+    border-bottom: 2px solid transparent;
+    color: #666;
+}
+
+.notification-tabs .nav-link.active {
+    background: transparent;
+    border-bottom-color: #007bff;
+    color: #007bff;
+}
+
+.notification-tabs .nav-link i {
+    margin-right: 8px;
+}
+
+.bulk-actions {
+    background: #f8f8f8;
+    padding: 15px 20px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+}
+
+.select-all-label {
+    margin: 0;
+    font-weight: 600;
+}
+
+.select-all-label input {
+    margin-right: 8px;
+}
+
+.notifications-grid {
+    display: grid;
+    gap: 15px;
+}
+
+.notification-card {
+    background: white;
+    border: 1px solid #e5e5e5;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.notification-card.unread {
+    border-left: 4px solid #007bff;
+    background: #f8f9ff;
+}
+
+.notification-card:hover {
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.notification-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.notification-select {
+    margin-right: 15px;
+}
+
+.notification-icon {
+    margin-right: 15px;
+    color: #666;
+}
+
+.notification-card.unread .notification-icon {
+    color: #007bff;
+}
+
+.notification-date {
+    margin-left: auto;
+    color: #666;
+    font-size: 14px;
+}
+
+.notification-content {
+    margin-bottom: 15px;
+}
+
+.notification-subject {
+    margin: 0;
+    color: #333;
+    font-size: 16px;
+    line-height: 1.4;
+}
+
+.notification-actions {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.uren-btn_small {
+    padding: 6px 12px;
+    font-size: 12px;
+}
+
+.uren-btn_secondary {
+    background-color: #6c757d;
+    border-color: #6c757d;
+    color: white;
+}
+
+.uren-btn_secondary:hover {
+    background-color: #5a6268;
+    border-color: #545b62;
+}
+
+.uren-btn_danger {
+    background-color: #dc3545;
+    border-color: #dc3545;
+    color: white;
+}
+
+.uren-btn_danger:hover {
+    background-color: #c82333;
+    border-color: #bd2130;
+}
+
+.no-notifications .empty-state {
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.no-notifications .empty-state i {
+    margin-bottom: 20px;
+}
+
+.no-notifications .empty-state h4 {
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.no-notifications .empty-state p {
+    margin-bottom: 30px;
+    color: #666;
+}
+
+.pagination {
+    justify-content: center;
+}
+
+.top-pagination,
+.bottom-pagination {
+    margin: 20px 0;
+}
+
+@media (max-width: 768px) {
+    .notification-header {
+        flex-wrap: wrap;
+    }
+    
+    .notification-date {
+        margin-left: 0;
+        margin-top: 10px;
+        flex-basis: 100%;
+    }
+    
+    .bulk-actions .row {
+        flex-direction: column;
+    }
+    
+    .bulk-actions .text-right {
+        text-align: left !important;
+        margin-top: 15px;
+    }
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const selectAllCheckbox = document.getElementById('select-all');
+    const notificationCheckboxes = document.querySelectorAll('input[name="selected_notification"]');
+    
+    if (selectAllCheckbox) {
+        selectAllCheckbox.addEventListener('change', function() {
+            notificationCheckboxes.forEach(checkbox => {
+                checkbox.checked = this.checked;
+            });
+        });
+    }
+});
+</script>
+{% endblock %}

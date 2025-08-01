@@ -1,0 +1,306 @@
+{% extends 'oscar/storefront_base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}
+    {% trans "Product Alerts" %} - {{ block.super }}
+{% endblock %}
+
+{% block page_title %}{% trans "Product Alerts" %}{% endblock %}
+
+{% block breadcrumb_items %}
+    <li><a href="{% url 'customer:summary' %}">{% trans "Account" %}</a></li>
+    <li class="active">{% trans "Product Alerts" %}</li>
+{% endblock %}
+
+{% block content %}
+<div class="account-page-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-4">
+                <div class="myaccount-tab-menu nav" role="tablist">
+                    <a href="{% url 'customer:summary' %}" class="{% if request.resolver_match.url_name == 'summary' %}active{% endif %}">
+                        <i class="fa fa-dashboard"></i> {% trans "Dashboard" %}
+                    </a>
+                    <a href="{% url 'customer:order-list' %}" class="{% if 'order' in request.resolver_match.url_name %}active{% endif %}">
+                        <i class="fa fa-shopping-cart"></i> {% trans "Orders" %}
+                    </a>
+                    <a href="{% url 'customer:profile-view' %}" class="{% if 'profile' in request.resolver_match.url_name %}active{% endif %}">
+                        <i class="fa fa-user"></i> {% trans "Account Details" %}
+                    </a>
+                    <a href="{% url 'customer:address-list' %}" class="{% if 'address' in request.resolver_match.url_name %}active{% endif %}">
+                        <i class="fa fa-map-marker"></i> {% trans "Addresses" %}
+                    </a>
+                    <a href="{% url 'customer:alerts-list' %}" class="{% if 'alert' in request.resolver_match.url_name %}active{% endif %}">
+                        <i class="fa fa-bell"></i> {% trans "Alerts" %}
+                    </a>
+                    <a href="{% url 'customer:wishlists-list' %}" class="{% if 'wishlist' in request.resolver_match.url_name %}active{% endif %}">
+                        <i class="fa fa-heart"></i> {% trans "Wishlist" %}
+                    </a>
+                    <a href="{% url 'customer:logout' %}">
+                        <i class="fa fa-sign-out"></i> {% trans "Logout" %}
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-9 col-md-8">
+                <div class="tab-content" id="myaccountContent">
+                    <div class="tab-pane active" id="alerts">
+                        <div class="myaccount-content">
+                            <h3>{% trans "Product Alerts" %}</h3>
+                            
+                            <div class="alert-info">
+                                <p><i class="fa fa-info-circle"></i> {% trans "Get notified when out-of-stock products become available again." %}</p>
+                            </div>
+                            
+                            {% if alerts %}
+                                <div class="alerts-list">
+                                    <form method="post" id="alerts_form">
+                                        {% csrf_token %}
+                                        <div class="table-responsive">
+                                            <table class="table table-striped">
+                                                <thead>
+                                                    <tr>
+                                                        <th>{% trans "Product" %}</th>
+                                                        <th>{% trans "Status" %}</th>
+                                                        <th>{% trans "Date Created" %}</th>
+                                                        <th>{% trans "Actions" %}</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    {% for alert in alerts %}
+                                                        <tr>
+                                                            <td>
+                                                                {% with product=alert.product %}
+                                                                    <div class="product-info">
+                                                                        {% if product.is_public %}
+                                                                            <a href="{{ product.get_absolute_url }}" class="product-link">
+                                                                                <i class="fa fa-cube"></i> {{ product.get_title }}
+                                                                            </a>
+                                                                        {% else %}
+                                                                            <span class="product-name">
+                                                                                <i class="fa fa-cube"></i> {{ product.get_title }}
+                                                                            </span>
+                                                                        {% endif %}
+                                                                    </div>
+                                                                {% endwith %}
+                                                            </td>
+                                                            <td>
+                                                                <span class="alert-status status-{{ alert.status|lower }}">
+                                                                    {{ alert.status }}
+                                                                </span>
+                                                            </td>
+                                                            <td>{{ alert.date_created|date:"F j, Y" }}</td>
+                                                            <td>
+                                                                {% if alert.can_be_cancelled %}
+                                                                    <a href="{% url 'customer:alerts-cancel-by-pk' pk=alert.pk %}?next={% url 'customer:alerts-list' %}" 
+                                                                       class="uren-btn uren-btn_small uren-btn_danger"
+                                                                       onclick="return confirm('Are you sure you want to cancel this alert?');">
+                                                                        <i class="fa fa-times"></i> {% trans "Cancel" %}
+                                                                    </a>
+                                                                {% else %}
+                                                                    <span class="text-muted">{% trans "Cannot cancel" %}</span>
+                                                                {% endif %}
+                                                            </td>
+                                                        </tr>
+                                                    {% endfor %}
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        
+                                        {% if alerts.has_other_pages %}
+                                            <nav aria-label="Alerts pagination">
+                                                <ul class="pagination">
+                                                    {% if alerts.has_previous %}
+                                                        <li class="page-item">
+                                                            <a class="page-link" href="?page={{ alerts.previous_page_number }}">{% trans "Previous" %}</a>
+                                                        </li>
+                                                    {% endif %}
+                                                    
+                                                    {% for num in alerts.paginator.page_range %}
+                                                        {% if alerts.number == num %}
+                                                            <li class="page-item active">
+                                                                <span class="page-link">{{ num }}</span>
+                                                            </li>
+                                                        {% else %}
+                                                            <li class="page-item">
+                                                                <a class="page-link" href="?page={{ num }}">{{ num }}</a>
+                                                            </li>
+                                                        {% endif %}
+                                                    {% endfor %}
+                                                    
+                                                    {% if alerts.has_next %}
+                                                        <li class="page-item">
+                                                            <a class="page-link" href="?page={{ alerts.next_page_number }}">{% trans "Next" %}</a>
+                                                        </li>
+                                                    {% endif %}
+                                                </ul>
+                                            </nav>
+                                        {% endif %}
+                                    </form>
+                                </div>
+                            {% else %}
+                                <div class="no-alerts">
+                                    <div class="empty-state">
+                                        <i class="fa fa-bell fa-3x text-muted"></i>
+                                        <h4>{% trans "No active alerts" %}</h4>
+                                        <p>{% trans "You don't have any active alerts for out-of-stock products." %}</p>
+                                        <p>{% trans "Visit any product page and click 'Notify me when available' to set up an alert." %}</p>
+                                        <a href="/" class="uren-btn uren-btn_dark">
+                                            <i class="fa fa-search"></i> {% trans "Browse Products" %}
+                                        </a>
+                                    </div>
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.myaccount-tab-menu {
+    border: 1px solid #e5e5e5;
+    background: #f8f8f8;
+}
+
+.myaccount-tab-menu a {
+    display: block;
+    padding: 15px 20px;
+    color: #333;
+    text-decoration: none;
+    border-bottom: 1px solid #e5e5e5;
+    transition: all 0.3s ease;
+}
+
+.myaccount-tab-menu a:hover,
+.myaccount-tab-menu a.active {
+    background: #007bff;
+    color: white;
+}
+
+.myaccount-tab-menu a i {
+    margin-right: 10px;
+    width: 16px;
+}
+
+.myaccount-content h3 {
+    margin-bottom: 30px;
+    color: #333;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 10px;
+}
+
+.alert-info {
+    background: #e7f3ff;
+    border: 1px solid #b3d9ff;
+    border-radius: 6px;
+    padding: 15px;
+    margin-bottom: 30px;
+}
+
+.alert-info p {
+    margin: 0;
+    color: #004085;
+}
+
+.alert-info i {
+    margin-right: 8px;
+}
+
+.alerts-list .table {
+    background: white;
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.product-link {
+    color: #007bff;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.product-link:hover {
+    text-decoration: underline;
+}
+
+.product-name {
+    color: #333;
+    font-weight: 600;
+}
+
+.product-link i,
+.product-name i {
+    margin-right: 8px;
+}
+
+.alert-status {
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.status-active {
+    background: #28a745;
+    color: white;
+}
+
+.status-cancelled {
+    background: #dc3545;
+    color: white;
+}
+
+.status-sent {
+    background: #17a2b8;
+    color: white;
+}
+
+.uren-btn_small {
+    padding: 6px 12px;
+    font-size: 12px;
+}
+
+.uren-btn_danger {
+    background-color: #dc3545;
+    border-color: #dc3545;
+    color: white;
+}
+
+.uren-btn_danger:hover {
+    background-color: #c82333;
+    border-color: #bd2130;
+}
+
+.no-alerts .empty-state {
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.no-alerts .empty-state i {
+    margin-bottom: 20px;
+}
+
+.no-alerts .empty-state h4 {
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.no-alerts .empty-state p {
+    margin-bottom: 15px;
+    color: #666;
+}
+
+.no-alerts .empty-state p:last-of-type {
+    margin-bottom: 30px;
+}
+
+.pagination {
+    margin-top: 30px;
+    justify-content: center;
+}
+</style>
+{% endblock %}

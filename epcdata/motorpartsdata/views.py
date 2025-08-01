@@ -1,7 +1,26 @@
 from django.shortcuts import render, get_object_or_404
+from django.contrib.auth.views import redirect_to_login
+from django.http import HttpResponseForbidden
 from .models import SerialNumber, ParentTitle, ChildTitle, Part, PricingData
 
 def serial_lookup(request):
+    """Serial lookup view - SUPERUSER ONLY"""
+    # Check if user is authenticated and is a superuser
+    if not request.user.is_authenticated:
+        return redirect_to_login(request.get_full_path())
+    
+    if not request.user.is_superuser:
+        return HttpResponseForbidden("""
+        <html>
+        <head><title>Access Denied</title></head>
+        <body style="font-family: Arial, sans-serif; margin: 40px;">
+            <h1>Access Denied</h1>
+            <p>You must be a superuser to access the API endpoints.</p>
+            <p><a href="/">Return to Store</a></p>
+        </body>
+        </html>
+        """)
+    
     serial_value = request.GET.get('serial')
     parent_titles = []
     

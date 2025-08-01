@@ -1,0 +1,380 @@
+{% extends 'oscar/storefront_base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}
+    {% trans "Wishlist" %} - {{ block.super }}
+{% endblock %}
+
+{% block page_title %}{% trans "My Wishlist" %}{% endblock %}
+
+{% block breadcrumb_items %}
+    <li><a href="{% url 'customer:summary' %}">{% trans "Account" %}</a></li>
+    <li class="active">{% trans "Wishlist" %}</li>
+{% endblock %}
+
+{% block content %}
+<div class="account-page-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-4">
+                <div class="myaccount-tab-menu nav" role="tablist">
+                    <a href="{% url 'customer:summary' %}" class="{% if request.resolver_match.url_name == 'summary' %}active{% endif %}">
+                        <i class="fa fa-dashboard"></i> {% trans "Dashboard" %}
+                    </a>
+                    <a href="{% url 'customer:order-list' %}" class="{% if 'order' in request.resolver_match.url_name %}active{% endif %}">
+                        <i class="fa fa-shopping-cart"></i> {% trans "Orders" %}
+                    </a>
+                    <a href="{% url 'customer:profile-view' %}" class="{% if 'profile' in request.resolver_match.url_name %}active{% endif %}">
+                        <i class="fa fa-user"></i> {% trans "Account Details" %}
+                    </a>
+                    <a href="{% url 'customer:address-list' %}" class="{% if 'address' in request.resolver_match.url_name %}active{% endif %}">
+                        <i class="fa fa-map-marker"></i> {% trans "Addresses" %}
+                    </a>
+                    <a href="{% url 'customer:wishlists-list' %}" class="{% if 'wishlist' in request.resolver_match.url_name %}active{% endif %}">
+                        <i class="fa fa-heart"></i> {% trans "Wishlist" %}
+                    </a>
+                    <a href="{% url 'customer:logout' %}">
+                        <i class="fa fa-sign-out"></i> {% trans "Logout" %}
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-9 col-md-8">
+                <div class="tab-content" id="myaccountContent">
+                    <div class="tab-pane active" id="wishlists">
+                        <div class="myaccount-content">
+                            <h3>{% trans "My Wishlist" %}</h3>
+                            
+                            <div class="wishlist-actions">
+                                <a href="{% url 'customer:wishlists-create' %}" class="uren-btn uren-btn_dark">
+                                    <i class="fa fa-plus"></i> {% trans "Create New Wishlist" %}
+                                </a>
+                            </div>
+
+                            {% if wishlists %}
+                                <div class="wishlists-grid">
+                                    {% for wishlist in wishlists %}
+                                        <div class="wishlist-card">
+                                            <div class="wishlist-header">
+                                                <h4>
+                                                    <a href="{% url 'customer:wishlists-detail' key=wishlist.key %}" class="wishlist-link">
+                                                        <i class="fa fa-heart"></i> {{ wishlist.name }}
+                                                    </a>
+                                                </h4>
+                                                {% if wishlist.is_shareable %}
+                                                    <span class="sharing-badge">
+                                                        <i class="fa fa-share-alt"></i> {% trans "Shareable" %}
+                                                    </span>
+                                                {% endif %}
+                                            </div>
+                                            
+                                            <div class="wishlist-content">
+                                                <div class="wishlist-stats">
+                                                    <div class="stat">
+                                                        <i class="fa fa-cube"></i>
+                                                        <span class="stat-number">{{ wishlist.lines.count }}</span>
+                                                        <span class="stat-label">
+                                                            {% if wishlist.lines.count == 1 %}
+                                                                {% trans "Product" %}
+                                                            {% else %}
+                                                                {% trans "Products" %}
+                                                            {% endif %}
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                
+                                                {% if wishlist.description %}
+                                                    <p class="wishlist-description">{{ wishlist.description|truncatewords:20 }}</p>
+                                                {% endif %}
+                                            </div>
+                                            
+                                            <div class="wishlist-actions-card">
+                                                <a href="{% url 'customer:wishlists-detail' key=wishlist.key %}" class="uren-btn uren-btn_small uren-btn_dark">
+                                                    <i class="fa fa-eye"></i> {% trans "View" %}
+                                                </a>
+                                                
+                                                <div class="dropdown">
+                                                    <button class="uren-btn uren-btn_small uren-btn_secondary dropdown-toggle" type="button" data-toggle="dropdown">
+                                                        <i class="fa fa-cog"></i> {% trans "More" %}
+                                                    </button>
+                                                    <div class="dropdown-menu">
+                                                        <a href="{% url 'customer:wishlists-update' key=wishlist.key %}" class="dropdown-item">
+                                                            <i class="fa fa-edit"></i> {% trans 'Settings' %}
+                                                        </a>
+                                                        {% if wishlist.is_shareable %}
+                                                            <a href="{{ wishlist.get_shared_url }}" class="dropdown-item clipboard-item">
+                                                                <i class="fa fa-share"></i> {% trans 'Copy sharing link' %}
+                                                            </a>
+                                                        {% endif %}
+                                                        <div class="dropdown-divider"></div>
+                                                        <a href="{% url 'customer:wishlists-delete' key=wishlist.key %}" class="dropdown-item text-danger">
+                                                            <i class="fa fa-trash"></i> {% trans 'Delete' %}
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+                                </div>
+
+                                {% if wishlists.has_other_pages %}
+                                    <nav aria-label="Wishlist pagination">
+                                        <ul class="pagination">
+                                            {% if wishlists.has_previous %}
+                                                <li class="page-item">
+                                                    <a class="page-link" href="?page={{ wishlists.previous_page_number }}">{% trans "Previous" %}</a>
+                                                </li>
+                                            {% endif %}
+                                            
+                                            {% for num in wishlists.paginator.page_range %}
+                                                {% if wishlists.number == num %}
+                                                    <li class="page-item active">
+                                                        <span class="page-link">{{ num }}</span>
+                                                    </li>
+                                                {% else %}
+                                                    <li class="page-item">
+                                                        <a class="page-link" href="?page={{ num }}">{{ num }}</a>
+                                                    </li>
+                                                {% endif %}
+                                            {% endfor %}
+                                            
+                                            {% if wishlists.has_next %}
+                                                <li class="page-item">
+                                                    <a class="page-link" href="?page={{ wishlists.next_page_number }}">{% trans "Next" %}</a>
+                                                </li>
+                                            {% endif %}
+                                        </ul>
+                                    </nav>
+                                {% endif %}
+                            {% else %}
+                                <div class="no-wishlists">
+                                    <div class="empty-state">
+                                        <i class="fa fa-heart fa-3x text-muted"></i>
+                                        <h4>{% trans "No wishlists found" %}</h4>
+                                        <p>{% trans "You don't have any wishlists yet. Create your first wishlist to save products you love!" %}</p>
+                                        <a href="{% url 'customer:wishlists-create' %}" class="uren-btn uren-btn_dark">
+                                            <i class="fa fa-plus"></i> {% trans "Create Your First Wishlist" %}
+                                        </a>
+                                    </div>
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.myaccount-tab-menu {
+    border: 1px solid #e5e5e5;
+    background: #f8f8f8;
+}
+
+.myaccount-tab-menu a {
+    display: block;
+    padding: 15px 20px;
+    color: #333;
+    text-decoration: none;
+    border-bottom: 1px solid #e5e5e5;
+    transition: all 0.3s ease;
+}
+
+.myaccount-tab-menu a:hover,
+.myaccount-tab-menu a.active {
+    background: #007bff;
+    color: white;
+}
+
+.myaccount-tab-menu a i {
+    margin-right: 10px;
+    width: 16px;
+}
+
+.myaccount-content h3 {
+    margin-bottom: 30px;
+    color: #333;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 10px;
+}
+
+.wishlist-actions {
+    margin-bottom: 30px;
+}
+
+.wishlists-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.wishlist-card {
+    background: white;
+    border: 1px solid #e5e5e5;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: box-shadow 0.3s ease;
+}
+
+.wishlist-card:hover {
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.wishlist-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 15px;
+}
+
+.wishlist-header h4 {
+    margin: 0;
+    flex: 1;
+}
+
+.wishlist-link {
+    color: #333;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.wishlist-link:hover {
+    color: #007bff;
+}
+
+.wishlist-link i {
+    margin-right: 8px;
+    color: #e91e63;
+}
+
+.sharing-badge {
+    background: #28a745;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.sharing-badge i {
+    margin-right: 4px;
+}
+
+.wishlist-content {
+    margin-bottom: 20px;
+}
+
+.wishlist-stats {
+    margin-bottom: 15px;
+}
+
+.stat {
+    display: flex;
+    align-items: center;
+    color: #666;
+}
+
+.stat i {
+    margin-right: 8px;
+    color: #007bff;
+}
+
+.stat-number {
+    font-weight: 600;
+    color: #333;
+    margin-right: 5px;
+}
+
+.wishlist-description {
+    color: #666;
+    font-style: italic;
+    margin: 0;
+}
+
+.wishlist-actions-card {
+    border-top: 1px solid #f0f0f0;
+    padding-top: 15px;
+    display: flex;
+    gap: 10px;
+}
+
+.uren-btn_small {
+    padding: 8px 16px;
+    font-size: 14px;
+}
+
+.uren-btn_secondary {
+    background-color: #6c757d;
+    border-color: #6c757d;
+    color: white;
+}
+
+.uren-btn_secondary:hover {
+    background-color: #5a6268;
+    border-color: #545b62;
+}
+
+.dropdown-menu {
+    min-width: 180px;
+}
+
+.dropdown-item {
+    padding: 8px 16px;
+}
+
+.dropdown-item i {
+    margin-right: 8px;
+    width: 16px;
+}
+
+.no-wishlists .empty-state {
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.no-wishlists .empty-state i {
+    margin-bottom: 20px;
+}
+
+.no-wishlists .empty-state h4 {
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.no-wishlists .empty-state p {
+    margin-bottom: 30px;
+    color: #666;
+}
+
+.pagination {
+    margin-top: 30px;
+    justify-content: center;
+}
+
+@media (max-width: 768px) {
+    .wishlists-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .wishlist-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .sharing-badge {
+        margin-top: 10px;
+    }
+    
+    .wishlist-actions-card {
+        flex-direction: column;
+    }
+    
+    .wishlist-actions-card .uren-btn {
+        width: 100%;
+        margin-bottom: 8px;
+    }
+}
+</style>
+{% endblock %}

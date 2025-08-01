@@ -41,7 +41,6 @@
                                         <li><a href="{% url 'customer:wishlists-list' %}">{% trans "Wishlist" %}</a></li>
                                     </ul>
                                 </li>
-                                <li class=""><a href="{% url 'backend_homepage' %}">{% trans "Admin" %}</a></li>
                             </ul>
                         </nav>
                     </div>
@@ -53,8 +52,6 @@
                                 <li><a href="javascript:void(0)">{% trans "Currency" %}<i class="fa fa-chevron-down"></i></a>
                                     <ul class="ht-dropdown ht-currency">
                                         <li class="active"><a href="javascript:void(0)">£ {% trans "Pound Sterling" %}</a></li>
-                                        <li><a href="javascript:void(0)">€ EUR</a></li>
-                                        <li><a href="javascript:void(0)">$ {% trans "US Dollar" %}</a></li>
                                     </ul>
                                 </li>
                                 <li><a href="javascript:void(0)">{% trans "Language" %} <i class="fa fa-chevron-down"></i></a>
@@ -63,7 +60,15 @@
                                     </ul>
                                 </li>
                                 {% if user.is_authenticated %}
-                                <li><a href="{% url 'customer:summary' %}">{{ user.get_full_name|default:user.username }}<i class="fa fa-chevron-down"></i></a>
+                                <li><a href="{% url 'customer:summary' %}">
+                                    {% if user.get_full_name %}
+                                        {{ user.get_full_name }}
+                                    {% elif user.first_name %}
+                                        {{ user.first_name }}
+                                    {% else %}
+                                        {% trans "My Account" %}
+                                    {% endif %}
+                                    <i class="fa fa-chevron-down"></i></a>
                                     <ul class="ht-dropdown ht-my_account">
                                         <li><a href="{% url 'customer:summary' %}">{% trans "My Account" %}</a></li>
                                         <li><a href="{% url 'customer:logout' %}">{% trans "Logout" %}</a></li>
@@ -101,7 +106,6 @@
                                 </li>
                                 <li><a href="{% url 'catalogue:index' %}">{% trans "All Products" %}</a></li>
                                 <li><a href="{% url 'customer:summary' %}">{% trans "Account" %}</a></li>
-                                <li><a href="{% url 'backend_homepage' %}">{% trans "Admin" %}</a></li>
                             </ul>
                         </nav>
                     </div>

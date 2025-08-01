@@ -74,7 +74,25 @@ def product_detail(request, pk, product_slug=None):
         return HttpResponse(f"<h1>Product Not Found</h1><p>Error: {e}</p><p><a href='/'>Back to Home</a></p>")
 
 def homepage(request):
-    """Simple homepage that lists products"""
+    """Simple homepage that lists products - SUPERUSER ONLY"""
+    # Check if user is authenticated and is a superuser
+    if not request.user.is_authenticated:
+        from django.contrib.auth.views import redirect_to_login
+        return redirect_to_login(request.get_full_path())
+    
+    if not request.user.is_superuser:
+        from django.http import HttpResponseForbidden
+        return HttpResponseForbidden("""
+        <html>
+        <head><title>Access Denied</title></head>
+        <body style="font-family: Arial, sans-serif; margin: 40px;">
+            <h1>Access Denied</h1>
+            <p>You must be a superuser to access this page.</p>
+            <p><a href="/">Return to Store</a></p>
+        </body>
+        </html>
+        """)
+    
     try:
         from oscar.core.loading import get_model
         Product = get_model('catalogue', 'Product')
@@ -98,7 +116,7 @@ def homepage(request):
                 <a href="/dashboard/">Oscar Dashboard</a>
                 <a href="/admin/catalogue/product/">Manage Products</a>
                 <a href="/admin/partner/stockrecord/">Manage Pricing</a>
-                <a href="/api/">API</a>
+                <a href="/api/serial/">API</a>
             </div>
             
             <h2>Welcome to your Oscar E-commerce Store!</h2>

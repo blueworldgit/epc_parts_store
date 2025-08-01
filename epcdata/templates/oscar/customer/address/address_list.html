@@ -1,0 +1,293 @@
+{% extends 'oscar/storefront_base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}
+    {% trans "Address Book" %} - {{ block.super }}
+{% endblock %}
+
+{% block page_title %}{% trans "Address Book" %}{% endblock %}
+
+{% block breadcrumb_items %}
+    <li><a href="{% url 'customer:summary' %}">{% trans "Account" %}</a></li>
+    <li class="active">{% trans "Address Book" %}</li>
+{% endblock %}
+
+{% block content %}
+<div class="account-page-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-4">
+                <div class="myaccount-tab-menu nav" role="tablist">
+                    <a href="{% url 'customer:summary' %}" class="{% if request.resolver_match.url_name == 'summary' %}active{% endif %}">
+                        <i class="fa fa-dashboard"></i> {% trans "Dashboard" %}
+                    </a>
+                    <a href="{% url 'customer:order-list' %}" class="{% if 'order' in request.resolver_match.url_name %}active{% endif %}">
+                        <i class="fa fa-shopping-cart"></i> {% trans "Orders" %}
+                    </a>
+                    <a href="{% url 'customer:profile-view' %}" class="{% if 'profile' in request.resolver_match.url_name %}active{% endif %}">
+                        <i class="fa fa-user"></i> {% trans "Account Details" %}
+                    </a>
+                    <a href="{% url 'customer:address-list' %}" class="{% if 'address' in request.resolver_match.url_name %}active{% endif %}">
+                        <i class="fa fa-map-marker"></i> {% trans "Addresses" %}
+                    </a>
+                    <a href="{% url 'customer:wishlists-list' %}" class="{% if 'wishlist' in request.resolver_match.url_name %}active{% endif %}">
+                        <i class="fa fa-heart"></i> {% trans "Wishlist" %}
+                    </a>
+                    <a href="{% url 'customer:logout' %}">
+                        <i class="fa fa-sign-out"></i> {% trans "Logout" %}
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-9 col-md-8">
+                <div class="tab-content" id="myaccountContent">
+                    <div class="tab-pane active" id="addresses">
+                        <div class="myaccount-content">
+                            <h3>{% trans "Address Book" %}</h3>
+                            
+                            <div class="address-actions">
+                                <a href="{% url 'customer:address-create' %}" class="uren-btn uren-btn_dark">
+                                    <i class="fa fa-plus"></i> {% trans "Add New Address" %}
+                                </a>
+                            </div>
+
+                            {% if addresses %}
+                                <div class="addresses-grid">
+                                    {% for address in addresses %}
+                                        <div class="address-card">
+                                            <div class="address-header">
+                                                <div class="address-badges">
+                                                    {% if address.is_default_for_shipping %}
+                                                        <span class="badge badge-shipping">{% trans 'Default Shipping' %}</span>
+                                                    {% endif %}
+                                                    {% if address.is_default_for_billing %}
+                                                        <span class="badge badge-billing">{% trans 'Default Billing' %}</span>
+                                                    {% endif %}
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="address-content">
+                                                <address>
+                                                    {% for field in address.active_address_fields %}
+                                                        {{ field }}<br/>
+                                                    {% endfor %}
+                                                </address>
+                                            </div>
+                                            
+                                            <div class="address-actions-card">
+                                                <div class="btn-group-vertical">
+                                                    <a href="{% url 'customer:address-detail' pk=address.id %}" class="uren-btn uren-btn_small uren-btn_dark">
+                                                        <i class="fa fa-edit"></i> {% trans "Edit" %}
+                                                    </a>
+                                                    
+                                                    <div class="dropdown">
+                                                        <button class="uren-btn uren-btn_small uren-btn_secondary dropdown-toggle" type="button" data-toggle="dropdown">
+                                                            <i class="fa fa-cog"></i> {% trans "More Options" %}
+                                                        </button>
+                                                        <div class="dropdown-menu">
+                                                            {% if address.country.is_shipping_country and not address.is_default_for_shipping %}
+                                                                <a href="{% url 'customer:address-change-status' pk=address.id action='default_for_shipping' %}" class="dropdown-item">
+                                                                    <i class="fa fa-truck"></i> {% trans 'Set as default shipping' %}
+                                                                </a>
+                                                            {% endif %}
+                                                            {% if not address.is_default_for_billing %}
+                                                                <a href="{% url 'customer:address-change-status' pk=address.id action='default_for_billing' %}" class="dropdown-item">
+                                                                    <i class="fa fa-credit-card"></i> {% trans 'Set as default billing' %}
+                                                                </a>
+                                                            {% endif %}
+                                                            <div class="dropdown-divider"></div>
+                                                            <a href="{% url 'customer:address-delete' pk=address.id %}" class="dropdown-item text-danger">
+                                                                <i class="fa fa-trash"></i> {% trans 'Delete' %}
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            {% else %}
+                                <div class="no-addresses">
+                                    <div class="empty-state">
+                                        <i class="fa fa-map-marker fa-3x text-muted"></i>
+                                        <h4>{% trans "No addresses found" %}</h4>
+                                        <p>{% trans "You haven't added any addresses yet. Add your first address to make checkout faster." %}</p>
+                                        <a href="{% url 'customer:address-create' %}" class="uren-btn uren-btn_dark">
+                                            <i class="fa fa-plus"></i> {% trans "Add Your First Address" %}
+                                        </a>
+                                    </div>
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.myaccount-tab-menu {
+    border: 1px solid #e5e5e5;
+    background: #f8f8f8;
+}
+
+.myaccount-tab-menu a {
+    display: block;
+    padding: 15px 20px;
+    color: #333;
+    text-decoration: none;
+    border-bottom: 1px solid #e5e5e5;
+    transition: all 0.3s ease;
+}
+
+.myaccount-tab-menu a:hover,
+.myaccount-tab-menu a.active {
+    background: #007bff;
+    color: white;
+}
+
+.myaccount-tab-menu a i {
+    margin-right: 10px;
+    width: 16px;
+}
+
+.myaccount-content h3 {
+    margin-bottom: 30px;
+    color: #333;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 10px;
+}
+
+.address-actions {
+    margin-bottom: 30px;
+}
+
+.addresses-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.address-card {
+    background: white;
+    border: 1px solid #e5e5e5;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: box-shadow 0.3s ease;
+}
+
+.address-card:hover {
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.address-header {
+    margin-bottom: 15px;
+}
+
+.address-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.badge {
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.badge-shipping {
+    background: #28a745;
+    color: white;
+}
+
+.badge-billing {
+    background: #17a2b8;
+    color: white;
+}
+
+.address-content {
+    margin-bottom: 20px;
+    min-height: 100px;
+}
+
+.address-content address {
+    margin: 0;
+    color: #333;
+    line-height: 1.6;
+    font-style: normal;
+}
+
+.address-actions-card {
+    border-top: 1px solid #f0f0f0;
+    padding-top: 15px;
+}
+
+.btn-group-vertical {
+    width: 100%;
+}
+
+.btn-group-vertical .uren-btn {
+    margin-bottom: 8px;
+    width: 100%;
+}
+
+.uren-btn_small {
+    padding: 8px 16px;
+    font-size: 14px;
+}
+
+.uren-btn_secondary {
+    background-color: #6c757d;
+    border-color: #6c757d;
+    color: white;
+}
+
+.uren-btn_secondary:hover {
+    background-color: #5a6268;
+    border-color: #545b62;
+}
+
+.dropdown-menu {
+    width: 100%;
+}
+
+.dropdown-item {
+    padding: 8px 16px;
+}
+
+.dropdown-item i {
+    margin-right: 8px;
+    width: 16px;
+}
+
+.no-addresses .empty-state {
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.no-addresses .empty-state i {
+    margin-bottom: 20px;
+}
+
+.no-addresses .empty-state h4 {
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.no-addresses .empty-state p {
+    margin-bottom: 30px;
+    color: #666;
+}
+
+@media (max-width: 768px) {
+    .addresses-grid {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+{% endblock %}

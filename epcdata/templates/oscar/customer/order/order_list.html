@@ -1,0 +1,339 @@
+{% extends 'oscar/storefront_base.html' %}
+{% load static %}
+{% load currency_filters %}
+{% load i18n %}
+
+{% block styles %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static "oscar/js/bootstrap4-datetimepicker/tempusdominus-bootstrap-4.min.css" %}" />
+{% endblock %}
+
+{% block scripts %}
+    {{ block.super }}
+    <script src="{% static "oscar/js/bootstrap4-datetimepicker/moment-with-locales.min.js" %}"></script>
+    <script src="{% static "oscar/js/bootstrap4-datetimepicker/tempusdominus-bootstrap-4.min.js" %}"></script>
+{% endblock %}
+
+{% block title %}
+    {% trans "Order History" %} - {{ block.super }}
+{% endblock %}
+
+{% block page_title %}{% trans "Order History" %}{% endblock %}
+
+{% block breadcrumb_items %}
+    <li><a href="{% url 'customer:summary' %}">{% trans "Account" %}</a></li>
+    <li class="active">{% trans "Order History" %}</li>
+{% endblock %}
+
+{% block content %}
+<div class="account-page-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-4">
+                <div class="myaccount-tab-menu nav" role="tablist">
+                    <a href="{% url 'customer:summary' %}" class="{% if request.resolver_match.url_name == 'summary' %}active{% endif %}">
+                        <i class="fa fa-dashboard"></i> {% trans "Dashboard" %}
+                    </a>
+                    <a href="{% url 'customer:order-list' %}" class="{% if 'order' in request.resolver_match.url_name %}active{% endif %}">
+                        <i class="fa fa-shopping-cart"></i> {% trans "Orders" %}
+                    </a>
+                    <a href="{% url 'customer:profile-view' %}" class="{% if 'profile' in request.resolver_match.url_name %}active{% endif %}">
+                        <i class="fa fa-user"></i> {% trans "Account Details" %}
+                    </a>
+                    <a href="{% url 'customer:address-list' %}" class="{% if 'address' in request.resolver_match.url_name %}active{% endif %}">
+                        <i class="fa fa-map-marker"></i> {% trans "Addresses" %}
+                    </a>
+                    <a href="{% url 'customer:wishlists-list' %}" class="{% if 'wishlist' in request.resolver_match.url_name %}active{% endif %}">
+                        <i class="fa fa-heart"></i> {% trans "Wishlist" %}
+                    </a>
+                    <a href="{% url 'customer:logout' %}">
+                        <i class="fa fa-sign-out"></i> {% trans "Logout" %}
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-9 col-md-8">
+                <div class="tab-content" id="myaccountContent">
+                    <div class="tab-pane active" id="orders">
+                        <div class="myaccount-content">
+                            <h3>{% trans "Order History" %}</h3>
+                            
+                            {% if orders or form.is_bound %}
+                                <div class="filter-section">
+                                    <h4>{% trans "Filter Orders" %}</h4>
+                                    <form method="get" class="order-filter-form">
+                                        {% for field in form %}
+                                            <div class="row">
+                                                <div class="col-lg-6">
+                                                    <div class="single-input-item">
+                                                        <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                                                        {{ field }}
+                                                        {% if field.help_text %}
+                                                            <small class="form-text text-muted">{{ field.help_text }}</small>
+                                                        {% endif %}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        {% endfor %}
+                                        <div class="single-input-item">
+                                            <button type="submit" class="uren-btn uren-btn_dark" data-loading-text="{% trans 'Filtering...' %}">
+                                                <i class="fa fa-filter"></i> {% trans 'Filter results' %}
+                                            </button>
+                                            <a href="{% url 'customer:order-list' %}" class="uren-btn uren-btn_secondary">
+                                                <i class="fa fa-refresh"></i> {% trans 'Reset' %}
+                                            </a>
+                                        </div>
+                                    </form>
+                                </div>
+                            {% endif %}
+
+                            {% if orders %}
+                                <div class="orders-list">
+                                    <h4>{{ form.description }}</h4>
+                                    <div class="table-responsive">
+                                        <table class="table table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th>{% trans "Order Number" %}</th>
+                                                    <th>{% trans "Date Placed" %}</th>
+                                                    <th>{% trans "Total" %}</th>
+                                                    <th>{% trans "Status" %}</th>
+                                                    <th>{% trans "Actions" %}</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                {% for order in orders %}
+                                                    <tr>
+                                                        <td>
+                                                            <a href="{% url 'customer:order' order_number=order.number %}" class="order-link">
+                                                                {{ order.number }}
+                                                            </a>
+                                                        </td>
+                                                        <td>{{ order.date_placed|date:"F j, Y" }}</td>
+                                                        <td>{{ order.total_incl_tax|currency:order.currency }}</td>
+                                                        <td>
+                                                            <span class="order-status status-{{ order.status|lower }}">
+                                                                {{ order.status }}
+                                                            </span>
+                                                        </td>
+                                                        <td>
+                                                            <a href="{% url 'customer:order' order_number=order.number %}" class="uren-btn uren-btn_small">
+                                                                <i class="fa fa-eye"></i> {% trans "View" %}
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                {% endfor %}
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    
+                                    {% if orders.has_other_pages %}
+                                        <nav aria-label="Order pagination">
+                                            <ul class="pagination">
+                                                {% if orders.has_previous %}
+                                                    <li class="page-item">
+                                                        <a class="page-link" href="?page={{ orders.previous_page_number }}">{% trans "Previous" %}</a>
+                                                    </li>
+                                                {% endif %}
+                                                
+                                                {% for num in orders.paginator.page_range %}
+                                                    {% if orders.number == num %}
+                                                        <li class="page-item active">
+                                                            <span class="page-link">{{ num }}</span>
+                                                        </li>
+                                                    {% else %}
+                                                        <li class="page-item">
+                                                            <a class="page-link" href="?page={{ num }}">{{ num }}</a>
+                                                        </li>
+                                                    {% endif %}
+                                                {% endfor %}
+                                                
+                                                {% if orders.has_next %}
+                                                    <li class="page-item">
+                                                        <a class="page-link" href="?page={{ orders.next_page_number }}">{% trans "Next" %}</a>
+                                                    </li>
+                                                {% endif %}
+                                            </ul>
+                                        </nav>
+                                    {% endif %}
+                                </div>
+                            {% else %}
+                                <div class="no-orders">
+                                    <div class="empty-state">
+                                        <i class="fa fa-shopping-cart fa-3x text-muted"></i>
+                                        <h4>{% trans "No orders found" %}</h4>
+                                        <p>{% trans "You haven't placed any orders yet." %}</p>
+                                        <a href="/" class="uren-btn uren-btn_dark">
+                                            <i class="fa fa-shopping-cart"></i> {% trans "Start Shopping" %}
+                                        </a>
+                                    </div>
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.myaccount-tab-menu {
+    border: 1px solid #e5e5e5;
+    background: #f8f8f8;
+}
+
+.myaccount-tab-menu a {
+    display: block;
+    padding: 15px 20px;
+    color: #333;
+    text-decoration: none;
+    border-bottom: 1px solid #e5e5e5;
+    transition: all 0.3s ease;
+}
+
+.myaccount-tab-menu a:hover,
+.myaccount-tab-menu a.active {
+    background: #007bff;
+    color: white;
+}
+
+.myaccount-tab-menu a i {
+    margin-right: 10px;
+    width: 16px;
+}
+
+.myaccount-content h3 {
+    margin-bottom: 30px;
+    color: #333;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 10px;
+}
+
+.filter-section {
+    background: #f8f8f8;
+    padding: 20px;
+    border-radius: 6px;
+    margin-bottom: 30px;
+}
+
+.filter-section h4 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.single-input-item {
+    margin-bottom: 20px;
+}
+
+.single-input-item label {
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.single-input-item input,
+.single-input-item select {
+    width: 100%;
+    padding: 10px 15px;
+    border: 1px solid #e5e5e5;
+    border-radius: 4px;
+    background: white;
+}
+
+.orders-list h4 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.table {
+    background: white;
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.order-link {
+    color: #007bff;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.order-link:hover {
+    text-decoration: underline;
+}
+
+.order-status {
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.status-pending {
+    background: #ffc107;
+    color: #856404;
+}
+
+.status-processing {
+    background: #17a2b8;
+    color: white;
+}
+
+.status-shipped {
+    background: #28a745;
+    color: white;
+}
+
+.status-delivered {
+    background: #28a745;
+    color: white;
+}
+
+.status-cancelled {
+    background: #dc3545;
+    color: white;
+}
+
+.uren-btn_small {
+    padding: 6px 12px;
+    font-size: 12px;
+}
+
+.uren-btn_secondary {
+    background-color: #6c757d;
+    border-color: #6c757d;
+    color: white;
+}
+
+.uren-btn_secondary:hover {
+    background-color: #5a6268;
+    border-color: #545b62;
+}
+
+.no-orders .empty-state {
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.no-orders .empty-state i {
+    margin-bottom: 20px;
+}
+
+.no-orders .empty-state h4 {
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.no-orders .empty-state p {
+    margin-bottom: 30px;
+    color: #666;
+}
+
+.pagination {
+    margin-top: 30px;
+    justify-content: center;
+}
+</style>
+{% endblock %}

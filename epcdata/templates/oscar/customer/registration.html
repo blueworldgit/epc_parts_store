@@ -1,0 +1,89 @@
+{% extends 'oscar/storefront_base.html' %}
+{% load static %}
+{% load i18n %}
+{% load widget_tweaks %}
+
+{% block title %}
+    {% trans "Register" %} - {{ block.super }}
+{% endblock %}
+
+{% block page_title %}{% trans "Register" %}{% endblock %}
+
+{% block breadcrumb_items %}
+    <li class="active">{% trans "Register" %}</li>
+{% endblock %}
+
+{% block content %}
+<div class="login-registration_area">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-6 col-md-8">
+                <div class="login-register_wrapper">
+                    <div class="account-form_area">
+                        <h3 class="account-sub_title" style="padding: 20px 0;">{% trans "Create Account" %}</h3>
+                        <div class="account-form">
+                            <form method="post" action="" class="register-form" id="register_form">
+                                {% csrf_token %}
+                                
+                                {% if form.non_field_errors %}
+                                    <div class="alert alert-danger">
+                                        {{ form.non_field_errors }}
+                                    </div>
+                                {% endif %}
+                                
+                                {% if form.errors %}
+                                    <div class="alert alert-danger">
+                                        <h4>{% trans "Please correct the errors below:" %}</h4>
+                                        {{ form.errors }}
+                                    </div>
+                                {% endif %}
+                                
+                                <div class="default-form-box">
+                                    <label for="{{ form.email.id_for_label }}">{% trans "Email Address" %}*:</label>
+                                    {{ form.email|add_class:"form-control" }}
+                                    {% if form.email.help_text %}
+                                        <small class="form-text text-muted">{{ form.email.help_text }}</small>
+                                    {% endif %}
+                                </div>
+                                
+                                <div class="default-form-box">
+                                    <label for="{{ form.password1.id_for_label }}">{% trans "Password" %}*:</label>
+                                    {{ form.password1|add_class:"form-control" }}
+                                    {% if form.password1.help_text %}
+                                        <small class="form-text text-muted">{{ form.password1.help_text }}</small>
+                                    {% endif %}
+                                </div>
+                                
+                                <div class="default-form-box">
+                                    <label for="{{ form.password2.id_for_label }}">{% trans "Confirm Password" %}*:</label>
+                                    {{ form.password2|add_class:"form-control" }}
+                                    {% if form.password2.help_text %}
+                                        <small class="form-text text-muted">{{ form.password2.help_text }}</small>
+                                    {% endif %}
+                                </div>
+                                
+                                <div class="login_submit">
+                                    <button name="registration_submit" type="submit" value="Register" class="uren-btn uren-btn_dark uren-btn_fullwidth" data-loading-text="{% trans 'Creating Account...' %}">
+                                        {% trans "Create Account" %}
+                                    </button>
+                                </div>
+                                
+                                <div class="account_social-desc">
+                                    <p>{% trans "Already have an account?" %} <a href="{% url 'customer:login' %}">{% trans "Sign In" %}</a></p>
+                                    <p><a href="{% url 'homepage' %}">{% trans "Back to Home" %}</a></p>
+                                </div>
+                                
+                                {% if cancel_url %}
+                                    <div class="account_social-desc">
+                                        <p><a href="{{ cancel_url }}">{% trans "Cancel" %}</a></p>
+                                    </div>
+                                {% endif %}
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

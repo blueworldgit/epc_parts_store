@@ -18,27 +18,69 @@ from dotenv import load_dotenv
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Determine which environment file to load
-# Check for production environment indicator
-is_production = (os.environ.get('DJANGO_ENV') == 'production' or 
-                os.path.exists(BASE_DIR / '.env.production') or 
-                os.path.exists(BASE_DIR / '.prod'))
+# Check for production environment indicator based on switch_env.ps1 logic or server IP
+is_production = False
+
+# Function to detect if running on production server
+def detect_production_server():
+    try:
+        import socket
+        # Get the server's IP address
+        hostname = socket.gethostname()
+        local_ip = socket.gethostbyname(hostname)
+        
+        # Check if running on the production VPS IP
+        production_ips = ['80.95.207.42']
+        
+        # Also check for environment variables that indicate VPS deployment
+        vps_indicators = [
+            os.environ.get('SERVER_IP') == '80.95.207.42',
+            os.environ.get('HOSTNAME', '').lower().find('vps') != -1,
+            os.environ.get('HOSTNAME', '').lower().find('server') != -1,
+        ]
+        
+        return local_ip in production_ips or any(vps_indicators)
+    except:
+        return False
+
+# Check if explicitly set to production via environment variable
+if os.environ.get('DJANGO_ENV') == 'production':
+    is_production = True
+    print("🌐 Production mode: DJANGO_ENV=production")
+# Check if running on production server IP
+elif detect_production_server():
+    is_production = True
+    print("🌐 Production mode: Detected VPS server IP (80.95.207.42)")
+# Check if .prod file exists (created by switch_env.ps1 for production)
+elif os.path.exists(BASE_DIR / '.prod'):
+    is_production = True
+    print("🌐 Production mode: .prod file exists")
+# Check if .env.production exists AND it's not disabled
+elif (os.path.exists(BASE_DIR / '.env.production') and 
+      not os.path.exists(BASE_DIR / '.env.production.disabled')):
+    is_production = True
+    print("🌐 Production mode: .env.production file active")
 
 if is_production:
-    # Try to load production environment variables (prefer .prod over .env.production)
-    if os.path.exists(BASE_DIR / '.prod'):
+    # Try to load production environment variables
+    # When running on VPS, prefer .env.production which has the N0rfolk password
+    if detect_production_server() and os.path.exists(BASE_DIR / '.env.production'):
+        load_dotenv(BASE_DIR / '.env.production')
+        print("🌐 Loading VPS PRODUCTION environment from .env.production (N0rfolk password)")
+    elif os.path.exists(BASE_DIR / '.prod'):
         load_dotenv(BASE_DIR / '.prod')
-        print("Loading production environment from .prod")
+        print("🌐 Loading PRODUCTION environment from .prod")
     elif os.path.exists(BASE_DIR / '.env.production'):
         load_dotenv(BASE_DIR / '.env.production')
-        print("Loading production environment from .env.production")
+        print("🌐 Loading PRODUCTION environment from .env.production")
     print(f"DEBUG: Production mode - ALLOWED_HOSTS env var = {os.getenv('ALLOWED_HOSTS', 'NOT SET')}")
 else:
     # Load local development environment variables
     if os.path.exists(BASE_DIR / '.env'):
         load_dotenv(BASE_DIR / '.env')
-        print("Loading local environment from .env")
+        print("🏠 Loading LOCAL environment from .env (motorpartsdata + letmein123)")
     else:
-        print("No .env file found, using default settings")
+        print("⚠️ No .env file found, using default settings")
     print(f"DEBUG: Local mode - ALLOWED_HOSTS env var = {os.getenv('ALLOWED_HOSTS', 'NOT SET')}")
 
 
@@ -82,7 +124,7 @@ for app in oscar.INSTALLED_APPS:
 INSTALLED_APPS = [
     # Your apps first (so they can override Oscar apps)
     'motorpartsdata',
-    'payment',  # Custom payment app for Worldpay
+    'payment',   # Custom payment app for Worldpay
     'checkout',  # Custom checkout app (must be before Oscar apps)
     'rest_framework',
     'sorl.thumbnail',  # Required for Oscar image thumbnails

@@ -1,0 +1,212 @@
+{% extends 'oscar/storefront_base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}
+    {% trans "Email History" %} - {{ block.super }}
+{% endblock %}
+
+{% block page_title %}{% trans "Email History" %}{% endblock %}
+
+{% block breadcrumb_items %}
+    <li><a href="{% url 'customer:summary' %}">{% trans "Account" %}</a></li>
+    <li class="active">{% trans "Email History" %}</li>
+{% endblock %}
+
+{% block content %}
+<div class="account-page-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-4">
+                <div class="myaccount-tab-menu nav" role="tablist">
+                    <a href="{% url 'customer:summary' %}" class="{% if request.resolver_match.url_name == 'summary' %}active{% endif %}">
+                        <i class="fa fa-dashboard"></i> {% trans "Dashboard" %}
+                    </a>
+                    <a href="{% url 'customer:order-list' %}" class="{% if 'order' in request.resolver_match.url_name %}active{% endif %}">
+                        <i class="fa fa-shopping-cart"></i> {% trans "Orders" %}
+                    </a>
+                    <a href="{% url 'customer:profile-view' %}" class="{% if 'profile' in request.resolver_match.url_name %}active{% endif %}">
+                        <i class="fa fa-user"></i> {% trans "Account Details" %}
+                    </a>
+                    <a href="{% url 'customer:address-list' %}" class="{% if 'address' in request.resolver_match.url_name %}active{% endif %}">
+                        <i class="fa fa-map-marker"></i> {% trans "Addresses" %}
+                    </a>
+                    <a href="{% url 'customer:email-list' %}" class="{% if 'email' in request.resolver_match.url_name %}active{% endif %}">
+                        <i class="fa fa-envelope"></i> {% trans "Emails" %}
+                    </a>
+                    <a href="{% url 'customer:wishlists-list' %}" class="{% if 'wishlist' in request.resolver_match.url_name %}active{% endif %}">
+                        <i class="fa fa-heart"></i> {% trans "Wishlist" %}
+                    </a>
+                    <a href="{% url 'customer:logout' %}">
+                        <i class="fa fa-sign-out"></i> {% trans "Logout" %}
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-9 col-md-8">
+                <div class="tab-content" id="myaccountContent">
+                    <div class="tab-pane active" id="emails">
+                        <div class="myaccount-content">
+                            <h3>{% trans "Email History" %}</h3>
+                            
+                            {% if emails %}
+                                <div class="emails-list">
+                                    <div class="table-responsive">
+                                        <table class="table table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th>{% trans "Subject" %}</th>
+                                                    <th>{% trans "Date Sent" %}</th>
+                                                    <th>{% trans "Actions" %}</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                {% for email in emails %}
+                                                    <tr>
+                                                        <td>
+                                                            <a href="{% url 'customer:email-detail' email_id=email.id %}" class="email-link">
+                                                                <i class="fa fa-envelope"></i> {{ email.subject }}
+                                                            </a>
+                                                        </td>
+                                                        <td>{{ email.date_sent|date:"F j, Y g:i A" }}</td>
+                                                        <td>
+                                                            <a href="{% url 'customer:email-detail' email_id=email.id %}" class="uren-btn uren-btn_small">
+                                                                <i class="fa fa-eye"></i> {% trans "View" %}
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                {% endfor %}
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    
+                                    {% if emails.has_other_pages %}
+                                        <nav aria-label="Email pagination">
+                                            <ul class="pagination">
+                                                {% if emails.has_previous %}
+                                                    <li class="page-item">
+                                                        <a class="page-link" href="?page={{ emails.previous_page_number }}">{% trans "Previous" %}</a>
+                                                    </li>
+                                                {% endif %}
+                                                
+                                                {% for num in emails.paginator.page_range %}
+                                                    {% if emails.number == num %}
+                                                        <li class="page-item active">
+                                                            <span class="page-link">{{ num }}</span>
+                                                        </li>
+                                                    {% else %}
+                                                        <li class="page-item">
+                                                            <a class="page-link" href="?page={{ num }}">{{ num }}</a>
+                                                        </li>
+                                                    {% endif %}
+                                                {% endfor %}
+                                                
+                                                {% if emails.has_next %}
+                                                    <li class="page-item">
+                                                        <a class="page-link" href="?page={{ emails.next_page_number }}">{% trans "Next" %}</a>
+                                                    </li>
+                                                {% endif %}
+                                            </ul>
+                                        </nav>
+                                    {% endif %}
+                                </div>
+                            {% else %}
+                                <div class="no-emails">
+                                    <div class="empty-state">
+                                        <i class="fa fa-envelope fa-3x text-muted"></i>
+                                        <h4>{% trans "No emails found" %}</h4>
+                                        <p>{% trans "You haven't received any emails from us yet." %}</p>
+                                    </div>
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.myaccount-tab-menu {
+    border: 1px solid #e5e5e5;
+    background: #f8f8f8;
+}
+
+.myaccount-tab-menu a {
+    display: block;
+    padding: 15px 20px;
+    color: #333;
+    text-decoration: none;
+    border-bottom: 1px solid #e5e5e5;
+    transition: all 0.3s ease;
+}
+
+.myaccount-tab-menu a:hover,
+.myaccount-tab-menu a.active {
+    background: #007bff;
+    color: white;
+}
+
+.myaccount-tab-menu a i {
+    margin-right: 10px;
+    width: 16px;
+}
+
+.myaccount-content h3 {
+    margin-bottom: 30px;
+    color: #333;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 10px;
+}
+
+.emails-list .table {
+    background: white;
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.email-link {
+    color: #007bff;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.email-link:hover {
+    text-decoration: underline;
+}
+
+.email-link i {
+    margin-right: 8px;
+}
+
+.uren-btn_small {
+    padding: 6px 12px;
+    font-size: 12px;
+}
+
+.no-emails .empty-state {
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.no-emails .empty-state i {
+    margin-bottom: 20px;
+}
+
+.no-emails .empty-state h4 {
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.no-emails .empty-state p {
+    margin-bottom: 30px;
+    color: #666;
+}
+
+.pagination {
+    margin-top: 30px;
+    justify-content: center;
+}
+</style>
+{% endblock %}

@@ -20,7 +20,7 @@
             <div class="col-lg-6 col-md-8">
                 <div class="login-register_wrapper">
                     <div class="account-form_area">
-                        <h3 class="account-sub_title">{% trans "Sign In" %}</h3>
+                        <h3 class="account-sub_title" style="padding: 20px 0;">{% trans "Sign In" %}</h3>
                         <div class="account-form">
                             <form method="post" action="" class="login-form">
                                 {% csrf_token %}
@@ -55,7 +55,7 @@
                                 </div>
                                 
                                 <div class="account_social-desc">
-                                    <p>{% trans "Don't have an account?" %} <a href="/admin/">{% trans "Access Admin Panel" %}</a></p>
+                                    <p>{% trans "Are you staff?" %} <a href="/admin/">{% trans "Access Admin Panel" %}</a></p>
                                     <p><a href="/">{% trans "Back to Home" %}</a></p>
                                 </div>
                                 

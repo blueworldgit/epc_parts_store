@@ -40,18 +40,36 @@ function Switch-ToProduction {
 
 function Show-Status {
     Write-Host "Current environment files:" -ForegroundColor Cyan
-    Get-ChildItem -Filter "*.env*" -ErrorAction SilentlyContinue | Select-Object Name
-    Get-ChildItem -Filter "*.prod*" -ErrorAction SilentlyContinue | Select-Object Name
+    Get-ChildItem -Filter "*.env*" -ErrorAction SilentlyContinue | ForEach-Object { Write-Host "  $($_.Name)" }
+    Get-ChildItem -Filter "*.prod*" -ErrorAction SilentlyContinue | ForEach-Object { Write-Host "  $($_.Name)" }
     
-    Write-Host "`nEnvironment detection logic:" -ForegroundColor Cyan
-    if ((Test-Path ".prod") -or (Test-Path ".env.production")) {
-        Write-Host "📍 Currently configured for PRODUCTION" -ForegroundColor Red
+    Write-Host "`nEnvironment detection logic (matches Django settings.py):" -ForegroundColor Cyan
+    if (Test-Path ".prod") {
+        Write-Host "📍 Currently configured for PRODUCTION (.prod file exists)" -ForegroundColor Red
+    }
+    elseif ((Test-Path ".env.production") -and (-not (Test-Path ".env.production.disabled"))) {
+        Write-Host "📍 Currently configured for PRODUCTION (.env.production active)" -ForegroundColor Red
     }
     elseif (Test-Path ".env") {
-        Write-Host "📍 Currently configured for LOCAL" -ForegroundColor Green
+        Write-Host "📍 Currently configured for LOCAL (.env file active)" -ForegroundColor Green
     }
     else {
         Write-Host "⚠️ No environment files found" -ForegroundColor Yellow
+    }
+    
+    # Show which database would be used
+    Write-Host "`nDatabase that will be used:" -ForegroundColor Cyan
+    if (Test-Path ".prod") {
+        $prodContent = Get-Content ".prod" | Where-Object { $_ -match "^DB_NAME=" }
+        Write-Host "  From .prod: $prodContent" -ForegroundColor Red
+    }
+    elseif ((Test-Path ".env.production") -and (-not (Test-Path ".env.production.disabled"))) {
+        $prodContent = Get-Content ".env.production" | Where-Object { $_ -match "^DB_NAME=" }
+        Write-Host "  From .env.production: $prodContent" -ForegroundColor Red
+    }
+    elseif (Test-Path ".env") {
+        $localContent = Get-Content ".env" | Where-Object { $_ -match "^DB_NAME=" }
+        Write-Host "  From .env: $localContent" -ForegroundColor Green
     }
 }
 

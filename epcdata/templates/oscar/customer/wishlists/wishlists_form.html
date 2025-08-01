@@ -1,0 +1,451 @@
+{% extends 'oscar/storefront_base.html' %}
+{% load i18n %}
+
+{% block title %}
+    {% if wishlist %}
+        {% trans "Edit Wishlist" %} - {{ block.super }}
+    {% else %}
+        {% trans "Create Wishlist" %} - {{ block.super }}
+    {% endif %}
+{% endblock %}
+
+{% block page_title %}
+    {% if wishlist %}
+        {% trans "Edit Wishlist" %}
+    {% else %}
+        {% trans "Create Wishlist" %}
+    {% endif %}
+{% endblock %}
+
+{% block breadcrumb_items %}
+    <li><a href="{% url 'customer:summary' %}">{% trans "Account" %}</a></li>
+    <li><a href="{% url 'customer:wishlists-list' %}">{% trans "Wishlists" %}</a></li>
+    <li class="active">
+        {% if wishlist %}
+            {% trans "Edit" %}
+        {% else %}
+            {% trans "Create" %}
+        {% endif %}
+    </li>
+{% endblock %}
+
+{% block content %}
+<div class="account-page-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-4">
+                <div class="myaccount-tab-menu nav" role="tablist">
+                    <a href="{% url 'customer:summary' %}" class="{% if request.resolver_match.url_name == 'summary' %}active{% endif %}">
+                        <i class="fa fa-dashboard"></i> {% trans "Dashboard" %}
+                    </a>
+                    <a href="{% url 'customer:order-list' %}" class="{% if 'order' in request.resolver_match.url_name %}active{% endif %}">
+                        <i class="fa fa-shopping-cart"></i> {% trans "Orders" %}
+                    </a>
+                    <a href="{% url 'customer:profile-view' %}" class="{% if 'profile' in request.resolver_match.url_name %}active{% endif %}">
+                        <i class="fa fa-user"></i> {% trans "Account Details" %}
+                    </a>
+                    <a href="{% url 'customer:address-list' %}" class="{% if 'address' in request.resolver_match.url_name %}active{% endif %}">
+                        <i class="fa fa-map-marker"></i> {% trans "Addresses" %}
+                    </a>
+                    <a href="{% url 'customer:wishlists-list' %}" class="{% if 'wishlist' in request.resolver_match.url_name %}active{% endif %}">
+                        <i class="fa fa-heart"></i> {% trans "Wishlist" %}
+                    </a>
+                    <a href="{% url 'customer:logout' %}">
+                        <i class="fa fa-sign-out"></i> {% trans "Logout" %}
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-9 col-md-8">
+                <div class="tab-content" id="myaccountContent">
+                    <div class="tab-pane active" id="wishlist-form">
+                        <div class="myaccount-content">
+                            <h3>
+                                {% if wishlist %}
+                                    {% trans "Edit Wishlist" %}
+                                {% else %}
+                                    {% trans "Create New Wishlist" %}
+                                {% endif %}
+                            </h3>
+                            
+                            <form method="post" data-behaviours="lock" class="wishlist-form">
+                                {% csrf_token %}
+                                {{ shared_emails_formset.management_form }}
+
+                                <div class="wishlist-basic-info">
+                                    {% if not wishlist %}
+                                        <div class="form-description">
+                                            <p>{% trans "Create a personalized wishlist to save your favorite items. You can share it with friends and family or keep it private." %}</p>
+                                        </div>
+                                    {% endif %}
+
+                                    <div class="form-section">
+                                        <h4>{% trans "Wishlist Details" %}</h4>
+                                        
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <div class="single-input-item">
+                                                    <label for="{{ form.name.id_for_label }}">{{ form.name.label }}</label>
+                                                    {{ form.name }}
+                                                    {% if form.name.help_text %}
+                                                        <small class="form-text text-muted">{{ form.name.help_text }}</small>
+                                                    {% endif %}
+                                                    {% if form.name.errors %}
+                                                        <div class="error-feedback">
+                                                            {% for error in form.name.errors %}
+                                                                <small class="text-danger">{{ error }}</small>
+                                                            {% endfor %}
+                                                        </div>
+                                                    {% endif %}
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="single-input-item">
+                                                    <label for="{{ form.visibility.id_for_label }}">{{ form.visibility.label }}</label>
+                                                    {{ form.visibility }}
+                                                    {% if form.visibility.help_text %}
+                                                        <small class="form-text text-muted">{{ form.visibility.help_text }}</small>
+                                                    {% endif %}
+                                                    {% if form.visibility.errors %}
+                                                        <div class="error-feedback">
+                                                            {% for error in form.visibility.errors %}
+                                                                <small class="text-danger">{{ error }}</small>
+                                                            {% endfor %}
+                                                        </div>
+                                                    {% endif %}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    {% if product %}
+                                        <div class="product-addition-notice">
+                                            <div class="alert alert-info">
+                                                <i class="fa fa-info-circle"></i>
+                                                {% blocktrans with title=product.get_title %}
+                                                    After your wishlist is created, <strong>{{ title }}</strong> will be added automatically.
+                                                {% endblocktrans %}
+                                            </div>
+                                        </div>
+                                    {% endif %}
+                                </div>
+
+                                <div class="wishlist-sharing-section">
+                                    <h4>{% trans "Share Wishlist" %}</h4>
+                                    <p class="section-description">
+                                        {% trans "Share your wishlist with friends and family by adding their email addresses below. Your wishlist must be set to 'Shared' visibility for others to access it." %}
+                                    </p>
+                                    
+                                    <div id="shared-emails-container">
+                                        {% for form_instance in shared_emails_formset %}
+                                            <div class="shared-email-form">
+                                                <div class="row">
+                                                    <div class="col-lg-8">
+                                                        <div class="single-input-item">
+                                                            <label for="{{ form_instance.email.id_for_label }}">{{ form_instance.email.label }}</label>
+                                                            {{ form_instance.email }}
+                                                            {% if form_instance.email.errors %}
+                                                                <div class="error-feedback">
+                                                                    {% for error in form_instance.email.errors %}
+                                                                        <small class="text-danger">{{ error }}</small>
+                                                                    {% endfor %}
+                                                                </div>
+                                                            {% endif %}
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4">
+                                                        <div class="single-input-item">
+                                                            <label>&nbsp;</label>
+                                                            <div class="email-form-actions">
+                                                                {% if form_instance.DELETE %}
+                                                                    {{ form_instance.DELETE }}
+                                                                    <label for="{{ form_instance.DELETE.id_for_label }}" class="delete-email-label">
+                                                                        <i class="fa fa-trash"></i> {% trans "Remove" %}
+                                                                    </label>
+                                                                {% endif %}
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                {% for hidden in form_instance.hidden_fields %}
+                                                    {{ hidden }}
+                                                {% endfor %}
+                                            </div>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+
+                                <div class="form-actions">
+                                    <button class="uren-btn uren-btn_dark" type="submit" data-loading-text="{% trans 'Saving...' %}">
+                                        <i class="fa fa-save"></i>
+                                        {% if wishlist %}
+                                            {% trans "Update Wishlist" %}
+                                        {% else %}
+                                            {% trans "Create Wishlist" %}
+                                        {% endif %}
+                                    </button>
+                                    <a href="{% url 'customer:wishlists-list' %}" class="uren-btn uren-btn_secondary">
+                                        <i class="fa fa-arrow-left"></i> {% trans "Back to Wishlists" %}
+                                    </a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.myaccount-tab-menu {
+    border: 1px solid #e5e5e5;
+    background: #f8f8f8;
+}
+
+.myaccount-tab-menu a {
+    display: block;
+    padding: 15px 20px;
+    color: #333;
+    text-decoration: none;
+    border-bottom: 1px solid #e5e5e5;
+    transition: all 0.3s ease;
+}
+
+.myaccount-tab-menu a:hover,
+.myaccount-tab-menu a.active {
+    background: #007bff;
+    color: white;
+}
+
+.myaccount-tab-menu a i {
+    margin-right: 10px;
+    width: 16px;
+}
+
+.myaccount-content h3 {
+    margin-bottom: 30px;
+    color: #333;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 10px;
+}
+
+.wishlist-form {
+    background: white;
+    padding: 30px;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.form-description {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 6px;
+    margin-bottom: 30px;
+    border-left: 4px solid #007bff;
+}
+
+.form-description p {
+    margin: 0;
+    color: #666;
+}
+
+.form-section {
+    margin-bottom: 40px;
+}
+
+.form-section h4 {
+    margin-bottom: 20px;
+    color: #333;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.single-input-item {
+    margin-bottom: 20px;
+}
+
+.single-input-item label {
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.single-input-item input,
+.single-input-item select {
+    width: 100%;
+    padding: 10px 15px;
+    border: 1px solid #e5e5e5;
+    border-radius: 4px;
+    background: white;
+    font-size: 14px;
+}
+
+.single-input-item input:focus,
+.single-input-item select:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+.error-feedback {
+    margin-top: 5px;
+}
+
+.product-addition-notice {
+    margin-bottom: 30px;
+}
+
+.alert {
+    padding: 15px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+}
+
+.alert-info {
+    background-color: #d1ecf1;
+    border-color: #bee5eb;
+    color: #0c5460;
+}
+
+.alert i {
+    margin-right: 8px;
+}
+
+.wishlist-sharing-section {
+    background: #f8f9fa;
+    padding: 25px;
+    border-radius: 6px;
+    margin-bottom: 30px;
+    border: 1px solid #e9ecef;
+}
+
+.wishlist-sharing-section h4 {
+    margin-bottom: 15px;
+    color: #333;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.section-description {
+    color: #666;
+    margin-bottom: 25px;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.shared-email-form {
+    background: white;
+    padding: 20px;
+    border-radius: 6px;
+    margin-bottom: 15px;
+    border: 1px solid #e5e5e5;
+}
+
+.shared-email-form:last-child {
+    margin-bottom: 0;
+}
+
+.email-form-actions {
+    padding-top: 10px;
+}
+
+.delete-email-label {
+    display: inline-flex;
+    align-items: center;
+    color: #dc3545;
+    cursor: pointer;
+    font-size: 14px;
+    margin-left: 10px;
+}
+
+.delete-email-label:hover {
+    color: #c82333;
+}
+
+.delete-email-label i {
+    margin-right: 5px;
+}
+
+.form-actions {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 6px;
+    text-align: left;
+    border: 1px solid #e9ecef;
+}
+
+.uren-btn {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    border: 1px solid #007bff;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    margin-right: 10px;
+}
+
+.uren-btn:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+    color: white;
+    text-decoration: none;
+}
+
+.uren-btn_dark {
+    background-color: #343a40;
+    border-color: #343a40;
+}
+
+.uren-btn_dark:hover {
+    background-color: #23272b;
+    border-color: #1d2124;
+}
+
+.uren-btn_secondary {
+    background-color: #6c757d;
+    border-color: #6c757d;
+    color: white;
+}
+
+.uren-btn_secondary:hover {
+    background-color: #5a6268;
+    border-color: #545b62;
+    color: white;
+}
+
+.uren-btn i {
+    margin-right: 8px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .myaccount-tab-menu {
+        margin-bottom: 20px;
+    }
+    
+    .myaccount-tab-menu a {
+        text-align: center;
+    }
+    
+    .wishlist-form {
+        padding: 20px;
+    }
+    
+    .form-actions {
+        text-align: center;
+    }
+    
+    .uren-btn {
+        margin-bottom: 10px;
+        width: 100%;
+    }
+}
+</style>
+{% endblock %}

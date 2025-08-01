@@ -1,0 +1,221 @@
+{% extends 'oscar/storefront_base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}
+    {% trans "Delete Profile" %} - {{ block.super }}
+{% endblock %}
+
+{% block page_title %}{% trans "Delete Profile" %}{% endblock %}
+
+{% block breadcrumb_items %}
+    <li><a href="{% url 'customer:summary' %}">{% trans "Account" %}</a></li>
+    <li><a href="{% url 'customer:profile-view' %}">{% trans "Profile" %}</a></li>
+    <li class="active">{% trans "Delete" %}</li>
+{% endblock %}
+
+{% block content %}
+<div class="account-page-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-4">
+                <div class="myaccount-tab-menu nav" role="tablist">
+                    <a href="{% url 'customer:summary' %}" class="{% if request.resolver_match.url_name == 'summary' %}active{% endif %}">
+                        <i class="fa fa-dashboard"></i> {% trans "Dashboard" %}
+                    </a>
+                    <a href="{% url 'customer:order-list' %}" class="{% if 'order' in request.resolver_match.url_name %}active{% endif %}">
+                        <i class="fa fa-shopping-cart"></i> {% trans "Orders" %}
+                    </a>
+                    <a href="{% url 'customer:profile-view' %}" class="{% if 'profile' in request.resolver_match.url_name %}active{% endif %}">
+                        <i class="fa fa-user"></i> {% trans "Account Details" %}
+                    </a>
+                    <a href="{% url 'customer:address-list' %}" class="{% if 'address' in request.resolver_match.url_name %}active{% endif %}">
+                        <i class="fa fa-map-marker"></i> {% trans "Addresses" %}
+                    </a>
+                    <a href="{% url 'customer:wishlists-list' %}" class="{% if 'wishlist' in request.resolver_match.url_name %}active{% endif %}">
+                        <i class="fa fa-heart"></i> {% trans "Wishlist" %}
+                    </a>
+                    <a href="{% url 'customer:logout' %}">
+                        <i class="fa fa-sign-out"></i> {% trans "Logout" %}
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-9 col-md-8">
+                <div class="tab-content" id="myaccountContent">
+                    <div class="tab-pane active" id="delete-profile">
+                        <div class="myaccount-content">
+                            <h3>{% trans "Delete Profile" %}</h3>
+                            <div class="account-details-form">
+                                <div class="alert alert-danger">
+                                    <h4><i class="fa fa-exclamation-triangle"></i> {% trans "Warning!" %}</h4>
+                                    <p>{% trans "This action will permanently delete your account and all associated data. This cannot be undone." %}</p>
+                                </div>
+
+                                <div class="deletion-info">
+                                    <h4>{% trans "What will be deleted:" %}</h4>
+                                    <ul>
+                                        <li>{% trans "Your account information" %}</li>
+                                        <li>{% trans "Order history" %}</li>
+                                        <li>{% trans "Saved addresses" %}</li>
+                                        <li>{% trans "Wishlist items" %}</li>
+                                        <li>{% trans "All personal data" %}</li>
+                                    </ul>
+                                </div>
+
+                                <form method="post" action="">
+                                    {% csrf_token %}
+                                    
+                                    <div class="confirmation-box">
+                                        <div class="single-input-item">
+                                            <label>
+                                                <input type="checkbox" name="confirm_delete" required> 
+                                                {% trans "I understand that this action cannot be undone" %}
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="single-input-item">
+                                        <div class="btn-group" role="group">
+                                            <button type="submit" class="uren-btn uren-btn_danger">
+                                                <i class="fa fa-trash"></i> {% trans "Yes, Delete My Profile" %}
+                                            </button>
+                                            <a href="{% url 'customer:profile-view' %}" class="uren-btn uren-btn_light">
+                                                <i class="fa fa-times"></i> {% trans "Cancel" %}
+                                            </a>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.myaccount-tab-menu {
+    border: 1px solid #e5e5e5;
+    background: #f8f8f8;
+}
+
+.myaccount-tab-menu a {
+    display: block;
+    padding: 15px 20px;
+    color: #333;
+    text-decoration: none;
+    border-bottom: 1px solid #e5e5e5;
+    transition: all 0.3s ease;
+}
+
+.myaccount-tab-menu a:hover,
+.myaccount-tab-menu a.active {
+    background: #007bff;
+    color: white;
+}
+
+.myaccount-tab-menu a i {
+    margin-right: 10px;
+    width: 16px;
+}
+
+.myaccount-content h3 {
+    margin-bottom: 30px;
+    color: #333;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 10px;
+}
+
+.single-input-item {
+    margin-bottom: 20px;
+}
+
+.btn-group {
+    gap: 10px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.uren-btn_danger {
+    background-color: #dc3545;
+    border-color: #dc3545;
+    color: white;
+}
+
+.uren-btn_danger:hover {
+    background-color: #c82333;
+    border-color: #bd2130;
+}
+
+.uren-btn_light {
+    background-color: #f8f9fa;
+    border-color: #dee2e6;
+    color: #495057;
+}
+
+.uren-btn_light:hover {
+    background-color: #e2e6ea;
+    border-color: #dae0e5;
+}
+
+.alert-danger {
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+    color: #721c24;
+    padding: 20px;
+    border-radius: 4px;
+    margin-bottom: 30px;
+}
+
+.alert-danger h4 {
+    margin-bottom: 10px;
+    color: #721c24;
+}
+
+.deletion-info {
+    margin-bottom: 30px;
+    padding: 20px;
+    background: #fff3cd;
+    border: 1px solid #ffeaa7;
+    border-radius: 4px;
+}
+
+.deletion-info h4 {
+    margin-bottom: 15px;
+    color: #856404;
+}
+
+.deletion-info ul {
+    margin: 0;
+    padding-left: 20px;
+}
+
+.deletion-info li {
+    margin-bottom: 8px;
+    color: #856404;
+}
+
+.confirmation-box {
+    margin-bottom: 30px;
+    padding: 20px;
+    background: #f8f9fa;
+    border: 2px solid #dee2e6;
+    border-radius: 4px;
+}
+
+.confirmation-box label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+    color: #333;
+    margin: 0;
+}
+
+.confirmation-box input[type="checkbox"] {
+    width: auto;
+    margin: 0;
+}
+</style>
+{% endblock %}
