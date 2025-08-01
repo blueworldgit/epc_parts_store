@@ -7,7 +7,7 @@ DEBUG=False
 DJANGO_SETTINGS_MODULE=epcdata.onlinesettings
 
 # Allowed Hosts (add your domain name when you have one)
-ALLOWED_HOSTS=80.95.207.42,yourdomain.com,www.yourdomain.com
+ALLOWED_HOSTS=80.95.207.42,vanparts-direct.co.uk,www.vanparts-direct.co.uk,localhost,127.0.0.1
 
 # Database Configuration (PostgreSQL)
 DB_ENGINE=django.db.backends.postgresql
