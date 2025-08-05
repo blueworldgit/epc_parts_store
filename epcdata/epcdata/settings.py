@@ -274,7 +274,8 @@ STATICFILES_FINDERS = [
 # WhiteNoise configuration (primarily for production)
 if not DEBUG:
     # Production static file serving with WhiteNoise
-    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+    # Use StaticFilesStorage instead of CompressedManifestStaticFilesStorage to avoid missing .map file issues
+    STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
     WHITENOISE_USE_FINDERS = False
 else:
     # Development static file serving
@@ -282,14 +283,19 @@ else:
     WHITENOISE_USE_FINDERS = True  # Allow WhiteNoise to serve from STATICFILES_DIRS directly
     WHITENOISE_AUTOREFRESH = True  # Auto-refresh files in development
 
-WHITENOISE_SKIP_COMPRESS_EXTENSIONS = ['js', 'css']  # Skip compression for debugging
+WHITENOISE_SKIP_COMPRESS_EXTENSIONS = ['js', 'css', 'map']  # Skip compression for debugging and source maps
 
 # Additional WhiteNoise settings for better static file serving
 WHITENOISE_INDEX_FILE = True  # Serve index files
 WHITENOISE_MIMETYPES = {
     '.css': 'text/css',
     '.js': 'application/javascript',
+    '.map': 'application/json',  # Handle source map files
 }
+
+# WhiteNoise settings to handle missing source map files gracefully
+WHITENOISE_MAX_AGE = 31536000  # 1 year cache
+WHITENOISE_SKIP_COMPRESS_EXTENSIONS.extend(['woff', 'woff2', 'ttf', 'eot', 'svg'])  # Skip font compression
 
 # Media files
 MEDIA_URL = '/media/'
