@@ -39,9 +39,20 @@ def detect_production_server():
             os.environ.get('HOSTNAME', '').lower().find('server') != -1,
         ]
         
+        print(f"🔍 Debug: hostname={hostname}, local_ip={local_ip}")
+        print(f"🔍 Debug: SERVER_IP={os.environ.get('SERVER_IP')}")
+        print(f"🔍 Debug: HOSTNAME={os.environ.get('HOSTNAME')}")
+        
         return local_ip in production_ips or any(vps_indicators)
-    except:
+    except Exception as e:
+        print(f"🔍 Debug: Error in detect_production_server: {e}")
         return False
+
+# Debug: Show what files exist
+print(f"🔍 Debug: .env exists = {os.path.exists(BASE_DIR / '.env')}")
+print(f"🔍 Debug: .env.production exists = {os.path.exists(BASE_DIR / '.env.production')}")
+print(f"🔍 Debug: .prod exists = {os.path.exists(BASE_DIR / '.prod')}")
+print(f"🔍 Debug: DJANGO_ENV = {os.environ.get('DJANGO_ENV', 'NOT SET')}")
 
 # Check if explicitly set to production via environment variable
 if os.environ.get('DJANGO_ENV') == 'production':
@@ -55,11 +66,8 @@ elif detect_production_server():
 elif os.path.exists(BASE_DIR / '.prod'):
     is_production = True
     print("🌐 Production mode: .prod file exists")
-# Check if .env.production exists AND it's not disabled
-elif (os.path.exists(BASE_DIR / '.env.production') and 
-      not os.path.exists(BASE_DIR / '.env.production.disabled')):
-    is_production = True
-    print("🌐 Production mode: .env.production file active")
+# DO NOT automatically switch to production just because .env.production exists
+# This allows both files to coexist without affecting local development
 
 if is_production:
     # Try to load production environment variables
@@ -78,10 +86,14 @@ else:
     # Load local development environment variables
     if os.path.exists(BASE_DIR / '.env'):
         load_dotenv(BASE_DIR / '.env')
-        print("🏠 Loading LOCAL environment from .env (motorpartsdata + letmein123)")
+        print("🏠 Loading LOCAL environment from .env")
     else:
         print("⚠️ No .env file found, using default settings")
     print(f"DEBUG: Local mode - ALLOWED_HOSTS env var = {os.getenv('ALLOWED_HOSTS', 'NOT SET')}")
+
+# Final debug summary
+print(f"🎯 FINAL RESULT: {'PRODUCTION' if is_production else 'LOCAL DEVELOPMENT'} mode selected")
+print("=" * 60)
 
 
 # Quick-start development settings - unsuitable for production
@@ -186,16 +198,27 @@ WSGI_APPLICATION = 'epcdata.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+# Database configuration - all values come from environment files
 DATABASES = {
     'default': {
         'ENGINE': os.getenv('DB_ENGINE', 'django.db.backends.postgresql'),
-        'NAME': os.getenv('DB_NAME', 'parts_store'),
-        'USER': os.getenv('DB_USER', 'postgres'),
-        'PASSWORD': os.getenv('DB_PASSWORD', 'N0rfolk'),
+        'NAME': os.getenv('DB_NAME'),
+        'USER': os.getenv('DB_USER'),
+        'PASSWORD': os.getenv('DB_PASSWORD'),
         'HOST': os.getenv('DB_HOST', 'localhost'),
         'PORT': os.getenv('DB_PORT', '5432'),
     }
 }
+
+# Validate that required database environment variables are set
+if not DATABASES['default']['NAME']:
+    raise ValueError("DB_NAME environment variable is required")
+if not DATABASES['default']['USER']:
+    raise ValueError("DB_USER environment variable is required")
+if not DATABASES['default']['PASSWORD']:
+    raise ValueError("DB_PASSWORD environment variable is required")
+
+print(f"🗄️ Database config: {DATABASES['default']['NAME']} as {DATABASES['default']['USER']} on {DATABASES['default']['HOST']}")
 
 
 # Password validation
@@ -239,7 +262,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Static files directories - collect from these locations
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'motortemplate'),  # Now points to the correct location
+    os.path.join(BASE_DIR, 'motortemplate'),  # Direct mapping - files available as /static/uren/assets/...
 ]
 
 # Static files finders
@@ -248,11 +271,17 @@ STATICFILES_FINDERS = [
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 ]
 
-# WhiteNoise configuration for static file serving
-# Use simple storage in production for better compatibility
-STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
-WHITENOISE_USE_FINDERS = True  # This allows WhiteNoise to serve from STATICFILES_DIRS directly
-WHITENOISE_AUTOREFRESH = True  # Auto-refresh files in development
+# WhiteNoise configuration (primarily for production)
+if not DEBUG:
+    # Production static file serving with WhiteNoise
+    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+    WHITENOISE_USE_FINDERS = False
+else:
+    # Development static file serving
+    STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
+    WHITENOISE_USE_FINDERS = True  # Allow WhiteNoise to serve from STATICFILES_DIRS directly
+    WHITENOISE_AUTOREFRESH = True  # Auto-refresh files in development
+
 WHITENOISE_SKIP_COMPRESS_EXTENSIONS = ['js', 'css']  # Skip compression for debugging
 
 # Additional WhiteNoise settings for better static file serving
