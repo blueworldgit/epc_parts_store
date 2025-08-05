@@ -33,6 +33,7 @@ from motorpartsdata.serializers import (
     ChildTitleSerializer,
     PartSerializer
 )
+from vehicle_utils import determine_vehicle_brand
 
 def process_html_file(html_path, serial_instance, parent_instance):
     """Process an HTML file using your existing BeautifulSoup parsing logic"""
@@ -155,7 +156,14 @@ def process_directory(root_dir):
     try:
         # Extract serial number from the root directory name
         serial_name = os.path.basename(root_dir)
-        serial_data = {"serial": serial_name}
+        
+        # Determine vehicle brand based on serial number patterns or default to Maxus
+        vehicle_brand = determine_vehicle_brand(serial_name)
+        
+        serial_data = {
+            "serial": serial_name,
+            "vehicle_brand": vehicle_brand
+        }
         
         # Check if this serial already exists
         from motorpartsdata.models import SerialNumber
@@ -163,12 +171,17 @@ def process_directory(root_dir):
         
         if existing_serial:
             logger.info(f"Serial number {serial_name} already exists, using it")
+            # Update the vehicle brand if it's different
+            if existing_serial.vehicle_brand != vehicle_brand:
+                existing_serial.vehicle_brand = vehicle_brand
+                existing_serial.save()
+                logger.info(f"Updated vehicle brand for {serial_name} to {vehicle_brand}")
             serial_instance = existing_serial
         else:
             serial_serializer = SerialNumberSerializer(data=serial_data)
             if serial_serializer.is_valid():
                 serial_instance = serial_serializer.save()
-                logger.info(f"Created serial number: {serial_data['serial']}")
+                logger.info(f"Created serial number: {serial_data['serial']} for brand: {vehicle_brand}")
             else:
                 logger.error(f"Serial number serializer errors: {serial_serializer.errors}")
                 return

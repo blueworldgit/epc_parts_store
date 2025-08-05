@@ -4,9 +4,10 @@ from django_countries.fields import CountryField
 # Serial number, always unique
 class SerialNumber(models.Model):
     serial = models.CharField(max_length=100, unique=True)
+    vehicle_brand = models.CharField(max_length=100, default='Maxus', help_text="Vehicle brand (Maxus, Peugeot, Renault, etc.)")
 
     def __str__(self):
-        return self.serial
+        return f"{self.vehicle_brand} - {self.serial}"
 
 # Parent title, linked to SerialNumber
 class ParentTitle(models.Model):

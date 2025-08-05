@@ -114,25 +114,19 @@ class OscarImporter:
                 logger.info(f"Created product attribute: {name}")
     
     def _create_category_hierarchy(self, serial_number):
-        """Create category hierarchy: Serial -> ParentTitle -> ChildTitle"""
+        """Create category hierarchy: Vehicle -> Serial -> ParentTitle -> ChildTitle"""
         try:
-            # Check if serial category already exists
-            serial_category = Category.objects.filter(
-                name=f"Serial {serial_number.serial}"
-            ).first()
+            from vehicle_utils import get_or_create_vehicle_category, get_or_create_serial_category
             
-            if not serial_category:
-                # Create root category for serial number
-                serial_category = Category.add_root(
-                    name=f"Serial {serial_number.serial}",
-                    slug=f"serial-{serial_number.serial}",
-                    description=f"Parts for serial number {serial_number.serial}",
-                )
-                self.stats['categories_created'] += 1
-                if self.verbose:
-                    logger.info(f"Created serial category: {serial_category.name}")
-            else:
-                self.stats['categories_existing'] += 1
+            # Get or create vehicle category (Maxus, Peugeot, etc.)
+            vehicle_category = get_or_create_vehicle_category(serial_number.vehicle_brand)
+            if self.verbose:
+                logger.info(f"Using vehicle category: {vehicle_category.name}")
+            
+            # Get or create serial category under vehicle category
+            serial_category = get_or_create_serial_category(serial_number.serial, vehicle_category)
+            if self.verbose:
+                logger.info(f"Using serial category: {serial_category.name}")
             
             category_map = {}
             
@@ -186,10 +180,17 @@ class OscarImporter:
                     
                     category_map[f"child_{child_title.id}"] = child_category
             
+            # If no parent titles exist, return empty map (this is not an error)
+            if serial_number.parent_titles.count() == 0:
+                if self.verbose:
+                    logger.info(f"Serial {serial_number.serial} has no parent titles - category hierarchy creation complete")
+            
             return category_map
             
         except Exception as e:
             logger.error(f"Error creating category hierarchy for {serial_number.serial}: {str(e)}")
+            import traceback
+            logger.error(f"Traceback: {traceback.format_exc()}")
             self.stats['errors'] += 1
             return {}
     
@@ -376,9 +377,11 @@ class OscarImporter:
                 # Create category hierarchy
                 category_map = self._create_category_hierarchy(serial_number)
                 
-                if not category_map:
-                    logger.error(f"Failed to create categories for {serial_number.serial}")
-                    return False
+                # Check if there are parent titles to process
+                if serial_number.parent_titles.count() == 0:
+                    if self.verbose:
+                        logger.info(f"Serial {serial_number.serial} has no parent titles - skipping product creation")
+                    return True  # This is not an error, just no data to import yet
                 
                 # Process all parts
                 total_parts = 0
