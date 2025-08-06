@@ -1,0 +1,137 @@
+/* Vehicle Brand Navigation Styles */
+.vehicle-brands-area {
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.vehicle-brands-navigation {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.vehicle-brand-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.vehicle-brand-dropdown .category-heading {
+    margin: 0;
+    padding: 0;
+}
+
+.vehicle-brand-dropdown .vehicle-brand-toggle {
+    background: linear-gradient(to right, #ff6900 0%, #fcb900 100%);
+    color: #fff;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin: 0;
+    min-width: 120px;
+    text-align: center;
+}
+
+.vehicle-brand-dropdown .vehicle-brand-toggle:hover {
+    background: linear-gradient(to right, #e55a00 0%, #e3a800 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.vehicle-brand-dropdown .vehicle-brand-toggle span {
+    display: block;
+    color: #fff;
+}
+
+.vehicle-dropdown-content {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    z-index: 1000;
+    min-width: 200px;
+    margin-top: 5px;
+}
+
+.vehicle-dropdown-content .serial-list {
+    list-style: none;
+    padding: 10px 0;
+    margin: 0;
+}
+
+.vehicle-dropdown-content .serial-list li {
+    padding: 0;
+    margin: 0;
+}
+
+.vehicle-dropdown-content .serial-list li a {
+    display: block;
+    padding: 8px 15px;
+    color: #333;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.vehicle-dropdown-content .serial-list li:last-child a {
+    border-bottom: none;
+}
+
+.vehicle-dropdown-content .serial-list li a:hover {
+    background-color: #f8f9fa;
+    color: #ff6900;
+}
+
+.vehicle-dropdown-content .no-serials {
+    padding: 15px;
+    margin: 0;
+    color: #666;
+    font-style: italic;
+    text-align: center;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .vehicle-brands-navigation {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .vehicle-brand-dropdown {
+        width: 100%;
+        max-width: 300px;
+        margin-bottom: 10px;
+    }
+    
+    .vehicle-brand-dropdown .vehicle-brand-toggle {
+        width: 100%;
+    }
+    
+    .vehicle-dropdown-content {
+        left: 0;
+        right: 0;
+        width: 100%;
+    }
+}
+
+/* Animation for dropdown show/hide */
+.vehicle-dropdown-content {
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+}
+
+.vehicle-dropdown-content.show {
+    opacity: 1;
+    transform: translateY(0);
+    display: block !important;
+}

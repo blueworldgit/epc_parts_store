@@ -187,6 +187,7 @@ TEMPLATES = [
                 
                 # Custom context processors
                 'epcdata.context_processors.uren_context',
+                'epcdata.context_processors.vehicle_brands_context',
             ],
         },
     },

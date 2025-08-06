@@ -37,6 +37,9 @@
     <!-- Main Style CSS -->
     <link rel="stylesheet" href="{% static 'uren/assets/css/style.css' %}">
     
+    <!-- Vehicle Navigation CSS -->
+    <link rel="stylesheet" href="{% static 'uren/assets/css/vehicle-navigation.css' %}">
+    
     <!-- Inline CSS to hide logo -->
     <style>
         .header-logo_area {
@@ -88,6 +91,55 @@
         </div>
         {% endblock %}
         <!-- Uren's Breadcrumb Area End Here -->
+
+        <!-- Vehicle Brand Navigation Area -->
+        {% if vehicle_dropdown_data %}
+        <div class="vehicle-brands-area">
+            <div class="container">
+                <div class="row">
+                    {% for vehicle_data in vehicle_dropdown_data %}
+                        <div class="custom-category_col col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                            <div class="category-menu category-menu-hidden vehicle-brand-dropdown">
+                                <div class="category-heading">
+                                    <h2 class="categories-toggle vehicle-brand-toggle" data-brand="{{ vehicle_data.brand.slug }}">
+                                        <span>{{ vehicle_data.brand.name }}</span>
+                                    </h2>
+                                </div>
+                                <div class="category-menu-list vehicle-dropdown-content" style="display: none;">
+                                    {% if vehicle_data.serials %}
+                                        <ul>
+                                            {% for serial in vehicle_data.serials %}
+                                                <li class="right-menu">
+                                                    <a href="{% url 'catalogue:category' category_slug=serial.slug pk=serial.pk %}">
+                                                        {{ serial.name }}
+                                                    </a>
+                                                    {% comment %}
+                                                    <!-- Future: Add mega menu for parent categories -->
+                                                    {% if serial.get_children %}
+                                                        <ul class="mega-menu vehicle-mega-menu">
+                                                            {% for parent in serial.get_children %}
+                                                                <li><a href="{% url 'catalogue:category' category_slug=parent.slug pk=parent.pk %}">{{ parent.name }}</a></li>
+                                                            {% endfor %}
+                                                        </ul>
+                                                    {% endif %}
+                                                    {% endcomment %}
+                                                </li>
+                                            {% endfor %}
+                                        </ul>
+                                    {% else %}
+                                        <ul>
+                                            <li><a href="#">No serials available</a></li>
+                                        </ul>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        {% endif %}
+        <!-- End Vehicle Brand Navigation -->
 
         <!-- Main Content -->
         {% block content %}{% endblock %}
@@ -239,6 +291,9 @@
     <script src="{% static 'uren/assets/js/plugins/jquery.zoom.min.js' %}"></script>
     <!-- Main Script -->
     <script src="{% static 'uren/assets/js/main.js' %}"></script>
+    
+    <!-- Vehicle Navigation JavaScript -->
+    <script src="{% static 'uren/assets/js/vehicle-navigation.js' %}"></script>
     
     <!-- Oscar JavaScript for basket functionality -->
     <script src="{% static 'oscar/js/oscar/ui.js' %}"></script>

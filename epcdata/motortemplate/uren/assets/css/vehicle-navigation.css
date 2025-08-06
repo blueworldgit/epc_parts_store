@@ -1,0 +1,251 @@
+/* Vehicle Brand Navigation CSS - Styled to match category menu exactly */
+
+/* Use the same responsive styles as custom-category_col */
+.vehicle-brands-area .custom-category_col {
+    flex: 0 0 17%;
+    max-width: 17%;
+    margin-bottom: 15px;
+}
+
+@media (max-width: 1599px) {
+    .vehicle-brands-area .custom-category_col {
+        flex: 0 0 25%;
+        max-width: 25%;
+    }
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+    .vehicle-brands-area .custom-category_col {
+        flex: 0 0 30%;
+        max-width: 30%;
+    }
+}
+
+@media (max-width: 991px) {
+    .vehicle-brands-area .custom-category_col {
+        flex: 0 0 35%;
+        max-width: 35%;
+    }
+}
+
+@media (max-width: 767px) {
+    .vehicle-brands-area .custom-category_col {
+        flex: 0 0 100%;
+        max-width: 100%;
+        margin-bottom: 10px;
+    }
+}
+
+.vehicle-brand-dropdown {
+    position: relative;
+    display: block;
+    width: 100%;
+}
+
+/* Inherit all category-menu styles exactly */
+.vehicle-brand-dropdown.category-menu {
+    position: relative;
+}
+
+.vehicle-brand-dropdown .category-heading {
+    background: #ffc400;
+    cursor: pointer;
+    border-radius: 5px;
+    height: 55px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+/* Override any inherited icons from the main category menu */
+.vehicle-brand-dropdown .category-heading > h2:before {
+    display: none !important;
+    content: none !important;
+}
+
+.vehicle-brand-dropdown .category-heading > h2 {
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    height: 55px;
+    line-height: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.vehicle-brand-dropdown .category-heading > h2:after {
+    content: "\f107"; /* Down arrow */
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    position: absolute;
+    right: 20px;
+    font-size: 16px;
+    line-height: 55px;
+    transition: transform 0.3s ease;
+}
+
+.vehicle-brand-dropdown .category-heading > h2.active:after {
+    transform: rotate(180deg);
+}
+
+.vehicle-brand-dropdown .category-heading > h2 > span {
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 55px;
+}
+
+.vehicle-brand-dropdown .category-menu-list {
+    background: #ffffff;
+    border: 2px solid #ffc400;
+    border-radius: 5px;
+    padding: 0 20px;
+    position: absolute;
+    left: 0;
+    top: calc(100% - 1px);
+    display: block;
+    width: 100%;
+    z-index: 99;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.vehicle-brand-dropdown .category-menu-list.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.vehicle-brand-dropdown .category-menu-list > ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.vehicle-brand-dropdown .category-menu-list > ul > li {
+    position: relative;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.vehicle-brand-dropdown .category-menu-list > ul > li:last-child {
+    border-bottom: none;
+}
+
+.vehicle-brand-dropdown .category-menu-list > ul > li > a {
+    display: block;
+    text-transform: capitalize;
+    overflow: hidden;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 10px 0;
+    color: #333;
+    text-decoration: none;
+}
+
+.vehicle-brand-dropdown .category-menu-list > ul > li:hover > a {
+    color: #ffc400;
+}
+
+.vehicle-brand-dropdown .category-menu-list > ul > li.right-menu > a:after {
+    content: '\f054';
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 600;
+    font-size: 12px;
+    position: absolute;
+    top: 15px;
+    right: 0;
+}
+
+/* Mega menu for child categories (future use) */
+.vehicle-mega-menu {
+    background: #ffffff;
+    position: absolute;
+    top: 0;
+    left: 109%;
+    z-index: 999;
+    width: 640px;
+    box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    visibility: hidden;
+    padding: 30px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.vehicle-brand-dropdown .category-menu-list > ul > li:hover .vehicle-mega-menu {
+    opacity: 1;
+    visibility: visible;
+}
+
+.vehicle-mega-menu > li {
+    width: 33.333%;
+    float: left;
+}
+
+.vehicle-mega-menu > li > a {
+    font-size: 14px;
+    display: block;
+    line-height: 30px;
+    font-weight: 400;
+    color: #666666;
+    text-transform: capitalize;
+}
+
+.vehicle-mega-menu > li > a:hover {
+    color: #58d173;
+}
+
+/* Mobile specific adjustments */
+@media (max-width: 991px) {
+    .vehicle-brand-dropdown .category-menu-list {
+        padding: 0 15px;
+    }
+    
+    .vehicle-mega-menu {
+        position: static;
+        z-index: 9;
+        opacity: 1;
+        visibility: visible;
+        background-color: transparent;
+        padding: 0;
+        box-shadow: none;
+        border: 0;
+        width: 100%;
+        transition: none;
+    }
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+    .vehicle-brand-dropdown .category-menu-list {
+        padding: 0 15px;
+    }
+    
+    .vehicle-mega-menu {
+        left: 108%;
+        width: 520px;
+    }
+}
+
+@media (max-width: 768px) {
+    .vehicle-brand-dropdown .category-heading {
+        height: 50px;
+    }
+    
+    .vehicle-brand-dropdown .category-heading > h2 {
+        height: 50px;
+        line-height: 50px;
+        font-size: 14px;
+    }
+    
+    .vehicle-brand-dropdown .category-heading > h2:after {
+        font-size: 14px;
+        line-height: 50px;
+        right: 15px;
+    }
+    
+    .vehicle-brand-dropdown .category-heading > h2 > span {
+        line-height: 50px;
+        font-size: 14px;
+    }
+}

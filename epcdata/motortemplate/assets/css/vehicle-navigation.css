@@ -1,0 +1,143 @@
+/* Vehicle Brand Navigation CSS */
+.vehicle-brands-navigation {
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #dee2e6;
+    padding: 10px 0;
+    margin-bottom: 20px;
+}
+
+.vehicle-brands-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.vehicle-brands-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.category-heading {
+    margin: 0;
+}
+
+.category-heading h2.categories-toggle {
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+}
+
+.category-heading h2.categories-toggle span:first-child {
+    font-size: 14px;
+    font-weight: 400;
+    color: #666;
+}
+
+.vehicle-brand-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.vehicle-brand-toggle {
+    background: none;
+    border: none;
+    color: #333;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 8px 16px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.3s ease;
+    border-radius: 4px;
+}
+
+.vehicle-brand-toggle:hover {
+    background-color: #e9ecef;
+    color: #007bff;
+    text-decoration: none;
+}
+
+.vehicle-dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 200px;
+    background-color: white;
+    border: 1px solid #dee2e6;
+    border-radius: 4px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+}
+
+.vehicle-dropdown-content.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.vehicle-dropdown-content a {
+    display: block;
+    padding: 10px 16px;
+    color: #333;
+    text-decoration: none;
+    border-bottom: 1px solid #f1f3f4;
+    transition: background-color 0.2s ease;
+}
+
+.vehicle-dropdown-content a:last-child {
+    border-bottom: none;
+}
+
+.vehicle-dropdown-content a:hover {
+    background-color: #f8f9fa;
+    color: #007bff;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .vehicle-brands-wrapper {
+        gap: 15px;
+    }
+    
+    .vehicle-brand-toggle {
+        font-size: 14px;
+        padding: 6px 12px;
+    }
+    
+    .vehicle-dropdown-content {
+        min-width: 180px;
+    }
+}
+
+@media (max-width: 576px) {
+    .vehicle-brands-wrapper {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    
+    .vehicle-brand-dropdown {
+        width: 100%;
+    }
+    
+    .vehicle-brand-toggle {
+        width: 100%;
+        text-align: left;
+    }
+    
+    .vehicle-dropdown-content {
+        width: 100%;
+        min-width: auto;
+    }
+}
