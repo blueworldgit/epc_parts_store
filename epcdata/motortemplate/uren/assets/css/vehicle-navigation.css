@@ -48,12 +48,31 @@
 }
 
 .vehicle-brand-dropdown .category-heading {
-    background: #ffc400;
+    background: linear-gradient(135deg, #2c2c2c 0%, #000000 50%, #1a1a1a 100%);
     cursor: pointer;
     border-radius: 5px;
     height: 55px;
     display: flex;
     justify-content: space-evenly;
+    box-shadow: 0 4px 8px rgba(255, 128, 5, 0.3), inset 0 1px 2px rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 128, 5, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.vehicle-brand-dropdown .category-heading:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transition: left 0.5s;
+}
+
+.vehicle-brand-dropdown .category-heading:hover:before {
+    left: 100%;
 }
 
 /* Override any inherited icons from the main category menu */
@@ -72,6 +91,11 @@
     align-items: center;
     justify-content: center;
     text-align: center;
+    color: #ffffff;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+    font-weight: 600;
+    z-index: 2;
+    position: relative;
 }
 
 .vehicle-brand-dropdown .category-heading > h2:after {
@@ -83,6 +107,9 @@
     font-size: 16px;
     line-height: 55px;
     transition: transform 0.3s ease;
+    color: #ffffff;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+    z-index: 2;
 }
 
 .vehicle-brand-dropdown .category-heading > h2.active:after {
@@ -94,6 +121,11 @@
     font-size: 16px;
     font-weight: 600;
     line-height: 55px;
+    color: #ffffff;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+    z-index: 2;
+    position: relative;
+}
 }
 
 .vehicle-brand-dropdown .category-menu-list {

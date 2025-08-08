@@ -2,7 +2,7 @@
 {% load i18n %}
 
 <!-- Begin Uren's Footer Area -->
-<div class="uren-footer_area">
+<div class="uren-footer_area" style="margin-top: 10px; box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.75); -webkit-box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.75); -moz-box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.75);">
     <div class="footer-top_area">
         <div class="container-fluid">
             <div class="row">
@@ -36,8 +36,8 @@
                         <div class="widgets-essential_stuff">
                             <ul>
                                 <li class="uren-address"><i class="ion-ios-location"></i>{% trans "Unit 1-10, Cherry Tree Road, Tibenham, NR161PH" %}</li>
-                                <li class="uren-phone"><i class="ion-ios-telephone"></i>{% trans "01953 665421" %}</li>
-                                <li class="uren-email"><i class="ion-android-mail"></i>sales@vanpartsdirect4u.co.uk</li>
+                                <li class="uren-phone"><i class="ion-ios-telephone"></i>{% trans "01953 528 800" %}</li>
+                                <li class="uren-email"><i class="ion-android-mail"></i>parts@rapidfit.co.uk</li>
                             </ul>
                         </div>
                         <div class="uren-social_link">
@@ -129,6 +129,18 @@
                                     </ul>
                                 </div>
                             </div>
+                            <div class="col-lg-3 col-md-6">
+                                <div class="footer-widgets_title other-services-title">
+                                    <h6>{% trans "Our Other Services" %}</h6>
+                                </div>
+                                <div class="footer-widgets_info other-services-info">
+                                    <ul>
+                                        <li><a href="https://vansalesdirect.uk" target="_blank">{% trans "Van sales - vansalesdirect.uk" %}</a></li>
+                                        <li><a href="https://direct-vanhire.co.uk" target="_blank">{% trans "Direct van hire - direct-vanhire.co.uk" %}</a></li>
+                                        <li><a href="https://rapidfit.co.uk" target="_blank">{% trans "Rapidfit - rapidfit.co.uk" %}</a></li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -141,7 +153,7 @@
                 <div class="row">
                     <div class="col-lg-6 col-md-6">
                         <div class="copyright">
-                            <span>&copy; {% now "Y" %} {{ settings.OSCAR_SHOP_NAME|default:"EPC Motor Parts Store" }}. {% trans "All rights reserved." %}</span>
+                            <span>&copy; {% now "Y" %} {% trans "Van Parts Direct" %}. {% trans "All rights reserved." %}</span>
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6">

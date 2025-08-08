@@ -42,11 +42,191 @@
     
     <!-- Inline CSS to hide logo -->
     <style>
+        /* Set default body font to Corbel */
+        body {
+            font-family: 'Corbel', 'Arial', sans-serif !important;
+        }
+        
         .header-logo_area {
             display: none !important;
         }
         .header-sticky_logo {
             display: none !important;
+        }
+        
+        /* Custom gradient background for header */
+        .header-main_area.bg--sapphire {
+            background: linear-gradient(180deg, #ff8005 0%, #ff9020 50%, #ff8005 100%) !important;
+            background-size: 200% 200% !important;
+            animation: gradientShift 8s ease infinite !important;
+        }
+        
+        /* Apply same gradient to header-top_area and sticky header */
+        .header-top_area.bg--sapphire,
+        .header-sticky.bg--sapphire {
+            background: linear-gradient(180deg, #ff8005 0%, #ff9020 50%, #ff8005 100%) !important;
+            background-size: 200% 200% !important;
+            animation: gradientShift 8s ease infinite !important;
+        }
+        
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        /* Style Shop by Category button with shiny black gradient */
+        .category-menu .category-heading {
+            background: linear-gradient(135deg, #2c2c2c 0%, #000000 50%, #1a1a1a 100%) !important;
+            box-shadow: 0 4px 8px rgba(255, 128, 5, 0.3), inset 0 1px 2px rgba(255, 255, 255, 0.1) !important;
+            border: 1px solid rgba(255, 128, 5, 0.2) !important;
+            position: relative !important;
+            overflow: hidden !important;
+        }
+        
+        .category-menu .category-heading:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.5s;
+        }
+        
+        .category-menu .category-heading:hover:before {
+            left: 100%;
+        }
+        
+        .category-menu .category-heading h2,
+        .category-menu .category-heading h2 span {
+            color: #ffffff !important;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5) !important;
+            font-weight: 600 !important;
+            z-index: 2 !important;
+            position: relative !important;
+        }
+        
+        .category-menu .category-heading h2:before {
+            display: none !important;
+            content: none !important;
+        }
+        
+        .category-menu .category-heading h2:after {
+            display: none !important;
+            content: none !important;
+        }
+        
+        /* Style Search button with shiny black gradient */
+        .header-search_btn {
+            background: linear-gradient(135deg, #2c2c2c 0%, #000000 50%, #1a1a1a 100%) !important;
+            box-shadow: 0 4px 8px rgba(255, 128, 5, 0.3), inset 0 1px 2px rgba(255, 255, 255, 0.1) !important;
+            border: 1px solid rgba(255, 128, 5, 0.2) !important;
+            position: relative !important;
+            overflow: hidden !important;
+            color: #ffffff !important;
+        }
+        
+        .header-search_btn:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.5s;
+        }
+        
+        .header-search_btn:hover:before {
+            left: 100%;
+        }
+        
+        .header-search_btn i,
+        .header-search_btn span {
+            color: #ffffff !important;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5) !important;
+            z-index: 2 !important;
+            position: relative !important;
+        }
+        
+        .header-search_btn:hover {
+            background: linear-gradient(135deg, #3c3c3c 0%, #1a1a1a 50%, #2a2a2a 100%) !important;
+            color: #ffffff !important;
+        }
+        
+        /* Add margin to vehicle brands area */
+        .vehicle-brands-area {
+            margin-top: 10px;
+        }
+        /* Add padding to header middle area */
+        .header-middle_area {
+            padding-bottom: 5px;
+        }
+        
+        /* Make contact-us_wrap background fully black */
+        .contact-us_wrap {
+            background: #000 !important;
+        }
+        
+        /* Set contact-us_wrap font to Helvetica */
+        .contact-us_wrap,
+        .contact-us_wrap * {
+            font-family: 'Helvetica', 'Arial', sans-serif !important;
+        }
+        
+        /* Style all dropdown menus with black background and white text */
+        .category-menu-list,
+        .vehicle-dropdown-content,
+        .dropdown-menu,
+        .mega-menu,
+        .vehicle-mega-menu,
+        .main-nav .dropdown-menu,
+        .header-menu .dropdown-menu {
+            background: #000000 !important;
+            border: 1px solid rgba(255, 128, 5, 0.3) !important;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3) !important;
+        }
+        
+        .category-menu-list ul,
+        .vehicle-dropdown-content ul,
+        .dropdown-menu ul,
+        .mega-menu ul {
+            background: #000000 !important;
+        }
+        
+        .category-menu-list li,
+        .vehicle-dropdown-content li,
+        .dropdown-menu li,
+        .mega-menu li {
+            background: #000000 !important;
+        }
+        
+        .category-menu-list li a,
+        .vehicle-dropdown-content li a,
+        .dropdown-menu li a,
+        .mega-menu li a,
+        .main-nav .dropdown-menu a,
+        .header-menu .dropdown-menu a {
+            color: #ffffff !important;
+            background: #000000 !important;
+            text-decoration: none !important;
+        }
+        
+        .category-menu-list li a:hover,
+        .vehicle-dropdown-content li a:hover,
+        .dropdown-menu li a:hover,
+        .mega-menu li a:hover,
+        .main-nav .dropdown-menu a:hover,
+        .header-menu .dropdown-menu a:hover {
+            background: #1a1a1a !important;
+            color: #ff8005 !important;
+        }
+        
+        /* Add margin to Our Other Services title */
+        .other-services-title {
+            margin-top: 15px !important;
         }
     </style>
     
@@ -78,7 +258,7 @@
 
         <!-- Begin Uren's Breadcrumb Area -->
         {% block breadcrumbs %}
-        <div class="breadcrumb-area">
+        <div class="breadcrumb-area" style="box-shadow: 2px 4px 5px 2px rgba(0,0,0,0.75); -webkit-box-shadow: 2px 4px 5px 2px rgba(0,0,0,0.75); -moz-box-shadow: 2px 4px 5px 2px rgba(0,0,0,0.75);">
             <div class="container">
                 <div class="breadcrumb-content">
                     <h2>{% block page_title %}{% endblock %}</h2>
