@@ -35,17 +35,8 @@
                                 <img src="{{ product.primary_image.original.url }}" alt="{{ product.title }}" style="width: 100%; height: auto;">
                                 <p class="text-info mt-2"><small><i class="fa fa-image"></i> {% trans "Product image" %}</small></p>
                             {% else %}
-                                <div style="width: 100%; min-height: 400px; display: flex; align-items: center; justify-content: center; border: 2px dashed #ccc; background: #f9f9f9; padding: 20px; text-align: center;">
-                                    <div>
-                                        <i class="fa fa-image" style="font-size: 48px; color: #ccc; margin-bottom: 10px;"></i>
-                                        <p class="text-muted mb-0">{% trans "No image available" %}</p>
-                                        <small class="text-muted">{% trans "UPC:" %} {{ product.upc|default:"Not set" }}</small>
-                                        {% if settings.DEBUG %}
-                                            <br><small class="text-muted">Debug: Slug = {{ product.slug }}</small>
-                                        {% endif %}
-                                    </div>
-                                </div>
-                                <p class="text-warning mt-2"><small><i class="fa fa-exclamation-triangle"></i> {% trans "No image or diagram available" %}</small></p>
+                                <img src="/media/cache/bc/07/bc0729419b53eb2d0651e42b837daf02.jpg" alt="{{ product.title }}" style="width: 100%; height: auto;">
+                                <p class="text-warning mt-2"><small><i class="fa fa-exclamation-triangle"></i> {% trans "Default no-image placeholder" %}</small></p>
                             {% endif %}
                         </div>
                     </div>

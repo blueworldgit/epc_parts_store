@@ -5,7 +5,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.http import HttpResponse
 from django.template.response import TemplateResponse
-from svg_views import svg_diagram_view
+from svg_views import svg_diagram_view, svg_test_view, svg_debug_api, find_svg_products_view
 from django.apps import apps
 from customer_views import customer_login_view
 
@@ -158,6 +158,11 @@ urlpatterns = [
     
     # SVG diagram endpoint
     path('svg-diagram/<str:upc>/', svg_diagram_view, name='svg_diagram'),
+    
+    # SVG test endpoints
+    path('svg-test/', svg_test_view, name='svg_test'),
+    path('svg-debug-api/', svg_debug_api, name='svg_debug_api'),
+    path('find-svg-products/', find_svg_products_view, name='find_svg_products'),
     
     # Custom login override (must come before Oscar URLs)
     path('accounts/login/', customer_login_view, name='account_login'),

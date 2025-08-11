@@ -119,17 +119,28 @@
                     <div class="product-item">
                         <div class="product-img">
                             <a href="{{ product.get_absolute_url }}">
-                                {% if product.primary_image %}
-                                    <img class="primary-img" src="{{ product.primary_image.original.url }}" alt="{{ product.title }}">
-                                {% else %}
-                                    {% get_product_svg product as svg_content %}
-                                    {% if svg_content %}
-                                        <div class="svg-container" style="width: 100%; height: 200px; display: flex; align-items: center; justify-content: center; border: 1px solid #ddd;">
+                                {% get_product_svg product as svg_content %}
+                                {% if svg_content %}
+                                    <div class="svg-container" style="width: 100%; height: 200px; display: flex; align-items: center; justify-content: center; border: 1px solid #ddd; background: #f9f9f9;">
+                                        <div style="max-width: 90%; max-height: 90%; display: flex; align-items: center; justify-content: center;">
                                             {{ svg_content|safe }}
                                         </div>
-                                    {% else %}
-                                        <img class="primary-img" src="{% static 'uren/assets/images/product/medium-size/1.jpg' %}" alt="{{ product.title }}">
-                                    {% endif %}
+                                    </div>
+                                    <div class="position-absolute" style="top: 5px; right: 5px; z-index: 10;">
+                                        <span class="badge bg-success text-white small">
+                                            <i class="fa fa-cog"></i> Diagram
+                                        </span>
+                                    </div>
+                                {% elif product.primary_image %}
+                                    <img class="primary-img" src="{{ product.primary_image.original.url }}" alt="{{ product.title }}">
+                                {% else %}
+                                    <div class="no-image-placeholder" style="width: 100%; height: 200px; display: flex; align-items: center; justify-content: center; border: 2px dashed #ddd; background: #f9f9f9;">
+                                        <div class="text-center text-muted">
+                                            <i class="fa fa-image fa-2x mb-2"></i>
+                                            <br>
+                                            <small>No Image Available</small>
+                                        </div>
+                                    </div>
                                 {% endif %}
                             </a>
                             <div class="product-add_action">

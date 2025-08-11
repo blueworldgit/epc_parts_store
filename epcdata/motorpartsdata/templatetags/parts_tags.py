@@ -9,7 +9,14 @@ def get_product_svg(product):
     """Get SVG content for a product based on its UPC."""
     try:
         if product.upc:
-            part = Part.objects.select_related('child_title').get(part_number=product.upc)
+            # Handle both direct part numbers and EPC-prefixed UPCs
+            part_number = product.upc
+            
+            # If UPC has EPC- prefix, remove it
+            if part_number.startswith('EPC-'):
+                part_number = part_number[4:]  # Remove "EPC-" prefix
+            
+            part = Part.objects.select_related('child_title').get(part_number=part_number)
             if part.child_title and part.child_title.svg_code:
                 return part.child_title.svg_code
     except Part.DoesNotExist:
@@ -24,7 +31,14 @@ def svg_diagram(product):
     """Filter to get SVG diagram for a product."""
     try:
         if product.upc:
-            part = Part.objects.select_related('child_title').get(part_number=product.upc)
+            # Handle both direct part numbers and EPC-prefixed UPCs
+            part_number = product.upc
+            
+            # If UPC has EPC- prefix, remove it
+            if part_number.startswith('EPC-'):
+                part_number = part_number[4:]  # Remove "EPC-" prefix
+            
+            part = Part.objects.select_related('child_title').get(part_number=part_number)
             if part.child_title and part.child_title.svg_code:
                 return part.child_title.svg_code
     except Part.DoesNotExist:
@@ -163,3 +177,22 @@ def beautify_category_name(value):
         cleaned = cleaned.title()
     
     return cleaned
+
+@register.filter
+def remove_part_number(title):
+    """Remove part number prefix from product title."""
+    if not title:
+        return title
+    
+    # Pattern to match part numbers at the start: letters/numbers followed by space/dash
+    # Examples: "C00220787 - Product Name" or "EPC-C00220787 Product Name"
+    pattern = r'^(EPC-)?[A-Z0-9]+([\s\-_]+)'
+    
+    # Remove the part number prefix
+    cleaned_title = re.sub(pattern, '', title, flags=re.IGNORECASE)
+    
+    # If nothing left after cleaning, return original
+    if not cleaned_title.strip():
+        return title
+        
+    return cleaned_title.strip()

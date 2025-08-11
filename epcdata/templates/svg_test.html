@@ -1,0 +1,98 @@
+{% extends 'oscar/storefront_base.html' %}
+{% load static %}
+{% load i18n %}
+{% load parts_tags %}
+
+{% block title %}SVG Test - {{ settings.OSCAR_SHOP_NAME }}{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1>SVG Functionality Test</h1>
+    
+    <div class="row">
+        <div class="col-12">
+            <h3>Testing SVG Data</h3>
+            
+            <div class="mb-4">
+                <h4>Sample Products for Testing:</h4>
+                {% for product in test_products %}
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ product.title }}</h5>
+                            <p class="card-text">UPC: {{ product.upc }}</p>
+                            <p class="card-text">ID: {{ product.id }}</p>
+                            
+                            {% get_product_svg product as svg_content %}
+                            {% if svg_content %}
+                                <div style="border: 2px solid green; padding: 10px; margin: 10px 0;">
+                                    <strong style="color: green;">✓ SVG Found!</strong>
+                                    <p>SVG Length: {{ svg_content|length }} characters</p>
+                                    <div style="max-height: 200px; overflow: auto; border: 1px solid #ddd; padding: 10px; margin-top: 10px; background: white;">
+                                        {{ svg_content|safe }}
+                                    </div>
+                                </div>
+                            {% else %}
+                                <div style="border: 2px solid orange; padding: 10px; margin: 10px 0;">
+                                    <strong style="color: orange;">⚠ No SVG found for this product</strong>
+                                    <p>UPC: {{ product.upc|default:"No UPC" }}</p>
+                                </div>
+                            {% endif %}
+                            
+                            <a href="{% url 'catalogue:detail' product_slug=product.slug pk=product.pk %}" class="btn btn-primary">View Product Detail</a>
+                        </div>
+                    </div>
+                {% empty %}
+                    <p class="text-warning">No test products found in database.</p>
+                {% endfor %}
+            </div>
+            
+            <div class="mb-4">
+                <h4>Direct Database Check:</h4>
+                <div id="svg-check" class="alert alert-info">
+                    <p>This page tests if SVG functionality is working properly.</p>
+                    <p>If you see SVG diagrams above, the system is working correctly.</p>
+                    <p><a href="/svg-debug-api/" target="_blank">View Raw SVG Debug Data (JSON)</a></p>
+                </div>
+            </div>
+            
+            <div class="mb-4">
+                <h4>Next Steps:</h4>
+                <ol>
+                    <li>Check if any products have SVG data linked</li>
+                    <li>If SVG displays correctly, the template system is working</li>
+                    <li>Test on VPS with the same setup</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+// Load debug data via JavaScript
+fetch('/svg-debug-api/')
+    .then(response => response.json())
+    .then(data => {
+        console.log('SVG Debug Data:', data);
+        const debugDiv = document.getElementById('svg-check');
+        
+        if (data.child_titles_count > 0) {
+            debugDiv.innerHTML = `
+                <p><strong>✓ SUCCESS:</strong> Found ${data.child_titles_count} ChildTitles with SVG data!</p>
+                <p>Sample data loaded - check console for details.</p>
+                <p><a href="/svg-debug-api/" target="_blank">View Raw SVG Debug Data (JSON)</a></p>
+            `;
+            debugDiv.className = 'alert alert-success';
+        } else {
+            debugDiv.innerHTML = `
+                <p><strong>⚠ WARNING:</strong> No ChildTitles with SVG data found in database.</p>
+                <p>The template system is working, but no SVG data is available.</p>
+                <p><a href="/svg-debug-api/" target="_blank">View Raw SVG Debug Data (JSON)</a></p>
+            `;
+            debugDiv.className = 'alert alert-warning';
+        }
+    })
+    .catch(error => {
+        console.error('Error loading debug data:', error);
+    });
+</script>
+{% endblock %}
