@@ -128,29 +128,57 @@
                 <div class="uren-sidebar-catagories_area">
                     <div class="category-module uren-sidebar_categories">
                         <div class="category-module_heading">
-                            <h5>{% trans "Product Categories" %}</h5>
+                            <h5>{% trans "Categories" %}</h5>
                         </div>
                         <div class="module-body">
                             <ul class="module-list_item">
                                 {% for category in categories %}
-                                    <li class="{% if category.get_children %}has-sub{% endif %}">
-                                        <a href="{% url 'catalogue:category' category_slug=category.slug pk=category.pk %}">
-                                            {{ category.name|clean_category_name }}
-                                            <span class="category-count">({{ category.get_num_products }})</span>
-                                        </a>
-                                        {% if category.get_children %}
-                                            <ul class="module-sub-list">
-                                                {% for child in category.get_children %}
-                                                    <li>
-                                                        <a href="{% url 'catalogue:category' category_slug=child.slug pk=child.pk %}">
-                                                            {{ child.name|clean_category_name }}
-                                                            <span class="category-count">({{ child.get_num_products }})</span>
-                                                        </a>
-                                                    </li>
-                                                {% endfor %}
-                                            </ul>
-                                        {% endif %}
-                                    </li>
+                                    {% if category.name|clean_category_name == 'Maxus' %}
+                                        <!-- Show Maxus vehicle models -->
+                                        {% for vehicle_model in category.get_children %}
+                                            <li class="category-item vehicle-model-category">
+                                                <a href="{% url 'catalogue:category' category_slug=vehicle_model.slug pk=vehicle_model.pk %}"
+                                                   class="category-link"
+                                                   data-category-id="{{ vehicle_model.pk }}">
+                                                    {{ vehicle_model.name|clean_category_name }}
+                                                    <span class="category-count">({{ vehicle_model.get_num_products }})</span>
+                                                </a>
+                                                <!-- Show parts categories for this vehicle model -->
+                                                <ul class="module-sub-list">
+                                                    {% for parts_category in vehicle_model.get_children %}
+                                                        <li class="sub-category-item">
+                                                            <a href="{% url 'catalogue:category' category_slug=parts_category.slug pk=parts_category.pk %}">
+                                                                {{ parts_category.name|clean_category_name }}
+                                                                <span class="category-count">({{ parts_category.get_num_products }})</span>
+                                                            </a>
+                                                        </li>
+                                                    {% endfor %}
+                                                </ul>
+                                            </li>
+                                        {% endfor %}
+                                    {% else %}
+                                        <!-- Show other brands normally -->
+                                        <li class="category-item">
+                                            <a href="{% url 'catalogue:category' category_slug=category.slug pk=category.pk %}" 
+                                               class="category-link"
+                                               data-category-id="{{ category.pk }}">
+                                                {{ category.name|clean_category_name }}
+                                                <span class="category-count">({{ category.get_num_products }})</span>
+                                            </a>
+                                            {% if category.get_children %}
+                                                <ul class="module-sub-list">
+                                                    {% for child in category.get_children %}
+                                                        <li class="sub-category-item">
+                                                            <a href="{% url 'catalogue:category' category_slug=child.slug pk=child.pk %}">
+                                                                {{ child.name|clean_category_name }}
+                                                                <span class="category-count">({{ child.get_num_products }})</span>
+                                                            </a>
+                                                        </li>
+                                                    {% endfor %}
+                                                </ul>
+                                            {% endif %}
+                                        </li>
+                                    {% endif %}
                                 {% empty %}
                                     <li><em>{% trans "No categories available" %}</em></li>
                                 {% endfor %}
@@ -400,4 +428,28 @@
         </div>
     </div>
 </div>
+
+<style>
+/* Category sidebar styles */
+.module-sub-list {
+    padding-left: 20px;
+    margin-top: 8px;
+    border-left: 2px solid #ff8005;
+}
+
+.sub-category-item {
+    margin-bottom: 5px;
+}
+
+.sub-category-item a {
+    padding: 5px 0;
+    font-size: 14px;
+    color: #666;
+}
+
+.sub-category-item a:hover {
+    color: #ff8005;
+}
+</style>
+
 {% endblock %}
