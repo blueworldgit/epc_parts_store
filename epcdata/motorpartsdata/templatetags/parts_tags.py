@@ -16,13 +16,19 @@ def get_product_svg(product):
             if part_number.startswith('EPC-'):
                 part_number = part_number[4:]  # Remove "EPC-" prefix
             
-            part = Part.objects.select_related('child_title').get(part_number=part_number)
-            if part.child_title and part.child_title.svg_code:
-                return part.child_title.svg_code
-    except Part.DoesNotExist:
-        pass
+            # Use filter instead of get to handle multiple parts with same number
+            parts = Part.objects.select_related('child_title').filter(part_number=part_number)
+            
+            # Return SVG from the first part that has SVG data
+            for part in parts:
+                if part.child_title and part.child_title.svg_code:
+                    return part.child_title.svg_code
+                    
     except Exception as e:
         # For debugging, you can log the error
+        import logging
+        logger = logging.getLogger(__name__)
+        logger.error(f"Error in get_product_svg for product {product.upc}: {e}")
         pass
     return None
 
@@ -38,13 +44,19 @@ def svg_diagram(product):
             if part_number.startswith('EPC-'):
                 part_number = part_number[4:]  # Remove "EPC-" prefix
             
-            part = Part.objects.select_related('child_title').get(part_number=part_number)
-            if part.child_title and part.child_title.svg_code:
-                return part.child_title.svg_code
-    except Part.DoesNotExist:
-        pass
+            # Use filter instead of get to handle multiple parts with same number
+            parts = Part.objects.select_related('child_title').filter(part_number=part_number)
+            
+            # Return SVG from the first part that has SVG data
+            for part in parts:
+                if part.child_title and part.child_title.svg_code:
+                    return part.child_title.svg_code
+                    
     except Exception as e:
         # For debugging, you can log the error
+        import logging
+        logger = logging.getLogger(__name__)
+        logger.error(f"Error in svg_diagram for product {product.upc}: {e}")
         pass
     return None
 
