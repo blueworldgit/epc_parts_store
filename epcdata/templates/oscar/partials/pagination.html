@@ -1,0 +1,78 @@
+{% load i18n %}
+{% load category_filters %}
+<!-- Smart Pagination - Shows max 10 pages -->
+{% if is_paginated %}
+    <div class="shop-pagination mt-5 d-flex justify-content-center">
+        <nav aria-label="{% trans 'Page navigation' %}" class="w-100">
+            <ul class="pagination justify-content-center mb-0">
+                <!-- First and Previous buttons -->
+                {% if page_obj.has_previous %}
+                    <li class="page-item">
+                        <a class="page-link" href="?{% if request.GET.q %}q={{ request.GET.q }}&{% endif %}page=1" title="{% trans 'First page' %}">
+                            &laquo;&laquo;
+                        </a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="?{% if request.GET.q %}q={{ request.GET.q }}&{% endif %}page={{ page_obj.previous_page_number }}" title="{% trans 'Previous page' %}">
+                            &laquo; {% trans "Previous" %}
+                        </a>
+                    </li>
+                {% endif %}
+
+                <!-- Page numbers (max 10 around current page) -->
+                {% for page_num in page_obj.paginator.page_range %}
+                    {% if page_num == page_obj.number %}
+                        <!-- Current page -->
+                        <li class="page-item active">
+                            <span class="page-link">{{ page_num }}</span>
+                        </li>
+                    {% elif page_num >= page_obj.number|add:'-4' and page_num <= page_obj.number|add:'5' %}
+                        <!-- Show 4 pages before and 5 pages after current page -->
+                        <li class="page-item">
+                            <a class="page-link" href="?{% if request.GET.q %}q={{ request.GET.q }}&{% endif %}page={{ page_num }}">{{ page_num }}</a>
+                        </li>
+                    {% elif page_num == 1 and page_obj.number > 6 %}
+                        <!-- Always show first page if we're far from it -->
+                        <li class="page-item">
+                            <a class="page-link" href="?{% if request.GET.q %}q={{ request.GET.q }}&{% endif %}page=1">1</a>
+                        </li>
+                        <li class="page-item disabled">
+                            <span class="page-link">...</span>
+                        </li>
+                    {% elif page_num == page_obj.paginator.num_pages and page_obj.number < page_obj.paginator.num_pages|add:'-5' %}
+                        <!-- Always show last page if we're far from it -->
+                        <li class="page-item disabled">
+                            <span class="page-link">...</span>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="?{% if request.GET.q %}q={{ request.GET.q }}&{% endif %}page={{ page_obj.paginator.num_pages }}">{{ page_obj.paginator.num_pages }}</a>
+                        </li>
+                    {% endif %}
+                {% endfor %}
+
+                <!-- Next and Last buttons -->
+                {% if page_obj.has_next %}
+                    <li class="page-item">
+                        <a class="page-link" href="?{% if request.GET.q %}q={{ request.GET.q }}&{% endif %}page={{ page_obj.next_page_number }}" title="{% trans 'Next page' %}">
+                            {% trans "Next" %} &raquo;
+                        </a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="?{% if request.GET.q %}q={{ request.GET.q }}&{% endif %}page={{ page_obj.paginator.num_pages }}" title="{% trans 'Last page' %}">
+                            &raquo;&raquo;
+                        </a>
+                    </li>
+                {% endif %}
+            </ul>
+            
+            <!-- Page info -->
+            <div class="pagination-info text-center mt-3 w-100">
+                <small class="text-muted">
+                    {% blocktrans with current=page_obj.number total=page_obj.paginator.num_pages count_start=page_obj.start_index count_end=page_obj.end_index count_total=page_obj.paginator.count %}
+                        Page {{ current }} of {{ total }} ({{ count_start }}-{{ count_end }} of {{ count_total }} items)
+                    {% endblocktrans %}
+                </small>
+            </div>
+        </nav>
+    </div>
+{% endif %}
