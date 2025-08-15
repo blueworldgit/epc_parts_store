@@ -156,6 +156,9 @@ urlpatterns = [
     # Payment URLs
     path('payment/', include('payment.urls')),
     
+    # Legal pages (Privacy Policy, Terms & Conditions)
+    path('legal/', include('legal_urls')),
+    
     # SVG diagram endpoint
     path('svg-diagram/<str:upc>/', svg_diagram_view, name='svg_diagram'),
     

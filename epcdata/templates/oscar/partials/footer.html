@@ -91,8 +91,9 @@
                                     <ul>
                                         <li><a href="#">{% trans "About Us" %}</a></li>
                                         <li><a href="#">{% trans "Contact Us" %}</a></li>
-                                        <li><a href="#">{% trans "Terms & Conditions" %}</a></li>
-                                        <li><a href="#">{% trans "Privacy Policy" %}</a></li>
+                                        <li><a href="{% url 'legal:terms_conditions' %}">{% trans "Terms & Conditions" %}</a></li>
+                                        <li><a href="{% url 'legal:privacy_policy' %}">{% trans "Privacy Policy" %}</a></li>
+                                        <li><a href="{% url 'legal:data_protection_policy' %}">{% trans "GDPR Data Protection" %}</a></li>
                                         <li><a href="#">{% trans "Returns & Exchanges" %}</a></li>
                                     </ul>
                                 </div>
@@ -154,6 +155,11 @@
                     <div class="col-lg-6 col-md-6">
                         <div class="copyright">
                             <span>&copy; {% now "Y" %} {% trans "Van Parts Direct" %}. {% trans "All rights reserved." %}</span>
+                            <div class="footer-legal-links mt-2">
+                                <a href="{% url 'legal:privacy_policy' %}" class="text-muted small">{% trans "Privacy Policy" %}</a>
+                                <span class="text-muted small mx-2">|</span>
+                                <a href="{% url 'legal:terms_conditions' %}" class="text-muted small">{% trans "Terms & Conditions" %}</a>
+                            </div>
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6">
