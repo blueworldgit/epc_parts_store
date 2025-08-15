@@ -7,6 +7,7 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>{% block title %}{{ settings.OSCAR_SHOP_NAME }} - {{ settings.OSCAR_SHOP_TAGLINE }}{% endblock %}</title>
+    <!-- DEBUG: This is storefront_base.html being used -->
     <meta name="robots" content="index, follow" />
     <meta name="description" content="{% block description %}{{ settings.OSCAR_SHOP_TAGLINE }}{% endblock %}">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -299,6 +300,7 @@
 </head>
 
 <body class="template-color-1">
+    <!-- DEBUG: BODY TAG - storefront_base.html confirmed -->
 
     <div class="main-wrapper">
 
@@ -317,6 +319,7 @@
 
         <!-- Begin Uren's Header Main Area -->
         {% include 'oscar/partials/header.html' %}
+        <!-- SUPER DEBUG: IF YOU SEE THIS THE BASE TEMPLATE IS WORKING -->
         <!-- Uren's Header Main Area End Here -->
 
         <!-- Begin Uren's Breadcrumb Area -->

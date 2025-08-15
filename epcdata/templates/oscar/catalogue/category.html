@@ -1,0 +1,283 @@
+{% extends 'oscar/storefront_base.html' %}
+{% load static %}
+{% load i18n %}
+{% load category_tags %}
+{% load parts_tags %}
+
+{% block title %}
+    {{ category.name }} - {{ settings.OSCAR_SHOP_NAME }}
+{% endblock %}
+
+{% block page_title %}{{ category.name }}{% endblock %}
+
+{% block breadcrumb_items %}
+    {% for ancestor in category.get_ancestors %}
+        <li><a href="{% url 'catalogue:category' category_slug=ancestor.slug pk=ancestor.pk %}">{{ ancestor.name }}</a></li>
+    {% endfor %}
+    <li class="active">{{ category.name }}</li>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+/* Prevent horizontal scrollbar */
+html, body {
+    overflow-x: hidden;
+}
+
+.container-fluid {
+    overflow-x: hidden;
+}
+
+.row {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.product-item {
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    height: auto;
+    display: block;
+}
+
+.product-item:hover {
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transform: translateY(-2px);
+}
+
+.svg-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+}
+
+.svg-wrapper svg {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    overflow: hidden;
+}
+
+.svg-thumbnail-container {
+    overflow: hidden !important;
+}
+
+.product-title {
+    font-size: 14px;
+}
+
+.svg-indicator {
+    opacity: 0.9;
+}
+
+.product-img {
+    transition: transform 0.3s ease;
+}
+
+.product-item:hover .product-img {
+    transform: scale(1.05);
+}
+
+.product-info {
+    border-top: 1px solid #f0f0f0;
+}
+
+.product-title a:hover {
+    color: #007bff !important;
+}
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="shop-content_wrapper">
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Dynamic Category Sidebar -->
+            <div class="col-lg-3 col-md-5 order-2 order-lg-1 order-md-1">
+                {% include 'oscar/partials/dynamic_category_sidebar.html' %}
+            </div>
+
+            <!-- Main Product Content Area -->
+            <div class="col-lg-9 col-md-7 order-1 order-lg-2 order-md-2">
+                <div class="shop-content">
+                    <!-- Category Header -->
+                    <div class="category-header mb-4">
+                        <h1>{{ category.name }}</h1>
+                        {% if category.description %}
+                            <p class="lead">{{ category.description }}</p>
+                        {% endif %}
+                    </div>
+
+                    <!-- Shop Top Bar -->
+                    <div class="shop-top-bar mb-4">
+                        <div class="row">
+                            <div class="col-lg-7 col-md-8">
+                                <div class="shop-sorting">
+                                    <label>{% trans "Sort By:" %}</label>
+                                    <select class="form-select" style="max-width: 200px; display: inline-block;">
+                                        <option value="default">{% trans "Default" %}</option>
+                                        <option value="name">{% trans "Name A-Z" %}</option>
+                                        <option value="price">{% trans "Price Low-High" %}</option>
+                                        <option value="rating">{% trans "Rating" %}</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-lg-5 col-md-4">
+                                <div class="shop-view-mode text-end">
+                                    <span>{% trans "View:" %}</span>
+                                    <a href="#" class="grid-view active"><i class="fa fa-th"></i></a>
+                                    <a href="#" class="list-view"><i class="fa fa-list"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Products Grid -->
+                    <div class="shop-products-wrap grid-view">
+                        <div class="row">
+                            {% for product in products %}
+                                <div class="col-lg-4 col-md-6 col-sm-6 mb-4">
+                                    <div class="product-item h-100">
+                                        <div class="product-thumbnail">
+                                            <a href="{{ product.get_absolute_url }}">
+                                                {% get_product_svg product as svg_content %}
+                                                {% if svg_content %}
+                                                    <div class="svg-thumbnail-container" 
+                                                         style="position: relative; width: 100%; height: 200px; background-color: #f8f9fa; border: 1px solid #dee2e6; display: flex; align-items: center; justify-content: center;">
+                                                        <div class="svg-wrapper" style="width: 180px; height: 180px; position: relative;">
+                                                            {{ svg_content|safe }}
+                                                        </div>
+                                                    </div>
+                                                    <div class="svg-indicator position-absolute" style="top: 5px; right: 5px; z-index: 10;">
+                                                        <span class="badge bg-success text-white small">
+                                                            <i class="fa fa-cog"></i> Diagram
+                                                        </span>
+                                                    </div>
+                                                {% elif product.primary_image and product.primary_image.original.url %}
+                                                    <img src="{{ product.primary_image.original.url }}" 
+                                                         alt="{{ product.title }}" 
+                                                         class="img-fluid product-img"
+                                                         style="width: 100%; height: 200px; object-fit: cover;">
+                                                {% else %}
+                                                    <div class="no-image-placeholder d-flex align-items-center justify-content-center" 
+                                                         style="width: 100%; height: 200px; background-color: #f8f9fa; border: 2px dashed #dee2e6;">
+                                                        <div class="text-center text-muted">
+                                                            <i class="fa fa-image fa-3x mb-2"></i>
+                                                            <br>
+                                                            <small>No Image Available</small>
+                                                        </div>
+                                                    </div>
+                                                {% endif %}
+                                            </a>
+                                        </div>
+                                        <div class="product-info p-3">
+                                            <h6 class="product-title mb-2">
+                                                <a href="{{ product.get_absolute_url }}" class="text-decoration-none text-dark">
+                                                    {{ product.title|remove_part_number|truncatechars:25 }}
+                                                </a>
+                                            </h6>
+                                            
+                                            {% if product.description %}
+                                                <p class="product-description text-muted small mb-2">
+                                                    {{ product.description|truncatechars:50 }}
+                                                </p>
+                                            {% endif %}
+                                            
+                                            <div class="product-price mb-2">
+                                                {% if product.stockrecords.first and product.stockrecords.first.price %}
+                                                    <span class="new-price" style="color: #28a745; font-weight: bold;">£{{ product.stockrecords.first.price }}</span>
+                                                {% else %}
+                                                    <span class="contact-price" style="color: #6c757d;">{% trans "Contact for Price" %}</span>
+                                                {% endif %}
+                                            </div>
+                                            
+                                            {% if product.stockrecords.first and product.stockrecords.first.num_in_stock %}
+                                                <div class="stock-info mb-2">
+                                                    <small class="text-success">{% trans "In Stock" %}: {{ product.stockrecords.first.num_in_stock }}</small>
+                                                </div>
+                                            {% endif %}
+                                            
+                                            <div class="product-actions">
+                                                {% load basket_tags %}
+                                                {% load purchase_info_tags %}
+                                                {% purchase_info_for_product request product as session %}
+                                                
+                                                {% if session.availability.is_available_to_buy and session.price.exists %}
+                                                    <!-- Add to Cart Form -->
+                                                    {% basket_form request product 'single' as basket_form %}
+                                                    <form method="post" action="{% url 'basket:add' pk=product.pk %}" class="add-to-basket mb-1">
+                                                        {% csrf_token %}
+                                                        {% for field in basket_form %}
+                                                            {{ field.as_hidden }}
+                                                        {% endfor %}
+                                                        <button type="submit" class="btn btn-success btn-sm w-100" data-loading-text="{% trans 'Adding...' %}">
+                                                            <i class="fa fa-shopping-cart"></i> {% trans "Add to Cart" %}
+                                                        </button>
+                                                    </form>
+                                                    <a href="{{ product.get_absolute_url }}" class="btn btn-outline-primary btn-sm">
+                                                        {% trans "View Details" %}
+                                                    </a>
+                                                {% else %}
+                                                    <a href="{{ product.get_absolute_url }}" class="btn btn-warning btn-sm">
+                                                        {% trans "Enquire" %}
+                                                    </a>
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% empty %}
+                                <div class="col-12">
+                                    <div class="alert alert-info text-center">
+                                        <h4>{% trans "No products found" %}</h4>
+                                        <p>{% trans "There are currently no products in this category." %}</p>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                    <!-- Pagination -->
+                    {% if is_paginated %}
+                        <div class="shop-pagination mt-5">
+                            <nav aria-label="{% trans 'Page navigation' %}">
+                                <ul class="pagination justify-content-center">
+                                    {% if page_obj.has_previous %}
+                                        <li class="page-item">
+                                            <a class="page-link" href="?page={{ page_obj.previous_page_number }}">{% trans "Previous" %}</a>
+                                        </li>
+                                    {% endif %}
+                                    
+                                    {% for page_num in page_obj.paginator.page_range %}
+                                        {% if page_num == page_obj.number %}
+                                            <li class="page-item active">
+                                                <span class="page-link">{{ page_num }}</span>
+                                            </li>
+                                        {% else %}
+                                            <li class="page-item">
+                                                <a class="page-link" href="?page={{ page_num }}">{{ page_num }}</a>
+                                            </li>
+                                        {% endif %}
+                                    {% endfor %}
+                                    
+                                    {% if page_obj.has_next %}
+                                        <li class="page-item">
+                                            <a class="page-link" href="?page={{ page_obj.next_page_number }}">{% trans "Next" %}</a>
+                                        </li>
+                                    {% endif %}
+                                </ul>
+                            </nav>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

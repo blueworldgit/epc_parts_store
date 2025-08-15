@@ -1,0 +1,235 @@
+{% load i18n %}
+{% load category_tags %}
+{% load category_filters %}
+
+<div class="uren-sidebar-catagories_area">
+    <div class="category-module uren-sidebar_categories">
+        <div class="category-module_heading">
+            <h5>{% trans "Categories" %}</h5>
+        </div>
+        <div class="module-body">
+            <ul class="module-list_item dynamic-category-menu">
+                {% if category %}
+                    {# Show context-based navigation when on a category page #}
+                    {% if category.depth == 1 %}
+                        {# On brand page - show vehicle models/children #}
+                        <li class="back-link">
+                            <a href="{% url 'catalogue:index' %}" class="back-to-brands">
+                                <i class="fa fa-arrow-left"></i> {% trans "Back to All Brands" %}
+                            </a>
+                        </li>
+                        <li class="current-category">
+                            <span class="current-category-name">{{ category.name }}</span>
+                        </li>
+                        {% for child in category.get_children %}
+                            <li class="child-category">
+                                <a href="{% url 'catalogue:category' category_slug=child.slug pk=child.pk %}" class="category-link">
+                                    {{ child.name }}
+                                    <span class="category-count">({{ child|recursive_product_count }})</span>
+                                    {% if child.get_children %}
+                                        <i class="fa fa-angle-right"></i>
+                                    {% endif %}
+                                </a>
+                            </li>
+                        {% empty %}
+                            <li><em>{% trans "No subcategories available" %}</em></li>
+                        {% endfor %}
+                        
+                    {% elif category.depth == 2 %}
+                        {# On vehicle model page - show parts categories #}
+                        <li class="back-link">
+                            <a href="{% url 'catalogue:category' category_slug=category.get_parent.slug pk=category.get_parent.pk %}" class="back-to-parent">
+                                <i class="fa fa-arrow-left"></i> {% trans "Back to" %} {{ category.get_parent.name }}
+                            </a>
+                        </li>
+                        <li class="back-link">
+                            <a href="{% url 'catalogue:index' %}" class="back-to-brands">
+                                <i class="fa fa-home"></i> {% trans "All Brands" %}
+                            </a>
+                        </li>
+                        <li class="current-category">
+                            <span class="current-category-name">{{ category.name }}</span>
+                        </li>
+                        {% for child in category.get_children %}
+                            <li class="parts-category">
+                                <a href="{% url 'catalogue:category' category_slug=child.slug pk=child.pk %}" class="category-link">
+                                    {{ child.name }}
+                                    <span class="category-count">({{ child|recursive_product_count }})</span>
+                                </a>
+                            </li>
+                        {% empty %}
+                            <li><em>{% trans "No parts categories available" %}</em></li>
+                        {% endfor %}
+                        
+                    {% elif category.depth == 3 %}
+                        {# On parts category page - show navigation back up #}
+                        <li class="back-link">
+                            <a href="{% url 'catalogue:category' category_slug=category.get_parent.slug pk=category.get_parent.pk %}" class="back-to-parent">
+                                <i class="fa fa-arrow-left"></i> {% trans "Back to" %} {{ category.get_parent.name }}
+                            </a>
+                        </li>
+                        <li class="back-link">
+                            <a href="{% url 'catalogue:category' category_slug=category.get_parent.get_parent.slug pk=category.get_parent.get_parent.pk %}" class="back-to-grandparent">
+                                <i class="fa fa-arrow-up"></i> {{ category.get_parent.get_parent.name }}
+                            </a>
+                        </li>
+                        <li class="back-link">
+                            <a href="{% url 'catalogue:index' %}" class="back-to-brands">
+                                <i class="fa fa-home"></i> {% trans "All Brands" %}
+                            </a>
+                        </li>
+                        <li class="current-category">
+                            <span class="current-category-name">{{ category.name }}</span>
+                        </li>
+                        {% if category.get_children %}
+                            {% for child in category.get_children %}
+                                <li class="sub-parts-category">
+                                    <a href="{% url 'catalogue:category' category_slug=child.slug pk=child.pk %}" class="category-link">
+                                        {{ child.name }}
+                                        <span class="category-count">({{ child|recursive_product_count }})</span>
+                                    </a>
+                                </li>
+                            {% endfor %}
+                        {% endif %}
+                    {% endif %}
+                    
+                {% else %}
+                    {# Homepage - show your 5 main brands #}
+                    {% for root_category in categories %}
+                        {% if root_category.name == "Maxus" or root_category.name == "Peugeot" or root_category.name == "Renault" or root_category.name == "Mercedes" or root_category.name == "MAN" %}
+                            <li class="brand-category">
+                                <a href="{% url 'catalogue:category' category_slug=root_category.slug pk=root_category.pk %}" class="category-link brand-link">
+                                    {{ root_category.name }}
+                                    <span class="category-count">({{ root_category|recursive_product_count }})</span>
+                                    <i class="fa fa-angle-right"></i>
+                                </a>
+                            </li>
+                        {% endif %}
+                    {% endfor %}
+                    
+                    {# Show other categories if we have them #}
+                    {% for root_category in categories %}
+                        {% if root_category.name != "Maxus" and root_category.name != "Peugeot" and root_category.name != "Renault" and root_category.name != "Mercedes" and root_category.name != "MAN" %}
+                            <li class="other-category">
+                                <a href="{% url 'catalogue:category' category_slug=root_category.slug pk=root_category.pk %}" class="category-link">
+                                    {{ root_category.name }}
+                                    <span class="category-count">({{ root_category|recursive_product_count }})</span>
+                                    {% if root_category.get_children %}
+                                        <i class="fa fa-angle-right"></i>
+                                    {% endif %}
+                                </a>
+                            </li>
+                        {% endif %}
+                    {% empty %}
+                        <li><em>{% trans "No categories available" %}</em></li>
+                    {% endfor %}
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</div>
+
+<style>
+.dynamic-category-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.dynamic-category-menu li {
+    border-bottom: 1px solid #f0f0f0;
+    position: relative;
+}
+
+.dynamic-category-menu .back-link {
+    background-color: #f8f9fa;
+    border-left: 3px solid #007bff;
+}
+
+.dynamic-category-menu .back-link a {
+    color: #007bff;
+    font-weight: 500;
+    padding: 8px 12px;
+    display: block;
+    text-decoration: none;
+}
+
+.dynamic-category-menu .back-link a:hover {
+    background-color: #e9ecef;
+}
+
+.dynamic-category-menu .current-category {
+    background-color: #28a745;
+    color: white;
+    font-weight: bold;
+    padding: 10px 12px;
+}
+
+.dynamic-category-menu .current-category-name {
+    display: block;
+    color: white;
+}
+
+.dynamic-category-menu .brand-category {
+    border-left: 3px solid #ff6b6b;
+}
+
+.dynamic-category-menu .brand-link {
+    font-weight: 600;
+    color: #ff6b6b;
+}
+
+.dynamic-category-menu .child-category {
+    border-left: 3px solid #4ecdc4;
+}
+
+.dynamic-category-menu .parts-category {
+    border-left: 3px solid #45b7d1;
+}
+
+.dynamic-category-menu .category-link {
+    display: block;
+    padding: 10px 40px 10px 12px;
+    color: #333;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.dynamic-category-menu .category-link:hover {
+    background-color: #f8f9fa;
+    color: #007bff;
+    text-decoration: none;
+}
+
+.dynamic-category-menu .category-count {
+    color: #999;
+    font-size: 0.9em;
+    position: absolute;
+    right: 25px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: inherit;
+    padding: 0 2px;
+}
+
+.dynamic-category-menu .fa {
+    color: #ccc;
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.dynamic-category-menu .fa-arrow-left,
+.dynamic-category-menu .fa-arrow-up,
+.dynamic-category-menu .fa-home {
+    margin-right: 5px;
+    float: none;
+}
+
+.dynamic-category-menu .brand-category .fa-angle-right {
+    color: #ff6b6b;
+}
+</style>

@@ -1,0 +1,25 @@
+{% extends 'oscar/base.html' %}
+
+{% block title %}
+    DEBUG: BASE CATALOGUE TEMPLATE WORKING!
+{% endblock %}
+
+{% block content %}
+<div style="background: blue; color: white; padding: 20px; text-align: center;">
+    <h1>FOUND IT! THIS IS THE BASE CATALOGUE TEMPLATE!</h1>
+    <p>The sidebar should be generated from this template.</p>
+</div>
+
+<!-- SIDEBAR DEBUG -->
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-3" style="background: yellow; padding: 20px;">
+            <h3>SIDEBAR LOCATION FOUND!</h3>
+            <p>This is where your categories sidebar is generated.</p>
+        </div>
+        <div class="col-lg-9">
+            <h2>All products listing</h2>
+        </div>
+    </div>
+</div>
+{% endblock %}

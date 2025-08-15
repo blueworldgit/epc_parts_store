@@ -1,19 +1,7 @@
 from django import template
-from oscar.apps.catalogue.models import Category, Product
+from oscar.apps.catalogue.models import Category
 
 register = template.Library()
-
-@register.inclusion_tag('oscar/partials/category_sidebar.html')
-def category_sidebar():
-    """
-    Display a hierarchical category sidebar similar to vanparts-direct.co.uk
-    """
-    # Get all root categories (depth=1) and their immediate children
-    root_categories = Category.objects.filter(depth=1).prefetch_related('get_children')
-    
-    return {
-        'root_categories': root_categories,
-    }
 
 @register.inclusion_tag('oscar/partials/dynamic_category_sidebar.html', takes_context=True)
 def dynamic_category_sidebar(context):
@@ -31,13 +19,6 @@ def dynamic_category_sidebar(context):
         'current_category': current_category,
         'request': request,
     }
-
-@register.simple_tag
-def get_category_tree():
-    """
-    Get the complete category tree for navigation
-    """
-    return Category.get_tree()
 
 @register.simple_tag
 def get_brand_categories():
@@ -100,19 +81,3 @@ def get_breadcrumb_categories(context):
             category = category.get_parent()
     
     return breadcrumbs
-
-@register.filter
-def get_recursive_product_count(category):
-    """
-    Get the total count of products in this category and all its descendants
-    """
-    if not category:
-        return 0
-    
-    # Get all descendant categories and include the current category
-    descendant_categories = list(category.get_descendants()) + [category]
-    
-    # Count products in all these categories
-    product_count = Product.objects.filter(categories__in=descendant_categories).distinct().count()
-    
-    return product_count

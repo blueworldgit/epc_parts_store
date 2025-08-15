@@ -3,6 +3,7 @@
 {% load i18n %}
 {% load currency_filters %}
 {% load parts_tags %}
+{% load category_filters %}
 
 {% block title %}
     {% if query %}{% blocktrans with query=query %}Search results for "{{ query }}"{% endblocktrans %} - {% endif %}{{ settings.OSCAR_SHOP_NAME }}
@@ -154,17 +155,6 @@
                         </div>
                     </div>
                 </div>
-                
-                <!-- Sidebar Banner -->
-                <div class="sidebar-banner_area">
-                    <div class="banner-item img-hover_effect">
-                        <div class="banner-img">
-                            <a href="#">
-                                <img class="img-full" src="{% static 'uren/assets/images/banner_img/1.jpg' %}" alt="{% trans 'Motor Parts Banner' %}">
-                            </a>
-                        </div>
-                    </div>
-                </div>
             </div>
 
             <!-- Main Product Content Area -->
@@ -186,7 +176,16 @@
                             </div>
                             <div class="col-lg-5 col-md-4">
                                 <div class="results-count">
-                                    {% if paginator.count %}
+                                    {% if query %}
+                                        {% direct_product_search_count query as search_count %}
+                                        <span class="text-muted">
+                                            {% blocktrans count counter=search_count %}
+                                                {{ counter }} product found
+                                            {% plural %}
+                                                {{ counter }} products found
+                                            {% endblocktrans %}
+                                        </span>
+                                    {% elif paginator.count %}
                                         <span class="text-muted">
                                             {% blocktrans count counter=paginator.count %}
                                                 {{ counter }} product found
@@ -201,8 +200,114 @@
                     </div>
                     
                     <!-- Search Results -->
-                    <div class="row">
-                        {% for product in object_list %}
+                    {% if query %}
+                        {% direct_product_search query 20 as search_results %}
+                        <div class="row">
+                            {% for product in search_results %}
+                                <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
+                                    <div class="product-item h-100">
+                                        <div class="product-thumbnail">
+                                            <a href="{{ product.get_absolute_url }}">
+                                                {% get_product_svg product as svg_content %}
+                                                {% if svg_content %}
+                                                    <div class="svg-thumbnail-container" 
+                                                         style="position: relative; width: 100%; height: 200px; background-color: #f8f9fa; border: 1px solid #dee2e6; display: flex; align-items: center; justify-content: center;">
+                                                        <div class="svg-wrapper" style="width: 180px; height: 180px; position: relative;">
+                                                            {{ svg_content|safe }}
+                                                        </div>
+                                                    </div>
+                                                    <div class="svg-indicator position-absolute" style="top: 5px; right: 5px; z-index: 10;">
+                                                        <span class="badge bg-success text-white small">
+                                                            <i class="fa fa-cog"></i> Diagram
+                                                        </span>
+                                                    </div>
+                                                {% elif product.primary_image and product.primary_image.original.url %}
+                                                    <img src="{{ product.primary_image.original.url }}" 
+                                                         alt="{{ product.title }}" 
+                                                         class="img-fluid product-img"
+                                                         style="width: 100%; height: 200px; object-fit: cover;">
+                                                {% else %}
+                                                    <div class="no-image-placeholder d-flex align-items-center justify-content-center" 
+                                                         style="width: 100%; height: 200px; background-color: #f8f9fa; border: 2px dashed #dee2e6;">
+                                                        <div class="text-center text-muted">
+                                                            <i class="fa fa-image fa-3x mb-2"></i>
+                                                            <br>
+                                                            <small>No Image Available</small>
+                                                        </div>
+                                                    </div>
+                                                {% endif %}
+                                            </a>
+                                        </div>
+                                        <div class="product-info p-3">
+                                            <h6 class="product-title mb-2">
+                                                <a href="{{ product.get_absolute_url }}" class="text-decoration-none text-dark">
+                                                    {{ product.title|remove_part_number|truncatechars:25 }}
+                                                </a>
+                                            </h6>
+                                            
+                                            {% if product.description %}
+                                                <p class="product-description text-muted small mb-2">
+                                                    {{ product.description|truncatechars:50 }}
+                                                </p>
+                                            {% endif %}
+                                            
+                                            <div class="product-price mb-2">
+                                                {% if product.stockrecords.first and product.stockrecords.first.price %}
+                                                    <span class="new-price" style="color: #28a745; font-weight: bold;">£{{ product.stockrecords.first.price }}</span>
+                                                {% else %}
+                                                    <span class="contact-price" style="color: #6c757d;">{% trans "Contact for Price" %}</span>
+                                                {% endif %}
+                                            </div>
+                                            
+                                            {% if product.stockrecords.first and product.stockrecords.first.num_in_stock %}
+                                                <div class="stock-info mb-2">
+                                                    <small class="text-success">{% trans "In Stock" %}: {{ product.stockrecords.first.num_in_stock }}</small>
+                                                </div>
+                                            {% endif %}
+                                            
+                                            <div class="product-actions">
+                                                {% load basket_tags %}
+                                                {% load purchase_info_tags %}
+                                                {% purchase_info_for_product request product as session %}
+                                                
+                                                {% if session.availability.is_available_to_buy and session.price.exists %}
+                                                    {% basket_form request product 'single' as basket_form %}
+                                                    <form method="post" action="{% url 'basket:add' pk=product.pk %}" class="add-to-basket">
+                                                        {% csrf_token %}
+                                                        {% for field in basket_form %}
+                                                            {{ field.as_hidden }}
+                                                        {% endfor %}
+                                                        <button type="submit" class="btn btn-success btn-sm w-100 mb-1" data-loading-text="{% trans 'Adding...' %}">
+                                                            <i class="fa fa-shopping-cart"></i> {% trans "Add to Cart" %}
+                                                        </button>
+                                                    </form>
+                                                    <a href="{{ product.get_absolute_url }}" class="btn btn-outline-primary btn-sm">
+                                                        {% trans "View Details" %}
+                                                    </a>
+                                                {% else %}
+                                                    <a href="{{ product.get_absolute_url }}" class="btn btn-warning btn-sm">
+                                                        {% trans "Enquire" %}
+                                                    </a>
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% empty %}
+                                <div class="col-12">
+                                    <div class="alert alert-warning text-center py-5">
+                                        <i class="fa fa-search fa-3x text-muted mb-3"></i>
+                                        <h4>{% trans "No products found" %}</h4>
+                                        <p>{% blocktrans with query=query %}Sorry, no products match your search for "{{ query }}".{% endblocktrans %}</p>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        <div class="row">
+                            {% if page_obj and page_obj.object_list %}
+                                <!-- Using page_obj.object_list -->
+                                {% for product in page_obj.object_list %}
                             <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
                                 <div class="product-item h-100">
                                     <div class="product-thumbnail">
@@ -303,6 +408,114 @@
                                 </div>
                             </div>
                         {% endfor %}
+                    {% elif object_list %}
+                        <!-- Fallback to object_list -->
+                        {% for product in object_list %}
+                            <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
+                                <div class="product-item h-100">
+                                    <div class="product-thumbnail">
+                                        <a href="{{ product.get_absolute_url }}">
+                                            {% if product.primary_image and product.primary_image.original.url %}
+                                                <img src="{{ product.primary_image.original.url }}" 
+                                                     alt="{{ product.title }}" 
+                                                     class="img-fluid product-img"
+                                                     style="width: 100%; height: 200px; object-fit: cover;">
+                                            {% else %}
+                                                <div class="no-image-placeholder d-flex align-items-center justify-content-center" 
+                                                     style="width: 100%; height: 200px; background-color: #f8f9fa; border: 2px dashed #dee2e6;">
+                                                    <div class="text-center text-muted">
+                                                        <i class="fa fa-image fa-3x mb-2"></i>
+                                                        <br>
+                                                        <small>No Image Available</small>
+                                                    </div>
+                                                </div>
+                                            {% endif %}
+                                        </a>
+                                    </div>
+                                    <div class="product-info p-3">
+                                        <h6 class="product-title mb-2">
+                                            <a href="{{ product.get_absolute_url }}" class="text-decoration-none text-dark">
+                                                {{ product.title|truncatechars:40 }}
+                                            </a>
+                                        </h6>
+                                        
+                                        {% if product.description %}
+                                            <p class="product-description text-muted small mb-2">
+                                                {{ product.description|truncatewords:10 }}
+                                            </p>
+                                        {% endif %}
+                                        
+                                        <div class="product-price mb-2">
+                                            {% load purchase_info_tags %}
+                                            {% purchase_info_for_product request product as session %}
+                                            {% if session.price.exists %}
+                                                <span class="price text-primary fw-bold">{{ session.price.incl_tax|currency }}</span>
+                                            {% else %}
+                                                <span class="text-warning">{% trans "Enquire" %}</span>
+                                            {% endif %}
+                                        </div>
+                                        
+                                        {% if product.rating %}
+                                            <div class="product-rating mb-2">
+                                                {% for i in "12345" %}
+                                                    {% if product.rating >= i|add:"0" %}
+                                                        <i class="fa fa-star text-warning"></i>
+                                                    {% else %}
+                                                        <i class="fa fa-star-o text-muted"></i>
+                                                    {% endif %}
+                                                {% endfor %}
+                                                <small class="text-muted ms-1">({{ product.rating }})</small>
+                                            </div>
+                                        {% endif %}
+                                        
+                                        <div class="product-actions d-grid gap-2">
+                                            {% load basket_tags %}
+                                            {% load purchase_info_tags %}
+                                            {% purchase_info_for_product request product as session %}
+                                            
+                                            {% if session.availability.is_available_to_buy and session.price.exists %}
+                                                <!-- Add to Cart Form using Oscar's proper basket form -->
+                                                {% basket_form request product 'single' as basket_form %}
+                                                <form method="post" action="{% url 'basket:add' pk=product.pk %}" class="add-to-basket">
+                                                    {% csrf_token %}
+                                                    {% for field in basket_form %}
+                                                        {{ field.as_hidden }}
+                                                    {% endfor %}
+                                                    <button type="submit" class="btn btn-success btn-sm w-100 mb-1" data-loading-text="{% trans 'Adding...' %}">
+                                                        <i class="fa fa-shopping-cart"></i> {% trans "Add to Cart" %}
+                                                    </button>
+                                                </form>
+                                                <a href="{{ product.get_absolute_url }}" class="btn btn-outline-primary btn-sm">
+                                                    {% trans "View Details" %}
+                                                </a>
+                                            {% else %}
+                                                <a href="{{ product.get_absolute_url }}" class="btn btn-warning btn-sm">
+                                                    {% trans "Enquire" %}
+                                                </a>
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {% empty %}
+                            <div class="col-12">
+                                <div class="alert alert-info text-center py-5">
+                                    <i class="fa fa-search fa-3x text-muted mb-3"></i>
+                                    <h4>{% trans "No products found" %}</h4>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    {% else %}
+                        <!-- No products at all -->
+                        <div class="col-12">
+                            <div class="alert alert-warning text-center py-5">
+                                <i class="fa fa-exclamation-triangle fa-3x text-muted mb-3"></i>
+                                <h4>{% trans "Search Error" %}</h4>
+                                <p>{% trans "Unable to retrieve search results. Please try again." %}</p>
+                            </div>
+                        </div>
+                    {% endif %}
+                    {% endif %}
                     </div>
 
                     <!-- Pagination -->

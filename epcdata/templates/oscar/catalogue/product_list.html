@@ -1,0 +1,49 @@
+{% extends 'oscar/base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}
+    DEBUG: CUSTOM PRODUCT LIST TEMPLATE IS WORKING!
+{% endblock %}
+
+{% block content %}
+<div style="background: red; color: white; padding: 20px; text-align: center;">
+    <h1>DEBUG: THIS IS THE CUSTOM PRODUCT_LIST.HTML TEMPLATE!</h1>
+    <p>If you see this, then custom templates ARE working for the catalogue app.</p>
+</div>
+
+<!-- SIDEBAR DEBUG -->
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-3" style="background: yellow; padding: 20px;">
+            <h3>CUSTOM SIDEBAR IS HERE!</h3>
+            <p>This is where your sidebar should be generated from.</p>
+            
+            <!-- Your actual sidebar content -->
+            <div class="uren-sidebar-catagories_area">
+                <div class="category-module uren-sidebar_categories">
+                    <div class="category-module_heading">
+                        <h5>{% trans "Categories" %}</h5>
+                    </div>
+                    <div class="module-body">
+                        <ul class="module-list_item">
+                            {% for category in categories %}
+                                <li>
+                                    <a href="{% url 'catalogue:category' category_slug=category.slug pk=category.pk %}">
+                                        {{ category.name }}
+                                    </a>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-lg-9">
+            <h2>Products will be listed here</h2>
+            <!-- Product listing would go here -->
+        </div>
+    </div>
+</div>
+{% endblock %}

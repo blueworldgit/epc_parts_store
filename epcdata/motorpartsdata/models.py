@@ -1,5 +1,7 @@
 from django.db import models
 from django_countries.fields import CountryField
+from django.utils import timezone
+
 
 # Serial number, always unique
 class SerialNumber(models.Model):
@@ -59,6 +61,7 @@ class PricingData(models.Model):
     replacement_code = models.CharField(max_length=100, blank=True, null=True)
     whs = models.CharField(max_length=100, blank=True, null=True)
     stock_available = models.CharField(max_length=100, blank=True, null=True)
+    price_updated = models.BooleanField(default=False)
 
 
 class ShippingAddress(models.Model):
@@ -106,3 +109,90 @@ class ShippingMethod(models.Model):
         if self.estimated_days_min == self.estimated_days_max:
             return f"{self.estimated_days_min} days"
         return f"{self.estimated_days_min}-{self.estimated_days_max} days"
+
+
+class PriceUpdateTracker(models.Model):
+    """Model to track which products have had their prices updated from Excel imports"""
+    # Link to Oscar's Product model via UPC/SKU
+    product_sku = models.CharField(
+        max_length=100, 
+        db_index=True,
+        help_text="Product SKU/UPC that was updated"
+    )
+    
+    # Track the update details
+    price_updated = models.BooleanField(
+        default=True,
+        help_text="Flag indicating this product was updated"
+    )
+    
+    old_price = models.DecimalField(
+        max_digits=12, 
+        decimal_places=2, 
+        null=True, 
+        blank=True,
+        help_text="Previous price before update"
+    )
+    
+    new_price = models.DecimalField(
+        max_digits=12, 
+        decimal_places=2,
+        help_text="New price after update"
+    )
+    
+    update_date = models.DateTimeField(
+        default=timezone.now,
+        help_text="Date and time when price was updated"
+    )
+    
+    excel_filename = models.CharField(
+        max_length=255, 
+        help_text="Name of Excel file used for update"
+    )
+    
+    notes = models.TextField(
+        blank=True,
+        help_text="Additional notes about the price update"
+    )
+    
+    # Track which user did the update (if needed)
+    updated_by = models.CharField(
+        max_length=100, 
+        blank=True,
+        help_text="User who performed the update"
+    )
+    
+    class Meta:
+        verbose_name = "Price Update Tracker"
+        verbose_name_plural = "Price Update Trackers"
+        ordering = ['-update_date']
+        indexes = [
+            models.Index(fields=['product_sku']),
+            models.Index(fields=['update_date']),
+            models.Index(fields=['price_updated']),
+        ]
+    
+    def __str__(self):
+        return f"SKU {self.product_sku} updated to £{self.new_price} on {self.update_date.strftime('%Y-%m-%d')}"
+    
+    @classmethod
+    def track_price_update(cls, sku, old_price, new_price, excel_filename, notes="", updated_by=""):
+        """Class method to easily track a price update"""
+        return cls.objects.create(
+            product_sku=sku,
+            old_price=old_price,
+            new_price=new_price,
+            excel_filename=excel_filename,
+            notes=notes,
+            updated_by=updated_by
+        )
+    
+    @classmethod
+    def get_updated_products(cls):
+        """Get all products that have been updated"""
+        return cls.objects.filter(price_updated=True)
+    
+    @classmethod
+    def reset_all_flags(cls):
+        """Reset all price update flags"""
+        return cls.objects.update(price_updated=False)

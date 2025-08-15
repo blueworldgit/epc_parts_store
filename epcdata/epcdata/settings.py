@@ -135,6 +135,7 @@ for app in oscar.INSTALLED_APPS:
 
 INSTALLED_APPS = [
     # Your apps first (so they can override Oscar apps)
+    'epcdata',  # Add this so templatetags can be loaded
     'motorpartsdata',
     'payment',   # Custom payment app for Worldpay
     'checkout',  # Custom checkout app (must be before Oscar apps)

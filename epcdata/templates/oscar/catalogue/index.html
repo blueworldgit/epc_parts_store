@@ -16,7 +16,8 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-3 col-md-4">
-                {% include 'oscar/partials/category_sidebar_simple.html' %}
+                {% load category_tags %}
+                {% include 'oscar/partials/dynamic_category_sidebar.html' %}
             </div>
             <div class="col-lg-9 col-md-8">
                 <div class="text-center py-5">
