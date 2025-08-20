@@ -73,19 +73,19 @@ if is_production:
     # Try to load production environment variables
     # When running on VPS, prefer .env.production which has the N0rfolk password
     if detect_production_server() and os.path.exists(BASE_DIR / '.env.production'):
-        load_dotenv(BASE_DIR / '.env.production')
+        load_dotenv(BASE_DIR / '.env.production', override=True)
         print("🌐 Loading VPS PRODUCTION environment from .env.production (N0rfolk password)")
     elif os.path.exists(BASE_DIR / '.prod'):
-        load_dotenv(BASE_DIR / '.prod')
+        load_dotenv(BASE_DIR / '.prod', override=True)
         print("🌐 Loading PRODUCTION environment from .prod")
     elif os.path.exists(BASE_DIR / '.env.production'):
-        load_dotenv(BASE_DIR / '.env.production')
+        load_dotenv(BASE_DIR / '.env.production', override=True)
         print("🌐 Loading PRODUCTION environment from .env.production")
     print(f"DEBUG: Production mode - ALLOWED_HOSTS env var = {os.getenv('ALLOWED_HOSTS', 'NOT SET')}")
 else:
     # Load local development environment variables
     if os.path.exists(BASE_DIR / '.env'):
-        load_dotenv(BASE_DIR / '.env')
+        load_dotenv(BASE_DIR / '.env', override=True)
         print("🏠 Loading LOCAL environment from .env")
     else:
         print("⚠️ No .env file found, using default settings")
@@ -383,11 +383,25 @@ COUNTRIES_FIRST = ['GB', 'US', 'IE', 'FR', 'DE']  # Prioritize common shipping c
 COUNTRIES_FIRST_REPEAT = True  # Show priority countries at top and in alphabetical order
 COUNTRIES_FIRST_BREAK = '────────────'  # Visual separator in dropdown
 
-# Worldpay Configuration
-# You need to get these values from your Worldpay dashboard
-WORLDPAY_INSTALLATION_ID = os.getenv('WORLDPAY_INSTALLATION_ID', 'YOUR_INSTALLATION_ID')
-WORLDPAY_SECRET_KEY = os.getenv('WORLDPAY_SECRET_KEY', 'YOUR_SECRET_KEY')  # Optional but recommended
-WORLDPAY_TEST_MODE = os.getenv('WORLDPAY_TEST_MODE', 'True').lower() == 'true'  # Set to False for production
+# Worldpay Gateway API Configuration (Direct Payment Processing)
+# Based on successful testing - processed £20 payment with HTTP 201 response
+# Working API endpoint: https://try.access.worldpay.com/payments/authorizations
+# Content-Type: application/vnd.worldpay.payments-v6+json
+# Entity ID: PO4080334630 (proven working)
 
-# Worldpay Callback Password (set this in your Worldpay dashboard)
-WORLDPAY_CALLBACK_PASSWORD = os.getenv('WORLDPAY_CALLBACK_PASSWORD', 'YOUR_CALLBACK_PASSWORD')
+WORLDPAY_GATEWAY_URL = os.getenv('WORLDPAY_GATEWAY_URL', 'https://try.access.worldpay.com/payments/authorizations')
+WORLDPAY_USERNAME = os.getenv('WORLDPAY_USERNAME', 'evQNpTg2ScurKUxK')  # Working test username
+WORLDPAY_PASSWORD = os.getenv('WORLDPAY_PASSWORD', 'evQNpTg2ScurKUxK')  # Working test password  
+WORLDPAY_ENTITY_ID = os.getenv('WORLDPAY_ENTITY_ID', 'PO4080334630')  # Working entity ID
+
+# Test mode setting (use test endpoints for development)
+WORLDPAY_TEST_MODE = os.getenv('WORLDPAY_TEST_MODE', 'True').lower() == 'true'
+
+# Legacy hosted payments settings (for backwards compatibility)
+WORLDPAY_API_URL = os.getenv('WORLDPAY_API_URL', 'https://try.access.worldpay.com/sessions')
+
+# Override URLs for test mode (Gateway API uses different endpoints)
+if WORLDPAY_TEST_MODE:
+    WORLDPAY_GATEWAY_URL = 'https://try.access.worldpay.com/payments/authorizations'
+else:
+    WORLDPAY_GATEWAY_URL = 'https://access.worldpay.com/payments/authorizations'

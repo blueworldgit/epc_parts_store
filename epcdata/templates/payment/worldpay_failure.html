@@ -1,0 +1,35 @@
+{% extends "oscar/base.html" %}
+{% load i18n %}
+
+{% block title %}
+    {% trans "Payment Failed" %} | {{ block.super }}
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-body text-center">
+                    <i class="fas fa-times-circle text-danger" style="font-size: 4rem;"></i>
+                    <h2 class="mt-3">{% trans "Payment Failed" %}</h2>
+                    <p class="lead">
+                        {% trans "We were unable to process your payment." %}
+                    </p>
+                    <p>
+                        {% trans "Please check your payment details and try again, or contact our support team if the problem persists." %}
+                    </p>
+                    <div class="mt-4">
+                        <a href="{% url 'checkout:payment-details' %}" class="btn btn-primary">
+                            {% trans "Try Again" %}
+                        </a>
+                        <a href="{% url 'checkout:index' %}" class="btn btn-outline-secondary ml-2">
+                            {% trans "Back to Checkout" %}
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

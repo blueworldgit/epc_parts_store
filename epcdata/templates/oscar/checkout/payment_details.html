@@ -12,79 +12,144 @@
     <h4>{% trans "Payment Information" %}</h4>
     
     {% if payment_forms %}
-        {% for form in payment_forms %}
-            <div class="payment-form">
-                <form action="{% url 'checkout:payment-details' %}" method="post" class="checkout-form" id="checkout-form">
-                    {% csrf_token %}
-                    
-                    {% if form.non_field_errors %}
-                        <div class="alert alert-danger">
-                            {{ form.non_field_errors }}
+        <form action="{% url 'checkout:payment-details' %}" method="post" class="checkout-form" id="payment-form">
+            {% csrf_token %}
+            
+            {% for form in payment_forms %}
+                {% if form.non_field_errors %}
+                    <div class="alert alert-danger">
+                        {{ form.non_field_errors }}
+                    </div>
+                {% endif %}
+                
+                {% for field in form %}
+                    <div class="form-group">
+                        {{ field.label_tag }}
+                        {{ field }}
+                        {% if field.errors %}
+                            <div class="text-danger">{{ field.errors }}</div>
+                        {% endif %}
+                        {% if field.help_text %}
+                            <small class="form-text text-muted">{{ field.help_text }}</small>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+            {% endfor %}
+            
+            <div class="payment-security-info mt-5">
+                <div class="row">
+                    <div class="col-md-8">
+                        <h6>{% trans "Secure Payment" %}</h6>
+                        <p class="text-muted small">
+                            <i class="fas fa-lock"></i>
+                            {% trans "Your payment information is secure and encrypted. You will be redirected to Worldpay's secure payment page to complete your transaction." %}
+                        </p>
+                    </div>
+                    <div class="col-md-4 text-right">
+                        <div class="payment-icons">
+                            <img src="{% static 'uren/assets/images/footer/payment/1.png' %}" alt="Payment Methods" class="img-fluid">
                         </div>
-                    {% endif %}
-                    
-                    {% for field in form %}
-                        <div class="checkout-form-list">
-                            {{ field.label_tag }}
-                            {% render_field field class+="form-control" %}
-                            {% if field.errors %}
-                                <div class="text-danger">{{ field.errors }}</div>
-                            {% endif %}
-                        </div>
-                    {% endfor %}
-                </form>
+                    </div>
+                </div>
             </div>
-        {% endfor %}
+            
+            <div class="form-actions mt-4">
+                <button type="submit" class="btn btn-primary btn-lg">
+                    <i class="fas fa-credit-card"></i>
+                    {% trans "Proceed to Payment" %}
+                </button>
+                <a href="{% url 'checkout:shipping-method' %}" class="btn btn-outline-secondary ml-2">
+                    {% trans "Back" %}
+                </a>
+            </div>
+        </form>
     {% else %}
         <div class="payment-placeholder">
             <p class="alert alert-info">
                 {% trans "No payment is required for this order." %}
             </p>
+            <div class="form-actions">
+                <a href="{% url 'checkout:preview' %}" class="btn btn-primary">
+                    {% trans "Continue" %}
+                </a>
+            </div>
         </div>
     {% endif %}
-    
-    <div class="payment-methods">
-        <h5>{% trans "We accept" %}</h5>
-        <div class="payment-icons">
-            <img src="{% static 'uren/assets/images/payment/1.png' %}" alt="Payment Methods" class="img-fluid">
-        </div>
-        <p class="payment-security">
-            <i class="fa fa-lock"></i> {% trans "Your payment is secured by Worldpay's industry-leading security" %}
-        </p>
-    </div>
 </div>
-{% endblock %}
 
-{% block checkout_actions %}
-<div class="payment-method">
-    <button type="submit" form="checkout-form" class="uren-btn uren-btn_dark uren-btn_fullwidth">{% trans "Continue to order review" %}</button>
-</div>
-{% endblock %}
+<style>
+.payment-method-option {
+    background: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 0.375rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
 
-{% block extrajs %}
-{{ block.super }}
+.payment-method-option .form-check {
+    margin-bottom: 0;
+}
+
+.payment-method-option .form-check-label {
+    font-weight: 500;
+    color: #495057;
+    cursor: pointer;
+}
+
+.payment-security-info {
+    background: #e8f5e8;
+    border: 1px solid #c3e6c3;
+    border-radius: 0.375rem;
+    padding: 1rem;
+}
+
+.payment-icons img {
+    max-height: 40px;
+}
+</style>
+
 <script>
-    // Ensure jQuery is loaded before running any scripts
-    if (typeof jQuery !== 'undefined') {
-        $(document).ready(function() {
-            console.log('Payment details page loaded with jQuery version:', $.fn.jquery);
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('Payment page loaded');
+    
+    // Auto-select the first payment method if only one is available
+    const paymentOptions = document.querySelectorAll('input[name="payment_method"]');
+    console.log('Payment options found:', paymentOptions.length);
+    
+    if (paymentOptions.length === 1) {
+        paymentOptions[0].checked = true;
+        console.log('Auto-selected first payment option');
+    }
+    
+    // Add logging to form submission
+    const form = document.getElementById('payment-form');
+    const submitBtn = form.querySelector('button[type="submit"]');
+    
+    if (form) {
+        console.log('Form found:', form);
+        form.addEventListener('submit', function(e) {
+            console.log('Form submit event triggered');
+            console.log('Form action:', form.action);
+            console.log('Form method:', form.method);
             
-            // Form submission handling
-            $('#checkout-form').on('submit', function(e) {
-                console.log('Payment form submitted');
-            });
+            // Check if payment method is selected
+            const selectedPayment = form.querySelector('input[name="payment_method"]:checked');
+            console.log('Selected payment method:', selectedPayment ? selectedPayment.value : 'none');
+            
+            if (!selectedPayment) {
+                e.preventDefault();
+                alert('Please select a payment method');
+                return false;
+            }
+            
+            // Show loading state
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> {% trans "Processing..." %}';
+            console.log('Form submission proceeding...');
         });
     } else {
-        console.error('jQuery is not available on payment details page');
-        // Fallback for basic functionality without jQuery
-        document.addEventListener('DOMContentLoaded', function() {
-            var form = document.getElementById('checkout-form');
-            if (form) {
-                form.addEventListener('submit', function(e) {
-                    console.log('Payment form submitted (vanilla JS)');
-                });
-            }
-        });
+        console.error('Payment form not found!');
     }
+});
 </script>
 {% endblock %}

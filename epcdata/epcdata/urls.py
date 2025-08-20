@@ -154,7 +154,7 @@ urlpatterns = [
     path('api/', include('motorpartsdata.urls')),  # Your API endpoints under /api/
     
     # Payment URLs
-    path('payment/', include('payment.urls')),
+    path('payment/', include('payment.urls', namespace='payment')),
     
     # Legal pages (Privacy Policy, Terms & Conditions)
     path('legal/', include('legal_urls')),
@@ -174,6 +174,7 @@ urlpatterns = [
     path('dashboard/', include((apps.get_app_config('dashboard').urls[0], apps.get_app_config('dashboard').name), namespace=apps.get_app_config('dashboard').namespace)),
     path('accounts/', include((apps.get_app_config('customer').urls[0], apps.get_app_config('customer').name), namespace=apps.get_app_config('customer').namespace)),
     path('basket/', include((apps.get_app_config('basket').urls[0], apps.get_app_config('basket').name), namespace=apps.get_app_config('basket').namespace)),
+    # Oscar checkout URLs (will use our custom app since it's in INSTALLED_APPS first)
     path('checkout/', include((apps.get_app_config('checkout').urls[0], apps.get_app_config('checkout').name), namespace=apps.get_app_config('checkout').namespace)),
     path('catalogue/', include((apps.get_app_config('catalogue').urls[0], apps.get_app_config('catalogue').name), namespace=apps.get_app_config('catalogue').namespace)),
     path('search/', include((apps.get_app_config('search').urls[0], apps.get_app_config('search').name), namespace=apps.get_app_config('search').namespace)),

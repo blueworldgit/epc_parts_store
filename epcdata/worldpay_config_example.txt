@@ -1,0 +1,29 @@
+# Worldpay Hosted Payment Pages Configuration
+# Add these environment variables to your .env file
+
+# Worldpay API Configuration (get these from your Worldpay Access Portal)
+WORLDPAY_USERNAME=your_username_here
+WORLDPAY_PASSWORD=your_password_here
+WORLDPAY_ENTITY_ID=your_entity_id_here
+
+# Test Mode (set to False for production)
+WORLDPAY_TEST_MODE=True
+
+# How to get your credentials:
+# 1. Log in to your Worldpay Access Portal/Dashboard
+# 2. Navigate to "Developer Tools" or "API Credentials"
+# 3. Generate/find your username and password (NOT service key)
+# 4. Find your Entity ID in the dashboard
+
+# Example configuration for testing:
+# WORLDPAY_USERNAME=your_test_username
+# WORLDPAY_PASSWORD=your_test_password
+# WORLDPAY_ENTITY_ID=POxxxxxxxxx
+
+# For production, make sure to:
+# 1. Set WORLDPAY_TEST_MODE=False
+# 2. Use your production username, password, and entity ID
+# 3. Test thoroughly before going live
+
+# Note: Worldpay uses Basic Authentication (username:password) 
+# NOT Bearer token authentication for Hosted Payment Pages API

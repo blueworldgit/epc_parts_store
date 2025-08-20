@@ -1,0 +1,40 @@
+{% extends "oscar/checkout/layout.html" %}
+{% load i18n %}
+{% load static %}
+
+{% block title %}
+    {% trans "Payment Failed" %} | {{ block.super }}
+{% endblock %}
+
+{% block checkout_form %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card text-center">
+            <div class="card-body">
+                <div class="error-icon mb-4">
+                    <i class="fa fa-times-circle text-danger" style="font-size: 4rem;"></i>
+                </div>
+                
+                <h2 class="text-danger">{% trans "Payment Failed" %}</h2>
+                <p class="lead">{% trans "Unfortunately, your payment could not be processed." %}</p>
+                
+                <hr>
+                
+                <div class="alert alert-info">
+                    <p>{% trans "Please check your card details and try again, or contact your bank if the problem persists." %}</p>
+                </div>
+                
+                <div class="mt-4">
+                    <a href="{% url 'checkout:payment-details' %}" class="btn btn-primary btn-lg">
+                        <i class="fa fa-arrow-left"></i> {% trans "Try Again" %}
+                    </a>
+                    
+                    <a href="{% url 'basket:summary' %}" class="btn btn-outline-secondary btn-lg ml-2">
+                        <i class="fa fa-shopping-cart"></i> {% trans "Back to Basket" %}
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

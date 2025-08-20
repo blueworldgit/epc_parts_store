@@ -1,0 +1,121 @@
+{% extends "oscar/checkout/layout.html" %}
+{% load i18n %}
+
+{% block title %}
+    {% trans "Choose Payment Method" %} | {{ block.super }}
+{% endblock %}
+
+{% block checkout_nav %}
+    {% include 'oscar/checkout/nav.html' with step=3 %}
+{% endblock %}
+
+{% block checkout_form %}
+<div class="payment-method-selection">
+    <h4>{% trans "Choose Payment Method" %}</h4>
+    <p class="text-muted">{% trans "Select your preferred payment method" %}</p>
+    
+    <div class="payment-amount mb-4">
+        <div class="alert alert-info">
+            <h5 class="mb-0">{% trans "Order Total:" %} £{{ order_total|floatformat:2 }}</h5>
+        </div>
+    </div>
+    
+    <div class="row">
+        <!-- Hosted Checkout Option (Recommended) -->
+        <div class="col-md-6 mb-4">
+            <div class="card h-100">
+                <div class="card-header bg-success text-white">
+                    <h5 class="mb-0">
+                        <i class="fa fa-star"></i> {% trans "Hosted Payment" %} 
+                        <small class="badge badge-light text-success ml-2">{% trans "Recommended" %}</small>
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">{% trans "Pay securely on Worldpay's hosted payment page. Your card details never touch our servers." %}</p>
+                    
+                    <ul class="list-unstyled">
+                        <li><i class="fa fa-check text-success"></i> {% trans "Maximum security" %}</li>
+                        <li><i class="fa fa-check text-success"></i> {% trans "No HTTPS required for development" %}</li>
+                        <li><i class="fa fa-check text-success"></i> {% trans "Supports all card types" %}</li>
+                        <li><i class="fa fa-check text-success"></i> {% trans "Easy to implement" %}</li>
+                    </ul>
+                </div>
+                <div class="card-footer">
+                    <a href="{% url 'worldpay-hosted-checkout' %}" class="btn btn-success btn-block">
+                        <i class="fa fa-credit-card"></i> {% trans "Pay with Hosted Checkout" %}
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Access Checkout Option -->
+        <div class="col-md-6 mb-4">
+            <div class="card h-100">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="mb-0">
+                        <i class="fa fa-cog"></i> {% trans "Access Checkout" %}
+                        <small class="badge badge-light text-primary ml-2">{% trans "Advanced" %}</small>
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">{% trans "Modern embedded payment form with advanced customization options." %}</p>
+                    
+                    <ul class="list-unstyled">
+                        <li><i class="fa fa-check text-primary"></i> {% trans "Embedded payment form" %}</li>
+                        <li><i class="fa fa-exclamation text-warning"></i> {% trans "Requires HTTPS" %}</li>
+                        <li><i class="fa fa-check text-primary"></i> {% trans "Advanced customization" %}</li>
+                        <li><i class="fa fa-exclamation text-warning"></i> {% trans "More complex setup" %}</li>
+                    </ul>
+                </div>
+                <div class="card-footer">
+                    <a href="{% url 'worldpay-access-checkout' %}" class="btn btn-primary btn-block">
+                        <i class="fa fa-desktop"></i> {% trans "Pay with Access Checkout" %}
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="payment-info mt-4">
+        <div class="alert alert-info">
+            <h6><i class="fa fa-info-circle"></i> {% trans "For Development Testing" %}</h6>
+            <p class="mb-0">
+                {% trans "The Hosted Payment option works with HTTP and is recommended for local development. " %}
+                {% trans "Access Checkout requires HTTPS and is more suitable for production environments." %}
+            </p>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block checkout_sidebar %}
+<div class="checkout-sidebar">
+    <h5>{% trans "Payment Security" %}</h5>
+    <div class="security-info">
+        <div class="mb-3">
+            <i class="fa fa-shield text-success"></i>
+            <strong>{% trans "Both Methods Secure" %}</strong>
+            <p class="small text-muted">{% trans "All payment methods use Worldpay's secure infrastructure" %}</p>
+        </div>
+        <div class="mb-3">
+            <i class="fa fa-lock text-success"></i>
+            <strong>{% trans "PCI Compliant" %}</strong>
+            <p class="small text-muted">{% trans "Meets highest payment security standards" %}</p>
+        </div>
+        <div class="mb-3">
+            <i class="fa fa-check-circle text-success"></i>
+            <strong>{% trans "Fraud Protection" %}</strong>
+            <p class="small text-muted">{% trans "Advanced fraud detection included" %}</p>
+        </div>
+    </div>
+    
+    <div class="accepted-cards mt-4">
+        <h6>{% trans "We Accept" %}</h6>
+        <div class="card-logos">
+            <i class="fa fa-cc-visa fa-2x text-primary mr-1"></i>
+            <i class="fa fa-cc-mastercard fa-2x text-warning mr-1"></i>
+            <i class="fa fa-cc-amex fa-2x text-info mr-1"></i>
+        </div>
+    </div>
+</div>
+{% endblock %}

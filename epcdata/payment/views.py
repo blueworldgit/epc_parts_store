@@ -1,150 +1,199 @@
+"""
+Payment views for Worldpay Hosted Payment Pages integration
+"""
 import logging
 from django.contrib import messages
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponseRedirect, Http404
 from django.shortcuts import render, redirect
 from django.urls import reverse
-from django.utils.decorators import method_decorator
-from django.views.decorators.csrf import csrf_exempt
-from django.views.generic import View
 from django.utils.translation import gettext_lazy as _
-
-from oscar.core.loading import get_model, get_class
+from django.views.generic import View, TemplateView
 from oscar.apps.checkout.session import CheckoutSessionMixin
+from oscar.core.loading import get_model, get_class
 
-from .facade import Facade
-from .forms import WorldpayRedirectForm
+from .facade import WorldpayHostedFacade
+
+logger = logging.getLogger(__name__)
 
 Order = get_model('order', 'Order')
 OrderPlacementMixin = get_class('checkout.mixins', 'OrderPlacementMixin')
 
-logger = logging.getLogger(__name__)
 
-
-class WorldpayRedirectView(CheckoutSessionMixin, View):
+class WorldpayRedirectView(OrderPlacementMixin, CheckoutSessionMixin, View):
     """
-    Redirect user to Worldpay Hosted Payment Page
+    View to handle redirection to Worldpay hosted payment page
     """
-    template_name = 'payment/worldpay_redirect.html'
     
-    def get(self, request):
-        # Get order details from session
-        submission = self.build_submission()
+    def get(self, request, *args, **kwargs):
+        """
+        Create payment session and redirect to Worldpay hosted page
+        """
+        # Check pre-conditions for checkout
+        try:
+            submission = self.build_submission()
+            logger.info(f"Built submission successfully")
+            logger.info(f"Submission keys: {list(submission.keys())}")
+            logger.info(f"Order total: {submission['order_total']}")
+        except Exception as e:
+            logger.warning(f"Checkout submission failed: {str(e)}")
+            import traceback
+            traceback.print_exc()
+            messages.error(request, _("Your checkout session has expired. Please start again."))
+            return HttpResponseRedirect(reverse('checkout:index'))
+        
+        # Check if payment is required
         if not submission['order_total'].incl_tax:
-            # Free order, skip payment
-            return redirect('checkout:preview')
+            logger.info("No payment required for this order")
+            messages.info(request, _("No payment is required for this order."))
+            return HttpResponseRedirect(reverse('checkout:preview'))
         
-        # Generate Worldpay form data
-        form_data = Facade.get_form_data(
-            order_number=submission['order_number'],
-            amount=submission['order_total'].incl_tax,
-            currency=submission['order_total'].currency,
-            user=request.user,
-            request=request
-        )
-        
-        # Create form with pre-filled data
-        form = WorldpayRedirectForm(initial=form_data)
-        
-        context = {
-            'form': form,
-            'worldpay_url': Facade.get_redirect_url(),
-            'order_total': submission['order_total'],
-        }
-        
-        return render(request, self.template_name, context)
-
-
-@method_decorator(csrf_exempt, name='dispatch')
-class WorldpayCallbackView(OrderPlacementMixin, View):
-    """
-    Handle callback from Worldpay after payment
-    """
-    
-    def post(self, request):
-        # Get parameters from Worldpay
-        params = request.POST.dict()
-        
-        logger.info(f"Worldpay callback received: {params}")
-        
-        # Verify signature if configured
-        if not Facade.verify_callback_signature(params):
-            logger.error("Invalid signature in Worldpay callback")
-            return HttpResponse("Invalid signature", status=400)
-        
-        # Get payment status
-        trans_status = params.get('transStatus')
-        cart_id = params.get('cartId')
-        amount = params.get('amount')
-        trans_id = params.get('transId')
-        
-        if trans_status == 'Y':  # Payment successful
-            try:
-                # Try to get existing order
-                try:
-                    order = Order.objects.get(number=cart_id)
-                    logger.info(f"Payment successful for existing order {cart_id}")
-                except Order.DoesNotExist:
-                    logger.error(f"Order {cart_id} not found for successful payment")
-                    return HttpResponse("Order not found", status=404)
-                
-                # Create payment source
-                source = Facade.create_payment_source(order, trans_id, amount)
-                
-                # Record payment
-                self.record_payment(order, source, amount)
-                
-                logger.info(f"Payment recorded for order {cart_id}, transaction {trans_id}")
-                
-            except Exception as e:
-                logger.error(f"Error processing successful payment: {e}")
-                return HttpResponse("Error processing payment", status=500)
-                
-        elif trans_status == 'C':  # Payment cancelled
-            logger.info(f"Payment cancelled for order {cart_id}")
+        # Create a temporary order for payment processing
+        # We'll create the actual order after successful payment
+        try:
+            logger.info("Creating temporary order data for payment")
             
-        else:  # Payment failed
-            logger.warning(f"Payment failed for order {cart_id}: {trans_status}")
-        
-        return HttpResponse("OK")
+            # Generate a unique order number for this payment session
+            from oscar.apps.order.utils import OrderNumberGenerator
+            generator = OrderNumberGenerator()
+            order_number = generator.order_number(submission['basket'])
+            
+            # Create a simple order-like object for payment processing
+            class TempOrder:
+                def __init__(self, submission, number):
+                    self.number = number
+                    self.total_incl_tax = submission['order_total'].incl_tax
+                    self.currency = submission['order_total'].currency
+                    self.email = submission.get('order_kwargs', {}).get('guest_email', 'guest@example.com')
+                    self.user = submission.get('user')
+                    self.billing_address = submission.get('billing_address')
+            
+            temp_order = TempOrder(submission, order_number)
+            logger.info(f"Created temporary order: {temp_order.number}")
+            
+            # Store submission in session for later order creation
+            request.session['worldpay_submission'] = {
+                'order_number': order_number,
+                'order_total': float(submission['order_total'].incl_tax),
+                'currency': str(submission['order_total'].currency),
+            }
+            
+            # Create payment session with Worldpay
+            facade = WorldpayHostedFacade()
+            payment_url = facade.create_payment_session(temp_order, request)
+            
+            if payment_url:
+                logger.info(f"Redirecting to Worldpay payment page for order {temp_order.number}")
+                return HttpResponseRedirect(payment_url)
+            else:
+                logger.error("Failed to create Worldpay payment session")
+                messages.error(request, _("Unable to process payment. Please try again."))
+                return HttpResponseRedirect(reverse('checkout:payment-details'))
+                
+        except Exception as e:
+            logger.error(f"Error in WorldpayRedirectView: {str(e)}")
+            import traceback
+            traceback.print_exc()
+            messages.error(request, _("An error occurred processing your payment. Please try again."))
+            return HttpResponseRedirect(reverse('checkout:payment-details'))
+
+
+class WorldpayCallbackView(View):
+    """
+    Handle callbacks from Worldpay (not used in hosted payment pages)
+    This is kept for compatibility but may not be needed for API-based hosted payments
+    """
     
-    def record_payment(self, order, source, amount):
+    def post(self, request, *args, **kwargs):
         """
-        Record the payment against the order
+        Handle POST callback from Worldpay
         """
-        # Add source to order
-        order.sources.add(source)
-        
-        # Update order status if needed
-        order.set_status('Paid')
-        
-        logger.info(f"Payment of {amount} recorded for order {order.number}")
+        logger.info("Worldpay callback received")
+        # For hosted payment pages, callbacks are handled via result URLs
+        # This view may not be used
+        return HttpResponseRedirect(reverse('checkout:thank-you'))
 
 
-class WorldpaySuccessView(View):
+class WorldpaySuccessView(TemplateView):
     """
     Handle successful payment return from Worldpay
     """
+    template_name = 'payment/worldpay_success.html'
     
-    def get(self, request):
-        messages.success(request, _("Payment successful! Your order has been confirmed."))
-        return redirect('checkout:thank-you')
+    def get(self, request, *args, **kwargs):
+        """
+        Handle successful payment return
+        """
+        logger.info("Worldpay success callback received")
+        
+        # Handle the payment callback
+        facade = WorldpayHostedFacade()
+        order = facade.handle_payment_callback(request, status='success')
+        
+        if order:
+            logger.info(f"Payment successful for order {order.number}")
+            messages.success(request, _("Payment successful! Thank you for your order."))
+            
+            # Clear the checkout session
+            if hasattr(self, 'checkout_session'):
+                self.checkout_session.flush()
+            
+            # Redirect to thank you page with order details
+            return HttpResponseRedirect(
+                reverse('checkout:thank-you') + f'?order_number={order.number}'
+            )
+        else:
+            logger.error("Failed to process successful payment callback")
+            messages.error(request, _("There was an issue confirming your payment. Please contact support."))
+            return HttpResponseRedirect(reverse('checkout:payment-details'))
 
 
-class WorldpayFailureView(View):
+class WorldpayFailureView(TemplateView):
     """
     Handle failed payment return from Worldpay
     """
+    template_name = 'payment/worldpay_failure.html'
     
-    def get(self, request):
-        messages.error(request, _("Payment failed. Please try again or use a different payment method."))
-        return redirect('checkout:payment-details')
+    def get(self, request, *args, **kwargs):
+        """
+        Handle failed payment return
+        """
+        logger.info("Worldpay failure callback received")
+        
+        # Handle the payment callback
+        facade = WorldpayHostedFacade()
+        order = facade.handle_payment_callback(request, status='failure')
+        
+        if order:
+            logger.info(f"Payment failed for order {order.number}")
+            messages.error(request, _("Payment failed. Please try again or use a different payment method."))
+        else:
+            logger.error("Failed to process payment failure callback")
+            messages.error(request, _("Payment failed. Please try again."))
+        
+        return HttpResponseRedirect(reverse('checkout:payment-details'))
 
 
-class WorldpayCancelView(View):
+class WorldpayCancelView(TemplateView):
     """
     Handle cancelled payment return from Worldpay
     """
+    template_name = 'payment/worldpay_cancel.html'
     
-    def get(self, request):
-        messages.warning(request, _("Payment was cancelled. Please complete your payment to finish your order."))
-        return redirect('checkout:payment-details')
+    def get(self, request, *args, **kwargs):
+        """
+        Handle cancelled payment return
+        """
+        logger.info("Worldpay cancel callback received")
+        
+        # Handle the payment callback
+        facade = WorldpayHostedFacade()
+        order = facade.handle_payment_callback(request, status='cancelled')
+        
+        if order:
+            logger.info(f"Payment cancelled for order {order.number}")
+            messages.info(request, _("Payment was cancelled. You can try again when ready."))
+        else:
+            logger.warning("No order found for cancelled payment")
+            messages.info(request, _("Payment was cancelled."))
+        
+        return HttpResponseRedirect(reverse('checkout:payment-details'))

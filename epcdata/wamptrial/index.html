@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Worldpay Test Checkout</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Worldpay Test Checkout</h1>
+        </div>
+        
+        <div class="step-indicator">
+            <div class="step active" id="step-indicator-cart">
+                <div class="step-circle">1</div>
+                <div class="step-label">Cart</div>
+            </div>
+            <div class="step" id="step-indicator-shipping">
+                <div class="step-circle">2</div>
+                <div class="step-label">Shipping</div>
+            </div>
+            <div class="step" id="step-indicator-payment">
+                <div class="step-circle">3</div>
+                <div class="step-label">Payment</div>
+            </div>
+        </div>
+
+        <div class="content">
+            <!-- Step 1: Cart Summary -->
+            <div class="section active" id="step-cart">
+                <h2>Order Summary</h2>
+                <div class="cart-item">
+                    <span>Test Product (Qty: 1)</span>
+                    <span>£18.00</span>
+                </div>
+                <div class="cart-item">
+                    <span>Shipping</span>
+                    <span>£2.00</span>
+                </div>
+                <div class="cart-item">
+                    <strong>Total</strong>
+                    <strong>£20.00 GBP</strong>
+                </div>
+                <div class="button-group">
+                    <button class="btn btn-primary" onclick="nextStep(1)">Proceed to Shipping →</button>
+                </div>
+            </div>
+
+            <!-- Step 2: Shipping Information -->
+            <div class="section" id="step-shipping">
+                <h2>Shipping Information</h2>
+                <form id="shipping-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="first-name">First Name:</label>
+                            <input type="text" id="first-name" name="firstName" value="John" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="last-name">Last Name:</label>
+                            <input type="text" id="last-name" name="lastName" value="Smith" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" value="john.smith@example.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="address">Address:</label>
+                        <input type="text" id="address" name="address" value="123 Test Street" required>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="city">City:</label>
+                            <input type="text" id="city" name="city" value="London" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="postcode">Postcode:</label>
+                            <input type="text" id="postcode" name="postcode" value="SW1A 1AA" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="country">Country:</label>
+                        <select id="country" name="country" required>
+                            <option value="GB" selected>United Kingdom</option>
+                            <option value="US">United States</option>
+                            <option value="IE">Ireland</option>
+                            <option value="FR">France</option>
+                            <option value="DE">Germany</option>
+                        </select>
+                    </div>
+                </form>
+                <div class="button-group">
+                    <button class="btn btn-secondary" onclick="prevStep(2)">← Back to Cart</button>
+                    <button class="btn btn-primary" onclick="nextStep(2)">Proceed to Payment →</button>
+                </div>
+            </div>
+
+            <!-- Step 3: Payment Processing -->
+            <div class="section" id="step-payment">
+                <h2>Payment Processing</h2>
+                <div class="cart-item">
+                    <span>Customer:</span>
+                    <span id="customer-info"></span>
+                </div>
+                <div class="cart-item">
+                    <strong>Total:</strong>
+                    <strong>£20.00 GBP</strong>
+                </div>
+                
+                <div class="button-group">
+                    <button class="btn btn-secondary" onclick="prevStep(3)">← Back to Shipping</button>
+                    <button class="btn btn-success" onclick="processPayment()" id="pay-button">💳 Pay with Worldpay</button>
+                </div>
+                
+                <div id="loading" class="loading">
+                    <div class="spinner"></div>
+                    <p>Creating payment session...</p>
+                </div>
+                
+                <div id="error-message" class="alert alert-danger" style="display: none;"></div>
+                <div id="success-message" class="alert alert-success" style="display: none;"></div>
+                
+                <div class="debug-panel">
+                    <h3>Debug Information:</h3>
+                    <div id="debug-log"></div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <script>
+        // Worldpay Test Credentials
+        const WORLDPAY_CONFIG = {
+            username: 'evQNpTg2ScurKUxK',
+            password: 'uIQbwozYFFlClnbfJl3vc3Zn0G5HBvg6KTtZeuXn4DqPa9m67R15Ebrq0uZhUGxm',
+            entityId: 'PO4080334630',
+            testMode: true
+        };
+
+        // Different API endpoints to test
+        const API_ENDPOINTS = [
+            'https://try.access.worldpay.com/sessions',
+            'https://try.access.worldpay.com/payment-pages/v1/sessions',
+            'https://try.access.worldpay.com/v1/sessions',
+            'https://api.worldpay.com/v1/sessions',
+            'https://try.access.worldpay.com/payments/sessions'
+        ];
+
+        const CONTENT_TYPES = [
+            'application/json',
+            'application/vnd.worldpay.payment_pages-v1.hal+json',
+            'application/vnd.worldpay.sessions-v1.hal+json'
+        ];
+
+        let currentStep = 1;
+        let customerData = {};
+
+        function debugLog(message) {
+            const debugDiv = document.getElementById('debug-log');
+            const timestamp = new Date().toLocaleTimeString();
+            debugDiv.innerHTML += `[${timestamp}] ${message}<br>`;
+            debugDiv.scrollTop = debugDiv.scrollHeight;
+            console.log(message);
+        }
+
+        function showError(message) {
+            const errorDiv = document.getElementById('error-message');
+            errorDiv.textContent = message;
+            errorDiv.style.display = 'block';
+            document.getElementById('success-message').style.display = 'none';
+        }
+
+        function showSuccess(message) {
+            const successDiv = document.getElementById('success-message');
+            successDiv.textContent = message;
+            successDiv.style.display = 'block';
+            document.getElementById('error-message').style.display = 'none';
+        }
+
+        function updateProgress(step) {
+            const steps = ['cart', 'shipping', 'payment'];
+            steps.forEach((stepName, index) => {
+                const stepIndicator = document.getElementById(`step-indicator-${stepName}`);
+                if (index + 1 < step) {
+                    stepIndicator.className = 'step completed';
+                } else if (index + 1 === step) {
+                    stepIndicator.className = 'step active';
+                } else {
+                    stepIndicator.className = 'step';
+                }
+            });
+        }
+
+        function showStep(step) {
+            document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+            document.getElementById(`step-${['cart', 'shipping', 'payment'][step - 1]}`).classList.add('active');
+            updateProgress(step);
+            currentStep = step;
+        }
+
+        function nextStep(fromStep) {
+            if (fromStep === 2) {
+                // Validate shipping form
+                const form = document.getElementById('shipping-form');
+                if (!form.checkValidity()) {
+                    form.reportValidity();
+                    return;
+                }
+                
+                // Collect customer data
+                const formData = new FormData(form);
+                customerData = Object.fromEntries(formData);
+                
+                // Update customer info display
+                document.getElementById('customer-info').textContent = 
+                    `${customerData.firstName} ${customerData.lastName}, ${customerData.city}`;
+                
+                debugLog(`Customer data collected: ${JSON.stringify(customerData)}`);
+            }
+            
+            showStep(fromStep + 1);
+        }
+
+        function prevStep(fromStep) {
+            showStep(fromStep - 1);
+        }
+
+        function createAuthHeader() {
+            const credentials = btoa(`${WORLDPAY_CONFIG.username}:${WORLDPAY_CONFIG.password}`);
+            return `Basic ${credentials}`;
+        }
+
+        async function testEndpoint(endpoint, contentType, payload) {
+            debugLog(`Testing: ${endpoint} with ${contentType}`);
+            
+            try {
+                const response = await fetch(endpoint, {
+                    method: 'POST',
+                    headers: {
+                        'Authorization': createAuthHeader(),
+                        'Content-Type': contentType,
+                        'Accept': contentType
+                    },
+                    body: JSON.stringify(payload)
+                });
+
+                const responseText = await response.text();
+                debugLog(`Response ${response.status}: ${responseText.substring(0, 200)}...`);
+
+                if (response.status === 201) {
+                    debugLog(`✅ SUCCESS with ${endpoint}`);
+                    return { success: true, data: JSON.parse(responseText) };
+                } else if (response.status === 400) {
+                    debugLog(`⚠️ Bad Request - endpoint exists but payload wrong`);
+                    return { success: false, error: 'Bad Request', details: responseText };
+                } else if (response.status === 401) {
+                    debugLog(`⚠️ Unauthorized - check credentials`);
+                    return { success: false, error: 'Unauthorized', details: responseText };
+                } else if (response.status === 404) {
+                    debugLog(`❌ Not Found - wrong endpoint`);
+                    return { success: false, error: 'Not Found', details: responseText };
+                } else {
+                    debugLog(`❓ Status ${response.status}: ${responseText}`);
+                    return { success: false, error: `HTTP ${response.status}`, details: responseText };
+                }
+            } catch (error) {
+                debugLog(`❌ Network error: ${error.message}`);
+                return { success: false, error: 'Network Error', details: error.message };
+            }
+        }
+
+        async function processPayment() {
+            debugLog('=== STARTING PAYMENT PROCESS ===');
+            
+            const payButton = document.getElementById('pay-button');
+            const loading = document.getElementById('loading');
+            
+            payButton.disabled = true;
+            loading.style.display = 'block';
+            document.getElementById('error-message').style.display = 'none';
+            document.getElementById('success-message').style.display = 'none';
+            
+            // Create payment payload
+            const payload = {
+                amount: 2000, // £20.00 in pence
+                currency: 'GBP',
+                description: 'Test payment from WAMP trial',
+                customer: {
+                    email: customerData.email,
+                    first_name: customerData.firstName,
+                    last_name: customerData.lastName
+                },
+                success_url: `${window.location.origin}/wamptrial/success.html`,
+                failure_url: `${window.location.origin}/wamptrial/failure.html`,
+                cancel_url: `${window.location.origin}/wamptrial/index.html`
+            };
+            
+            debugLog(`Payment payload: ${JSON.stringify(payload, null, 2)}`);
+            
+            try {
+                // Call our PHP proxy instead of calling Worldpay directly
+                const response = await fetch('/wamptrial/worldpay_proxy.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ payload: payload })
+                });
+                
+                const result = await response.json();
+                debugLog(`Proxy response: ${JSON.stringify(result, null, 2)}`);
+                
+                if (result.success) {
+                    // Found working endpoint!
+                    showSuccess(`Payment session created successfully!`);
+                    debugLog(`🎉 Working configuration found:`);
+                    debugLog(`Endpoint: ${result.working_endpoint}`);
+                    debugLog(`Content-Type: ${result.working_content_type}`);
+                    
+                    // Look for payment URL in response
+                    const paymentUrl = result.response.url || 
+                                     result.response.payment_url || 
+                                     result.response._links?.payment?.href ||
+                                     result.response._links?.redirect?.href;
+                    
+                    if (paymentUrl) {
+                        debugLog(`Payment URL found: ${paymentUrl}`);
+                        // Redirect to Worldpay hosted page
+                        window.location.href = paymentUrl;
+                    } else {
+                        debugLog(`No payment URL found in response: ${JSON.stringify(result.response)}`);
+                        showError('Payment session created but no payment URL found');
+                    }
+                } else {
+                    // Log all failed attempts for debugging
+                    debugLog('❌ All endpoints failed. Results:');
+                    result.all_results.forEach(attempt => {
+                        debugLog(`${attempt.endpoint} (${attempt.content_type}): HTTP ${attempt.http_code} - ${attempt.error || 'See response'}`);
+                        if (attempt.response) {
+                            debugLog(`Response: ${JSON.stringify(attempt.response).substring(0, 200)}...`);
+                        }
+                    });
+                    showError('Unable to create payment session. Check debug log for details.');
+                }
+            } catch (error) {
+                debugLog(`❌ Proxy error: ${error.message}`);
+                showError(`Error communicating with payment proxy: ${error.message}`);
+            }
+            
+            payButton.disabled = false;
+            loading.style.display = 'none';
+        }
+
+        // Initialize
+        debugLog('Worldpay Test Checkout initialized');
+        debugLog(`Test credentials: Username=${WORLDPAY_CONFIG.username}, Entity=${WORLDPAY_CONFIG.entityId}`);
+    </script>
+</body>
+</html>

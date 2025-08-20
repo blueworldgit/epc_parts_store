@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Failed</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Payment Failed ❌</h1>
+        </div>
+        
+        <div class="content">
+            <div class="failure-icon">❌</div>
+            <div class="section">
+                <h2>Payment Could Not Be Processed</h2>
+                <p>Unfortunately, your payment could not be processed at this time.</p>
+                
+                <div class="alert alert-danger">
+                    <strong>Error:</strong> Please try again or contact support if the problem persists.
+                </div>
+                
+                <div class="button-group">
+                    <button class="btn btn-primary" onclick="window.location.href='index.html'">Try Again</button>
+                    <button class="btn btn-secondary" onclick="window.location.href='mailto:support@example.com'">Contact Support</button>
+                </div>
+            </div>
+            
+            <div class="debug-panel">
+                <h3>Debug Information:</h3>
+                <div id="error-details"></div>
+                <p><strong>Timestamp:</strong> <span id="timestamp"></span></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Display URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const paramsDiv = document.getElementById('error-details');
+        
+        if (urlParams.toString()) {
+            let paramsHtml = '<pre>';
+            for (const [key, value] of urlParams) {
+                paramsHtml += `${key}: ${value}\n`;
+            }
+            paramsHtml += '</pre>';
+            paramsDiv.innerHTML = paramsHtml;
+        } else {
+            paramsDiv.innerHTML = '<p>No error parameters received</p>';
+        }
+        
+        // Display timestamp
+        document.getElementById('timestamp').textContent = new Date().toLocaleString();
+        
+        console.log('Payment failure page loaded with params:', Object.fromEntries(urlParams));
+    </script>
+</body>
+</html>

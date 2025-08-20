@@ -1,0 +1,243 @@
+{% extends "oscar/checkout/layout.html" %}
+{% load i18n %}
+{% load static %}
+
+{% block title %}
+    {% trans "Payment Details" %} | {{ block.super }}
+{% endblock %}
+
+{% block checkout_nav %}
+    {% include 'oscar/checkout/nav.html' with step=4 %}
+{% endblock %}
+
+{% block checkout_title %}
+    {% trans "Payment Details" %}
+{% endblock %}
+
+{% block checkout_form %}
+<div class="card">
+    <div class="card-header">
+        <h4><i class="fa fa-credit-card"></i> {% trans "Secure Card Payment" %}</h4>
+    </div>
+    <div class="card-body">
+        {% if payment_error %}
+            <div class="alert alert-danger">
+                <i class="fa fa-exclamation-triangle"></i>
+                {{ payment_error }}
+            </div>
+        {% endif %}
+
+        <div class="row mb-4">
+            <div class="col-md-6">
+                <div class="payment-security-info">
+                    <h6><i class="fa fa-shield"></i> {% trans "Secure Payment" %}</h6>
+                    <p class="small text-muted">
+                        {% trans "Your payment is processed securely by Worldpay. We never store your card details." %}
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-6 text-right">
+                <img src="{% static 'images/card-types.png' %}" alt="{% trans 'Accepted Cards' %}" class="img-fluid" style="max-height: 40px;">
+            </div>
+        </div>
+
+        <form method="post" id="payment-form">
+            {% csrf_token %}
+            
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label for="{{ form.cardholder_name.id_for_label }}">{{ form.cardholder_name.label }}</label>
+                        {{ form.cardholder_name }}
+                        {% if form.cardholder_name.errors %}
+                            <div class="text-danger small">
+                                {% for error in form.cardholder_name.errors %}{{ error }}{% endfor %}
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label for="{{ form.card_number.id_for_label }}">{{ form.card_number.label }}</label>
+                        {{ form.card_number }}
+                        {% if form.card_number.errors %}
+                            <div class="text-danger small">
+                                {% for error in form.card_number.errors %}{{ error }}{% endfor %}
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="{{ form.expiry_month.id_for_label }}">{{ form.expiry_month.label }}</label>
+                        {{ form.expiry_month }}
+                        {% if form.expiry_month.errors %}
+                            <div class="text-danger small">
+                                {% for error in form.expiry_month.errors %}{{ error }}{% endfor %}
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="{{ form.expiry_year.id_for_label }}">{{ form.expiry_year.label }}</label>
+                        {{ form.expiry_year }}
+                        {% if form.expiry_year.errors %}
+                            <div class="text-danger small">
+                                {% for error in form.expiry_year.errors %}{{ error }}{% endfor %}
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="{{ form.cvc.id_for_label }}">{{ form.cvc.label }}</label>
+                        {{ form.cvc }}
+                        {% if form.cvc.errors %}
+                            <div class="text-danger small">
+                                {% for error in form.cvc.errors %}{{ error }}{% endfor %}
+                            </div>
+                        {% endif %}
+                        <small class="text-muted">
+                            <i class="fa fa-question-circle"></i> {% trans "3-digit code on back of card" %}
+                        </small>
+                    </div>
+                </div>
+            </div>
+
+            {% if form.non_field_errors %}
+                <div class="alert alert-danger">
+                    {% for error in form.non_field_errors %}{{ error }}{% endfor %}
+                </div>
+            {% endif %}
+
+            <div class="form-actions mt-4">
+                <button type="submit" class="btn btn-primary btn-lg btn-block" id="submit-payment">
+                    <i class="fa fa-lock"></i> 
+                    {% trans "Complete Payment" %} 
+                    <span class="ml-2">{{ currency }} {{ order_total|floatformat:2 }}</span>
+                </button>
+                
+                <a href="{% url 'checkout:payment-details' %}" class="btn btn-outline-secondary btn-block mt-2">
+                    <i class="fa fa-arrow-left"></i> {% trans "Back to Payment Options" %}
+                </a>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
+
+{% block checkout_sidebar %}
+<div class="card">
+    <div class="card-header">
+        <h5>{% trans "Order Summary" %}</h5>
+    </div>
+    <div class="card-body">
+        <div class="order-summary">
+            <div class="d-flex justify-content-between">
+                <span>{% trans "Order" %} {{ order_number }}</span>
+            </div>
+            <hr>
+            <div class="d-flex justify-content-between align-items-center">
+                <strong>{% trans "Total" %}</strong>
+                <strong class="text-primary">{{ currency }} {{ order_total|floatformat:2 }}</strong>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="security-badges mt-3">
+    <div class="text-center">
+        <img src="{% static 'images/ssl-secure.png' %}" alt="{% trans 'SSL Secure' %}" class="img-fluid mb-2" style="max-height: 30px;">
+        <p class="small text-muted">
+            <i class="fa fa-shield"></i> {% trans "256-bit SSL Encryption" %}<br>
+            <i class="fa fa-check"></i> {% trans "PCI DSS Compliant" %}
+        </p>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+{{ block.super }}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Format card number input
+    const cardNumberInput = document.querySelector('[data-card-number="true"]');
+    if (cardNumberInput) {
+        cardNumberInput.addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\s/g, '').replace(/[^0-9]/gi, '');
+            let formattedValue = value.match(/.{1,4}/g)?.join(' ') || value;
+            e.target.value = formattedValue;
+        });
+    }
+
+    // Prevent form double submission
+    const form = document.getElementById('payment-form');
+    const submitButton = document.getElementById('submit-payment');
+    
+    form.addEventListener('submit', function() {
+        submitButton.disabled = true;
+        submitButton.innerHTML = '<i class="fa fa-spinner fa-spin"></i> {% trans "Processing Payment..." %}';
+    });
+});
+</script>
+
+<style>
+.card {
+    border: none;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.card-header {
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.form-group label {
+    font-weight: 600;
+    color: #495057;
+}
+
+.form-control {
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    padding: 12px;
+}
+
+.form-control:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    font-weight: 600;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+.security-badges {
+    background-color: #f8f9fa;
+    padding: 15px;
+    border-radius: 4px;
+    border: 1px solid #dee2e6;
+}
+
+.payment-security-info {
+    background-color: #e8f5e8;
+    padding: 15px;
+    border-radius: 4px;
+    border-left: 4px solid #28a745;
+}
+</style>
+{% endblock %}
