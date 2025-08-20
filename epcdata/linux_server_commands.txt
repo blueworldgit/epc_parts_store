@@ -1,0 +1,43 @@
+# Quick Linux Server Commands to Fix Worldpay Configuration
+# Copy and paste these commands on your Linux server
+
+# 1. Navigate to your Django project directory
+cd /path/to/your/django/project  # Update this path
+
+# 2. Backup current production environment
+cp .env.production .env.production.backup.$(date +%Y%m%d_%H%M%S)
+
+# 3. Add the missing Worldpay Gateway API variables to .env.production
+cat >> .env.production << 'EOF'
+
+# Worldpay Gateway API - LIVE CONFIGURATION (Added Aug 20, 2025)
+WORLDPAY_TEST_MODE=False
+WORLDPAY_GATEWAY_USERNAME=2UfzfFhGOus54k5G
+WORLDPAY_GATEWAY_PASSWORD=your_live_worldpay_password_here
+WORLDPAY_GATEWAY_ENTITY_ID=PO4080334630
+WORLDPAY_GATEWAY_URL=https://access.worldpay.com/payments/authorizations
+EOF
+
+# 4. Update the password with your actual Worldpay live password
+# Replace 'YOUR_ACTUAL_PASSWORD' with your real Worldpay password
+sed -i 's/your_live_worldpay_password_here/YOUR_ACTUAL_PASSWORD/' .env.production
+
+# 5. Verify the configuration
+echo "=== Current .env.production Worldpay settings ==="
+grep -E "WORLDPAY_|GATEWAY_" .env.production
+
+# 6. Restart your Django application (choose the appropriate command for your setup)
+# Option A: SystemD service
+sudo systemctl restart your-django-service
+
+# Option B: Supervisor
+sudo supervisorctl restart your-django-app
+
+# Option C: Manual restart of Gunicorn/uWSGI
+# sudo pkill -f gunicorn
+# cd /path/to/your/project && gunicorn your_project.wsgi:application
+
+# 7. Check logs for any errors
+tail -f /var/log/your-django-app/error.log
+# OR
+journalctl -u your-django-service -f
