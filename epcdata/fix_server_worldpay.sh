@@ -1,6 +1,7 @@
 #!/bin/bash
-# Quick fix for production server - Update to live Worldpay configuration
-# Run this on your Linux server
+# Complete fix for production server - Update to live Worldpay configuration
+# This script will automatically update ALL Worldpay settings to live mode
+# Run this on your Linux server, then DELETE this file for security
 
 echo "🚀 Updating server to LIVE Worldpay configuration..."
 
@@ -8,33 +9,39 @@ echo "🚀 Updating server to LIVE Worldpay configuration..."
 cp .env.production .env.production.backup.$(date +%Y%m%d_%H%M%S)
 echo "✅ Backed up .env.production"
 
-# Update the existing variables to live configuration
+# Update all Worldpay configuration to live mode
 echo "🔧 Updating Worldpay configuration to LIVE mode..."
 
 # Update to live mode
 sed -i 's/WORLDPAY_TEST_MODE=true/WORLDPAY_TEST_MODE=False/' .env.production
+sed -i 's/WORLDPAY_TEST_MODE=True/WORLDPAY_TEST_MODE=False/' .env.production
 
 # Update to live endpoint
 sed -i 's|WORLDPAY_GATEWAY_URL=https://try.access.worldpay.com/payments/authorizations|WORLDPAY_GATEWAY_URL=https://access.worldpay.com/payments/authorizations|' .env.production
 
-# Update to live credentials (you need to replace these with your actual live credentials)
+# Update to live credentials
 sed -i 's/WORLDPAY_USERNAME=evQNpTg2ScurKUxK/WORLDPAY_USERNAME=2UfzfFhGOus54k5G/' .env.production
-# You need to update the password manually with your live password
-echo "⚠️  CRITICAL: You must update WORLDPAY_PASSWORD with your live password!"
+sed -i 's/WORLDPAY_USERNAME=.*/WORLDPAY_USERNAME=2UfzfFhGOus54k5G/' .env.production
 
+# Update password to live password
+sed -i 's/WORLDPAY_PASSWORD=.*/WORLDPAY_PASSWORD=LNhlWjrSnLAl9NJxOk9FyDk5uOCN6OgdWSEU2nWXcCwoYwOBQhI1eQ9ut5EsbBS7/' .env.production
+
+# Ensure entity ID is correct
+sed -i 's/WORLDPAY_ENTITY_ID=.*/WORLDPAY_ENTITY_ID=PO4080334630/' .env.production
+
+echo ""
+echo "✅ Updated configuration complete!"
 echo ""
 echo "📋 Current Worldpay configuration:"
-grep -E "WORLDPAY_|GATEWAY_" .env.production
-
+grep -E "WORLDPAY_" .env.production
 echo ""
-echo "🔧 Manual steps required:"
-echo "1. Update WORLDPAY_PASSWORD with your live password:"
-echo "   sed -i 's/WORLDPAY_PASSWORD=.*/WORLDPAY_PASSWORD=YOUR_LIVE_PASSWORD/' .env.production"
-echo ""
-echo "2. Restart your Django application:"
+echo "🔄 Now restart your Django application:"
 echo "   sudo systemctl restart your-django-service"
 echo "   # OR"
 echo "   sudo supervisorctl restart your-django-app"
 echo ""
-echo "3. Test the configuration:"
+echo "🧪 Test the configuration:"
 echo "   curl https://yourserver.com/debug/worldpay-config/"
+echo ""
+echo "🔒 SECURITY: DELETE this script after use!"
+echo "   rm fix_server_worldpay.sh"
