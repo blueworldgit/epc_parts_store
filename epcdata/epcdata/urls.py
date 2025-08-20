@@ -167,6 +167,9 @@ urlpatterns = [
     path('svg-debug-api/', svg_debug_api, name='svg_debug_api'),
     path('find-svg-products/', find_svg_products_view, name='find_svg_products'),
     
+    # Debug endpoints
+    path('debug/worldpay-config/', lambda request: __import__('debug_worldpay_config').worldpay_config_debug(request), name='worldpay_config_debug'),
+    
     # Custom login override (must come before Oscar URLs)
     path('accounts/login/', customer_login_view, name='account_login'),
     

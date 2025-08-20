@@ -36,6 +36,34 @@ class WorldpayGatewayFacade:
         self.password = getattr(settings, 'WORLDPAY_PASSWORD', '')
         self.entity_id = getattr(settings, 'WORLDPAY_ENTITY_ID', 'PO4080334630')  # Working entity ID
         
+        # 🔍 DEBUG: Log Worldpay configuration on initialization
+        self._log_worldpay_config()
+        
+    def _log_worldpay_config(self):
+        """Log the current Worldpay configuration for debugging"""
+        logger.info("🌍 WORLDPAY GATEWAY CONFIGURATION:")
+        logger.info(f"   📍 API URL: {self.api_url}")
+        logger.info(f"   👤 Username: {self.username}")
+        logger.info(f"   🔑 Password: {'*' * (len(self.password) - 4) + self.password[-4:] if len(self.password) > 4 else '*' * len(self.password)}")
+        logger.info(f"   🏢 Entity ID: {self.entity_id}")
+        logger.info(f"   🧪 Test Mode: {getattr(settings, 'WORLDPAY_TEST_MODE', 'NOT SET')}")
+        
+        # Check for missing credentials
+        missing = []
+        if not self.username:
+            missing.append("USERNAME")
+        if not self.password:
+            missing.append("PASSWORD")
+        if not self.entity_id:
+            missing.append("ENTITY_ID")
+        if not self.api_url:
+            missing.append("API_URL")
+            
+        if missing:
+            logger.error(f"❌ MISSING WORLDPAY CREDENTIALS: {', '.join(missing)}")
+        else:
+            logger.info("✅ All Worldpay credentials present")
+        
     def _get_auth_header(self):
         """
         Generate Basic Auth header for Worldpay Gateway API
