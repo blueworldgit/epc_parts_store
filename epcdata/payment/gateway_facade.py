@@ -121,8 +121,9 @@ class WorldpayGatewayFacade:
                 }
             }
             
-            # Add billing address if available
-            if order.billing_address:
+            # Add billing address if available - TEMPORARILY DISABLED FOR TESTING
+            # This is to test if address validation is causing JASON PINK redirect issues
+            if False and order.billing_address:
                 payload["instruction"]["paymentInstrument"]["billingAddress"] = {
                     "address1": order.billing_address.line1,
                     "address2": order.billing_address.line2 or "",
