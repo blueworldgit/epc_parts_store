@@ -171,8 +171,8 @@ class WorldpayGatewayFacade:
                 
                 # Extract payment details from response
                 payment_id = response_data.get('paymentId')
-                authorization_code = response_data.get('paymentResponse', {}).get('authorizationCode')
-                card_scheme = response_data.get('paymentResponse', {}).get('cardSchemeType')
+                authorization_code = response_data.get('issuer', {}).get('authorizationCode')
+                card_scheme = response_data.get('paymentInstrument', {}).get('card', {}).get('brand')
                 
                 # Create payment source and transaction records
                 self._create_payment_records(order, response_data, transaction_ref)
