@@ -188,6 +188,10 @@ class WorldpayGatewayCardFormView(CheckoutSessionMixin, View):
                 logger.info(f"✅ Payment successful for order {order.number}")
                 logger.info(f"Payment ID: {payment_result.get('payment_id')}")
                 
+                # Create payment source to link payment to order
+                logger.info("🔗 Creating payment source...")
+                self._create_payment_source(order, payment_result, card_data)
+                
                 # Clear session data
                 request.session.pop('worldpay_gateway_submission', None)
                 
@@ -548,6 +552,56 @@ class WorldpayGatewayCardFormView(CheckoutSessionMixin, View):
             import traceback
             logger.error(f"Full traceback: {traceback.format_exc()}")
             return None
+
+    def _create_payment_source(self, order, payment_result, card_data):
+        """
+        Create payment source to link the payment to the order
+        """
+        try:
+            from oscar.apps.payment.models import Source, SourceType
+            
+            logger.info(f"🔗 Creating payment source for order {order.number}")
+            
+            # Get or create Worldpay Gateway source type
+            source_type, created = SourceType.objects.get_or_create(
+                name='Worldpay Gateway',
+                defaults={'code': 'worldpay-gateway'}
+            )
+            
+            if created:
+                logger.info("📝 Created new SourceType: Worldpay Gateway")
+            
+            # Create the payment source
+            source = Source.objects.create(
+                source_type=source_type,
+                currency='GBP',
+                amount_allocated=order.total_incl_tax,
+                amount_debited=order.total_incl_tax,
+                reference=payment_result.get('payment_id', ''),
+                label=f"****{card_data.get('card_number', '')[-4:]}"
+            )
+            
+            # Link to order
+            order.sources.add(source)
+            
+            # Create transaction record
+            from oscar.apps.payment.models import Transaction
+            
+            transaction = Transaction.objects.create(
+                source=source,
+                txn_type='Authorisation',
+                amount=order.total_incl_tax,
+                reference=payment_result.get('payment_id', ''),
+                status='Complete'
+            )
+            
+            logger.info(f"✅ Payment source created successfully: {source.id}")
+            logger.info(f"✅ Transaction created: {transaction.id}")
+            
+        except Exception as e:
+            logger.error(f"❌ Failed to create payment source: {str(e)}")
+            import traceback
+            logger.error(f"Full traceback: {traceback.format_exc()}")
 
 
 class WorldpayGatewaySuccessView(TemplateView):
