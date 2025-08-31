@@ -1,5 +1,80 @@
 
-        <div id="pagewrap" class="tf_box hfeed site">
+{% load static %}
+{% load i18n %}
+{% load basket_tags %}
+{% load currency_filters %}
+
+<!-- Parent Site Header Styles -->
+{% load i18n %}
+{% load basket_tags %}
+{% load currency_filters %}
+
+<!-- Parent Site Header Styles -->
+<link rel="stylesheet" href="{% static 'media/header-styles-parent.css' %}" type="text/css">
+
+<!-- Additional spacing fix for navigation -->
+<style>
+/* Force navigation spacing overrides */
+.desktop-navigation .desktop-menu {
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.desktop-navigation .desktop-menu li {
+    margin: 0 !important;
+    margin-right: 0 !important;
+    padding: 0 !important;
+    padding-right: 0 !important;
+}
+
+.desktop-navigation .desktop-menu li.menu-item {
+    margin-right: 0 !important;
+    padding-right: 0 !important;
+}
+
+/* Search Bar Styles */
+.search-input:focus {
+    border-color: #007bff !important;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1) !important;
+}
+
+.search-btn:hover {
+    background-color: #0056b3 !important;
+    transform: translateY(-50%) scale(1.05) !important;
+}
+
+.search-btn:active {
+    transform: translateY(-50%) scale(0.95) !important;
+}
+
+/* Mobile search responsiveness */
+@media (max-width: 768px) {
+    .search-bar-section {
+        margin-top: 10px !important;
+        padding: 0 15px !important;
+    }
+    
+    .search-container {
+        max-width: 100% !important;
+    }
+    
+    .search-input {
+        font-size: 16px !important; /* Prevents zoom on iOS */
+        padding: 10px 45px 10px 15px !important;
+    }
+    
+    .search-btn {
+        width: 32px !important;
+        height: 32px !important;
+        right: 6px !important;
+    }
+}
+</style>
+
+<div id="pagewrap" class="hfeed"
             <div id="headerwrap" class="tf_box">
                 
                 <!-- Mobile Header Icons -->
@@ -10,13 +85,16 @@
                     </a>
                     <div class="cart-icon">
                         <div class="cart-wrap">
-                            <a class="cart-icon-link" href="#cart">
+                            <a class="cart-icon-link minicart-btn toolbar-btn" href="#miniCart" style="display: flex; align-items: center; gap: 8px;">
                                 <em class="icon-shopping-cart">
                                     <svg aria-label="Shop Cart" class="tf_fa tf-fas-shopping-cart" role="img">
                                         <use href="#tf-fas-shopping-cart"></use>
                                     </svg>
                                 </em>
-                                <span class="cart-count">0</span>
+                                <div class="mobile-cart-info" style="display: flex; flex-direction: column; line-height: 1.2; min-width: 35px; padding-top: 15px;">
+                                    <span class="cart-count" style="color: red; font-size: 14px; margin-bottom: 2px;">{{ request.basket.num_items|default:0 }}</span>
+                                    <span class="mobile-cart-price" style="font-size: 11px; white-space: nowrap;">{{ request.basket.total_incl_tax|currency|default:"£0.00" }}</span>
+                                </div>
                                 <em class="screen-reader-text">Cart</em>
                             </a>
                         </div>
@@ -26,34 +104,89 @@
                 <header id="header" class="tf_box pagewidth tf_clearfix" itemscope itemtype="https://schema.org/WPHeader">
                     
                     <!-- Main Logo Bar -->
-                    <div class="header-bar tf_box">
+                    <div class="header-bar tf_box" style="display: flex; align-items: center; justify-content: space-between;">
                         <div id="site-logo">
-                            <a href="#" title="Maxus Parts Direct">
+                            <a href="{% url 'homepage' %}" title="Maxus Parts Direct" style="outline: none; border: none;">
                                 <img src="https://maxuspartsdirect.co.uk/wp-content/uploads/2023/11/Maxus-parts-logo-web.png" 
                                      alt="Maxus Parts Direct" 
                                      class="site-logo-image" 
                                      width="500" 
-                                     fetchpriority="high">
+                                     fetchpriority="high"
+                                     style="outline: none; border: none;">
                             </a>
                         </div>
 
-                        <!-- Desktop Navigation Menu -->
-                        <nav id="desktop-nav" class="desktop-navigation" itemscope itemtype="https://schema.org/SiteNavigationElement">
-                            <ul class="desktop-menu">
-                                <li class="menu-item current-menu-item">
-                                    <a href="#">Home</a>
-                                </li>
-                                <li class="menu-item">
-                                    <a href="#">Shop</a>
-                                </li>
-                                <li class="menu-item">
-                                    <a href="#">Login</a>
-                                </li>
-                                <li class="menu-item">
-                                    <a href="#">Contact</a>
-                                </li>
-                            </ul>
-                        </nav>
+                        <div style="display: flex; align-items: center; gap: 30px;">
+                            <!-- Desktop Navigation Menu -->
+                            <nav id="desktop-nav" class="desktop-navigation" itemscope itemtype="https://schema.org/SiteNavigationElement">
+                                <ul class="desktop-menu" style="display: flex !important; align-items: center !important; gap: 8px !important; margin: 0 !important; padding: 0 !important;">
+                                    <li class="menu-item current-menu-item" style="margin-right: 0 !important; padding-right: 0 !important;">
+                                        <a href="#">Home</a>
+                                    </li>
+                                    <li class="menu-item" style="margin-right: 0 !important; padding-right: 0 !important;">
+                                        <a href="#">Shop</a>
+                                    </li>
+                                    <li class="menu-item" style="margin-right: 0 !important; padding-right: 0 !important;">
+                                        <a href="#">Login</a>
+                                    </li>
+                                    <li class="menu-item" style="margin-right: 0 !important; padding-right: 0 !important;">
+                                        <a href="#">Contact</a>
+                                    </li>
+                                    <li class="minicart-wrap menu-item" style="margin-right: 0 !important; padding-right: 0 !important;">
+                                        <a href="#miniCart" class="minicart-btn toolbar-btn" style="display: flex; align-items: center; gap: 10px;">
+                                            <div class="minicart-count_area">
+                                                <span class="item-count" style="color: red;">{{ request.basket.num_items|default:0 }}</span>
+                                                <i class="ion-bag"></i>
+                                            </div>
+                                            <div class="minicart-front_text">
+                                                <span>{% trans "Cart:" %}</span>
+                                                <span class="total-price">{{ request.basket.total_incl_tax|currency|default:"£0.00" }}</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
+                                
+                                <!-- Search Bar Section - Inside nav container -->
+                                <div class="search-bar-section" style="margin-top: 10px; width: 100%; display: flex; justify-content: flex-start;">
+                                    <form class="search-form" method="get" action="{% url 'search:search' %}" style="position: relative; width: 100%; max-width: 350px;">
+                                        <input type="text" 
+                                               name="q"
+                                               placeholder="Search for parts, products..." 
+                                               class="search-input"
+                                               value="{{ query|default:'' }}"
+                                               style="width: 100%; 
+                                                      padding: 8px 40px 8px 14px; 
+                                                      border: 2px solid #e0e0e0; 
+                                                      border-radius: 18px; 
+                                                      font-size: 12px; 
+                                                      outline: none; 
+                                                      transition: border-color 0.3s ease;
+                                                      background-color: #f8f9fa;">
+                                        <button type="submit" 
+                                                class="search-btn"
+                                                style="position: absolute; 
+                                                       right: 4px; 
+                                                       top: 50%; 
+                                                       transform: translateY(-50%); 
+                                                       background: #007bff; 
+                                                       border: none; 
+                                                       border-radius: 50%; 
+                                                       width: 26px; 
+                                                       height: 26px; 
+                                                       display: flex; 
+                                                       align-items: center; 
+                                                       justify-content: center; 
+                                                       cursor: pointer;
+                                                       transition: background-color 0.3s ease;">
+                                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                                                <circle cx="11" cy="11" r="8"></circle>
+                                                <path d="m21 21-4.35-4.35"></path>
+                                            </svg>
+                                        </button>
+                                    </form>
+                                </div>
+                            </nav>
+                        </div>
                     </div>
                     <!-- /.header-bar -->
 
@@ -62,21 +195,23 @@
                         <div class="navbar-wrapper tf_clearfix">
                             
                             <!-- Mobile Cart Icon -->
-                            <div class="cart-icon">
-                                <div class="cart-wrap">
-                                    <a class="cart-icon-link" href="#cart">
-                                        <em class="icon-shopping-cart">
-                                            <svg aria-label="Shop Cart" class="tf_fa tf-fas-shopping-cart" role="img">
-                                                <use href="#tf-fas-shopping-cart"></use>
-                                            </svg>
-                                        </em>
-                                        <span class="cart-count">0</span>
-                                        <em class="screen-reader-text">Cart</em>
-                                    </a>
-                                </div>
-                            </div>
-
-                            <!-- Search Button -->
+            <div class="cart-icon">
+                <div class="cart-wrap">
+                    <a class="cart-icon-link minicart-btn toolbar-btn" href="#miniCart" style="display: flex; align-items: center; gap: 10px;">
+                        <em class="icon-shopping-cart">
+                            <svg aria-label="Shop Cart" class="tf_fa tf-fas-shopping-cart" role="img">
+                                <use href="#tf-fas-shopping-cart"></use>
+                            </svg>
+                        </em>
+                        <span class="cart-count">{{ request.basket.num_items|default:0 }}</span>
+                        <div class="mobile-cart-text">
+                            <span>{% trans "Cart:" %}</span>
+                            <span class="total-price">{{ request.basket.total_incl_tax|currency|default:"£0.00" }}</span>
+                        </div>
+                        <em class="screen-reader-text">Cart</em>
+                    </a>
+                </div>
+            </div>                            <!-- Search Button -->
                             <a class="search-button tf_search_icon tf_vmiddle tf_inline_b" href="#" onclick="toggleSearch()">
                                 <svg aria-label="Search" class="tf_fa tf-fas-search" role="img">
                                     <use href="#tf-fas-search"></use>
@@ -117,14 +252,15 @@
                                 <div class="col3-1 tf_box tf_float">
                                     <div class="widget widget_block widget_media_image">
                                         <figure class="wp-block-image size-large">
-                                            <a href="https://maxuspartsdirect.co.uk/wp-content/uploads/2025/08/new-man-parts-direct-logo-site-scaled.png">
+                                            <a href="{% url 'homepage' %}" style="outline: none; border: none;">
                                                 <img decoding="async" 
                                                      width="1024" 
                                                      height="512" 
                                                      src="https://maxuspartsdirect.co.uk/wp-content/uploads/2025/08/new-man-parts-direct-logo-site-1024x512.png" 
                                                      alt="Man Parts Direct Logo" 
                                                      class="wp-image-3246" 
-                                                     loading="lazy">
+                                                     loading="lazy"
+                                                     style="outline: none; border: none;">
                                             </a>
                                         </figure>
                                     </div>
@@ -144,26 +280,22 @@
                     </div>
                     <!-- /#mobile-menu -->
 
-                    <!-- Slide Cart -->
-                    <div id="slide-cart" class="sidemenu sidemenu-off tf_scrollbar">
-                        <a href="#" id="cart-icon-close" class="tf_close">
-                            <span class="screen-reader-text">Close Cart</span>
-                        </a>
-                        <div id="shopdock-ultra">
-                            <p>Your cart is empty. Go to <a href="#">Shop</a>.</p>
-                        </div>
-                    </div>
-
                     <!-- Header Extra Badge -->
                     <div class="header-extra">
-                        <img loading="lazy" 
-                             decoding="async" 
-                             width="2560" 
-                             height="1280" 
-                             src="https://maxuspartsdirect.co.uk/wp-content/uploads/2025/08/new-man-parts-direct-logo-site-scaled.png" 
-                             alt="Maxus Parts Direct Logo">
+                        <a href="{% url 'homepage' %}" style="outline: none; border: none;">
+                            <img loading="lazy" 
+                                 decoding="async" 
+                                 width="2560" 
+                                 height="1280" 
+                                 src="https://maxuspartsdirect.co.uk/wp-content/uploads/2025/08/new-man-parts-direct-logo-site-scaled.png" 
+                                 alt="maxus part direct logo"
+                                 style="outline: none; border: none;">
+                        </a>
                     </div>
                     
                 </header>
             </div>
         </div>
+
+<!-- Mini Cart -->
+{% include 'oscar/partials/mini_cart.html' %}

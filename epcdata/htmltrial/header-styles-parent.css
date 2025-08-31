@@ -713,3 +713,37 @@ input:focus {
         display: none !important;
     }
 }
+
+/* Specific navigation spacing overrides for tighter layout */
+.desktop-navigation .desktop-menu {
+    display: flex !important;
+    align-items: center !important;
+    gap: 15px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.desktop-navigation .desktop-menu li {
+    margin: 0 !important;
+    margin-right: 0 !important;
+    padding: 0 !important;
+    padding-right: 0 !important;
+}
+
+.desktop-navigation .desktop-menu li:not(:last-child) {
+    margin-right: 0 !important;
+}
+
+/* Additional selector specificity for any theme overrides */
+.desktop-navigation ul.desktop-menu li {
+    margin-right: 0 !important;
+    padding-right: 0 !important;
+}
+
+/* Force override any theme defaults */
+.desktop-navigation .desktop-menu li.menu-item {
+    margin-right: 0 !important;
+    padding-right: 0 !important;
+}
+
+/* End custom parent site header styles */

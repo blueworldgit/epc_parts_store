@@ -36,7 +36,6 @@
                     <table class="table">
                         <thead>
                             <tr>
-                                <th class="pro-thumbnail">{% trans "Product" %}</th>
                                 <th class="pro-title">{% trans "Name" %}</th>
                                 <th class="pro-price">{% trans "Price" %}</th>
                                 <th class="pro-quantity">{% trans "Quantity" %}</th>
@@ -49,19 +48,8 @@
                                 {% with line=form.instance product=form.instance.product %}
                                     {% purchase_info_for_line request line as session %}
                                     <tr id="line_{{ forloop.counter0 }}">
-                                        <td class="pro-thumbnail">
-                                            {{ form.id }}
-                                            {% if product.primary_image and product.primary_image.original and product.primary_image.original.url %}
-                                                <a href="{{ product.get_absolute_url }}">
-                                                    <img src="{{ product.primary_image.original.url }}" alt="{{ product.get_title }}" style="width: 80px; height: 80px; object-fit: cover;">
-                                                </a>
-                                            {% else %}
-                                                <a href="{{ product.get_absolute_url }}">
-                                                    <img src="/media/cache/bc/07/bc0729419b53eb2d0651e42b837daf02.jpg" alt="{{ product.get_title }}" style="width: 80px; height: 80px; object-fit: cover;">
-                                                </a>
-                                            {% endif %}
-                                        </td>
                                         <td class="pro-title">
+                                            {{ form.id }}
                                             <a href="{{ product.get_absolute_url }}">{{ line.description }}</a>
                                             <p class="availability {{ session.availability.code }}">{{ session.availability.message }}</p>
                                             {% if product.upc %}

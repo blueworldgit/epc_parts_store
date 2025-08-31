@@ -307,6 +307,56 @@
                 max-height: 70px !important;
             }
         }
+        
+        /* Custom Add to Cart Button Color Override - Only for Add to Cart buttons */
+        .uren-btn,
+        .uren-btn-2,
+        .uren-banner_btn,
+        .uren-btn-bondi_blue,
+        .uren-btn_fullwidth,
+        .uren-compare_btn,
+        .uren-filter_btn,
+        .uren-btn_dark,
+        .uren-btn_limerick,
+        .btn:not(.btn-secondary):not(.btn-outline):not(.btn-info):not(.btn-light):not(.view-details),
+        .btn-primary:not(.view-details) {
+            background-color: #28a745 !important;
+            background: #28a745 !important;
+        }
+        
+        .uren-btn:hover,
+        .uren-btn-2:hover,
+        .uren-banner_btn:hover,
+        .uren-btn-bondi_blue:hover,
+        .uren-btn_fullwidth:hover,
+        .uren-compare_btn:hover,
+        .uren-filter_btn:hover,
+        .uren-btn_dark:hover,
+        .uren-btn_limerick:hover,
+        .btn:not(.btn-secondary):not(.btn-outline):not(.btn-info):not(.btn-light):not(.view-details):hover,
+        .btn-primary:not(.view-details):hover {
+            background-color: #1e7e34 !important;
+            background: #1e7e34 !important;
+        }
+        
+        /* Keep View Details button with original color */
+        .btn.view-details,
+        .btn-secondary,
+        .btn-outline,
+        .btn-info,
+        .btn-light {
+            background: #ff6b35 !important;
+            background-color: #ff6b35 !important;
+        }
+        
+        .btn.view-details:hover,
+        .btn-secondary:hover,
+        .btn-outline:hover,
+        .btn-info:hover,
+        .btn-light:hover {
+            background: #e55a2b !important;
+            background-color: #e55a2b !important;
+        }
     </style>
     
     {% block extra_css %}{% endblock %}
