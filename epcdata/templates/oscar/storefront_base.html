@@ -317,21 +317,6 @@
 <body class="template-color-1">
     <!-- DEBUG: BODY TAG - storefront_base.html confirmed -->
 
-    <!-- New Test Header at Top -->
-    <div style="
-        width: 100%;
-        background-color: #333;
-        color: white;
-        text-align: center;
-        padding: 20px 0;
-        font-size: 24px;
-        font-weight: bold;
-        position: relative;
-        z-index: 10001;
-    ">
-        test
-    </div>
-
     <div class="main-wrapper">
 
         <!-- Begin Loading Area -->
@@ -545,6 +530,78 @@
         $.fn.bxSlider = function(options) { return this; };
         $.fn.fancybox = function(options) { return this; };
     </script>
+    <!-- Header functionality script -->
+    <script>
+    (function() {
+        // Search toggle functionality
+        window.toggleSearch = function() {
+            const searchOverlay = document.querySelector('.tf_search_form');
+            
+            if (searchOverlay && searchOverlay.classList.contains('tf_search_overlay_open')) {
+                searchOverlay.classList.remove('tf_search_overlay_open');
+            } else if (searchOverlay) {
+                searchOverlay.classList.add('tf_search_overlay_open');
+                const searchInput = document.querySelector('#s');
+                if (searchInput) searchInput.focus();
+            }
+        };
+
+        // Mobile menu toggle functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuIcon = document.getElementById('menu-icon');
+            const menuClose = document.getElementById('menu-icon-close');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            if (menuIcon) {
+                menuIcon.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    mobileMenu.classList.remove('sidemenu-off');
+                    mobileMenu.classList.add('sidemenu-on');
+                });
+            }
+            
+            if (menuClose) {
+                menuClose.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    mobileMenu.classList.remove('sidemenu-on');
+                    mobileMenu.classList.add('sidemenu-off');
+                });
+            }
+
+            // Cart slide functionality
+            const cartIcons = document.querySelectorAll('.cart-icon-link');
+            const cartClose = document.getElementById('cart-icon-close');
+            const slideCart = document.getElementById('slide-cart');
+            
+            cartIcons.forEach(function(cartIcon) {
+                cartIcon.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    slideCart.classList.remove('sidemenu-off');
+                    slideCart.classList.add('sidemenu-on');
+                });
+            });
+            
+            if (cartClose) {
+                cartClose.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    slideCart.classList.remove('sidemenu-on');
+                    slideCart.classList.add('sidemenu-off');
+                });
+            }
+
+            // Close search overlay when clicking outside
+            const searchForm = document.querySelector('.tf_search_form');
+            if (searchForm) {
+                searchForm.addEventListener('click', function(e) {
+                    if (e.target === this) {
+                        this.classList.remove('tf_search_overlay_open');
+                    }
+                });
+            }
+        });
+    })();
+    </script>
+
     <!-- Popper.js (required for Bootstrap tooltips) -->
     <script src="{% static 'uren/assets/js/vendor/popper.min.js' %}"></script>
     <!-- Bootstrap -->
