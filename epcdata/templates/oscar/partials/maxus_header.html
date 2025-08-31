@@ -1,0 +1,149 @@
+{% load static %}
+{% load i18n %}
+{% load basket_tags %}
+{% load currency_filters %}
+{% load parts_tags %}
+
+<!-- Maxus Parts Direct Header -->
+<header class="maxus-header">
+    <!-- Top Contact Banner -->
+    <div class="maxus-top-banner">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="contact-info">
+                        <a href="tel:{{ MAXUS_PHONE|default:'01953665421' }}">📞 {{ MAXUS_PHONE|default:'01953 665 421' }}</a> - 
+                        <a href="mailto:{{ MAXUS_EMAIL|default:'info@maxuspartsdirect.co.uk' }}">✉ Contact us</a> {{ MAXUS_CONTACT_MESSAGE|default:'if your part isn\'t listed, we will be able to get it for you' }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header Middle Section -->
+    <div class="maxus-header-middle">
+        <div class="container-fluid">
+            <div class="row align-items-center">
+                <div class="col-lg-3 col-md-6 col-12">
+                    <div class="logo-area">
+                        <a href="{% url 'homepage' %}" class="maxus-logo">
+                            {{ MAXUS_SHOP_NAME|default:'Maxus Parts Direct' }}
+                        </a>
+                        <div class="maxus-tagline">{{ MAXUS_TAGLINE|default:'Quality Parts for Maxus Vehicles' }}</div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-12 col-12">
+                    <div class="search-area">
+                        <form action="{% url 'search:search' %}" method="get" class="search-form">
+                            <div class="input-group">
+                                <select class="form-control" name="selected_facets" style="max-width: 150px;">
+                                    <option value="">{% trans "All Categories" %}</option>
+                                    {% for category in categories %}
+                                    <option value="category_exact:{{ category.name }}">{{ category.name }}</option>
+                                    {% endfor %}
+                                </select>
+                                <input type="text" name="q" class="form-control" placeholder="{% trans 'Search for parts...' %}" value="{{ query }}">
+                                <div class="input-group-append">
+                                    <button class="btn btn-primary" type="submit">
+                                        <i class="ion-ios-search-strong"></i> {% trans "Search" %}
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-12">
+                    <div class="header-actions">
+                        <a href="tel:{{ MAXUS_PHONE|default:'01953665421' }}" class="maxus-contact-phone">
+                            📞 Call Us - {{ MAXUS_PHONE|default:'01953 665 421' }}
+                        </a>
+                        <a href="#miniCart" class="maxus-cart-widget">
+                            🛒 Cart ({{ basket.num_items|default:0 }}) - £{{ basket.total_incl_tax|default:"0.00" }}
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation Menu -->
+    <div class="maxus-nav">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <nav class="navbar navbar-expand-lg">
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#maxusNavbar">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="maxusNavbar">
+                            <ul class="navbar-nav mr-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'homepage' %}">{% trans "Home" %}</a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="{% url 'catalogue:index' %}" data-toggle="dropdown">
+                                        {% trans "Shop" %}
+                                    </a>
+                                    <div class="dropdown-menu">
+                                        {% for category in categories %}
+                                            {% for parent_cat in category.get_children %}
+                                                <a class="dropdown-item" href="{% url 'catalogue:category' category_slug=parent_cat.slug pk=parent_cat.pk %}">
+                                                    {{ parent_cat.name|beautify_category_name }}
+                                                </a>
+                                            {% endfor %}
+                                        {% empty %}
+                                            <a class="dropdown-item" href="{% url 'catalogue:index' %}">All Products</a>
+                                        {% endfor %}
+                                    </div>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'catalogue:index' %}">{% trans "All Products" %}</a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
+                                        {% trans "Account" %}
+                                    </a>
+                                    <div class="dropdown-menu">
+                                        {% if user.is_authenticated %}
+                                            <a class="dropdown-item" href="{% url 'customer:summary' %}">{% trans "My Account" %}</a>
+                                            <a class="dropdown-item" href="{% url 'customer:order-list' %}">{% trans "Order History" %}</a>
+                                            <a class="dropdown-item" href="{% url 'customer:logout' %}">{% trans "Logout" %}</a>
+                                        {% else %}
+                                            <a class="dropdown-item" href="{% url 'customer:login' %}">{% trans "Login" %}</a>
+                                            <a class="dropdown-item" href="{% url 'customer:register' %}">{% trans "Register" %}</a>
+                                        {% endif %}
+                                        <a class="dropdown-item" href="{% url 'customer:wishlists-list' %}">{% trans "Wishlist" %}</a>
+                                    </div>
+                                </li>
+                            </ul>
+                            <ul class="navbar-nav">
+                                <li class="nav-item">
+                                    <span class="nav-link">
+                                        {% if user.is_authenticated %}
+                                            Welcome, 
+                                            {% if user.get_full_name %}
+                                                {{ user.get_full_name }}
+                                            {% elif user.first_name %}
+                                                {{ user.first_name }}
+                                            {% else %}
+                                                {{ user.username }}
+                                            {% endif %}
+                                        {% else %}
+                                            <a href="{% url 'customer:login' %}">{% trans "Login" %}</a>
+                                        {% endif %}
+                                    </span>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mini Cart (keep existing functionality) -->
+    {% include 'oscar/partials/mini_cart.html' %}
+    
+    <!-- Mobile Menu (keep existing functionality) -->
+    {% include 'oscar/partials/mobile_menu.html' %}
+</header>

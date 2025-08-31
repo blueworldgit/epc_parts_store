@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Max US Parts Direct - Header Test</title>
+    
+    <!-- Google Fonts matching parent site -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="header-styles-parent.css">
+    
+    <!-- Additional reset styles to prevent conflicts -->
+    <style>
+        /* Ensure header doesn't inherit unwanted styles */
+        .header-container * {
+            box-sizing: border-box;
+        }
+        
+        /* Ensure fixed positioning works correctly */
+        .header-container {
+            position: relative;
+            z-index: 9999;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Skip to content for accessibility -->
+    <a class="skip-to-content screen-reader-text" href="#main" tabindex="1">Skip to main content</a>
+
+    <!-- Header Container to isolate styles -->
+    <div class="header-container">
+        <!-- SVG Icons -->
+        <svg id="tf_svg" style="display:none">
+            <defs>
+                <symbol id="tf-fas-shopping-cart" viewBox="0 0 36 32">
+                    <path d="M33 18.81q-.25 1.2-1.44 1.2H13.25l.37 2h16.82q.68 0 1.12.55t.31 1.25l-.37 1.57q2 .93 2 3.12 0 1.44-1.03 2.47T30 32t-2.47-1.03-1.03-2.47q0-1.5 1.06-2.5H14.44q1.06 1 1.06 2.5 0 1.44-1.03 2.47T12 32t-2.47-1.03T8.5 28.5q0-2 1.75-3.06L5.88 4H1.5Q.88 4 .44 3.56T0 2.5v-1Q0 .87.44.44T1.5 0h6.44q.5 0 .9.34t.54.85L9.94 4H34.5q.75 0 1.19.56t.25 1.25z"/>
+                </symbol>
+                <symbol id="tf-fas-search" viewBox="0 0 32 32">
+                    <path d="M31.6 27.7q.4.4.4 1t-.4 1.1l-1.8 1.8q-.4.4-1 .4t-1.1-.4l-6.3-6.3q-.4-.4-.4-1v-1Q17.5 26 13 26q-5.4 0-9.2-3.8T0 13t3.8-9.2T13 0t9.2 3.8T26 13q0 4.5-2.8 8h1q.7 0 1.1.4zM13 21q3.3 0 5.7-2.3T21 13t-2.3-5.7T13 5 7.3 7.3 5 13t2.3 5.7T13 21z"/>
+                </symbol>
+            </defs>
+        </svg>
+
+        <!-- Search Overlay -->
+        <div class="tf_search_form tf_search_overlay">
+            <form role="search" method="get" id="searchform" action="#">
+                <div class="tf_icon_wrap icon-search">
+                    <svg aria-label="Search" class="tf_fa tf-fas-search" role="img">
+                        <use href="#tf-fas-search"></use>
+                    </svg>
+                </div>
+                <input type="text" name="q" id="s" title="Search" placeholder="Search" value="" />
+            </form>
+        </div>
+
+        <div id="pagewrap" class="tf_box hfeed site">
+            <div id="headerwrap" class="tf_box">
+                
+                <!-- Mobile Header Icons -->
+                <div class="header-icons">
+                    <a id="menu-icon" class="tf_inline_b tf_text_dec" href="#mobile-menu" aria-label="Menu">
+                        <span class="menu-icon-inner tf_inline_b tf_vmiddle tf_overflow"></span>
+                        <span class="screen-reader-text">Menu</span>
+                    </a>
+                    <div class="cart-icon">
+                        <div class="cart-wrap">
+                            <a class="cart-icon-link" href="#cart">
+                                <em class="icon-shopping-cart">
+                                    <svg aria-label="Shop Cart" class="tf_fa tf-fas-shopping-cart" role="img">
+                                        <use href="#tf-fas-shopping-cart"></use>
+                                    </svg>
+                                </em>
+                                <span class="cart-count">0</span>
+                                <em class="screen-reader-text">Cart</em>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <header id="header" class="tf_box pagewidth tf_clearfix" itemscope itemtype="https://schema.org/WPHeader">
+                    
+                    <!-- Main Logo Bar -->
+                    <div class="header-bar tf_box">
+                        <div id="site-logo">
+                            <a href="#" title="Maxus Parts Direct">
+                                <img src="https://maxuspartsdirect.co.uk/wp-content/uploads/2023/11/Maxus-parts-logo-web.png" 
+                                     alt="Maxus Parts Direct" 
+                                     class="site-logo-image" 
+                                     width="500" 
+                                     fetchpriority="high">
+                            </a>
+                        </div>
+
+                        <!-- Desktop Navigation Menu -->
+                        <nav id="desktop-nav" class="desktop-navigation" itemscope itemtype="https://schema.org/SiteNavigationElement">
+                            <ul class="desktop-menu">
+                                <li class="menu-item current-menu-item">
+                                    <a href="#">Home</a>
+                                </li>
+                                <li class="menu-item">
+                                    <a href="#">Shop</a>
+                                </li>
+                                <li class="menu-item">
+                                    <a href="#">Login</a>
+                                </li>
+                                <li class="menu-item">
+                                    <a href="#">Contact</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <!-- /.header-bar -->
+
+                    <!-- Mobile Menu -->
+                    <div id="mobile-menu" class="sidemenu sidemenu-off tf_scrollbar">
+                        <div class="navbar-wrapper tf_clearfix">
+                            
+                            <!-- Mobile Cart Icon -->
+                            <div class="cart-icon">
+                                <div class="cart-wrap">
+                                    <a class="cart-icon-link" href="#cart">
+                                        <em class="icon-shopping-cart">
+                                            <svg aria-label="Shop Cart" class="tf_fa tf-fas-shopping-cart" role="img">
+                                                <use href="#tf-fas-shopping-cart"></use>
+                                            </svg>
+                                        </em>
+                                        <span class="cart-count">0</span>
+                                        <em class="screen-reader-text">Cart</em>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <!-- Search Button -->
+                            <a class="search-button tf_search_icon tf_vmiddle tf_inline_b" href="#" onclick="toggleSearch()">
+                                <svg aria-label="Search" class="tf_fa tf-fas-search" role="img">
+                                    <use href="#tf-fas-search"></use>
+                                </svg>
+                                <span class="screen-reader-text">Search</span>
+                            </a>
+
+                            <!-- Main Navigation -->
+                            <nav id="main-nav-wrap" itemscope itemtype="https://schema.org/SiteNavigationElement">
+                                <ul id="main-nav" class="main-nav tf_clearfix tf_box">
+                                    <li class="menu-item current-menu-item">
+                                        <a href="#">Home</a>
+                                    </li>
+                                    <li class="menu-item">
+                                        <a href="#">Shop</a>
+                                    </li>
+                                    <li class="menu-item">
+                                        <a href="#">My Account</a>
+                                    </li>
+                                    <li class="menu-item">
+                                        <a href="#">Contact</a>
+                                    </li>
+                                </ul>
+                                <a href="#" class="pull-down tf_inline_b tf_text_dec tf_overflow">
+                                    <span class="pull-down-inner tf_inline_b tf_vmiddle"></span>
+                                    <span class="screen-reader-text">Widgets</span>
+                                </a>
+                            </nav>
+                            <!-- /#main-nav-wrap -->
+                        </div>
+
+                        <!-- Header Widget Area -->
+                        <div class="header-widget tf_clear tf_clearfix">
+                            <div class="header-widget-inner tf_scrollbar tf_clearfix">
+                                <div class="col3-1 first tf_box tf_float">
+                                    <!-- Empty column -->
+                                </div>
+                                <div class="col3-1 tf_box tf_float">
+                                    <div class="widget widget_block widget_media_image">
+                                        <figure class="wp-block-image size-large">
+                                            <a href="https://maxuspartsdirect.co.uk/wp-content/uploads/2025/08/new-man-parts-direct-logo-site-scaled.png">
+                                                <img decoding="async" 
+                                                     width="1024" 
+                                                     height="512" 
+                                                     src="https://maxuspartsdirect.co.uk/wp-content/uploads/2025/08/new-man-parts-direct-logo-site-1024x512.png" 
+                                                     alt="Man Parts Direct Logo" 
+                                                     class="wp-image-3246" 
+                                                     loading="lazy">
+                                            </a>
+                                        </figure>
+                                    </div>
+                                </div>
+                                <div class="col3-1 tf_box tf_float">
+                                    <!-- Empty column -->
+                                </div>
+                            </div>
+                            <!-- /.header-widget-inner -->
+                        </div>
+                        <!-- /.header-widget -->
+
+                        <!-- Mobile Menu Close Button -->
+                        <a id="menu-icon-close" aria-label="Close menu" class="tf_close" href="#">
+                            <span class="screen-reader-text">Close Menu</span>
+                        </a>
+                    </div>
+                    <!-- /#mobile-menu -->
+
+                    <!-- Slide Cart -->
+                    <div id="slide-cart" class="sidemenu sidemenu-off tf_scrollbar">
+                        <a href="#" id="cart-icon-close" class="tf_close">
+                            <span class="screen-reader-text">Close Cart</span>
+                        </a>
+                        <div id="shopdock-ultra">
+                            <p>Your cart is empty. Go to <a href="#">Shop</a>.</p>
+                        </div>
+                    </div>
+
+                    <!-- Header Extra Badge -->
+                    <div class="header-extra">
+                        <img loading="lazy" 
+                             decoding="async" 
+                             width="2560" 
+                             height="1280" 
+                             src="https://maxuspartsdirect.co.uk/wp-content/uploads/2025/08/new-man-parts-direct-logo-site-scaled.png" 
+                             alt="Maxus Parts Direct Logo">
+                    </div>
+                    
+                </header>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main content placeholder -->
+    <main id="main" style="padding-top: 100px; height: 1000px; background: #f5f5f5;">
+        <div class="pagewidth" style="padding: 20px;">
+            <h1>Content below header</h1>
+            <p>This is test content to show how the header looks. The header should be fixed and match the parent site exactly.</p>
+        </div>
+    </main>
+
+    <!-- JavaScript with namespace to prevent conflicts -->
+    <script>
+        (function() {
+            // Wrap all functionality to prevent global conflicts
+            
+            // Search toggle functionality
+            window.toggleSearch = function() {
+                const searchOverlay = document.querySelector('.tf_search_form');
+                
+                if (searchOverlay && searchOverlay.classList.contains('tf_search_overlay_open')) {
+                    searchOverlay.classList.remove('tf_search_overlay_open');
+                } else if (searchOverlay) {
+                    searchOverlay.classList.add('tf_search_overlay_open');
+                    const searchInput = document.querySelector('#s');
+                    if (searchInput) searchInput.focus();
+                }
+            };
+
+            // Mobile menu toggle functionality
+            document.addEventListener('DOMContentLoaded', function() {
+                const menuIcon = document.getElementById('menu-icon');
+                const menuClose = document.getElementById('menu-icon-close');
+                const mobileMenu = document.getElementById('mobile-menu');
+                
+                if (menuIcon) {
+                    menuIcon.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        mobileMenu.classList.remove('sidemenu-off');
+                        mobileMenu.classList.add('sidemenu-on');
+                    });
+                }
+                
+                if (menuClose) {
+                    menuClose.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        mobileMenu.classList.remove('sidemenu-on');
+                        mobileMenu.classList.add('sidemenu-off');
+                    });
+                }
+
+                // Cart slide functionality
+                const cartIcons = document.querySelectorAll('.cart-icon-link');
+                const cartClose = document.getElementById('cart-icon-close');
+                const slideCart = document.getElementById('slide-cart');
+                
+                cartIcons.forEach(function(cartIcon) {
+                    cartIcon.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        slideCart.classList.remove('sidemenu-off');
+                        slideCart.classList.add('sidemenu-on');
+                    });
+                });
+                
+                if (cartClose) {
+                    cartClose.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        slideCart.classList.remove('sidemenu-on');
+                        slideCart.classList.add('sidemenu-off');
+                    });
+                }
+
+                // Close search overlay when clicking outside
+                document.querySelector('.tf_search_form').addEventListener('click', function(e) {
+                    if (e.target === this) {
+                        this.classList.remove('tf_search_overlay_open');
+                    }
+                });
+            });
+        })();
+    </script>
+</body>
+</html>

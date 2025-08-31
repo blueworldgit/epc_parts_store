@@ -41,8 +41,23 @@
     <!-- Vehicle Navigation CSS -->
     <link rel="stylesheet" href="{% static 'motortemplate/uren/assets/css/vehicle-navigation.css' %}">
     
+    <!-- Header Styles Parent CSS -->
+    <link rel="stylesheet" href="/media/header-styles-parent-fixed.css">
+    
     <!-- Inline CSS to hide logo -->
     <style>
+        /* Ensure header doesn't inherit unwanted styles */
+        .header-container * {
+            box-sizing: border-box;
+        }
+        
+        /* Ensure fixed positioning works correctly */
+        .header-container {
+            position: relative;
+            z-index: 9999;
+            width: 100%;
+        }
+        
         /* Set default body font to Corbel */
         body {
             font-family: 'Corbel', 'Arial', sans-serif !important;
@@ -301,6 +316,21 @@
 
 <body class="template-color-1">
     <!-- DEBUG: BODY TAG - storefront_base.html confirmed -->
+
+    <!-- New Test Header at Top -->
+    <div style="
+        width: 100%;
+        background-color: #333;
+        color: white;
+        text-align: center;
+        padding: 20px 0;
+        font-size: 24px;
+        font-weight: bold;
+        position: relative;
+        z-index: 10001;
+    ">
+        test
+    </div>
 
     <div class="main-wrapper">
 

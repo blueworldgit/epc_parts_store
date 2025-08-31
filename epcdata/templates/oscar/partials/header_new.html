@@ -1,0 +1,186 @@
+{% load static %}
+{% load i18n %}
+{% load basket_tags %}
+{% load currency_filters %}
+{% load parts_tags %}
+
+<div id="headerwrap" class="tf_box">
+    <div class="header-icons tf_hide">
+        <a id="menu-icon" class="tf_inline_b tf_text_dec" href="#mobile-menu" aria-label="Menu">
+            <span class="menu-icon-inner tf_inline_b tf_vmiddle tf_overflow"></span>
+            <span class="screen-reader-text">Menu</span>
+        </a>
+        <div class="cart-icon">
+            <div class="cart-wrap">
+                <a class="cart-icon-link" href="{% url 'basket:summary' %}">
+                    <em class="icon-shopping-cart">
+                        <i class="fa fa-shopping-cart"></i>
+                    </em>
+                    {% basket_line_count request as basket_line_count %}
+                    {% if basket_line_count > 0 %}
+                        <span class="basket-mini basket-mini-number">{{ basket_line_count }}</span>
+                    {% else %}
+                        <span></span>
+                    {% endif %}
+                    <em class="screen-reader-text">Cart</em>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <header id="header" class="tf_box pagewidth tf_clearfix" itemscope="itemscope" itemtype="https://schema.org/WPHeader">
+        <div class="header-bar tf_box">
+            <div id="site-logo">
+                <a href="{% url 'homepage' %}" title="Van Parts Direct">
+                    <img src="{% static 'uren/assets/images/vans-direct-logo.png' %}" alt="Van Parts Direct" class="site-logo-image" width="400" data-tf-not-load="1" fetchpriority="high">
+                </a>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="sidemenu tf_scrollbar sidemenu-off">
+            <div class="navbar-wrapper tf_clearfix">
+                <div class="cart-icon">
+                    <div class="cart-wrap">
+                        <a class="cart-icon-link" href="{% url 'basket:summary' %}">
+                            <em class="icon-shopping-cart">
+                                <i class="fa fa-shopping-cart"></i>
+                            </em>
+                            {% basket_line_count request as basket_line_count %}
+                            <span>{{ basket_line_count|default:0 }}</span>
+                            <em class="screen-reader-text">Cart</em>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="social-widget tf_inline_b tf_vmiddle"></div>
+                
+                <a class="search-button tf_search_icon tf_vmiddle tf_inline_b" href="{% url 'search:search' %}">
+                    <span class="screen-reader-text">Search</span>
+                </a>
+                
+                <nav id="main-nav-wrap" itemscope="itemscope" itemtype="https://schema.org/SiteNavigationElement">
+                    <ul id="main-nav" class="main-nav tf_clearfix tf_box" data-init="true">
+                        <li class="menu-item">
+                            <a href="{% url 'homepage' %}">{% trans "Home" %}</a>
+                        </li>
+                        <li class="menu-item">
+                            <a href="{% url 'catalogue:index' %}">{% trans "Shop" %}</a>
+                        </li>
+                        <li class="menu-item">
+                            <a href="{% url 'catalogue:index' %}">{% trans "All Products" %}</a>
+                        </li>
+                        {% if user.is_authenticated %}
+                            <li class="menu-item">
+                                <a href="{% url 'customer:summary' %}">{% trans "My Account" %}</a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="{% url 'customer:order-list' %}">{% trans "Order History" %}</a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="{% url 'customer:logout' %}">{% trans "Logout" %}</a>
+                            </li>
+                        {% else %}
+                            <li class="menu-item">
+                                <a href="{% url 'customer:login' %}">{% trans "Login" %}</a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="{% url 'customer:register' %}">{% trans "Register" %}</a>
+                            </li>
+                        {% endif %}
+                        <li class="menu-item">
+                            <a href="{% url 'customer:wishlists-list' %}">{% trans "Wishlist" %}</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            
+            <a id="menu-icon-close" aria-label="Close menu" class="tf_close tf_hide" href="#">
+                <span class="screen-reader-text">Close Menu</span>
+            </a>
+        </div>
+
+        <div id="slide-cart" class="sidemenu sidemenu-off tf_scrollbar">
+            <a href="#" id="cart-icon-close" class="tf_close">
+                <span class="screen-reader-text">Close Cart</span>
+            </a>
+            <div id="shopdock-ultra">
+                {% basket_line_count request as basket_line_count %}
+                {% if basket_line_count > 0 %}
+                    <p>You have {{ basket_line_count }} item{{ basket_line_count|pluralize }} in your cart.</p>
+                    <a href="{% url 'basket:summary' %}" class="btn btn-primary">View Cart</a>
+                {% else %}
+                    Your cart is empty. Go to <a href="{% url 'catalogue:index' %}">Shop</a>.
+                {% endif %}
+            </div>
+        </div>
+    </header>
+
+    <!-- Contact banner after header -->
+    <div class="tb_layout_part_wrap tf_w">
+        <div class="themify_builder_content themify_builder_content-1220 themify_builder not_editable_builder" data-postid="1220">
+            <div data-css_id="7zb3390" class="module_row themify_builder_row fullwidth_row_container tb_7zb3390 tb_first tf_w">
+                <div class="row_inner col_align_top tb_col_count_1 tf_box tf_rel">
+                    <div class="module_column tb-column col-full tb_h237391 first">
+                        <div class="module module-text tb_1xzn176 repeat">
+                            <div class="tb_text_wrap">
+                                <p style="text-align: center;">
+                                    <a href="tel:01953665421">01953 665 421</a> – 
+                                    <a href="{% url 'customer:profile-view' %}">Contact us</a> if your part isn't listed, we will be able to get it for you
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+// Mobile menu functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const menuIcon = document.getElementById('menu-icon');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuClose = document.getElementById('menu-icon-close');
+    const body = document.body;
+
+    // Create overlay element
+    const overlay = document.createElement('div');
+    overlay.className = 'mobile-menu-overlay';
+    document.body.appendChild(overlay);
+
+    // Open mobile menu
+    if (menuIcon) {
+        menuIcon.addEventListener('click', function(e) {
+            e.preventDefault();
+            mobileMenu.classList.add('sidemenu-on');
+            overlay.classList.add('active');
+            body.classList.add('mobile-menu-visible');
+        });
+    }
+
+    // Close mobile menu
+    function closeMobileMenu() {
+        mobileMenu.classList.remove('sidemenu-on');
+        overlay.classList.remove('active');
+        body.classList.remove('mobile-menu-visible');
+    }
+
+    if (menuClose) {
+        menuClose.addEventListener('click', function(e) {
+            e.preventDefault();
+            closeMobileMenu();
+        });
+    }
+
+    // Close menu when clicking overlay
+    overlay.addEventListener('click', closeMobileMenu);
+
+    // Close menu on escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && mobileMenu.classList.contains('sidemenu-on')) {
+            closeMobileMenu();
+        }
+    });
+});
+</script>
