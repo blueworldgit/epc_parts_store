@@ -225,21 +225,27 @@ class OscarImporter:
     def _get_price_from_pricing_data(self, part):
         """Extract price from pricing data"""
         try:
+            # Use the correct field name - part_number is a ForeignKey to Part
             pricing_data = PricingData.objects.filter(part_number=part).first()
             if pricing_data and pricing_data.list_price:
                 # Try to convert to decimal, handle various formats
                 price_str = str(pricing_data.list_price).replace('£', '').replace(',', '').strip()
+                print(f"   💰 Found pricing data for {part.part_number}: {price_str}")
                 return Decimal(price_str)
-        except (PricingData.DoesNotExist, InvalidOperation, ValueError):
-            pass
+            else:
+                print(f"   ❌ No pricing data found for {part.part_number}")
+        except (PricingData.DoesNotExist, InvalidOperation, ValueError) as e:
+            print(f"   ❌ Error getting price for {part.part_number}: {e}")
         return None
     
     def _get_stock_info(self, part):
         """Extract stock information from pricing data"""
         try:
+            # Use the correct field name - part_number is a ForeignKey to Part
             pricing_data = PricingData.objects.filter(part_number=part).first()
             if pricing_data and pricing_data.stock_available:
                 stock_str = str(pricing_data.stock_available).strip()
+                print(f"   📦 Found stock data for {part.part_number}: {stock_str}")
                 
                 # Handle different stock value formats
                 if stock_str.lower() == 'nil' or stock_str == '0':
@@ -261,8 +267,12 @@ class OscarImporter:
                     'num_in_stock': num_in_stock,
                     'low_stock_threshold': 5,  # Default threshold
                 }
-        except PricingData.DoesNotExist:
-            pass
+            else:
+                print(f"   ❌ No stock data found for {part.part_number}")
+        except PricingData.DoesNotExist as e:
+            print(f"   ❌ PricingData not found for {part.part_number}: {e}")
+        except Exception as e:
+            print(f"   ❌ Error getting stock for {part.part_number}: {e}")
         return {'num_in_stock': 0, 'low_stock_threshold': 5}
     
     def _create_product(self, part, category):
@@ -364,12 +374,41 @@ class OscarImporter:
             ).first()
             
             if existing_stock:
+                # Get latest pricing and stock info
+                price = self._get_price_from_pricing_data(part)
+                stock_info = self._get_stock_info(part)
+                
                 print(f"📦 EXISTING STOCK RECORD FOUND:")
                 print(f"   Part: {part.part_number}")
                 print(f"   Stock ID: {existing_stock.id}")
                 print(f"   Current Stock: {existing_stock.num_in_stock}")
                 print(f"   Current Price: £{existing_stock.price}")
-                self.stats['stock_records_existing'] += 1
+                
+                # Check if we need to update with newer pricing data
+                needs_update = False
+                update_fields = []
+                
+                if existing_stock.price != price and price is not None:
+                    print(f"   🔄 Updating price: £{existing_stock.price} → £{price}")
+                    existing_stock.price = price
+                    update_fields.append('price')
+                    needs_update = True
+                    
+                if existing_stock.num_in_stock != stock_info['num_in_stock']:
+                    print(f"   🔄 Updating stock: {existing_stock.num_in_stock} → {stock_info['num_in_stock']} units")
+                    existing_stock.num_in_stock = stock_info['num_in_stock']
+                    existing_stock.low_stock_threshold = stock_info['low_stock_threshold']
+                    update_fields.extend(['num_in_stock', 'low_stock_threshold'])
+                    needs_update = True
+                
+                if needs_update:
+                    existing_stock.save(update_fields=update_fields)
+                    print(f"   ✅ Stock record updated!")
+                    self.stats['stock_records_created'] += 1  # Count as "created" for statistics
+                else:
+                    print(f"   ℹ️ No updates needed - stock record is current")
+                    self.stats['stock_records_existing'] += 1
+                    
                 return existing_stock
             
             # Get pricing and stock info
@@ -478,8 +517,8 @@ class OscarImporter:
         logger.info(f"Categories existing: {self.stats['categories_existing']}")
         logger.info(f"Products created: {self.stats['products_created']}")
         logger.info(f"Products existing: {self.stats['products_existing']}")
-        logger.info(f"Stock records created: {self.stats['stock_records_created']}")
-        logger.info(f"Stock records existing: {self.stats['stock_records_existing']}")
+        logger.info(f"Stock records created/updated: {self.stats['stock_records_created']}")
+        logger.info(f"Stock records unchanged: {self.stats['stock_records_existing']}")
         logger.info(f"Errors: {self.stats['errors']}")
         
         # Add database verification
@@ -497,11 +536,25 @@ class OscarImporter:
                 print(f"   C00112285 stock records in database: {c00112285_count}")
                 
                 if c00112285_count > 0:
-                    cursor.execute("SELECT num_in_stock, price_excl_tax FROM partner_stockrecord WHERE partner_sku = 'C00112285' LIMIT 1;")
-                    stock_info = cursor.fetchone()
-                    if stock_info:
-                        stock, price = stock_info
-                        print(f"   C00112285 stock: {stock} units at £{price}")
+                    # First, let's see what columns exist
+                    cursor.execute("SELECT column_name FROM information_schema.columns WHERE table_name = 'partner_stockrecord' AND column_name LIKE '%price%';")
+                    price_columns = cursor.fetchall()
+                    print(f"   Available price columns: {[col[0] for col in price_columns]}")
+                    
+                    # Try different possible column names
+                    try:
+                        cursor.execute("SELECT num_in_stock, price FROM partner_stockrecord WHERE partner_sku = 'C00112285' LIMIT 1;")
+                        stock_info = cursor.fetchone()
+                        if stock_info:
+                            stock, price = stock_info
+                            print(f"   C00112285 stock: {stock} units at £{price}")
+                    except Exception as e:
+                        print(f"   Error querying stock details: {e}")
+                        # Try just getting the stock count
+                        cursor.execute("SELECT num_in_stock FROM partner_stockrecord WHERE partner_sku = 'C00112285' LIMIT 1;")
+                        stock_only = cursor.fetchone()
+                        if stock_only:
+                            print(f"   C00112285 stock: {stock_only[0]} units")
                         
         except Exception as e:
             print(f"❌ Database verification failed: {e}")
