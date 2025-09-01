@@ -30,13 +30,14 @@ def detect_production_server():
         local_ip = socket.gethostbyname(hostname)
         
         # Check if running on the production VPS IP
-        production_ips = ['80.95.207.42']
+        production_ips = ['80.95.207.42', '127.0.1.1']  # External IP and VPS internal IP
         
         # Also check for environment variables that indicate VPS deployment
         vps_indicators = [
             os.environ.get('SERVER_IP') == '80.95.207.42',
             os.environ.get('HOSTNAME', '').lower().find('vps') != -1,
             os.environ.get('HOSTNAME', '').lower().find('server') != -1,
+            hostname.lower() == 'rentals',  # VPS hostname
         ]
         
         print(f"🔍 Debug: hostname={hostname}, local_ip={local_ip}")

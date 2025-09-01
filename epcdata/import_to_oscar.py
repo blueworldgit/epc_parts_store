@@ -19,6 +19,34 @@ from django.conf import settings
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'epcdata.settings')
 django.setup()
 
+# Add database connection debug info
+from django.db import connection
+print("\n" + "="*60)
+print("🗄️ DATABASE CONNECTION DEBUG")
+print("="*60)
+db_settings = settings.DATABASES['default']
+print(f"🏠 Database Name: {db_settings.get('NAME', 'NOT SET')}")
+print(f"🌐 Database Host: {db_settings.get('HOST', 'NOT SET')}")
+print(f"👤 Database User: {db_settings.get('USER', 'NOT SET')}")
+print(f"🔌 Database Port: {db_settings.get('PORT', 'NOT SET')}")
+print(f"🔧 Database Engine: {db_settings.get('ENGINE', 'NOT SET')}")
+
+# Test actual connection
+try:
+    with connection.cursor() as cursor:
+        cursor.execute("SELECT current_database(), current_user, inet_server_addr(), inet_server_port();")
+        db_name, db_user, db_host, db_port = cursor.fetchone()
+        print(f"✅ ACTUAL CONNECTION:")
+        print(f"   Database: {db_name}")
+        print(f"   User: {db_user}")
+        print(f"   Host: {db_host or 'localhost'}")
+        print(f"   Port: {db_port}")
+except Exception as e:
+    print(f"❌ Connection test failed: {e}")
+
+print("="*60)
+print()
+
 # Import models
 from motorpartsdata.models import SerialNumber, ParentTitle, ChildTitle, Part, PricingData
 from oscar.apps.catalogue.models import Product, ProductClass, Category
@@ -336,12 +364,23 @@ class OscarImporter:
             ).first()
             
             if existing_stock:
+                print(f"📦 EXISTING STOCK RECORD FOUND:")
+                print(f"   Part: {part.part_number}")
+                print(f"   Stock ID: {existing_stock.id}")
+                print(f"   Current Stock: {existing_stock.num_in_stock}")
+                print(f"   Current Price: £{existing_stock.price}")
                 self.stats['stock_records_existing'] += 1
                 return existing_stock
             
             # Get pricing and stock info
             price = self._get_price_from_pricing_data(part)
             stock_info = self._get_stock_info(part)
+            
+            print(f"🛒 CREATING STOCK RECORD:")
+            print(f"   Part: {part.part_number}")
+            print(f"   Price: £{price}")
+            print(f"   Stock: {stock_info['num_in_stock']} units")
+            print(f"   Low Stock Threshold: {stock_info['low_stock_threshold']}")
             
             # Create stock record
             stock_record = StockRecord.objects.create(
@@ -353,6 +392,8 @@ class OscarImporter:
                 num_in_stock=stock_info['num_in_stock'],
                 low_stock_threshold=stock_info['low_stock_threshold'],
             )
+            
+            print(f"✅ Stock record created with ID: {stock_record.id}")
             
             self.stats['stock_records_created'] += 1
             if self.verbose:
@@ -440,6 +481,30 @@ class OscarImporter:
         logger.info(f"Stock records created: {self.stats['stock_records_created']}")
         logger.info(f"Stock records existing: {self.stats['stock_records_existing']}")
         logger.info(f"Errors: {self.stats['errors']}")
+        
+        # Add database verification
+        from django.db import connection
+        try:
+            with connection.cursor() as cursor:
+                cursor.execute("SELECT current_database();")
+                db_name = cursor.fetchone()[0]
+                print(f"\n🗄️ FINAL DATABASE VERIFICATION:")
+                print(f"   All operations performed on database: {db_name}")
+                
+                # Quick verification queries
+                cursor.execute("SELECT COUNT(*) FROM partner_stockrecord WHERE partner_sku LIKE 'C00112285';")
+                c00112285_count = cursor.fetchone()[0]
+                print(f"   C00112285 stock records in database: {c00112285_count}")
+                
+                if c00112285_count > 0:
+                    cursor.execute("SELECT num_in_stock, price_excl_tax FROM partner_stockrecord WHERE partner_sku = 'C00112285' LIMIT 1;")
+                    stock_info = cursor.fetchone()
+                    if stock_info:
+                        stock, price = stock_info
+                        print(f"   C00112285 stock: {stock} units at £{price}")
+                        
+        except Exception as e:
+            print(f"❌ Database verification failed: {e}")
 
 
 def main():
