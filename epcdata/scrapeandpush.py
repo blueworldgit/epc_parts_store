@@ -33,7 +33,7 @@ from motorpartsdata.serializers import (
     ChildTitleSerializer,
     PartSerializer
 )
-from vehicle_utils import determine_vehicle_brand
+from vehicle_utils import determine_vehicle_brand, get_or_create_vehicle_category, get_or_create_serial_category
 
 def process_html_file(html_path, serial_instance, parent_instance):
     """Process an HTML file using your existing BeautifulSoup parsing logic"""
@@ -160,6 +160,12 @@ def process_directory(root_dir):
         # Determine vehicle brand based on serial number patterns or default to Maxus
         vehicle_brand = determine_vehicle_brand(serial_name)
         
+        # Create or get Oscar categories
+        logger.info(f"Creating/getting Oscar categories for {vehicle_brand}")
+        vehicle_category = get_or_create_vehicle_category(vehicle_brand)
+        serial_category = get_or_create_serial_category(serial_name, vehicle_category)
+        logger.info(f"Vehicle category: {vehicle_category.name}, Serial category: {serial_category.name}")
+        
         serial_data = {
             "serial": serial_name,
             "vehicle_brand": vehicle_brand
@@ -224,6 +230,29 @@ def process_directory(root_dir):
                     else:
                         logger.error(f"Parent title serializer errors: {parent_serializer.errors}")
                         continue
+                
+                # Create Oscar category for this parent title (subsystem)
+                try:
+                    parent_slug = parent_name.lower().replace(' ', '-').replace('_', '-')
+                    
+                    # Check if parent category already exists under serial category
+                    parent_category = None
+                    for child in serial_category.get_children():
+                        if child.name == parent_name:
+                            parent_category = child
+                            break
+                    
+                    if not parent_category:
+                        parent_category = serial_category.add_child(
+                            name=parent_name,
+                            slug=parent_slug
+                        )
+                        logger.info(f"Created Oscar category: {parent_name}")
+                    else:
+                        logger.info(f"Oscar category {parent_name} already exists")
+                        
+                except Exception as e:
+                    logger.error(f"Error creating Oscar category for {parent_name}: {str(e)}")
                 
                 # Process HTML files in this directory
                 for filename in html_files:

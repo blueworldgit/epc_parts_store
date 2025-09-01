@@ -127,7 +127,11 @@
                                         <a href="#">Shop</a>
                                     </li>
                                     <li class="menu-item" style="margin-right: 0 !important; padding-right: 0 !important;">
-                                        <a href="#">Login</a>
+                                        {% if user.is_authenticated %}
+                                            <a href="/accounts/">My Account</a>
+                                        {% else %}
+                                            <a href="/accounts/login/">Login</a>
+                                        {% endif %}
                                     </li>
                                     <li class="menu-item" style="margin-right: 0 !important; padding-right: 0 !important;">
                                         <a href="#">Contact</a>
@@ -229,7 +233,11 @@
                                         <a href="#">Shop</a>
                                     </li>
                                     <li class="menu-item">
-                                        <a href="#">My Account</a>
+                                        {% if user.is_authenticated %}
+                                            <a href="/accounts/">My Account</a>
+                                        {% else %}
+                                            <a href="/accounts/login/">Login</a>
+                                        {% endif %}
                                     </li>
                                     <li class="menu-item">
                                         <a href="#">Contact</a>
