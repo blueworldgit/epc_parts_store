@@ -35,6 +35,7 @@ class Command(BaseCommand):
         super().__init__(*args, **kwargs)
         self.dry_run = False
         self.verbose = False
+        self.log_file = None
         self.stats = {
             'categories_created': 0,
             'categories_existing': 0,
@@ -44,6 +45,41 @@ class Command(BaseCommand):
             'stock_unchanged': 0,
             'errors': 0
         }
+
+    def _setup_file_logging(self):
+        """Set up file logging with timestamped filename"""
+        from datetime import datetime
+        timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
+        
+        if self.dry_run:
+            log_filename = f'import_to_oscar_dryrun_{timestamp}.log'
+        else:
+            log_filename = f'import_to_oscar_{timestamp}.log'
+        
+        self.log_file = log_filename
+        
+        # Create file handler
+        file_handler = logging.FileHandler(log_filename, mode='w', encoding='utf-8')
+        file_handler.setLevel(logging.INFO)
+        
+        # Create formatter
+        formatter = logging.Formatter(
+            '%(asctime)s - %(levelname)s - %(message)s',
+            datefmt='%Y-%m-%d %H:%M:%S'
+        )
+        file_handler.setFormatter(formatter)
+        
+        # Add handler to logger
+        logger.addHandler(file_handler)
+        logger.setLevel(logging.INFO)
+        
+        # Log initial setup
+        logger.info("=" * 60)
+        logger.info(f"IMPORT TO OSCAR LOG - {'DRY RUN' if self.dry_run else 'LIVE RUN'}")
+        logger.info("=" * 60)
+        
+        self.stdout.write(f"📝 Logging to file: {log_filename}")
+        return log_filename
 
     def add_arguments(self, parser):
         parser.add_argument(
@@ -66,12 +102,19 @@ class Command(BaseCommand):
         self.dry_run = options['dry_run']
         self.verbose = options['verbose']
         
+        # Set up file logging first
+        log_file = self._setup_file_logging()
+        
         if self.dry_run:
             self.stdout.write(
                 self.style.WARNING("DRY RUN MODE - No changes will be made")
             )
+            logger.info("DRY RUN MODE - No changes will be made")
 
         try:
+            # Log command start
+            logger.info(f"Import command started with options: {options}")
+            
             # Check database connection
             self._verify_database_connection()
             
@@ -86,15 +129,21 @@ class Command(BaseCommand):
             
             # Import data
             if options['serial']:
+                logger.info(f"Starting single serial import: {options['serial']}")
                 self._import_single_serial(options['serial'], partner, product_class)
             else:
+                logger.info("Starting full import of all serials")
                 self._import_all_serials(partner, product_class)
                 
             # Print final statistics
             self._print_final_stats()
             
+            logger.info("Import completed successfully")
+            self.stdout.write(f"📝 Full log saved to: {log_file}")
+            
         except Exception as e:
             logger.error(f"Import failed: {e}")
+            self.stdout.write(f"❌ Error logged to: {log_file}")
             raise CommandError(f"Import failed: {e}")
 
     def _show_existing_data_summary(self):
@@ -132,6 +181,13 @@ class Command(BaseCommand):
         self.stdout.write("🔌 Database Port: {}".format(db_settings['PORT']))
         self.stdout.write("🔧 Database Engine: {}".format(db_settings['ENGINE']))
         
+        # Log database connection info
+        logger.info(f"Database Name: {db_settings['NAME']}")
+        logger.info(f"Database Host: {db_settings['HOST']}")
+        logger.info(f"Database User: {db_settings['USER']}")
+        logger.info(f"Database Port: {db_settings['PORT']}")
+        logger.info(f"Database Engine: {db_settings['ENGINE']}")
+        
         # Test actual connection
         with connection.cursor() as cursor:
             cursor.execute(
@@ -145,6 +201,9 @@ class Command(BaseCommand):
         self.stdout.write("   Host: {}".format(db_host or 'localhost'))
         self.stdout.write("   Port: {}".format(db_port))
         self.stdout.write("=" * 60)
+        
+        # Log actual connection details
+        logger.info(f"ACTUAL CONNECTION - Database: {db_name}, User: {db_user}, Host: {db_host}, Port: {db_port}")
 
     def _get_or_create_partner(self):
         """Get or create the default partner"""
@@ -227,91 +286,142 @@ class Command(BaseCommand):
         )
 
     def _process_serial(self, serial, partner, product_class):
-        """Process a single serial number and its parts"""
-        # Get all parent titles for this serial
-        parent_titles = ParentTitle.objects.filter(serial_number=serial)
-        
-        for parent_title in parent_titles:
-            # Get all child titles under this parent
-            child_titles = ChildTitle.objects.filter(parent=parent_title)
+        """Process a single serial number and its parts using proper category hierarchy"""
+        try:
+            # Create proper category hierarchy: Vehicle Brand -> Serial -> Parent -> Child
+            category_map = self._create_category_hierarchy(serial)
             
-            for child_title in child_titles:
-                # Create/get Oscar category for this child title
-                oscar_category = self._create_category(parent_title, child_title, serial)
-                
-                # Get all parts in this child title
-                parts = Part.objects.filter(child_title=child_title)
-                
-                for part in parts:
-                    self._create_product_and_stock(part, oscar_category, partner, product_class)
+            if self.dry_run:
+                # In dry run, just count what we would do
+                parent_titles = ParentTitle.objects.filter(serial_number=serial)
+                for parent_title in parent_titles:
+                    child_titles = ChildTitle.objects.filter(parent=parent_title)
+                    for child_title in child_titles:
+                        parts = Part.objects.filter(child_title=child_title)
+                        for part in parts:
+                            if self.verbose:
+                                self.stdout.write(f"Would create product: {part.part_number}")
+                return
+            
+            # Process parts and assign them to appropriate categories
+            for parent_title in ParentTitle.objects.filter(serial_number=serial):
+                for child_title in ChildTitle.objects.filter(parent=parent_title):
+                    # Get the category for this child title
+                    oscar_category = category_map.get(child_title.id)
+                    if not oscar_category:
+                        logger.warning(f"No category found for child title: {child_title.title}")
+                        continue
+                    
+                    # Get all parts in this child title
+                    parts = Part.objects.filter(child_title=child_title)
+                    for part in parts:
+                        self._create_product_and_stock(part, oscar_category, partner, product_class)
+                        
+        except Exception as e:
+            logger.error(f"Error processing serial {serial.serial}: {e}")
+            self.stats['errors'] += 1
+            raise
 
-    def _create_category(self, parent_title, child_title, serial):
-        """Create or get Oscar category from parent and child titles - prevents duplicates"""
-        category_name = f"{serial.serial} - {parent_title.title} - {child_title.title}"
+    def _get_or_create_vehicle_category(self, brand_name):
+        """Get existing vehicle category or create if doesn't exist"""
+        try:
+            category = Category.objects.get(name=brand_name, depth=1)
+            return category
+        except Category.DoesNotExist:
+            # Create new category if it doesn't exist
+            category = Category.add_root(name=brand_name, slug=brand_name.lower())
+            return category
+
+    def _get_or_create_serial_category(self, serial_number, vehicle_category):
+        """Create serial number category under the vehicle category"""
+        serial_name = f"Serial {serial_number}"
+        serial_slug = f"serial-{serial_number.lower().replace('_', '-')}"
+        
+        # Check if serial category already exists under this vehicle
+        for child in vehicle_category.get_children():
+            if child.name == serial_name:
+                return child
+        
+        # Create new serial category under vehicle category
+        serial_category = vehicle_category.add_child(
+            name=serial_name,
+            slug=serial_slug
+        )
+        return serial_category
+
+    def _create_category_hierarchy(self, serial_number):
+        """Create proper category hierarchy: Vehicle Brand -> Serial -> ParentTitle -> ChildTitle"""
+        
+        # Get or create vehicle category (Maxus, Peugeot, etc.)
+        vehicle_category = self._get_or_create_vehicle_category(serial_number.vehicle_brand)
+        logger.info(f"Using vehicle category: {vehicle_category.name}")
+        if self.verbose:
+            self.stdout.write(f"Using vehicle category: {vehicle_category.name}")
+        
+        # Get or create serial category under vehicle category
+        serial_category = self._get_or_create_serial_category(serial_number.serial, vehicle_category)
+        logger.info(f"Using serial category: {serial_category.name}")
+        if self.verbose:
+            self.stdout.write(f"Using serial category: {serial_category.name}")
         
         if self.dry_run:
-            if self.verbose:
-                self.stdout.write(f"Would create category: {category_name}")
-            return Category(name=category_name)
+            return {}
         
-        # Create slug safely
-        safe_slug = f"{serial.serial}-{parent_title.title}-{child_title.title}".lower()
-        safe_slug = safe_slug.replace(' ', '-').replace('/', '-').replace('\\', '-')
-        safe_slug = ''.join(c for c in safe_slug if c.isalnum() or c == '-')[:100]  # Limit length
+        category_map = {}
         
-        # DUPLICATE PREVENTION: Check if category already exists by name OR slug
-        existing_category = Category.objects.filter(
-            Q(name=category_name) | Q(slug=safe_slug)
-        ).first()
-        
-        if existing_category:
-            self.stats['categories_existing'] += 1
-            if self.verbose:
-                self.stdout.write(f"Found existing category: {category_name}")
-            return existing_category
-        
-        # DUPLICATE PREVENTION: Double-check by searching for similar names
-        similar_categories = Category.objects.filter(
-            name__icontains=f"{serial.serial} - {parent_title.title}"
-        )
-        
-        for similar in similar_categories:
-            if similar.name == category_name:
-                self.stats['categories_existing'] += 1
-                if self.verbose:
-                    self.stdout.write(f"Found duplicate category via search: {category_name}")
-                return similar
-        
-        # Create new category using Oscar's tree methods
-        try:
-            # Ensure unique slug by adding counter if needed
-            original_slug = safe_slug
-            counter = 1
-            while Category.objects.filter(slug=safe_slug).exists():
-                safe_slug = f"{original_slug}-{counter}"
-                counter += 1
+        # Create parent title categories under serial category
+        for idx, parent_title in enumerate(serial_number.parent_titles.all(), 1):
+            parent_slug = f"serial-{serial_number.serial}-parent-{idx}"
             
-            category = Category.add_root(
-                name=category_name,
-                slug=safe_slug
-            )
-            self.stats['categories_created'] += 1
-            if self.verbose:
-                self.stdout.write(f"Created category: {category_name}")
-            return category
-        except Exception as e:
-            # Fallback: try to find existing or create with basic fields
-            if self.verbose:
-                self.stdout.write(f"Error creating category with add_root: {e}")
-            category, created = Category.objects.get_or_create(
-                name=category_name,
-                defaults={'slug': safe_slug}
-            )
-            if created:
+            # Check if parent category already exists
+            parent_category = Category.objects.filter(
+                name=parent_title.title,
+                slug=parent_slug
+            ).first()
+            
+            if not parent_category:
+                # Create as child of serial category
+                parent_category = serial_category.add_child(
+                    name=parent_title.title,
+                    slug=parent_slug,
+                    description=f"Parent category: {parent_title.title}",
+                )
                 self.stats['categories_created'] += 1
+                logger.info(f"Created parent category: {parent_category.name}")
+                if self.verbose:
+                    self.stdout.write(f"Created parent category: {parent_category.name}")
             else:
                 self.stats['categories_existing'] += 1
-            return category
+            
+            category_map[parent_title.id] = parent_category
+            
+            # Create child title categories under parent category
+            for child_idx, child_title in enumerate(parent_title.child_titles.all(), 1):
+                child_slug = f"serial-{serial_number.serial}-parent-{idx}-child-{child_idx}"
+                
+                # Check if child category already exists
+                child_category = Category.objects.filter(
+                    name=child_title.title,
+                    slug=child_slug
+                ).first()
+                
+                if not child_category:
+                    # Create as child of parent category
+                    child_category = parent_category.add_child(
+                        name=child_title.title,
+                        slug=child_slug,
+                        description=f"Child category: {child_title.title}",
+                    )
+                    self.stats['categories_created'] += 1
+                    logger.info(f"Created child category: {child_category.name}")
+                    if self.verbose:
+                        self.stdout.write(f"Created child category: {child_category.name}")
+                else:
+                    self.stats['categories_existing'] += 1
+                
+                category_map[child_title.id] = child_category
+        
+        return category_map
 
     def _create_product_and_stock(self, part, category, partner, product_class):
         """Create or update Oscar product and stock record - prevents duplicates"""
@@ -401,10 +511,12 @@ class Command(BaseCommand):
             if updated:
                 existing_stock.save()
                 self.stats['stock_created'] += 1  # Count as updated
+                logger.info(f"Updated stock record for {part.part_number}: price=£{price}, stock={stock_quantity}")
                 if self.verbose:
                     self.stdout.write(f"Updated stock record for {part.part_number}")
             else:
                 self.stats['stock_unchanged'] += 1
+                logger.info(f"Stock record unchanged for {part.part_number}")
                 if self.verbose:
                     self.stdout.write(f"Stock record unchanged for {part.part_number}")
         else:
@@ -483,6 +595,16 @@ class Command(BaseCommand):
         self.stdout.write(f"Stock records created/updated: {self.stats['stock_created']}")
         self.stdout.write(f"Stock records unchanged: {self.stats['stock_unchanged']}")
         self.stdout.write(f"Errors: {self.stats['errors']}")
+        
+        # Log statistics
+        logger.info("=== FINAL IMPORT STATISTICS ===")
+        logger.info(f"Categories created: {self.stats['categories_created']}")
+        logger.info(f"Categories existing: {self.stats['categories_existing']}")
+        logger.info(f"Products created: {self.stats['products_created']}")
+        logger.info(f"Products existing: {self.stats['products_existing']}")
+        logger.info(f"Stock records created/updated: {self.stats['stock_created']}")
+        logger.info(f"Stock records unchanged: {self.stats['stock_unchanged']}")
+        logger.info(f"Errors: {self.stats['errors']}")
         
         # Database verification for specific part
         self._verify_database_final()
