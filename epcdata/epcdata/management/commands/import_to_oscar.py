@@ -43,7 +43,10 @@ class Command(BaseCommand):
             'products_existing': 0,
             'stock_created': 0,
             'stock_unchanged': 0,
-            'errors': 0
+            'errors': 0,
+            'pricing_errors': 0,
+            'stock_errors': 0,
+            'validation_errors': 0
         }
 
     def _setup_file_logging(self):
@@ -549,44 +552,178 @@ class Command(BaseCommand):
                     self.stdout.write(f"Created stock record for {part.part_number}")
 
     def _get_price_from_pricing_data(self, part):
-        """Get price from PricingData model"""
+        """Get price from PricingData model with strict error handling"""
         try:
             pricing_data = PricingData.objects.filter(part_number=part).first()
-            if pricing_data and pricing_data.list_price:
-                price = float(pricing_data.list_price)
+            
+            if not pricing_data:
+                # ERROR: No pricing data found - log as error and return 0.00
+                error_msg = f"No pricing data found for part {part.part_number}"
+                logger.error(error_msg)
+                self.stats['errors'] += 1
+                self.stats['pricing_errors'] += 1
                 if self.verbose:
-                    self.stdout.write(f"Found pricing data for {part.part_number}: £{price}")
-                return price
-            else:
-                if self.verbose:
-                    self.stdout.write(f"No pricing data found for {part.part_number}")
+                    self.stdout.write(self.style.ERROR(f"❌ {error_msg}"))
                 return 0.00
+            
+            if pricing_data.list_price:
+                try:
+                    # Clean and validate the price string
+                    price_str = str(pricing_data.list_price).strip()
+                    
+                    # Remove common currency symbols and commas
+                    price_str = price_str.replace('£', '').replace('$', '').replace(',', '').strip()
+                    
+                    # Validate it's not empty after cleaning
+                    if not price_str:
+                        error_msg = f"Empty price after cleaning for part {part.part_number}"
+                        logger.error(error_msg)
+                        self.stats['errors'] += 1
+                        self.stats['pricing_errors'] += 1
+                        if self.verbose:
+                            self.stdout.write(self.style.ERROR(f"❌ {error_msg}"))
+                        return 0.00
+                    
+                    # Parse as float and validate
+                    price = float(price_str)
+                    
+                    # Validate price is not negative
+                    if price < 0:
+                        error_msg = f"Negative price {price} for part {part.part_number}, setting to 0.00"
+                        logger.warning(error_msg)
+                        self.stats['validation_errors'] += 1
+                        if self.verbose:
+                            self.stdout.write(self.style.WARNING(f"⚠️ {error_msg}"))
+                        return 0.00
+                    
+                    # Validate price is reasonable (not too high)
+                    if price > 99999.99:
+                        error_msg = f"Unreasonably high price {price} for part {part.part_number}, setting to 0.00"
+                        logger.warning(error_msg)
+                        self.stats['validation_errors'] += 1
+                        if self.verbose:
+                            self.stdout.write(self.style.WARNING(f"⚠️ {error_msg}"))
+                        return 0.00
+                    
+                    if self.verbose:
+                        self.stdout.write(f"✅ Valid price data for {part.part_number}: £{price}")
+                    return round(price, 2)  # Round to 2 decimal places
+                    
+                except (ValueError, TypeError) as e:
+                    # ERROR: Invalid price format - log as error and return 0.00
+                    error_msg = f"Invalid price format '{pricing_data.list_price}' for part {part.part_number}: {str(e)}"
+                    logger.error(error_msg)
+                    self.stats['errors'] += 1
+                    self.stats['pricing_errors'] += 1
+                    if self.verbose:
+                        self.stdout.write(self.style.ERROR(f"❌ {error_msg}"))
+                    return 0.00
+            else:
+                # ERROR: No list_price field or empty value - log as error and return 0.00
+                error_msg = f"No list_price field or empty value for part {part.part_number}"
+                logger.error(error_msg)
+                self.stats['errors'] += 1
+                self.stats['pricing_errors'] += 1
+                if self.verbose:
+                    self.stdout.write(self.style.ERROR(f"❌ {error_msg}"))
+                return 0.00
+                
         except Exception as e:
+            # ERROR: Unexpected exception - log as error and return 0.00
+            error_msg = f"Exception getting price for {part.part_number}: {str(e)}"
+            logger.error(error_msg)
+            self.stats['errors'] += 1
+            self.stats['pricing_errors'] += 1
             if self.verbose:
-                self.stdout.write(f"Error getting price for {part.part_number}: {e}")
+                self.stdout.write(self.style.ERROR(f"❌ {error_msg}"))
             return 0.00
 
     def _get_stock_info(self, part):
-        """Get stock quantity from PricingData model"""
+        """Get stock quantity from PricingData model with strict error handling"""
         try:
             pricing_data = PricingData.objects.filter(part_number=part).first()
-            if pricing_data and hasattr(pricing_data, 'stock_quantity'):
-                stock = int(pricing_data.stock_quantity or 0)
+            
+            if not pricing_data:
+                # ERROR: No pricing data found - log as error and return 0
+                error_msg = f"No pricing data found for part {part.part_number}"
+                logger.error(error_msg)
+                self.stats['errors'] += 1
+                self.stats['stock_errors'] += 1
                 if self.verbose:
-                    self.stdout.write(f"Found stock data for {part.part_number}: {stock}")
+                    self.stdout.write(self.style.ERROR(f"❌ {error_msg}"))
+                return 0
+            
+            # Check for stock_available field (correct field name in PricingData model)
+            if hasattr(pricing_data, 'stock_available') and pricing_data.stock_available:
+                stock_str = str(pricing_data.stock_available).strip()
+                
+                # Handle different stock value formats with proper validation
+                if stock_str.lower() == 'nil' or stock_str == '0':
+                    stock = 0
+                elif stock_str.endswith('+'):
+                    try:
+                        # Extract number from "10+" format and add 1 for "+" indicator
+                        base_stock = int(stock_str.replace('+', ''))
+                        stock = base_stock + 1  # "10+" becomes 11, "5+" becomes 6, etc.
+                        if self.verbose:
+                            self.stdout.write(f"📦 Stock '{stock_str}' converted to {stock} for {part.part_number}")
+                    except ValueError:
+                        # ERROR: Invalid '+' format - log as error and return 0
+                        error_msg = f"Invalid stock format '{stock_str}' for part {part.part_number}"
+                        logger.error(error_msg)
+                        self.stats['errors'] += 1
+                        self.stats['stock_errors'] += 1
+                        if self.verbose:
+                            self.stdout.write(self.style.ERROR(f"❌ {error_msg}"))
+                        return 0
+                else:
+                    try:
+                        # Parse regular numeric values (handle commas)
+                        stock = int(float(stock_str.replace(',', '')))
+                    except (ValueError, TypeError):
+                        # ERROR: Invalid stock format - log as error and return 0
+                        error_msg = f"Invalid stock format '{stock_str}' for part {part.part_number}"
+                        logger.error(error_msg)
+                        self.stats['errors'] += 1
+                        self.stats['stock_errors'] += 1
+                        if self.verbose:
+                            self.stdout.write(self.style.ERROR(f"❌ {error_msg}"))
+                        return 0
+                
+                # Validate stock is not negative
+                if stock < 0:
+                    error_msg = f"Negative stock value {stock} for part {part.part_number}, setting to 0"
+                    logger.warning(error_msg)
+                    self.stats['validation_errors'] += 1
+                    if self.verbose:
+                        self.stdout.write(self.style.WARNING(f"⚠️ {error_msg}"))
+                    return 0
+                
+                if self.verbose:
+                    self.stdout.write(f"✅ Valid stock data for {part.part_number}: {stock}")
                 return stock
             else:
-                # Default stock quantity if no data
+                # ERROR: No stock_available field or empty value - log as error and return 0
+                error_msg = f"No stock_available field or empty value for part {part.part_number}"
+                logger.error(error_msg)
+                self.stats['errors'] += 1
+                self.stats['stock_errors'] += 1
                 if self.verbose:
-                    self.stdout.write(f"No stock data found for {part.part_number}, using default")
-                return 10
+                    self.stdout.write(self.style.ERROR(f"❌ {error_msg}"))
+                return 0
+                
         except Exception as e:
+            # ERROR: Unexpected exception - log as error and return 0
+            error_msg = f"Exception getting stock for {part.part_number}: {str(e)}"
+            logger.error(error_msg)
+            self.stats['errors'] += 1
+            self.stats['stock_errors'] += 1
             if self.verbose:
-                self.stdout.write(f"Error getting stock for {part.part_number}: {e}")
-            return 10
+                self.stdout.write(self.style.ERROR(f"❌ {error_msg}"))
+            return 0
 
     def _print_final_stats(self):
-        """Print final import statistics"""
+        """Print final import statistics with detailed error breakdown"""
         self.stdout.write("=== Import Statistics ===")
         self.stdout.write(f"Categories created: {self.stats['categories_created']}")
         self.stdout.write(f"Categories existing: {self.stats['categories_existing']}")
@@ -594,7 +731,11 @@ class Command(BaseCommand):
         self.stdout.write(f"Products existing: {self.stats['products_existing']}")
         self.stdout.write(f"Stock records created/updated: {self.stats['stock_created']}")
         self.stdout.write(f"Stock records unchanged: {self.stats['stock_unchanged']}")
-        self.stdout.write(f"Errors: {self.stats['errors']}")
+        self.stdout.write("=== Error Breakdown ===")
+        self.stdout.write(f"Total errors: {self.stats['errors']}")
+        self.stdout.write(f"  └─ Pricing errors: {self.stats['pricing_errors']}")
+        self.stdout.write(f"  └─ Stock errors: {self.stats['stock_errors']}")
+        self.stdout.write(f"  └─ Validation errors: {self.stats['validation_errors']}")
         
         # Log statistics
         logger.info("=== FINAL IMPORT STATISTICS ===")
@@ -604,7 +745,18 @@ class Command(BaseCommand):
         logger.info(f"Products existing: {self.stats['products_existing']}")
         logger.info(f"Stock records created/updated: {self.stats['stock_created']}")
         logger.info(f"Stock records unchanged: {self.stats['stock_unchanged']}")
-        logger.info(f"Errors: {self.stats['errors']}")
+        logger.info("=== ERROR BREAKDOWN ===")
+        logger.info(f"Total errors: {self.stats['errors']}")
+        logger.info(f"  └─ Pricing errors: {self.stats['pricing_errors']}")
+        logger.info(f"  └─ Stock errors: {self.stats['stock_errors']}")
+        logger.info(f"  └─ Validation errors: {self.stats['validation_errors']}")
+        
+        # Quality metrics
+        total_processed = self.stats['products_created'] + self.stats['products_existing']
+        if total_processed > 0:
+            error_rate = (self.stats['errors'] / total_processed) * 100
+            self.stdout.write(f"Data quality: {error_rate:.1f}% error rate")
+            logger.info(f"Data quality: {error_rate:.1f}% error rate")
         
         # Database verification for specific part
         self._verify_database_final()
