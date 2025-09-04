@@ -1,6 +1,45 @@
 {% load static %}
 {% load i18n %}
 
+<!-- Footer Contact Info Visibility Fix -->
+<style>
+/* Make footer contact information visible by styling it like other footer links */
+.uren-address,
+.uren-phone, 
+.uren-email {
+    color: #ffffff !important;
+    transition: color 0.3s ease;
+}
+
+.uren-address:hover,
+.uren-phone:hover,
+.uren-email:hover {
+    color: #ffc400 !important; /* Primary color on hover, matches other links */
+}
+
+/* Make sure the text inside is also styled properly */
+.uren-address span,
+.uren-phone span,
+.uren-email span {
+    color: inherit;
+}
+
+/* Alternative styling if the above doesn't work - target the li elements directly */
+.widgets-essential_stuff ul li.uren-address,
+.widgets-essential_stuff ul li.uren-phone,
+.widgets-essential_stuff ul li.uren-email {
+    color: #ffffff !important;
+}
+
+/* Style the icons to match */
+.uren-address i,
+.uren-phone i,
+.uren-email i {
+    color: #ffc400; /* Primary color for icons */
+    margin-right: 10px;
+}
+</style>
+
 <!-- Begin High Quality Maxus Parts Section -->
 <div class="row_inner col_align_middle tb_col_count_2 tf_box tf_rel" style="padding: 0; background-color: #f8f9fa; overflow-x: hidden;">
     <div class="container-fluid" style="padding: 0; max-width: 100%;">

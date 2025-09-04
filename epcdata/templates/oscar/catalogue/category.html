@@ -84,6 +84,37 @@ html, body {
     transform: scale(1.05);
 }
 
+/* Category specific styling */
+.category-item {
+    border: 2px solid #ff6b35;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+.category-item:hover {
+    border-color: #e55a2b;
+    box-shadow: 0 8px 16px rgba(255, 107, 53, 0.2);
+    transform: translateY(-3px);
+}
+
+.category-title {
+    color: #007bff;
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.category-title a:hover {
+    color: #0056b3 !important;
+}
+
+.category-img {
+    filter: brightness(1.1);
+    transition: filter 0.3s ease;
+}
+
+.category-item:hover .category-img {
+    filter: brightness(1.2);
+}
+
 .product-info {
     border-top: 1px solid #f0f0f0;
 }
@@ -141,105 +172,177 @@ html, body {
                     <!-- Products Grid -->
                     <div class="shop-products-wrap grid-view">
                         <div class="row">
-                            {% for product in products %}
-                                <div class="col-lg-4 col-md-6 col-sm-6 mb-4">
-                                    <div class="product-item h-100">
-                                        <div class="product-thumbnail">
-                                            <a href="{{ product.get_absolute_url }}">
-                                                {% get_product_svg product as svg_content %}
-                                                {% if svg_content %}
-                                                    <div class="svg-thumbnail-container" 
-                                                         style="position: relative; width: 100%; height: 200px; background-color: #f8f9fa; border: 1px solid #dee2e6; display: flex; align-items: center; justify-content: center;">
-                                                        <div class="svg-wrapper" style="width: 180px; height: 180px; position: relative;">
-                                                            {{ svg_content|safe }}
+                            {% comment %}
+                            Check if this is a parent category with children - if so, show child categories instead of products
+                            {% endcomment %}
+                            {% if category.get_children %}
+                                {% comment %} Display child categories in a grid {% endcomment %}
+                                {% for child_category in category.get_children %}
+                                    <div class="col-lg-4 col-md-6 col-sm-6 mb-4">
+                                        <div class="product-item h-100 category-item">
+                                            <div class="product-thumbnail">
+                                                <a href="{% url 'catalogue:category' category_slug=child_category.slug pk=child_category.pk %}">
+                                                    {% if child_category.image %}
+                                                        <img src="{{ child_category.image.url }}" 
+                                                             alt="{{ child_category.name }}" 
+                                                             class="img-fluid category-img"
+                                                             style="width: 100%; height: 200px; object-fit: cover;">
+                                                    {% else %}
+                                                        <div class="no-image-placeholder d-flex align-items-center justify-content-center" 
+                                                             style="width: 100%; height: 200px; background-color: #f8f9fa; border: 2px dashed #dee2e6;">
+                                                            <div class="text-center text-muted">
+                                                                <i class="fa fa-folder-open fa-3x mb-2"></i>
+                                                                <br>
+                                                                <small>Category</small>
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="svg-indicator position-absolute" style="top: 5px; right: 5px; z-index: 10;">
-                                                        <span class="badge bg-success text-white small">
-                                                            <i class="fa fa-cog"></i> Diagram
-                                                        </span>
-                                                    </div>
-                                                {% elif product.primary_image and product.primary_image.original.url %}
-                                                    <img src="{{ product.primary_image.original.url }}" 
-                                                         alt="{{ product.title }}" 
-                                                         class="img-fluid product-img"
-                                                         style="width: 100%; height: 200px; object-fit: cover;">
-                                                {% else %}
-                                                    <div class="no-image-placeholder d-flex align-items-center justify-content-center" 
-                                                         style="width: 100%; height: 200px; background-color: #f8f9fa; border: 2px dashed #dee2e6;">
-                                                        <div class="text-center text-muted">
-                                                            <i class="fa fa-image fa-3x mb-2"></i>
-                                                            <br>
-                                                            <small>No Image Available</small>
-                                                        </div>
-                                                    </div>
-                                                {% endif %}
-                                            </a>
-                                        </div>
-                                        <div class="product-info p-3">
-                                            <h6 class="product-title mb-2">
-                                                <a href="{{ product.get_absolute_url }}" class="text-decoration-none text-dark">
-                                                    {{ product.title|remove_part_number|truncatechars:25 }}
+                                                    {% endif %}
                                                 </a>
-                                            </h6>
-                                            
-                                            {% if product.description %}
-                                                <p class="product-description text-muted small mb-2">
-                                                    {{ product.description|truncatechars:50 }}
-                                                </p>
-                                            {% endif %}
-                                            
-                                            <div class="product-price mb-2">
-                                                {% if product.stockrecords.first and product.stockrecords.first.price %}
-                                                    <span class="new-price" style="color: #28a745; font-weight: bold;">£{{ product.stockrecords.first.price }}</span>
-                                                {% else %}
-                                                    <span class="contact-price" style="color: #6c757d;">{% trans "Contact for Price" %}</span>
-                                                {% endif %}
                                             </div>
-                                            
-                                            {% if product.stockrecords.first and product.stockrecords.first.num_in_stock %}
-                                                <div class="stock-info mb-2">
-                                                    <small class="text-success">{% trans "In Stock" %}: {{ product.stockrecords.first.num_in_stock }}</small>
-                                                </div>
-                                            {% endif %}
-                                            
-                                            <div class="product-actions">
-                                                {% load basket_tags %}
-                                                {% load purchase_info_tags %}
-                                                {% purchase_info_for_product request product as session %}
+                                            <div class="product-info p-3">
+                                                <h5 class="category-title mb-2">
+                                                    <a href="{% url 'catalogue:category' category_slug=child_category.slug pk=child_category.pk %}" 
+                                                       class="text-decoration-none text-dark">
+                                                        {{ child_category.name }}
+                                                    </a>
+                                                </h5>
                                                 
-                                                {% if session.availability.is_available_to_buy and session.price.exists %}
-                                                    <!-- Add to Cart Form -->
-                                                    {% basket_form request product 'single' as basket_form %}
-                                                    <form method="post" action="{% url 'basket:add' pk=product.pk %}" class="add-to-basket mb-1">
-                                                        {% csrf_token %}
-                                                        {% for field in basket_form %}
-                                                            {{ field.as_hidden }}
-                                                        {% endfor %}
-                                                        <button type="submit" class="btn btn-success btn-sm w-100" data-loading-text="{% trans 'Adding...' %}">
-                                                            <i class="fa fa-shopping-cart"></i> {% trans "Add to Cart" %}
-                                                        </button>
-                                                    </form>
-                                                    <a href="{{ product.get_absolute_url }}" class="btn btn-outline-primary btn-sm">
-                                                        {% trans "View Details" %}
-                                                    </a>
-                                                {% else %}
-                                                    <a href="{{ product.get_absolute_url }}" class="btn btn-warning btn-sm">
-                                                        {% trans "Enquire" %}
-                                                    </a>
+                                                {% if child_category.description %}
+                                                    <p class="category-description text-muted small mb-2">
+                                                        {{ child_category.description|truncatechars:80 }}
+                                                    </p>
                                                 {% endif %}
+                                                
+                                                <div class="category-info mb-2">
+                                                    {% with child_category.get_descendant_count as product_count %}
+                                                        {% if product_count > 0 %}
+                                                            <small class="text-success">
+                                                                <i class="fa fa-tag"></i> 
+                                                                {{ product_count }} {% if product_count == 1 %}{% trans "item" %}{% else %}{% trans "items" %}{% endif %}
+                                                            </small>
+                                                        {% endif %}
+                                                    {% endwith %}
+                                                </div>
+                                                
+                                                <div class="category-actions">
+                                                    <a href="{% url 'catalogue:category' category_slug=child_category.slug pk=child_category.pk %}" 
+                                                       class="btn btn-primary btn-sm w-100">
+                                                        <i class="fa fa-arrow-right"></i> {% trans "View Category" %}
+                                                    </a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            {% empty %}
-                                <div class="col-12">
-                                    <div class="alert alert-info text-center">
-                                        <h4>{% trans "No products found" %}</h4>
-                                        <p>{% trans "There are currently no products in this category." %}</p>
+                                {% empty %}
+                                    <div class="col-12">
+                                        <div class="alert alert-info text-center">
+                                            <h4>{% trans "No subcategories found" %}</h4>
+                                            <p>{% trans "This category doesn't have any subcategories." %}</p>
+                                        </div>
                                     </div>
-                                </div>
-                            {% endfor %}
+                                {% endfor %}
+                            {% else %}
+                                {% comment %} Display products if no child categories {% endcomment %}
+                                {% for product in products %}
+                                    <div class="col-lg-4 col-md-6 col-sm-6 mb-4">
+                                        <div class="product-item h-100">
+                                            <div class="product-thumbnail">
+                                                <a href="{{ product.get_absolute_url }}">
+                                                    {% get_product_svg product as svg_content %}
+                                                    {% if svg_content %}
+                                                        <div class="svg-thumbnail-container" 
+                                                             style="position: relative; width: 100%; height: 200px; background-color: #f8f9fa; border: 1px solid #dee2e6; display: flex; align-items: center; justify-content: center;">
+                                                            <div class="svg-wrapper" style="width: 180px; height: 180px; position: relative;">
+                                                                {{ svg_content|safe }}
+                                                            </div>
+                                                        </div>
+                                                        <div class="svg-indicator position-absolute" style="top: 5px; right: 5px; z-index: 10;">
+                                                            <span class="badge bg-success text-white small">
+                                                                <i class="fa fa-cog"></i> Diagram
+                                                            </span>
+                                                        </div>
+                                                    {% elif product.primary_image and product.primary_image.original.url %}
+                                                        <img src="{{ product.primary_image.original.url }}" 
+                                                             alt="{{ product.title }}" 
+                                                             class="img-fluid product-img"
+                                                             style="width: 100%; height: 200px; object-fit: cover;">
+                                                    {% else %}
+                                                        <div class="no-image-placeholder d-flex align-items-center justify-content-center" 
+                                                             style="width: 100%; height: 200px; background-color: #f8f9fa; border: 2px dashed #dee2e6;">
+                                                            <div class="text-center text-muted">
+                                                                <i class="fa fa-image fa-3x mb-2"></i>
+                                                                <br>
+                                                                <small>No Image Available</small>
+                                                            </div>
+                                                        </div>
+                                                    {% endif %}
+                                                </a>
+                                            </div>
+                                            <div class="product-info p-3">
+                                                <h6 class="product-title mb-2">
+                                                    <a href="{{ product.get_absolute_url }}" class="text-decoration-none text-dark">
+                                                        {{ product.title|remove_part_number|truncatechars:25 }}
+                                                    </a>
+                                                </h6>
+                                                
+                                                {% if product.description %}
+                                                    <p class="product-description text-muted small mb-2">
+                                                        {{ product.description|truncatechars:50 }}
+                                                    </p>
+                                                {% endif %}
+                                                
+                                                <div class="product-price mb-2">
+                                                    {% if product.stockrecords.first and product.stockrecords.first.price %}
+                                                        <span class="new-price" style="color: #28a745; font-weight: bold;">£{{ product.stockrecords.first.price }}</span>
+                                                    {% else %}
+                                                        <span class="contact-price" style="color: #6c757d;">{% trans "Contact for Price" %}</span>
+                                                    {% endif %}
+                                                </div>
+                                                
+                                                {% if product.stockrecords.first and product.stockrecords.first.num_in_stock %}
+                                                    <div class="stock-info mb-2">
+                                                        <small class="text-success">{% trans "In Stock" %}: {{ product.stockrecords.first.num_in_stock }}</small>
+                                                    </div>
+                                                {% endif %}
+                                                
+                                                <div class="product-actions">
+                                                    {% load basket_tags %}
+                                                    {% load purchase_info_tags %}
+                                                    {% purchase_info_for_product request product as session %}
+                                                    
+                                                    {% if session.availability.is_available_to_buy and session.price.exists %}
+                                                        <!-- Add to Cart Form -->
+                                                        {% basket_form request product 'single' as basket_form %}
+                                                        <form method="post" action="{% url 'basket:add' pk=product.pk %}" class="add-to-basket mb-1">
+                                                            {% csrf_token %}
+                                                            {% for field in basket_form %}
+                                                                {{ field.as_hidden }}
+                                                            {% endfor %}
+                                                            <button type="submit" class="btn btn-success btn-sm w-100" data-loading-text="{% trans 'Adding...' %}">
+                                                                <i class="fa fa-shopping-cart"></i> {% trans "Add to Cart" %}
+                                                            </button>
+                                                        </form>
+                                                        <a href="{{ product.get_absolute_url }}" class="btn btn-outline-primary btn-sm">
+                                                            {% trans "View Details" %}
+                                                        </a>
+                                                    {% else %}
+                                                        <a href="{{ product.get_absolute_url }}" class="btn btn-warning btn-sm">
+                                                            {% trans "Enquire" %}
+                                                        </a>
+                                                    {% endif %}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                {% empty %}
+                                    <div class="col-12">
+                                        <div class="alert alert-info text-center">
+                                            <h4>{% trans "No products found" %}</h4>
+                                            <p>{% trans "There are currently no products in this category." %}</p>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            {% endif %}
                         </div>
                     </div>
 
