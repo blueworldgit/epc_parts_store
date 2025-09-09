@@ -79,3 +79,49 @@ def vat_calculation(subtotal_ex_vat):
             return vat.quantize(Decimal('0.01'), rounding=ROUND_HALF_UP)
     except (ValueError, TypeError):
         return "0.00"
+
+@register.filter
+def vat_from_total(total_inc_vat):
+    """
+    Calculate the VAT amount from a VAT-inclusive total (reverse calculation)
+    For UK VAT: VAT = total_inc_vat - (total_inc_vat / 1.20)
+    """
+    try:
+        if PRECISE_MONEY_AVAILABLE:
+            total = Money(total_inc_vat, 'GBP')
+            # Calculate subtotal ex VAT first
+            subtotal_ex_vat = total / Money('1.20', 'GBP')
+            # VAT is the difference
+            vat = total - subtotal_ex_vat
+            return f"{vat:.2f}"
+        else:
+            # Fallback to Decimal
+            from decimal import Decimal, ROUND_HALF_UP
+            total = Decimal(str(total_inc_vat))
+            # Calculate subtotal ex VAT: total / 1.20
+            subtotal_ex_vat = (total / Decimal('1.20')).quantize(Decimal('0.01'), rounding=ROUND_HALF_UP)
+            # VAT is the difference
+            vat = total - subtotal_ex_vat
+            return str(vat.quantize(Decimal('0.01'), rounding=ROUND_HALF_UP))
+    except (ValueError, TypeError):
+        return "0.00"
+
+@register.filter
+def subtotal_from_total(total_inc_vat):
+    """
+    Calculate the subtotal ex VAT from a VAT-inclusive total
+    For UK VAT: Subtotal = total_inc_vat / 1.20
+    """
+    try:
+        if PRECISE_MONEY_AVAILABLE:
+            total = Money(total_inc_vat, 'GBP')
+            subtotal = total / Money('1.20', 'GBP')
+            return f"{subtotal:.2f}"
+        else:
+            # Fallback to Decimal
+            from decimal import Decimal, ROUND_HALF_UP
+            total = Decimal(str(total_inc_vat))
+            subtotal = (total / Decimal('1.20')).quantize(Decimal('0.01'), rounding=ROUND_HALF_UP)
+            return str(subtotal)
+    except (ValueError, TypeError):
+        return "0.00"

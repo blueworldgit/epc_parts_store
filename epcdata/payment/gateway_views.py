@@ -53,6 +53,7 @@ class WorldpayGatewayRedirectView(OrderPlacementMixin, CheckoutSessionMixin, Vie
             # Generate a unique order number for this payment session
             from oscar.apps.order.utils import OrderNumberGenerator
             import time
+            from decimal import Decimal, ROUND_HALF_UP
             generator = OrderNumberGenerator()
             base_order_number = generator.order_number(submission['basket'])
             
@@ -62,6 +63,23 @@ class WorldpayGatewayRedirectView(OrderPlacementMixin, CheckoutSessionMixin, Vie
             
             logger.info(f"🎯 Generated unique order number: {order_number}")
             logger.info(f"📦 Basket details: ID={submission['basket'].id}, items={submission['basket'].num_items}, total={submission['basket'].total_incl_tax}")
+            
+            # Calculate UK VAT (20%) on combined product + shipping total
+            products_total = Decimal(str(submission['basket'].total_incl_tax))
+            shipping_total = Decimal('0.00')
+            if submission.get('shipping_method') and submission['shipping_method'].charge_incl_tax:
+                shipping_total = Decimal(str(submission['shipping_method'].charge_incl_tax))
+            
+            subtotal_ex_vat = products_total + shipping_total
+            vat_amount = (subtotal_ex_vat * Decimal('0.20')).quantize(Decimal('0.01'), rounding=ROUND_HALF_UP)
+            total_inc_vat = subtotal_ex_vat + vat_amount
+            
+            logger.info(f"🧮 VAT Calculation:")
+            logger.info(f"  - Products ex VAT: £{products_total}")
+            logger.info(f"  - Shipping ex VAT: £{shipping_total}")
+            logger.info(f"  - Subtotal ex VAT: £{subtotal_ex_vat}")
+            logger.info(f"  - VAT (20%): £{vat_amount}")
+            logger.info(f"  - Total inc VAT: £{total_inc_vat}")
             
             # Get IDs for session storage
             user_id = submission.get('user').pk if submission.get('user') else None
@@ -76,10 +94,10 @@ class WorldpayGatewayRedirectView(OrderPlacementMixin, CheckoutSessionMixin, Vie
             logger.info(f"  - Billing address ID: {billing_address_id}")
             logger.info(f"  - Shipping method code: {shipping_method_code}")
             
-            # Store submission data for later order creation
+            # Store submission data for later order creation (using VAT-inclusive total)
             request.session['worldpay_gateway_submission'] = {
                 'order_number': order_number,
-                'order_total': float(submission['order_total'].incl_tax),
+                'order_total': float(total_inc_vat),  # Use VAT-inclusive total
                 'currency': str(submission['order_total'].currency),
                 'submission_data': {
                     'user': user_id,
@@ -91,7 +109,7 @@ class WorldpayGatewayRedirectView(OrderPlacementMixin, CheckoutSessionMixin, Vie
             }
             
             logger.info(f"✅ Stored Gateway submission for order {order_number}")
-            logger.info(f"💰 Order total: {submission['order_total'].currency} {submission['order_total'].incl_tax}")
+            logger.info(f"💰 Order total: {submission['order_total'].currency} {total_inc_vat} (incl. UK VAT)")
             
             # Redirect to card details form
             return HttpResponseRedirect(reverse('payment:worldpay-gateway-card-form'))
@@ -486,15 +504,22 @@ class WorldpayGatewayCardFormView(CheckoutSessionMixin, View):
                         incl_tax=0
                     )
                 
-                # Create proper Price object for order total
+                # Create proper Price object for order total using VAT-calculated amount from session
                 from oscar.core import prices
+                from decimal import Decimal
+                
+                # Use the VAT-inclusive total that was calculated and stored in the session
+                vat_inclusive_amount = Decimal(str(session_data['order_total']))
+                
+                # For ex VAT, we'll use the basket total since that represents the pre-VAT amount
                 order_total = prices.Price(
                     currency=basket.currency,
-                    excl_tax=basket.total_excl_tax,
-                    incl_tax=basket.total_incl_tax
+                    excl_tax=basket.total_excl_tax + (shipping_total.incl_tax or 0),
+                    incl_tax=vat_inclusive_amount
                 )
                 
                 logger.info(f"  - Order total (Price object): {order_total}")
+                logger.info(f"  - VAT-inclusive amount from session: £{vat_inclusive_amount}")
                 logger.info(f"  - Shipping total (Price object): {shipping_total}")
                 
                 logger.info(f"  - Shipping address: {shipping_address}")

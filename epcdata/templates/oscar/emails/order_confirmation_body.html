@@ -1,3 +1,6 @@
+{% load currency_filters %}
+{% load i18n %}
+{% load money_filters %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -150,8 +153,40 @@
                     <div><strong>Payment:</strong> <span style="color: #28a745;">✅ Paid</span></div>
                 </div>
                 
+                <!-- Price Breakdown -->
+                <div style="margin-top: 20px;">
+                    <h3 style="margin-bottom: 10px; color: #ff6b35;">💰 Price Breakdown</h3>
+                    <div class="price-breakdown" style="font-size: 14px;">
+                        {% for line in lines %}
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                            <span>{{ line.product.title }} (Qty: {{ line.quantity }})</span>
+                            <span>£{{ line.line_price_incl_tax }}</span>
+                        </div>
+                        {% endfor %}
+                        
+                        {% if order.shipping_incl_tax %}
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                            <span>Shipping</span>
+                            <span>£{{ order.shipping_incl_tax }}</span>
+                        </div>
+                        {% endif %}
+                        
+                        <hr style="margin: 10px 0; border: none; border-top: 1px solid #ddd;">
+                        
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 5px; font-weight: normal;">
+                            <span>Subtotal (ex VAT)</span>
+                            <span>£{{ order.total_incl_tax|subtotal_from_total }}</span>
+                        </div>
+                        
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 10px; color: #007bff;">
+                            <span>VAT (20%)</span>
+                            <span>£{{ order.total_incl_tax|vat_from_total }}</span>
+                        </div>
+                    </div>
+                </div>
+                
                 <div class="total-amount">
-                    Total: £{{ order.total_incl_tax }}
+                    <strong>Total (inc VAT): £{{ order.total_incl_tax }}</strong>
                 </div>
             </div>
 
