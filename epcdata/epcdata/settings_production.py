@@ -4,7 +4,12 @@ from .settings import *
 
 # Security settings
 DEBUG = False
-ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', 'localhost').split(',')
+ALLOWED_HOSTS = [
+    'vanparts-direct.co.uk',
+    'www.vanparts-direct.co.uk',
+    'localhost',
+    '127.0.0.1',
+]
 
 # Override any template settings to ensure Oscar context processors are included
 TEMPLATES[0]['OPTIONS']['context_processors'] = [
@@ -37,6 +42,17 @@ SECURE_SSL_REDIRECT = True
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
+
+# CSRF settings for HTTPS
+CSRF_TRUSTED_ORIGINS = [
+    'https://vanparts-direct.co.uk',
+    'https://www.vanparts-direct.co.uk',
+]
+
+# Additional CSRF settings for reverse proxy setups
+CSRF_USE_SESSIONS = False
+CSRF_COOKIE_HTTPONLY = False  # Allow JavaScript access if needed
+CSRF_COOKIE_SAMESITE = 'Lax'  # Less restrictive for cross-origin issues
 
 # Static and media files
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')

@@ -41,12 +41,8 @@ class UKOnlyShippingAddressForm(checkout_forms.ShippingAddressForm):
             required=True
         )
         
-        # Force the form data to have country=GB
-        if hasattr(self, 'data') and self.data:
-            # Create a mutable copy of the data
-            mutable_data = self.data.copy()
-            mutable_data['country'] = 'GB'
-            self.data = mutable_data
+        # Don't manipulate self.data to avoid CSRF token issues
+        # Instead, rely on the initial value and clean() method
         
         # Remove validation requirements for a more relaxed checkout
         for field_name, field in self.fields.items():

@@ -122,6 +122,17 @@ SECURE_BROWSER_XSS_FILTER = True
 SECURE_CONTENT_TYPE_NOSNIFF = True
 X_FRAME_OPTIONS = 'DENY'
 
+# CSRF settings for HTTPS
+CSRF_TRUSTED_ORIGINS = [
+    'https://vanparts-direct.co.uk',
+    'https://www.vanparts-direct.co.uk',
+]
+
+# Additional CSRF settings for reverse proxy setups
+CSRF_USE_SESSIONS = False
+CSRF_COOKIE_HTTPONLY = False  # Allow JavaScript access if needed
+CSRF_COOKIE_SAMESITE = 'Lax'  # Less restrictive for cross-origin issues
+
 
 # Application definition
 import oscar
