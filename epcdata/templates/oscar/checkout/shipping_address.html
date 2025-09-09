@@ -1,5 +1,6 @@
 {% extends "oscar/storefront_base.html" %}
 {% load i18n %}
+{% load widget_tweaks %}
 
 {% block title %}
     {% trans "Shipping address" %} - {{ settings.OSCAR_SHOP_NAME }}
@@ -53,10 +54,119 @@
 
     <form method="post" action="{% url 'checkout:shipping-address' %}" id="new_shipping_address">
         {% csrf_token %}
-        {% include "oscar/partials/form_fields.html" with form=form style='horizontal' %}
+        
+        <!-- Show all form errors at the top -->
+        {% if form.errors %}
+            <div class="alert alert-danger">
+                <h4>{% trans "Please correct the following errors:" %}</h4>
+                <ul>
+                    {% for field, errors in form.errors.items %}
+                        {% for error in errors %}
+                            <li><strong>{{ form|yesno:"Field,Unknown field" }} {{ field }}:</strong> {{ error }}</li>
+                        {% endfor %}
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
+        
+        <!-- Show non-field errors -->
+        {% if form.non_field_errors %}
+            <div class="alert alert-danger">
+                {{ form.non_field_errors }}
+            </div>
+        {% endif %}
+        
+        <!-- Custom form fields with phone number override -->
+        {% for field in form %}
+            {% if field.name == 'phone_number' %}
+                <div class="form-group">
+                    <label for="{{ field.id_for_label }}">Phone Number (Optional)</label>
+                    <input type="text" 
+                           name="phone_number" 
+                           id="{{ field.id_for_label }}"
+                           class="form-control" 
+                           value="{{ field.value|default:'' }}"
+                           placeholder="Enter any phone number - no validation"
+                           maxlength="32">
+                    <small class="form-text text-muted">Phone number is optional - enter in any format</small>
+                </div>
+            {% elif field.name == 'country' %}
+                <!-- Country field - let Django handle it but show user-friendly display -->
+                <div class="form-group">
+                    <label>Country</label>
+                    {{ field|add_class:"form-control" }}
+                    <input type="text" class="form-control" value="United Kingdom" disabled style="margin-top: 5px;">
+                    <small class="form-text text-muted">We only ship within the United Kingdom</small>
+                </div>
+            {% else %}
+                <div class="form-group{% if field.errors %} has-error{% endif %}">
+                    <label for="{{ field.id_for_label }}">{{ field.label }}{% if field.field.required %} *{% endif %}</label>
+                    {{ field|add_class:"form-control" }}
+                    {% if field.help_text %}
+                        <small class="form-text text-muted">{{ field.help_text }}</small>
+                    {% endif %}
+                    {% if field.errors %}
+                        <div class="text-danger">
+                            {% for error in field.errors %}
+                                <div>{{ error }}</div>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+            {% endif %}
+        {% endfor %}
+        
         <div class="form-actions">
             <button type="submit" class="btn btn-lg btn-primary" name="action" value="new">{% trans "Continue" %}</button>
         </div>
     </form>
 </div>
+
+<script>
+// Additional JavaScript to ensure no client-side validation on phone number and force country
+document.addEventListener('DOMContentLoaded', function() {
+    var phoneField = document.querySelector('input[name="phone_number"]');
+    if (phoneField) {
+        // Remove any validation attributes
+        phoneField.removeAttribute('pattern');
+        phoneField.removeAttribute('required');
+        phoneField.setAttribute('novalidate', 'true');
+        
+        // Override any validation events
+        phoneField.addEventListener('invalid', function(e) {
+            e.preventDefault();
+            return false;
+        });
+        
+        phoneField.addEventListener('input', function(e) {
+            // Clear any validation messages
+            e.target.setCustomValidity('');
+        });
+    }
+    
+    // Ensure country is always set to GB before form submission
+    var form = document.getElementById('new_shipping_address');
+    if (form) {
+        form.addEventListener('submit', function(e) {
+            // Make sure we have a country field with GB value
+            var countryField = form.querySelector('input[name="country"]');
+            if (!countryField) {
+                // Create one if it doesn't exist
+                countryField = document.createElement('input');
+                countryField.type = 'hidden';
+                countryField.name = 'country';
+                form.appendChild(countryField);
+            }
+            countryField.value = 'GB';
+            
+            // Also ensure phone number is included even if empty
+            var phoneField = form.querySelector('input[name="phone_number"]');
+            if (phoneField && !phoneField.value) {
+                phoneField.value = '';  // Ensure empty string rather than null
+            }
+        });
+    }
+});
+</script>
+
 {% endblock %}

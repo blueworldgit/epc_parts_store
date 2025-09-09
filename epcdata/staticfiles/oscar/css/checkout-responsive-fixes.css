@@ -1,0 +1,151 @@
+/* Checkout Responsive Fixes */
+
+/* Prevent horizontal scroll on all checkout pages */
+.checkout-area,
+.checkout-area .container,
+.checkout-area .row,
+.checkout-area .col-sm-12,
+.checkout-area .col-md-12,
+.checkout-area .col-lg-12,
+.checkout-area .col-12 {
+    overflow-x: hidden;
+    max-width: 100%;
+    word-wrap: break-word;
+}
+
+/* Fix form elements that might cause overflow */
+.checkout-area input,
+.checkout-area select,
+.checkout-area textarea {
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+/* Responsive shipping method cards */
+.shipping-method-form {
+    overflow-x: hidden;
+    max-width: 100%;
+}
+
+.shipping-method-option {
+    background-color: #f8f9fa;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    max-width: 100%;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+.shipping-method-option:hover {
+    background-color: #e9ecef;
+    border-color: #ffc400 !important;
+}
+
+.shipping-method-option:has(input:checked) {
+    background-color: #fff3cd;
+    border-color: #ffc400 !important;
+}
+
+/* Fix Bootstrap grid system overflow */
+.row {
+    margin-left: -15px;
+    margin-right: -15px;
+}
+
+.col-1, .col-2, .col-3, .col-4, .col-5, .col-6, 
+.col-7, .col-8, .col-9, .col-10, .col-11, .col-12,
+.col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, 
+.col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12,
+.col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, 
+.col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12,
+.col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, 
+.col-lg-7, .col-lg-8, .col-lg-9, .col-lg-10, .col-lg-11, .col-lg-12,
+.col-xl-1, .col-xl-2, .col-xl-3, .col-xl-4, .col-xl-5, .col-xl-6, 
+.col-xl-7, .col-xl-8, .col-xl-9, .col-xl-10, .col-xl-11, .col-xl-12 {
+    padding-right: 15px;
+    padding-left: 15px;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+/* Specific fixes for small screens */
+@media (max-width: 768px) {
+    .checkout-area {
+        padding: 40px 0 35px;
+    }
+    
+    .checkout-area .container {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    
+    .card-body {
+        padding: 1rem;
+    }
+    
+    .shipping-method-option .d-flex {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+    }
+    
+    .shipping-method-option .text-right {
+        text-align: left !important;
+        margin-top: 0.5rem;
+    }
+    
+    /* Ensure form elements don't cause overflow */
+    .form-control {
+        max-width: 100%;
+        width: 100%;
+        box-sizing: border-box;
+    }
+}
+
+/* Fix any tables that might cause overflow */
+.checkout-area table {
+    table-layout: fixed;
+    width: 100%;
+    overflow-wrap: break-word;
+}
+
+.checkout-area table th,
+.checkout-area table td {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    max-width: 0;
+}
+
+/* General body overflow fix */
+body {
+    overflow-x: hidden;
+}
+
+html {
+    overflow-x: hidden;
+}
+
+/* Container fixes */
+.container,
+.container-fluid {
+    overflow-x: hidden;
+    max-width: 100%;
+}
+
+/* Additional responsive grid fixes */
+@media (max-width: 576px) {
+    .container {
+        max-width: 100%;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    
+    .row {
+        margin-left: -10px;
+        margin-right: -10px;
+    }
+    
+    [class*="col-"] {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}

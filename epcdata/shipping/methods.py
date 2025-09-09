@@ -1,0 +1,119 @@
+from decimal import Decimal
+from oscar.apps.shipping import methods
+from oscar.core import prices
+from oscar.apps.catalogue.models import ProductAttribute
+
+
+class WeightBasedShipping(methods.Base):
+    """
+    Weight-based shipping method with fixed price bands
+    """
+    code = 'standard'
+    name = 'Standard Shipping'
+    description = 'Shipping cost based on total cart weight'
+
+    # Define weight bands and their costs
+    WEIGHT_BANDS = [
+        (Decimal('0'), Decimal('24.9'), Decimal('11.95')),    # 0-24.9kg → £11.95
+        (Decimal('25'), Decimal('49.9'), Decimal('23.90')),   # 25-49.9kg → £23.90
+        (Decimal('50'), Decimal('74.9'), Decimal('35.95')),   # 50-74.9kg → £35.95
+    ]
+
+    def calculate(self, basket):
+        """
+        Calculate shipping cost based on total basket weight
+        """
+        # Calculate total weight of all items in basket
+        total_weight = self._calculate_total_weight(basket)
+        
+        # Determine which weight band applies
+        shipping_cost = self._get_shipping_cost_for_weight(total_weight)
+        
+        # Return the price
+        return prices.Price(
+            currency=basket.currency,
+            excl_tax=shipping_cost,
+            incl_tax=shipping_cost  # Assuming no tax on shipping
+        )
+
+    def _calculate_total_weight(self, basket):
+        """
+        Calculate the total weight of all items in the basket
+        """
+        total_weight = Decimal('0')
+        
+        try:
+            # Get the weight attribute
+            weight_attr = ProductAttribute.objects.get(code='weight')
+            
+            for line in basket.all_lines():
+                product = line.product
+                quantity = line.quantity
+                
+                # Get the weight attribute value for this product
+                try:
+                    weight_value = product.attribute_values.get(attribute=weight_attr)
+                    if weight_value.value_float:
+                        item_weight = Decimal(str(weight_value.value_float))
+                        total_weight += item_weight * quantity
+                except:
+                    # If no weight attribute, assume 0kg for this item
+                    pass
+                    
+        except ProductAttribute.DoesNotExist:
+            # If weight attribute doesn't exist, return 0
+            pass
+            
+        return total_weight
+
+    def _get_shipping_cost_for_weight(self, weight):
+        """
+        Get the shipping cost for the given weight based on weight bands
+        """
+        for min_weight, max_weight, cost in self.WEIGHT_BANDS:
+            if min_weight <= weight <= max_weight:
+                return cost
+        
+        # If weight exceeds all bands, return the highest band cost
+        # (or you could implement a different strategy)
+        return self.WEIGHT_BANDS[-1][2]  # Return cost of highest band
+
+
+class FreeShipping(methods.Free):
+    """
+    Free shipping option (for admin/promotional purposes)
+    """
+    code = 'free'
+    name = 'Free Shipping'
+    description = 'No shipping charge'
+
+
+# Repository class to provide available shipping methods
+class Repository(object):
+    """
+    Repository class responsible for returning ShippingMethod
+    objects for a given user, basket etc
+    """
+    methods = [WeightBasedShipping, FreeShipping]
+
+    def get_available_shipping_methods(self, basket, user=None, shipping_addr=None, **kwargs):
+        """
+        Return a list of shipping methods available for the given basket/user
+        """
+        methods = []
+        
+        # Always offer weight-based shipping
+        methods.append(WeightBasedShipping())
+        
+        # Optionally offer free shipping for admin users or special cases
+        if user and user.is_staff:
+            methods.append(FreeShipping())
+            
+        return methods
+
+    def get_default_shipping_method(self, basket, user=None, shipping_addr=None, **kwargs):
+        """
+        Return the default shipping method for the given basket
+        """
+        methods = self.get_available_shipping_methods(basket, user, shipping_addr, **kwargs)
+        return methods[0] if methods else None

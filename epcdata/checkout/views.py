@@ -2,6 +2,7 @@
 Custom checkout views for Worldpay Hosted Payment Pages integration
 """
 from oscar.apps.checkout.views import *  # noqa
+from oscar.apps.checkout.views import ShippingMethodView as BaseShippingMethodView
 from django.contrib import messages
 from django.shortcuts import redirect
 from django.urls import reverse
@@ -10,8 +11,38 @@ from django.http import HttpResponseRedirect
 import logging
 
 from payment.forms import WorldpayPaymentDetailsForm
+from .forms import UKOnlyShippingAddressForm
 
 logger = logging.getLogger(__name__)
+
+
+class ShippingMethodView(BaseShippingMethodView):
+    """
+    Custom shipping method view to ensure proper integration with weight-based shipping
+    """
+    template_name = 'oscar/checkout/shipping_methods.html'
+    
+    def get_available_shipping_methods(self):
+        """
+        Get available shipping methods from our custom repository
+        """
+        from shipping.repository import Repository
+        repository = Repository()
+        return repository.get_available_shipping_methods(
+            basket=self.request.basket,
+            user=self.request.user,
+            shipping_addr=self.get_shipping_address(self.request.basket)
+        )
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        
+        # Ensure available methods are properly passed to template
+        if not context.get('available_methods'):
+            context['available_methods'] = self.get_available_shipping_methods()
+            
+        logger.info(f"ShippingMethodView context: available_methods = {context.get('available_methods')}")
+        return context
 
 
 class PaymentDetailsView(PaymentDetailsView):
@@ -86,3 +117,15 @@ class PaymentDetailsView(PaymentDetailsView):
     def get_success_url(self):
         # For hosted payments, we go directly to Worldpay
         return reverse('payment:worldpay-redirect')
+
+
+class ShippingAddressView(ShippingAddressView):
+    """
+    Custom shipping address view that enforces UK-only shipping
+    """
+    form_class = UKOnlyShippingAddressForm
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['uk_only_message'] = "We currently only ship within the United Kingdom"
+        return context

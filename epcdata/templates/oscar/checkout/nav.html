@@ -7,14 +7,18 @@
                 <ul class="checkout-steps">
                     <li class="step {% if step == 1 %}active{% elif step > 1 %}completed{% endif %}">
                         <span class="step-number">1</span>
-                        <span class="step-text">{% trans "Shipping" %}</span>
+                        <span class="step-text">{% trans "Address" %}</span>
                     </li>
                     <li class="step {% if step == 2 %}active{% elif step > 2 %}completed{% endif %}">
                         <span class="step-number">2</span>
-                        <span class="step-text">{% trans "Payment" %}</span>
+                        <span class="step-text">{% trans "Shipping" %}</span>
                     </li>
                     <li class="step {% if step == 3 %}active{% elif step > 3 %}completed{% endif %}">
                         <span class="step-number">3</span>
+                        <span class="step-text">{% trans "Payment" %}</span>
+                    </li>
+                    <li class="step {% if step == 4 %}active{% elif step > 4 %}completed{% endif %}">
+                        <span class="step-number">4</span>
                         <span class="step-text">{% trans "Review" %}</span>
                     </li>
                 </ul>

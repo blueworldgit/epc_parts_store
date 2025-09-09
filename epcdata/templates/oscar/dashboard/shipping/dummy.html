@@ -1,0 +1,28 @@
+{% extends "oscar/dashboard/layout.html" %}
+
+{% block title %}
+    Shipping Dashboard
+{% endblock title %}
+
+{% block breadcrumbs %}
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{% url 'dashboard:index' %}">Dashboard</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Shipping</li>
+        </ol>
+    </nav>
+{% endblock %}
+
+{% block header %}
+    <div class="page-header">
+        <h1>Shipping Methods</h1>
+    </div>
+{% endblock header %}
+
+{% block dashboard_content %}
+    <div class="well">
+        <h3>Custom Shipping Configuration</h3>
+        <p>This installation uses custom weight-based shipping methods.</p>
+        <p>Shipping is configured through code rather than the dashboard interface.</p>
+    </div>
+{% endblock dashboard_content %}

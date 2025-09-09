@@ -1,0 +1,51 @@
+Dear {% if user.first_name %}{{ user.first_name }}{% else %}Customer{% endif %},
+
+Thank you for your order with {{ site_name }}!
+
+Your order has been successfully placed and payment confirmed.
+
+ORDER DETAILS:
+--------------
+Order Number: {{ order.number }}
+Order Date: {{ order.date_placed|date:"F d, Y" }}
+Order Total: £{{ order.total_incl_tax }}
+
+ITEMS ORDERED:
+--------------
+{% for line in lines %}
+- {{ line.product.title }} (Qty: {{ line.quantity }}) - £{{ line.line_price_incl_tax }}
+{% endfor %}
+
+BILLING ADDRESS:
+----------------
+{% if billing_address %}
+{{ billing_address.first_name }} {{ billing_address.last_name }}
+{{ billing_address.line1 }}
+{% if billing_address.line2 %}{{ billing_address.line2 }}{% endif %}
+{{ billing_address.line4 }}
+{{ billing_address.postcode }}
+{% endif %}
+
+SHIPPING ADDRESS:
+-----------------
+{% if shipping_address %}
+{{ shipping_address.first_name }} {{ shipping_address.last_name }}
+{{ shipping_address.line1 }}
+{% if shipping_address.line2 %}{{ shipping_address.line2 }}{% endif %}
+{{ shipping_address.line4 }}
+{{ shipping_address.postcode }}
+{% endif %}
+
+We will process your order shortly and send you shipping information once your items are dispatched.
+
+If you have any questions about your order, please contact us at {{ settings.EMAIL_HOST_USER }}.
+
+Thank you for choosing {{ site_name }}!
+
+Best regards,
+The {{ site_name }} Team
+{{ shop_tagline }}
+
+---
+This email was sent automatically. Please do not reply to this email.
+For customer service, contact us at {{ settings.EMAIL_HOST_USER }}

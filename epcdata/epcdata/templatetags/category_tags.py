@@ -1,5 +1,5 @@
 from django import template
-from oscar.apps.catalogue.models import Category, Product
+from oscar.apps.catalogue.models import Category, Product, ProductAttributeValue
 
 register = template.Library()
 
@@ -101,6 +101,20 @@ def get_breadcrumb_categories(context):
     
     return breadcrumbs
 
+@register.simple_tag
+def count_category_products(category):
+    """Get the total count of products in this category and all its descendants"""
+    if not category:
+        return 0
+    
+    # Get all descendant categories and include the current category
+    descendant_categories = list(category.get_descendants()) + [category]
+    
+    # Count products in all these categories
+    product_count = Product.objects.filter(categories__in=descendant_categories).distinct().count()
+    
+    return product_count
+
 @register.filter
 def get_recursive_product_count(category):
     """
@@ -133,3 +147,63 @@ def get_category_total_products(category):
         return total_products
     except:
         return 0
+
+@register.simple_tag
+def get_product_weight(product):
+    """Get product weight in kg"""
+    try:
+        weight_attr = product.attribute_values.filter(attribute__code='weight').first()
+        if weight_attr and weight_attr.value_float:
+            return weight_attr.value_float
+        return 0.0
+    except:
+        return 0.0
+
+@register.filter
+def product_weight(product):
+    """Filter to get product weight"""
+    try:
+        weight_attr = product.attribute_values.filter(attribute__code='weight').first()
+        if weight_attr and weight_attr.value_float:
+            return weight_attr.value_float
+        return 0.0
+    except:
+        return 0.0
+
+
+@register.filter
+def product_weight(product):
+    """Get the weight of a product"""
+    try:
+        weight_attr = ProductAttributeValue.objects.filter(
+            product=product,
+            attribute__code='weight'
+        ).first()
+        
+        if weight_attr and weight_attr.value_float:
+            return weight_attr.value_float
+        return None
+    except:
+        return None
+
+
+@register.filter
+def product_weight_display(product):
+    """Get formatted weight display for a product"""
+    weight = product_weight(product)
+    if weight:
+        return f"{weight} kg"
+    return "Weight not specified"
+
+
+@register.simple_tag
+def get_product_weight(product):
+    """Get the weight of a product as a simple tag"""
+    return product_weight(product)
+
+
+@register.simple_tag
+def has_weight(product):
+    """Check if product has weight specified"""
+    weight = product_weight(product)
+    return weight is not None and weight > 0

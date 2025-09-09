@@ -3,7 +3,6 @@
 {% load i18n %}
 {% load category_tags %}
 {% load parts_tags %}
-{% load catalogue_extras %}
 
 {% block title %}
     {{ category.name }} - {{ settings.OSCAR_SHOP_NAME }}
@@ -214,15 +213,12 @@ html, body {
                                                     </p>
                                                 {% endif %}
                                                 
-                                                <div class="category-info mb-2">
-                                                    {% count_category_products child_category as product_count %}
-                                                    <small class="text-success">
-                                                        <i class="fa fa-shopping-bag"></i> 
-                                                        {{ product_count }} {% if product_count == 1 %}{% trans "product" %}{% else %}{% trans "products" %}{% endif %}
-                                                    </small>
-                                                </div>
-                                                
-                                                <div class="category-actions">
+                                <div class="category-info mb-2">
+                                    <small class="text-success">
+                                        <i class="fa fa-shopping-bag"></i> 
+                                        Products available
+                                    </small>
+                                </div>                                                <div class="category-actions">
                                                     <a href="{% url 'catalogue:category' category_slug=child_category.slug pk=child_category.pk %}" 
                                                        class="btn btn-primary btn-sm w-100">
                                                         <i class="fa fa-arrow-right"></i> {% trans "View Category" %}
@@ -344,8 +340,10 @@ html, body {
                         </div>
                     </div>
 
-                    <!-- Pagination -->
-                    {% include "oscar/partials/pagination.html" %}
+                    <!-- Pagination - only show for products, not for child categories -->
+                    {% if not category.get_children %}
+                        {% include "oscar/partials/pagination.html" %}
+                    {% endif %}
                 </div>
             </div>
         </div>

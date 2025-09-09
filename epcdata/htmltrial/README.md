@@ -34,10 +34,10 @@ Download these images from your parent site and place them in your static files:
 mkdir -p /path/to/your/django/project/static/img/
 
 # Download main logo
-wget https://maxuspartsdirect.co.uk/wp-content/uploads/2023/11/Maxus-parts-logo-web.png -O static/img/maxus-parts-logo-web.png
+wget https://maxuspartsdirect.co.uk/wp-content/uploads/2025/09/new-maxus-parts-direct-logo-site2-scaled.png -O static/img/maxus-parts-logo-web.png
 
 # Download header extra badge
-wget https://maxuspartsdirect.co.uk/wp-content/uploads/2025/08/new-man-parts-direct-logo-site-scaled.png -O static/img/new-man-parts-direct-logo-site-scaled.png
+wget https://maxuspartsdirect.co.uk/wp-content/uploads/2025/09/new-maxus-parts-direct-logo-site2-scaled.png -O static/img/new-man-parts-direct-logo-site-scaled.png
 
 # Download man parts logo
 wget https://maxuspartsdirect.co.uk/wp-content/uploads/2025/08/new-man-parts-direct-logo-site-1024x512.png -O static/img/new-man-parts-direct-logo-site-1024x512.png

@@ -1,0 +1,149 @@
+{% extends "oscar/checkout/layout.html" %}
+{% load i18n %}
+
+{% block title %}
+    {% trans "Shipping method" %} | {{ block.super }}
+{% endblock %}
+
+{% block checkout_nav %}
+    {% include 'oscar/checkout/nav.html' with step=2 %}
+{% endblock %}
+
+{% block checkout_form %}
+    <div class="card">
+        <div class="card-body">
+            <h4 class="mb-4">{% trans "Please choose your preferred shipping method" %}</h4>
+            
+            {% if available_methods %}
+                <form action="." method="post" class="shipping-method-form" id="shipping-method-form">
+                    {% csrf_token %}
+                    <div class="row">
+                        {% for method in available_methods %}
+                            <div class="col-12 mb-3 {% if method.code == 'express' %}d-none{% endif %}">
+                                <div class="form-check shipping-method-option p-3 border rounded">
+                                    <input class="form-check-input" 
+                                           type="radio" 
+                                           name="method_code" 
+                                           id="method_{{ forloop.counter }}" 
+                                           value="{{ method.code }}"
+                                           {% if method.code == 'weight_based' or forloop.first %}checked{% endif %}>
+                                    <label class="form-check-label w-100 cursor-pointer" for="method_{{ forloop.counter }}">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <div>
+                                                <strong>{{ method.name }}</strong>
+                                                {% if method.description %}
+                                                    <br>
+                                                    <small class="text-muted">{{ method.description }}</small>
+                                                {% endif %}
+                                            </div>
+                                            <div class="text-right">
+                                                <span class="h6 mb-0">£{{ method.charge_incl_tax|floatformat:2 }}</span>
+                                            </div>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                    
+                    <div class="form-actions mt-4 text-right">
+                        <button type="submit" class="btn btn-primary btn-lg">
+                            {% trans "Continue" %}
+                        </button>
+                    </div>
+                </form>
+            {% else %}
+                <div class="alert alert-warning">
+                    <h4>{% trans "Shipping not available" %}</h4>
+                    <p>{% trans "No shipping methods are available for your basket." %}</p>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}
+
+{% block checkout_sidebar %}
+    <div class="checkout-sidebar">
+        <h4>{% trans "Order Summary" %}</h4>
+        
+        <div class="card">
+            <div class="card-body">
+                <!-- Cart info -->
+                <div class="cart-info mb-3">
+                    <small class="text-muted">
+                        {% trans "Cart ID:" %} #{{ basket.id|default:"NEW" }}
+                        <br>
+                        {% trans "Items:" %} {{ basket.num_items }} item{{ basket.num_items|pluralize }}
+                    </small>
+                </div>
+                
+                <hr>
+                
+                <!-- Order items -->
+                <div class="order-items mb-3">
+                    {% for line in basket.all_lines %}
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <div class="flex-grow-1">
+                                <strong>{{ line.description }}</strong>
+                                <br>
+                                <small class="text-muted">Qty: {{ line.quantity }}</small>
+                            </div>
+                            <div class="text-right">
+                                {% if line.is_tax_known %}
+                                    <span>£{{ line.line_price_incl_tax|floatformat:2 }}</span>
+                                {% else %}
+                                    <span>£{{ line.line_price_excl_tax|floatformat:2 }}</span>
+                                {% endif %}
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+                
+                <hr>
+                
+                <!-- Order totals -->
+                <div class="order-totals">
+                    <div class="d-flex justify-content-between">
+                        <span>{% trans "Products Total:" %}</span>
+                        <span>
+                            {% if basket.is_tax_known %}
+                                £{{ basket.total_incl_tax|floatformat:2 }}
+                            {% else %}
+                                £{{ basket.total_excl_tax|floatformat:2 }}
+                            {% endif %}
+                        </span>
+                    </div>
+                    
+                    <div class="d-flex justify-content-between">
+                        <span>{% trans "Shipping:" %}</span>
+                        <span><em>{% trans "To be calculated" %}</em></span>
+                    </div>
+                    
+                    <hr>
+                    
+                    <div class="d-flex justify-content-between">
+                        <span>{% trans "Net Total (excl. VAT):" %}</span>
+                        <span><em>{% trans "To be calculated" %}</em></span>
+                    </div>
+                    
+                    <div class="d-flex justify-content-between text-info">
+                        <span>{% trans "VAT (20% on total):" %}</span>
+                        <span><em>{% trans "To be calculated" %}</em></span>
+                    </div>
+                    
+                    <hr>
+                    
+                    <div class="d-flex justify-content-between font-weight-bold h6">
+                        <span>{% trans "Grand Total:" %}</span>
+                        <span><em>{% trans "To be calculated" %}</em></span>
+                    </div>
+                    
+                    <div class="d-flex justify-content-between">
+                        <small><em>{% trans "(VAT calculated on products + shipping)" %}</em></small>
+                        <span></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,8 +1,8 @@
 from django.urls import path
 from . import views
 from oscar.apps.checkout.views import (
-    IndexView, ShippingAddressView, UserAddressUpdateView,
-    UserAddressDeleteView, ShippingMethodView, PaymentMethodView,
+    IndexView, UserAddressUpdateView,
+    UserAddressDeleteView, PaymentMethodView,
     PreviewView, ThankYouView, PaymentDetailsView as OscarPaymentDetailsView
 )
 
@@ -11,13 +11,13 @@ app_name = 'checkout'
 urlpatterns = [
     path('', IndexView.as_view(), name='index'),
     
-    # Shipping address views
-    path('shipping-address/', ShippingAddressView.as_view(), name='shipping-address'),
+    # Shipping address views (using our custom view)
+    path('shipping-address/', views.ShippingAddressView.as_view(), name='shipping-address'),
     path('user-address/edit/<int:pk>/', UserAddressUpdateView.as_view(), name='user-address-update'),
     path('user-address/delete/<int:pk>/', UserAddressDeleteView.as_view(), name='user-address-delete'),
     
-    # Shipping method
-    path('shipping-method/', ShippingMethodView.as_view(), name='shipping-method'),
+    # Shipping method (using our custom view)
+    path('shipping-method/', views.ShippingMethodView.as_view(), name='shipping-method'),
     
     # Payment method
     path('payment-method/', PaymentMethodView.as_view(), name='payment-method'),

@@ -4,7 +4,7 @@
 {% load static %}
 
 {% block checkout_nav %}
-    {% include 'oscar/checkout/nav.html' with step=2 %}
+    {% include 'oscar/checkout/nav.html' with step=3 %}
 {% endblock %}
 
 {% block checkout_form %}
@@ -152,4 +152,109 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 </script>
+{% endblock %}
+
+{% block checkout_sidebar %}
+    <div class="checkout-sidebar">
+        <h4>{% trans "Order Summary" %}</h4>
+        
+        <div class="card">
+            <div class="card-body">
+                <!-- Cart info -->
+                <div class="cart-info mb-3">
+                    <small class="text-muted">
+                        {% trans "Cart ID:" %} #{{ basket.id|default:"NEW" }}
+                        <br>
+                        {% trans "Items:" %} {{ basket.num_items }} item{{ basket.num_items|pluralize }}
+                    </small>
+                </div>
+                
+                <hr>
+                
+                <!-- Order items -->
+                <div class="order-items mb-3">
+                    {% for line in basket.all_lines %}
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <div class="flex-grow-1">
+                                <strong>{{ line.description }}</strong>
+                                <br>
+                                <small class="text-muted">Qty: {{ line.quantity }}</small>
+                            </div>
+                            <div class="text-right">
+                                {% if line.is_tax_known %}
+                                    <span>£{{ line.line_price_incl_tax|floatformat:2 }}</span>
+                                {% else %}
+                                    <span>£{{ line.line_price_excl_tax|floatformat:2 }}</span>
+                                {% endif %}
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+                
+                <hr>
+                
+                <!-- Order totals -->
+                <div class="order-totals">
+                    <div class="d-flex justify-content-between">
+                        <span>{% trans "Products Total:" %}</span>
+                        <span>
+                            {% if basket.is_tax_known %}
+                                £{{ basket.total_incl_tax|floatformat:2 }}
+                            {% else %}
+                                £{{ basket.total_excl_tax|floatformat:2 }}
+                            {% endif %}
+                        </span>
+                    </div>
+                    
+                    {% if shipping_method and shipping_method.charge_incl_tax %}
+                        <div class="d-flex justify-content-between">
+                            <span>{% trans "Shipping:" %} ({{ shipping_method.name }})</span>
+                            <span>£{{ shipping_method.charge_incl_tax|floatformat:2 }}</span>
+                        </div>
+                    {% else %}
+                        <div class="d-flex justify-content-between">
+                            <span>{% trans "Shipping:" %}</span>
+                            <span><em>{% trans "Calculated in previous step" %}</em></span>
+                        </div>
+                    {% endif %}
+                    
+                    <hr>
+                    
+                    {% if shipping_method and shipping_method.charge_incl_tax %}
+                        <!-- Calculate combined total excluding VAT (divide by 1.2) -->
+                        {% widthratio basket.total_incl_tax|add:shipping_method.charge_incl_tax 6 5 as net_total %}
+                        <!-- Calculate VAT amount (combined total - net total) -->
+                        {% widthratio basket.total_incl_tax|add:shipping_method.charge_incl_tax 6 1 as vat_amount %}
+                        
+                        <div class="d-flex justify-content-between">
+                            <span>{% trans "Net Total (excl. VAT):" %}</span>
+                            <span>£{{ net_total|floatformat:2 }}</span>
+                        </div>
+                        
+                        <div class="d-flex justify-content-between text-info">
+                            <span>{% trans "VAT (20%):" %}</span>
+                            <span>£{{ vat_amount|floatformat:2 }}</span>
+                        </div>
+                        
+                        <hr>
+                        
+                        <div class="d-flex justify-content-between font-weight-bold h5">
+                            <span>{% trans "Grand Total (incl. VAT):" %}</span>
+                            <span>£{{ basket.total_incl_tax|add:shipping_method.charge_incl_tax|floatformat:2 }}</span>
+                        </div>
+                    {% else %}
+                        <div class="d-flex justify-content-between font-weight-bold h5">
+                            <span>{% trans "Total:" %}</span>
+                            <span>£{{ basket.total_incl_tax|floatformat:2 }}</span>
+                        </div>
+                    {% endif %}
+                    
+                    <div class="d-flex justify-content-between">
+                        <small><em>{% trans "(VAT calculated on combined total)" %}</em></small>
+                        <span></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}
