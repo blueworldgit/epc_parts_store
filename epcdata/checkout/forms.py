@@ -59,10 +59,24 @@ class UKOnlyShippingAddressForm(checkout_forms.ShippingAddressForm):
     
     def clean_country(self):
         """
-        Always return GB as an Oscar Country instance for country field
+        Always return GB as an Oscar Country instance for country field.
+        Create it if it doesn't exist.
         """
         from oscar.apps.address.models import Country
-        return Country.objects.get(iso_3166_1_a2='GB')
+        
+        try:
+            return Country.objects.get(iso_3166_1_a2='GB')
+        except Country.DoesNotExist:
+            # Create GB country if it doesn't exist
+            gb_country = Country.objects.create(
+                iso_3166_1_a2='GB',
+                iso_3166_1_a3='GBR',
+                iso_3166_1_numeric=826,
+                name='United Kingdom',
+                printable_name='United Kingdom',
+                is_shipping_country=True
+            )
+            return gb_country
     
     def clean_phone_number(self):
         """

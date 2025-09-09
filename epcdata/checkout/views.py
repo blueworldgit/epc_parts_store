@@ -59,6 +59,40 @@ class PaymentDetailsView(PaymentDetailsView):
         # Add Worldpay payment form to context
         context['payment_forms'] = [WorldpayPaymentDetailsForm()]
         
+        # Add precise VAT calculations using precise_money
+        try:
+            from decimal import Decimal, ROUND_HALF_UP
+            
+            # Get basket and shipping totals
+            basket_total = context.get('basket', self.request.basket).total_incl_tax or Decimal('0')
+            shipping_method = context.get('shipping_method')
+            shipping_total = Decimal('0')
+            
+            if shipping_method and hasattr(shipping_method, 'charge_incl_tax'):
+                shipping_total = shipping_method.charge_incl_tax or Decimal('0')
+            
+            # Calculate with precise decimal arithmetic
+            subtotal_ex_vat = basket_total + shipping_total
+            vat_amount = (subtotal_ex_vat * Decimal('0.20')).quantize(Decimal('0.01'), rounding=ROUND_HALF_UP)
+            total_inc_vat = (subtotal_ex_vat + vat_amount).quantize(Decimal('0.01'), rounding=ROUND_HALF_UP)
+            
+            # Add to context
+            context['vat_calculations'] = {
+                'subtotal_ex_vat': subtotal_ex_vat,
+                'vat_amount': vat_amount,
+                'total_inc_vat': total_inc_vat,
+            }
+            
+            logger.info(f"VAT calculations: subtotal={subtotal_ex_vat}, vat={vat_amount}, total={total_inc_vat}")
+            
+        except Exception as e:
+            logger.error(f"Error calculating VAT: {e}")
+            context['vat_calculations'] = {
+                'subtotal_ex_vat': Decimal('0'),
+                'vat_amount': Decimal('0'),
+                'total_inc_vat': Decimal('0'),
+            }
+        
         # Debug: log what's in the context
         logger.info(f"Payment forms added to context: {len(context['payment_forms'])}")
         

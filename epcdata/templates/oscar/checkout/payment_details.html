@@ -2,6 +2,7 @@
 {% load i18n %}
 {% load widget_tweaks %}
 {% load static %}
+{% load currency_filters %}
 
 {% block checkout_nav %}
     {% include 'oscar/checkout/nav.html' with step=3 %}
@@ -221,26 +222,33 @@ document.addEventListener('DOMContentLoaded', function() {
                     <hr>
                     
                     {% if shipping_method and shipping_method.charge_incl_tax %}
-                        <!-- Calculate combined total excluding VAT (divide by 1.2) -->
-                        {% widthratio basket.total_incl_tax|add:shipping_method.charge_incl_tax 6 5 as net_total %}
-                        <!-- Calculate VAT amount (combined total - net total) -->
-                        {% widthratio basket.total_incl_tax|add:shipping_method.charge_incl_tax 6 1 as vat_amount %}
+                        <hr>
                         
                         <div class="d-flex justify-content-between">
-                            <span>{% trans "Net Total (excl. VAT):" %}</span>
-                            <span>£{{ net_total|floatformat:2 }}</span>
+                            <span>{% trans "Products ex VAT:" %}</span>
+                            <span>{{ basket.total_incl_tax|currency }}</span>
+                        </div>
+                        
+                        <div class="d-flex justify-content-between">
+                            <span>{% trans "Shipping ex VAT:" %}</span>
+                            <span>{{ shipping_method.charge_incl_tax|currency }}</span>
+                        </div>
+                        
+                        <div class="d-flex justify-content-between">
+                            <span>{% trans "Subtotal ex VAT:" %}</span>
+                            <span>£{{ vat_calculations.subtotal_ex_vat }}</span>
                         </div>
                         
                         <div class="d-flex justify-content-between text-info">
                             <span>{% trans "VAT (20%):" %}</span>
-                            <span>£{{ vat_amount|floatformat:2 }}</span>
+                            <span>£{{ vat_calculations.vat_amount }}</span>
                         </div>
                         
                         <hr>
                         
                         <div class="d-flex justify-content-between font-weight-bold h5">
-                            <span>{% trans "Grand Total (incl. VAT):" %}</span>
-                            <span>£{{ basket.total_incl_tax|add:shipping_method.charge_incl_tax|floatformat:2 }}</span>
+                            <span>{% trans "Total inc VAT:" %}</span>
+                            <span>£{{ vat_calculations.total_inc_vat }}</span>
                         </div>
                     {% else %}
                         <div class="d-flex justify-content-between font-weight-bold h5">

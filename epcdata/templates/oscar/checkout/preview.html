@@ -99,21 +99,6 @@
         <h5>{% trans "Order Summary" %}</h5>
         <div class="card">
             <div class="card-body">
-                <!-- Calculate net product total (excl. VAT) -->
-                {% widthratio basket.total_incl_tax 120 100 as product_net %}
-                
-                <!-- Calculate net shipping (excl. VAT) -->
-                {% if shipping_method and shipping_method.charge_incl_tax %}
-                    {% widthratio shipping_method.charge_incl_tax 120 100 as shipping_net %}
-                    {% add product_net shipping_net as combined_net %}
-                    {% widthratio combined_net 20 100 as vat_amount %}
-                    {% add combined_net vat_amount as grand_total %}
-                {% else %}
-                    {% add product_net 0 as combined_net %}
-                    {% widthratio combined_net 20 100 as vat_amount %}
-                    {% add combined_net vat_amount as grand_total %}
-                {% endif %}
-                
                 <div class="d-flex justify-content-between">
                     <span>{% trans "Products Total:" %}</span>
                     <span>{{ basket.total_incl_tax|currency }}</span>
@@ -124,26 +109,58 @@
                         <span>{% trans "Shipping:" %} ({{ shipping_method.name }})</span>
                         <span>{{ shipping_method.charge_incl_tax|currency }}</span>
                     </div>
+                    
+                    <hr>
+                    
+                    <!-- Oscar prices are already ex VAT, so use them directly -->
+                    {% widthratio basket.total_incl_tax 1 1 as products_ex_vat %}
+                    {% widthratio shipping_method.charge_incl_tax 1 1 as shipping_ex_vat %}
+                    
+                    <!-- Add the ex VAT amounts using pence to avoid decimal issues -->
+                    {% widthratio products_ex_vat 1 100 as products_pence %}
+                    {% widthratio shipping_ex_vat 1 100 as shipping_pence %}
+                    {% widthratio products_pence|add:shipping_pence 100 1 as subtotal_ex_vat %}
+                    
+                    <!-- Calculate VAT on the subtotal ex VAT -->
+                    {% widthratio subtotal_ex_vat 100 20 as vat_amount %}
+                    
+                    <!-- Total inc VAT = subtotal ex VAT + VAT -->
+                    {% widthratio subtotal_ex_vat 1 100 as subtotal_pence %}
+                    {% widthratio vat_amount 1 100 as vat_pence %}
+                    {% widthratio subtotal_pence|add:vat_pence 100 1 as total_inc_vat %}
+                    
+                    <div class="d-flex justify-content-between">
+                        <span>{% trans "Products ex VAT:" %}</span>
+                        <span>£{{ products_ex_vat|floatformat:2 }}</span>
+                    </div>
+                    
+                    <div class="d-flex justify-content-between">
+                        <span>{% trans "Shipping ex VAT:" %}</span>
+                        <span>£{{ shipping_ex_vat|floatformat:2 }}</span>
+                    </div>
+                    
+                    <div class="d-flex justify-content-between">
+                        <span>{% trans "Subtotal ex VAT:" %}</span>
+                        <span>£{{ subtotal_ex_vat|floatformat:2 }}</span>
+                    </div>
+                    
+                    <div class="d-flex justify-content-between">
+                        <span>{% trans "VAT (20%):" %}</span>
+                        <span>£{{ vat_amount|floatformat:2 }}</span>
+                    </div>
+                    
+                    <hr>
+                    
+                    <div class="d-flex justify-content-between font-weight-bold h5">
+                        <span>{% trans "Total inc VAT:" %}</span>
+                        <span>£{{ total_inc_vat|floatformat:2 }}</span>
+                    </div>
+                {% else %}
+                    <div class="d-flex justify-content-between font-weight-bold h5">
+                        <span>{% trans "Grand Total (incl. VAT):" %}</span>
+                        <span>{{ basket.total_incl_tax|currency }}</span>
+                    </div>
                 {% endif %}
-                
-                <hr>
-                
-                <div class="d-flex justify-content-between">
-                    <span>{% trans "Net Total (excl. VAT):" %}</span>
-                    <span>£{{ combined_net|floatformat:2 }}</span>
-                </div>
-                
-                <div class="d-flex justify-content-between">
-                    <span>{% trans "VAT (20%):" %}</span>
-                    <span>£{{ vat_amount|floatformat:2 }}</span>
-                </div>
-                
-                <hr>
-                
-                <div class="d-flex justify-content-between font-weight-bold h5">
-                    <span>{% trans "Grand Total (incl. VAT):" %}</span>
-                    <span>£{{ grand_total|floatformat:2 }}</span>
-                </div>
             </div>
         </div>
     </div>
