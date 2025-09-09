@@ -406,3 +406,17 @@ if WORLDPAY_TEST_MODE:
     WORLDPAY_GATEWAY_URL = 'https://try.access.worldpay.com/payments/authorizations'
 else:
     WORLDPAY_GATEWAY_URL = 'https://access.worldpay.com/payments/authorizations'
+
+# Email Configuration - Gmail SMTP for Google Workspace
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER', 'info@rapidfit.co.uk')
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD', '')  # Use App Password from .env
+DEFAULT_FROM_EMAIL = os.getenv('DEFAULT_FROM_EMAIL', 'info@rapidfit.co.uk')
+SERVER_EMAIL = os.getenv('SERVER_EMAIL', 'info@rapidfit.co.uk')
+
+# Email settings for Oscar e-commerce
+OSCAR_FROM_EMAIL = DEFAULT_FROM_EMAIL
+OSCAR_SEND_REGISTRATION_EMAIL = True

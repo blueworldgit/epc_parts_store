@@ -3,6 +3,7 @@
 {% load i18n %}
 {% load category_tags %}
 {% load parts_tags %}
+{% load catalogue_extras %}
 
 {% block title %}
     {{ category.name }} - {{ settings.OSCAR_SHOP_NAME }}
@@ -214,14 +215,11 @@ html, body {
                                                 {% endif %}
                                                 
                                                 <div class="category-info mb-2">
-                                                    {% with child_category.get_descendant_count as product_count %}
-                                                        {% if product_count > 0 %}
-                                                            <small class="text-success">
-                                                                <i class="fa fa-tag"></i> 
-                                                                {{ product_count }} {% if product_count == 1 %}{% trans "item" %}{% else %}{% trans "items" %}{% endif %}
-                                                            </small>
-                                                        {% endif %}
-                                                    {% endwith %}
+                                                    {% count_category_products child_category as product_count %}
+                                                    <small class="text-success">
+                                                        <i class="fa fa-shopping-bag"></i> 
+                                                        {{ product_count }} {% if product_count == 1 %}{% trans "product" %}{% else %}{% trans "products" %}{% endif %}
+                                                    </small>
                                                 </div>
                                                 
                                                 <div class="category-actions">
