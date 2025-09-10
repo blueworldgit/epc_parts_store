@@ -83,11 +83,11 @@ class WeightBasedShippingMethod(methods.Base):
 
 class FreeShippingMethod(methods.Free):
     """
-    Free shipping option (for admin/promotional purposes)
+    Free shipping option (TEMPORARY FOR TESTING - REMOVE LATER)
     """
     code = 'free'
-    name = 'Free Shipping'
-    description = 'No shipping charge'
+    name = 'Free Shipping (Testing)'
+    description = 'No shipping charge - Testing purposes only'
 
 
 # Repository class to provide available shipping methods
@@ -105,9 +105,9 @@ class CustomShippingRepository(object):
         # Always offer weight-based shipping
         methods_list.append(WeightBasedShippingMethod())
         
-        # Offer free shipping for staff users
-        if user and user.is_staff:
-            methods_list.append(FreeShippingMethod())
+        # TEMPORARY FOR TESTING: Offer free shipping to all users
+        # TODO: Remove this later - only for testing to avoid card charges
+        methods_list.append(FreeShippingMethod())
             
         return methods_list
 

@@ -195,14 +195,31 @@ class WorldpayGatewayCardFormView(CheckoutSessionMixin, View):
             card_data = form.cleaned_data
             
             logger.info(f"💳 Processing Gateway payment for order {order.number}")
+            logger.info(f"🔍 DEBUG: Facade object: {facade}")
+            logger.info(f"🔍 DEBUG: Has _create_payment_records method: {hasattr(facade, '_create_payment_records')}")
             logger.info(f"Card data keys: {list(card_data.keys())}")
             logger.info(f"Card number (masked): {card_data['card_number'][:4]}****{card_data['card_number'][-4:]}")
             
             payment_result = facade.process_payment(order, card_data)
             
-            logger.info(f"💰 Payment result: {payment_result.get('success')}")
+            logger.info(f"💰 Payment result: {payment_result}")
+            logger.info(f"💰 Payment result type: {type(payment_result)}")
+            logger.info(f"💰 Payment result success: {payment_result.get('success') if payment_result else 'None'}")
             
-            if payment_result['success']:
+            # Check for None result
+            if payment_result is None:
+                logger.error(f"❌ Payment facade returned None for order {order.number}")
+                messages.error(request, _("Payment processing failed: No response from payment gateway"))
+                context = {
+                    'form': form,
+                    'order_total': session_data['order_total'],
+                    'currency': session_data['currency'],
+                    'order_number': session_data['order_number'],
+                    'payment_error': 'Payment processing failed'
+                }
+                return render(request, self.template_name, context)
+            
+            if payment_result.get('success'):
                 logger.info(f"✅ Payment successful for order {order.number}")
                 logger.info(f"Payment ID: {payment_result.get('payment_id')}")
                 

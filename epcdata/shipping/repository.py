@@ -87,13 +87,16 @@ class WeightBasedShippingMethod(methods.Base):
         return self.WEIGHT_BANDS[-1][2]
 
 
-class FreeShippingMethod(methods.Free):
+class FreeShippingMethod(methods.FixedPrice):
     """
-    Free shipping option (for admin/promotional purposes)
+    Very cheap shipping option (TEMPORARY FOR TESTING - REMOVE LATER)
+    Using £0.20 instead of £0.00 to avoid VAT calculation issues
     """
-    code = 'free'
-    name = 'Free Shipping'
-    description = 'No shipping charge'
+    code = 'cheap'
+    name = 'Cheap Shipping (Testing)'
+    description = 'Very low cost shipping - Testing purposes only'
+    charge_excl_tax = Decimal('0.20')
+    charge_incl_tax = Decimal('0.20')
 
 
 class ExpressShippingMethod(methods.FixedPrice):
@@ -141,6 +144,11 @@ class Repository(object):
                 method.charge_incl_tax = Decimal('11.95')
         
         methods_list.append(method)
+        
+        # TEMPORARY FOR TESTING: Add free shipping option for all users
+        # TODO: Remove this later - only for testing to avoid card charges
+        free_method = FreeShippingMethod()
+        methods_list.append(free_method)
         
         # Add express shipping option (will be hidden with CSS)
         express_method = ExpressShippingMethod()

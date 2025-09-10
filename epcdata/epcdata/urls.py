@@ -174,7 +174,7 @@ urlpatterns = [
     path('accounts/login/', customer_login_view, name='account_login'),
     
     # Oscar URLs with proper app configuration for 3.2
-    # path('dashboard/', include((apps.get_app_config('dashboard').urls[0], apps.get_app_config('dashboard').name), namespace=apps.get_app_config('dashboard').namespace)),
+    path('dashboard/', include((apps.get_app_config('dashboard').urls[0], apps.get_app_config('dashboard').name), namespace=apps.get_app_config('dashboard').namespace)),
     path('accounts/', include((apps.get_app_config('customer').urls[0], apps.get_app_config('customer').name), namespace=apps.get_app_config('customer').namespace)),
     path('basket/', include((apps.get_app_config('basket').urls[0], apps.get_app_config('basket').name), namespace=apps.get_app_config('basket').namespace)),
     # Oscar checkout URLs (will use our custom app since it's in INSTALLED_APPS first)
