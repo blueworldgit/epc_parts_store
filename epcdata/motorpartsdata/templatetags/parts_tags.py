@@ -82,7 +82,7 @@ def debug_product_info(product):
                 part = parts.first()
                 return f"Found part: {part.part_number}, SVG available: {bool(part.child_title and part.child_title.svg_code)}"
             else:
-                return f"{part_count} results found"
+                return f"{part_count} results found as this part is used in multiple models"
         else:
             return "No UPC set for product"
     except Part.DoesNotExist:

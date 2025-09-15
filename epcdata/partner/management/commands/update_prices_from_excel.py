@@ -49,6 +49,11 @@ class Command(BaseCommand):
             help='Name of the price column in Excel (default: Price)'
         )
         parser.add_argument(
+            '--report-file',
+            type=str,
+            help='Output file for detailed report (default: price_update_report_TIMESTAMP.txt)'
+        )
+        parser.add_argument(
             '--sheet-name',
             type=str,
             default=0,
@@ -62,6 +67,25 @@ class Command(BaseCommand):
         sku_column = options['sku_column']
         price_column = options['price_column']
         sheet_name = options['sheet_name']
+        report_file = options.get('report_file')
+
+        # Generate report filename if not provided
+        if not report_file:
+            timestamp = timezone.now().strftime('%Y%m%d_%H%M%S')
+            report_file = f'price_update_report_{timestamp}.txt'
+        
+        # Initialize report content
+        report_lines = []
+        report_lines.append("="*80)
+        report_lines.append("PRICE UPDATE DETAILED REPORT")
+        report_lines.append("="*80)
+        report_lines.append(f"Generated: {timezone.now().strftime('%Y-%m-%d %H:%M:%S')}")
+        report_lines.append(f"Excel file: {excel_file}")
+        report_lines.append(f"SKU column: {sku_column}")
+        report_lines.append(f"Price column: {price_column}")
+        report_lines.append(f"Dry run: {dry_run}")
+        report_lines.append("="*80)
+        report_lines.append("")
 
         # Check if file exists
         if not os.path.exists(excel_file):
@@ -74,7 +98,9 @@ class Command(BaseCommand):
             'prices_updated': 0,
             'products_not_found': 0,
             'invalid_prices': 0,
-            'errors': 0
+            'errors': 0,
+            'multiple_products_found': 0,
+            'products_updated': 0
         }
 
         try:
@@ -132,54 +158,73 @@ class Command(BaseCommand):
                         # Find product by SKU (UPC in Oscar)
                         try:
                             product = Product.objects.get(upc=sku)
+                            products = [product]  # Single product found
                         except Product.DoesNotExist:
                             if verbose:
                                 self.stdout.write(f"Row {index + 1}: Product not found for SKU '{sku}'")
+                            report_lines.append(f"Row {index + 1}: ❌ Product not found for SKU '{sku}'")
                             stats['products_not_found'] += 1
                             continue
                         except Product.MultipleObjectsReturned:
+                            # Handle multiple products with same SKU
+                            products = Product.objects.filter(upc=sku)
+                            stats['multiple_products_found'] += 1
                             if verbose:
-                                self.stdout.write(f"Row {index + 1}: Multiple products found for SKU '{sku}', using first one")
-                            product = Product.objects.filter(upc=sku).first()
+                                self.stdout.write(f"Row {index + 1}: Found {products.count()} products for SKU '{sku}', updating all")
+                            report_lines.append(f"Row {index + 1}: 🔄 Found {products.count()} products for SKU '{sku}', updating all:")
                         
-                        # Find stock record for this product
-                        stock_record = StockRecord.objects.filter(product=product).first()
+                        # Process each product found
+                        products_updated_for_sku = 0
+                        for product in products:
+                            try:
+                                # Find stock record for this product
+                                stock_record = StockRecord.objects.filter(product=product).first()
+                                
+                                if not stock_record:
+                                    if verbose:
+                                        self.stdout.write(f"  Product '{product.title}' (ID: {product.id}) - No stock record")
+                                    report_lines.append(f"    ⚠️  Product '{product.title}' (ID: {product.id}) - No stock record")
+                                    continue
+                                
+                                # Check if price has changed
+                                old_price = stock_record.price
+                                if old_price == price:
+                                    if verbose:
+                                        self.stdout.write(f"  Product '{product.title}' (ID: {product.id}) - Price unchanged: £{price}")
+                                    report_lines.append(f"    ➡️  Product '{product.title}' (ID: {product.id}) - Price unchanged: £{price}")
+                                    continue
+                                
+                                # Update price and tracking fields
+                                if not dry_run:
+                                    stock_record.price = price
+                                    notes = f"Updated from Excel file: {os.path.basename(excel_file)} on {timezone.now().strftime('%Y-%m-%d %H:%M:%S')}"
+                                    if old_price:
+                                        notes += f" (Previous price: £{old_price})"
+                                    stock_record.mark_price_updated(notes)
+                                
+                                stats['prices_updated'] += 1
+                                products_updated_for_sku += 1
+                                
+                                action = "Would update" if dry_run else "Updated"
+                                update_msg = f"  {action} '{product.title}' (ID: {product.id}) from £{old_price or 'None'} to £{price}"
+                                
+                                if verbose:
+                                    self.stdout.write(update_msg)
+                                report_lines.append(f"    ✅ {update_msg}")
+                                
+                            except Exception as product_error:
+                                error_msg = f"  Error updating product '{product.title}' (ID: {product.id}): {str(product_error)}"
+                                self.stdout.write(self.style.ERROR(error_msg))
+                                report_lines.append(f"    ❌ {error_msg}")
                         
-                        if not stock_record:
-                            if verbose:
-                                self.stdout.write(f"Row {index + 1}: No stock record found for product '{product.title}' (SKU: {sku})")
-                            stats['products_not_found'] += 1
-                            continue
-                        
-                        # Check if price has changed
-                        old_price = stock_record.price
-                        if old_price == price:
-                            if verbose:
-                                self.stdout.write(f"Row {index + 1}: Price unchanged for '{product.title}' (SKU: {sku}) - £{price}")
-                            continue
-                        
-                        # Update price and tracking fields
-                        if not dry_run:
-                            stock_record.price = price
-                            notes = f"Updated from Excel file: {os.path.basename(excel_file)} on {timezone.now().strftime('%Y-%m-%d %H:%M:%S')}"
-                            if old_price:
-                                notes += f" (Previous price: £{old_price})"
-                            stock_record.mark_price_updated(notes)
-                        
-                        stats['prices_updated'] += 1
-                        
-                        if verbose:
-                            action = "Would update" if dry_run else "Updated"
-                            self.stdout.write(
-                                f"Row {index + 1}: {action} '{product.title}' (SKU: {sku}) "
-                                f"from £{old_price or 'None'} to £{price}"
-                            )
+                        if products_updated_for_sku > 0:
+                            stats['products_updated'] += products_updated_for_sku
                         
                     except Exception as e:
                         stats['errors'] += 1
-                        self.stdout.write(
-                            self.style.ERROR(f"Row {index + 1}: Error processing SKU '{sku}': {str(e)}")
-                        )
+                        error_msg = f"Row {index + 1}: Error processing SKU '{sku}': {str(e)}"
+                        self.stdout.write(self.style.ERROR(error_msg))
+                        report_lines.append(f"Row {index + 1}: ❌ {error_msg}")
                         continue
 
                 # If dry run, rollback the transaction
@@ -190,14 +235,45 @@ class Command(BaseCommand):
         except Exception as e:
             raise CommandError(f'Error reading Excel file: {str(e)}')
 
-        # Print statistics
+        # Add summary to report
+        report_lines.append("")
+        report_lines.append("="*80)
+        report_lines.append("SUMMARY STATISTICS")
+        report_lines.append("="*80)
+        report_lines.append(f"Excel file: {excel_file}")
+        report_lines.append(f"Total rows in Excel: {stats['total_rows']}")
+        report_lines.append(f"SKUs processed: {stats['skus_processed']}")
+        report_lines.append(f"Individual products updated: {stats['prices_updated']}")
+        report_lines.append(f"Unique SKUs with updates: {stats['products_updated']}")
+        report_lines.append(f"SKUs with multiple products: {stats['multiple_products_found']}")
+        report_lines.append(f"Products not found: {stats['products_not_found']}")
+        report_lines.append(f"Invalid prices: {stats['invalid_prices']}")
+        report_lines.append(f"Errors: {stats['errors']}")
+        
+        if dry_run:
+            report_lines.append("")
+            report_lines.append("⚠️  THIS WAS A DRY RUN - NO CHANGES WERE MADE")
+        else:
+            report_lines.append("")
+            report_lines.append(f"✅ Successfully updated {stats['prices_updated']} prices across {stats['products_updated']} products")
+
+        # Write report to file
+        try:
+            with open(report_file, 'w', encoding='utf-8') as f:
+                f.write('\n'.join(report_lines))
+            self.stdout.write(f"\n📄 Detailed report saved to: {report_file}")
+        except Exception as e:
+            self.stdout.write(self.style.ERROR(f"Error writing report file: {str(e)}"))
+
+        # Print statistics to console
         self.stdout.write("\n" + "="*50)
         self.stdout.write("PRICE UPDATE SUMMARY")
         self.stdout.write("="*50)
         self.stdout.write(f"Excel file: {excel_file}")
         self.stdout.write(f"Total rows in Excel: {stats['total_rows']}")
         self.stdout.write(f"SKUs processed: {stats['skus_processed']}")
-        self.stdout.write(f"Prices updated: {stats['prices_updated']}")
+        self.stdout.write(f"Individual products updated: {stats['prices_updated']}")
+        self.stdout.write(f"SKUs with multiple products: {stats['multiple_products_found']}")
         self.stdout.write(f"Products not found: {stats['products_not_found']}")
         self.stdout.write(f"Invalid prices: {stats['invalid_prices']}")
         self.stdout.write(f"Errors: {stats['errors']}")
