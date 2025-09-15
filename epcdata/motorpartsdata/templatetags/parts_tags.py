@@ -65,8 +65,24 @@ def debug_product_info(product):
     """Debug tag to show product-part relationship info."""
     try:
         if product.upc:
-            part = Part.objects.select_related('child_title').get(part_number=product.upc)
-            return f"Found part: {part.part_number}, SVG available: {bool(part.child_title and part.child_title.svg_code)}"
+            # Handle both direct part numbers and EPC-prefixed UPCs
+            part_number = product.upc
+            
+            # If UPC has EPC- prefix, remove it
+            if part_number.startswith('EPC-'):
+                part_number = part_number[4:]  # Remove "EPC-" prefix
+            
+            # Use filter instead of get to handle multiple parts with same number
+            parts = Part.objects.select_related('child_title').filter(part_number=part_number)
+            part_count = parts.count()
+            
+            if part_count == 0:
+                return f"No part found for: {part_number}"
+            elif part_count == 1:
+                part = parts.first()
+                return f"Found part: {part.part_number}, SVG available: {bool(part.child_title and part.child_title.svg_code)}"
+            else:
+                return f"{part_count} results found"
         else:
             return "No UPC set for product"
     except Part.DoesNotExist:
