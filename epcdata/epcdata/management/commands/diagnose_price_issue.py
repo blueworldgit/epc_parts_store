@@ -108,11 +108,12 @@ class Command(BaseCommand):
                             f"      ID: {stock.id}",
                             f"      Partner: {stock.partner}",
                             f"      Partner SKU: {stock.partner_sku}",
-                            f"      Price Excl Tax: £{stock.price_excl_tax or 'None'}",
-                            f"      Price Currency: {stock.price_currency}",
-                            f"      Cost Price: £{stock.cost_price or 'None'}",
-                            f"      Num in Stock: {stock.num_in_stock}",
-                            f"      Low Stock Threshold: {stock.low_stock_threshold}",
+                            f"      Price: £{stock.price or 'None'}",
+                            f"      Currency: {getattr(stock, 'currency', 'GBP')}",
+                            f"      Cost Price: £{getattr(stock, 'cost_price', 'None') or 'None'}",
+                            f"      Num in Stock: {getattr(stock, 'num_in_stock', 'Unknown')}",
+                            f"      Low Stock Threshold: {getattr(stock, 'low_stock_threshold', 'Unknown')}",
+                            f"      Price Updated Flag: {getattr(stock, 'price_updated', 'Unknown')}",
                             f"      Date Created: {stock.date_created}",
                             f"      Date Updated: {stock.date_updated}",
                         ]
@@ -127,7 +128,7 @@ class Command(BaseCommand):
                 
                 # Check if product has a price strategy
                 try:
-                    strategy = product.stockrecords.first().price_excl_tax if product.stockrecords.exists() else None
+                    strategy = product.stockrecords.first().price if product.stockrecords.exists() else None
                     if strategy:
                         msg = f"  ✅ Primary price strategy: £{strategy}"
                         self.stdout.write(self.style.SUCCESS(msg))
@@ -147,15 +148,15 @@ class Command(BaseCommand):
                 # Simulate what the template would see
                 try:
                     # Check what price the product.price property returns
-                    product_price = product.stockrecords.first().price_excl_tax if product.stockrecords.exists() else None
+                    product_price = product.stockrecords.first().price if product.stockrecords.exists() else None
                     if product_price:
-                        msg = f"  Product.stockrecords.first().price_excl_tax: £{product_price}"
+                        msg = f"  Product.stockrecords.first().price: £{product_price}"
                         self.stdout.write(msg)
                         report_lines.append(msg)
                     
                     # Check if there are multiple stock records with different prices
                     if stock_records.count() > 1:
-                        prices = [sr.price_excl_tax for sr in stock_records if sr.price_excl_tax]
+                        prices = [sr.price for sr in stock_records if sr.price]
                         unique_prices = set(prices)
                         if len(unique_prices) > 1:
                             msg = f"  ⚠️  WARNING: Multiple different prices found: {list(unique_prices)}"
@@ -197,8 +198,9 @@ class Command(BaseCommand):
                 
                 # Check stock records table
                 cursor.execute("""
-                    SELECT sr.id, sr.product_id, sr.partner_sku, sr.price_excl_tax, 
-                           sr.price_currency, sr.date_created, sr.date_updated, p.name as partner_name
+                    SELECT sr.id, sr.product_id, sr.partner_sku, sr.price, 
+                           sr.date_created, sr.date_updated, p.name as partner_name,
+                           sr.price_updated
                     FROM partner_stockrecord sr
                     JOIN partner_partner p ON sr.partner_id = p.id
                     JOIN catalogue_product cp ON sr.product_id = cp.id
@@ -213,7 +215,7 @@ class Command(BaseCommand):
                 report_lines.append(msg)
                 
                 for stock_row in stock_rows:
-                    stock_info = f"  Stock ID {stock_row[0]}: Product {stock_row[1]}, Price £{stock_row[3]}, Partner: {stock_row[7]} (Updated: {stock_row[6]})"
+                    stock_info = f"  Stock ID {stock_row[0]}: Product {stock_row[1]}, Price £{stock_row[3]}, Partner: {stock_row[6]}, Updated: {stock_row[5]}, Price Updated Flag: {stock_row[7]}"
                     self.stdout.write(stock_info)
                     report_lines.append(stock_info)
             
