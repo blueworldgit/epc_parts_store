@@ -199,8 +199,7 @@ class Command(BaseCommand):
                 # Check stock records table
                 cursor.execute("""
                     SELECT sr.id, sr.product_id, sr.partner_sku, sr.price, 
-                           sr.date_created, sr.date_updated, p.name as partner_name,
-                           sr.price_updated
+                           sr.date_created, sr.date_updated, p.name as partner_name
                     FROM partner_stockrecord sr
                     JOIN partner_partner p ON sr.partner_id = p.id
                     JOIN catalogue_product cp ON sr.product_id = cp.id
@@ -215,7 +214,7 @@ class Command(BaseCommand):
                 report_lines.append(msg)
                 
                 for stock_row in stock_rows:
-                    stock_info = f"  Stock ID {stock_row[0]}: Product {stock_row[1]}, Price £{stock_row[3]}, Partner: {stock_row[6]}, Updated: {stock_row[5]}, Price Updated Flag: {stock_row[7]}"
+                    stock_info = f"  Stock ID {stock_row[0]}: Product {stock_row[1]}, Price £{stock_row[3]}, Partner: {stock_row[6]}, Updated: {stock_row[5]}"
                     self.stdout.write(stock_info)
                     report_lines.append(stock_info)
             

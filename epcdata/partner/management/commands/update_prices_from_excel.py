@@ -196,11 +196,40 @@ class Command(BaseCommand):
                                 
                                 # Update price and tracking fields
                                 if not dry_run:
+                                    old_price_str = f"£{old_price}" if old_price else "None"
+                                    self.stdout.write(f"    💾 Updating price: {old_price_str} → £{price}")
+                                    
                                     stock_record.price = price
                                     notes = f"Updated from Excel file: {os.path.basename(excel_file)} on {timezone.now().strftime('%Y-%m-%d %H:%M:%S')}"
                                     if old_price:
                                         notes += f" (Previous price: £{old_price})"
-                                    stock_record.mark_price_updated(notes)
+                                    
+                                    # Save the stock record with price update
+                                    try:
+                                        stock_record.save()
+                                        
+                                        # Verify the save worked
+                                        stock_record.refresh_from_db()
+                                        saved_price = stock_record.price
+                                        
+                                        if saved_price == price:
+                                            self.stdout.write(f"    ✅ Price saved and verified: £{saved_price}")
+                                        else:
+                                            raise ValueError(f"Save verification failed: expected £{price}, got £{saved_price}")
+                                            
+                                        # Mark as updated (if this method exists)
+                                        try:
+                                            stock_record.mark_price_updated(notes)
+                                        except AttributeError:
+                                            # mark_price_updated method might not exist
+                                            if verbose:
+                                                self.stdout.write(f"    ⚠️  mark_price_updated method not available")
+                                                
+                                    except Exception as save_error:
+                                        error_msg = f"    ❌ Failed to save price: {str(save_error)}"
+                                        self.stdout.write(self.style.ERROR(error_msg))
+                                        report_lines.append(error_msg)
+                                        continue
                                 
                                 stats['prices_updated'] += 1
                                 products_updated_for_sku += 1
