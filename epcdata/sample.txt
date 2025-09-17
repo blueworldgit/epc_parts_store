@@ -1,20 +1,38 @@
- Database Host: localhost
-👤 Database User: postgres
-🔌 Database Port: 5432
-🔧 Database Engine: django.db.backends.postgresql
-✅ ACTUAL CONNECTION:
-   Database: vansdirect
-   User: postgres
-   Host: ::1
-   Port: 5432
+WARNINGS:
+?: (templates.E003) 'category_tags' is used for multiple template tag modules: 'epcdata.templatetags.category_tags', 'oscar.templatetags.category_tags'
+?: (templates.E003) 'vat_tags' is used for multiple template tag modules: 'checkout.templatetags.vat_tags', 'epcdata.templatetags.vat_tags'
+CommandError: Conflicting migrations detected; multiple leaf nodes in the migration graph: (0009_alter_shippingmethod_countries, 0009_part_oscar_imported_part_oscar_imported_at_and_more in motorpartsdata).
+To fix them run 'python manage.py makemigrations --merge'
+(env) rentals@rentals:~/epc_parts_store/epcdata$ python manage.py makemigrations --merge
+🔍 Debug: .env exists = True
+🔍 Debug: .env.production exists = True
+🔍 Debug: .prod exists = False
+🔍 Debug: DJANGO_ENV = NOT SET
+🔍 Debug: hostname=rentals, local_ip=127.0.1.1
+🔍 Debug: SERVER_IP=None
+🔍 Debug: HOSTNAME=None
+🌐 Production mode: Detected VPS server IP (80.95.207.42)
+🔍 Debug: hostname=rentals, local_ip=127.0.1.1
+🔍 Debug: SERVER_IP=None
+🔍 Debug: HOSTNAME=None
+🌐 Loading VPS PRODUCTION environment from .env.production (N0rfolk password)
+DEBUG: Production mode - ALLOWED_HOSTS env var = 80.95.207.42,vanparts-direct.co.uk,www.vanparts-direct.co.uk
+🎯 FINAL RESULT: PRODUCTION mode selected
 ============================================================
-📊 EXISTING DATA SUMMARY:
-   Existing Categories: 204
-   Existing Products: 1479
-   Existing Stock Records: 1479
-   Source Serials: 1
-   Source Parts: 1844
-   Source Pricing Records: 1797
-============================================================
-❌ Error logged to: import_to_oscar_20250917_134201.log
-CommandError: Import failed: Invalid field name(s) for model ProductAttribute: 'help_text'.
+DEBUG: ALLOWED_HOSTS = ['80.95.207.42', 'vanparts-direct.co.uk', 'www.vanparts-direct.co.uk']
+🗄️ Database config: parts_store as postgres on localhost
+System check identified some issues:
+
+WARNINGS:
+?: (templates.E003) 'category_tags' is used for multiple template tag modules: 'epcdata.templatetags.category_tags', 'oscar.templatetags.category_tags'
+?: (templates.E003) 'vat_tags' is used for multiple template tag modules: 'checkout.templatetags.vat_tags', 'epcdata.templatetags.vat_tags'
+Merging motorpartsdata
+  Branch 0009_alter_shippingmethod_countries
+    - Alter field countries on shippingmethod
+  Branch 0009_part_oscar_imported_part_oscar_imported_at_and_more
+    - Add field oscar_imported to part
+    - Add field oscar_imported_at to part
+    - Alter field countries on shippingmethod
+
+Merging will only work if the operations printed above do not conflict
+with each other (working on different fields or models)
