@@ -44,6 +44,8 @@ class Command(BaseCommand):
             'products_existing': 0,
             'stock_created': 0,
             'stock_unchanged': 0,
+            'parts_processed': 0,
+            'parts_skipped': 0,
             'errors': 0,
             'pricing_errors': 0,
             'stock_errors': 0,
@@ -101,10 +103,23 @@ class Command(BaseCommand):
             action='store_true',
             help='Enable verbose output'
         )
+        parser.add_argument(
+            '--reset-processed',
+            action='store_true',
+            help='Reset all parts to unprocessed (for testing/re-import)'
+        )
+        parser.add_argument(
+            '--batch-size',
+            type=int,
+            default=1500,
+            help='Maximum number of parts to process in one run (default: 1500)'
+        )
 
     def handle(self, *args, **options):
         self.dry_run = options['dry_run']
         self.verbose = options['verbose']
+        reset_processed = options.get('reset_processed', False)
+        self.batch_size = options.get('batch_size', 1500)
         
         # Set up file logging first
         log_file = self._setup_file_logging()
@@ -114,6 +129,20 @@ class Command(BaseCommand):
                 self.style.WARNING("DRY RUN MODE - No changes will be made")
             )
             logger.info("DRY RUN MODE - No changes will be made")
+        
+        # Handle reset flag
+        if reset_processed:
+            if not self.dry_run:
+                reset_count = Part.objects.filter(oscar_imported=True).update(
+                    oscar_imported=False, 
+                    oscar_imported_at=None
+                )
+                self.stdout.write(self.style.SUCCESS(f"✅ Reset {reset_count} parts to unprocessed"))
+                logger.info(f"Reset {reset_count} parts to unprocessed")
+            else:
+                reset_count = Part.objects.filter(oscar_imported=True).count()
+                self.stdout.write(f"Would reset {reset_count} parts to unprocessed")
+            return
 
         try:
             # Log command start
@@ -124,6 +153,9 @@ class Command(BaseCommand):
             
             # DUPLICATE PREVENTION: Show existing data counts before import
             self._show_existing_data_summary()
+            
+            # Show unprocessed parts summary
+            self._show_unprocessed_parts_summary()
             
             # Get or create default partner
             partner = self._get_or_create_partner()
@@ -157,6 +189,9 @@ class Command(BaseCommand):
             else:
                 self.stdout.write("🏃 Skipping price update (dry-run mode)")
             
+            # Show final completion summary (after price update)
+            self._print_completion_summary()
+            
             logger.info("Import completed successfully")
             self.stdout.write(f"📝 Full log saved to: {log_file}")
             
@@ -187,7 +222,32 @@ class Command(BaseCommand):
             self.stdout.write(f"   Source Serials: {serial_count}")
             self.stdout.write(f"   Source Parts: {part_count}")
             self.stdout.write(f"   Source Pricing Records: {pricing_count}")
+            
+            # Show unprocessed parts summary
+            self._show_unprocessed_parts_summary()
+            
             self.stdout.write("=" * 60)
+
+    def _show_unprocessed_parts_summary(self):
+        """Show summary of parts that need processing"""
+        total_parts = Part.objects.count()
+        processed_parts = Part.objects.filter(oscar_imported=True).count()
+        unprocessed_parts = Part.objects.filter(oscar_imported=False).count()
+        
+        self.stdout.write("📦 PARTS PROCESSING SUMMARY:")
+        self.stdout.write(f"  Total parts in database: {total_parts}")
+        self.stdout.write(f"  Already processed: {processed_parts}")
+        self.stdout.write(f"  Pending processing: {unprocessed_parts}")
+        
+        if unprocessed_parts == 0:
+            self.stdout.write(self.style.SUCCESS("✅ All parts have been processed!"))
+        else:
+            parts_this_batch = min(self.batch_size, unprocessed_parts)
+            self.stdout.write(f"🔄 Will process {parts_this_batch} parts this batch (max batch size: {self.batch_size})")
+            if unprocessed_parts > self.batch_size:
+                remaining = unprocessed_parts - self.batch_size
+                self.stdout.write(f"   {remaining} parts will remain for next run")
+        self.stdout.write("")
 
     def _verify_database_connection(self):
         """Verify database connection and print connection info"""
@@ -294,7 +354,7 @@ class Command(BaseCommand):
             raise CommandError(f"Serial number '{serial_number}' not found")
 
     def _import_all_serials(self, partner, product_class, product_attributes):
-        """Import all serial numbers with duplicate prevention"""
+        """Import all serial numbers with batch processing to prevent timeouts"""
         serials = SerialNumber.objects.all()
         total = serials.count()
         
@@ -302,6 +362,7 @@ class Command(BaseCommand):
         
         # DUPLICATE PREVENTION: Track processed serials to avoid re-processing
         processed_serials = set()
+        parts_processed_this_run = 0
         
         for i, serial in enumerate(serials, 1):
             # Skip if already processed (duplicate prevention)
@@ -316,11 +377,28 @@ class Command(BaseCommand):
                 self.stdout.write(f"Processing serial {i}/{total}: {serial.serial}")
             
             try:
+                parts_before = self.stats['parts_processed']
                 self._process_serial(serial, partner, product_class, product_attributes)
+                parts_after = self.stats['parts_processed']
+                parts_processed_this_serial = parts_after - parts_before
+                parts_processed_this_run += parts_processed_this_serial
+                
+                # Check if we've reached the batch limit
+                if parts_processed_this_run >= self.batch_size:
+                    remaining_parts = Part.objects.filter(oscar_imported=False).count()
+                    self.stdout.write(self.style.SUCCESS(
+                        f"✅ Batch limit reached! Processed {parts_processed_this_run} parts this run."
+                    ))
+                    if remaining_parts > 0:
+                        self.stdout.write(f"🔄 {remaining_parts} parts remaining for next run.")
+                        self.stdout.write("💡 Run the command again to process the next batch.")
+                    break
+                
                 if not self.verbose:
                     # Show progress every 10 serials
                     if i % 10 == 0 or i == total:
-                        self.stdout.write(f"Processed {i}/{total} serials")
+                        self.stdout.write(f"Processed {i}/{total} serials, {parts_processed_this_run} parts processed")
+                        
             except Exception as e:
                 self.stats['errors'] += 1
                 logger.error(f"Error processing serial {serial.serial}: {e}")
@@ -330,7 +408,7 @@ class Command(BaseCommand):
                     )
 
         self.stdout.write(
-            self.style.SUCCESS(f"Import complete. Success: {total - self.stats['errors']}/{total}")
+            self.style.SUCCESS(f"Import complete. Processed {parts_processed_this_run} parts in this batch.")
         )
 
     def _process_serial(self, serial, partner, product_class, product_attributes):
@@ -345,7 +423,7 @@ class Command(BaseCommand):
                 for parent_title in parent_titles:
                     child_titles = ChildTitle.objects.filter(parent=parent_title)
                     for child_title in child_titles:
-                        parts = Part.objects.filter(child_title=child_title)
+                        parts = Part.objects.filter(child_title=child_title, oscar_imported=False)
                         for part in parts:
                             if self.verbose:
                                 self.stdout.write(f"Would create product: {part.part_number}")
@@ -360,10 +438,18 @@ class Command(BaseCommand):
                         logger.warning(f"No category found for child title: {child_title.title}")
                         continue
                     
-                    # Get all parts in this child title
-                    parts = Part.objects.filter(child_title=child_title)
+                    # Get all unprocessed parts in this child title
+                    parts = Part.objects.filter(child_title=child_title, oscar_imported=False)
                     for part in parts:
-                        self._create_product_and_stock(part, oscar_category, partner, product_class, product_attributes)
+                        success = self._create_product_and_stock(part, oscar_category, partner, product_class, product_attributes)
+                        # Mark as imported if successful
+                        if success:
+                            part.oscar_imported = True
+                            part.oscar_imported_at = timezone.now()
+                            part.save()
+                            self.stats['parts_processed'] += 1
+                        else:
+                            self.stats['parts_skipped'] += 1
                         
         except Exception as e:
             logger.error(f"Error processing serial {serial.serial}: {e}")
@@ -472,61 +558,76 @@ class Command(BaseCommand):
         return category_map
 
     def _create_product_and_stock(self, part, category, partner, product_class, product_attributes):
-        """Create or update Oscar product and stock record - prevents duplicates"""
-        if self.dry_run:
-            if self.verbose:
-                self.stdout.write(f"Would create product: {part.part_number}")
-            return
-        
-        # DUPLICATE PREVENTION: Check for existing product by UPC (part number)
-        existing_product = Product.objects.filter(upc=part.part_number).first()
-        
-        if existing_product:
-            # Product exists, just ensure it's in the category
-            if category not in existing_product.categories.all():
-                existing_product.categories.add(category)
+        """Create or update Oscar product and stock record - prevents duplicates
+        Returns True if successful, False if error occurred"""
+        try:
+            if self.dry_run:
                 if self.verbose:
-                    self.stdout.write(f"Added existing product {part.part_number} to category")
+                    self.stdout.write(f"Would create product: {part.part_number}")
+                return True
             
-            self.stats['products_existing'] += 1
-            product = existing_product
-        else:
-            # DUPLICATE PREVENTION: Check by title as well in case UPC is missing
-            similar_products = Product.objects.filter(
-                title__icontains=part.part_number
-            )
+            # DUPLICATE PREVENTION: Check for existing product by UPC (part number)
+            existing_product = Product.objects.filter(upc=part.part_number).first()
             
-            duplicate_found = False
-            for similar in similar_products:
-                if similar.upc == part.part_number or similar.title == (part.usage_name or part.part_number):
-                    product = similar
-                    product.categories.add(category)
-                    self.stats['products_existing'] += 1
-                    duplicate_found = True
+            if existing_product:
+                # Product exists, just ensure it's in the category
+                if category not in existing_product.categories.all():
+                    existing_product.categories.add(category)
                     if self.verbose:
-                        self.stdout.write(f"Found duplicate product via search: {part.part_number}")
-                    break
-            
-            if not duplicate_found:
-                # Create new product
-                product = Product.objects.create(
-                    upc=part.part_number,
-                    title=part.usage_name or part.part_number,
-                    product_class=product_class,
-                    structure=Product.STANDALONE,
+                        self.stdout.write(f"Added existing product {part.part_number} to category")
+                
+                self.stats['products_existing'] += 1
+                product = existing_product
+                
+                # Skip stock/price updates for existing products to preserve manual changes
+                self._save_product_attributes(product, part, product_attributes)
+                return True  # Skip to avoid overwriting prices
+            else:
+                # DUPLICATE PREVENTION: Check by title as well in case UPC is missing
+                similar_products = Product.objects.filter(
+                    title__icontains=part.part_number
                 )
                 
-                self.stats['products_created'] += 1
-                # Add to category
-                product.categories.add(category)
-                if self.verbose:
-                    self.stdout.write(f"Created product: {part.part_number}")
-        
-        # Save product attributes for both new and existing products
-        self._save_product_attributes(product, part, product_attributes)
-        
-        # Create or update stock record
-        self._create_stock_record(part, product, partner)
+                duplicate_found = False
+                for similar in similar_products:
+                    if similar.upc == part.part_number or similar.title == (part.usage_name or part.part_number):
+                        product = similar
+                        product.categories.add(category)
+                        self.stats['products_existing'] += 1
+                        duplicate_found = True
+                        if self.verbose:
+                            self.stdout.write(f"Found duplicate product via search: {part.part_number}")
+                        break
+                
+                if not duplicate_found:
+                    # Create new product
+                    product = Product.objects.create(
+                        upc=part.part_number,
+                        title=part.usage_name or part.part_number,
+                        product_class=product_class,
+                        structure=Product.STANDALONE,
+                    )
+                    
+                    self.stats['products_created'] += 1
+                    # Add to category
+                    product.categories.add(category)
+                    if self.verbose:
+                        self.stdout.write(f"Created product: {part.part_number}")
+            
+            # Save product attributes for both new and existing products
+            self._save_product_attributes(product, part, product_attributes)
+            
+            # Create or update stock record
+            self._create_stock_record(part, product, partner)
+            
+            return True  # Success
+            
+        except Exception as e:
+            logger.error(f"Failed to create product/stock for {part.part_number}: {e}")
+            self.stats['errors'] += 1
+            if self.verbose:
+                self.stdout.write(self.style.ERROR(f"❌ Error creating {part.part_number}: {e}"))
+            return False  # Failed
 
     def _create_stock_record(self, part, product, partner):
         """Create or update stock record with pricing data - prevents duplicates"""
@@ -726,6 +827,9 @@ class Command(BaseCommand):
 
     def _print_final_stats(self):
         """Print final import statistics with detailed error breakdown"""
+        # Check if more parts remain to be processed
+        remaining_parts = Part.objects.filter(oscar_imported=False).count()
+        
         self.stdout.write("=== Import Statistics ===")
         self.stdout.write(f"Categories created: {self.stats['categories_created']}")
         self.stdout.write(f"Categories existing: {self.stats['categories_existing']}")
@@ -733,6 +837,16 @@ class Command(BaseCommand):
         self.stdout.write(f"Products existing: {self.stats['products_existing']}")
         self.stdout.write(f"Stock records created/updated: {self.stats['stock_created']}")
         self.stdout.write(f"Stock records unchanged: {self.stats['stock_unchanged']}")
+        self.stdout.write("=== Parts Processing ===")
+        self.stdout.write(f"Parts successfully processed: {self.stats['parts_processed']}")
+        self.stdout.write(f"Parts skipped (errors): {self.stats['parts_skipped']}")
+        
+        if remaining_parts > 0:
+            self.stdout.write(f"Parts remaining for next run: {remaining_parts}")
+            self.stdout.write("💡 Run the command again to process the next batch.")
+        else:
+            self.stdout.write(self.style.SUCCESS("🎉 All parts have been processed!"))
+            
         self.stdout.write("=== Error Breakdown ===")
         self.stdout.write(f"Total errors: {self.stats['errors']}")
         self.stdout.write(f"  └─ Pricing errors: {self.stats['pricing_errors']}")
@@ -747,6 +861,9 @@ class Command(BaseCommand):
         logger.info(f"Products existing: {self.stats['products_existing']}")
         logger.info(f"Stock records created/updated: {self.stats['stock_created']}")
         logger.info(f"Stock records unchanged: {self.stats['stock_unchanged']}")
+        logger.info(f"Parts successfully processed: {self.stats['parts_processed']}")
+        logger.info(f"Parts skipped (errors): {self.stats['parts_skipped']}")
+        logger.info(f"Parts remaining: {remaining_parts}")
         logger.info("=== ERROR BREAKDOWN ===")
         logger.info(f"Total errors: {self.stats['errors']}")
         logger.info(f"  └─ Pricing errors: {self.stats['pricing_errors']}")
@@ -762,6 +879,30 @@ class Command(BaseCommand):
         
         # Database verification for specific part
         self._verify_database_final()
+
+    def _print_completion_summary(self):
+        """Print a prominent completion summary with remaining parts count"""
+        remaining_parts = Part.objects.filter(oscar_imported=False).count()
+        total_parts = Part.objects.count()
+        processed_parts = total_parts - remaining_parts
+        
+        self.stdout.write("=" * 60)
+        self.stdout.write("🎯 IMPORT COMPLETION SUMMARY")
+        self.stdout.write("=" * 60)
+        
+        if remaining_parts == 0:
+            self.stdout.write(self.style.SUCCESS("🎉 IMPORT COMPLETE - ALL PARTS PROCESSED!"))
+            self.stdout.write(f"✅ Total parts processed: {processed_parts}/{total_parts}")
+        else:
+            completion_percentage = (processed_parts / total_parts) * 100
+            self.stdout.write(f"📊 Progress: {processed_parts}/{total_parts} parts ({completion_percentage:.1f}% complete)")
+            self.stdout.write(f"📦 Parts processed this batch: {self.stats['parts_processed']}")
+            self.stdout.write("")
+            self.stdout.write(self.style.WARNING(f"⏳ REMAINING TO IMPORT: {remaining_parts} parts"))
+            self.stdout.write("🔄 Run the command again to process the next batch:")
+            self.stdout.write(f"   python manage.py import_to_oscar --batch-size {self.batch_size}")
+        
+        self.stdout.write("=" * 60)
 
     def _verify_database_final(self):
         """Final database verification"""

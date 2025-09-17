@@ -39,6 +39,8 @@ class Part(models.Model):
     lr = models.CharField(max_length=10, blank=True, null=True)  # Left/Right
     remark = models.TextField(blank=True, null=True)
     nn_note = models.TextField(blank=True, null=True)
+    oscar_imported = models.BooleanField(default=False, help_text="Tracks if this part has been imported to Oscar")
+    oscar_imported_at = models.DateTimeField(null=True, blank=True, help_text="When this part was imported to Oscar")
 
     def __str__(self):
         return f"{self.part_number} - {self.usage_name}"

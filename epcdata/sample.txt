@@ -1,44 +1,20 @@
-Sent 0 notifications and 0 messages
->>> print(f"Immediately after save: £{stock_record.price}")
-Immediately after save: £277.59
->>>
->>> # Refresh from database
->>> stock_record.refresh_from_db()
->>> print(f"After refresh_from_db: £{stock_record.price}")
-After refresh_from_db: £277.59
->>>
->>> # Wait a few seconds and check again
->>> print("Waiting 5 seconds...")
-Waiting 5 seconds...
->>> time.sleep(5)
-
-
-
-
->>>
->>> stock_record.refresh_from_db()
->>> print(f"After 5 seconds: £{stock_record.price}")
-After 5 seconds: £277.59
->>>
->>> # Check for any background tasks or signals
->>> print("\nChecking for any async tasks or signals that might be running...")
-
-Checking for any async tasks or signals that might be running...
->>>
->>> # Check if there are any periodic tasks
->>> try:
-...     from django_celery_beat.models import PeriodicTask
-...     tasks = PeriodicTask.objects.filter(enabled=True)
-...     for task in tasks:
-...         print(f"Active periodic task: {task.name} - {task.task}")
-... except ImportError:
-...     print("No Celery Beat tasks found")
-...
-No Celery Beat tasks found
->>> # Restore original price
->>> stock_record.price = Decimal('239.57')
->>> stock_record.save()
-Sending alerts for 'KUNUCKLE ASSEMBLY-FRONT STEERING'
-Sent 0 notifications and 0 messages
->>> print(f"Restored to: £{stock_record.price}")
-Restored to: £239.57
+ Database Host: localhost
+👤 Database User: postgres
+🔌 Database Port: 5432
+🔧 Database Engine: django.db.backends.postgresql
+✅ ACTUAL CONNECTION:
+   Database: vansdirect
+   User: postgres
+   Host: ::1
+   Port: 5432
+============================================================
+📊 EXISTING DATA SUMMARY:
+   Existing Categories: 204
+   Existing Products: 1479
+   Existing Stock Records: 1479
+   Source Serials: 1
+   Source Parts: 1844
+   Source Pricing Records: 1797
+============================================================
+❌ Error logged to: import_to_oscar_20250917_134201.log
+CommandError: Import failed: Invalid field name(s) for model ProductAttribute: 'help_text'.
