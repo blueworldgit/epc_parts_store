@@ -78,6 +78,25 @@
                     
                     <div class="product-desc">
                         <p><span>{% trans "UPC:" %} {{ product.upc|default:"Not set" }}</span></p>
+                        
+                        {# Display call-out order if available #}
+                        {% get_call_out_order product as call_out %}
+                        {% if call_out %}
+                            <p class="text-info"><strong><i class="fa fa-map-marker"></i> {% trans "This is part" %} #{{ call_out }} {% trans "from the diagram" %}</strong></p>
+                        {% endif %}
+                        
+                        {# Display orientation if available #}
+                        {% get_orientation product as orientation %}
+                        {% if orientation %}
+                            <p><span class="text-muted">{% trans "Position:" %} {{ orientation }}</span></p>
+                        {% endif %}
+                        
+                        {# Display part remarks if available #}
+                        {% get_part_remark product as remark %}
+                        {% if remark %}
+                            <p><span class="text-muted">{% trans "Note:" %} {{ remark }}</span></p>
+                        {% endif %}
+                        
                         <p><small>{% debug_product_info product %}</small></p>
                         {% if product.description %}
                             <p>{{ product.description|linebreaks }}</p>

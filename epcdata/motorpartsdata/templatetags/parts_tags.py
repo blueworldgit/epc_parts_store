@@ -224,3 +224,31 @@ def remove_part_number(title):
         return title
         
     return cleaned_title.strip()
+
+@register.simple_tag
+def get_product_attribute(product, attribute_code):
+    """Get a product attribute value by code."""
+    try:
+        from oscar.apps.catalogue.models import ProductAttributeValue
+        attr_value = ProductAttributeValue.objects.filter(
+            product=product,
+            attribute__code=attribute_code
+        ).first()
+        return attr_value.value_text if attr_value else None
+    except Exception:
+        return None
+
+@register.simple_tag
+def get_call_out_order(product):
+    """Get the call-out order for a product."""
+    return get_product_attribute(product, 'call_out_order')
+
+@register.simple_tag
+def get_orientation(product):
+    """Get the orientation (L/R) for a product."""
+    return get_product_attribute(product, 'orientation')
+
+@register.simple_tag  
+def get_part_remark(product):
+    """Get the part remark for a product."""
+    return get_product_attribute(product, 'part_remark')

@@ -12,6 +12,7 @@ Usage:
 """
 
 from django.core.management.base import BaseCommand, CommandError
+from django.core.management import call_command
 from django.db import transaction, connection
 from django.db.models import Q
 from django.utils import timezone
@@ -21,7 +22,7 @@ from collections import defaultdict
 
 # Import models
 from motorpartsdata.models import SerialNumber, ParentTitle, ChildTitle, Part, PricingData
-from oscar.apps.catalogue.models import Product, ProductClass, Category
+from oscar.apps.catalogue.models import Product, ProductClass, Category, ProductAttribute, ProductAttributeValue
 from oscar.apps.partner.models import Partner, StockRecord
 from oscar.core.loading import get_model
 
@@ -130,16 +131,31 @@ class Command(BaseCommand):
             # Get or create product class
             product_class = self._get_or_create_product_class()
             
+            # Get or create product attributes for additional part data
+            product_attributes = self._get_or_create_product_attributes(product_class)
+            
             # Import data
             if options['serial']:
                 logger.info(f"Starting single serial import: {options['serial']}")
-                self._import_single_serial(options['serial'], partner, product_class)
+                self._import_single_serial(options['serial'], partner, product_class, product_attributes)
             else:
                 logger.info("Starting full import of all serials")
-                self._import_all_serials(partner, product_class)
+                self._import_all_serials(partner, product_class, product_attributes)
                 
             # Print final statistics
             self._print_final_stats()
+            
+            # Automatically update prices in Oscar after import
+            if not self.dry_run:
+                self.stdout.write("🔄 Running price update to synchronize with Oscar...")
+                try:
+                    call_command('update_prices', '--sync-to-oscar', verbosity=1 if self.verbose else 0)
+                    self.stdout.write(self.style.SUCCESS("✅ Price update completed successfully"))
+                except Exception as e:
+                    self.stdout.write(self.style.WARNING(f"⚠️ Price update failed: {e}"))
+                    logger.warning(f"Price update failed: {e}")
+            else:
+                self.stdout.write("🏃 Skipping price update (dry-run mode)")
             
             logger.info("Import completed successfully")
             self.stdout.write(f"📝 Full log saved to: {log_file}")
@@ -236,19 +252,48 @@ class Command(BaseCommand):
             # In dry run, just return a mock product class
             return ProductClass(name='Motor Parts', slug='motor-parts')
 
-    def _import_single_serial(self, serial_number, partner, product_class):
+    def _get_or_create_product_attributes(self, product_class):
+        """Create or get product attributes for additional part data"""
+        attributes = {}
+        
+        # Define the attributes we want to create
+        attr_definitions = [
+            ('call_out_order', 'Call Out Order', 'integer'),
+            ('orientation', 'Orientation', 'text'),
+            ('part_remark', 'Part Remark', 'text'),
+            ('part_note', 'Part Note', 'text'),
+        ]
+        
+        if not self.dry_run:
+            for code, name, attr_type in attr_definitions:
+                attr, created = ProductAttribute.objects.get_or_create(
+                    code=code,
+                    defaults={
+                        'name': name,
+                        'type': attr_type,
+                        'product_class': None,  # Global attribute
+                        'required': False,
+                    }
+                )
+                attributes[code] = attr
+                if created and self.verbose:
+                    self.stdout.write(f"Created product attribute: {name}")
+        
+        return attributes
+
+    def _import_single_serial(self, serial_number, partner, product_class, product_attributes):
         """Import a single serial number"""
         try:
             serial = SerialNumber.objects.get(serial=serial_number)
             self.stdout.write(f"Starting import for serial: {serial_number}")
-            self._process_serial(serial, partner, product_class)
+            self._process_serial(serial, partner, product_class, product_attributes)
             self.stdout.write(
                 self.style.SUCCESS(f"Successfully imported serial: {serial_number}")
             )
         except SerialNumber.DoesNotExist:
             raise CommandError(f"Serial number '{serial_number}' not found")
 
-    def _import_all_serials(self, partner, product_class):
+    def _import_all_serials(self, partner, product_class, product_attributes):
         """Import all serial numbers with duplicate prevention"""
         serials = SerialNumber.objects.all()
         total = serials.count()
@@ -271,7 +316,7 @@ class Command(BaseCommand):
                 self.stdout.write(f"Processing serial {i}/{total}: {serial.serial}")
             
             try:
-                self._process_serial(serial, partner, product_class)
+                self._process_serial(serial, partner, product_class, product_attributes)
                 if not self.verbose:
                     # Show progress every 10 serials
                     if i % 10 == 0 or i == total:
@@ -288,7 +333,7 @@ class Command(BaseCommand):
             self.style.SUCCESS(f"Import complete. Success: {total - self.stats['errors']}/{total}")
         )
 
-    def _process_serial(self, serial, partner, product_class):
+    def _process_serial(self, serial, partner, product_class, product_attributes):
         """Process a single serial number and its parts using proper category hierarchy"""
         try:
             # Create proper category hierarchy: Vehicle Brand -> Serial -> Parent -> Child
@@ -318,7 +363,7 @@ class Command(BaseCommand):
                     # Get all parts in this child title
                     parts = Part.objects.filter(child_title=child_title)
                     for part in parts:
-                        self._create_product_and_stock(part, oscar_category, partner, product_class)
+                        self._create_product_and_stock(part, oscar_category, partner, product_class, product_attributes)
                         
         except Exception as e:
             logger.error(f"Error processing serial {serial.serial}: {e}")
@@ -426,7 +471,7 @@ class Command(BaseCommand):
         
         return category_map
 
-    def _create_product_and_stock(self, part, category, partner, product_class):
+    def _create_product_and_stock(self, part, category, partner, product_class, product_attributes):
         """Create or update Oscar product and stock record - prevents duplicates"""
         if self.dry_run:
             if self.verbose:
@@ -476,6 +521,9 @@ class Command(BaseCommand):
                 product.categories.add(category)
                 if self.verbose:
                     self.stdout.write(f"Created product: {part.part_number}")
+        
+        # Save product attributes for both new and existing products
+        self._save_product_attributes(product, part, product_attributes)
         
         # Create or update stock record
         self._create_stock_record(part, product, partner)
@@ -550,6 +598,38 @@ class Command(BaseCommand):
                 
                 if self.verbose:
                     self.stdout.write(f"Created stock record for {part.part_number}")
+
+    def _save_product_attributes(self, product, part, product_attributes):
+        """Save additional part data as product attributes"""
+        if self.dry_run or not product_attributes:
+            return
+            
+        # Mapping of part fields to attribute codes
+        attribute_mappings = {
+            'call_out_order': part.call_out_order,
+            'orientation': part.lr,
+            'part_remark': part.remark,
+            'part_note': part.nn_note,
+        }
+        
+        for attr_code, value in attribute_mappings.items():
+            if value and attr_code in product_attributes:
+                attr = product_attributes[attr_code]
+                
+                # Get or create the attribute value
+                attr_value, created = ProductAttributeValue.objects.get_or_create(
+                    product=product,
+                    attribute=attr,
+                    defaults={'value_text': str(value) if value else ''}
+                )
+                
+                # Update value if it changed
+                if not created and str(attr_value.value_text) != str(value):
+                    attr_value.value_text = str(value)
+                    attr_value.save()
+                
+                if self.verbose and created:
+                    self.stdout.write(f"  Added attribute {attr.name}: {value}")
 
     def _get_price_from_pricing_data(self, part):
         """Get price from PricingData model with strict error handling"""
@@ -639,88 +719,10 @@ class Command(BaseCommand):
             return 0.00
 
     def _get_stock_info(self, part):
-        """Get stock quantity from PricingData model with strict error handling"""
-        try:
-            pricing_data = PricingData.objects.filter(part_number=part).first()
-            
-            if not pricing_data:
-                # ERROR: No pricing data found - log as error and return 0
-                error_msg = f"No pricing data found for part {part.part_number}"
-                logger.error(error_msg)
-                self.stats['errors'] += 1
-                self.stats['stock_errors'] += 1
-                if self.verbose:
-                    self.stdout.write(self.style.ERROR(f"❌ {error_msg}"))
-                return 0
-            
-            # Check for stock_available field (correct field name in PricingData model)
-            if hasattr(pricing_data, 'stock_available') and pricing_data.stock_available:
-                stock_str = str(pricing_data.stock_available).strip()
-                
-                # Handle different stock value formats with proper validation
-                if stock_str.lower() == 'nil' or stock_str == '0':
-                    stock = 0
-                elif stock_str.endswith('+'):
-                    try:
-                        # Extract number from "10+" format and add 1 for "+" indicator
-                        base_stock = int(stock_str.replace('+', ''))
-                        stock = base_stock + 1  # "10+" becomes 11, "5+" becomes 6, etc.
-                        if self.verbose:
-                            self.stdout.write(f"📦 Stock '{stock_str}' converted to {stock} for {part.part_number}")
-                    except ValueError:
-                        # ERROR: Invalid '+' format - log as error and return 0
-                        error_msg = f"Invalid stock format '{stock_str}' for part {part.part_number}"
-                        logger.error(error_msg)
-                        self.stats['errors'] += 1
-                        self.stats['stock_errors'] += 1
-                        if self.verbose:
-                            self.stdout.write(self.style.ERROR(f"❌ {error_msg}"))
-                        return 0
-                else:
-                    try:
-                        # Parse regular numeric values (handle commas)
-                        stock = int(float(stock_str.replace(',', '')))
-                    except (ValueError, TypeError):
-                        # ERROR: Invalid stock format - log as error and return 0
-                        error_msg = f"Invalid stock format '{stock_str}' for part {part.part_number}"
-                        logger.error(error_msg)
-                        self.stats['errors'] += 1
-                        self.stats['stock_errors'] += 1
-                        if self.verbose:
-                            self.stdout.write(self.style.ERROR(f"❌ {error_msg}"))
-                        return 0
-                
-                # Validate stock is not negative
-                if stock < 0:
-                    error_msg = f"Negative stock value {stock} for part {part.part_number}, setting to 0"
-                    logger.warning(error_msg)
-                    self.stats['validation_errors'] += 1
-                    if self.verbose:
-                        self.stdout.write(self.style.WARNING(f"⚠️ {error_msg}"))
-                    return 0
-                
-                if self.verbose:
-                    self.stdout.write(f"✅ Valid stock data for {part.part_number}: {stock}")
-                return stock
-            else:
-                # ERROR: No stock_available field or empty value - log as error and return 0
-                error_msg = f"No stock_available field or empty value for part {part.part_number}"
-                logger.error(error_msg)
-                self.stats['errors'] += 1
-                self.stats['stock_errors'] += 1
-                if self.verbose:
-                    self.stdout.write(self.style.ERROR(f"❌ {error_msg}"))
-                return 0
-                
-        except Exception as e:
-            # ERROR: Unexpected exception - log as error and return 0
-            error_msg = f"Exception getting stock for {part.part_number}: {str(e)}"
-            logger.error(error_msg)
-            self.stats['errors'] += 1
-            self.stats['stock_errors'] += 1
-            if self.verbose:
-                self.stdout.write(self.style.ERROR(f"❌ {error_msg}"))
-            return 0
+        """Get stock quantity - always return 50 for all parts"""
+        if self.verbose:
+            self.stdout.write(f"📦 Setting stock to 50 for {part.part_number}")
+        return 50
 
     def _print_final_stats(self):
         """Print final import statistics with detailed error breakdown"""

@@ -1,0 +1,4 @@
+& C:/pythonstuff/vansdirect/epc_parts_store/env/Scripts/Activate.ps1; cd c:\pythonstuff\vansdirect\epc_parts_store\epcdata; python manage.py shell -c "from motorpartsdata.models import Part; parts = Part.objects.all()[:5]; print('Sample parts with call_out_order:'); [print(f'Part: {p.part_number} | Call-out: {p.call_out_order} | Usage: {p.usage_name[:50]}...') for p in parts]"
+
+
+it will bet better to do PS C:\pythonstuff\vansdirect> & C:/pythonstuff/vansdirect/epc_parts_store/env/Scripts/Activate.ps1 (activate env) and cd epc_parts_store cd epcdata and run your script in one go as the terminal keeps switching
