@@ -433,7 +433,7 @@ class Command(BaseCommand):
             for parent_title in ParentTitle.objects.filter(serial_number=serial):
                 for child_title in ChildTitle.objects.filter(parent=parent_title):
                     # Get the category for this child title
-                    oscar_category = category_map.get(child_title.id)
+                    oscar_category = category_map.get(f"child_{child_title.id}")
                     if not oscar_category:
                         logger.warning(f"No category found for child title: {child_title.title}")
                         continue
@@ -553,7 +553,7 @@ class Command(BaseCommand):
                 else:
                     self.stats['categories_existing'] += 1
                 
-                category_map[child_title.id] = child_category
+                category_map[f"child_{child_title.id}"] = child_category
         
         return category_map
 
