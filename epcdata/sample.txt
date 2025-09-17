@@ -1,778 +1,127 @@
-ac Airflow', 'On Vehicle Attachments&Tools', 'JE863A001 - Instrument Panel  Wire Harnesses', 'JE11CL001 - Coolant Pump And Inl&OtltTube&Thermostat', 'JE11CU001 - LP-EGR intake pipe&Accessory', 'JE11CR001 
-- Sensor&Harness', 'JE125A003 - Rear Drive Axle（YUE JIN）', 'JE830A001 - Body Interior & Exterior Electronics', 'JE526A001 - Baffle Plate-Ware', 'JE241A001 - Front Brakes', 'JE243A001 - Park Brake', 'JE751A001 - Vehicle Tele-Communication', 'JE863A001 - Instrument Panel  Wire Harnesses', 'JE11CL001 - Coolant Pump And Inl&OtltTube&Thermostat', 'JE11CU001 - LP-EGR intake pipe&Accessory', 'JE11CR001 - Sensor&Harness', 'JE125A002 - Rear  Axle （Front drive vehicle）']
-   └─ JE11CF001 - SHAFT-BALANCER (16 parts)
-      ✅ In Oscar: ['JE11CF001 - SHAFT-BALANCER', 'JE11CF001 - SHAFT-BALANCER']
-   └─ JE11CK001 - Sump&Oil Suction Pipe&Dipstick (19 parts)
-      ✅ In Oscar: ['JE11CL001 - Coolant Pump And Inl&OtltTube&Thermostat', 'JE11CH001 - Exhaust Elbow&
-Turbocharger', 'JE11CI001 - Fuel System', 'JE11CK001 - Sump&Oil Suction Pipe&Dipstick', 'JE11CL001 - Coolant Pump And Inl&OtltTube&Thermostat', 'JE11CH001 - Exhaust Elbow&Turbocharger', 'JE11CI001 - Fuel 
-System', 'JE11CK001 - Sump&Oil Suction Pipe&Dipstick']
-   └─ JE11CP001 - Timing Drive (22 parts)
-      ✅ In Oscar: ['JE11CL001 - Coolant Pump And Inl&OtltTube&Thermostat', 'JE11CE001 - Crankshaft Rod
-', 'JE11CD001 - Head Cover&PCV', 'JE11CK001 - Sump&Oil Suction Pipe&Dipstick', 'JE11CP001 - Timing Drive', 'JE11CL001 - Coolant Pump And Inl&OtltTube&Thermostat', 'JE11CE001 - Crankshaft Rod', 'JE11CD001 
-- Head Cover&PCV', 'JE11CK001 - Sump&Oil Suction Pipe&Dipstick', 'JE11CP001 - Timing Drive']
-
-📁 Parent: Power Transmission
-   Child titles: 11
-   └─ JE122A001 - Clutch(MT) (3 parts)
-      ✅ In Oscar: ['JE11CQ001 - Accessory&AccessoryDrive', 'JE11CS001 - EGR ASM', 'JE11CP001 - Timing 
-Drive', 'JE122A001 - Clutch(MT)', 'JE122A002 - Clutch(PHEV)', 'JE11CQ001 - Accessory&AccessoryDrive', 
-'JE11CS001 - EGR ASM', 'JE11CP001 - Timing Drive', 'JE122A001 - Clutch(MT)', 'JE122A002 - Clutch(PHEV)']
-   └─ JE122A002 - Clutch(PHEV) (1 parts)
-      ✅ In Oscar: ['JE11CQ001 - Accessory&AccessoryDrive', 'JE11CS001 - EGR ASM', 'JE11CP001 - Timing 
-Drive', 'JE122A001 - Clutch(MT)', 'JE122A002 - Clutch(PHEV)', 'JE11CQ001 - Accessory&AccessoryDrive', 
-'JE11CS001 - EGR ASM', 'JE11CP001 - Timing Drive', 'JE122A001 - Clutch(MT)', 'JE122A002 - Clutch(PHEV)']
-   └─ JE121A001 - Manual transmission assembly（6MT Front/Back drive） (3 parts)
-      ✅ In Oscar: ['JE121A001 - Manual transmission assembly（6MT Front/Back drive）']
-   └─ JE123A001 - Propeller Shaft (10 parts)
-      ✅ In Oscar: ['JE123A001 - Propeller Shaft']
-   └─ JE125A002 - Rear  Axle （Front drive vehicle） (1 parts)
-      ✅ In Oscar: ['Frontinterior Hvac Airflow', 'JE123A001 - Propeller Shaft', 'JE125A002 - Rear  Axl
-e （Front drive vehicle）', 'JE125A003 - Rear Drive Axle（YUE JIN）', 'JE242A001 - Rear Brakes', 'JE125A002 - Rear  Axle （Front drive vehicle）']
-   └─ JE125A003 - Rear Drive Axle（YUE JIN） (78 parts)
-      ✅ In Oscar: ['JE125A003 - Rear Drive Axle（YUE JIN）']
-   └─ JE125A001 - Rear Drive Axle (3 parts)
-      ✅ In Oscar: ['JE125A001 - Rear Drive Axle']
-   └─ JE125A004 - Rear Electric  Drive Axle (20 parts)
-      ✅ In Oscar: ['Emission Exhaust System', 'JE125A004 - Rear Electric  Drive Axle']
-   └─ JE121B001 - Transmission CSC and  Operating Mechanism(6MT back drive) (32 parts)
-      ✅ In Oscar: ['JE121B001 - Transmission CSC and  Operating Mechanism(6MT back drive)']
-   └─ JE121C001 - Transmission Fork Components(SAGW-6MT back drive) (41 parts)
-      ✅ In Oscar: ['JE121C001 - Transmission Fork Components(SAGW-6MT back drive)']
-   └─ JE121D001 - Transmission Main Shaft And Gear(6MT back drive) (53 parts)
-      ✅ In Oscar: ['JE121D001 - Transmission Main Shaft And Gear(6MT back drive)']
-
-📁 Parent: Powertrain Control&Diagnostic
-   Child titles: 1
-   └─ JE131A001 - Engine Management (4 parts)
-      ✅ In Oscar: ['Frontexterior Hvac Airflow', 'JE312A002 - Refrigerant Plumbing & Hardware-Electric
- vehicle', 'JE312A003 - Refrigerant Plumbing & Hardware-FCV', 'JE312A001 - Refrigerant Plumbing & Hardware', 'JE11CR001 - Sensor&Harness', 'JE131A001 - Engine Management', 'Rear View Mirror', 'JE160A001 - Exhaust system', 'JE312A002 - Refrigerant Plumbing & Hardware-Electric vehicle', 'JE312A003 - Refrigerant Plumbing & Hardware-FCV', 'JE312A001 - Refrigerant Plumbing & Hardware', 'JE865A001 - Chassis Harnesses', 'JE11CS001 - EGR ASM', 'JE11CR001 - Sensor&Harness', 'JE131A001 - Engine Management']        
-
-📁 Parent: Powertrain Driver Interface
-   Child titles: 5
-   └─ JE151A001 - Accelerator Pedal (2 parts)
-      ✅ In Oscar: ['JE151A001 - Accelerator Pedal', 'JE151A001 - Accelerator Pedal']
-   └─ JE153A001 - Clutch Apply (13 parts)
-      ✅ In Oscar: ['JE153A001 - Clutch Apply', 'JE153A001 - Clutch Apply']
-   └─ JE152A002 - Transmission Shift Actuation-AMT (1 parts)
-      ✅ In Oscar: ['Entertainment', 'Frontexterior Hvac Airflow', 'JE861A001 - EngineCompartmentHarnes
-s', 'JE151A001 - Accelerator Pedal', 'JE152A002 - Transmission Shift Actuation-AMT', 'JE152A003 - Transmission Shift Actuation-AT、Electric vehicle', 'JE152A001 - Transmission Shift Actuation-MT', 'Side Closures', 'JE246A001 - Brake Pedal', 'JE243A001 - Park Brake', 'JE571A001 - Hood', 'JE861A001 - EngineCompartmentHarness', 'JE151A001 - Accelerator Pedal', 'JE152A002 - Transmission Shift Actuation-AMT', 
-'JE152A003 - Transmission Shift Actuation-AT、Electric vehicle', 'JE152A001 - Transmission Shift Actuation-MT']
-   └─ JE152A003 - Transmission Shift Actuation-AT、Electric vehicle (2 parts)
-      ✅ In Oscar: ['Entertainment', 'Frontexterior Hvac Airflow', 'JE861A001 - EngineCompartmentHarnes
-s', 'JE151A001 - Accelerator Pedal', 'JE152A002 - Transmission Shift Actuation-AMT', 'JE152A003 - Transmission Shift Actuation-AT、Electric vehicle', 'JE152A001 - Transmission Shift Actuation-MT', 'Side Closures', 'JE246A001 - Brake Pedal', 'JE243A001 - Park Brake', 'JE571A001 - Hood', 'JE861A001 - EngineCompartmentHarness', 'JE151A001 - Accelerator Pedal', 'JE152A002 - Transmission Shift Actuation-AMT', 
-'JE152A003 - Transmission Shift Actuation-AT、Electric vehicle', 'JE152A001 - Transmission Shift Actuation-MT']
-   └─ JE152A001 - Transmission Shift Actuation-MT (4 parts)
-      ✅ In Oscar: ['JE152A001 - Transmission Shift Actuation-MT']
-
-📁 Parent: Rear Closure
-   Child titles: 1
-   └─ JE561C001 - Rear Door Handle and Door Lock (2 parts)
-      ✅ In Oscar: ['JE561C001 - Rear Door Handle and Door Lock', 'JE551B001 - Front Door Handle and Lo
-ck', 'JE561C001 - Rear Door Handle and Door Lock', 'JE551B001 - Front Door Handle and Lock']
-
-📁 Parent: Rear Lamp
-   Child titles: 1
-   └─ JE660A001 - Rear Lamp (6 parts)
-      ✅ In Oscar: ['JE660A001 - Rear Lamp']
-
-📁 Parent: Rear View Mirror
-   Child titles: 1
-   └─ JE580A001 - Rear View Mirror (10 parts)
-      ✅ In Oscar: ['JE580A001 - Rear View Mirror']
-
-📁 Parent: Rearinterior Hvac Airflow
-   Child titles: 3
-   └─ JE334A002 - Interior Heating Pipe-FCV (1 parts)
-      ✅ In Oscar: ['JE830A001 - Body Interior & Exterior Electronics', 'JE184A001 - Urea system', 'JE3
-12A002 - Refrigerant Plumbing & Hardware-Electric vehicle', 'JE312A003 - Refrigerant Plumbing & Hardware-FCV', 'JE312A004 - Refrigerant Plumbing & Hardware-PHEV', 'JE312A001 - Refrigerant Plumbing & Hardware', 'Interior Acoustic Syetem', 'Interior Lamp', 'On Vehicle Attachments&Tools', 'JE863A001 - Instrument Panel  Wire Harnesses', 'JE11CQ001 - Accessory&AccessoryDrive', 'JE153A001 - Clutch Apply', 'JE152A003 - Transmission Shift Actuation-AT、Electric vehicle', 'JE152A001 - Transmission Shift Actuation-MT', 'JE660A001 - Rear Lamp', 'Rear View Mirror', 'JE334A002 - Interior Heating Pipe-FCV', 'JE334A001 
-- Interior Heating Pipe', 'JE551A001 - Front Side Closure', 'Wiper & Washer', 'JE681A002 - Wiper（RHD 
-）', 'JE830A001 - Body Interior & Exterior Electronics', 'JE691A001 - Body Exterior Trim', 'JE526A001 
-- Baffle Plate-Ware', 'JE843A001 - Battery&Electrical Energy Storage', 'JE844A002 - PowerInverter', 'JE751A001 - Vehicle Tele-Communication', 'JE821A001 - Passive Entry Passive Start', 'JE713A001 - Auxiliary Information Electronics', 'JE160A001 - Exhaust system', 'JE321A001 - Front Interior HVAC Airflow', 'JE184A001 - Urea system', 'JE312A002 - Refrigerant Plumbing & Hardware-Electric vehicle', 'JE312A003 - Refrigerant Plumbing & Hardware-FCV', 'JE312A004 - Refrigerant Plumbing & Hardware-PHEV', 'JE312A001 - Refrigerant Plumbing & Hardware', 'JE863A001 - Instrument Panel  Wire Harnesses', 'JE11CQ001 - Accessory&AccessoryDrive', 'JE152A003 - Transmission Shift Actuation-AT、Electric vehicle', 'JE152A001 - 
-Transmission Shift Actuation-MT', 'JE334A002 - Interior Heating Pipe-FCV', 'JE334A001 - Interior Heating Pipe', 'JE812A001 - ParkDistanceControlSystem', 'JE551A001 - Front Side Closure']
-   └─ JE334A001 - Interior Heating Pipe (3 parts)
-      ✅ In Oscar: ['JE334A001 - Interior Heating Pipe']
-   └─ JE331A001 - Rear Interior Airflow (2 parts)
-      ✅ In Oscar: ['JE331A001 - Rear Interior Airflow', 'JE331A001 - Rear Interior Airflow']
-
-📁 Parent: Safety Belt
-   Child titles: 1
-   └─ JE460A001 - Side Panel&Roof Safety Belt (4 parts)
-      ✅ In Oscar: ['JE460A001 - Side Panel&Roof Safety Belt', 'JE460A001 - Side Panel&Roof Safety Belt
-']
-
-📁 Parent: Safety&Avoidance
-   Child titles: 2
-   └─ JE811A001 - Air Bag Control Unit (4 parts)
-      ✅ In Oscar: ['JE811A001 - Air Bag Control Unit']
-   └─ JE812A001 - ParkDistanceControlSystem (8 parts)
-      ✅ In Oscar: ['JE812A001 - ParkDistanceControlSystem', 'JE812A001 - ParkDistanceControlSystem']  
-
-📁 Parent: Seats
-   Child titles: 11
-   └─ JE421AH001 - Arrangement for VAN Vehicle (UK、Hong Kong) (2 parts)
-      ✅ In Oscar: ['JE421AH001 - Arrangement for VAN Vehicle (UK、Hong Kong)', "JE421AE001 - Seat Arra
-ngement of Shang Jie's 11 12and 14 Seats (Australia)", 'JE421AI001 - Three Seats Arrangement for Chassis Vehicle (UK、Hong Kong)', 'JE421AF001 - Three Seats Arrangement for VAN Vehicle (Australia、New Zealand)', 'JE421AG001 - Two/Three Seats Arrangement for Chassis Vehicle (Australia、New Zealand)']      
-   └─ JE421B002 - Frong Seat（right ） (13 parts)
-      ✅ In Oscar: ['JE421B002 - Frong Seat（right ）', 'JE421B001 - Front Seat（left ）']
-   └─ JE421B001 - Front Seat（left ） (16 parts)
-      ✅ In Oscar: ['JE421B002 - Frong Seat（right ）', 'JE421B001 - Front Seat（left ）']
-   └─ JE421B004 - Front Seat（Left） (3 parts)
-      ✅ In Oscar: ['JE421B001 - Front Seat（left ）', 'JE421B004 - Front Seat（Left）']
-   └─ JE421B003 - Front Seat（Right） (1 parts)
-      ✅ In Oscar: ['JE421B002 - Frong Seat（right ）', 'JE421B001 - Front Seat（left ）', 'JE421B004 -
- Front Seat（Left）', 'JE421B003 - Front Seat（Right）', 'JE421B002 - Frong Seat（right ）', 'JE421B001 - Front Seat（left ）', 'JE421B004 - Front Seat（Left）', 'JE421B003 - Front Seat（Right）']        
-   └─ JE421AE001 - Seat Arrangement of Shang Jie's 11 12and 14 Seats (Australia) (1 parts)
-      ✅ In Oscar: ['JE421AH001 - Arrangement for VAN Vehicle (UK、Hong Kong)', "JE421AE001 - Seat Arra
-ngement of Shang Jie's 11 12and 14 Seats (Australia)", 'JE421AI001 - Three Seats Arrangement for Chassis Vehicle (UK、Hong Kong)', 'JE421AF001 - Three Seats Arrangement for VAN Vehicle (Australia、New Zealand)', 'JE421AG001 - Two/Three Seats Arrangement for Chassis Vehicle (Australia、New Zealand)']      
-   └─ JE421B005 - Subdrivers Integral Double Seat (7 parts)
-      ✅ In Oscar: ['JE421B005 - Subdrivers Integral Double Seat', 'JE421B006 - Subdrivers Split Double
- Seat', 'JE421B005 - Subdrivers Integral Double Seat', 'JE421B006 - Subdrivers Split Double Seat']    
-   └─ JE421B006 - Subdrivers Split Double Seat (3 parts)
-      ✅ In Oscar: ['JE421B005 - Subdrivers Integral Double Seat', 'JE421B006 - Subdrivers Split Double
- Seat', 'JE421B005 - Subdrivers Integral Double Seat', 'JE421B006 - Subdrivers Split Double Seat']    
-   └─ JE421AI001 - Three Seats Arrangement for Chassis Vehicle (UK、Hong Kong) (1 parts)
-      ✅ In Oscar: ['JE421AH001 - Arrangement for VAN Vehicle (UK、Hong Kong)', "JE421AE001 - Seat Arra
-ngement of Shang Jie's 11 12and 14 Seats (Australia)", 'JE421AI001 - Three Seats Arrangement for Chassis Vehicle (UK、Hong Kong)', 'JE421AF001 - Three Seats Arrangement for VAN Vehicle (Australia、New Zealand)', 'JE421AG001 - Two/Three Seats Arrangement for Chassis Vehicle (Australia、New Zealand)']      
-   └─ JE421AF001 - Three Seats Arrangement for VAN Vehicle (Australia、New Zealand) (1 parts)
-      ✅ In Oscar: ['JE421AH001 - Arrangement for VAN Vehicle (UK、Hong Kong)', "JE421AE001 - Seat Arra
-ngement of Shang Jie's 11 12and 14 Seats (Australia)", 'JE421AI001 - Three Seats Arrangement for Chassis Vehicle (UK、Hong Kong)', 'JE421AF001 - Three Seats Arrangement for VAN Vehicle (Australia、New Zealand)', 'JE421AG001 - Two/Three Seats Arrangement for Chassis Vehicle (Australia、New Zealand)']      
-   └─ JE421AG001 - Two/Three Seats Arrangement for Chassis Vehicle (Australia、New Zealand) (2 parts)
-      ✅ In Oscar: ['JE421AH001 - Arrangement for VAN Vehicle (UK、Hong Kong)', "JE421AE001 - Seat Arra
-ngement of Shang Jie's 11 12and 14 Seats (Australia)", 'JE421AI001 - Three Seats Arrangement for Chassis Vehicle (UK、Hong Kong)', 'JE421AF001 - Three Seats Arrangement for VAN Vehicle (Australia、New Zealand)', 'JE421AG001 - Two/Three Seats Arrangement for Chassis Vehicle (Australia、New Zealand)']      
-
-📁 Parent: Side Closures
-   Child titles: 5
-   └─ JE551C001 - Front Door Electric Glass Regulator (6 parts)
-      ✅ In Oscar: ['JE551C001 - Front Door Electric Glass Regulator', 'JE551C001 - Front Door Electric
- Glass Regulator']
-   └─ JE551B001 - Front Door Handle and Lock (22 parts)
-      ✅ In Oscar: ['JE551B001 - Front Door Handle and Lock']
-   └─ JE551A001 - Front Side Closure (23 parts)
-      ✅ In Oscar: ['JE551A001 - Front Side Closure', 'JE551A001 - Front Side Closure']
-   └─ JE553B001 - Side Sliding Door Handle and Door Lock (1 parts)
-      ✅ In Oscar: ['JE561C001 - Rear Door Handle and Door Lock', 'JE551B001 - Front Door Handle and Lo
-ck', 'JE553B001 - Side Sliding Door Handle and Door Lock', 'JE561C001 - Rear Door Handle and Door Lock', 'JE551B001 - Front Door Handle and Lock', 'JE553B001 - Side Sliding Door Handle and Door Lock']    
-   └─ JE557A001 - TNK FIL DR (6 parts)
-      ✅ In Oscar: ['JE557A001 - TNK FIL DR', 'JE557A001 - TNK FIL DR']
-
-📁 Parent: Steering
-   Child titles: 2
-   └─ JE215A001 - Redirector (14 parts)
-      ✅ In Oscar: ['JE215A001 - Redirector']
-   └─ JE214A001 - Steering Column (6 parts)
-      ✅ In Oscar: ['JE214A001 - Steering Column']
-
-📁 Parent: Suspension
-   Child titles: 4
-   └─ JE224A001 - Front Shock Absorber (10 parts)
-      ✅ In Oscar: ['JE224A001 - Front Shock Absorber', 'JE224A001 - Front Shock Absorber']
-   └─ JE221A001 - Front Suspension (14 parts)
-      ✅ In Oscar: ['JE221A001 - Front Suspension', 'JE221A001 - Front Suspension']
-   └─ JE225A001 - Rear Shock Absorber (5 parts)
-      ✅ In Oscar: ['JE225A001 - Rear Shock Absorber', 'JE225A001 - Rear Shock Absorber']
-   └─ JE222A001 - Rear Suspension (31 parts)
-      ✅ In Oscar: ['JE222A001 - Rear Suspension', 'JE222A001 - Rear Suspension']
-
-📁 Parent: Tire,Wheels,Wheel Trim
-   Child titles: 1
-   └─ JE230A001 - Tire,Wheel,Trim (31 parts)
-      ✅ In Oscar: ['JE230A001 - Tire,Wheel,Trim']
-
-📁 Parent: Wiper & Washer
-   Child titles: 3
-   └─ JE682A001 - Washer System (12 parts)
-      ✅ In Oscar: ['JE682A001 - Washer System', 'JE682A001 - Washer System']
-   └─ JE681A001 - Wiper（LHD） (10 parts)
-      ✅ In Oscar: ['JE681A001 - Wiper（LHD）', 'JE681A002 - Wiper（RHD）', 'JE681A001 - Wiper（LHD）',
- 'JE681A002 - Wiper（RHD）']
-   └─ JE681A002 - Wiper（RHD） (16 parts)
-      ✅ In Oscar: ['JE681A002 - Wiper（RHD）', 'JE681A002 - Wiper（RHD）']
-
-============================================================
-🔍 CHECKING FOR CHARGING & ENERGY STORAGE:
-✅ Found charging parent: Charging & Energystorage
-   └─ JE843A001 - Battery&Electrical Energy Storage (8 parts)
-
-============================================================
-🔍 SEARCHING FOR BATTERY/ENERGY KEYWORDS:
-🔋 Children with 'battery': 2
-   - JE843A001 - Battery&Electrical Energy Storage (parent: Charging & Energystorage, parts: 8) 
-   - JE869A001 - Battery Harnesses (parent: Power & Signaldistribution, parts: 6)                     
-⚡ Children with 'energy': 1
-   - JE843A001 - Battery&Electrical Energy Storage (parent: Charging & Energystorage, parts: 8) 
-                                                                                                      
-============================================================
-🔍 OSCAR CATEGORIES WITH BATTERY/ENERGY:
-🔋 Oscar categories with 'battery': 4
-   - JE843A001 - Battery&Electrical Energy Storage (0 products)
-   - JE869A001 - Battery Harnesses (4 products)
-   - JE843A001 - Battery&Electrical Energy Storage (8 products)
-   - JE869A001 - Battery Harnesses (4 products)
-⚡ Oscar categories with 'energy': 4
-   - Charging & Energystorage (10 products)
-   - JE843A001 - Battery&Electrical Energy Storage (0 products)
-   - Charging & Energystorage (0 products)
-   - JE843A001 - Battery&Electrical Energy Storage (8 products)
-(env) PS C:\pythonstuff\vansdirect\epc_parts_store\epcdata> python debug_missing_categories.py  
+(env) rentals@rentals:~/epc_parts_store/epcdata$ python production_consolidate_duplicates.py
 🔍 Debug: .env exists = True
 🔍 Debug: .env.production exists = True
 🔍 Debug: .prod exists = False
 🔍 Debug: DJANGO_ENV = NOT SET
-🔍 Debug: hostname=DESKTOP-I486976, local_ip=7.138.59.245
+🔍 Debug: hostname=rentals, local_ip=127.0.1.1
 🔍 Debug: SERVER_IP=None
 🔍 Debug: HOSTNAME=None
-🏠 Loading LOCAL environment from .env
-DEBUG: Local mode - ALLOWED_HOSTS env var = localhost,127.0.0.1,[::1]
-🎯 FINAL RESULT: LOCAL DEVELOPMENT mode selected
+🌐 Production mode: Detected VPS server IP (80.95.207.42)
+🔍 Debug: hostname=rentals, local_ip=127.0.1.1
+🔍 Debug: SERVER_IP=None
+🔍 Debug: HOSTNAME=None
+🌐 Loading VPS PRODUCTION environment from .env.production (N0rfolk password)
+DEBUG: Production mode - ALLOWED_HOSTS env var = 80.95.207.42,vanparts-direct.co.uk,www.vanparts-direct.co.uk
+🎯 FINAL RESULT: PRODUCTION mode selected
 ============================================================
-DEBUG: ALLOWED_HOSTS = ['localhost', '127.0.0.1', '[::1]']
-🗄️ Database config: vansdirect as postgres on localhost
+DEBUG: ALLOWED_HOSTS = ['80.95.207.42', 'vanparts-direct.co.uk', 'www.vanparts-direct.co.uk']
+🗄️ Database config: parts_store as postgres on localhost
+🔧 PRODUCTION-SAFE DUPLICATE CATEGORY CONSOLIDATION
 ============================================================
-🔍 MISSING CATEGORIES DEBUG - LSFAL11A4PA157987
-============================================================
-✅ Serial found: LSFAL11A4PA157987
-📂 Parent titles in database: 47
+🔒 PERFORMING SAFETY CHECKS...
+🚨 PRODUCTION ENVIRONMENT DETECTED!
+   Extra safety measures will be enforced.
+✅ Database connection: OK
+📊 Current state:
+   Total child categories: 986
+   Duplicate sets found: 15
+   Products to be moved: 193
+🔍 ANALYZING DUPLICATE CHILD CATEGORIES...
 
-📁 Parent: Air Intake System
-   Child titles: 1
-   └─ JE140A001 - Air filter (14 parts)
-      ✅ In Oscar: ['JE140A001 - Air filter', 'JE140A001 - Air filter']
-
-📁 Parent: Airbag
-   Child titles: 1
-   └─ JE471A001 - Steering Wheel and AirBag (10 parts)
-      ✅ In Oscar: ['JE471A001 - Steering Wheel and AirBag', 'JE471A001 - Steering Wheel and AirB
-ag']
-
-📁 Parent: Antenna
-   Child titles: 1
-   └─ JE741A001 - Antenna (3 parts)
-      ✅ In Oscar: ['JE741A001 - Antenna']
-
-📁 Parent: Body Interior & Exterior Electronics
-   Child titles: 1
-   └─ JE830A001 - Body Interior & Exterior Electronics (15 parts)
-      ✅ In Oscar: ['JE830A001 - Body Interior & Exterior Electronics']
-
-📁 Parent: Body Lower Exterior Trim
-   Child titles: 1
-   └─ JE644A001 - Mud Guard (11 parts)
-      ✅ In Oscar: ['JE644A001 - Mud Guard', 'JE644A001 - Mud Guard']
-
-📁 Parent: Body Lower Structure
-   Child titles: 1
-   └─ JE510A001 - body lower stucture (40 parts)
-      ✅ In Oscar: ['JE510A001 - body lower stucture', 'JE510A001 - body lower stucture']        
-
-📁 Parent: Body Upper Exterior Trim
-   Child titles: 1
-   └─ JE691A001 - Body Exterior Trim (31 parts)
-      ✅ In Oscar: ['JE691A001 - Body Exterior Trim', 'JE691A001 - Body Exterior Trim']
-
-📁 Parent: Body Upper Structure
-   Child titles: 7
-   └─ JE526A001 - Baffle Plate-Ware (2 parts)
-      ✅ In Oscar: ['JE526A001 - Baffle Plate-Ware', 'Chassis Structure']
-   └─ JE521A001 - inner framing(left side) (6 parts)
-      ✅ In Oscar: ['Body Window']
-   └─ JE521B001 - inner framing(right side) (7 parts)
-      ✅ In Oscar: ['Brakes']
-   └─ JE522A001 - Outer Framing(left side) (10 parts)
-      ✅ In Oscar: ['Bumpers,Fascia & Grille', 'JE522A001 - Outer Framing(left side)']
-   └─ JE522B001 - Outer Framing(right side) (10 parts)
-      ✅ In Oscar: ['Charging & Energystorage', 'JE522B001 - Outer Framing(right side)']
-   └─ JE524A001 - Rear Panel (2 parts)
-      ✅ In Oscar: ['Chassis Structure']
-   └─ JE523A001 - Roof Framing (4 parts)
-      ✅ In Oscar: ['Communicate']
-
-📁 Parent: Body Window
-   Child titles: 1
-   └─ JE611A001 - Window (5 parts)
-      ✅ In Oscar: ['Customer Switches']
-
-📁 Parent: Brakes
-   Child titles: 7
-   └─ JE244A001 - Brake Apply (13 parts)
-      ✅ In Oscar: ['Driver Information', 'JE244A001 - Brake Apply']
-   └─ JE245A001 - Brake Modulator (14 parts)
-      ✅ In Oscar: ['Emission Exhaust System', 'JE245A001 - Brake Modulator']
-   └─ JE246A001 - Brake Pedal (7 parts)
-      ✅ In Oscar: ['Entertainment']
-   └─ JE247A001 - Brake Pipes (31 parts)
-      ✅ In Oscar: ['Front Closures Front End Sheetmetal', 'JE247A001 - Brake Pipes']
-   └─ JE241A001 - Front Brakes (33 parts)
-      ✅ In Oscar: ['Front Lamp', 'JE241A001 - Front Brakes']
-   └─ JE243A001 - Park Brake (17 parts)
-      ✅ In Oscar: ['Frontexterior Hvac Airflow', 'Power Transmission', 'JE243A001 - Park Brake',
- 'JE723A001 - Multi-Function Column Switch']
-   └─ JE242A001 - Rear Brakes (10 parts)
-      ✅ In Oscar: ['Frontinterior Hvac Airflow', 'JE125A003 - Rear Drive Axle（YUE JIN）', 'JE12
-5A004 - Rear Electric  Drive Axle', 'JE242A001 - Rear Brakes', 'JE125A003 - Rear Drive Axle（YUE JIN）', 'JE125A004 - Rear Electric  Drive Axle']
-
-📁 Parent: Bumpers,Fascia & Grille
-   Child titles: 3
-   └─ JE621A001 - Front Bumper (15 parts)
-      ✅ In Oscar: ['Fuel Storage & Handling', 'JE621A001 - Front Bumper']
-   └─ JE623A001 - Grille (6 parts)
-      ✅ In Oscar: ['Hvac & Powertrain Coolingin', 'JE623A001 - Grille']
-   └─ JE625A001 - Wheelhouse Liner (3 parts)
-      ✅ In Oscar: ['Instrument Panel & Console', 'JE625A001 - Wheelhouse Liner']
-
-📁 Parent: Charging & Energystorage
-   Child titles: 2
-   └─ JE843A001 - Battery&Electrical Energy Storage (8 parts)
-      ✅ In Oscar: ['Interior Acoustic Syetem']
-   └─ JE844A002 - PowerInverter (2 parts)
-      ✅ In Oscar: ['Interior Lamp', 'JE844A002 - PowerInverter']
-
-📁 Parent: Chassis Structure
-   Child titles: 2
-   └─ JE251A001 - Front Sub-frame (5 parts)
-      ✅ In Oscar: ['Interior Trim']
-   └─ JE255A001 - Spare Tire Device (3 parts)
-      ✅ In Oscar: ['Mounts', 'Rear View Mirror', 'JE160A001 - Exhaust system']
-
-📁 Parent: Communicate
-   Child titles: 1
-   └─ JE751A001 - Vehicle Tele-Communication (8 parts)
-      ✅ In Oscar: ['On Vehicle Attachments&Tools', 'JE751A001 - Vehicle Tele-Communication']    
-
-📁 Parent: Customer Switches
-   Child titles: 5
-   └─ JE726A001 - Accessory Switches (5 parts)
-      ✅ In Oscar: ['Power & Signaldistribution']
-   └─ JE725A001 - Ignition Switch and Key (4 parts)
-      ✅ In Oscar: ['Power Generation']
-   └─ JE723A001 - Multi-Function Column Switch (7 parts)
-      ✅ In Oscar: ['Power Transmission']
-   └─ JE821A001 - Passive Entry Passive Start (4 parts)
-      ✅ In Oscar: ['Powertrain Control&Diagnostic', 'JE821A001 - Passive Entry Passive Start']  
-   └─ JE721A001 - Window Lift Switch (2 parts)
-      ✅ In Oscar: ['Powertrain Driver Interface', 'JE721A001 - Window Lift Switch']
-
-📁 Parent: Driver Information
-   Child titles: 2
-   └─ JE711A001 - Clusters (2 parts)
-      ✅ In Oscar: ['Rear Closure']
-   └─ JE716A001 - Vehicle Date Recorder (1 parts)
-      ✅ In Oscar: ['Rear Lamp']
-
-📁 Parent: Emission Exhaust System
-   Child titles: 1
-   └─ JE160A001 - Exhaust system (32 parts)
-      ✅ In Oscar: ['Rear View Mirror']
-
-📁 Parent: Entertainment
-   Child titles: 2
-   └─ JE731A001 - Infotainment System (5 parts)
-      ✅ In Oscar: ['Rearinterior Hvac Airflow']
-   └─ JE732A001 - Speaker (6 parts)
-      ✅ In Oscar: ['Safety Belt', 'JE732A001 - Speaker']
-
-📁 Parent: Front Closures Front End Sheetmetal
-   Child titles: 3
-   └─ JE572A001 - Fenders (5 parts)
-      ✅ In Oscar: ['Safety&Avoidance', 'JE572A001 - Fenders']
-   └─ JE571B001 - Hood Lock (7 parts)
-      ✅ In Oscar: ['Seats', 'JE571B001 - Hood Lock']
-   └─ JE571A001 - Hood (10 parts)
-      ✅ In Oscar: ['Side Closures', 'JE571A001 - Hood']
-
-📁 Parent: Front Lamp
-   Child titles: 1
-   └─ JE650A001 - Front Lamp (7 parts)
-      ✅ In Oscar: ['Steering']
-
-📁 Parent: Frontexterior Hvac Airflow
-   Child titles: 1
-   └─ JE340A001 - Front End Exterior Airflow (14 parts)
-      ✅ In Oscar: ['Suspension', 'JE340A001 - Front End Exterior Airflow']
-
-📁 Parent: Frontinterior Hvac Airflow
-   Child titles: 2
-   └─ JE322A001 - Front Interior Control (2 parts)
-      ✅ In Oscar: ['Tire,Wheels,Wheel Trim']
-   └─ JE321A001 - Front Interior HVAC Airflow (23 parts)
-      ✅ In Oscar: ['Wiper & Washer']
-
-📁 Parent: Fuel Storage & Handling
-   Child titles: 3
-   └─ JE183A001 - Fuel Plumbing & Hardware (16 parts)
-      ✅ In Oscar: ['JE183A001 - Fuel Plumbing & Hardware']
-   └─ JE181A001 - Fuel Tank & Canister (18 parts)
-      ✅ In Oscar: ['JE181A001 - Fuel Tank & Canister', 'JE184A001 - Urea system', 'JE123A001 - P
-ropeller Shaft', 'JE181A001 - Fuel Tank & Canister', 'JE184A001 - Urea system']
-   └─ JE184A001 - Urea system (17 parts)
-      ✅ In Oscar: ['JE181A001 - Fuel Tank & Canister', 'JE184A001 - Urea system', 'JE123A001 - P
-ropeller Shaft', 'JE181A001 - Fuel Tank & Canister', 'JE184A001 - Urea system']
-
-📁 Parent: Hvac & Powertrain Coolingin
-   Child titles: 8
-   └─ JE313A003 - Coolant Plumbing & Hardware--EV (2 parts)
-      ✅ In Oscar: ['JE313A003 - Coolant Plumbing & Hardware--EV', 'JE313A004 - Coolant Plumbing 
-& Hardware-PHEV', 'JE313A001 - Coolant Plumbing & Hardware']
-   └─ JE313A002 - Coolant Plumbing & Hardware-FCV (2 parts)
-      ✅ In Oscar: ['JE313A002 - Coolant Plumbing & Hardware-FCV', 'JE313A004 - Coolant Plumbing 
-& Hardware-PHEV', 'JE313A001 - Coolant Plumbing & Hardware']
-   └─ JE313A004 - Coolant Plumbing & Hardware-PHEV (4 parts)
-      ✅ In Oscar: ['JE313A004 - Coolant Plumbing & Hardware-PHEV', 'JE313A001 - Coolant Plumbing
- & Hardware', 'JE313A004 - Coolant Plumbing & Hardware-PHEV', 'JE313A001 - Coolant Plumbing & Hardware']
-   └─ JE313A001 - Coolant Plumbing & Hardware (20 parts)
-      ✅ In Oscar: ['JE313A004 - Coolant Plumbing & Hardware-PHEV', 'JE313A001 - Coolant Plumbing
- & Hardware', 'JE313A004 - Coolant Plumbing & Hardware-PHEV', 'JE313A001 - Coolant Plumbing & Hardware']
-   └─ JE312A002 - Refrigerant Plumbing & Hardware-Electric vehicle (5 parts)
-      ✅ In Oscar: ['Frontexterior Hvac Airflow', 'JE312A002 - Refrigerant Plumbing & Hardware-El
-ectric vehicle', 'JE312A003 - Refrigerant Plumbing & Hardware-FCV', 'JE312A001 - Refrigerant Plumbing & Hardware', 'JE11CR001 - Sensor&Harness', 'JE131A001 - Engine Management', 'Rear View Mirror', 'JE160A001 - Exhaust system', 'JE312A002 - Refrigerant Plumbing & Hardware-Electric vehicle', 'JE312A003 - Refrigerant Plumbing & Hardware-FCV', 'JE312A001 - Refrigerant Plumbing & Hardware', 'JE865A001 - Chassis Harnesses', 'JE11CS001 - EGR ASM', 'JE11CR001 - Sensor&Harness', 'JE131A001 - Engine Management']
-   └─ JE312A003 - Refrigerant Plumbing & Hardware-FCV (4 parts)
-      ✅ In Oscar: ['JE830A001 - Body Interior & Exterior Electronics', 'JE184A001 - Urea system'
-, 'JE312A002 - Refrigerant Plumbing & Hardware-Electric vehicle', 'JE312A003 - Refrigerant Plumbing & Hardware-FCV', 'JE312A004 - Refrigerant Plumbing & Hardware-PHEV', 'JE312A001 - Refrigerant Plumbing & Hardware', 'Interior Acoustic Syetem', 'Interior Lamp', 'On Vehicle Attachments&Tools', 'JE863A001 - Instrument Panel  Wire Harnesses', 'JE11CQ001 - Accessory&AccessoryDrive', 'JE153A001 - Clutch Apply', 'JE152A003 - Transmission Shift Actuation-AT、Electric vehicle', 'JE152A001 - Transmission Shift Actuation-MT', 'JE660A001 - Rear Lamp', 'Rear View Mirror', 'JE334A002 - Interior Heating Pipe-FCV', 'JE334A001 - Interior Heating Pipe', 'JE551A001 - Front Side Closure', 'Wiper & Washer', 'JE681A002 - Wiper（RHD）', 'JE830A001 - Body Interior & Exterior Electronics', 'JE691A001 - Body Exterior Trim', 'JE526A001 - Baffle Plate-Ware', 'JE843A001 - Battery&Electrical Energy Storage', 'JE844A002 - PowerInverter', 'JE751A001 - Vehicle Tele-Communication', 'JE821A001 - Passive Entry Passive Start', 'JE713A001 - Auxiliary Information Electronics', 'JE160A001 - Exhaust system', 'JE321A001 - Front Interior HVAC Airflow', 'JE184A001 - Urea system', 'JE312A002 - Refrigerant Plumbing & Hardware-Electric vehicle', 'JE312A003 - Refrigerant Plumbing & Hardware-FCV', 'JE312A004 - Refrigerant Plumbing & Hardware-PHEV', 'JE312A001 - Refrigerant Plumbing & Hardware', 'JE863A001 - Instrument Panel  Wire Harnesses', 'JE11CQ001 - Accessory&AccessoryDrive', 'JE152A003 - Transmission Shift Actuation-AT、Electric vehicle', 'JE152A001 - Transmission Shift Actuation-MT', 'JE334A002 - Interior Heating Pipe-FCV', 'JE334A001 - Interior 
-Heating Pipe', 'JE812A001 - ParkDistanceControlSystem', 'JE551A001 - Front Side Closure']       
-   └─ JE312A004 - Refrigerant Plumbing & Hardware-PHEV (4 parts)
-      ✅ In Oscar: ['JE184A001 - Urea system', 'JE312A002 - Refrigerant Plumbing & Hardware-Elect
-ric vehicle', 'JE312A003 - Refrigerant Plumbing & Hardware-FCV', 'JE312A004 - Refrigerant Plumbing & Hardware-PHEV', 'JE811A001 - Air Bag Control Unit', 'JE184A001 - Urea system', 'JE312A002 - Refrigerant Plumbing & Hardware-Electric vehicle', 'JE312A003 - Refrigerant Plumbing & Hardware-FCV', 'JE312A004 - Refrigerant Plumbing & Hardware-PHEV', 'JE312A001 - Refrigerant Plumbing & Hardware', 'JE811A001 - Air Bag Control Unit']
-   └─ JE312A001 - Refrigerant Plumbing & Hardware (14 parts)
-      ✅ In Oscar: ['JE312A001 - Refrigerant Plumbing & Hardware', 'JE312A001 - Refrigerant Plumb
-ing & Hardware']
-
-📁 Parent: Instrument Panel & Console
-   Child titles: 4
-   └─ JE412A001 - Instrument Panel Crossmember（LHD） (5 parts)
-      ✅ In Oscar: ['JE412A001 - Instrument Panel Crossmember（LHD）']
-   └─ JE412A002 - Instrument Panel Crossmember（RHD） (6 parts)
-      ✅ In Oscar: ['JE412A002 - Instrument Panel Crossmember（RHD）', 'JE412A002 - Instrument Pa
-nel Crossmember（RHD）']
-   └─ JE411A001 - Instrument Panel（LHD） (25 parts)
-      ✅ In Oscar: ['JE411A001 - Instrument Panel（LHD）', 'JE411A002 - Instrument Panel（RHD）',
- 'JE411A001 - Instrument Panel（LHD）', 'JE411A002 - Instrument Panel（RHD）']
-   └─ JE411A002 - Instrument Panel（RHD） (33 parts)
-      ✅ In Oscar: ['JE411A002 - Instrument Panel（RHD）']
-
-📁 Parent: Interior Acoustic Syetem
-   Child titles: 1
-   └─ JE451A001 - Sound Insulation、Heat Insulation (26 parts)
-      ✅ In Oscar: ['JE451A001 - Sound Insulation、Heat Insulation', 'JE451A001 - Sound Insulatio
-n、Heat Insulation']
-
-📁 Parent: Interior Lamp
-   Child titles: 1
-   └─ JE440A001 - InteriorLamp (2 parts)
-      ✅ In Oscar: ['JE440A001 - InteriorLamp']
-
-📁 Parent: Interior Trim
-   Child titles: 4
-   └─ JE437A001 - Floor Trim (10 parts)
-      ✅ In Oscar: ['JE437A001 - Floor Trim']
-   └─ JE432A001 - Front Door Trim (25 parts)
-      ✅ In Oscar: ['JE432A001 - Front Door Trim']
-   └─ JE436A001 - Roof Trim (13 parts)
-      ✅ In Oscar: ['JE436A001 - Roof Trim']
-   └─ JE431A001 - Side Trim (23 parts)
-      ✅ In Oscar: ['JE431A001 - Side Trim']
-
-📁 Parent: Mounts
-   Child titles: 2
-   └─ JE261A001 - Power assembly installation (10 parts)
-      ✅ In Oscar: ['JE261A001 - Power assembly installation']
-   └─ JE261A002 - Powertrain Mounts-Electric vehicle (1 parts)
-      ✅ In Oscar: ['Interior Trim', 'JE261A002 - Powertrain Mounts-Electric vehicle', 'JE221A001
- - Front Suspension', 'JE221A001 - Front Suspension']
-
-📁 Parent: On Vehicle Attachments&Tools
-   Child titles: 3
-   └─ JE919A001 - Fluids and Lubrications (17 parts)
-      ✅ In Oscar: ['JE919A001 - Fluids and Lubrications', 'JE919A001 - Fluids and Lubrications']
-   └─ JE911A001 - On Vehicle Attachments (1 parts)
-      ✅ In Oscar: ['JE911A001 - On Vehicle Attachments', 'JE911A001 - On Vehicle Attachments']  
-   └─ JE917A001 - On Vehicle Tools (5 parts)
-      ✅ In Oscar: ['JE917A001 - On Vehicle Tools', 'JE917A001 - On Vehicle Tools']
-
-📁 Parent: Power & Signaldistribution
-   Child titles: 8
-   └─ JE869A001 - Battery Harnesses (6 parts)
-      ✅ In Oscar: ['JE869A001 - Battery Harnesses']
-   └─ JE862A001 - Body accessories harness (1 parts)
-      ✅ In Oscar: ['JE862A001 - Body accessories harness', 'JE862A001 - Body accessories harness
-']
-   └─ JE865A001 - Chassis Harnesses (3 parts)
-      ✅ In Oscar: ['JE865A001 - Chassis Harnesses']
-   └─ JE864A001 - Door  Wire Harnesses (2 parts)
-      ✅ In Oscar: ['JE864A001 - Door  Wire Harnesses']
-   └─ JE867A001 - Engine Compartment Fuse Box (10 parts)
-      ✅ In Oscar: ['JE867A001 - Engine Compartment Fuse Box']
-   └─ JE861A001 - EngineCompartmentHarness (2 parts)
-      ✅ In Oscar: ['Entertainment', 'Frontexterior Hvac Airflow', 'JE861A001 - EngineCompartment
-Harness', 'JE151A001 - Accelerator Pedal', 'JE152A002 - Transmission Shift Actuation-AMT', 'JE152A003 - Transmission Shift Actuation-AT、Electric vehicle', 'JE152A001 - Transmission Shift Actuation-MT', 'Side Closures', 'JE246A001 - Brake Pedal', 'JE243A001 - Park Brake', 'JE571A001 - Hood', 'JE861A001 - EngineCompartmentHarness', 'JE151A001 - Accelerator Pedal', 'JE152A002 - Transmission Shift Actuation-AMT', 'JE152A003 - Transmission Shift Actuation-AT、Electric vehicle', 'JE152A001 - Transmission Shift Actuation-MT']
-   └─ JE863A001 - Instrument Panel  Wire Harnesses (3 parts)
-      ✅ In Oscar: ['JE830A001 - Body Interior & Exterior Electronics', 'Front Lamp', 'Frontexter
-ior Hvac Airflow', 'On Vehicle Attachments&Tools', 'JE863A001 - Instrument Panel  Wire Harnesses', 'JE11CL001 - Coolant Pump And Inl&OtltTube&Thermostat', 'JE11CU001 - LP-EGR intake pipe&Accessory', 'JE11CR001 - Sensor&Harness', 'JE125A003 - Rear Drive Axle（YUE JIN）', 'JE830A001 - Body Interior & Exterior Electronics', 'JE526A001 - Baffle Plate-Ware', 'JE241A001 - Front Brakes', 
-'JE243A001 - Park Brake', 'JE751A001 - Vehicle Tele-Communication', 'JE863A001 - Instrument Panel  Wire Harnesses', 'JE11CL001 - Coolant Pump And Inl&OtltTube&Thermostat', 'JE11CU001 - LP-EGR 
-intake pipe&Accessory', 'JE11CR001 - Sensor&Harness', 'JE125A002 - Rear  Axle （Front drive vehicle）']
-   └─ JE868A001 - Power Outlet & Cigarette Lighter HEvice (3 parts)
-      ✅ In Oscar: ['JE868A001 - Power Outlet & Cigarette Lighter HEvice', 'JE868A001 - Power Out
-let & Cigarette Lighter HEvice']
-
-📁 Parent: Power Generation
-   Child titles: 22
-   └─ JE11CQ001 - Accessory&AccessoryDrive (27 parts)
-      ✅ In Oscar: ['JE11CQ001 - Accessory&AccessoryDrive']
-   └─ JE11CA002 - Block Group (1 parts)
-      ✅ In Oscar: ['JE11CA002 - Block Group']
-   └─ JE11CL001 - Coolant Pump And Inl&OtltTube&Thermostat (34 parts)
-      ✅ In Oscar: ['JE11CL001 - Coolant Pump And Inl&OtltTube&Thermostat', 'JE11CL001 - Coolant 
-Pump And Inl&OtltTube&Thermostat']
-   └─ JE11CE001 - Crankshaft Rod (53 parts)
-      ✅ In Oscar: ['JE11CE001 - Crankshaft Rod', 'JE11CE001 - Crankshaft Rod']
-   └─ JE11CB001 - Cylinder Block&Accessory (22 parts)
-      ✅ In Oscar: ['JE11CB001 - Cylinder Block&Accessory']
-   └─ JE11CC001 - Cylinder Head (29 parts)
-      ✅ In Oscar: ['JE11CC001 - Cylinder Head', 'JE11CC001 - Cylinder Head']
-   └─ JE11CM001 - Damper Pulley&GearDrive (12 parts)
-      ✅ In Oscar: ['JE11CM001 - Damper Pulley&GearDrive', 'JE11CM001 - Damper Pulley&GearDrive']
-   └─ JE11CS001 - EGR ASM (16 parts)
-      ✅ In Oscar: ['JE11CQ001 - Accessory&AccessoryDrive', 'JE11CS001 - EGR ASM', 'JE11CQ001 - A
-ccessory&AccessoryDrive', 'JE11CS001 - EGR ASM']
-   └─ JE11CT001 - Engine Accessory (4 parts)
-      ✅ In Oscar: ['JE261A001 - Power assembly installation', 'JE11CT001 - Engine Accessory', 'J
-E126A001 - Propshaft']
-   └─ JE11CA001 - Engine ASM (1 parts)
-      ✅ In Oscar: ['JE11CA001 - Engine ASM']
-   └─ JE11CX001 - Engine shield (14 parts)
-      ✅ In Oscar: ['JE644A001 - Mud Guard', 'Fuel Storage & Handling', 'JE411A001 - Instrument P
-anel（LHD）', 'JE411A002 - Instrument Panel（RHD）', 'JE432A001 - Front Door Trim', 'JE11CX001 - Engine shield', 'JE644A001 - Mud Guard', 'JE691A001 - Body Exterior Trim', 'JE621A001 - Front Bumper', 'JE622A001 - Rear Bumper', 'JE411A001 - Instrument Panel（LHD）', 'JE411A002 - Instrument Panel（RHD）', 'JE432A001 - Front Door Trim']
-   └─ JE11CW001 - Engine wiring harness (6 parts)
-      ✅ In Oscar: ['JE11CW001 - Engine wiring harness']
-   └─ JE11CH001 - Exhaust Elbow&Turbocharger (37 parts)
-      ✅ In Oscar: ['JE11CS001 - EGR ASM', 'JE11CH001 - Exhaust Elbow&Turbocharger', 'JE11CS001 -
- EGR ASM', 'JE11CH001 - Exhaust Elbow&Turbocharger']
-   └─ JE11CI001 - Fuel System (35 parts)
-      ✅ In Oscar: ['JE11CQ001 - Accessory&AccessoryDrive', 'JE11CI001 - Fuel System', 'JE11CQ001
- - Accessory&AccessoryDrive', 'JE11CI001 - Fuel System', 'JE11CP001 - Timing Drive']
-   └─ JE11CD001 - Head Cover&PCV (37 parts)
-      ✅ In Oscar: ['JE11CD001 - Head Cover&PCV', 'JE11CD001 - Head Cover&PCV']
-   └─ JE11CU001 - LP-EGR intake pipe&Accessory (1 parts)
-      ✅ In Oscar: ['JE830A001 - Body Interior & Exterior Electronics', 'Front Lamp', 'Frontexter
-ior Hvac Airflow', 'On Vehicle Attachments&Tools', 'JE863A001 - Instrument Panel  Wire Harnesses', 'JE11CL001 - Coolant Pump And Inl&OtltTube&Thermostat', 'JE11CU001 - LP-EGR intake pipe&Accessory', 'JE11CR001 - Sensor&Harness', 'JE125A003 - Rear Drive Axle（YUE JIN）', 'JE830A001 - Body Interior & Exterior Electronics', 'JE526A001 - Baffle Plate-Ware', 'JE241A001 - Front Brakes', 
-'JE243A001 - Park Brake', 'JE751A001 - Vehicle Tele-Communication', 'JE863A001 - Instrument Panel  Wire Harnesses', 'JE11CL001 - Coolant Pump And Inl&OtltTube&Thermostat', 'JE11CU001 - LP-EGR 
-intake pipe&Accessory', 'JE11CR001 - Sensor&Harness', 'JE125A002 - Rear  Axle （Front drive vehicle）']
-   └─ JE11CG001 - MANIFOLD ASM-INT (22 parts)
-      ✅ In Oscar: ['JE11CG001 - MANIFOLD ASM-INT']
-   └─ JE11CJ001 - Oil Cooler And Inl&OtltTube&Filter (16 parts)
-      ✅ In Oscar: ['JE11CJ001 - Oil Cooler And Inl&OtltTube&Filter', 'JE11CJ001 - Oil Cooler And
- Inl&OtltTube&Filter']
-   └─ JE11CR001 - Sensor&Harness (33 parts)
-      ✅ In Oscar: ['JE830A001 - Body Interior & Exterior Electronics', 'Front Lamp', 'Frontexter
-ior Hvac Airflow', 'On Vehicle Attachments&Tools', 'JE863A001 - Instrument Panel  Wire Harnesses', 'JE11CL001 - Coolant Pump And Inl&OtltTube&Thermostat', 'JE11CU001 - LP-EGR intake pipe&Accessory', 'JE11CR001 - Sensor&Harness', 'JE125A003 - Rear Drive Axle（YUE JIN）', 'JE830A001 - Body Interior & Exterior Electronics', 'JE526A001 - Baffle Plate-Ware', 'JE241A001 - Front Brakes', 
-'JE243A001 - Park Brake', 'JE751A001 - Vehicle Tele-Communication', 'JE863A001 - Instrument Panel  Wire Harnesses', 'JE11CL001 - Coolant Pump And Inl&OtltTube&Thermostat', 'JE11CU001 - LP-EGR 
-intake pipe&Accessory', 'JE11CR001 - Sensor&Harness', 'JE125A002 - Rear  Axle （Front drive vehicle）']
-   └─ JE11CF001 - SHAFT-BALANCER (16 parts)
-      ✅ In Oscar: ['JE11CF001 - SHAFT-BALANCER', 'JE11CF001 - SHAFT-BALANCER']
-   └─ JE11CK001 - Sump&Oil Suction Pipe&Dipstick (19 parts)
-      ✅ In Oscar: ['JE11CL001 - Coolant Pump And Inl&OtltTube&Thermostat', 'JE11CH001 - Exhaust 
-Elbow&Turbocharger', 'JE11CI001 - Fuel System', 'JE11CK001 - Sump&Oil Suction Pipe&Dipstick', 'JE11CL001 - Coolant Pump And Inl&OtltTube&Thermostat', 'JE11CH001 - Exhaust Elbow&Turbocharger', 
-'JE11CI001 - Fuel System', 'JE11CK001 - Sump&Oil Suction Pipe&Dipstick']
-   └─ JE11CP001 - Timing Drive (22 parts)
-      ✅ In Oscar: ['JE11CL001 - Coolant Pump And Inl&OtltTube&Thermostat', 'JE11CE001 - Cranksha
-ft Rod', 'JE11CD001 - Head Cover&PCV', 'JE11CK001 - Sump&Oil Suction Pipe&Dipstick', 'JE11CP001 
-- Timing Drive', 'JE11CL001 - Coolant Pump And Inl&OtltTube&Thermostat', 'JE11CE001 - Crankshaft Rod', 'JE11CD001 - Head Cover&PCV', 'JE11CK001 - Sump&Oil Suction Pipe&Dipstick', 'JE11CP001 - 
-Timing Drive']
-
-📁 Parent: Power Transmission
-   Child titles: 11
-   └─ JE122A001 - Clutch(MT) (3 parts)
-      ✅ In Oscar: ['JE11CQ001 - Accessory&AccessoryDrive', 'JE11CS001 - EGR ASM', 'JE11CP001 - T
-iming Drive', 'JE122A001 - Clutch(MT)', 'JE122A002 - Clutch(PHEV)', 'JE11CQ001 - Accessory&AccessoryDrive', 'JE11CS001 - EGR ASM', 'JE11CP001 - Timing Drive', 'JE122A001 - Clutch(MT)', 'JE122A002 - Clutch(PHEV)']
-   └─ JE122A002 - Clutch(PHEV) (1 parts)
-      ✅ In Oscar: ['JE11CQ001 - Accessory&AccessoryDrive', 'JE11CS001 - EGR ASM', 'JE11CP001 - T
-iming Drive', 'JE122A001 - Clutch(MT)', 'JE122A002 - Clutch(PHEV)', 'JE11CQ001 - Accessory&AccessoryDrive', 'JE11CS001 - EGR ASM', 'JE11CP001 - Timing Drive', 'JE122A001 - Clutch(MT)', 'JE122A002 - Clutch(PHEV)']
-   └─ JE121A001 - Manual transmission assembly（6MT Front/Back drive） (3 parts)
-      ✅ In Oscar: ['JE121A001 - Manual transmission assembly（6MT Front/Back drive）']
-   └─ JE123A001 - Propeller Shaft (10 parts)
-      ✅ In Oscar: ['JE123A001 - Propeller Shaft']
-   └─ JE125A002 - Rear  Axle （Front drive vehicle） (1 parts)
-      ✅ In Oscar: ['Frontinterior Hvac Airflow', 'JE123A001 - Propeller Shaft', 'JE125A002 - Rea
-r  Axle （Front drive vehicle）', 'JE125A003 - Rear Drive Axle（YUE JIN）', 'JE242A001 - Rear Brakes', 'JE125A002 - Rear  Axle （Front drive vehicle）']
-   └─ JE125A003 - Rear Drive Axle（YUE JIN） (78 parts)
-      ✅ In Oscar: ['JE125A003 - Rear Drive Axle（YUE JIN）']
-   └─ JE125A001 - Rear Drive Axle (3 parts)
-      ✅ In Oscar: ['JE125A001 - Rear Drive Axle']
-   └─ JE125A004 - Rear Electric  Drive Axle (20 parts)
-      ✅ In Oscar: ['Emission Exhaust System', 'JE125A004 - Rear Electric  Drive Axle']
-   └─ JE121B001 - Transmission CSC and  Operating Mechanism(6MT back drive) (32 parts)
-      ✅ In Oscar: ['JE121B001 - Transmission CSC and  Operating Mechanism(6MT back drive)']     
-   └─ JE121C001 - Transmission Fork Components(SAGW-6MT back drive) (41 parts)
-      ✅ In Oscar: ['JE121C001 - Transmission Fork Components(SAGW-6MT back drive)']
-   └─ JE121D001 - Transmission Main Shaft And Gear(6MT back drive) (53 parts)
-      ✅ In Oscar: ['JE121D001 - Transmission Main Shaft And Gear(6MT back drive)']
-
-📁 Parent: Powertrain Control&Diagnostic
-   Child titles: 1
-   └─ JE131A001 - Engine Management (4 parts)
-      ✅ In Oscar: ['Frontexterior Hvac Airflow', 'JE312A002 - Refrigerant Plumbing & Hardware-El
-ectric vehicle', 'JE312A003 - Refrigerant Plumbing & Hardware-FCV', 'JE312A001 - Refrigerant Plumbing & Hardware', 'JE11CR001 - Sensor&Harness', 'JE131A001 - Engine Management', 'Rear View Mirror', 'JE160A001 - Exhaust system', 'JE312A002 - Refrigerant Plumbing & Hardware-Electric vehicle', 'JE312A003 - Refrigerant Plumbing & Hardware-FCV', 'JE312A001 - Refrigerant Plumbing & Hardware', 'JE865A001 - Chassis Harnesses', 'JE11CS001 - EGR ASM', 'JE11CR001 - Sensor&Harness', 'JE131A001 - Engine Management']
-
-📁 Parent: Powertrain Driver Interface
-   Child titles: 5
-   └─ JE151A001 - Accelerator Pedal (2 parts)
-      ✅ In Oscar: ['JE151A001 - Accelerator Pedal', 'JE151A001 - Accelerator Pedal']
-   └─ JE153A001 - Clutch Apply (13 parts)
-      ✅ In Oscar: ['JE153A001 - Clutch Apply', 'JE153A001 - Clutch Apply']
-   └─ JE152A002 - Transmission Shift Actuation-AMT (1 parts)
-      ✅ In Oscar: ['Entertainment', 'Frontexterior Hvac Airflow', 'JE861A001 - EngineCompartment
-Harness', 'JE151A001 - Accelerator Pedal', 'JE152A002 - Transmission Shift Actuation-AMT', 'JE152A003 - Transmission Shift Actuation-AT、Electric vehicle', 'JE152A001 - Transmission Shift Actuation-MT', 'Side Closures', 'JE246A001 - Brake Pedal', 'JE243A001 - Park Brake', 'JE571A001 - Hood', 'JE861A001 - EngineCompartmentHarness', 'JE151A001 - Accelerator Pedal', 'JE152A002 - Transmission Shift Actuation-AMT', 'JE152A003 - Transmission Shift Actuation-AT、Electric vehicle', 'JE152A001 - Transmission Shift Actuation-MT']
-   └─ JE152A003 - Transmission Shift Actuation-AT、Electric vehicle (2 parts)
-      ✅ In Oscar: ['Entertainment', 'Frontexterior Hvac Airflow', 'JE861A001 - EngineCompartment
-Harness', 'JE151A001 - Accelerator Pedal', 'JE152A002 - Transmission Shift Actuation-AMT', 'JE152A003 - Transmission Shift Actuation-AT、Electric vehicle', 'JE152A001 - Transmission Shift Actuation-MT', 'Side Closures', 'JE246A001 - Brake Pedal', 'JE243A001 - Park Brake', 'JE571A001 - Hood', 'JE861A001 - EngineCompartmentHarness', 'JE151A001 - Accelerator Pedal', 'JE152A002 - Transmission Shift Actuation-AMT', 'JE152A003 - Transmission Shift Actuation-AT、Electric vehicle', 'JE152A001 - Transmission Shift Actuation-MT']
-   └─ JE152A001 - Transmission Shift Actuation-MT (4 parts)
-      ✅ In Oscar: ['JE152A001 - Transmission Shift Actuation-MT']
-
-📁 Parent: Rear Closure
-   Child titles: 1
-   └─ JE561C001 - Rear Door Handle and Door Lock (2 parts)
-      ✅ In Oscar: ['JE561C001 - Rear Door Handle and Door Lock', 'JE551B001 - Front Door Handle 
-and Lock', 'JE561C001 - Rear Door Handle and Door Lock', 'JE551B001 - Front Door Handle and Lock']
-
-📁 Parent: Rear Lamp
-   Child titles: 1
-   └─ JE660A001 - Rear Lamp (6 parts)
-      ✅ In Oscar: ['JE660A001 - Rear Lamp']
-
-📁 Parent: Rear View Mirror
-   Child titles: 1
-   └─ JE580A001 - Rear View Mirror (10 parts)
-      ✅ In Oscar: ['JE580A001 - Rear View Mirror']
-
-📁 Parent: Rearinterior Hvac Airflow
-   Child titles: 3
-   └─ JE334A002 - Interior Heating Pipe-FCV (1 parts)
-      ✅ In Oscar: ['JE830A001 - Body Interior & Exterior Electronics', 'JE184A001 - Urea system'
-, 'JE312A002 - Refrigerant Plumbing & Hardware-Electric vehicle', 'JE312A003 - Refrigerant Plumbing & Hardware-FCV', 'JE312A004 - Refrigerant Plumbing & Hardware-PHEV', 'JE312A001 - Refrigerant Plumbing & Hardware', 'Interior Acoustic Syetem', 'Interior Lamp', 'On Vehicle Attachments&Tools', 'JE863A001 - Instrument Panel  Wire Harnesses', 'JE11CQ001 - Accessory&AccessoryDrive', 'JE153A001 - Clutch Apply', 'JE152A003 - Transmission Shift Actuation-AT、Electric vehicle', 'JE152A001 - Transmission Shift Actuation-MT', 'JE660A001 - Rear Lamp', 'Rear View Mirror', 'JE334A002 - Interior Heating Pipe-FCV', 'JE334A001 - Interior Heating Pipe', 'JE551A001 - Front Side Closure', 'Wiper & Washer', 'JE681A002 - Wiper（RHD）', 'JE830A001 - Body Interior & Exterior Electronics', 'JE691A001 - Body Exterior Trim', 'JE526A001 - Baffle Plate-Ware', 'JE843A001 - Battery&Electrical Energy Storage', 'JE844A002 - PowerInverter', 'JE751A001 - Vehicle Tele-Communication', 'JE821A001 - Passive Entry Passive Start', 'JE713A001 - Auxiliary Information Electronics', 'JE160A001 - Exhaust system', 'JE321A001 - Front Interior HVAC Airflow', 'JE184A001 - Urea system', 'JE312A002 - Refrigerant Plumbing & Hardware-Electric vehicle', 'JE312A003 - Refrigerant Plumbing & Hardware-FCV', 'JE312A004 - Refrigerant Plumbing & Hardware-PHEV', 'JE312A001 - Refrigerant Plumbing & Hardware', 'JE863A001 - Instrument Panel  Wire Harnesses', 'JE11CQ001 - Accessory&AccessoryDrive', 'JE152A003 - Transmission Shift Actuation-AT、Electric vehicle', 'JE152A001 - Transmission Shift Actuation-MT', 'JE334A002 - Interior Heating Pipe-FCV', 'JE334A001 - Interior 
-Heating Pipe', 'JE812A001 - ParkDistanceControlSystem', 'JE551A001 - Front Side Closure']       
-   └─ JE334A001 - Interior Heating Pipe (3 parts)
-      ✅ In Oscar: ['JE334A001 - Interior Heating Pipe']
-   └─ JE331A001 - Rear Interior Airflow (2 parts)
-      ✅ In Oscar: ['JE331A001 - Rear Interior Airflow', 'JE331A001 - Rear Interior Airflow']    
-
-📁 Parent: Safety Belt
-   Child titles: 1
-   └─ JE460A001 - Side Panel&Roof Safety Belt (4 parts)
-      ✅ In Oscar: ['JE460A001 - Side Panel&Roof Safety Belt', 'JE460A001 - Side Panel&Roof Safet
-y Belt']
-
-📁 Parent: Safety&Avoidance
-   Child titles: 2
-   └─ JE811A001 - Air Bag Control Unit (4 parts)
-      ✅ In Oscar: ['JE811A001 - Air Bag Control Unit']
-   └─ JE812A001 - ParkDistanceControlSystem (8 parts)
-      ✅ In Oscar: ['JE812A001 - ParkDistanceControlSystem', 'JE812A001 - ParkDistanceControlSyst
-em']
-
-📁 Parent: Seats
-   Child titles: 11
-   └─ JE421AH001 - Arrangement for VAN Vehicle (UK、Hong Kong) (2 parts)
-      ✅ In Oscar: ['JE421AH001 - Arrangement for VAN Vehicle (UK、Hong Kong)', "JE421AE001 - Sea
-t Arrangement of Shang Jie's 11 12and 14 Seats (Australia)", 'JE421AI001 - Three Seats Arrangement for Chassis Vehicle (UK、Hong Kong)', 'JE421AF001 - Three Seats Arrangement for VAN Vehicle (Australia、New Zealand)', 'JE421AG001 - Two/Three Seats Arrangement for Chassis Vehicle (Australia、New Zealand)']
-   └─ JE421B002 - Frong Seat（right ） (13 parts)
-      ✅ In Oscar: ['JE421B002 - Frong Seat（right ）', 'JE421B001 - Front Seat（left ）']       
-   └─ JE421B001 - Front Seat（left ） (16 parts)
-      ✅ In Oscar: ['JE421B002 - Frong Seat（right ）', 'JE421B001 - Front Seat（left ）']       
-   └─ JE421B004 - Front Seat（Left） (3 parts)
-      ✅ In Oscar: ['JE421B001 - Front Seat（left ）', 'JE421B004 - Front Seat（Left）']
-   └─ JE421B003 - Front Seat（Right） (1 parts)
-      ✅ In Oscar: ['JE421B002 - Frong Seat（right ）', 'JE421B001 - Front Seat（left ）', 'JE421
-B004 - Front Seat（Left）', 'JE421B003 - Front Seat（Right）', 'JE421B002 - Frong Seat（right ）
-', 'JE421B001 - Front Seat（left ）', 'JE421B004 - Front Seat（Left）', 'JE421B003 - Front Seat 
-（Right）']
-   └─ JE421AE001 - Seat Arrangement of Shang Jie's 11 12and 14 Seats (Australia) (1 parts)      
-      ✅ In Oscar: ['JE421AH001 - Arrangement for VAN Vehicle (UK、Hong Kong)', "JE421AE001 - Sea
-t Arrangement of Shang Jie's 11 12and 14 Seats (Australia)", 'JE421AI001 - Three Seats Arrangement for Chassis Vehicle (UK、Hong Kong)', 'JE421AF001 - Three Seats Arrangement for VAN Vehicle (Australia、New Zealand)', 'JE421AG001 - Two/Three Seats Arrangement for Chassis Vehicle (Australia、New Zealand)']
-   └─ JE421B005 - Subdrivers Integral Double Seat (7 parts)
-      ✅ In Oscar: ['JE421B005 - Subdrivers Integral Double Seat', 'JE421B006 - Subdrivers Split 
-Double Seat', 'JE421B005 - Subdrivers Integral Double Seat', 'JE421B006 - Subdrivers Split Double Seat']
-   └─ JE421B006 - Subdrivers Split Double Seat (3 parts)
-      ✅ In Oscar: ['JE421B005 - Subdrivers Integral Double Seat', 'JE421B006 - Subdrivers Split 
-Double Seat', 'JE421B005 - Subdrivers Integral Double Seat', 'JE421B006 - Subdrivers Split Double Seat']
-   └─ JE421AI001 - Three Seats Arrangement for Chassis Vehicle (UK、Hong Kong) (1 parts)        
-      ✅ In Oscar: ['JE421AH001 - Arrangement for VAN Vehicle (UK、Hong Kong)', "JE421AE001 - Sea
-t Arrangement of Shang Jie's 11 12and 14 Seats (Australia)", 'JE421AI001 - Three Seats Arrangement for Chassis Vehicle (UK、Hong Kong)', 'JE421AF001 - Three Seats Arrangement for VAN Vehicle (Australia、New Zealand)', 'JE421AG001 - Two/Three Seats Arrangement for Chassis Vehicle (Australia、New Zealand)']
-   └─ JE421AF001 - Three Seats Arrangement for VAN Vehicle (Australia、New Zealand) (1 parts)
-      ✅ In Oscar: ['JE421AH001 - Arrangement for VAN Vehicle (UK、Hong Kong)', "JE421AE001 - Sea
-t Arrangement of Shang Jie's 11 12and 14 Seats (Australia)", 'JE421AI001 - Three Seats Arrangement for Chassis Vehicle (UK、Hong Kong)', 'JE421AF001 - Three Seats Arrangement for VAN Vehicle (Australia、New Zealand)', 'JE421AG001 - Two/Three Seats Arrangement for Chassis Vehicle (Australia、New Zealand)']
-   └─ JE421AG001 - Two/Three Seats Arrangement for Chassis Vehicle (Australia、New Zealand) (2 parts)
-      ✅ In Oscar: ['JE421AH001 - Arrangement for VAN Vehicle (UK、Hong Kong)', "JE421AE001 - Sea
-t Arrangement of Shang Jie's 11 12and 14 Seats (Australia)", 'JE421AI001 - Three Seats Arrangement for Chassis Vehicle (UK、Hong Kong)', 'JE421AF001 - Three Seats Arrangement for VAN Vehicle (Australia、New Zealand)', 'JE421AG001 - Two/Three Seats Arrangement for Chassis Vehicle (Australia、New Zealand)']
-
-📁 Parent: Side Closures
-   Child titles: 5
-   └─ JE551C001 - Front Door Electric Glass Regulator (6 parts)
-      ✅ In Oscar: ['JE551C001 - Front Door Electric Glass Regulator', 'JE551C001 - Front Door El
-ectric Glass Regulator']
-   └─ JE551B001 - Front Door Handle and Lock (22 parts)
-      ✅ In Oscar: ['JE551B001 - Front Door Handle and Lock']
-   └─ JE551A001 - Front Side Closure (23 parts)
-      ✅ In Oscar: ['JE551A001 - Front Side Closure', 'JE551A001 - Front Side Closure']
-   └─ JE553B001 - Side Sliding Door Handle and Door Lock (1 parts)
-      ✅ In Oscar: ['JE561C001 - Rear Door Handle and Door Lock', 'JE551B001 - Front Door Handle 
-and Lock', 'JE553B001 - Side Sliding Door Handle and Door Lock', 'JE561C001 - Rear Door Handle and Door Lock', 'JE551B001 - Front Door Handle and Lock', 'JE553B001 - Side Sliding Door Handle and Door Lock']
-   └─ JE557A001 - TNK FIL DR (6 parts)
-      ✅ In Oscar: ['JE557A001 - TNK FIL DR', 'JE557A001 - TNK FIL DR']
-
-📁 Parent: Steering
-   Child titles: 2
-   └─ JE215A001 - Redirector (14 parts)
-      ✅ In Oscar: ['JE215A001 - Redirector']
-   └─ JE214A001 - Steering Column (6 parts)
-      ✅ In Oscar: ['JE214A001 - Steering Column']
-
-📁 Parent: Suspension
-   Child titles: 4
-   └─ JE224A001 - Front Shock Absorber (10 parts)
-      ✅ In Oscar: ['JE224A001 - Front Shock Absorber', 'JE224A001 - Front Shock Absorber']      
-   └─ JE221A001 - Front Suspension (14 parts)
-      ✅ In Oscar: ['JE221A001 - Front Suspension', 'JE221A001 - Front Suspension']
-   └─ JE225A001 - Rear Shock Absorber (5 parts)
-      ✅ In Oscar: ['JE225A001 - Rear Shock Absorber', 'JE225A001 - Rear Shock Absorber']        
-   └─ JE222A001 - Rear Suspension (31 parts)
-      ✅ In Oscar: ['JE222A001 - Rear Suspension', 'JE222A001 - Rear Suspension']
-
-📁 Parent: Tire,Wheels,Wheel Trim
-   Child titles: 1
-   └─ JE230A001 - Tire,Wheel,Trim (31 parts)
-      ✅ In Oscar: ['JE230A001 - Tire,Wheel,Trim']
-
-📁 Parent: Wiper & Washer
-   Child titles: 3
-   └─ JE682A001 - Washer System (12 parts)
-      ✅ In Oscar: ['JE682A001 - Washer System', 'JE682A001 - Washer System']
-   └─ JE681A001 - Wiper（LHD） (10 parts)
-      ✅ In Oscar: ['JE681A001 - Wiper（LHD）', 'JE681A002 - Wiper（RHD）', 'JE681A001 - Wiper（L
-HD）', 'JE681A002 - Wiper（RHD）']
-   └─ JE681A002 - Wiper（RHD） (16 parts)
-      ✅ In Oscar: ['JE681A002 - Wiper（RHD）', 'JE681A002 - Wiper（RHD）']
+📊 Analysis complete:
+   Duplicate sets found: 15
+   Total products to move: 193
+💾 Creating backup file: consolidation_backup_20250917_175803.json
+✅ Backup created: 15 change sets recorded
 
 ============================================================
-🔍 CHECKING FOR CHARGING & ENERGY STORAGE:
-✅ Found charging parent: Charging & Energystorage
-   └─ JE843A001 - Battery&Electrical Energy Storage (8 parts)
-   └─ JE844A002 - PowerInverter (2 parts)
-
+⚠️  FINAL CONFIRMATION REQUIRED
 ============================================================
-🔍 SEARCHING FOR BATTERY/ENERGY KEYWORDS:
-🔋 Children with 'battery': 2
-   - JE843A001 - Battery&Electrical Energy Storage (parent: Charging & Energystorage, parts: 8)
-   - JE869A001 - Battery Harnesses (parent: Power & Signaldistribution, parts: 6)
-⚡ Children with 'energy': 1
-   - JE843A001 - Battery&Electrical Energy Storage (parent: Charging & Energystorage, parts: 8) 
+🚨 YOU ARE ABOUT TO MODIFY A PRODUCTION DATABASE!
+🚨 THIS WILL PERMANENTLY CHANGE DATA!
+📊 Summary of changes:
+   • 15 duplicate sets will be consolidated
+   • 193 products will be moved between categories
+   • 21 duplicate categories will be DELETED
+   • Backup file created: consolidation_backup_20250917_175803.json
 
-============================================================
-🔍 OSCAR CATEGORIES WITH BATTERY/ENERGY:
-🔋 Oscar categories with 'battery': 4
-   - JE843A001 - Battery&Electrical Energy Storage (0 products)
-   - JE869A001 - Battery Harnesses (4 products)
-   - JE843A001 - Battery&Electrical Energy Storage (8 products)
-   - JE869A001 - Battery Harnesses (4 products)
-⚡ Oscar categories with 'energy': 4
-   - Charging & Energystorage (10 products)
-   - JE843A001 - Battery&Electrical Energy Storage (0 products)
-   - Charging & Energystorage (0 products)
-   - JE843A001 - Battery&Electrical Energy Storage (8 products)
+🛡️  Safety measures in place:
+   • Database transaction will be used (atomic operation)
+   • Detailed backup file created for rollback
+   • All changes logged for audit trail
+
+🚨 PRODUCTION ENVIRONMENT WARNINGS:
+   • Ensure database backup exists before proceeding
+   • Consider running during maintenance window
+   • Have rollback procedure ready
+   • Monitor application after changes
+
+❓ Do you want to proceed?
+Type 'PRODUCTION-CONFIRM' to proceed, 'dry-run' to preview, or 'abort' to cancel: PRODUCTION-CONFIRM
+
+🚀 EXECUTING CONSOLIDATION WITH TRANSACTION SAFETY...
+(1/15) Consolidating: 'JE225A001 - Rear Shock Absorber'
+  Moving 5 products from ID=408 to ID=406
+  Deleting duplicate category: serial-LSH14C4C5NA129710-parent-1-child-5
+  Moving 5 products from ID=412 to ID=406
+  Deleting duplicate category: serial-LSH14C4C5NA129710-parent-1-child-9
+(2/15) Consolidating: 'JE125A004 - Rear Electric  Drive Axle'
+  Moving 19 products from ID=543 to ID=542
+  Deleting duplicate category: serial-LSH14C4C5NA129710-parent-32-child-9
+(3/15) Consolidating: 'JE11CA001 - Engine ASM'
+  Moving 1 products from ID=732 to ID=731
+  Deleting duplicate category: serial-LSH14J7C2MA122115-parent-31-child-16
+(4/15) Consolidating: 'JE412A002 - Instrument Panel Crossmember（RHD）'
+  Moving 6 products from ID=791 to ID=789
+  Deleting duplicate category: serial-LSH14J7C2MA122115-parent-41-child-4
+  Moving 6 products from ID=792 to ID=789
+  Deleting duplicate category: serial-LSH14J7C2MA122115-parent-41-child-5
+(5/15) Consolidating: 'JE437A001 - Floor Trim'
+  Moving 22 products from ID=873 to ID=872
+  Deleting duplicate category: serial-LSH14J7C7MA114771-parent-10-child-6
+(6/15) Consolidating: 'JE261A001 - Power assembly installation'
+  Moving 12 products from ID=884 to ID=883
+  Deleting duplicate category: serial-LSH14J7C7MA114771-parent-13-child-2
+(7/15) Consolidating: 'JE460A001 - Side Panel&Roof Safety Belt'
+  Moving 14 products from ID=889 to ID=888
+  Deleting duplicate category: serial-LSH14J7C7MA114771-parent-15-child-2
+(8/15) Consolidating: 'JE682A001 - Washer System'
+  Moving 12 products from ID=908 to ID=906
+  Deleting duplicate category: serial-LSH14J7C7MA114771-parent-22-child-3
+(9/15) Consolidating: 'JE440A001 - InteriorLamp'
+  Moving 6 products from ID=929 to ID=928
+  Deleting duplicate category: serial-LSH14J7C7MA114771-parent-29-child-2
+(10/15) Consolidating: 'JE11CX001 - Engine shield'
+  Moving 10 products from ID=938 to ID=932
+  Deleting duplicate category: serial-LSH14J7C7MA114771-parent-30-child-8
+  Moving 10 products from ID=943 to ID=932
+  Deleting duplicate category: serial-LSH14J7C7MA114771-parent-30-child-13
+  Moving 10 products from ID=954 to ID=932
+  Deleting duplicate category: serial-LSH14J7C7MA114771-parent-30-child-24
+(11/15) Consolidating: 'JE334A002 - Interior Heating Pipe-FCV'
+  Moving 1 products from ID=959 to ID=958
+  Deleting duplicate category: serial-LSH14J7C7MA114771-parent-31-child-3
+  Moving 1 products from ID=960 to ID=958
+  Deleting duplicate category: serial-LSH14J7C7MA114771-parent-31-child-4
+  Moving 1 products from ID=962 to ID=958
+  Deleting duplicate category: serial-LSH14J7C7MA114771-parent-31-child-6
+(12/15) Consolidating: 'JE412A001 - Instrument Panel Crossmember（LHD）'
+  Moving 3 products from ID=1017 to ID=1016
+  Deleting duplicate category: serial-LSH14J7C7MA114771-parent-40-child-2
+(13/15) Consolidating: 'JE411A002 - Instrument Panel（RHD）'
+  Moving 32 products from ID=1021 to ID=1020
+  Deleting duplicate category: serial-LSH14J7C7MA114771-parent-40-child-6
+(14/15) Consolidating: 'JE451A001 - Sound Insulation、Heat Insulation'
+  Moving 14 products from ID=1034 to ID=1033
+  Deleting duplicate category: serial-LSH14J7C7MA114771-parent-43-child-2
+(15/15) Consolidating: 'JE421B006 - Subdrivers Split Double Seat'
+  Moving 3 products from ID=1052 to ID=1050
+  Deleting duplicate category: serial-LSH14J7C7MA114771-parent-46-child-12
+
+✅ CONSOLIDATION COMPLETED SUCCESSFULLY!
+   Products moved: 193
+   Duplicate categories deleted: 21
+   Backup file: consolidation_backup_20250917_175803.json
+
+🎉 Script completed successfully!
+(env) rentals@rentals:~/epc_parts_store/epcdata$
