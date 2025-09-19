@@ -1,28 +1,38 @@
-o.uk,www.vanparts-direct.co.uk
-🎯 FINAL RESULT: PRODUCTION mode selected
-============================================================
-DEBUG: ALLOWED_HOSTS = ['80.95.207.42', 'vanparts-direct.co.uk', 'www.vanparts-direct.co.uk']
-🗄️ Database config: parts_store as postgres on localhost
-🔍 CHECKING SERIAL: LSFAL11A4PA157987
-==================================================
-Total categories for this serial: 202
-Child categories: 155
+serial-LSFAL11A4PA157987-parent-2-child-1
+  Name: 'JE843A001 - Battery&Electrical Energy Storage'
+  Products: 0 ❌ EMPTY
 
-📋 DUPLICATE ANALYSIS:
+serial-LSFAL11A4PA157987-parent-2-child-2
+  Name: 'JE844A002 - PowerInverter'
+  Products: 0 ❌ EMPTY
 
-📊 SUMMARY:
-   Duplicate sets: 0
-   Categories with products: 109
-   Empty categories: 46
+Total products in Parent-2: 0
 
-🎯 SPECIFIC URL CHECK:
-   Category: serial-LSFAL11A4PA157987-parent-2-child-1
-   Name: 'JE843A001 - Battery&Electrical Energy Storage'
-   ID: 9
-   Products: 0
-   ❌ CONFIRMED: This category is empty!
+📊 OTHER PARENTS WITH PRODUCTS:
+--------------------------------------------------
+Top 10 parents by product count:
+  Parent-31: 424 products, 22 categories, 0 empty
+  Parent-33: 239 products, 11 categories, 0 empty
+  Parent-39: 124 products, 7 categories, 0 empty
+  Parent-38: 58 products, 5 categories, 0 empty
+  Parent-41: 54 products, 4 categories, 0 empty
+  Parent-47: 48 products, 11 categories, 0 empty
+  Parent-43: 46 products, 8 categories, 0 empty
+  Parent-18: 39 products, 1 categories, 0 empty
+  Parent-23: 34 products, 3 categories, 0 empty
+  Parent-1: 25 products, 4 categories, 3 empty
 
-🔍 LOOKING FOR DUPLICATES OF THIS CATEGORY:
-     serial-LSFAL11A4PA157987-parent-2-child-1 (ID=9, Products=0)
+📈 SERIAL OVERVIEW:
+  Total products across all categories: 1322
+  Total categories: 155
+  Empty categories: 46
 
-💡 This serial appears clean - the issue may be elsewhere
+🔍 CHECKING OTHER SERIALS WITH PRODUCTS:
+--------------------------------------------------
+Serials by product count:
+  LSH14J7C2MA122115: 2016 products ✅ ACTIVE
+  LSH14J7CXMA114599: 1971 products ✅ ACTIVE
+  LSH14J7C7MA114771: 1925 products ✅ ACTIVE
+  LSH14C4C5NA129710: 1902 products ✅ ACTIVE
+  LSFAL11A5MA087816: 1751 products ✅ ACTIVE
+  LSFAL11A4PA157987: 1322 products ✅ ACTIVE
