@@ -1,127 +1,28 @@
-(env) rentals@rentals:~/epc_parts_store/epcdata$ python production_consolidate_duplicates.py
-🔍 Debug: .env exists = True
-🔍 Debug: .env.production exists = True
-🔍 Debug: .prod exists = False
-🔍 Debug: DJANGO_ENV = NOT SET
-🔍 Debug: hostname=rentals, local_ip=127.0.1.1
-🔍 Debug: SERVER_IP=None
-🔍 Debug: HOSTNAME=None
-🌐 Production mode: Detected VPS server IP (80.95.207.42)
-🔍 Debug: hostname=rentals, local_ip=127.0.1.1
-🔍 Debug: SERVER_IP=None
-🔍 Debug: HOSTNAME=None
-🌐 Loading VPS PRODUCTION environment from .env.production (N0rfolk password)
-DEBUG: Production mode - ALLOWED_HOSTS env var = 80.95.207.42,vanparts-direct.co.uk,www.vanparts-direct.co.uk
+o.uk,www.vanparts-direct.co.uk
 🎯 FINAL RESULT: PRODUCTION mode selected
 ============================================================
 DEBUG: ALLOWED_HOSTS = ['80.95.207.42', 'vanparts-direct.co.uk', 'www.vanparts-direct.co.uk']
 🗄️ Database config: parts_store as postgres on localhost
-🔧 PRODUCTION-SAFE DUPLICATE CATEGORY CONSOLIDATION
-============================================================
-🔒 PERFORMING SAFETY CHECKS...
-🚨 PRODUCTION ENVIRONMENT DETECTED!
-   Extra safety measures will be enforced.
-✅ Database connection: OK
-📊 Current state:
-   Total child categories: 986
-   Duplicate sets found: 15
-   Products to be moved: 193
-🔍 ANALYZING DUPLICATE CHILD CATEGORIES...
+🔍 CHECKING SERIAL: LSFAL11A4PA157987
+==================================================
+Total categories for this serial: 202
+Child categories: 155
 
-📊 Analysis complete:
-   Duplicate sets found: 15
-   Total products to move: 193
-💾 Creating backup file: consolidation_backup_20250917_175803.json
-✅ Backup created: 15 change sets recorded
+📋 DUPLICATE ANALYSIS:
 
-============================================================
-⚠️  FINAL CONFIRMATION REQUIRED
-============================================================
-🚨 YOU ARE ABOUT TO MODIFY A PRODUCTION DATABASE!
-🚨 THIS WILL PERMANENTLY CHANGE DATA!
-📊 Summary of changes:
-   • 15 duplicate sets will be consolidated
-   • 193 products will be moved between categories
-   • 21 duplicate categories will be DELETED
-   • Backup file created: consolidation_backup_20250917_175803.json
+📊 SUMMARY:
+   Duplicate sets: 0
+   Categories with products: 109
+   Empty categories: 46
 
-🛡️  Safety measures in place:
-   • Database transaction will be used (atomic operation)
-   • Detailed backup file created for rollback
-   • All changes logged for audit trail
+🎯 SPECIFIC URL CHECK:
+   Category: serial-LSFAL11A4PA157987-parent-2-child-1
+   Name: 'JE843A001 - Battery&Electrical Energy Storage'
+   ID: 9
+   Products: 0
+   ❌ CONFIRMED: This category is empty!
 
-🚨 PRODUCTION ENVIRONMENT WARNINGS:
-   • Ensure database backup exists before proceeding
-   • Consider running during maintenance window
-   • Have rollback procedure ready
-   • Monitor application after changes
+🔍 LOOKING FOR DUPLICATES OF THIS CATEGORY:
+     serial-LSFAL11A4PA157987-parent-2-child-1 (ID=9, Products=0)
 
-❓ Do you want to proceed?
-Type 'PRODUCTION-CONFIRM' to proceed, 'dry-run' to preview, or 'abort' to cancel: PRODUCTION-CONFIRM
-
-🚀 EXECUTING CONSOLIDATION WITH TRANSACTION SAFETY...
-(1/15) Consolidating: 'JE225A001 - Rear Shock Absorber'
-  Moving 5 products from ID=408 to ID=406
-  Deleting duplicate category: serial-LSH14C4C5NA129710-parent-1-child-5
-  Moving 5 products from ID=412 to ID=406
-  Deleting duplicate category: serial-LSH14C4C5NA129710-parent-1-child-9
-(2/15) Consolidating: 'JE125A004 - Rear Electric  Drive Axle'
-  Moving 19 products from ID=543 to ID=542
-  Deleting duplicate category: serial-LSH14C4C5NA129710-parent-32-child-9
-(3/15) Consolidating: 'JE11CA001 - Engine ASM'
-  Moving 1 products from ID=732 to ID=731
-  Deleting duplicate category: serial-LSH14J7C2MA122115-parent-31-child-16
-(4/15) Consolidating: 'JE412A002 - Instrument Panel Crossmember（RHD）'
-  Moving 6 products from ID=791 to ID=789
-  Deleting duplicate category: serial-LSH14J7C2MA122115-parent-41-child-4
-  Moving 6 products from ID=792 to ID=789
-  Deleting duplicate category: serial-LSH14J7C2MA122115-parent-41-child-5
-(5/15) Consolidating: 'JE437A001 - Floor Trim'
-  Moving 22 products from ID=873 to ID=872
-  Deleting duplicate category: serial-LSH14J7C7MA114771-parent-10-child-6
-(6/15) Consolidating: 'JE261A001 - Power assembly installation'
-  Moving 12 products from ID=884 to ID=883
-  Deleting duplicate category: serial-LSH14J7C7MA114771-parent-13-child-2
-(7/15) Consolidating: 'JE460A001 - Side Panel&Roof Safety Belt'
-  Moving 14 products from ID=889 to ID=888
-  Deleting duplicate category: serial-LSH14J7C7MA114771-parent-15-child-2
-(8/15) Consolidating: 'JE682A001 - Washer System'
-  Moving 12 products from ID=908 to ID=906
-  Deleting duplicate category: serial-LSH14J7C7MA114771-parent-22-child-3
-(9/15) Consolidating: 'JE440A001 - InteriorLamp'
-  Moving 6 products from ID=929 to ID=928
-  Deleting duplicate category: serial-LSH14J7C7MA114771-parent-29-child-2
-(10/15) Consolidating: 'JE11CX001 - Engine shield'
-  Moving 10 products from ID=938 to ID=932
-  Deleting duplicate category: serial-LSH14J7C7MA114771-parent-30-child-8
-  Moving 10 products from ID=943 to ID=932
-  Deleting duplicate category: serial-LSH14J7C7MA114771-parent-30-child-13
-  Moving 10 products from ID=954 to ID=932
-  Deleting duplicate category: serial-LSH14J7C7MA114771-parent-30-child-24
-(11/15) Consolidating: 'JE334A002 - Interior Heating Pipe-FCV'
-  Moving 1 products from ID=959 to ID=958
-  Deleting duplicate category: serial-LSH14J7C7MA114771-parent-31-child-3
-  Moving 1 products from ID=960 to ID=958
-  Deleting duplicate category: serial-LSH14J7C7MA114771-parent-31-child-4
-  Moving 1 products from ID=962 to ID=958
-  Deleting duplicate category: serial-LSH14J7C7MA114771-parent-31-child-6
-(12/15) Consolidating: 'JE412A001 - Instrument Panel Crossmember（LHD）'
-  Moving 3 products from ID=1017 to ID=1016
-  Deleting duplicate category: serial-LSH14J7C7MA114771-parent-40-child-2
-(13/15) Consolidating: 'JE411A002 - Instrument Panel（RHD）'
-  Moving 32 products from ID=1021 to ID=1020
-  Deleting duplicate category: serial-LSH14J7C7MA114771-parent-40-child-6
-(14/15) Consolidating: 'JE451A001 - Sound Insulation、Heat Insulation'
-  Moving 14 products from ID=1034 to ID=1033
-  Deleting duplicate category: serial-LSH14J7C7MA114771-parent-43-child-2
-(15/15) Consolidating: 'JE421B006 - Subdrivers Split Double Seat'
-  Moving 3 products from ID=1052 to ID=1050
-  Deleting duplicate category: serial-LSH14J7C7MA114771-parent-46-child-12
-
-✅ CONSOLIDATION COMPLETED SUCCESSFULLY!
-   Products moved: 193
-   Duplicate categories deleted: 21
-   Backup file: consolidation_backup_20250917_175803.json
-
-🎉 Script completed successfully!
-(env) rentals@rentals:~/epc_parts_store/epcdata$
+💡 This serial appears clean - the issue may be elsewhere
