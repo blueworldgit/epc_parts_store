@@ -1,0 +1,72 @@
+[
+  {
+    "product_id": 298,
+    "product_title": "BOARD-BATTERY STITCHING",
+    "from_category_id": 489,
+    "from_category_slug": "serial-LSFAL11A4PA157987-parent-12-child-1",
+    "to_category_id": 431,
+    "to_category_slug": "serial-LSFAL11A4PA157987-parent-2-child-1",
+    "reason": "Energy storage product in wrong parent (Parent-12 \u2192 Parent-2)",
+    "timestamp": "2025-09-19T15:07:11.430603"
+  },
+  {
+    "product_id": 296,
+    "product_title": "TRAY ASSEMBLY-BATTERY",
+    "from_category_id": 489,
+    "from_category_slug": "serial-LSFAL11A4PA157987-parent-12-child-1",
+    "to_category_id": 431,
+    "to_category_slug": "serial-LSFAL11A4PA157987-parent-2-child-1",
+    "reason": "Energy storage product in wrong parent (Parent-12 \u2192 Parent-2)",
+    "timestamp": "2025-09-19T15:07:11.449771"
+  },
+  {
+    "product_id": 295,
+    "product_title": "INTELLIGENT BATTERY SENSOR",
+    "from_category_id": 489,
+    "from_category_slug": "serial-LSFAL11A4PA157987-parent-12-child-1",
+    "to_category_id": 431,
+    "to_category_slug": "serial-LSFAL11A4PA157987-parent-2-child-1",
+    "reason": "Energy storage product in wrong parent (Parent-12 \u2192 Parent-2)",
+    "timestamp": "2025-09-19T15:07:11.450750"
+  },
+  {
+    "product_id": 294,
+    "product_title": "BATTERY ASSEMBLY",
+    "from_category_id": 489,
+    "from_category_slug": "serial-LSFAL11A4PA157987-parent-12-child-1",
+    "to_category_id": 431,
+    "to_category_slug": "serial-LSFAL11A4PA157987-parent-2-child-1",
+    "reason": "Energy storage product in wrong parent (Parent-12 \u2192 Parent-2)",
+    "timestamp": "2025-09-19T15:07:11.450750"
+  },
+  {
+    "product_id": 635,
+    "product_title": "NUT-AUXILIARY BATTERY CAT HARNESS",
+    "from_category_id": 604,
+    "from_category_slug": "serial-LSFAL11A4PA157987-parent-31-child-1",
+    "to_category_id": 446,
+    "to_category_slug": "serial-LSFAL11A4PA157987-parent-7-child-1",
+    "reason": "Battery harness product in wrong parent (Parent-31 \u2192 Parent-7)",
+    "timestamp": "2025-09-19T15:07:11.456847"
+  },
+  {
+    "product_id": 634,
+    "product_title": "HARDNESS-BATTERY CAT",
+    "from_category_id": 604,
+    "from_category_slug": "serial-LSFAL11A4PA157987-parent-31-child-1",
+    "to_category_id": 446,
+    "to_category_slug": "serial-LSFAL11A4PA157987-parent-7-child-1",
+    "reason": "Battery harness product in wrong parent (Parent-31 \u2192 Parent-7)",
+    "timestamp": "2025-09-19T15:07:11.460848"
+  },
+  {
+    "product_id": 632,
+    "product_title": "HARDNESS-BATTERY POSITIVE",
+    "from_category_id": 604,
+    "from_category_slug": "serial-LSFAL11A4PA157987-parent-31-child-1",
+    "to_category_id": 446,
+    "to_category_slug": "serial-LSFAL11A4PA157987-parent-7-child-1",
+    "reason": "Battery harness product in wrong parent (Parent-31 \u2192 Parent-7)",
+    "timestamp": "2025-09-19T15:07:11.464563"
+  }
+]

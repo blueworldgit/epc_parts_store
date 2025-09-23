@@ -186,8 +186,18 @@ class Command(BaseCommand):
                 except Exception as e:
                     self.stdout.write(self.style.WARNING(f"⚠️ Price update failed: {e}"))
                     logger.warning(f"Price update failed: {e}")
+                
+                # Automatically update all product weights based on pricing
+                self.stdout.write("⚖️ Running weight update for all products...")
+                try:
+                    call_command('updateallweights', verbosity=1 if self.verbose else 0)
+                    self.stdout.write(self.style.SUCCESS("✅ Weight update completed successfully"))
+                except Exception as e:
+                    self.stdout.write(self.style.WARNING(f"⚠️ Weight update failed: {e}"))
+                    logger.warning(f"Weight update failed: {e}")
             else:
                 self.stdout.write("🏃 Skipping price update (dry-run mode)")
+                self.stdout.write("🏃 Skipping weight update (dry-run mode)")
             
             # Show final completion summary (after price update)
             self._print_completion_summary()

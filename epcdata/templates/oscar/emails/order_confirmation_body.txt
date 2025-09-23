@@ -1,6 +1,6 @@
 Dear {% if user.first_name %}{{ user.first_name }}{% else %}Customer{% endif %},
 
-Thank you for your order with {{ site_name }}!
+Thank you for your order with RapidFit!
 
 Your order has been successfully placed and payment confirmed.
 
@@ -40,11 +40,11 @@ We will process your order shortly and send you shipping information once your i
 
 If you have any questions about your order, please contact us at {{ settings.EMAIL_HOST_USER }}.
 
-Thank you for choosing {{ site_name }}!
+Thank you for choosing RapidFit!
 
 Best regards,
-The {{ site_name }} Team
-{{ shop_tagline }}
+The RapidFit Team
+Your trusted motor parts supplier
 
 ---
 This email was sent automatically. Please do not reply to this email.

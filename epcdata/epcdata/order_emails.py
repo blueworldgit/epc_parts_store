@@ -55,16 +55,21 @@ def send_order_confirmation_email(sender, order, user, **kwargs):
         # Create and send email
         from_email = getattr(settings, 'OSCAR_FROM_EMAIL', settings.DEFAULT_FROM_EMAIL)
         
+        # Recipients - customer email + copy to parts@rapidfit.co.uk
+        recipients = [customer_email]
+        bcc_recipients = ['parts@rapidfit.co.uk']
+        
         email = EmailMultiAlternatives(
             subject=subject,
             body=body_text,
             from_email=from_email,
-            to=[customer_email]
+            to=recipients,
+            bcc=bcc_recipients
         )
         email.attach_alternative(body_html, "text/html")
         email.send()
         
-        logger.info(f"Order confirmation email sent for order {order.number} to {customer_email}")
+        logger.info(f"Order confirmation email sent for order {order.number} to {customer_email} (BCC: parts@rapidfit.co.uk)")
         
     except Exception as e:
         logger.error(f"Failed to send order confirmation email for order {order.number}: {e}")
@@ -106,16 +111,21 @@ def send_custom_order_email(order, template_prefix, extra_context=None):
         # Create and send email
         from_email = getattr(settings, 'OSCAR_FROM_EMAIL', settings.DEFAULT_FROM_EMAIL)
         
+        # Recipients - customer email + copy to parts@rapidfit.co.uk
+        recipients = [customer_email]
+        bcc_recipients = ['parts@rapidfit.co.uk']
+        
         email = EmailMultiAlternatives(
             subject=subject,
             body=body_text,
             from_email=from_email,
-            to=[customer_email]
+            to=recipients,
+            bcc=bcc_recipients
         )
         email.attach_alternative(body_html, "text/html")
         email.send()
         
-        logger.info(f"Custom email ({template_prefix}) sent for order {order.number} to {customer_email}")
+        logger.info(f"Custom email ({template_prefix}) sent for order {order.number} to {customer_email} (BCC: parts@rapidfit.co.uk)")
         return True
         
     except Exception as e:

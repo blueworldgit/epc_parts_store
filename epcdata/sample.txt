@@ -1,38 +1,43 @@
-serial-LSFAL11A4PA157987-parent-2-child-1
-  Name: 'JE843A001 - Battery&Electrical Energy Storage'
-  Products: 0 ❌ EMPTY
-
-serial-LSFAL11A4PA157987-parent-2-child-2
-  Name: 'JE844A002 - PowerInverter'
-  Products: 0 ❌ EMPTY
-
-Total products in Parent-2: 0
-
-📊 OTHER PARENTS WITH PRODUCTS:
---------------------------------------------------
-Top 10 parents by product count:
-  Parent-31: 424 products, 22 categories, 0 empty
-  Parent-33: 239 products, 11 categories, 0 empty
-  Parent-39: 124 products, 7 categories, 0 empty
-  Parent-38: 58 products, 5 categories, 0 empty
-  Parent-41: 54 products, 4 categories, 0 empty
-  Parent-47: 48 products, 11 categories, 0 empty
-  Parent-43: 46 products, 8 categories, 0 empty
-  Parent-18: 39 products, 1 categories, 0 empty
-  Parent-23: 34 products, 3 categories, 0 empty
-  Parent-1: 25 products, 4 categories, 3 empty
-
-📈 SERIAL OVERVIEW:
-  Total products across all categories: 1322
-  Total categories: 155
-  Empty categories: 46
-
-🔍 CHECKING OTHER SERIALS WITH PRODUCTS:
---------------------------------------------------
-Serials by product count:
-  LSH14J7C2MA122115: 2016 products ✅ ACTIVE
-  LSH14J7CXMA114599: 1971 products ✅ ACTIVE
-  LSH14J7C7MA114771: 1925 products ✅ ACTIVE
-  LSH14C4C5NA129710: 1902 products ✅ ACTIVE
-  LSFAL11A5MA087816: 1751 products ✅ ACTIVE
-  LSFAL11A4PA157987: 1322 products ✅ ACTIVE
+0kg – 24.9kg	£11.95
+25kg – 49.9kg	£23.90
+50kg – 74.9kg	£35.85
+75kg – 99.9kg	£47.80
+100kg – 124.9kg	£59.75
+125kg – 149.9kg	£71.70
+150kg – 174.9kg	£83.65
+175kg – 199.9kg	£95.60
+200kg – 224.9kg	£107.55
+225kg – 249.9kg	£119.50
+250kg – 274.9kg	£131.45
+275kg – 299.9kg	£143.40
+300kg – 324.9kg	£155.35
+325kg – 349.9kg	£167.30
+350kg – 374.9kg	£179.25
+375kg – 399.9kg	£191.20
+400kg – 424.9kg	£203.15
+425kg – 449.9kg	£215.10
+450kg – 474.9kg	£227.05
+475kg – 499.9kg	£239.00
+500kg – 524.9kg	£250.95
+525kg – 549.9kg	£262.90
+550kg – 574.9kg	£274.85
+575kg – 599.9kg	£286.80
+600kg – 624.9kg	£298.75
+625kg – 649.9kg	£310.70
+650kg – 674.9kg	£322.65
+675kg – 699.9kg	£334.60
+700kg – 724.9kg	£346.55
+725kg – 749.9kg	£358.50
+750kg – 774.9kg	£370.45
+775kg – 799.9kg	£382.40
+800kg – 824.9kg	£394.35
+825kg – 849.9kg	£406.30
+850kg – 874.9kg	£418.25
+875kg – 899.9kg	£430.20
+900kg – 924.9kg	£442.15
+925kg – 949.9kg	£454.10
+950kg – 974.9kg	£466.05
+975kg – 999.9kg	£478.00
+1000kg – 1024.9kg	£489.95
+1025kg – 1049.9kg	£501.90
+1050kg – 1074.9kg	£513.85
