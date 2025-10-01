@@ -4477,10 +4477,11 @@ button, .global-overlay, .quantity .cart-plus-minus > .qtybutton, .price-filter 
 /*  22 - Components - Breadcrumb
 /*----------------------------------------*/
 .breadcrumb-area {
-  background-image: url("../images/breadcrumb/1.jpg");
+  background-image: url("/media/images/breadcrumb-van-interior.jpg");
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
+  background-attachment: fixed;
   min-height: 225px;
   position: relative;
 }

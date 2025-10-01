@@ -1,0 +1,26 @@
+/*
+Custom CSS for RapidFit Parts Store
+Add your custom styles here
+*/
+
+/* Custom breadcrumb styling */
+.breadcrumb-area {
+    /* Van interior breadcrumb is set via media URL in style.css */
+    min-height: 300px;
+}
+
+/* Custom RapidFit branding */
+.navbar-brand {
+    font-weight: bold;
+}
+
+/* Custom button styling */
+.btn-primary {
+    background-color: #ff6b35;
+    border-color: #ff6b35;
+}
+
+.btn-primary:hover {
+    background-color: #e55a2e;
+    border-color: #e55a2e;
+}
