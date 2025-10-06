@@ -1,0 +1,329 @@
+Products with Zero (£0.00) or No Price
+Generated: 2025-10-06 11:46:36
+================================================================================
+
+SUMMARY:
+Total Parts in database: 5824
+Total PricingData records: 5339
+Products with £0.00 price: 0
+Products with NULL/missing price: 0
+Parts with no pricing data: 485
+Total problematic records: 485
+Unique problematic parts: 309
+Duplicate records: 176
+
+PARTS WITH NO PRICING DATA - 309 parts:
+Part Number          Description                                       
+----------------------------------------------------------------------
+C00000601-A133       CLIP-ROOF HEADLINING TRIM PANEL                   
+C00001726            RUBBER SHACKLE-FRAME TO EXH(HT)                   
+C00005812            WEIGHT BALANCE                                    
+C00005814            WEIGHT BALANCE                                    
+C00005815            WEIGHT BALANCE                                    
+C00005816            WEIGHT BALANCE                                    
+C00005817            WEIGHT BALANCE                                    
+C00005818            WEIGHT BALANCE                                    
+C00005819            WEIGHT BALANCE                                    
+C00005820            WEIGHT BALANCE                                    
+C00005821            WEIGHT BALANCE                                    
+C00005822            WEIGHT BALANCE                                    
+C00005823            WEIGHT BALANCE                                    
+C00005824            WEIGHT BALANCE                                    
+C00005825            WEIGHT BALANCE                                    
+C00005826            WEIGHT BALANCE                                    
+C00005827            WEIGHT BALANCE                                    
+C00005829            WEIGHT BALANCE                                    
+C00005830            WEIGHT BALANCE                                    
+C00005831            WEIGHT BALANCE                                    
+C00005935            WEIGHT BALANCE                                    
+C00013593            BULB-FRONT FOG                                    
+C00015967            WEIGHT BALANCE                                    
+C00015968            WEIGHT BALANCE                                    
+C00015981            WEIGHT BALANCE                                    
+C00015982            WEIGHT BALANCE                                    
+C00022606            REFRIGERANT-AIR CONDITIONING                      
+C00025833            CLIP-FRONT BRAKE PIPE                             
+C00027222-4100       PANEL-REAR SIDE PANEL UPPER OUTER                 
+C00037326            SPACER-BEARING                                    
+C00042678            CLIP-VACUUM PIPE                                  
+C00056425            CLIP-FRONT BRAKE PIPE                             
+C00066424-4100       PANEL-REAR SIDE PANEL OUTER                       
+C00072270-B          ROD ASSEMBLY-CONNECTOR                            
+C00072270-C          ROD ASSEMBLY-CONNECTOR                            
+C00072270-D          ROD ASSEMBLY-CONNECTOR                            
+C00072270-E          ROD ASSEMBLY-CONNECTOR                            
+C00072270-F          ROD ASSEMBLY-CONNECTOR                            
+C00072270-G          ROD ASSEMBLY-CONNECTOR                            
+C00072843            ADBLUE                                            
+C00073043-bla        CON-ROD BEARING UPPER SHELL(RED)                  
+C00073043-blu        CON-ROD BEARING UPPER SHELL(RED)                  
+C00073043-gre        CON-ROD BEARING UPPER SHELL(RED)                  
+C00073044-bla        CON-ROD BEARING UNDER SHELL(RED)                  
+C00073044-blu        CON-ROD BEARING UNDER SHELL(RED)                  
+C00073044-gre        CON-ROD BEARING UNDER SHELL(RED)                  
+C00073045-bla        BEARING-CRANKSHAFT UPPER                          
+C00073045-blu        BEARING-CRANKSHAFT UPPER                          
+C00073045-gre        BEARING-CRANKSHAFT UPPER                          
+C00073046-bla        BEARING-CRANKSHAFT LOWER                          
+C00073046-blu        BEARING-CRANKSHAFT LOWER                          
+C00073046-gre        BEARING-CRANKSHAFT LOWER                          
+C00074545            BRACKET-ENGINE LEFT HAND FRONT MOUNTING           
+C00075684            PIPE-FRONT BRAKE                                  
+C00075685            PIPE ASSEMBLY-REAR BRK(FRT)                       
+C00075686            PIPE ASSEMBLY-REAR BRK(FRT)                       
+C00076123-A007       HEIGHT ADJUSTOR ASSEMBLY-FRONT SEAT BELT          
+C00076336            WCAC                                              
+C00076863            WEATHERSTRIP-PANEL SIDE DOOR DOOR FRAME           
+C00077048            PLUG-REAR DASH PANEL                              
+C00077218-A133       BRACKE-SUNSHADE SUPPORT                           
+C00077223            MEMBER-INSTRUMENT PANEL CROSS                     
+C00077262            BALL BEARING-MASS BALANCING SHAFT                 
+C00077426            SPROCKET-HIGH PRESSURE PUMP TIMING                
+C00078379-A177       CAP-FRONT SIDE DOOR TRIM PANEL BOLT               
+C00078379-F050       CAP-FRONT SIDE DOOR TRIM PANEL BOLT               
+C00078389-A177       CAP-FRONT SIDE DOOR TRIM PANEL BOLT               
+C00078412-2231       PANEL ASSEMBLY-FRONT SIDE DOOR INNER TRIM         
+C00078413-2231       PANEL ASSEMBLY-FRONT SIDE DOOR INNER TRIM         
+C00080429            SEALING STRIP ASSEMBLY-SLIDING SIDE DOOR UPPE...  
+C00080566            HEATSHIELD-TURBOCHARGER                           
+C00080744            BRACKET-TURBOCHARGER                              
+C00080914-4100       PANEL-REAR ROOF CROSS MEMBER INNER                
+C00081135-4100       PANEL ASSEMBLY-FRONT FLOOR                        
+C00083490            OIL-ENGINE                                        
+C00084385            HEAT SHIELD-ENGINE EXHAUST                        
+C00084404            BRACKET-ACCESSORIES                               
+C00084813            COVER-MASS BALANCE SHAFT INTERMEDIATE GEAR        
+C00084952            BRACKET-DRIVE SHAFT REAR                          
+C00085341            WHEEL                                             
+C00085503            TRIM-REAR FLOOR                                   
+C00085566            INSULATION-DASH PANEL INSULATION(COMPT)           
+C00085567            INSULATION-DASH PANEL INSULATION(DVR)             
+C00085651            PIPE ASSEMBLY-VACUUM                              
+C00085902            CABLE ASSEMBLY-SLIDING DOOR INNER                 
+C00085913            CABLE-REAR DOOR RELEASE                           
+C00085967            DUCT-DRIVER FOOT                                  
+C00086253-4100       PLATE ASSEMBLY-D/PILLAR INNER                     
+C00086286-4100       PLATE ASSEMBLY-D/PILLAR INNER                     
+C00087356            GUIDE ASSEMBLY-SLIDING SIDE DOOR CENTER/CENTR...  
+C00087585-4100       CROSSMEMBER ASSEMBLY-#5                           
+C00088388            WHEEL                                             
+C00089117-4100       CROSSMEMBER SUB ASSEMBLY-S/TYRE FRONT             
+C00090243            BOLT-BEARING CAP                                  
+C00090252-4100       CROSSMEMBER ASSEMBLY-#3                           
+C00095413            CLIP-FRONT BRAKE PIPE                             
+C00095414            CLIP-FRONT BRAKE PIPE                             
+C00095485            HARNESS ASSEMBLY-ENGINE                           
+C00097243            CYLINDER BLOCK MACHINED ASSEMBLY                  
+C00097258            PIPE-SMALL CIR OUT WATER                          
+C00097277            PIPE-COMPRESSOR INLET                             
+C00097349            EXHAUST GAS RECIRCULATION ASSEMBLY-LAMP           
+C00097393-4100       PLATE ASSEMBLY-B/PILLAR INNER                     
+C00097395-4100       PLATE ASSEMBLY-B/PILLAR INNER                     
+C00097402-4100       PLATE ASSEMBLY-BODY SIDE MID UPPER                
+C00097416-4100       PLATE ASSEMBLY-REAR SIDE PANEL UPPER INNER        
+C00097417-4100       PLATE ASSEMBLY-REAR SIDE PANEL UPPER INNER        
+C00097422-4100       PANEL-B/PILLAR CONNECTOR                          
+C00097464-4100       PANEL ASSEMBLY-SILL INNER                         
+C00097465-4100       PANEL ASSEMBLY-SILL INNER                         
+C00097467-4100       PEDAL ASSEMBLY-SLD                                
+C00097474-4100       PANEL-FRONT ROOF OUTER                            
+C00097475-4100       PANEL-ROOF CENTER/CENTRE OUTER                    
+C00098037-4100       PANEL-REAR FLOOR CENTER/CENTRE                    
+C00098097-4100       PANEL-MID FLOOR                                   
+C00098199-4100       PANEL-B/PILLAR CONNECTOR                          
+C00099102-4100       PANEL-CENTER PILLAR LOWER INNER                   
+C00099103-4100       PANEL-CENTER PILLAR LOWER INNER                   
+C00100189-A136       PLATE ASSEMBLY-B/PILLAR UPPER TRIM                
+C00101866            PIPE-EXHAUST TAIL                                 
+C00102212            BRACKET-BODY CONTROL MODULE                       
+C00102252            BRACKET-CLUTCH PIPE TO BD                         
+C00102581-4100       PLATE-BODY CENTER PILLAR INNER                    
+C00103428            OIL-REAR AXLE ASSEMBLY                            
+C00103546            SLEEVE-WIPER MOTOR                                
+C00105000            PIPE ASSEMBLY-REAR BRK(CTR)                       
+C00105003            PIPE ASSEMBLY-REAR BRK(CTR)                       
+C00105102            PLATE-H/BRAKE COVER FRONT UPPER                   
+C00105336            PIPE ASSEMBLY-REAR BRK(CTR)                       
+C00105340            PIPE ASSEMBLY-REAR BRK(CTR)                       
+C00105979-4100       PLATE ASSEMBLY-QUARTER INNER LOWER                
+C00106878-4100       LONGITUDINAL ASSEMBLY-REAR                        
+C00106879-4100       LONGITUDINAL ASSEMBLY-REAR                        
+C00106909            CLIP NUT-IP BODY                                  
+C00106920            BOLT/SCREW-INSTRUMENT PANEL BODY                  
+C00109185-4100       REINFORCEMENT ASSEMBLY-B/PILLAR                   
+C00109668            PANEL-FRONT SIDE PANEL INNER TRIM                 
+C00110318            CLIP-CONSOLE PLATE ASSEMBLY LOWER                 
+C00110325            CLIP-INSTRUMENT PANEL SHINING STRIP ASSEMBLY      
+C00112280-F014       COVER-FRONT SEAT BELT D LOOP GUIDE                
+C00112356-4100       PANEL ASSEMBLY-UPPER BULKHEAD EXTENSION           
+C00112461-4100       PANEL ASSEMBLY-UPPER BULKHEAD                     
+C00113644            BRACKET ASSEMBLY-UPPER MUDGUARD                   
+C00117852-4100       REINFORCEMENT ASSEMBLY-CENTER PILLAR              
+C00117991            PANEL-REAR SIDE PANEL INNER TRIM                  
+C00117992            PANEL-REAR SIDE PANEL INNER TRIM                  
+C00118331-4100       PANEL ASSEMBLY-C PILLAR  OUTER                    
+C00119242            BOLT-EXHAUST GAS RECIRCULATION INLET & OUTLET...  
+C00120457            CLIP-BRAKE PIPE TRIPORATE                         
+C00123939            BRACKET-GATEWAY                                   
+C00128220            HEAT SHIELD-ENGINE EXHAUST                        
+C00128471            HOUSING ASSEMBLY-REDUCER                          
+C00128487            COVER-DIFFERENTIAL                                
+C00134447-4100       PANEL-REAR ROOF CROSS MEMBER INNER                
+C00137544            SHELD-ENGINE RIGHT HAND FRONT MOUNTING            
+C00140715-4100       PANEL-B/PILLAR CONNECTOR                          
+C00140731-4100       PANEL-B/PILLAR CONNECTOR                          
+C00143480            PIPE-WINDSHIELD COVER PANEL OUTLET                
+C00143482            PIPE-WINDSHIELD COVER PANEL OUTLET                
+C00144867-A133       BARRIER-ROOF RESERVE                              
+C00146573            CLIP-VACUUM PIPE                                  
+C00147880            GUARD ASSEMBLY-SLIDING SIDE DOOR                  
+C00153841            BRACKET-ENGINE HARNESS                            
+C00154341            BRACKET-PUR COVER TO ENGINE                       
+C00154488-4100       PLATE ASSEMBLY-QUARTER INNER LOWER                
+C00165650            PIPE-EXHAUST TAIL                                 
+C00179646            FUSE-MAIN FUSE BOX                                
+C00180866            CRANKSHAFT ASSEMBLY                               
+C00183602            GATEWAY ASSEMBLY                                  
+C00184468            CYLINDER BLOCK MACHINED ASSEMBLY                  
+C00185735            PIPE-LITTLE CIRCLE WATER                          
+C00191301-4100       SECTION-FRONT ROOF CROSS MEMBER OUT PANEL REI...  
+C00191654            TRIM-REAR WHEELHOUSE COVER                        
+C00191655            TRIM-REAR WHEELHOUSE COVER                        
+C00192355            INSULATOR-WINDSHIELD GUTTER                       
+C00193380            SCREW-STOP LAMP                                   
+C00193841            BRACKET-CRANKSHAFT SENSOR                         
+C00200268            HARNESS-REAR DOOR                                 
+C00200270            HARNESS-REAR DOOR                                 
+C00200521-4100       PLATE ASSEMBLY-BODY SIDE MID UPPER                
+C00200878            BRACKET-CAMSHAFT POSITION SENSOR                  
+C00202003            BALANCE SHAFT                                     
+C00203234            HEADLINING ASSEMBLY-DRIVER                        
+C00206002            CONTROLLER-DRIVE ASSIST SYSTEM                    
+C00207343            ANAEROBIC ADHESIVE-ENGINE                         
+C00207615            BRACKET-EXHAUST GAS RECIRCULATION BYPASS VALV...  
+C00210106            ANTI-SEIZE/HIGH TEMPERATURE FASTENERS             
+C00211013-F113       PLUG-PANEL-REAR END                               
+C00211114            BOLT-WIPER MOTOR ASSEMBLY                         
+C00211249            PIPE-SMALL CIR OUT WATER                          
+C00211486-A126       BIN ASSEMBLY-RESERVE                              
+C00212072            NUT-WIPER MOTOR ASSEMBLY                          
+C00212331            NUT-INSTRUMENT PANEL                              
+C00213625            BRACKET-INTERCOOLER MOUNT                         
+C00213633            BRACKET-INTERCOOLER MOUNT                         
+C00215327            FUSE-MAIN FUSE BOX                                
+C00215485            PIPE-EXHAUST MANIFOLD TO HP EXHAUST GAS RECIR...  
+C00216406            HANDLE-DRIVER SEAT RECLINER                       
+C00218004            MODULE-SPEED CONTROL                              
+C00218298            HOSE-RESERVOIR TO CLUTCH MASTER CYLINDER OIL      
+C00218303            CLUTCH MASTER CYLINDER RESERVOIR TO MASTER CY...  
+C00218477            HARNESS ASSEMBLY-ENGINE                           
+C00220657            MOTOR-FRONT FRESH SERVO                           
+C00220660            MOTOR-FRONT MODE SERVO                            
+C00220664            PLATE-AIR CONDITIONING FILTER COVER               
+C00221439            SEALANT-ENGINE                                    
+C00224751            CYLINDER BLOCK MACHINED ASSEMBLY                  
+C00229774            BRACKET-PUR COVER TO ENGINE                       
+C00235572-4100       PLATE-BODY SIDE MID                               
+C00236683            COVER-LICENCE CIS                                 
+C00241088-4100       PANEL ASSEMBLY-UPPER SIDE RAIL INSTALL            
+C00243060            ELECTRONIC CONTROL UNIT-PEPS                      
+C00243346            TRANSITION ASSEMBLY-SLIDING DOOR LATCH            
+C00246092            SYNCHRONIZER ASSEMBLY-3/4                         
+C00254221-4100       PANEL ASSEMBLY-PILLAR D OUTER PANEL REINFORCE...  
+C00270572            GATEWAY ASSEMBLY                                  
+C00274529            BRACKET-OXYGEN SENSOR TO ENGINE                   
+C00279853            CUSHION-B/PILLAR BARRIER                          
+C00281639            BRACKET-INTERCOOLER MOUNT                         
+C00283252-4100       CROSSMEMBER ASSEMBLY-#5                           
+C00304649-A176       BODY ASSEMBLY-INSTRUMENT PANEL                    
+C00307363            HARNESS-ANTENNA                                   
+C00308737            WASHER-EXHAUST MANIFOLD                           
+C00310211            PLATE-H/BRAKE COVER FRONT UPPER                   
+C00314991            REAR AXEL ASSEMBLY-BRAKE                          
+C00314993            MEMBER ASSEMBLY-R/ALX                             
+C00316705            RUBBER SHACKLE-FRAME TO EXH(HT)                   
+C00325156            BOLT/SCREW-DIFFERENTIAL HOUSING                   
+C00334164            FUSE-PFB FUSE BOX                                 
+C00334165            CAP-PRE FUSE BOX                                  
+C00334166            FUSE-PFB FUSE BOX                                 
+C00335870            PIPE-WINDSHIELD COVER PANEL OUTLET                
+C00338220            WELDING ASSEMBLY-FUEL TANK                        
+C00348029            CAMSHAFT-INTAKE                                   
+C00349212-4100       PANEL ASSEMBLY-FRONT FLOOR                        
+C00349765-A136       PLATE ASSEMBLY-A/PILLAR UPPER TRIM                
+C00357368-4100       RAIL ASSEMBLY-FRONT SIDE                          
+C00360865            HOLLOW-FRONT COMPARTMENT COVER                    
+C00363607-4100       CROSSMEMBER ASSEMBLY-#2                           
+C00374109            MUFFLER ASSEMBLY-REAR                             
+C00382414            HUB-FRONT OUTER                                   
+C00385279-4100       CROSSMEMBER-FRONT ROOF                            
+C00386350            LAMP ASSEMBLY-FRONT ROOF INNER READING            
+C00399989            CORNER ASSEMBLY-BRAKE                             
+C00399991            CORNER ASSEMBLY-BRAKE                             
+C00400891-4100       PANEL-FRONT ROOF OUTER                            
+C00405576-4100       RAIL ASSEMBLY-FRONT SIDE                          
+C00405783            TURBOCHARGER ASSEMBLY                             
+C00422751            PEDAL ASSEMBLY-BRAKE                              
+C00423609            PINION-DIFFERENTIAL                               
+C00429557            COMPONENTS-REAR HOUSING                           
+C00437642            SENSOR-TMP                                        
+C00446282            IDLER PULLEY GATES-ACCESSORY BELT                 
+C00450210            MEMBER-INSTRUMENT PANEL CROSS                     
+C00469711            CAMSHAFT COVER                                    
+C00471078            OIL-ENGINE                                        
+C00471087            OIL-ENGINE                                        
+C00472116            BRACKET-GATEWAY                                   
+C00472602            PLUG-FUEL FITTING                                 
+C00473445            AXLE SHAFT                                        
+C00473948            PLATE-H/BRAKE COVER FRONT LOWER                   
+C00474703            HARDNESS-BATTERY POSITIVE                         
+C00479686            TURBOCHARGER ASSEMBLY                             
+C00501468            OIL-ENGINE                                        
+C00501469            OIL-ENGINE                                        
+C00511493            GATEWAY ASSEMBLY                                  
+C00517538            HARNESS ASSEMBLY-ENGINE                           
+C00521629            REFRIGERANT-AIR CONDITIONING                      
+C00532115            CASING ASSEMBLY-REAR AXLE                         
+C00539863            OIL-ENGINE                                        
+C00539866            OIL-ENGINE                                        
+C00539867            OIL-ENGINE                                        
+C00543551-bla        CON-ROD BEARING UPPER SHELL(RED)                  
+C00543551-blu        CON-ROD BEARING UPPER SHELL(RED)                  
+C00543551-gre        CON-ROD BEARING UPPER SHELL(RED)                  
+C00559196            BOLT-DRIVE GEAR                                   
+C00559199            BOLT-WHEEL                                        
+C00559202            BOLT-AXLE SHAFT                                   
+C00559204            BOLT-MAIN REDUCER ASSEMBLY TO AXLE HOUSING AS...  
+C00559206            LOCK-NUT PINION                                   
+C00561909            CRANKSHAFT ASSEMBLY                               
+C00563731            PLUG-OUTLET OIL                                   
+C00570061            HIGH PRESSURE FUEL LINE-INJECTOR                  
+C00570065            HIGH PRESSURE FUEL LINE-INJECTOR                  
+C00585980            HOSE ASSEMBLY-FUEL RETURN                         
+C00587973            PLUG-FUEL FITTING                                 
+C00637484            BELT TENSIONER GATES-ENGINE                       
+C00638735            HOUSING ASSEMBLY-REDUCER                          
+C00638736            COVER-DIFFERENTIAL                                
+C00642739            PUMP-HIGH PRESSURE                                
+C00671897            INLET PIPE-INTERCOOLER AIR                        
+C00671899            INLET PIPE-INTERCOOLER AIR                        
+C00678886            CYLINDER BLOCK MACHINED ASSEMBLY                  
+C00678889            ASSEMBLY-CYLINDER BLOCK                           
+C00679772            CAP-OIL GALLERY                                   
+C00690364            GUIDE-ENGINE OIL LEVEL GAUGE                      
+C00693370            OIL-REAR AXLE ASSEMBLY                            
+C00697790            MODULE ASSEMBLY-OIL FILTER COOLER                 
+C00697791            MODULE ASSEMBLY-OIL FILTER COOLER                 
+C00704930            COVER-HP RAIL INSULATION                          
+C00704931            COVER-CAM COVER INSULATION                        
+C00704932            COVER-CLAMP INJECTOR INSULATION                   
+C00729579            PINION-DIFFERENTIAL                               
+C00731552            RELEASE-MANUAL TRANSMISSION RANGE OPERATOR        
+C00744243            SHAFT-TRANSMISSION SHIFT SELECT                   
+C00752821            VALVE OIL PUMP FLOW CONTROL SOLENOID              
+C00753905            GEAR ASSY-COUNTER SHAFT                           
+C00757042            HARNESS ASSEMBLY-ENGINE                           
+C00888852            SECTION-UREA PUMP                                 
+
+================================================================================
+End of report - 2025-10-06 11:46:36
