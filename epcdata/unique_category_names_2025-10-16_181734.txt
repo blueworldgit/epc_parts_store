@@ -1,0 +1,236 @@
+Unique Category Names Report
+Generated: 2025-10-16 18:17:34
+Total unique categories: 231
+================================================================================
+
+  1. Air Intake System
+  2. Airbag
+  3. Antenna
+  4. Body Interior & Exterior Electronics
+  5. Body Lower Exterior Trim
+  6. Body Lower Structure
+  7. Body Upper Exterior Trim
+  8. Body Upper Structure
+  9. Body Window
+ 10. Brakes
+ 11. Bumpers,Fascia & Grille
+ 12. Charging & Energystorage
+ 13. Chassis Structure
+ 14. Communicate
+ 15. Customer Switches
+ 16. Driver Information
+ 17. Emission Exhaust System
+ 18. Entertainment
+ 19. Front Closures Front End Sheetmetal
+ 20. Front Lamp
+ 21. Frontexterior Hvac Airflow
+ 22. Frontinterior Hvac Airflow
+ 23. Fuel Storage & Handling
+ 24. Hvac & Powertrain Coolingin
+ 25. Instrument Panel & Console
+ 26. Interior Acoustic Syetem
+ 27. Interior Lamp
+ 28. Interior Trim
+ 29. JE11CA001 - Engine ASM
+ 30. JE11CA002 - Block Group
+ 31. JE11CB001 - Cylinder Block&Accessory
+ 32. JE11CC001 - Cylinder Head
+ 33. JE11CD001 - Head Cover&PCV
+ 34. JE11CE001 - Crankshaft Rod
+ 35. JE11CF001 - SHAFT-BALANCER
+ 36. JE11CG001 - MANIFOLD ASM-INT
+ 37. JE11CH001 - Exhaust Elbow&Turbocharger
+ 38. JE11CI001 - Fuel System
+ 39. JE11CJ001 - Oil Cooler And Inl&OtltTube&Filter
+ 40. JE11CK001 - Sump&Oil Suction Pipe&Dipstick
+ 41. JE11CL001 - Coolant Pump And Inl&OtltTube&Thermostat
+ 42. JE11CM001 - Damper Pulley&GearDrive
+ 43. JE11CP001 - Timing Drive
+ 44. JE11CQ001 - Accessory&AccessoryDrive
+ 45. JE11CR001 - Sensor&Harness
+ 46. JE11CS001 - EGR ASM
+ 47. JE11CT001 - Engine Accessory
+ 48. JE11CU001 - LP-EGR intake pipe&Accessory
+ 49. JE11CW001 - Engine wiring harness
+ 50. JE11CX001 - Engine shield
+ 51. JE121A001 - Manual transmission assembly（6MT Front/Back drive）
+ 52. JE121B001 - Transmission CSC and  Operating Mechanism(6MT back drive)
+ 53. JE121C001 - Transmission Fork Components(SAGW-6MT back drive)
+ 54. JE121D001 - Transmission Main Shaft And Gear(6MT back drive)
+ 55. JE121E001 - Transmission accessory-6MT Front Drive
+ 56. JE121F001 - Transmission operating mechanism-6MT Front Drive
+ 57. JE121F002 - Transmission  operating mechanism(6AMT)
+ 58. JE121G001 - Transmission shell-6MT&6AMT
+ 59. JE121H001 - Transmission fork-6MT Front Drive&6MT
+ 60. JE121I001 - Transmission RVS Idler Shaft Gear-6MT Front Drive&6AMT
+ 61. JE121J001 - Transmission shaft ASM-6MT Front Drive&6AMT
+ 62. JE121K001 - Transmission Shaft INPUT-6MT Front Drive&6AMT
+ 63. JE121L001 - Transmission Shaft  OUTPUT（1,2,5,6）-6MT Front Drive&6AMT
+ 64. JE121M001 - Transmission Shaft  OUTPUT（3,4,R）-6MT Front Drive&6AMT
+ 65. JE121N001 - Transmission Differential-6MT Front Drive&6AMT
+ 66. JE121O001 - CLUTCH HOUSING-6MT Front Drive&6AMT
+ 67. JE121P001 - Transmission shell Bearing-6MT Front Drive & 6AMT
+ 68. JE122A001 - Clutch(MT)
+ 69. JE122A002 - Clutch(PHEV)
+ 70. JE123A001 - Propeller Shaft
+ 71. JE125A001 - Rear Drive Axle
+ 72. JE125A002 - Rear  Axle （Front drive vehicle）
+ 73. JE125A003 - Rear Drive Axle（YUE JIN）
+ 74. JE125A004 - Rear Electric  Drive Axle
+ 75. JE126A001 - Propshaft
+ 76. JE131A001 - Engine Management
+ 77. JE140A001 - Air filter
+ 78. JE151A001 - Accelerator Pedal
+ 79. JE152A001 - Transmission Shift Actuation-MT
+ 80. JE152A002 - Transmission Shift Actuation-AMT
+ 81. JE152A003 - Transmission Shift Actuation-AT、Electric vehicle
+ 82. JE153A001 - Clutch Apply
+ 83. JE160A001 - Exhaust system
+ 84. JE181A001 - Fuel Tank & Canister
+ 85. JE183A001 - Fuel Plumbing & Hardware
+ 86. JE184A001 - Urea system
+ 87. JE214A001 - Steering Column
+ 88. JE215A001 - Redirector
+ 89. JE221A001 - Front Suspension
+ 90. JE222A001 - Rear Suspension
+ 91. JE224A001 - Front Shock Absorber
+ 92. JE225A001 - Rear Shock Absorber
+ 93. JE230A001 - Tire,Wheel,Trim
+ 94. JE241A001 - Front Brakes
+ 95. JE242A001 - Rear Brakes
+ 96. JE243A001 - Park Brake
+ 97. JE244A001 - Brake Apply
+ 98. JE245A001 - Brake Modulator
+ 99. JE246A001 - Brake Pedal
+100. JE247A001 - Brake Pipes
+101. JE251A001 - Front Sub-frame
+102. JE255A001 - Spare Tire Device
+103. JE261A001 - Power assembly installation
+104. JE261A002 - Powertrain Mounts-Electric vehicle
+105. JE312A001 - Refrigerant Plumbing & Hardware
+106. JE312A002 - Refrigerant Plumbing & Hardware-Electric vehicle
+107. JE312A003 - Refrigerant Plumbing & Hardware-FCV
+108. JE312A004 - Refrigerant Plumbing & Hardware-PHEV
+109. JE313A001 - Coolant Plumbing & Hardware
+110. JE313A002 - Coolant Plumbing & Hardware-FCV
+111. JE313A003 - Coolant Plumbing & Hardware--EV
+112. JE313A004 - Coolant Plumbing & Hardware-PHEV
+113. JE321A001 - Front Interior HVAC Airflow
+114. JE322A001 - Front Interior Control
+115. JE331A001 - Rear Interior Airflow
+116. JE334A001 - Interior Heating Pipe
+117. JE334A002 - Interior Heating Pipe-FCV
+118. JE340A001 - Front End Exterior Airflow
+119. JE411A001 - Instrument Panel（LHD）
+120. JE411A002 - Instrument Panel（RHD）
+121. JE412A001 - Instrument Panel Crossmember（LHD）
+122. JE412A002 - Instrument Panel Crossmember（RHD）
+123. JE421AE001 - Seat Arrangement of Shang Jie's 11 12and 14 Seats (Australia)
+124. JE421AF001 - Three Seats Arrangement for VAN Vehicle (Australia、New Zealand)
+125. JE421AG001 - Two/Three Seats Arrangement for Chassis Vehicle (Australia、New Zealand)
+126. JE421AH001 - Arrangement for VAN Vehicle (UK、Hong Kong)
+127. JE421AI001 - Three Seats Arrangement for Chassis Vehicle (UK、Hong Kong)
+128. JE421B001 - Front Seat（left ）
+129. JE421B002 - Frong Seat（right ）
+130. JE421B003 - Front Seat（Right）
+131. JE421B004 - Front Seat（Left）
+132. JE421B005 - Subdrivers Integral Double Seat
+133. JE421B006 - Subdrivers Split Double Seat
+134. JE431A001 - Side Trim
+135. JE431B001 - Body Lower Structure Garnish Trim
+136. JE432A001 - Front Door Trim
+137. JE434A001 - Side Sliding Door trim
+138. JE435A001 - Rear Door trim
+139. JE436A001 - Roof Trim
+140. JE437A001 - Floor Trim
+141. JE440A001 - InteriorLamp
+142. JE451A001 - Sound Insulation、Heat Insulation
+143. JE460A001 - Side Panel&Roof Safety Belt
+144. JE471A001 - Steering Wheel and AirBag
+145. JE510A001 - body lower stucture
+146. JE521A001 - inner framing(left side)
+147. JE521B001 - inner framing(right side)
+148. JE522A001 - Outer Framing(left side)
+149. JE522B001 - Outer Framing(right side)
+150. JE523A001 - Roof Framing
+151. JE524A001 - Rear Panel
+152. JE526A001 - Baffle Plate-Ware
+153. JE551A001 - Front Side Closure
+154. JE551B001 - Front Door Handle and Lock
+155. JE551C001 - Front Door Electric Glass Regulator
+156. JE553A001 - Side Sliding Door
+157. JE553B001 - Side Sliding Door Handle and Door Lock
+158. JE553C001 - Side Sliding Door Handle and Door Lock
+159. JE557A001 - TNK FIL DR
+160. JE561A001 - Rear Door
+161. JE561C001 - Rear Door Handle and Door Lock
+162. JE571A001 - Hood
+163. JE571B001 - Hood Lock
+164. JE572A001 - Fenders
+165. JE580A001 - Rear View Mirror
+166. JE611A001 - Window
+167. JE621A001 - Front Bumper
+168. JE622A001 - Rear Bumper
+169. JE623A001 - Grille
+170. JE625A001 - Wheelhouse Liner
+171. JE644A001 - Mud Guard
+172. JE645A001 - Assist Step
+173. JE650A001 - Front Lamp
+174. JE660A001 - Rear Lamp
+175. JE681A001 - Wiper（LHD）
+176. JE681A002 - Wiper（RHD）
+177. JE682A001 - Washer System
+178. JE691A001 - Body Exterior Trim
+179. JE696A001 - Exterior Emblem/Decal/Nameplate
+180. JE711A001 - Clusters
+181. JE713A001 - Auxiliary Information Electronics
+182. JE716A001 - Vehicle Date Recorder
+183. JE721A001 - Window Lift Switch
+184. JE723A001 - Multi-Function Column Switch
+185. JE725A001 - Ignition Switch and Key
+186. JE726A001 - Accessory Switches
+187. JE727A001 - Door Switches
+188. JE731A001 - Infotainment System
+189. JE732A001 - Speaker
+190. JE741A001 - Antenna
+191. JE751A001 - Vehicle Tele-Communication
+192. JE811A001 - Air Bag Control Unit
+193. JE812A001 - ParkDistanceControlSystem
+194. JE821A001 - Passive Entry Passive Start
+195. JE830A001 - Body Interior & Exterior Electronics
+196. JE843A001 - Battery&Electrical Energy Storage
+197. JE844A002 - PowerInverter
+198. JE861A001 - EngineCompartmentHarness
+199. JE862A001 - Body accessories harness
+200. JE863A001 - Instrument Panel  Wire Harnesses
+201. JE864A001 - Door  Wire Harnesses
+202. JE865A001 - Chassis Harnesses
+203. JE867A001 - Engine Compartment Fuse Box
+204. JE868A001 - Power Outlet & Cigarette Lighter HEvice
+205. JE869A001 - Battery Harnesses
+206. JE911A001 - On Vehicle Attachments
+207. JE917A001 - On Vehicle Tools
+208. JE919A001 - Fluids and Lubrications
+209. Maxus
+210. Mounts
+211. On Vehicle Attachments&Tools
+212. Power & Signaldistribution
+213. Power Generation
+214. Power Transmission
+215. Powertrain Control&Diagnostic
+216. Powertrain Driver Interface
+217. Rear Closure
+218. Rear Lamp
+219. Rear View Mirror
+220. Rearinterior Hvac Airflow
+221. Safety Belt
+222. Safety&Avoidance
+223. Seats
+224. Serial LSFAL11A4PA157987
+225. Serial LSH14J7CXMA11459
+226. Serial LSH14J7CXMA114599
+227. Side Closures
+228. Steering
+229. Suspension
+230. Tire,Wheels,Wheel Trim
+231. Wiper & Washer
