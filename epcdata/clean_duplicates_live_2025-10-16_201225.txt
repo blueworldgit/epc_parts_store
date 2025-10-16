@@ -1,0 +1,1392 @@
+Clean Duplicate Category Images Report
+Generated: 2025-10-16 20:12:25
+Mode: LIVE
+================================================================================
+
+ANALYSIS:
+Total images found: 983
+Unique images: 255
+Duplicate groups: 191
+Duplicates to remove: 537
+
+DUPLICATE GROUPS:
+==================================================
+
+  1. Base: Accelerator_Pedal (5 files)
+     KEEP: Accelerator_Pedal_2l4Ntnr.png
+     ✅ REMOVED: Accelerator_Pedal_IshZ0X6.png
+     ✅ REMOVED: Accelerator_Pedal_UJv8Wxw.png
+     ✅ REMOVED: Accelerator_Pedal_o0afwbI.png
+     ✅ REMOVED: Accelerator_Pedal_yNVvYR9.png
+       ↳ Updated category: JE151A001 - Accelerator Pedal
+       ↳ Updated category: JE151A001 - Accelerator Pedal
+
+  2. Base: Accessory_Switches (5 files)
+     KEEP: Accessory_Switches_0dyjDzU.png
+     ✅ REMOVED: Accessory_Switches_HrktbKM.png
+     ✅ REMOVED: Accessory_Switches_IR6VWrP.png
+     ✅ REMOVED: Accessory_Switches_mPIveez.png
+     ✅ REMOVED: Accessory_Switches_wgWmo87.png
+       ↳ Updated category: JE726A001 - Accessory Switches
+       ↳ Updated category: JE726A001 - Accessory Switches
+
+  3. Base: Accessory___Accessory_Drive (2 files)
+     KEEP: Accessory___Accessory_Drive_KWGGGTu.png
+     ✅ REMOVED: Accessory___Accessory_Drive_fTunMVe.png
+       ↳ Updated category: JE11CQ001 - Accessory&AccessoryDrive
+
+  4. Base: Airbag (5 files)
+     KEEP: Airbag_AyDWqLC.png
+     ✅ REMOVED: Airbag_OJzi2Sk.png
+     ✅ REMOVED: Airbag_QABkipP.png
+     ✅ REMOVED: Airbag_mFfavts.png
+     ✅ REMOVED: Airbag_yvmOxaZ.png
+       ↳ Updated category: Airbag
+       ↳ Updated category: Airbag
+
+  5. Base: Air_Bag_Control_Unit (5 files)
+     KEEP: Air_Bag_Control_Unit_1bCUu2o.png
+     ✅ REMOVED: Air_Bag_Control_Unit_B5bYQt5.png
+     ✅ REMOVED: Air_Bag_Control_Unit_EcyDsi5.png
+     ✅ REMOVED: Air_Bag_Control_Unit_FwL1Bcs.png
+     ✅ REMOVED: Air_Bag_Control_Unit_rOjANZR.png
+       ↳ Updated category: JE811A001 - Air Bag Control Unit
+
+  6. Base: Air_Filter (3 files)
+     KEEP: Air_Filter_2M4PFrR.png
+     ✅ REMOVED: Air_Filter_U4kjl0O.png
+     ✅ REMOVED: Air_Filter_ozUfrnw.png
+       ↳ Updated category: JE140A001 - Air filter
+
+  7. Base: Air_Intake_System (5 files)
+     KEEP: Air_Intake_System_1ELd8S8.png
+     ✅ REMOVED: Air_Intake_System_Z0KFVZT.png
+     ✅ REMOVED: Air_Intake_System_Zv3yjZY.png
+     ✅ REMOVED: Air_Intake_System_hWoIbGd.png
+     ✅ REMOVED: Air_Intake_System_uDs6OFW.png
+       ↳ Updated category: Air Intake System
+       ↳ Updated category: Air Intake System
+
+  8. Base: Antenna (11 files)
+     KEEP: Antenna_73E7OfH.png
+     ✅ REMOVED: Antenna_BNFBD7m.png
+     ✅ REMOVED: Antenna_CPcM3sx.png
+     ✅ REMOVED: Antenna_DvcIJrp.png
+     ✅ REMOVED: Antenna_IGAP29B.png
+     ✅ REMOVED: Antenna_J2Li8fs.png
+     ✅ REMOVED: Antenna_ZhDe1Wa.png
+     ✅ REMOVED: Antenna_f0e7npC.png
+     ✅ REMOVED: Antenna_kbLAsgd.png
+     ✅ REMOVED: Antenna_mYMNhOB.png
+     ✅ REMOVED: Antenna_rQss1ZP.png
+       ↳ Updated category: Antenna
+       ↳ Updated category: JE741A001 - Antenna
+       ↳ Updated category: Antenna
+       ↳ Updated category: JE741A001 - Antenna
+
+  9. Base: Arrangement_for_VAN_Vehicle_UK_HK (3 files)
+     KEEP: Arrangement_for_VAN_Vehicle_UK_HK_CaN27Cf.png
+     ✅ REMOVED: Arrangement_for_VAN_Vehicle_UK_HK_TrFwjPy.png
+     ✅ REMOVED: Arrangement_for_VAN_Vehicle_UK_HK_etVEvlX.png
+       ↳ Updated category: JE421AH001 - Arrangement for VAN Vehicle (UK、Hong Kong)
+
+ 10. Base: Baffle_Plate-Ware (5 files)
+     KEEP: Baffle_Plate-Ware_BG5Yy4I.png
+     ✅ REMOVED: Baffle_Plate-Ware_BNY2vGe.png
+     ✅ REMOVED: Baffle_Plate-Ware_Ct38dWo.png
+     ✅ REMOVED: Baffle_Plate-Ware_jQikJgT.png
+     ✅ REMOVED: Baffle_Plate-Ware_rJjzBtA.png
+       ↳ Updated category: JE526A001 - Baffle Plate-Ware
+
+ 11. Base: Battery_Harnesses (5 files)
+     KEEP: Battery_Harnesses_1J9wCe7.png
+     ✅ REMOVED: Battery_Harnesses_CfXXdXJ.png
+     ✅ REMOVED: Battery_Harnesses_McEhZm4.png
+     ✅ REMOVED: Battery_Harnesses_RCtqJUA.png
+     ✅ REMOVED: Battery_Harnesses_vpnvIqN.png
+       ↳ Updated category: JE869A001 - Battery Harnesses
+       ↳ Updated category: JE869A001 - Battery Harnesses
+
+ 12. Base: Battery___Electrical_Energy_Storage (2 files)
+     KEEP: Battery___Electrical_Energy_Storage_6ZqKNxt.png
+     ✅ REMOVED: Battery___Electrical_Energy_Storage_w5L6FA2.png
+       ↳ Updated category: JE843A001 - Battery&Electrical Energy Storage
+
+ 13. Base: Block_Group (5 files)
+     KEEP: Block_Group_K3iORom.png
+     ✅ REMOVED: Block_Group_SyZpcmx.png
+     ✅ REMOVED: Block_Group_afl9R6f.png
+     ✅ REMOVED: Block_Group_ioHBaqg.png
+     ✅ REMOVED: Block_Group_qfbpiQc.png
+       ↳ Updated category: JE11CA002 - Block Group
+       ↳ Updated category: JE11CA002 - Block Group
+
+ 14. Base: Body_Exterior_Trim (5 files)
+     KEEP: Body_Exterior_Trim_7La2zj2.png
+     ✅ REMOVED: Body_Exterior_Trim_BtCykCD.png
+     ✅ REMOVED: Body_Exterior_Trim_THr7sLb.png
+     ✅ REMOVED: Body_Exterior_Trim_hOyg40S.png
+     ✅ REMOVED: Body_Exterior_Trim_llpxGxl.png
+       ↳ Updated category: JE691A001 - Body Exterior Trim
+
+ 15. Base: Body_Interior__Exterior_Electronics (7 files)
+     KEEP: Body_Interior__Exterior_Electronics_GhGtLCS.png
+     ✅ REMOVED: Body_Interior__Exterior_Electronics_P7a1bxw.png
+     ✅ REMOVED: Body_Interior__Exterior_Electronics_PITTzZ0.png
+     ✅ REMOVED: Body_Interior__Exterior_Electronics_SRd5ijs.png
+     ✅ REMOVED: Body_Interior__Exterior_Electronics_T86gqq9.png
+     ✅ REMOVED: Body_Interior__Exterior_Electronics_juatLOS.png
+     ✅ REMOVED: Body_Interior__Exterior_Electronics_nLzvjbl.png
+
+ 16. Base: Body_Interior___Exterior_Electronics (4 files)
+     KEEP: Body_Interior___Exterior_Electronics_DNswlqB.png
+     ✅ REMOVED: Body_Interior___Exterior_Electronics_R3q48aV.png
+     ✅ REMOVED: Body_Interior___Exterior_Electronics_tsCvwJJ.png
+     ✅ REMOVED: Body_Interior___Exterior_Electronics_unUfmDE.png
+       ↳ Updated category: JE830A001 - Body Interior & Exterior Electronics
+       ↳ Updated category: Body Interior & Exterior Electronics
+       ↳ Updated category: JE830A001 - Body Interior & Exterior Electronics
+
+ 17. Base: Body_Lower_Exterior_Trim (5 files)
+     KEEP: Body_Lower_Exterior_Trim_5VIjhk9.png
+     ✅ REMOVED: Body_Lower_Exterior_Trim_FZx1ZgX.png
+     ✅ REMOVED: Body_Lower_Exterior_Trim_OryAEuO.png
+     ✅ REMOVED: Body_Lower_Exterior_Trim_jzM6FSJ.png
+     ✅ REMOVED: Body_Lower_Exterior_Trim_mlhIuVI.png
+       ↳ Updated category: Body Lower Exterior Trim
+       ↳ Updated category: Body Lower Exterior Trim
+
+ 18. Base: Body_Lower_Structure (5 files)
+     KEEP: Body_Lower_Structure_58ukB3e.png
+     ✅ REMOVED: Body_Lower_Structure_9FLkmyX.png
+     ✅ REMOVED: Body_Lower_Structure_Vg9ykEq.png
+     ✅ REMOVED: Body_Lower_Structure_ZJmIOYS.png
+     ✅ REMOVED: Body_Lower_Structure_tslIHn5.png
+       ↳ Updated category: Body Lower Structure
+
+ 19. Base: Body_Lower_Structure_ (3 files)
+     KEEP: Body_Lower_Structure__0ymtV77.png
+     ✅ REMOVED: Body_Lower_Structure__1j76oUy.png
+     ✅ REMOVED: Body_Lower_Structure__4v0aIgS.png
+
+ 20. Base: Body_Upper_Exterior_Trim (5 files)
+     KEEP: Body_Upper_Exterior_Trim_3aOIHLt.png
+     ✅ REMOVED: Body_Upper_Exterior_Trim_XOxaY05.png
+     ✅ REMOVED: Body_Upper_Exterior_Trim_aY7ZYOP.png
+     ✅ REMOVED: Body_Upper_Exterior_Trim_itmlS0i.png
+     ✅ REMOVED: Body_Upper_Exterior_Trim_uPyK4PD.png
+       ↳ Updated category: Body Upper Exterior Trim
+       ↳ Updated category: Body Upper Exterior Trim
+
+ 21. Base: Body_Upper_Structure (5 files)
+     KEEP: Body_Upper_Structure_7YwX0MQ.png
+     ✅ REMOVED: Body_Upper_Structure_EugfKfG.png
+     ✅ REMOVED: Body_Upper_Structure_b22874p.png
+     ✅ REMOVED: Body_Upper_Structure_tVa59G9.png
+     ✅ REMOVED: Body_Upper_Structure_zZUvg2F.png
+       ↳ Updated category: Body Upper Structure
+
+ 22. Base: Body_Window (5 files)
+     KEEP: Body_Window_1BQ0oka.png
+     ✅ REMOVED: Body_Window_2Jc69h4.png
+     ✅ REMOVED: Body_Window_CTWtPpL.png
+     ✅ REMOVED: Body_Window_azImh4R.png
+     ✅ REMOVED: Body_Window_bMGAtO7.png
+       ↳ Updated category: Body Window
+       ↳ Updated category: Body Window
+
+ 23. Base: Brakes (5 files)
+     KEEP: Brakes_4lqhWLI.png
+     ✅ REMOVED: Brakes_EjWYtj1.png
+     ✅ REMOVED: Brakes_J4EUVbh.png
+     ✅ REMOVED: Brakes_TtViVfs.png
+     ✅ REMOVED: Brakes_cGdUxWB.png
+       ↳ Updated category: Brakes
+       ↳ Updated category: Brakes
+
+ 24. Base: Brake_Apply (5 files)
+     KEEP: Brake_Apply_3YHcSJC.png
+     ✅ REMOVED: Brake_Apply_B8CCVzn.png
+     ✅ REMOVED: Brake_Apply_GCY9gDP.png
+     ✅ REMOVED: Brake_Apply_Jo8XXxl.png
+     ✅ REMOVED: Brake_Apply_kCFElmJ.png
+       ↳ Updated category: JE244A001 - Brake Apply
+
+ 25. Base: Brake_Modulator (5 files)
+     KEEP: Brake_Modulator_I4w3wjh.png
+     ✅ REMOVED: Brake_Modulator_OJhg1XC.png
+     ✅ REMOVED: Brake_Modulator_XHCicLs.png
+     ✅ REMOVED: Brake_Modulator_YqS4YbD.png
+     ✅ REMOVED: Brake_Modulator_rHbqERP.png
+       ↳ Updated category: JE245A001 - Brake Modulator
+
+ 26. Base: Brake_Pedal (5 files)
+     KEEP: Brake_Pedal_67cz4G2.png
+     ✅ REMOVED: Brake_Pedal_DVYllQc.png
+     ✅ REMOVED: Brake_Pedal_F1SZX2j.png
+     ✅ REMOVED: Brake_Pedal_Zj2q0t4.png
+     ✅ REMOVED: Brake_Pedal_frI2Bhd.png
+       ↳ Updated category: JE246A001 - Brake Pedal
+       ↳ Updated category: JE246A001 - Brake Pedal
+
+ 27. Base: Brake_Pipes (5 files)
+     KEEP: Brake_Pipes_9uiI6s7.png
+     ✅ REMOVED: Brake_Pipes_EFkqGOK.png
+     ✅ REMOVED: Brake_Pipes_oLIhJDB.png
+     ✅ REMOVED: Brake_Pipes_tcU7IMt.png
+     ✅ REMOVED: Brake_Pipes_xJd5Qsz.png
+       ↳ Updated category: JE247A001 - Brake Pipes
+       ↳ Updated category: JE247A001 - Brake Pipes
+
+ 28. Base: Charging___Energy_Storage (2 files)
+     KEEP: Charging___Energy_Storage_B9BRYED.png
+     ✅ REMOVED: Charging___Energy_Storage_byu1se8.png
+       ↳ Updated category: Charging & Energystorage
+
+ 29. Base: Chassis (2 files)
+     KEEP: Chassis_Harnesses.png
+     ✅ REMOVED: Chassis_Structure.png
+
+ 30. Base: Chassis_Harnesses (3 files)
+     KEEP: Chassis_Harnesses_Qu46XZX.png
+     ✅ REMOVED: Chassis_Harnesses_VyuhLMR.png
+     ✅ REMOVED: Chassis_Harnesses_cVlx48q.png
+       ↳ Updated category: JE865A001 - Chassis Harnesses
+
+ 31. Base: Chassis_Structure (5 files)
+     KEEP: Chassis_Structure_8Y8ElL6.png
+     ✅ REMOVED: Chassis_Structure_EWEoEaY.png
+     ✅ REMOVED: Chassis_Structure_HiCtAtU.png
+     ✅ REMOVED: Chassis_Structure_XbeYBcf.png
+     ✅ REMOVED: Chassis_Structure_a2zJOgv.png
+       ↳ Updated category: Chassis Structure
+
+ 32. Base: Clusters (5 files)
+     KEEP: Clusters_30la9na.png
+     ✅ REMOVED: Clusters_CutUMpw.png
+     ✅ REMOVED: Clusters_VCndTmj.png
+     ✅ REMOVED: Clusters_mwHRXpE.png
+     ✅ REMOVED: Clusters_ovQYtfN.png
+       ↳ Updated category: JE711A001 - Clusters
+       ↳ Updated category: JE711A001 - Clusters
+
+ 33. Base: Clutch_Apply (5 files)
+     KEEP: Clutch_Apply_6XJl0NA.png
+     ✅ REMOVED: Clutch_Apply_Kw7DwXV.png
+     ✅ REMOVED: Clutch_Apply_Yk5Brbv.png
+     ✅ REMOVED: Clutch_Apply_fcxVKdf.png
+     ✅ REMOVED: Clutch_Apply_q8xqrUZ.png
+       ↳ Updated category: JE153A001 - Clutch Apply
+       ↳ Updated category: JE153A001 - Clutch Apply
+
+ 34. Base: Clutch_MT (3 files)
+     KEEP: Clutch_MT_6uDKppp.png
+     ✅ REMOVED: Clutch_MT_AcGoCiI.png
+     ✅ REMOVED: Clutch_MT_BYrCLPR.png
+       ↳ Updated category: JE122A001 - Clutch(MT)
+
+ 35. Base: Clutch_PHEV (3 files)
+     KEEP: Clutch_PHEV_KrhAk6R.png
+     ✅ REMOVED: Clutch_PHEV_QcamkvD.png
+     ✅ REMOVED: Clutch_PHEV_wYUqDu4.png
+       ↳ Updated category: JE122A002 - Clutch(PHEV)
+       ↳ Updated category: JE122A002 - Clutch(PHEV)
+
+ 36. Base: Communication (3 files)
+     KEEP: Communication_J0XujKp.png
+     ✅ REMOVED: Communication_ZDlJ9ki.png
+     ✅ REMOVED: Communication_c8b0bqd.png
+       ↳ Updated category: Communicate
+       ↳ Updated category: Communicate
+
+ 37. Base: Coolant_Plumbing__Hardware (3 files)
+     KEEP: Coolant_Plumbing__Hardware_8Iu0VGp.png
+     ✅ REMOVED: Coolant_Plumbing__Hardware_OeBx2LT.png
+     ✅ REMOVED: Coolant_Plumbing__Hardware_zjEe5q8.png
+
+ 38. Base: Coolant_Plumbing___Hardware_EV (2 files)
+     KEEP: Coolant_Plumbing___Hardware_EV_2GIIaQj.png
+     ✅ REMOVED: Coolant_Plumbing___Hardware_EV_xRFoLSH.png
+       ↳ Updated category: JE313A003 - Coolant Plumbing & Hardware--EV
+
+ 39. Base: Coolant_Plumbing___Hardware (2 files)
+     KEEP: Coolant_Plumbing___Hardware_liKWk7t.png
+     ✅ REMOVED: Coolant_Plumbing___Hardware_snE3ixm.png
+       ↳ Updated category: JE313A001 - Coolant Plumbing & Hardware
+
+ 40. Base: Coolant_Plumbing___Hardware_PHEV (2 files)
+     KEEP: Coolant_Plumbing___Hardware_PHEV_CFVrpbT.png
+     ✅ REMOVED: Coolant_Plumbing___Hardware_PHEV_l1Tw1HV.png
+       ↳ Updated category: JE313A004 - Coolant Plumbing & Hardware-PHEV
+
+ 41. Base: Coolant_Pump_and_Inlet_Outlet_Tube___Thermostat (2 files)
+     KEEP: Coolant_Pump_and_Inlet_Outlet_Tube___Thermostat_9nB4LSy.png
+     ✅ REMOVED: Coolant_Pump_and_Inlet_Outlet_Tube___Thermostat_eemEw76.png
+       ↳ Updated category: JE11CL001 - Coolant Pump And Inl&OtltTube&Thermostat
+
+ 42. Base: Crankshaft_Rod (5 files)
+     KEEP: Crankshaft_Rod_2hYX00t.png
+     ✅ REMOVED: Crankshaft_Rod_LBO5yoa.png
+     ✅ REMOVED: Crankshaft_Rod_TyktrNP.png
+     ✅ REMOVED: Crankshaft_Rod_VVy6wB8.png
+     ✅ REMOVED: Crankshaft_Rod_ZNYgu7N.png
+       ↳ Updated category: JE11CE001 - Crankshaft Rod
+       ↳ Updated category: JE11CE001 - Crankshaft Rod
+
+ 43. Base: Customer_Switches (5 files)
+     KEEP: Customer_Switches_B4rs8Wc.png
+     ✅ REMOVED: Customer_Switches_N8cTFUK.png
+     ✅ REMOVED: Customer_Switches_Ps4ezYf.png
+     ✅ REMOVED: Customer_Switches_SIsE2fk.png
+     ✅ REMOVED: Customer_Switches_ZM7lqcW.png
+       ↳ Updated category: Customer Switches
+       ↳ Updated category: Customer Switches
+
+ 44. Base: Cylinder_Block___Accessory (2 files)
+     KEEP: Cylinder_Block___Accessory_HKQ8jIj.png
+     ✅ REMOVED: Cylinder_Block___Accessory_WdleZoP.png
+       ↳ Updated category: JE11CB001 - Cylinder Block&Accessory
+
+ 45. Base: Cylinder_Head (5 files)
+     KEEP: Cylinder_Head_DmjXLVa.png
+     ✅ REMOVED: Cylinder_Head_MUpK3d1.png
+     ✅ REMOVED: Cylinder_Head_wJ321Gs.png
+     ✅ REMOVED: Cylinder_Head_wZRdCiA.png
+     ✅ REMOVED: Cylinder_Head_zAT4ZiZ.png
+       ↳ Updated category: JE11CC001 - Cylinder Head
+
+ 46. Base: Damper_Pulley___Gear_Drive (2 files)
+     KEEP: Damper_Pulley___Gear_Drive_DT3pOAK.png
+     ✅ REMOVED: Damper_Pulley___Gear_Drive_UG1Y7hR.png
+       ↳ Updated category: JE11CM001 - Damper Pulley&GearDrive
+
+ 47. Base: Door_Wire_Harnesses (3 files)
+     KEEP: Door_Wire_Harnesses_EJlW7aM.png
+     ✅ REMOVED: Door_Wire_Harnesses_ZtQFho1.png
+     ✅ REMOVED: Door_Wire_Harnesses_ymCF9DN.png
+       ↳ Updated category: JE864A001 - Door  Wire Harnesses
+       ↳ Updated category: JE864A001 - Door  Wire Harnesses
+
+ 48. Base: Driver_Information (5 files)
+     KEEP: Driver_Information_1ZNWxDJ.png
+     ✅ REMOVED: Driver_Information_AARNmrh.png
+     ✅ REMOVED: Driver_Information_EuB5G48.png
+     ✅ REMOVED: Driver_Information_LEGJhfp.png
+     ✅ REMOVED: Driver_Information_oHUqncC.png
+       ↳ Updated category: Driver Information
+       ↳ Updated category: Driver Information
+
+ 49. Base: EGR_ASM (5 files)
+     KEEP: EGR_ASM_3xsde8k.png
+     ✅ REMOVED: EGR_ASM_GZBcYTB.png
+     ✅ REMOVED: EGR_ASM_TEb3uY5.png
+     ✅ REMOVED: EGR_ASM_bdxnKDt.png
+     ✅ REMOVED: EGR_ASM_fU3qz5L.png
+       ↳ Updated category: JE11CS001 - EGR ASM
+       ↳ Updated category: JE11CS001 - EGR ASM
+
+ 50. Base: Emission_Exhaust_System (5 files)
+     KEEP: Emission_Exhaust_System_9wt7uAP.png
+     ✅ REMOVED: Emission_Exhaust_System_Ckq95mH.png
+     ✅ REMOVED: Emission_Exhaust_System_V4Z5pBb.png
+     ✅ REMOVED: Emission_Exhaust_System_cVyPXQI.png
+     ✅ REMOVED: Emission_Exhaust_System_hdzrmI9.png
+       ↳ Updated category: Emission Exhaust System
+       ↳ Updated category: Emission Exhaust System
+
+ 51. Base: Engine (3 files)
+     KEEP: Engine_Shield.png
+     ✅ REMOVED: Engine_Accessory.png
+     ✅ REMOVED: Engine_Management.png
+
+ 52. Base: Engine_Accessory (5 files)
+     KEEP: Engine_Accessory_09HuC0h.png
+     ✅ REMOVED: Engine_Accessory_Mvfo0Hn.png
+     ✅ REMOVED: Engine_Accessory_aIxG7ac.png
+     ✅ REMOVED: Engine_Accessory_p9Vfip9.png
+     ✅ REMOVED: Engine_Accessory_uN7eIeq.png
+       ↳ Updated category: JE11CT001 - Engine Accessory
+       ↳ Updated category: JE11CT001 - Engine Accessory
+
+ 53. Base: Engine_ASM (5 files)
+     KEEP: Engine_ASM_GqcwRWZ.png
+     ✅ REMOVED: Engine_ASM_Ih0i5rZ.png
+     ✅ REMOVED: Engine_ASM_J1kpzc4.png
+     ✅ REMOVED: Engine_ASM_NQosc8h.png
+     ✅ REMOVED: Engine_ASM_SYOVEd5.png
+       ↳ Updated category: JE11CA001 - Engine ASM
+
+ 54. Base: Engine_Compartment_Fuse_Box (5 files)
+     KEEP: Engine_Compartment_Fuse_Box_BD1PR89.png
+     ✅ REMOVED: Engine_Compartment_Fuse_Box_RDQdWQ8.png
+     ✅ REMOVED: Engine_Compartment_Fuse_Box_YzIiiJM.png
+     ✅ REMOVED: Engine_Compartment_Fuse_Box_jjqEd5U.png
+     ✅ REMOVED: Engine_Compartment_Fuse_Box_u4Dmjy1.png
+       ↳ Updated category: JE867A001 - Engine Compartment Fuse Box
+       ↳ Updated category: JE867A001 - Engine Compartment Fuse Box
+
+ 55. Base: Engine_Compartment_Harness (3 files)
+     KEEP: Engine_Compartment_Harness_DZgoz82.png
+     ✅ REMOVED: Engine_Compartment_Harness_ZN2v7iH.png
+     ✅ REMOVED: Engine_Compartment_Harness_g65ZBbd.png
+       ↳ Updated category: JE861A001 - EngineCompartmentHarness
+       ↳ Updated category: JE861A001 - EngineCompartmentHarness
+
+ 56. Base: Engine_Management (5 files)
+     KEEP: Engine_Management_32zN9pn.png
+     ✅ REMOVED: Engine_Management_6LZwMX6.png
+     ✅ REMOVED: Engine_Management_RK3Vkad.png
+     ✅ REMOVED: Engine_Management_d0ANj6I.png
+     ✅ REMOVED: Engine_Management_qNzDDqQ.png
+       ↳ Updated category: JE131A001 - Engine Management
+       ↳ Updated category: JE131A001 - Engine Management
+
+ 57. Base: Engine_Shield (3 files)
+     KEEP: Engine_Shield_HZO8uIh.png
+     ✅ REMOVED: Engine_Shield_KiwGgc7.png
+     ✅ REMOVED: Engine_Shield_aHDp76s.png
+       ↳ Updated category: JE11CX001 - Engine shield
+
+ 58. Base: Engine_Wiring_Harness (3 files)
+     KEEP: Engine_Wiring_Harness_Acz424b.png
+     ✅ REMOVED: Engine_Wiring_Harness_SWAacd4.png
+     ✅ REMOVED: Engine_Wiring_Harness_u6TrsPN.png
+       ↳ Updated category: JE11CW001 - Engine wiring harness
+       ↳ Updated category: JE11CW001 - Engine wiring harness
+
+ 59. Base: Entertainment (5 files)
+     KEEP: Entertainment_8T6RDhI.png
+     ✅ REMOVED: Entertainment_ZSzikAw.png
+     ✅ REMOVED: Entertainment_h8zm1jv.png
+     ✅ REMOVED: Entertainment_mEW5aKa.png
+     ✅ REMOVED: Entertainment_ufufeYw.png
+       ↳ Updated category: Entertainment
+       ↳ Updated category: Entertainment
+
+ 60. Base: Exhaust_Elbow___Turbocharger (2 files)
+     KEEP: Exhaust_Elbow___Turbocharger_Ivvjvh1.png
+     ✅ REMOVED: Exhaust_Elbow___Turbocharger_qIv1pfP.png
+       ↳ Updated category: JE11CH001 - Exhaust Elbow&Turbocharger
+
+ 61. Base: Exhaust_System (3 files)
+     KEEP: Exhaust_System_1sW4J82.png
+     ✅ REMOVED: Exhaust_System_HaJglBH.png
+     ✅ REMOVED: Exhaust_System_fzPzDW7.png
+       ↳ Updated category: JE160A001 - Exhaust system
+
+ 62. Base: fenders (3 files)
+     KEEP: fenders_PtDWpxA.png
+     ✅ REMOVED: fenders_dLKY4jd.png
+     ✅ REMOVED: fenders_z0AuwGb.png
+       ↳ Updated category: JE572A001 - Fenders
+
+ 63. Base: Floor_Trim (5 files)
+     KEEP: Floor_Trim_1Uq1z5c.png
+     ✅ REMOVED: Floor_Trim_SlYrqO0.png
+     ✅ REMOVED: Floor_Trim_b7OIQg1.png
+     ✅ REMOVED: Floor_Trim_oeoechE.png
+     ✅ REMOVED: Floor_Trim_tsjv70D.png
+       ↳ Updated category: JE437A001 - Floor Trim
+       ↳ Updated category: JE437A001 - Floor Trim
+
+ 64. Base: Fluids_and_Lubrications (5 files)
+     KEEP: Fluids_and_Lubrications_2ehqWbo.png
+     ✅ REMOVED: Fluids_and_Lubrications_RAE5dzR.png
+     ✅ REMOVED: Fluids_and_Lubrications_U9iGhMT.png
+     ✅ REMOVED: Fluids_and_Lubrications_cR9Hock.png
+     ✅ REMOVED: Fluids_and_Lubrications_qtcqyY5.png
+       ↳ Updated category: JE919A001 - Fluids and Lubrications
+       ↳ Updated category: JE919A001 - Fluids and Lubrications
+
+ 65. Base: Front (3 files)
+     KEEP: Front_Brakes.png
+     ✅ REMOVED: Front_Bumper.png
+     ✅ REMOVED: Front_Suspension.png
+
+ 66. Base: Front_Brakes (5 files)
+     KEEP: Front_Brakes_FP5zY5Q.png
+     ✅ REMOVED: Front_Brakes_G4sRyLG.png
+     ✅ REMOVED: Front_Brakes_L7BAWNB.png
+     ✅ REMOVED: Front_Brakes_bTuiG2h.png
+     ✅ REMOVED: Front_Brakes_vcS0TSv.png
+       ↳ Updated category: JE241A001 - Front Brakes
+       ↳ Updated category: JE241A001 - Front Brakes
+
+ 67. Base: Front_Bumper (5 files)
+     KEEP: Front_Bumper_5HxAZ0E.png
+     ✅ REMOVED: Front_Bumper_5q6tZsG.png
+     ✅ REMOVED: Front_Bumper_88Ibvxu.png
+     ✅ REMOVED: Front_Bumper_FQWLi1K.png
+     ✅ REMOVED: Front_Bumper_JiXYLHb.png
+       ↳ Updated category: JE621A001 - Front Bumper
+
+ 68. Base: Front_Closures___Sheetmetal (2 files)
+     KEEP: Front_Closures___Sheetmetal_TpSKGQt.png
+     ✅ REMOVED: Front_Closures___Sheetmetal_nMmLDxm.png
+       ↳ Updated category: Front Closures Front End Sheetmetal
+
+ 69. Base: Front_Door_Electric_Glass_Regulator (5 files)
+     KEEP: Front_Door_Electric_Glass_Regulator_41w3jNQ.png
+     ✅ REMOVED: Front_Door_Electric_Glass_Regulator_UA9yvCv.png
+     ✅ REMOVED: Front_Door_Electric_Glass_Regulator_abfmBYh.png
+     ✅ REMOVED: Front_Door_Electric_Glass_Regulator_rqehaaa.png
+     ✅ REMOVED: Front_Door_Electric_Glass_Regulator_rt4syOG.png
+       ↳ Updated category: JE551C001 - Front Door Electric Glass Regulator
+
+ 70. Base: Front_Door_Handle___Lock (2 files)
+     KEEP: Front_Door_Handle___Lock_LBOdCMO.png
+     ✅ REMOVED: Front_Door_Handle___Lock_i00I3E5.png
+       ↳ Updated category: JE551B001 - Front Door Handle and Lock
+
+ 71. Base: Front_End_Exterior_Airflow (5 files)
+     KEEP: Front_End_Exterior_Airflow_GXZl11z.png
+     ✅ REMOVED: Front_End_Exterior_Airflow_HBj35Cm.png
+     ✅ REMOVED: Front_End_Exterior_Airflow_XrzB6qt.png
+     ✅ REMOVED: Front_End_Exterior_Airflow_ndruHR8.png
+     ✅ REMOVED: Front_End_Exterior_Airflow_ykfS31Z.png
+       ↳ Updated category: JE340A001 - Front End Exterior Airflow
+       ↳ Updated category: JE340A001 - Front End Exterior Airflow
+
+ 72. Base: Front_Exterior_HVAC_Airflow (3 files)
+     KEEP: Front_Exterior_HVAC_Airflow_MC4d1zs.png
+     ✅ REMOVED: Front_Exterior_HVAC_Airflow_XLyglWA.png
+     ✅ REMOVED: Front_Exterior_HVAC_Airflow_ZA6RPVa.png
+       ↳ Updated category: Frontexterior Hvac Airflow
+
+ 73. Base: Front_Interior_Control (5 files)
+     KEEP: Front_Interior_Control_UXMyAlw.png
+     ✅ REMOVED: Front_Interior_Control_dEZPpfw.png
+     ✅ REMOVED: Front_Interior_Control_iu4QbBP.png
+     ✅ REMOVED: Front_Interior_Control_kdw3D8W.png
+     ✅ REMOVED: Front_Interior_Control_rJl2h3c.png
+       ↳ Updated category: JE322A001 - Front Interior Control
+
+ 74. Base: Front_Interior_HVAC_Airflow (5 files)
+     KEEP: Front_Interior_HVAC_Airflow_BAowiOG.png
+     ✅ REMOVED: Front_Interior_HVAC_Airflow_HHbxQdv.png
+     ✅ REMOVED: Front_Interior_HVAC_Airflow_JMQqSrz.png
+     ✅ REMOVED: Front_Interior_HVAC_Airflow_S54vPGd.png
+     ✅ REMOVED: Front_Interior_HVAC_Airflow_TmVc00d.png
+       ↳ Updated category: JE321A001 - Front Interior HVAC Airflow
+
+ 75. Base: Front_Lamp (11 files)
+     KEEP: Front_Lamp_3ngYuBB.png
+     ✅ REMOVED: Front_Lamp_7XOR9kO.png
+     ✅ REMOVED: Front_Lamp_8LfFQpP.png
+     ✅ REMOVED: Front_Lamp_Nf6K1gk.png
+     ✅ REMOVED: Front_Lamp_RYIu6Ms.png
+     ✅ REMOVED: Front_Lamp_RtPOdKz.png
+     ✅ REMOVED: Front_Lamp_mkl67zl.png
+     ✅ REMOVED: Front_Lamp_oU3kHbS.png
+     ✅ REMOVED: Front_Lamp_qLYB2Fp.png
+     ✅ REMOVED: Front_Lamp_stwjcd5.png
+     ✅ REMOVED: Front_Lamp_xq1I9fq.png
+       ↳ Updated category: Front Lamp
+       ↳ Updated category: JE650A001 - Front Lamp
+       ↳ Updated category: Front Lamp
+       ↳ Updated category: JE650A001 - Front Lamp
+
+ 76. Base: Front_Seat_Left (3 files)
+     KEEP: Front_Seat_Left_FjiZmU1.png
+     ✅ REMOVED: Front_Seat_Left_J2qSkxL.png
+     ✅ REMOVED: Front_Seat_Left_u9WgYdV.png
+       ↳ Updated category: JE421B004 - Front Seat（Left）
+
+ 77. Base: Front_Seat_Right (3 files)
+     KEEP: Front_Seat_Right_FHgm3aK.png
+     ✅ REMOVED: Front_Seat_Right_MwQl2xg.png
+     ✅ REMOVED: Front_Seat_Right_zaMnaG4.png
+       ↳ Updated category: JE421B003 - Front Seat（Right）
+       ↳ Updated category: JE421B003 - Front Seat（Right）
+
+ 78. Base: Front_Shock_Absorber (5 files)
+     KEEP: Front_Shock_Absorber_7Ot9Ps0.png
+     ✅ REMOVED: Front_Shock_Absorber_FMlSpuE.png
+     ✅ REMOVED: Front_Shock_Absorber_YtCy2BK.png
+     ✅ REMOVED: Front_Shock_Absorber_tIkVSjl.png
+     ✅ REMOVED: Front_Shock_Absorber_y5uLhOk.png
+       ↳ Updated category: JE224A001 - Front Shock Absorber
+       ↳ Updated category: JE224A001 - Front Shock Absorber
+
+ 79. Base: Front_Side_Closure (5 files)
+     KEEP: Front_Side_Closure_AOpqsgo.png
+     ✅ REMOVED: Front_Side_Closure_BXcqDQB.png
+     ✅ REMOVED: Front_Side_Closure_iR04scz.png
+     ✅ REMOVED: Front_Side_Closure_icONrHe.png
+     ✅ REMOVED: Front_Side_Closure_peiWBZ2.png
+       ↳ Updated category: JE551A001 - Front Side Closure
+       ↳ Updated category: JE551A001 - Front Side Closure
+
+ 80. Base: Front_Sub-frame (5 files)
+     KEEP: Front_Sub-frame_JqpJhAQ.png
+     ✅ REMOVED: Front_Sub-frame_PVKp8qB.png
+     ✅ REMOVED: Front_Sub-frame_dDVhRnS.png
+     ✅ REMOVED: Front_Sub-frame_rcKRSs2.png
+     ✅ REMOVED: Front_Sub-frame_sTPbtFU.png
+       ↳ Updated category: JE251A001 - Front Sub-frame
+
+ 81. Base: Front_Suspension (5 files)
+     KEEP: Front_Suspension_9r7Om7z.png
+     ✅ REMOVED: Front_Suspension_N6aeqTb.png
+     ✅ REMOVED: Front_Suspension_WUDieAT.png
+     ✅ REMOVED: Front_Suspension_pv6n4gp.png
+     ✅ REMOVED: Front_Suspension_xyQfKpB.png
+       ↳ Updated category: JE221A001 - Front Suspension
+
+ 82. Base: Fuel_Plumbing__Hardware (3 files)
+     KEEP: Fuel_Plumbing__Hardware_AjiBfTG.png
+     ✅ REMOVED: Fuel_Plumbing__Hardware_RETFa30.png
+     ✅ REMOVED: Fuel_Plumbing__Hardware_eVMAEwT.png
+
+ 83. Base: Fuel_Plumbing___Hardware (2 files)
+     KEEP: Fuel_Plumbing___Hardware_A1Qz2gd.png
+     ✅ REMOVED: Fuel_Plumbing___Hardware_DtldpSx.png
+       ↳ Updated category: JE183A001 - Fuel Plumbing & Hardware
+
+ 84. Base: Fuel_Storage__Handling (3 files)
+     KEEP: Fuel_Storage__Handling_2iqHl9t.png
+     ✅ REMOVED: Fuel_Storage__Handling_jqXXrWC.png
+     ✅ REMOVED: Fuel_Storage__Handling_oFeCXkl.png
+
+ 85. Base: Fuel_Storage___Handling (2 files)
+     KEEP: Fuel_Storage___Handling_3ALbKQc.png
+     ✅ REMOVED: Fuel_Storage___Handling_mUMrNyM.png
+       ↳ Updated category: Fuel Storage & Handling
+
+ 86. Base: Fuel_Tank__Canister (3 files)
+     KEEP: Fuel_Tank__Canister_1Zy1tPu.png
+     ✅ REMOVED: Fuel_Tank__Canister_QFQKTDG.png
+     ✅ REMOVED: Fuel_Tank__Canister_sppMxVe.png
+
+ 87. Base: Fuel_Tank___Canister (2 files)
+     KEEP: Fuel_Tank___Canister_1Z8Hbfy.png
+     ✅ REMOVED: Fuel_Tank___Canister_B62BnY0.png
+       ↳ Updated category: JE181A001 - Fuel Tank & Canister
+
+ 88. Base: Grille (5 files)
+     KEEP: Grille_Bq9qAFf.png
+     ✅ REMOVED: Grille_GhboO0v.png
+     ✅ REMOVED: Grille_UBZ8IIo.png
+     ✅ REMOVED: Grille_XMbR1Sj.png
+     ✅ REMOVED: Grille_yuIur3S.png
+       ↳ Updated category: JE623A001 - Grille
+       ↳ Updated category: JE623A001 - Grille
+
+ 89. Base: Head_Cover___PCV (2 files)
+     KEEP: Head_Cover___PCV_0nYxunB.png
+     ✅ REMOVED: Head_Cover___PCV_IvHGAIp.png
+       ↳ Updated category: JE11CD001 - Head Cover&PCV
+
+ 90. Base: Hood (5 files)
+     KEEP: Hood_BvdllNb.png
+     ✅ REMOVED: Hood_VaT3aKa.png
+     ✅ REMOVED: Hood_mtPxrBl.png
+     ✅ REMOVED: Hood_tk2QXrK.png
+     ✅ REMOVED: Hood_ukD4qPg.png
+       ↳ Updated category: JE571A001 - Hood
+
+ 91. Base: Hood_Lock (5 files)
+     KEEP: Hood_Lock_9cbrxo8.png
+     ✅ REMOVED: Hood_Lock_ALblOp0.png
+     ✅ REMOVED: Hood_Lock_HJLkKpR.png
+     ✅ REMOVED: Hood_Lock_Q1QxdTr.png
+     ✅ REMOVED: Hood_Lock_XBweZVU.png
+       ↳ Updated category: JE571B001 - Hood Lock
+       ↳ Updated category: JE571B001 - Hood Lock
+
+ 92. Base: HVAC___Powertrain_Cooling (2 files)
+     KEEP: HVAC___Powertrain_Cooling_TtVFjfS.png
+     ✅ REMOVED: HVAC___Powertrain_Cooling_wnPHqkv.png
+       ↳ Updated category: Hvac & Powertrain Coolingin
+
+ 93. Base: Ignition_Switch_and_Key__.png (3 files)
+     KEEP: Ignition_Switch_and_Key__.png_3aCwOBe.png
+     ✅ REMOVED: Ignition_Switch_and_Key__.png_l1ZNTAQ.png
+     ✅ REMOVED: Ignition_Switch_and_Key__.png_s27rlSE.png
+       ↳ Updated category: JE725A001 - Ignition Switch and Key
+
+ 94. Base: Infotainment_System (5 files)
+     KEEP: Infotainment_System_DCbfNCd.png
+     ✅ REMOVED: Infotainment_System_RBAEXFq.png
+     ✅ REMOVED: Infotainment_System_Tpc65Yi.png
+     ✅ REMOVED: Infotainment_System_loaXxMH.png
+     ✅ REMOVED: Infotainment_System_q182Ba0.png
+       ↳ Updated category: JE731A001 - Infotainment System
+       ↳ Updated category: JE731A001 - Infotainment System
+
+ 95. Base: Inner_Framing_left_side (3 files)
+     KEEP: Inner_Framing_left_side_BfThMEG.png
+     ✅ REMOVED: Inner_Framing_left_side_F14ORaF.png
+     ✅ REMOVED: Inner_Framing_left_side_HqyWDZN.png
+       ↳ Updated category: JE521A001 - inner framing(left side)
+
+ 96. Base: Inner_Framing_right_side (3 files)
+     KEEP: Inner_Framing_right_side_PrL6LtM.png
+     ✅ REMOVED: Inner_Framing_right_side_dYrlE50.png
+     ✅ REMOVED: Inner_Framing_right_side_x58jclw.png
+       ↳ Updated category: JE521B001 - inner framing(right side)
+       ↳ Updated category: JE521B001 - inner framing(right side)
+
+ 97. Base: Instrument_Panel_Crossmember_LHD (3 files)
+     KEEP: Instrument_Panel_Crossmember_LHD_KVpZUTT.png
+     ✅ REMOVED: Instrument_Panel_Crossmember_LHD_acQyHp0.png
+     ✅ REMOVED: Instrument_Panel_Crossmember_LHD_vdxNqxz.png
+       ↳ Updated category: JE412A001 - Instrument Panel Crossmember（LHD）
+
+ 98. Base: Instrument_Panel_Crossmember_RHD (3 files)
+     KEEP: Instrument_Panel_Crossmember_RHD_AnDCGZg.png
+     ✅ REMOVED: Instrument_Panel_Crossmember_RHD_GjnLqkp.png
+     ✅ REMOVED: Instrument_Panel_Crossmember_RHD_pwwDuwn.png
+       ↳ Updated category: JE412A002 - Instrument Panel Crossmember（RHD）
+
+ 99. Base: Instrument_Panel_LHD (3 files)
+     KEEP: Instrument_Panel_LHD_O6LKrMR.png
+     ✅ REMOVED: Instrument_Panel_LHD_ZgMf83Q.png
+     ✅ REMOVED: Instrument_Panel_LHD_xhnYaZJ.png
+       ↳ Updated category: JE411A001 - Instrument Panel（LHD）
+
+100. Base: Instrument_Panel_RHD (3 files)
+     KEEP: Instrument_Panel_RHD_WrdF33u.png
+     ✅ REMOVED: Instrument_Panel_RHD_iZP64yI.png
+     ✅ REMOVED: Instrument_Panel_RHD_yKeOwb3.png
+       ↳ Updated category: JE411A002 - Instrument Panel（RHD）
+       ↳ Updated category: JE411A002 - Instrument Panel（RHD）
+
+101. Base: Instrument_Panel_Wire_Harnesses (3 files)
+     KEEP: Instrument_Panel_Wire_Harnesses_DrZJNWg.png
+     ✅ REMOVED: Instrument_Panel_Wire_Harnesses_YqcAx1C.png
+     ✅ REMOVED: Instrument_Panel_Wire_Harnesses_j2OHLJ6.png
+       ↳ Updated category: JE863A001 - Instrument Panel  Wire Harnesses
+       ↳ Updated category: JE863A001 - Instrument Panel  Wire Harnesses
+
+102. Base: Instrument_Panel__Console (3 files)
+     KEEP: Instrument_Panel__Console_6orEIV2.png
+     ✅ REMOVED: Instrument_Panel__Console_tMpqTGe.png
+     ✅ REMOVED: Instrument_Panel__Console_yKohxNX.png
+
+103. Base: Instrument_Panel___Console (2 files)
+     KEEP: Instrument_Panel___Console_fygIPXg.png
+     ✅ REMOVED: Instrument_Panel___Console_pLudU4W.png
+       ↳ Updated category: Instrument Panel & Console
+
+104. Base: Interior_Acoustic_System (3 files)
+     KEEP: Interior_Acoustic_System_nDJ3xiI.png
+     ✅ REMOVED: Interior_Acoustic_System_ppyjNtz.png
+     ✅ REMOVED: Interior_Acoustic_System_w5eZmOV.png
+       ↳ Updated category: Interior Acoustic Syetem
+
+105. Base: Interior_Heating_Pipe-FCV (5 files)
+     KEEP: Interior_Heating_Pipe-FCV_6dOaBf9.png
+     ✅ REMOVED: Interior_Heating_Pipe-FCV_RLTqAsd.png
+     ✅ REMOVED: Interior_Heating_Pipe-FCV_n68HEyf.png
+     ✅ REMOVED: Interior_Heating_Pipe-FCV_phrf5Ky.png
+     ✅ REMOVED: Interior_Heating_Pipe-FCV_yom6zJr.png
+       ↳ Updated category: JE334A002 - Interior Heating Pipe-FCV
+       ↳ Updated category: JE334A002 - Interior Heating Pipe-FCV
+
+106. Base: Interior_Heating_Pipe (5 files)
+     KEEP: Interior_Heating_Pipe_fdESh6C.png
+     ✅ REMOVED: Interior_Heating_Pipe_h3oLvBX.png
+     ✅ REMOVED: Interior_Heating_Pipe_jph10dI.png
+     ✅ REMOVED: Interior_Heating_Pipe_khnXGjk.png
+     ✅ REMOVED: Interior_Heating_Pipe_zdYj7Vk.png
+       ↳ Updated category: JE334A001 - Interior Heating Pipe
+       ↳ Updated category: JE334A001 - Interior Heating Pipe
+
+107. Base: Interior_Lamp (5 files)
+     KEEP: Interior_Lamp_IcX0T04.png
+     ✅ REMOVED: Interior_Lamp_XpEMmRU.png
+     ✅ REMOVED: Interior_Lamp_amqHkEn.png
+     ✅ REMOVED: Interior_Lamp_kJgrXuw.png
+     ✅ REMOVED: Interior_Lamp_zmtGOHV.png
+       ↳ Updated category: Interior Lamp
+       ↳ Updated category: Interior Lamp
+
+108. Base: Interior_Trim (5 files)
+     KEEP: Interior_Trim_ISuhjq0.png
+     ✅ REMOVED: Interior_Trim_ZbpYgFZ.png
+     ✅ REMOVED: Interior_Trim_e2mXmns.png
+     ✅ REMOVED: Interior_Trim_gd1ak6n.png
+     ✅ REMOVED: Interior_Trim_i4JSjeW.png
+       ↳ Updated category: Interior Trim
+       ↳ Updated category: Interior Trim
+
+109. Base: LP-EGR_Intake_Pipe___Accessory (2 files)
+     KEEP: LP-EGR_Intake_Pipe___Accessory_3CRox7h.png
+     ✅ REMOVED: LP-EGR_Intake_Pipe___Accessory_OkRgFk1.png
+       ↳ Updated category: JE11CU001 - LP-EGR intake pipe&Accessory
+
+110. Base: Manifold_ASM-INT (3 files)
+     KEEP: Manifold_ASM-INT_3mALuHn.png
+     ✅ REMOVED: Manifold_ASM-INT_9YnBaTq.png
+     ✅ REMOVED: Manifold_ASM-INT_NWuJ2im.png
+       ↳ Updated category: JE11CG001 - MANIFOLD ASM-INT
+
+111. Base: Manual_Transmission_Assembly_6MT_Front_Back_ (3 files)
+     KEEP: Manual_Transmission_Assembly_6MT_Front_Back__7l1CDmT.png
+     ✅ REMOVED: Manual_Transmission_Assembly_6MT_Front_Back__L173yrm.png
+     ✅ REMOVED: Manual_Transmission_Assembly_6MT_Front_Back__MIzA9ps.png
+       ↳ Updated category: JE121A001 - Manual transmission assembly（6MT Front/Back drive）
+
+112. Base: Mounts (5 files)
+     KEEP: Mounts_48rp01Q.png
+     ✅ REMOVED: Mounts_8Iezpi6.png
+     ✅ REMOVED: Mounts_AWT41gx.png
+     ✅ REMOVED: Mounts_Ly6k5D6.png
+     ✅ REMOVED: Mounts_cokVNdn.png
+       ↳ Updated category: Mounts
+       ↳ Updated category: Mounts
+
+113. Base: Mud_Guard (5 files)
+     KEEP: Mud_Guard_0IwFGuu.png
+     ✅ REMOVED: Mud_Guard_HUNWSBm.png
+     ✅ REMOVED: Mud_Guard_UXzypPE.png
+     ✅ REMOVED: Mud_Guard_bnqeH5V.png
+     ✅ REMOVED: Mud_Guard_zDdCzdY.png
+       ↳ Updated category: JE644A001 - Mud Guard
+       ↳ Updated category: JE644A001 - Mud Guard
+
+114. Base: Multi-Function_Column_Switch_ (3 files)
+     KEEP: Multi-Function_Column_Switch__2L2uThZ.png
+     ✅ REMOVED: Multi-Function_Column_Switch__NeROiA5.png
+     ✅ REMOVED: Multi-Function_Column_Switch__YQ5LpmP.png
+       ↳ Updated category: JE723A001 - Multi-Function Column Switch
+       ↳ Updated category: JE723A001 - Multi-Function Column Switch
+
+115. Base: Oil_Cooler_and_Inlet_Outlet_Tube___Filter (2 files)
+     KEEP: Oil_Cooler_and_Inlet_Outlet_Tube___Filter_jCJXnt8.png
+     ✅ REMOVED: Oil_Cooler_and_Inlet_Outlet_Tube___Filter_wuKiaPE.png
+       ↳ Updated category: JE11CJ001 - Oil Cooler And Inl&OtltTube&Filter
+
+116. Base: On-Vehicle_Attachments (3 files)
+     KEEP: On-Vehicle_Attachments_2VPwmEz.png
+     ✅ REMOVED: On-Vehicle_Attachments_OQIJflU.png
+     ✅ REMOVED: On-Vehicle_Attachments_TRLTGdp.png
+       ↳ Updated category: JE911A001 - On Vehicle Attachments
+
+117. Base: On-Vehicle_Tools (3 files)
+     KEEP: On-Vehicle_Tools_IroU0Wf.png
+     ✅ REMOVED: On-Vehicle_Tools_J843fQm.png
+     ✅ REMOVED: On-Vehicle_Tools_cn7UPcS.png
+       ↳ Updated category: JE917A001 - On Vehicle Tools
+
+118. Base: Outer_Framing_left_side (3 files)
+     KEEP: Outer_Framing_left_side_YpcXPzh.png
+     ✅ REMOVED: Outer_Framing_left_side_lMtdtQe.png
+     ✅ REMOVED: Outer_Framing_left_side_yDe6CdY.png
+       ↳ Updated category: JE522A001 - Outer Framing(left side)
+
+119. Base: Outer_Framing_right_side_ (3 files)
+     KEEP: Outer_Framing_right_side__2YkEp3B.png
+     ✅ REMOVED: Outer_Framing_right_side__rWkPEru.png
+     ✅ REMOVED: Outer_Framing_right_side__wwkxtJu.png
+       ↳ Updated category: JE522B001 - Outer Framing(right side)
+
+120. Base: Park_Brake (5 files)
+     KEEP: Park_Brake_AjQudrL.png
+     ✅ REMOVED: Park_Brake_Rt84Moj.png
+     ✅ REMOVED: Park_Brake_U908h5M.png
+     ✅ REMOVED: Park_Brake_vmN6M7b.png
+     ✅ REMOVED: Park_Brake_yUmxMfH.png
+       ↳ Updated category: JE243A001 - Park Brake
+       ↳ Updated category: JE243A001 - Park Brake
+
+121. Base: Passive_Entry_Passive_Start_ (3 files)
+     KEEP: Passive_Entry_Passive_Start__PWs7cjd.png
+     ✅ REMOVED: Passive_Entry_Passive_Start__bkPcu9t.png
+     ✅ REMOVED: Passive_Entry_Passive_Start__jiWTfu4.png
+       ↳ Updated category: JE821A001 - Passive Entry Passive Start
+
+122. Base: Powertrain_Control___Diagnostic (2 files)
+     KEEP: Powertrain_Control___Diagnostic_KymStrj.png
+     ✅ REMOVED: Powertrain_Control___Diagnostic_RoWXZE0.png
+       ↳ Updated category: Powertrain Control&Diagnostic
+
+123. Base: Powertrain_Driver_Interface (5 files)
+     KEEP: Powertrain_Driver_Interface_3IqjG9c.png
+     ✅ REMOVED: Powertrain_Driver_Interface_7D14WzU.png
+     ✅ REMOVED: Powertrain_Driver_Interface_fyagsuh.png
+     ✅ REMOVED: Powertrain_Driver_Interface_s9BR6az.png
+     ✅ REMOVED: Powertrain_Driver_Interface_uJkFxRq.png
+       ↳ Updated category: Powertrain Driver Interface
+
+124. Base: Power_Assembly_Installation (3 files)
+     KEEP: Power_Assembly_Installation_5rVjXWa.png
+     ✅ REMOVED: Power_Assembly_Installation_EYopyrJ.png
+     ✅ REMOVED: Power_Assembly_Installation_oKSfsyq.png
+       ↳ Updated category: JE261A001 - Power assembly installation
+
+125. Base: Power (2 files)
+     KEEP: Power_Inverter.png
+     ✅ REMOVED: Power_Transmission.png
+
+126. Base: Power_Inverter (3 files)
+     KEEP: Power_Inverter_Z0ScRoF.png
+     ✅ REMOVED: Power_Inverter_fzv0yta.png
+     ✅ REMOVED: Power_Inverter_owpAsOt.png
+       ↳ Updated category: JE844A002 - PowerInverter
+
+127. Base: Power_Outlet___Cigarette_Lighter_Device (2 files)
+     KEEP: Power_Outlet___Cigarette_Lighter_Device_3y4yr2R.png
+     ✅ REMOVED: Power_Outlet___Cigarette_Lighter_Device_PiGl2yk.png
+       ↳ Updated category: JE868A001 - Power Outlet & Cigarette Lighter HEvice
+
+128. Base: Power_Transmission (5 files)
+     KEEP: Power_Transmission_8w0SeIK.png
+     ✅ REMOVED: Power_Transmission_D97stWb.png
+     ✅ REMOVED: Power_Transmission_axRX8JI.png
+     ✅ REMOVED: Power_Transmission_lcvYyBV.png
+     ✅ REMOVED: Power_Transmission_nwe9BbF.png
+       ↳ Updated category: Power Transmission
+       ↳ Updated category: Power Transmission
+
+129. Base: Power___Signal_Distribution (2 files)
+     KEEP: Power___Signal_Distribution_DnZ4IgQ.png
+     ✅ REMOVED: Power___Signal_Distribution_xqszHq1.png
+       ↳ Updated category: Power & Signaldistribution
+
+130. Base: Propeller_Shaft (2 files)
+     KEEP: Propeller_Shaft_rgkqyym.png
+     ✅ REMOVED: Propeller_Shaft_uO1gHPN.png
+       ↳ Updated category: JE123A001 - Propeller Shaft
+
+131. Base: Rear_Axle_Front_drive_vehicle (3 files)
+     KEEP: Rear_Axle_Front_drive_vehicle_bReuIGU.png
+     ✅ REMOVED: Rear_Axle_Front_drive_vehicle_gLg7Tpm.png
+     ✅ REMOVED: Rear_Axle_Front_drive_vehicle_ytL1SCh.png
+       ↳ Updated category: JE125A002 - Rear  Axle （Front drive vehicle）
+
+132. Base: Rear (2 files)
+     KEEP: Rear_Brakes.png
+     ✅ REMOVED: Rear_Suspension.png
+
+133. Base: Rear_Brakes (5 files)
+     KEEP: Rear_Brakes_34abZxt.png
+     ✅ REMOVED: Rear_Brakes_FEY1MwI.png
+     ✅ REMOVED: Rear_Brakes_d2yxpRY.png
+     ✅ REMOVED: Rear_Brakes_iZgGA7U.png
+     ✅ REMOVED: Rear_Brakes_qYTRw3s.png
+       ↳ Updated category: JE242A001 - Rear Brakes
+
+134. Base: Rear_Drive_Axle (2 files)
+     KEEP: Rear_Drive_Axle_BE6Do2r.png
+     ✅ REMOVED: Rear_Drive_Axle_u7wzwfz.png
+
+135. Base: Rear_Drive_Axle_YUE_JIN (3 files)
+     KEEP: Rear_Drive_Axle_YUE_JIN_EDmgOcs.png
+     ✅ REMOVED: Rear_Drive_Axle_YUE_JIN_KZUFUaA.png
+     ✅ REMOVED: Rear_Drive_Axle_YUE_JIN_v2DMyF2.png
+       ↳ Updated category: JE125A003 - Rear Drive Axle（YUE JIN）
+
+136. Base: Rear_Electric_Drive_Axle (3 files)
+     KEEP: Rear_Electric_Drive_Axle_GeR0JBB.png
+     ✅ REMOVED: Rear_Electric_Drive_Axle_WNK1lPE.png
+     ✅ REMOVED: Rear_Electric_Drive_Axle_rQKMtRa.png
+       ↳ Updated category: JE125A004 - Rear Electric  Drive Axle
+       ↳ Updated category: JE125A004 - Rear Electric  Drive Axle
+
+137. Base: Rear_Interior_Airflow (5 files)
+     KEEP: Rear_Interior_Airflow_18kiDIT.png
+     ✅ REMOVED: Rear_Interior_Airflow_2njD365.png
+     ✅ REMOVED: Rear_Interior_Airflow_RJsDzxH.png
+     ✅ REMOVED: Rear_Interior_Airflow_X2uGgOT.png
+     ✅ REMOVED: Rear_Interior_Airflow_b84uNjD.png
+       ↳ Updated category: JE331A001 - Rear Interior Airflow
+       ↳ Updated category: JE331A001 - Rear Interior Airflow
+
+138. Base: Rear_Interior_HVAC_Airflow (3 files)
+     KEEP: Rear_Interior_HVAC_Airflow_3slMmiP.png
+     ✅ REMOVED: Rear_Interior_HVAC_Airflow_K3FmAKC.png
+     ✅ REMOVED: Rear_Interior_HVAC_Airflow_tgYN0I0.png
+       ↳ Updated category: Rearinterior Hvac Airflow
+
+139. Base: Rear_Lamp (11 files)
+     KEEP: Rear_Lamp_43YkDWc.png
+     ✅ REMOVED: Rear_Lamp_6RdkWmZ.png
+     ✅ REMOVED: Rear_Lamp_Apnv6od.png
+     ✅ REMOVED: Rear_Lamp_KyDGuml.png
+     ✅ REMOVED: Rear_Lamp_NIRRV9e.png
+     ✅ REMOVED: Rear_Lamp_OBt1vkC.png
+     ✅ REMOVED: Rear_Lamp_QTd9JU0.png
+     ✅ REMOVED: Rear_Lamp_RRU7aqh.png
+     ✅ REMOVED: Rear_Lamp_V6dFVnQ.png
+     ✅ REMOVED: Rear_Lamp_sfJUONu.png
+     ✅ REMOVED: Rear_Lamp_shQ844y.png
+       ↳ Updated category: Rear Lamp
+       ↳ Updated category: JE660A001 - Rear Lamp
+       ↳ Updated category: Rear Lamp
+
+140. Base: Rear_Panel (2 files)
+     KEEP: Rear_Panel_PYl3CZf.png
+     ✅ REMOVED: Rear_Panel_Xl41izo.png
+
+141. Base: Rear_Shock_Absorber (5 files)
+     KEEP: Rear_Shock_Absorber_Pw30YBw.png
+     ✅ REMOVED: Rear_Shock_Absorber_QwSO84I.png
+     ✅ REMOVED: Rear_Shock_Absorber_crRtoGm.png
+     ✅ REMOVED: Rear_Shock_Absorber_hqaYa3g.png
+     ✅ REMOVED: Rear_Shock_Absorber_syaFnkt.png
+       ↳ Updated category: JE225A001 - Rear Shock Absorber
+
+142. Base: Rear_Suspension (5 files)
+     KEEP: Rear_Suspension_2QVUgXk.png
+     ✅ REMOVED: Rear_Suspension_Q5JBqpl.png
+     ✅ REMOVED: Rear_Suspension_gKCygDn.png
+     ✅ REMOVED: Rear_Suspension_lrrkzhb.png
+     ✅ REMOVED: Rear_Suspension_ySl0pD5.png
+       ↳ Updated category: JE222A001 - Rear Suspension
+       ↳ Updated category: JE222A001 - Rear Suspension
+
+143. Base: Rear_View_Mirror (11 files)
+     KEEP: Rear_View_Mirror_3MgoHLu.png
+     ✅ REMOVED: Rear_View_Mirror_3WKEK9R.png
+     ✅ REMOVED: Rear_View_Mirror_9JleJpV.png
+     ✅ REMOVED: Rear_View_Mirror_FGSrFZY.png
+     ✅ REMOVED: Rear_View_Mirror_HnlILiq.png
+     ✅ REMOVED: Rear_View_Mirror_Oh9IWTV.png
+     ✅ REMOVED: Rear_View_Mirror_auJ3C7A.png
+     ✅ REMOVED: Rear_View_Mirror_bB5u8tt.png
+     ✅ REMOVED: Rear_View_Mirror_mlKYzKt.png
+     ✅ REMOVED: Rear_View_Mirror_qgLgfwW.png
+     ✅ REMOVED: Rear_View_Mirror_seOfJ9Y.png
+       ↳ Updated category: Rear View Mirror
+       ↳ Updated category: JE580A001 - Rear View Mirror
+       ↳ Updated category: Rear View Mirror
+       ↳ Updated category: JE580A001 - Rear View Mirror
+
+144. Base: Refrigerant_Plumbing__Hardware (3 files)
+     KEEP: Refrigerant_Plumbing__Hardware_EUX3Llt.png
+     ✅ REMOVED: Refrigerant_Plumbing__Hardware_GJEYU8z.png
+     ✅ REMOVED: Refrigerant_Plumbing__Hardware_dmJFYYi.png
+
+145. Base: Refrigerant_Plumbing___Hardware_Electric_vehicle (2 files)
+     KEEP: Refrigerant_Plumbing___Hardware_Electric_vehicle_bne2tqo.png
+     ✅ REMOVED: Refrigerant_Plumbing___Hardware_Electric_vehicle_uHGgbzx.png
+       ↳ Updated category: JE312A002 - Refrigerant Plumbing & Hardware-Electric vehicle
+
+146. Base: Refrigerant_Plumbing___Hardware_FCV (2 files)
+     KEEP: Refrigerant_Plumbing___Hardware_FCV_D5mrzpT.png
+     ✅ REMOVED: Refrigerant_Plumbing___Hardware_FCV_RNljUei.png
+       ↳ Updated category: JE312A003 - Refrigerant Plumbing & Hardware-FCV
+
+147. Base: Refrigerant_Plumbing___Hardware (2 files)
+     KEEP: Refrigerant_Plumbing___Hardware_k4YMIRZ.png
+     ✅ REMOVED: Refrigerant_Plumbing___Hardware_vwyDixm.png
+       ↳ Updated category: JE312A001 - Refrigerant Plumbing & Hardware
+
+148. Base: Refrigerant_Plumbing___Hardware_PHEV (2 files)
+     KEEP: Refrigerant_Plumbing___Hardware_PHEV_VtfYomG.png
+     ✅ REMOVED: Refrigerant_Plumbing___Hardware_PHEV_sBRJszv.png
+       ↳ Updated category: JE312A004 - Refrigerant Plumbing & Hardware-PHEV
+
+149. Base: Roof_Framing_ (3 files)
+     KEEP: Roof_Framing__O4TnX10.png
+     ✅ REMOVED: Roof_Framing__aF6iq5Z.png
+     ✅ REMOVED: Roof_Framing__nGZdZIa.png
+       ↳ Updated category: JE523A001 - Roof Framing
+
+150. Base: Roof_Trim (5 files)
+     KEEP: Roof_Trim_4I78n7i.png
+     ✅ REMOVED: Roof_Trim_OLRzjgA.png
+     ✅ REMOVED: Roof_Trim_mF8Iv5w.png
+     ✅ REMOVED: Roof_Trim_sQprfcO.png
+     ✅ REMOVED: Roof_Trim_wHp5Hmt.png
+       ↳ Updated category: JE436A001 - Roof Trim
+       ↳ Updated category: JE436A001 - Roof Trim
+
+151. Base: Safety_Belt (5 files)
+     KEEP: Safety_Belt_AcnHBIu.png
+     ✅ REMOVED: Safety_Belt_RkEP16T.png
+     ✅ REMOVED: Safety_Belt_Wf9Bz0H.png
+     ✅ REMOVED: Safety_Belt_a7x5ySl.png
+     ✅ REMOVED: Safety_Belt_gOxSwAv.png
+       ↳ Updated category: Safety Belt
+
+152. Base: Safety___Avoidance (2 files)
+     KEEP: Safety___Avoidance_aQ8mJfw.png
+     ✅ REMOVED: Safety___Avoidance_vqiBxsw.png
+       ↳ Updated category: Safety&Avoidance
+
+153. Base: Seats (5 files)
+     KEEP: Seats_9GpmHJu.png
+     ✅ REMOVED: Seats_XXsjmYh.png
+     ✅ REMOVED: Seats_hhTWX3l.png
+     ✅ REMOVED: Seats_nHc7aia.png
+     ✅ REMOVED: Seats_otMFWEC.png
+       ↳ Updated category: Seats
+       ↳ Updated category: Seats
+
+154. Base: Seat_Arrangement_of_Shang_Jies_11_12_14_Seats (3 files)
+     KEEP: Seat_Arrangement_of_Shang_Jies_11_12_14_Seats_NbS5LCE.png
+     ✅ REMOVED: Seat_Arrangement_of_Shang_Jies_11_12_14_Seats_PpzWA3d.png
+     ✅ REMOVED: Seat_Arrangement_of_Shang_Jies_11_12_14_Seats_WnYiaLd.png
+       ↳ Updated category: JE421AE001 - Seat Arrangement of Shang Jie's 11 12and 14 Seats (Australia)
+       ↳ Updated category: JE421AE001 - Seat Arrangement of Shang Jie's 11 12and 14 Seats (Australia)
+
+155. Base: Sensor___Harness (2 files)
+     KEEP: Sensor___Harness_QCESxnh.png
+     ✅ REMOVED: Sensor___Harness_xPKWOpu.png
+       ↳ Updated category: JE11CR001 - Sensor&Harness
+
+156. Base: Shaft-Balancer (3 files)
+     KEEP: Shaft-Balancer_HKluAbw.png
+     ✅ REMOVED: Shaft-Balancer_TlpRskP.png
+     ✅ REMOVED: Shaft-Balancer_VSQb2rk.png
+       ↳ Updated category: JE11CF001 - SHAFT-BALANCER
+       ↳ Updated category: JE11CF001 - SHAFT-BALANCER
+
+157. Base: Side_Closures (5 files)
+     KEEP: Side_Closures_2pUx7B0.png
+     ✅ REMOVED: Side_Closures_5WmgjeU.png
+     ✅ REMOVED: Side_Closures_TWNmvrQ.png
+     ✅ REMOVED: Side_Closures_t2br32t.png
+     ✅ REMOVED: Side_Closures_uv5glVY.png
+       ↳ Updated category: Side Closures
+       ↳ Updated category: Side Closures
+
+158. Base: Side_Panel___Roof_Safety_Belt (2 files)
+     KEEP: Side_Panel___Roof_Safety_Belt_3sgFRVr.png
+     ✅ REMOVED: Side_Panel___Roof_Safety_Belt_7D9wihm.png
+       ↳ Updated category: JE460A001 - Side Panel&Roof Safety Belt
+
+159. Base: Side_Trim (5 files)
+     KEEP: Side_Trim_03eQBAO.png
+     ✅ REMOVED: Side_Trim_6wehJXl.png
+     ✅ REMOVED: Side_Trim_M1sV4Q7.png
+     ✅ REMOVED: Side_Trim_RSHTEhq.png
+     ✅ REMOVED: Side_Trim_VDuLv2Y.png
+       ↳ Updated category: JE431A001 - Side Trim
+
+160. Base: Sound_Insulation___Heat_Insulation (2 files)
+     KEEP: Sound_Insulation___Heat_Insulation_7OAklAG.png
+     ✅ REMOVED: Sound_Insulation___Heat_Insulation_ApJV2Nu.png
+       ↳ Updated category: JE451A001 - Sound Insulation、Heat Insulation
+
+161. Base: Spare_Tire_Device (5 files)
+     KEEP: Spare_Tire_Device_1JZfPtQ.png
+     ✅ REMOVED: Spare_Tire_Device_DPFMJ2j.png
+     ✅ REMOVED: Spare_Tire_Device_J9lvy7g.png
+     ✅ REMOVED: Spare_Tire_Device_WGLc8dL.png
+     ✅ REMOVED: Spare_Tire_Device_ZYNNwFY.png
+       ↳ Updated category: JE255A001 - Spare Tire Device
+       ↳ Updated category: JE255A001 - Spare Tire Device
+
+162. Base: Speaker (5 files)
+     KEEP: Speaker_Dn5l0Yi.png
+     ✅ REMOVED: Speaker_JiX7FwJ.png
+     ✅ REMOVED: Speaker_JyCw7xT.png
+     ✅ REMOVED: Speaker_pOhlL9i.png
+     ✅ REMOVED: Speaker_vX5QatM.png
+       ↳ Updated category: JE732A001 - Speaker
+       ↳ Updated category: JE732A001 - Speaker
+
+163. Base: Steering (6 files)
+     KEEP: Steering_Column.png
+     ✅ REMOVED: Steering_EqXz98j.png
+     ✅ REMOVED: Steering_Jy627u0.png
+     ✅ REMOVED: Steering_WElY41F.png
+     ✅ REMOVED: Steering_jGCSXyh.png
+     ✅ REMOVED: Steering_jjwQVya.png
+       ↳ Updated category: Steering
+       ↳ Updated category: Steering
+
+164. Base: Steering_Column (5 files)
+     KEEP: Steering_Column_CAP3JPN.png
+     ✅ REMOVED: Steering_Column_N3EwOcG.png
+     ✅ REMOVED: Steering_Column_YDXTE0z.png
+     ✅ REMOVED: Steering_Column_m4sbXvR.png
+     ✅ REMOVED: Steering_Column_yhZhKzk.png
+       ↳ Updated category: JE214A001 - Steering Column
+       ↳ Updated category: JE214A001 - Steering Column
+
+165. Base: Steering_Wheel___AirBag (2 files)
+     KEEP: Steering_Wheel___AirBag_ASt4JYV.png
+     ✅ REMOVED: Steering_Wheel___AirBag_j72rp8w.png
+       ↳ Updated category: JE471A001 - Steering Wheel and AirBag
+
+166. Base: Subdrivers_Integral_Double_Seat (3 files)
+     KEEP: Subdrivers_Integral_Double_Seat_3Xip2MU.png
+     ✅ REMOVED: Subdrivers_Integral_Double_Seat_65W0U7K.png
+     ✅ REMOVED: Subdrivers_Integral_Double_Seat_jpIAHtb.png
+       ↳ Updated category: JE421B005 - Subdrivers Integral Double Seat
+       ↳ Updated category: JE421B005 - Subdrivers Integral Double Seat
+
+167. Base: Subdrivers_Split_Double_Seat (3 files)
+     KEEP: Subdrivers_Split_Double_Seat_HMKhtjx.png
+     ✅ REMOVED: Subdrivers_Split_Double_Seat_LR6d1n5.png
+     ✅ REMOVED: Subdrivers_Split_Double_Seat_WMWN61P.png
+       ↳ Updated category: JE421B006 - Subdrivers Split Double Seat
+
+168. Base: Sump___Oil_Suction_Pipe___Dipstick (2 files)
+     KEEP: Sump___Oil_Suction_Pipe___Dipstick_GdymGUT.png
+     ✅ REMOVED: Sump___Oil_Suction_Pipe___Dipstick_d2hK6dn.png
+       ↳ Updated category: JE11CK001 - Sump&Oil Suction Pipe&Dipstick
+
+169. Base: Suspension (5 files)
+     KEEP: Suspension_Od4B9yE.png
+     ✅ REMOVED: Suspension_e5Zu32R.png
+     ✅ REMOVED: Suspension_mzReVY5.png
+     ✅ REMOVED: Suspension_qoJ9Sjf.png
+     ✅ REMOVED: Suspension_uKtHECv.png
+       ↳ Updated category: Suspension
+
+170. Base: Three_Seats_Arrangement_Chassis_Vehicle_UK_HK (3 files)
+     KEEP: Three_Seats_Arrangement_Chassis_Vehicle_UK_HK_0a8ZDk6.png
+     ✅ REMOVED: Three_Seats_Arrangement_Chassis_Vehicle_UK_HK_XrVLUU3.png
+     ✅ REMOVED: Three_Seats_Arrangement_Chassis_Vehicle_UK_HK_ndPxIG2.png
+
+171. Base: Three_Seats_Arrangement_VAN_Australia_NZ (3 files)
+     KEEP: Three_Seats_Arrangement_VAN_Australia_NZ_2CJZ6wN.png
+     ✅ REMOVED: Three_Seats_Arrangement_VAN_Australia_NZ_D2EcnGE.png
+     ✅ REMOVED: Three_Seats_Arrangement_VAN_Australia_NZ_N2R16Tg.png
+       ↳ Updated category: JE421AF001 - Three Seats Arrangement for VAN Vehicle (Australia、New Zealand)
+       ↳ Updated category: JE421AF001 - Three Seats Arrangement for VAN Vehicle (Australia、New Zealand)
+
+172. Base: Timing_Drive (5 files)
+     KEEP: Timing_Drive_GvSVfqW.png
+     ✅ REMOVED: Timing_Drive_Q9ealrS.png
+     ✅ REMOVED: Timing_Drive_QQH4me7.png
+     ✅ REMOVED: Timing_Drive_ScDtmUK.png
+     ✅ REMOVED: Timing_Drive_XrdeEYw.png
+       ↳ Updated category: JE11CP001 - Timing Drive
+       ↳ Updated category: JE11CP001 - Timing Drive
+
+173. Base: Tire_Wheels_Wheel_Trim (3 files)
+     KEEP: Tire_Wheels_Wheel_Trim_2ixsUSr.png
+     ✅ REMOVED: Tire_Wheels_Wheel_Trim_KIlDadE.png
+     ✅ REMOVED: Tire_Wheels_Wheel_Trim_lFE2umy.png
+       ↳ Updated category: Tire,Wheels,Wheel Trim
+
+174. Base: Tire_Wheel_Trim (3 files)
+     KEEP: Tire_Wheel_Trim_WpSiaZ6.png
+     ✅ REMOVED: Tire_Wheel_Trim_krZ9JZA.png
+     ✅ REMOVED: Tire_Wheel_Trim_vIGkYeW.png
+       ↳ Updated category: JE230A001 - Tire,Wheel,Trim
+
+175. Base: TNK_FIL_DR (5 files)
+     KEEP: TNK_FIL_DR_9KXkRh6.png
+     ✅ REMOVED: TNK_FIL_DR_X3vSI8m.png
+     ✅ REMOVED: TNK_FIL_DR_jAZRGRF.png
+     ✅ REMOVED: TNK_FIL_DR_lEv6SaS.png
+     ✅ REMOVED: TNK_FIL_DR_pRe4iiD.png
+       ↳ Updated category: JE557A001 - TNK FIL DR
+
+176. Base: Transmission_Shift_Actuation_AMT (3 files)
+     KEEP: Transmission_Shift_Actuation_AMT_2SKLtiO.png
+     ✅ REMOVED: Transmission_Shift_Actuation_AMT_AlCaDgi.png
+     ✅ REMOVED: Transmission_Shift_Actuation_AMT_fKlyq5N.png
+       ↳ Updated category: JE152A002 - Transmission Shift Actuation-AMT
+       ↳ Updated category: JE152A002 - Transmission Shift Actuation-AMT
+
+177. Base: Transmission_Shift_Actuation_AT___Electric_vehicle (3 files)
+     KEEP: Transmission_Shift_Actuation_AT___Electric_vehicle_3XvxJU7.png
+     ✅ REMOVED: Transmission_Shift_Actuation_AT___Electric_vehicle_6SEvuKS.png
+     ✅ REMOVED: Transmission_Shift_Actuation_AT___Electric_vehicle_Q7KKkmB.png
+       ↳ Updated category: JE152A003 - Transmission Shift Actuation-AT、Electric vehicle
+
+178. Base: Transmission_Shift_Actuation_MT (3 files)
+     KEEP: Transmission_Shift_Actuation_MT_2q1Tban.png
+     ✅ REMOVED: Transmission_Shift_Actuation_MT_BRK0e4C.png
+     ✅ REMOVED: Transmission_Shift_Actuation_MT_g66nibp.png
+       ↳ Updated category: JE152A001 - Transmission Shift Actuation-MT
+
+179. Base: Two_Three_Seats_Arrangement_Chassis_Vehicle_ (3 files)
+     KEEP: Two_Three_Seats_Arrangement_Chassis_Vehicle__fdWz1TR.png
+     ✅ REMOVED: Two_Three_Seats_Arrangement_Chassis_Vehicle__kEDxym8.png
+     ✅ REMOVED: Two_Three_Seats_Arrangement_Chassis_Vehicle__zX62jhn.png
+       ↳ Updated category: JE421AI001 - Three Seats Arrangement for Chassis Vehicle (UK、Hong Kong)
+
+180. Base: Urea_System (3 files)
+     KEEP: Urea_System_971FDhN.png
+     ✅ REMOVED: Urea_System_oW15fDP.png
+     ✅ REMOVED: Urea_System_rd1GPGZ.png
+       ↳ Updated category: JE184A001 - Urea system
+
+181. Base: Vehicle_Attachments___Tools (2 files)
+     KEEP: Vehicle_Attachments___Tools_5slpiu0.png
+     ✅ REMOVED: Vehicle_Attachments___Tools_qK39Vfv.png
+       ↳ Updated category: On Vehicle Attachments&Tools
+
+182. Base: Vehicle_Data_Recorder (3 files)
+     KEEP: Vehicle_Data_Recorder_4OsFI2O.png
+     ✅ REMOVED: Vehicle_Data_Recorder_F9fYgiT.png
+     ✅ REMOVED: Vehicle_Data_Recorder_lQfgFge.png
+       ↳ Updated category: JE716A001 - Vehicle Date Recorder
+       ↳ Updated category: JE716A001 - Vehicle Date Recorder
+
+183. Base: Vehicle_Tele-Communication (5 files)
+     KEEP: Vehicle_Tele-Communication_7tT9828.png
+     ✅ REMOVED: Vehicle_Tele-Communication_M6EXN8V.png
+     ✅ REMOVED: Vehicle_Tele-Communication_Puil33U.png
+     ✅ REMOVED: Vehicle_Tele-Communication_i2mHW9U.png
+     ✅ REMOVED: Vehicle_Tele-Communication_mLF7Lpy.png
+       ↳ Updated category: JE751A001 - Vehicle Tele-Communication
+
+184. Base: Washer_System (5 files)
+     KEEP: Washer_System_6EwRG4J.png
+     ✅ REMOVED: Washer_System_WVYcDta.png
+     ✅ REMOVED: Washer_System_pKWlUGI.png
+     ✅ REMOVED: Washer_System_txg753D.png
+     ✅ REMOVED: Washer_System_wTpRSmk.png
+       ↳ Updated category: JE682A001 - Washer System
+       ↳ Updated category: JE682A001 - Washer System
+
+185. Base: Wheelhouse_Liner (5 files)
+     KEEP: Wheelhouse_Liner_2gR25Cr.png
+     ✅ REMOVED: Wheelhouse_Liner_YclWEW6.png
+     ✅ REMOVED: Wheelhouse_Liner_o3FwVR1.png
+     ✅ REMOVED: Wheelhouse_Liner_rBhXukV.png
+     ✅ REMOVED: Wheelhouse_Liner_rNxctLh.png
+       ↳ Updated category: JE625A001 - Wheelhouse Liner
+       ↳ Updated category: JE625A001 - Wheelhouse Liner
+
+186. Base: Window (5 files)
+     KEEP: Window_0CC3adv.png
+     ✅ REMOVED: Window_AD5KIKo.png
+     ✅ REMOVED: Window_RwglTYk.png
+     ✅ REMOVED: Window_TiAm5XY.png
+     ✅ REMOVED: Window_YboTrRQ.png
+       ↳ Updated category: JE611A001 - Window
+       ↳ Updated category: JE611A001 - Window
+
+187. Base: Window_Lift_Switch (5 files)
+     KEEP: Window_Lift_Switch_BzBU5eY.png
+     ✅ REMOVED: Window_Lift_Switch_DAP9OnF.png
+     ✅ REMOVED: Window_Lift_Switch_Wauvnen.png
+     ✅ REMOVED: Window_Lift_Switch_YYO7odW.png
+     ✅ REMOVED: Window_Lift_Switch_Z3idjjb.png
+       ↳ Updated category: JE721A001 - Window Lift Switch
+       ↳ Updated category: JE721A001 - Window Lift Switch
+
+188. Base: Wiper_LHD (3 files)
+     KEEP: Wiper_LHD_9zqZbXl.png
+     ✅ REMOVED: Wiper_LHD_nBCD3NY.png
+     ✅ REMOVED: Wiper_LHD_vfOfz8p.png
+       ↳ Updated category: JE681A001 - Wiper（LHD）
+
+189. Base: Wiper_RHD (3 files)
+     KEEP: Wiper_RHD_9sUZBHQ.png
+     ✅ REMOVED: Wiper_RHD_KDAgA3S.png
+     ✅ REMOVED: Wiper_RHD_USyAa43.png
+       ↳ Updated category: JE681A002 - Wiper（RHD）
+       ↳ Updated category: JE681A002 - Wiper（RHD）
+
+190. Base: Wiper__Washer (3 files)
+     KEEP: Wiper__Washer_fnqrSmz.png
+     ✅ REMOVED: Wiper__Washer_hTWl8gJ.png
+     ✅ REMOVED: Wiper__Washer_qZZi1Fr.png
+
+191. Base: Wiper___Washer (2 files)
+     KEEP: Wiper___Washer_mjYCXtP.png
+     ✅ REMOVED: Wiper___Washer_nzGlyHl.png
+       ↳ Updated category: Wiper & Washer
+
+================================================================================
+SUMMARY:
+================================================================================
+Files removed: 537/537
+Categories updated: 259
+Errors: 0
+Space saved: ~26850KB (estimated)
+
+✅ CLEANUP COMPLETED!

@@ -1,0 +1,1133 @@
+Clean Duplicate Category Images Report
+Generated: 2025-10-16 20:12:01
+Mode: DRY RUN
+================================================================================
+
+ANALYSIS:
+Total images found: 983
+Unique images: 255
+Duplicate groups: 191
+Duplicates to remove: 537
+
+DUPLICATE GROUPS:
+==================================================
+
+  1. Base: Accelerator_Pedal (5 files)
+     KEEP: Accelerator_Pedal_2l4Ntnr.png
+     ✅ WOULD REMOVE: Accelerator_Pedal_IshZ0X6.png
+     ✅ WOULD REMOVE: Accelerator_Pedal_UJv8Wxw.png
+     ✅ WOULD REMOVE: Accelerator_Pedal_o0afwbI.png
+     ✅ WOULD REMOVE: Accelerator_Pedal_yNVvYR9.png
+
+  2. Base: Accessory_Switches (5 files)
+     KEEP: Accessory_Switches_0dyjDzU.png
+     ✅ WOULD REMOVE: Accessory_Switches_HrktbKM.png
+     ✅ WOULD REMOVE: Accessory_Switches_IR6VWrP.png
+     ✅ WOULD REMOVE: Accessory_Switches_mPIveez.png
+     ✅ WOULD REMOVE: Accessory_Switches_wgWmo87.png
+
+  3. Base: Accessory___Accessory_Drive (2 files)
+     KEEP: Accessory___Accessory_Drive_KWGGGTu.png
+     ✅ WOULD REMOVE: Accessory___Accessory_Drive_fTunMVe.png
+
+  4. Base: Airbag (5 files)
+     KEEP: Airbag_AyDWqLC.png
+     ✅ WOULD REMOVE: Airbag_OJzi2Sk.png
+     ✅ WOULD REMOVE: Airbag_QABkipP.png
+     ✅ WOULD REMOVE: Airbag_mFfavts.png
+     ✅ WOULD REMOVE: Airbag_yvmOxaZ.png
+
+  5. Base: Air_Bag_Control_Unit (5 files)
+     KEEP: Air_Bag_Control_Unit_1bCUu2o.png
+     ✅ WOULD REMOVE: Air_Bag_Control_Unit_B5bYQt5.png
+     ✅ WOULD REMOVE: Air_Bag_Control_Unit_EcyDsi5.png
+     ✅ WOULD REMOVE: Air_Bag_Control_Unit_FwL1Bcs.png
+     ✅ WOULD REMOVE: Air_Bag_Control_Unit_rOjANZR.png
+
+  6. Base: Air_Filter (3 files)
+     KEEP: Air_Filter_2M4PFrR.png
+     ✅ WOULD REMOVE: Air_Filter_U4kjl0O.png
+     ✅ WOULD REMOVE: Air_Filter_ozUfrnw.png
+
+  7. Base: Air_Intake_System (5 files)
+     KEEP: Air_Intake_System_1ELd8S8.png
+     ✅ WOULD REMOVE: Air_Intake_System_Z0KFVZT.png
+     ✅ WOULD REMOVE: Air_Intake_System_Zv3yjZY.png
+     ✅ WOULD REMOVE: Air_Intake_System_hWoIbGd.png
+     ✅ WOULD REMOVE: Air_Intake_System_uDs6OFW.png
+
+  8. Base: Antenna (11 files)
+     KEEP: Antenna_73E7OfH.png
+     ✅ WOULD REMOVE: Antenna_BNFBD7m.png
+     ✅ WOULD REMOVE: Antenna_CPcM3sx.png
+     ✅ WOULD REMOVE: Antenna_DvcIJrp.png
+     ✅ WOULD REMOVE: Antenna_IGAP29B.png
+     ✅ WOULD REMOVE: Antenna_J2Li8fs.png
+     ✅ WOULD REMOVE: Antenna_ZhDe1Wa.png
+     ✅ WOULD REMOVE: Antenna_f0e7npC.png
+     ✅ WOULD REMOVE: Antenna_kbLAsgd.png
+     ✅ WOULD REMOVE: Antenna_mYMNhOB.png
+     ✅ WOULD REMOVE: Antenna_rQss1ZP.png
+
+  9. Base: Arrangement_for_VAN_Vehicle_UK_HK (3 files)
+     KEEP: Arrangement_for_VAN_Vehicle_UK_HK_CaN27Cf.png
+     ✅ WOULD REMOVE: Arrangement_for_VAN_Vehicle_UK_HK_TrFwjPy.png
+     ✅ WOULD REMOVE: Arrangement_for_VAN_Vehicle_UK_HK_etVEvlX.png
+
+ 10. Base: Baffle_Plate-Ware (5 files)
+     KEEP: Baffle_Plate-Ware_BG5Yy4I.png
+     ✅ WOULD REMOVE: Baffle_Plate-Ware_BNY2vGe.png
+     ✅ WOULD REMOVE: Baffle_Plate-Ware_Ct38dWo.png
+     ✅ WOULD REMOVE: Baffle_Plate-Ware_jQikJgT.png
+     ✅ WOULD REMOVE: Baffle_Plate-Ware_rJjzBtA.png
+
+ 11. Base: Battery_Harnesses (5 files)
+     KEEP: Battery_Harnesses_1J9wCe7.png
+     ✅ WOULD REMOVE: Battery_Harnesses_CfXXdXJ.png
+     ✅ WOULD REMOVE: Battery_Harnesses_McEhZm4.png
+     ✅ WOULD REMOVE: Battery_Harnesses_RCtqJUA.png
+     ✅ WOULD REMOVE: Battery_Harnesses_vpnvIqN.png
+
+ 12. Base: Battery___Electrical_Energy_Storage (2 files)
+     KEEP: Battery___Electrical_Energy_Storage_6ZqKNxt.png
+     ✅ WOULD REMOVE: Battery___Electrical_Energy_Storage_w5L6FA2.png
+
+ 13. Base: Block_Group (5 files)
+     KEEP: Block_Group_K3iORom.png
+     ✅ WOULD REMOVE: Block_Group_SyZpcmx.png
+     ✅ WOULD REMOVE: Block_Group_afl9R6f.png
+     ✅ WOULD REMOVE: Block_Group_ioHBaqg.png
+     ✅ WOULD REMOVE: Block_Group_qfbpiQc.png
+
+ 14. Base: Body_Exterior_Trim (5 files)
+     KEEP: Body_Exterior_Trim_7La2zj2.png
+     ✅ WOULD REMOVE: Body_Exterior_Trim_BtCykCD.png
+     ✅ WOULD REMOVE: Body_Exterior_Trim_THr7sLb.png
+     ✅ WOULD REMOVE: Body_Exterior_Trim_hOyg40S.png
+     ✅ WOULD REMOVE: Body_Exterior_Trim_llpxGxl.png
+
+ 15. Base: Body_Interior__Exterior_Electronics (7 files)
+     KEEP: Body_Interior__Exterior_Electronics_GhGtLCS.png
+     ✅ WOULD REMOVE: Body_Interior__Exterior_Electronics_P7a1bxw.png
+     ✅ WOULD REMOVE: Body_Interior__Exterior_Electronics_PITTzZ0.png
+     ✅ WOULD REMOVE: Body_Interior__Exterior_Electronics_SRd5ijs.png
+     ✅ WOULD REMOVE: Body_Interior__Exterior_Electronics_T86gqq9.png
+     ✅ WOULD REMOVE: Body_Interior__Exterior_Electronics_juatLOS.png
+     ✅ WOULD REMOVE: Body_Interior__Exterior_Electronics_nLzvjbl.png
+
+ 16. Base: Body_Interior___Exterior_Electronics (4 files)
+     KEEP: Body_Interior___Exterior_Electronics_DNswlqB.png
+     ✅ WOULD REMOVE: Body_Interior___Exterior_Electronics_R3q48aV.png
+     ✅ WOULD REMOVE: Body_Interior___Exterior_Electronics_tsCvwJJ.png
+     ✅ WOULD REMOVE: Body_Interior___Exterior_Electronics_unUfmDE.png
+
+ 17. Base: Body_Lower_Exterior_Trim (5 files)
+     KEEP: Body_Lower_Exterior_Trim_5VIjhk9.png
+     ✅ WOULD REMOVE: Body_Lower_Exterior_Trim_FZx1ZgX.png
+     ✅ WOULD REMOVE: Body_Lower_Exterior_Trim_OryAEuO.png
+     ✅ WOULD REMOVE: Body_Lower_Exterior_Trim_jzM6FSJ.png
+     ✅ WOULD REMOVE: Body_Lower_Exterior_Trim_mlhIuVI.png
+
+ 18. Base: Body_Lower_Structure (5 files)
+     KEEP: Body_Lower_Structure_58ukB3e.png
+     ✅ WOULD REMOVE: Body_Lower_Structure_9FLkmyX.png
+     ✅ WOULD REMOVE: Body_Lower_Structure_Vg9ykEq.png
+     ✅ WOULD REMOVE: Body_Lower_Structure_ZJmIOYS.png
+     ✅ WOULD REMOVE: Body_Lower_Structure_tslIHn5.png
+
+ 19. Base: Body_Lower_Structure_ (3 files)
+     KEEP: Body_Lower_Structure__0ymtV77.png
+     ✅ WOULD REMOVE: Body_Lower_Structure__1j76oUy.png
+     ✅ WOULD REMOVE: Body_Lower_Structure__4v0aIgS.png
+
+ 20. Base: Body_Upper_Exterior_Trim (5 files)
+     KEEP: Body_Upper_Exterior_Trim_3aOIHLt.png
+     ✅ WOULD REMOVE: Body_Upper_Exterior_Trim_XOxaY05.png
+     ✅ WOULD REMOVE: Body_Upper_Exterior_Trim_aY7ZYOP.png
+     ✅ WOULD REMOVE: Body_Upper_Exterior_Trim_itmlS0i.png
+     ✅ WOULD REMOVE: Body_Upper_Exterior_Trim_uPyK4PD.png
+
+ 21. Base: Body_Upper_Structure (5 files)
+     KEEP: Body_Upper_Structure_7YwX0MQ.png
+     ✅ WOULD REMOVE: Body_Upper_Structure_EugfKfG.png
+     ✅ WOULD REMOVE: Body_Upper_Structure_b22874p.png
+     ✅ WOULD REMOVE: Body_Upper_Structure_tVa59G9.png
+     ✅ WOULD REMOVE: Body_Upper_Structure_zZUvg2F.png
+
+ 22. Base: Body_Window (5 files)
+     KEEP: Body_Window_1BQ0oka.png
+     ✅ WOULD REMOVE: Body_Window_2Jc69h4.png
+     ✅ WOULD REMOVE: Body_Window_CTWtPpL.png
+     ✅ WOULD REMOVE: Body_Window_azImh4R.png
+     ✅ WOULD REMOVE: Body_Window_bMGAtO7.png
+
+ 23. Base: Brakes (5 files)
+     KEEP: Brakes_4lqhWLI.png
+     ✅ WOULD REMOVE: Brakes_EjWYtj1.png
+     ✅ WOULD REMOVE: Brakes_J4EUVbh.png
+     ✅ WOULD REMOVE: Brakes_TtViVfs.png
+     ✅ WOULD REMOVE: Brakes_cGdUxWB.png
+
+ 24. Base: Brake_Apply (5 files)
+     KEEP: Brake_Apply_3YHcSJC.png
+     ✅ WOULD REMOVE: Brake_Apply_B8CCVzn.png
+     ✅ WOULD REMOVE: Brake_Apply_GCY9gDP.png
+     ✅ WOULD REMOVE: Brake_Apply_Jo8XXxl.png
+     ✅ WOULD REMOVE: Brake_Apply_kCFElmJ.png
+
+ 25. Base: Brake_Modulator (5 files)
+     KEEP: Brake_Modulator_I4w3wjh.png
+     ✅ WOULD REMOVE: Brake_Modulator_OJhg1XC.png
+     ✅ WOULD REMOVE: Brake_Modulator_XHCicLs.png
+     ✅ WOULD REMOVE: Brake_Modulator_YqS4YbD.png
+     ✅ WOULD REMOVE: Brake_Modulator_rHbqERP.png
+
+ 26. Base: Brake_Pedal (5 files)
+     KEEP: Brake_Pedal_67cz4G2.png
+     ✅ WOULD REMOVE: Brake_Pedal_DVYllQc.png
+     ✅ WOULD REMOVE: Brake_Pedal_F1SZX2j.png
+     ✅ WOULD REMOVE: Brake_Pedal_Zj2q0t4.png
+     ✅ WOULD REMOVE: Brake_Pedal_frI2Bhd.png
+
+ 27. Base: Brake_Pipes (5 files)
+     KEEP: Brake_Pipes_9uiI6s7.png
+     ✅ WOULD REMOVE: Brake_Pipes_EFkqGOK.png
+     ✅ WOULD REMOVE: Brake_Pipes_oLIhJDB.png
+     ✅ WOULD REMOVE: Brake_Pipes_tcU7IMt.png
+     ✅ WOULD REMOVE: Brake_Pipes_xJd5Qsz.png
+
+ 28. Base: Charging___Energy_Storage (2 files)
+     KEEP: Charging___Energy_Storage_B9BRYED.png
+     ✅ WOULD REMOVE: Charging___Energy_Storage_byu1se8.png
+
+ 29. Base: Chassis (2 files)
+     KEEP: Chassis_Harnesses.png
+     ✅ WOULD REMOVE: Chassis_Structure.png
+
+ 30. Base: Chassis_Harnesses (3 files)
+     KEEP: Chassis_Harnesses_Qu46XZX.png
+     ✅ WOULD REMOVE: Chassis_Harnesses_VyuhLMR.png
+     ✅ WOULD REMOVE: Chassis_Harnesses_cVlx48q.png
+
+ 31. Base: Chassis_Structure (5 files)
+     KEEP: Chassis_Structure_8Y8ElL6.png
+     ✅ WOULD REMOVE: Chassis_Structure_EWEoEaY.png
+     ✅ WOULD REMOVE: Chassis_Structure_HiCtAtU.png
+     ✅ WOULD REMOVE: Chassis_Structure_XbeYBcf.png
+     ✅ WOULD REMOVE: Chassis_Structure_a2zJOgv.png
+
+ 32. Base: Clusters (5 files)
+     KEEP: Clusters_30la9na.png
+     ✅ WOULD REMOVE: Clusters_CutUMpw.png
+     ✅ WOULD REMOVE: Clusters_VCndTmj.png
+     ✅ WOULD REMOVE: Clusters_mwHRXpE.png
+     ✅ WOULD REMOVE: Clusters_ovQYtfN.png
+
+ 33. Base: Clutch_Apply (5 files)
+     KEEP: Clutch_Apply_6XJl0NA.png
+     ✅ WOULD REMOVE: Clutch_Apply_Kw7DwXV.png
+     ✅ WOULD REMOVE: Clutch_Apply_Yk5Brbv.png
+     ✅ WOULD REMOVE: Clutch_Apply_fcxVKdf.png
+     ✅ WOULD REMOVE: Clutch_Apply_q8xqrUZ.png
+
+ 34. Base: Clutch_MT (3 files)
+     KEEP: Clutch_MT_6uDKppp.png
+     ✅ WOULD REMOVE: Clutch_MT_AcGoCiI.png
+     ✅ WOULD REMOVE: Clutch_MT_BYrCLPR.png
+
+ 35. Base: Clutch_PHEV (3 files)
+     KEEP: Clutch_PHEV_KrhAk6R.png
+     ✅ WOULD REMOVE: Clutch_PHEV_QcamkvD.png
+     ✅ WOULD REMOVE: Clutch_PHEV_wYUqDu4.png
+
+ 36. Base: Communication (3 files)
+     KEEP: Communication_J0XujKp.png
+     ✅ WOULD REMOVE: Communication_ZDlJ9ki.png
+     ✅ WOULD REMOVE: Communication_c8b0bqd.png
+
+ 37. Base: Coolant_Plumbing__Hardware (3 files)
+     KEEP: Coolant_Plumbing__Hardware_8Iu0VGp.png
+     ✅ WOULD REMOVE: Coolant_Plumbing__Hardware_OeBx2LT.png
+     ✅ WOULD REMOVE: Coolant_Plumbing__Hardware_zjEe5q8.png
+
+ 38. Base: Coolant_Plumbing___Hardware_EV (2 files)
+     KEEP: Coolant_Plumbing___Hardware_EV_2GIIaQj.png
+     ✅ WOULD REMOVE: Coolant_Plumbing___Hardware_EV_xRFoLSH.png
+
+ 39. Base: Coolant_Plumbing___Hardware (2 files)
+     KEEP: Coolant_Plumbing___Hardware_liKWk7t.png
+     ✅ WOULD REMOVE: Coolant_Plumbing___Hardware_snE3ixm.png
+
+ 40. Base: Coolant_Plumbing___Hardware_PHEV (2 files)
+     KEEP: Coolant_Plumbing___Hardware_PHEV_CFVrpbT.png
+     ✅ WOULD REMOVE: Coolant_Plumbing___Hardware_PHEV_l1Tw1HV.png
+
+ 41. Base: Coolant_Pump_and_Inlet_Outlet_Tube___Thermostat (2 files)
+     KEEP: Coolant_Pump_and_Inlet_Outlet_Tube___Thermostat_9nB4LSy.png
+     ✅ WOULD REMOVE: Coolant_Pump_and_Inlet_Outlet_Tube___Thermostat_eemEw76.png
+
+ 42. Base: Crankshaft_Rod (5 files)
+     KEEP: Crankshaft_Rod_2hYX00t.png
+     ✅ WOULD REMOVE: Crankshaft_Rod_LBO5yoa.png
+     ✅ WOULD REMOVE: Crankshaft_Rod_TyktrNP.png
+     ✅ WOULD REMOVE: Crankshaft_Rod_VVy6wB8.png
+     ✅ WOULD REMOVE: Crankshaft_Rod_ZNYgu7N.png
+
+ 43. Base: Customer_Switches (5 files)
+     KEEP: Customer_Switches_B4rs8Wc.png
+     ✅ WOULD REMOVE: Customer_Switches_N8cTFUK.png
+     ✅ WOULD REMOVE: Customer_Switches_Ps4ezYf.png
+     ✅ WOULD REMOVE: Customer_Switches_SIsE2fk.png
+     ✅ WOULD REMOVE: Customer_Switches_ZM7lqcW.png
+
+ 44. Base: Cylinder_Block___Accessory (2 files)
+     KEEP: Cylinder_Block___Accessory_HKQ8jIj.png
+     ✅ WOULD REMOVE: Cylinder_Block___Accessory_WdleZoP.png
+
+ 45. Base: Cylinder_Head (5 files)
+     KEEP: Cylinder_Head_DmjXLVa.png
+     ✅ WOULD REMOVE: Cylinder_Head_MUpK3d1.png
+     ✅ WOULD REMOVE: Cylinder_Head_wJ321Gs.png
+     ✅ WOULD REMOVE: Cylinder_Head_wZRdCiA.png
+     ✅ WOULD REMOVE: Cylinder_Head_zAT4ZiZ.png
+
+ 46. Base: Damper_Pulley___Gear_Drive (2 files)
+     KEEP: Damper_Pulley___Gear_Drive_DT3pOAK.png
+     ✅ WOULD REMOVE: Damper_Pulley___Gear_Drive_UG1Y7hR.png
+
+ 47. Base: Door_Wire_Harnesses (3 files)
+     KEEP: Door_Wire_Harnesses_EJlW7aM.png
+     ✅ WOULD REMOVE: Door_Wire_Harnesses_ZtQFho1.png
+     ✅ WOULD REMOVE: Door_Wire_Harnesses_ymCF9DN.png
+
+ 48. Base: Driver_Information (5 files)
+     KEEP: Driver_Information_1ZNWxDJ.png
+     ✅ WOULD REMOVE: Driver_Information_AARNmrh.png
+     ✅ WOULD REMOVE: Driver_Information_EuB5G48.png
+     ✅ WOULD REMOVE: Driver_Information_LEGJhfp.png
+     ✅ WOULD REMOVE: Driver_Information_oHUqncC.png
+
+ 49. Base: EGR_ASM (5 files)
+     KEEP: EGR_ASM_3xsde8k.png
+     ✅ WOULD REMOVE: EGR_ASM_GZBcYTB.png
+     ✅ WOULD REMOVE: EGR_ASM_TEb3uY5.png
+     ✅ WOULD REMOVE: EGR_ASM_bdxnKDt.png
+     ✅ WOULD REMOVE: EGR_ASM_fU3qz5L.png
+
+ 50. Base: Emission_Exhaust_System (5 files)
+     KEEP: Emission_Exhaust_System_9wt7uAP.png
+     ✅ WOULD REMOVE: Emission_Exhaust_System_Ckq95mH.png
+     ✅ WOULD REMOVE: Emission_Exhaust_System_V4Z5pBb.png
+     ✅ WOULD REMOVE: Emission_Exhaust_System_cVyPXQI.png
+     ✅ WOULD REMOVE: Emission_Exhaust_System_hdzrmI9.png
+
+ 51. Base: Engine (3 files)
+     KEEP: Engine_Shield.png
+     ✅ WOULD REMOVE: Engine_Accessory.png
+     ✅ WOULD REMOVE: Engine_Management.png
+
+ 52. Base: Engine_Accessory (5 files)
+     KEEP: Engine_Accessory_09HuC0h.png
+     ✅ WOULD REMOVE: Engine_Accessory_Mvfo0Hn.png
+     ✅ WOULD REMOVE: Engine_Accessory_aIxG7ac.png
+     ✅ WOULD REMOVE: Engine_Accessory_p9Vfip9.png
+     ✅ WOULD REMOVE: Engine_Accessory_uN7eIeq.png
+
+ 53. Base: Engine_ASM (5 files)
+     KEEP: Engine_ASM_GqcwRWZ.png
+     ✅ WOULD REMOVE: Engine_ASM_Ih0i5rZ.png
+     ✅ WOULD REMOVE: Engine_ASM_J1kpzc4.png
+     ✅ WOULD REMOVE: Engine_ASM_NQosc8h.png
+     ✅ WOULD REMOVE: Engine_ASM_SYOVEd5.png
+
+ 54. Base: Engine_Compartment_Fuse_Box (5 files)
+     KEEP: Engine_Compartment_Fuse_Box_BD1PR89.png
+     ✅ WOULD REMOVE: Engine_Compartment_Fuse_Box_RDQdWQ8.png
+     ✅ WOULD REMOVE: Engine_Compartment_Fuse_Box_YzIiiJM.png
+     ✅ WOULD REMOVE: Engine_Compartment_Fuse_Box_jjqEd5U.png
+     ✅ WOULD REMOVE: Engine_Compartment_Fuse_Box_u4Dmjy1.png
+
+ 55. Base: Engine_Compartment_Harness (3 files)
+     KEEP: Engine_Compartment_Harness_DZgoz82.png
+     ✅ WOULD REMOVE: Engine_Compartment_Harness_ZN2v7iH.png
+     ✅ WOULD REMOVE: Engine_Compartment_Harness_g65ZBbd.png
+
+ 56. Base: Engine_Management (5 files)
+     KEEP: Engine_Management_32zN9pn.png
+     ✅ WOULD REMOVE: Engine_Management_6LZwMX6.png
+     ✅ WOULD REMOVE: Engine_Management_RK3Vkad.png
+     ✅ WOULD REMOVE: Engine_Management_d0ANj6I.png
+     ✅ WOULD REMOVE: Engine_Management_qNzDDqQ.png
+
+ 57. Base: Engine_Shield (3 files)
+     KEEP: Engine_Shield_HZO8uIh.png
+     ✅ WOULD REMOVE: Engine_Shield_KiwGgc7.png
+     ✅ WOULD REMOVE: Engine_Shield_aHDp76s.png
+
+ 58. Base: Engine_Wiring_Harness (3 files)
+     KEEP: Engine_Wiring_Harness_Acz424b.png
+     ✅ WOULD REMOVE: Engine_Wiring_Harness_SWAacd4.png
+     ✅ WOULD REMOVE: Engine_Wiring_Harness_u6TrsPN.png
+
+ 59. Base: Entertainment (5 files)
+     KEEP: Entertainment_8T6RDhI.png
+     ✅ WOULD REMOVE: Entertainment_ZSzikAw.png
+     ✅ WOULD REMOVE: Entertainment_h8zm1jv.png
+     ✅ WOULD REMOVE: Entertainment_mEW5aKa.png
+     ✅ WOULD REMOVE: Entertainment_ufufeYw.png
+
+ 60. Base: Exhaust_Elbow___Turbocharger (2 files)
+     KEEP: Exhaust_Elbow___Turbocharger_Ivvjvh1.png
+     ✅ WOULD REMOVE: Exhaust_Elbow___Turbocharger_qIv1pfP.png
+
+ 61. Base: Exhaust_System (3 files)
+     KEEP: Exhaust_System_1sW4J82.png
+     ✅ WOULD REMOVE: Exhaust_System_HaJglBH.png
+     ✅ WOULD REMOVE: Exhaust_System_fzPzDW7.png
+
+ 62. Base: fenders (3 files)
+     KEEP: fenders_PtDWpxA.png
+     ✅ WOULD REMOVE: fenders_dLKY4jd.png
+     ✅ WOULD REMOVE: fenders_z0AuwGb.png
+
+ 63. Base: Floor_Trim (5 files)
+     KEEP: Floor_Trim_1Uq1z5c.png
+     ✅ WOULD REMOVE: Floor_Trim_SlYrqO0.png
+     ✅ WOULD REMOVE: Floor_Trim_b7OIQg1.png
+     ✅ WOULD REMOVE: Floor_Trim_oeoechE.png
+     ✅ WOULD REMOVE: Floor_Trim_tsjv70D.png
+
+ 64. Base: Fluids_and_Lubrications (5 files)
+     KEEP: Fluids_and_Lubrications_2ehqWbo.png
+     ✅ WOULD REMOVE: Fluids_and_Lubrications_RAE5dzR.png
+     ✅ WOULD REMOVE: Fluids_and_Lubrications_U9iGhMT.png
+     ✅ WOULD REMOVE: Fluids_and_Lubrications_cR9Hock.png
+     ✅ WOULD REMOVE: Fluids_and_Lubrications_qtcqyY5.png
+
+ 65. Base: Front (3 files)
+     KEEP: Front_Brakes.png
+     ✅ WOULD REMOVE: Front_Bumper.png
+     ✅ WOULD REMOVE: Front_Suspension.png
+
+ 66. Base: Front_Brakes (5 files)
+     KEEP: Front_Brakes_FP5zY5Q.png
+     ✅ WOULD REMOVE: Front_Brakes_G4sRyLG.png
+     ✅ WOULD REMOVE: Front_Brakes_L7BAWNB.png
+     ✅ WOULD REMOVE: Front_Brakes_bTuiG2h.png
+     ✅ WOULD REMOVE: Front_Brakes_vcS0TSv.png
+
+ 67. Base: Front_Bumper (5 files)
+     KEEP: Front_Bumper_5HxAZ0E.png
+     ✅ WOULD REMOVE: Front_Bumper_5q6tZsG.png
+     ✅ WOULD REMOVE: Front_Bumper_88Ibvxu.png
+     ✅ WOULD REMOVE: Front_Bumper_FQWLi1K.png
+     ✅ WOULD REMOVE: Front_Bumper_JiXYLHb.png
+
+ 68. Base: Front_Closures___Sheetmetal (2 files)
+     KEEP: Front_Closures___Sheetmetal_TpSKGQt.png
+     ✅ WOULD REMOVE: Front_Closures___Sheetmetal_nMmLDxm.png
+
+ 69. Base: Front_Door_Electric_Glass_Regulator (5 files)
+     KEEP: Front_Door_Electric_Glass_Regulator_41w3jNQ.png
+     ✅ WOULD REMOVE: Front_Door_Electric_Glass_Regulator_UA9yvCv.png
+     ✅ WOULD REMOVE: Front_Door_Electric_Glass_Regulator_abfmBYh.png
+     ✅ WOULD REMOVE: Front_Door_Electric_Glass_Regulator_rqehaaa.png
+     ✅ WOULD REMOVE: Front_Door_Electric_Glass_Regulator_rt4syOG.png
+
+ 70. Base: Front_Door_Handle___Lock (2 files)
+     KEEP: Front_Door_Handle___Lock_LBOdCMO.png
+     ✅ WOULD REMOVE: Front_Door_Handle___Lock_i00I3E5.png
+
+ 71. Base: Front_End_Exterior_Airflow (5 files)
+     KEEP: Front_End_Exterior_Airflow_GXZl11z.png
+     ✅ WOULD REMOVE: Front_End_Exterior_Airflow_HBj35Cm.png
+     ✅ WOULD REMOVE: Front_End_Exterior_Airflow_XrzB6qt.png
+     ✅ WOULD REMOVE: Front_End_Exterior_Airflow_ndruHR8.png
+     ✅ WOULD REMOVE: Front_End_Exterior_Airflow_ykfS31Z.png
+
+ 72. Base: Front_Exterior_HVAC_Airflow (3 files)
+     KEEP: Front_Exterior_HVAC_Airflow_MC4d1zs.png
+     ✅ WOULD REMOVE: Front_Exterior_HVAC_Airflow_XLyglWA.png
+     ✅ WOULD REMOVE: Front_Exterior_HVAC_Airflow_ZA6RPVa.png
+
+ 73. Base: Front_Interior_Control (5 files)
+     KEEP: Front_Interior_Control_UXMyAlw.png
+     ✅ WOULD REMOVE: Front_Interior_Control_dEZPpfw.png
+     ✅ WOULD REMOVE: Front_Interior_Control_iu4QbBP.png
+     ✅ WOULD REMOVE: Front_Interior_Control_kdw3D8W.png
+     ✅ WOULD REMOVE: Front_Interior_Control_rJl2h3c.png
+
+ 74. Base: Front_Interior_HVAC_Airflow (5 files)
+     KEEP: Front_Interior_HVAC_Airflow_BAowiOG.png
+     ✅ WOULD REMOVE: Front_Interior_HVAC_Airflow_HHbxQdv.png
+     ✅ WOULD REMOVE: Front_Interior_HVAC_Airflow_JMQqSrz.png
+     ✅ WOULD REMOVE: Front_Interior_HVAC_Airflow_S54vPGd.png
+     ✅ WOULD REMOVE: Front_Interior_HVAC_Airflow_TmVc00d.png
+
+ 75. Base: Front_Lamp (11 files)
+     KEEP: Front_Lamp_3ngYuBB.png
+     ✅ WOULD REMOVE: Front_Lamp_7XOR9kO.png
+     ✅ WOULD REMOVE: Front_Lamp_8LfFQpP.png
+     ✅ WOULD REMOVE: Front_Lamp_Nf6K1gk.png
+     ✅ WOULD REMOVE: Front_Lamp_RYIu6Ms.png
+     ✅ WOULD REMOVE: Front_Lamp_RtPOdKz.png
+     ✅ WOULD REMOVE: Front_Lamp_mkl67zl.png
+     ✅ WOULD REMOVE: Front_Lamp_oU3kHbS.png
+     ✅ WOULD REMOVE: Front_Lamp_qLYB2Fp.png
+     ✅ WOULD REMOVE: Front_Lamp_stwjcd5.png
+     ✅ WOULD REMOVE: Front_Lamp_xq1I9fq.png
+
+ 76. Base: Front_Seat_Left (3 files)
+     KEEP: Front_Seat_Left_FjiZmU1.png
+     ✅ WOULD REMOVE: Front_Seat_Left_J2qSkxL.png
+     ✅ WOULD REMOVE: Front_Seat_Left_u9WgYdV.png
+
+ 77. Base: Front_Seat_Right (3 files)
+     KEEP: Front_Seat_Right_FHgm3aK.png
+     ✅ WOULD REMOVE: Front_Seat_Right_MwQl2xg.png
+     ✅ WOULD REMOVE: Front_Seat_Right_zaMnaG4.png
+
+ 78. Base: Front_Shock_Absorber (5 files)
+     KEEP: Front_Shock_Absorber_7Ot9Ps0.png
+     ✅ WOULD REMOVE: Front_Shock_Absorber_FMlSpuE.png
+     ✅ WOULD REMOVE: Front_Shock_Absorber_YtCy2BK.png
+     ✅ WOULD REMOVE: Front_Shock_Absorber_tIkVSjl.png
+     ✅ WOULD REMOVE: Front_Shock_Absorber_y5uLhOk.png
+
+ 79. Base: Front_Side_Closure (5 files)
+     KEEP: Front_Side_Closure_AOpqsgo.png
+     ✅ WOULD REMOVE: Front_Side_Closure_BXcqDQB.png
+     ✅ WOULD REMOVE: Front_Side_Closure_iR04scz.png
+     ✅ WOULD REMOVE: Front_Side_Closure_icONrHe.png
+     ✅ WOULD REMOVE: Front_Side_Closure_peiWBZ2.png
+
+ 80. Base: Front_Sub-frame (5 files)
+     KEEP: Front_Sub-frame_JqpJhAQ.png
+     ✅ WOULD REMOVE: Front_Sub-frame_PVKp8qB.png
+     ✅ WOULD REMOVE: Front_Sub-frame_dDVhRnS.png
+     ✅ WOULD REMOVE: Front_Sub-frame_rcKRSs2.png
+     ✅ WOULD REMOVE: Front_Sub-frame_sTPbtFU.png
+
+ 81. Base: Front_Suspension (5 files)
+     KEEP: Front_Suspension_9r7Om7z.png
+     ✅ WOULD REMOVE: Front_Suspension_N6aeqTb.png
+     ✅ WOULD REMOVE: Front_Suspension_WUDieAT.png
+     ✅ WOULD REMOVE: Front_Suspension_pv6n4gp.png
+     ✅ WOULD REMOVE: Front_Suspension_xyQfKpB.png
+
+ 82. Base: Fuel_Plumbing__Hardware (3 files)
+     KEEP: Fuel_Plumbing__Hardware_AjiBfTG.png
+     ✅ WOULD REMOVE: Fuel_Plumbing__Hardware_RETFa30.png
+     ✅ WOULD REMOVE: Fuel_Plumbing__Hardware_eVMAEwT.png
+
+ 83. Base: Fuel_Plumbing___Hardware (2 files)
+     KEEP: Fuel_Plumbing___Hardware_A1Qz2gd.png
+     ✅ WOULD REMOVE: Fuel_Plumbing___Hardware_DtldpSx.png
+
+ 84. Base: Fuel_Storage__Handling (3 files)
+     KEEP: Fuel_Storage__Handling_2iqHl9t.png
+     ✅ WOULD REMOVE: Fuel_Storage__Handling_jqXXrWC.png
+     ✅ WOULD REMOVE: Fuel_Storage__Handling_oFeCXkl.png
+
+ 85. Base: Fuel_Storage___Handling (2 files)
+     KEEP: Fuel_Storage___Handling_3ALbKQc.png
+     ✅ WOULD REMOVE: Fuel_Storage___Handling_mUMrNyM.png
+
+ 86. Base: Fuel_Tank__Canister (3 files)
+     KEEP: Fuel_Tank__Canister_1Zy1tPu.png
+     ✅ WOULD REMOVE: Fuel_Tank__Canister_QFQKTDG.png
+     ✅ WOULD REMOVE: Fuel_Tank__Canister_sppMxVe.png
+
+ 87. Base: Fuel_Tank___Canister (2 files)
+     KEEP: Fuel_Tank___Canister_1Z8Hbfy.png
+     ✅ WOULD REMOVE: Fuel_Tank___Canister_B62BnY0.png
+
+ 88. Base: Grille (5 files)
+     KEEP: Grille_Bq9qAFf.png
+     ✅ WOULD REMOVE: Grille_GhboO0v.png
+     ✅ WOULD REMOVE: Grille_UBZ8IIo.png
+     ✅ WOULD REMOVE: Grille_XMbR1Sj.png
+     ✅ WOULD REMOVE: Grille_yuIur3S.png
+
+ 89. Base: Head_Cover___PCV (2 files)
+     KEEP: Head_Cover___PCV_0nYxunB.png
+     ✅ WOULD REMOVE: Head_Cover___PCV_IvHGAIp.png
+
+ 90. Base: Hood (5 files)
+     KEEP: Hood_BvdllNb.png
+     ✅ WOULD REMOVE: Hood_VaT3aKa.png
+     ✅ WOULD REMOVE: Hood_mtPxrBl.png
+     ✅ WOULD REMOVE: Hood_tk2QXrK.png
+     ✅ WOULD REMOVE: Hood_ukD4qPg.png
+
+ 91. Base: Hood_Lock (5 files)
+     KEEP: Hood_Lock_9cbrxo8.png
+     ✅ WOULD REMOVE: Hood_Lock_ALblOp0.png
+     ✅ WOULD REMOVE: Hood_Lock_HJLkKpR.png
+     ✅ WOULD REMOVE: Hood_Lock_Q1QxdTr.png
+     ✅ WOULD REMOVE: Hood_Lock_XBweZVU.png
+
+ 92. Base: HVAC___Powertrain_Cooling (2 files)
+     KEEP: HVAC___Powertrain_Cooling_TtVFjfS.png
+     ✅ WOULD REMOVE: HVAC___Powertrain_Cooling_wnPHqkv.png
+
+ 93. Base: Ignition_Switch_and_Key__.png (3 files)
+     KEEP: Ignition_Switch_and_Key__.png_3aCwOBe.png
+     ✅ WOULD REMOVE: Ignition_Switch_and_Key__.png_l1ZNTAQ.png
+     ✅ WOULD REMOVE: Ignition_Switch_and_Key__.png_s27rlSE.png
+
+ 94. Base: Infotainment_System (5 files)
+     KEEP: Infotainment_System_DCbfNCd.png
+     ✅ WOULD REMOVE: Infotainment_System_RBAEXFq.png
+     ✅ WOULD REMOVE: Infotainment_System_Tpc65Yi.png
+     ✅ WOULD REMOVE: Infotainment_System_loaXxMH.png
+     ✅ WOULD REMOVE: Infotainment_System_q182Ba0.png
+
+ 95. Base: Inner_Framing_left_side (3 files)
+     KEEP: Inner_Framing_left_side_BfThMEG.png
+     ✅ WOULD REMOVE: Inner_Framing_left_side_F14ORaF.png
+     ✅ WOULD REMOVE: Inner_Framing_left_side_HqyWDZN.png
+
+ 96. Base: Inner_Framing_right_side (3 files)
+     KEEP: Inner_Framing_right_side_PrL6LtM.png
+     ✅ WOULD REMOVE: Inner_Framing_right_side_dYrlE50.png
+     ✅ WOULD REMOVE: Inner_Framing_right_side_x58jclw.png
+
+ 97. Base: Instrument_Panel_Crossmember_LHD (3 files)
+     KEEP: Instrument_Panel_Crossmember_LHD_KVpZUTT.png
+     ✅ WOULD REMOVE: Instrument_Panel_Crossmember_LHD_acQyHp0.png
+     ✅ WOULD REMOVE: Instrument_Panel_Crossmember_LHD_vdxNqxz.png
+
+ 98. Base: Instrument_Panel_Crossmember_RHD (3 files)
+     KEEP: Instrument_Panel_Crossmember_RHD_AnDCGZg.png
+     ✅ WOULD REMOVE: Instrument_Panel_Crossmember_RHD_GjnLqkp.png
+     ✅ WOULD REMOVE: Instrument_Panel_Crossmember_RHD_pwwDuwn.png
+
+ 99. Base: Instrument_Panel_LHD (3 files)
+     KEEP: Instrument_Panel_LHD_O6LKrMR.png
+     ✅ WOULD REMOVE: Instrument_Panel_LHD_ZgMf83Q.png
+     ✅ WOULD REMOVE: Instrument_Panel_LHD_xhnYaZJ.png
+
+100. Base: Instrument_Panel_RHD (3 files)
+     KEEP: Instrument_Panel_RHD_WrdF33u.png
+     ✅ WOULD REMOVE: Instrument_Panel_RHD_iZP64yI.png
+     ✅ WOULD REMOVE: Instrument_Panel_RHD_yKeOwb3.png
+
+101. Base: Instrument_Panel_Wire_Harnesses (3 files)
+     KEEP: Instrument_Panel_Wire_Harnesses_DrZJNWg.png
+     ✅ WOULD REMOVE: Instrument_Panel_Wire_Harnesses_YqcAx1C.png
+     ✅ WOULD REMOVE: Instrument_Panel_Wire_Harnesses_j2OHLJ6.png
+
+102. Base: Instrument_Panel__Console (3 files)
+     KEEP: Instrument_Panel__Console_6orEIV2.png
+     ✅ WOULD REMOVE: Instrument_Panel__Console_tMpqTGe.png
+     ✅ WOULD REMOVE: Instrument_Panel__Console_yKohxNX.png
+
+103. Base: Instrument_Panel___Console (2 files)
+     KEEP: Instrument_Panel___Console_fygIPXg.png
+     ✅ WOULD REMOVE: Instrument_Panel___Console_pLudU4W.png
+
+104. Base: Interior_Acoustic_System (3 files)
+     KEEP: Interior_Acoustic_System_nDJ3xiI.png
+     ✅ WOULD REMOVE: Interior_Acoustic_System_ppyjNtz.png
+     ✅ WOULD REMOVE: Interior_Acoustic_System_w5eZmOV.png
+
+105. Base: Interior_Heating_Pipe-FCV (5 files)
+     KEEP: Interior_Heating_Pipe-FCV_6dOaBf9.png
+     ✅ WOULD REMOVE: Interior_Heating_Pipe-FCV_RLTqAsd.png
+     ✅ WOULD REMOVE: Interior_Heating_Pipe-FCV_n68HEyf.png
+     ✅ WOULD REMOVE: Interior_Heating_Pipe-FCV_phrf5Ky.png
+     ✅ WOULD REMOVE: Interior_Heating_Pipe-FCV_yom6zJr.png
+
+106. Base: Interior_Heating_Pipe (5 files)
+     KEEP: Interior_Heating_Pipe_fdESh6C.png
+     ✅ WOULD REMOVE: Interior_Heating_Pipe_h3oLvBX.png
+     ✅ WOULD REMOVE: Interior_Heating_Pipe_jph10dI.png
+     ✅ WOULD REMOVE: Interior_Heating_Pipe_khnXGjk.png
+     ✅ WOULD REMOVE: Interior_Heating_Pipe_zdYj7Vk.png
+
+107. Base: Interior_Lamp (5 files)
+     KEEP: Interior_Lamp_IcX0T04.png
+     ✅ WOULD REMOVE: Interior_Lamp_XpEMmRU.png
+     ✅ WOULD REMOVE: Interior_Lamp_amqHkEn.png
+     ✅ WOULD REMOVE: Interior_Lamp_kJgrXuw.png
+     ✅ WOULD REMOVE: Interior_Lamp_zmtGOHV.png
+
+108. Base: Interior_Trim (5 files)
+     KEEP: Interior_Trim_ISuhjq0.png
+     ✅ WOULD REMOVE: Interior_Trim_ZbpYgFZ.png
+     ✅ WOULD REMOVE: Interior_Trim_e2mXmns.png
+     ✅ WOULD REMOVE: Interior_Trim_gd1ak6n.png
+     ✅ WOULD REMOVE: Interior_Trim_i4JSjeW.png
+
+109. Base: LP-EGR_Intake_Pipe___Accessory (2 files)
+     KEEP: LP-EGR_Intake_Pipe___Accessory_3CRox7h.png
+     ✅ WOULD REMOVE: LP-EGR_Intake_Pipe___Accessory_OkRgFk1.png
+
+110. Base: Manifold_ASM-INT (3 files)
+     KEEP: Manifold_ASM-INT_3mALuHn.png
+     ✅ WOULD REMOVE: Manifold_ASM-INT_9YnBaTq.png
+     ✅ WOULD REMOVE: Manifold_ASM-INT_NWuJ2im.png
+
+111. Base: Manual_Transmission_Assembly_6MT_Front_Back_ (3 files)
+     KEEP: Manual_Transmission_Assembly_6MT_Front_Back__7l1CDmT.png
+     ✅ WOULD REMOVE: Manual_Transmission_Assembly_6MT_Front_Back__L173yrm.png
+     ✅ WOULD REMOVE: Manual_Transmission_Assembly_6MT_Front_Back__MIzA9ps.png
+
+112. Base: Mounts (5 files)
+     KEEP: Mounts_48rp01Q.png
+     ✅ WOULD REMOVE: Mounts_8Iezpi6.png
+     ✅ WOULD REMOVE: Mounts_AWT41gx.png
+     ✅ WOULD REMOVE: Mounts_Ly6k5D6.png
+     ✅ WOULD REMOVE: Mounts_cokVNdn.png
+
+113. Base: Mud_Guard (5 files)
+     KEEP: Mud_Guard_0IwFGuu.png
+     ✅ WOULD REMOVE: Mud_Guard_HUNWSBm.png
+     ✅ WOULD REMOVE: Mud_Guard_UXzypPE.png
+     ✅ WOULD REMOVE: Mud_Guard_bnqeH5V.png
+     ✅ WOULD REMOVE: Mud_Guard_zDdCzdY.png
+
+114. Base: Multi-Function_Column_Switch_ (3 files)
+     KEEP: Multi-Function_Column_Switch__2L2uThZ.png
+     ✅ WOULD REMOVE: Multi-Function_Column_Switch__NeROiA5.png
+     ✅ WOULD REMOVE: Multi-Function_Column_Switch__YQ5LpmP.png
+
+115. Base: Oil_Cooler_and_Inlet_Outlet_Tube___Filter (2 files)
+     KEEP: Oil_Cooler_and_Inlet_Outlet_Tube___Filter_jCJXnt8.png
+     ✅ WOULD REMOVE: Oil_Cooler_and_Inlet_Outlet_Tube___Filter_wuKiaPE.png
+
+116. Base: On-Vehicle_Attachments (3 files)
+     KEEP: On-Vehicle_Attachments_2VPwmEz.png
+     ✅ WOULD REMOVE: On-Vehicle_Attachments_OQIJflU.png
+     ✅ WOULD REMOVE: On-Vehicle_Attachments_TRLTGdp.png
+
+117. Base: On-Vehicle_Tools (3 files)
+     KEEP: On-Vehicle_Tools_IroU0Wf.png
+     ✅ WOULD REMOVE: On-Vehicle_Tools_J843fQm.png
+     ✅ WOULD REMOVE: On-Vehicle_Tools_cn7UPcS.png
+
+118. Base: Outer_Framing_left_side (3 files)
+     KEEP: Outer_Framing_left_side_YpcXPzh.png
+     ✅ WOULD REMOVE: Outer_Framing_left_side_lMtdtQe.png
+     ✅ WOULD REMOVE: Outer_Framing_left_side_yDe6CdY.png
+
+119. Base: Outer_Framing_right_side_ (3 files)
+     KEEP: Outer_Framing_right_side__2YkEp3B.png
+     ✅ WOULD REMOVE: Outer_Framing_right_side__rWkPEru.png
+     ✅ WOULD REMOVE: Outer_Framing_right_side__wwkxtJu.png
+
+120. Base: Park_Brake (5 files)
+     KEEP: Park_Brake_AjQudrL.png
+     ✅ WOULD REMOVE: Park_Brake_Rt84Moj.png
+     ✅ WOULD REMOVE: Park_Brake_U908h5M.png
+     ✅ WOULD REMOVE: Park_Brake_vmN6M7b.png
+     ✅ WOULD REMOVE: Park_Brake_yUmxMfH.png
+
+121. Base: Passive_Entry_Passive_Start_ (3 files)
+     KEEP: Passive_Entry_Passive_Start__PWs7cjd.png
+     ✅ WOULD REMOVE: Passive_Entry_Passive_Start__bkPcu9t.png
+     ✅ WOULD REMOVE: Passive_Entry_Passive_Start__jiWTfu4.png
+
+122. Base: Powertrain_Control___Diagnostic (2 files)
+     KEEP: Powertrain_Control___Diagnostic_KymStrj.png
+     ✅ WOULD REMOVE: Powertrain_Control___Diagnostic_RoWXZE0.png
+
+123. Base: Powertrain_Driver_Interface (5 files)
+     KEEP: Powertrain_Driver_Interface_3IqjG9c.png
+     ✅ WOULD REMOVE: Powertrain_Driver_Interface_7D14WzU.png
+     ✅ WOULD REMOVE: Powertrain_Driver_Interface_fyagsuh.png
+     ✅ WOULD REMOVE: Powertrain_Driver_Interface_s9BR6az.png
+     ✅ WOULD REMOVE: Powertrain_Driver_Interface_uJkFxRq.png
+
+124. Base: Power_Assembly_Installation (3 files)
+     KEEP: Power_Assembly_Installation_5rVjXWa.png
+     ✅ WOULD REMOVE: Power_Assembly_Installation_EYopyrJ.png
+     ✅ WOULD REMOVE: Power_Assembly_Installation_oKSfsyq.png
+
+125. Base: Power (2 files)
+     KEEP: Power_Inverter.png
+     ✅ WOULD REMOVE: Power_Transmission.png
+
+126. Base: Power_Inverter (3 files)
+     KEEP: Power_Inverter_Z0ScRoF.png
+     ✅ WOULD REMOVE: Power_Inverter_fzv0yta.png
+     ✅ WOULD REMOVE: Power_Inverter_owpAsOt.png
+
+127. Base: Power_Outlet___Cigarette_Lighter_Device (2 files)
+     KEEP: Power_Outlet___Cigarette_Lighter_Device_3y4yr2R.png
+     ✅ WOULD REMOVE: Power_Outlet___Cigarette_Lighter_Device_PiGl2yk.png
+
+128. Base: Power_Transmission (5 files)
+     KEEP: Power_Transmission_8w0SeIK.png
+     ✅ WOULD REMOVE: Power_Transmission_D97stWb.png
+     ✅ WOULD REMOVE: Power_Transmission_axRX8JI.png
+     ✅ WOULD REMOVE: Power_Transmission_lcvYyBV.png
+     ✅ WOULD REMOVE: Power_Transmission_nwe9BbF.png
+
+129. Base: Power___Signal_Distribution (2 files)
+     KEEP: Power___Signal_Distribution_DnZ4IgQ.png
+     ✅ WOULD REMOVE: Power___Signal_Distribution_xqszHq1.png
+
+130. Base: Propeller_Shaft (2 files)
+     KEEP: Propeller_Shaft_rgkqyym.png
+     ✅ WOULD REMOVE: Propeller_Shaft_uO1gHPN.png
+
+131. Base: Rear_Axle_Front_drive_vehicle (3 files)
+     KEEP: Rear_Axle_Front_drive_vehicle_bReuIGU.png
+     ✅ WOULD REMOVE: Rear_Axle_Front_drive_vehicle_gLg7Tpm.png
+     ✅ WOULD REMOVE: Rear_Axle_Front_drive_vehicle_ytL1SCh.png
+
+132. Base: Rear (2 files)
+     KEEP: Rear_Brakes.png
+     ✅ WOULD REMOVE: Rear_Suspension.png
+
+133. Base: Rear_Brakes (5 files)
+     KEEP: Rear_Brakes_34abZxt.png
+     ✅ WOULD REMOVE: Rear_Brakes_FEY1MwI.png
+     ✅ WOULD REMOVE: Rear_Brakes_d2yxpRY.png
+     ✅ WOULD REMOVE: Rear_Brakes_iZgGA7U.png
+     ✅ WOULD REMOVE: Rear_Brakes_qYTRw3s.png
+
+134. Base: Rear_Drive_Axle (2 files)
+     KEEP: Rear_Drive_Axle_BE6Do2r.png
+     ✅ WOULD REMOVE: Rear_Drive_Axle_u7wzwfz.png
+
+135. Base: Rear_Drive_Axle_YUE_JIN (3 files)
+     KEEP: Rear_Drive_Axle_YUE_JIN_EDmgOcs.png
+     ✅ WOULD REMOVE: Rear_Drive_Axle_YUE_JIN_KZUFUaA.png
+     ✅ WOULD REMOVE: Rear_Drive_Axle_YUE_JIN_v2DMyF2.png
+
+136. Base: Rear_Electric_Drive_Axle (3 files)
+     KEEP: Rear_Electric_Drive_Axle_GeR0JBB.png
+     ✅ WOULD REMOVE: Rear_Electric_Drive_Axle_WNK1lPE.png
+     ✅ WOULD REMOVE: Rear_Electric_Drive_Axle_rQKMtRa.png
+
+137. Base: Rear_Interior_Airflow (5 files)
+     KEEP: Rear_Interior_Airflow_18kiDIT.png
+     ✅ WOULD REMOVE: Rear_Interior_Airflow_2njD365.png
+     ✅ WOULD REMOVE: Rear_Interior_Airflow_RJsDzxH.png
+     ✅ WOULD REMOVE: Rear_Interior_Airflow_X2uGgOT.png
+     ✅ WOULD REMOVE: Rear_Interior_Airflow_b84uNjD.png
+
+138. Base: Rear_Interior_HVAC_Airflow (3 files)
+     KEEP: Rear_Interior_HVAC_Airflow_3slMmiP.png
+     ✅ WOULD REMOVE: Rear_Interior_HVAC_Airflow_K3FmAKC.png
+     ✅ WOULD REMOVE: Rear_Interior_HVAC_Airflow_tgYN0I0.png
+
+139. Base: Rear_Lamp (11 files)
+     KEEP: Rear_Lamp_43YkDWc.png
+     ✅ WOULD REMOVE: Rear_Lamp_6RdkWmZ.png
+     ✅ WOULD REMOVE: Rear_Lamp_Apnv6od.png
+     ✅ WOULD REMOVE: Rear_Lamp_KyDGuml.png
+     ✅ WOULD REMOVE: Rear_Lamp_NIRRV9e.png
+     ✅ WOULD REMOVE: Rear_Lamp_OBt1vkC.png
+     ✅ WOULD REMOVE: Rear_Lamp_QTd9JU0.png
+     ✅ WOULD REMOVE: Rear_Lamp_RRU7aqh.png
+     ✅ WOULD REMOVE: Rear_Lamp_V6dFVnQ.png
+     ✅ WOULD REMOVE: Rear_Lamp_sfJUONu.png
+     ✅ WOULD REMOVE: Rear_Lamp_shQ844y.png
+
+140. Base: Rear_Panel (2 files)
+     KEEP: Rear_Panel_PYl3CZf.png
+     ✅ WOULD REMOVE: Rear_Panel_Xl41izo.png
+
+141. Base: Rear_Shock_Absorber (5 files)
+     KEEP: Rear_Shock_Absorber_Pw30YBw.png
+     ✅ WOULD REMOVE: Rear_Shock_Absorber_QwSO84I.png
+     ✅ WOULD REMOVE: Rear_Shock_Absorber_crRtoGm.png
+     ✅ WOULD REMOVE: Rear_Shock_Absorber_hqaYa3g.png
+     ✅ WOULD REMOVE: Rear_Shock_Absorber_syaFnkt.png
+
+142. Base: Rear_Suspension (5 files)
+     KEEP: Rear_Suspension_2QVUgXk.png
+     ✅ WOULD REMOVE: Rear_Suspension_Q5JBqpl.png
+     ✅ WOULD REMOVE: Rear_Suspension_gKCygDn.png
+     ✅ WOULD REMOVE: Rear_Suspension_lrrkzhb.png
+     ✅ WOULD REMOVE: Rear_Suspension_ySl0pD5.png
+
+143. Base: Rear_View_Mirror (11 files)
+     KEEP: Rear_View_Mirror_3MgoHLu.png
+     ✅ WOULD REMOVE: Rear_View_Mirror_3WKEK9R.png
+     ✅ WOULD REMOVE: Rear_View_Mirror_9JleJpV.png
+     ✅ WOULD REMOVE: Rear_View_Mirror_FGSrFZY.png
+     ✅ WOULD REMOVE: Rear_View_Mirror_HnlILiq.png
+     ✅ WOULD REMOVE: Rear_View_Mirror_Oh9IWTV.png
+     ✅ WOULD REMOVE: Rear_View_Mirror_auJ3C7A.png
+     ✅ WOULD REMOVE: Rear_View_Mirror_bB5u8tt.png
+     ✅ WOULD REMOVE: Rear_View_Mirror_mlKYzKt.png
+     ✅ WOULD REMOVE: Rear_View_Mirror_qgLgfwW.png
+     ✅ WOULD REMOVE: Rear_View_Mirror_seOfJ9Y.png
+
+144. Base: Refrigerant_Plumbing__Hardware (3 files)
+     KEEP: Refrigerant_Plumbing__Hardware_EUX3Llt.png
+     ✅ WOULD REMOVE: Refrigerant_Plumbing__Hardware_GJEYU8z.png
+     ✅ WOULD REMOVE: Refrigerant_Plumbing__Hardware_dmJFYYi.png
+
+145. Base: Refrigerant_Plumbing___Hardware_Electric_vehicle (2 files)
+     KEEP: Refrigerant_Plumbing___Hardware_Electric_vehicle_bne2tqo.png
+     ✅ WOULD REMOVE: Refrigerant_Plumbing___Hardware_Electric_vehicle_uHGgbzx.png
+
+146. Base: Refrigerant_Plumbing___Hardware_FCV (2 files)
+     KEEP: Refrigerant_Plumbing___Hardware_FCV_D5mrzpT.png
+     ✅ WOULD REMOVE: Refrigerant_Plumbing___Hardware_FCV_RNljUei.png
+
+147. Base: Refrigerant_Plumbing___Hardware (2 files)
+     KEEP: Refrigerant_Plumbing___Hardware_k4YMIRZ.png
+     ✅ WOULD REMOVE: Refrigerant_Plumbing___Hardware_vwyDixm.png
+
+148. Base: Refrigerant_Plumbing___Hardware_PHEV (2 files)
+     KEEP: Refrigerant_Plumbing___Hardware_PHEV_VtfYomG.png
+     ✅ WOULD REMOVE: Refrigerant_Plumbing___Hardware_PHEV_sBRJszv.png
+
+149. Base: Roof_Framing_ (3 files)
+     KEEP: Roof_Framing__O4TnX10.png
+     ✅ WOULD REMOVE: Roof_Framing__aF6iq5Z.png
+     ✅ WOULD REMOVE: Roof_Framing__nGZdZIa.png
+
+150. Base: Roof_Trim (5 files)
+     KEEP: Roof_Trim_4I78n7i.png
+     ✅ WOULD REMOVE: Roof_Trim_OLRzjgA.png
+     ✅ WOULD REMOVE: Roof_Trim_mF8Iv5w.png
+     ✅ WOULD REMOVE: Roof_Trim_sQprfcO.png
+     ✅ WOULD REMOVE: Roof_Trim_wHp5Hmt.png
+
+151. Base: Safety_Belt (5 files)
+     KEEP: Safety_Belt_AcnHBIu.png
+     ✅ WOULD REMOVE: Safety_Belt_RkEP16T.png
+     ✅ WOULD REMOVE: Safety_Belt_Wf9Bz0H.png
+     ✅ WOULD REMOVE: Safety_Belt_a7x5ySl.png
+     ✅ WOULD REMOVE: Safety_Belt_gOxSwAv.png
+
+152. Base: Safety___Avoidance (2 files)
+     KEEP: Safety___Avoidance_aQ8mJfw.png
+     ✅ WOULD REMOVE: Safety___Avoidance_vqiBxsw.png
+
+153. Base: Seats (5 files)
+     KEEP: Seats_9GpmHJu.png
+     ✅ WOULD REMOVE: Seats_XXsjmYh.png
+     ✅ WOULD REMOVE: Seats_hhTWX3l.png
+     ✅ WOULD REMOVE: Seats_nHc7aia.png
+     ✅ WOULD REMOVE: Seats_otMFWEC.png
+
+154. Base: Seat_Arrangement_of_Shang_Jies_11_12_14_Seats (3 files)
+     KEEP: Seat_Arrangement_of_Shang_Jies_11_12_14_Seats_NbS5LCE.png
+     ✅ WOULD REMOVE: Seat_Arrangement_of_Shang_Jies_11_12_14_Seats_PpzWA3d.png
+     ✅ WOULD REMOVE: Seat_Arrangement_of_Shang_Jies_11_12_14_Seats_WnYiaLd.png
+
+155. Base: Sensor___Harness (2 files)
+     KEEP: Sensor___Harness_QCESxnh.png
+     ✅ WOULD REMOVE: Sensor___Harness_xPKWOpu.png
+
+156. Base: Shaft-Balancer (3 files)
+     KEEP: Shaft-Balancer_HKluAbw.png
+     ✅ WOULD REMOVE: Shaft-Balancer_TlpRskP.png
+     ✅ WOULD REMOVE: Shaft-Balancer_VSQb2rk.png
+
+157. Base: Side_Closures (5 files)
+     KEEP: Side_Closures_2pUx7B0.png
+     ✅ WOULD REMOVE: Side_Closures_5WmgjeU.png
+     ✅ WOULD REMOVE: Side_Closures_TWNmvrQ.png
+     ✅ WOULD REMOVE: Side_Closures_t2br32t.png
+     ✅ WOULD REMOVE: Side_Closures_uv5glVY.png
+
+158. Base: Side_Panel___Roof_Safety_Belt (2 files)
+     KEEP: Side_Panel___Roof_Safety_Belt_3sgFRVr.png
+     ✅ WOULD REMOVE: Side_Panel___Roof_Safety_Belt_7D9wihm.png
+
+159. Base: Side_Trim (5 files)
+     KEEP: Side_Trim_03eQBAO.png
+     ✅ WOULD REMOVE: Side_Trim_6wehJXl.png
+     ✅ WOULD REMOVE: Side_Trim_M1sV4Q7.png
+     ✅ WOULD REMOVE: Side_Trim_RSHTEhq.png
+     ✅ WOULD REMOVE: Side_Trim_VDuLv2Y.png
+
+160. Base: Sound_Insulation___Heat_Insulation (2 files)
+     KEEP: Sound_Insulation___Heat_Insulation_7OAklAG.png
+     ✅ WOULD REMOVE: Sound_Insulation___Heat_Insulation_ApJV2Nu.png
+
+161. Base: Spare_Tire_Device (5 files)
+     KEEP: Spare_Tire_Device_1JZfPtQ.png
+     ✅ WOULD REMOVE: Spare_Tire_Device_DPFMJ2j.png
+     ✅ WOULD REMOVE: Spare_Tire_Device_J9lvy7g.png
+     ✅ WOULD REMOVE: Spare_Tire_Device_WGLc8dL.png
+     ✅ WOULD REMOVE: Spare_Tire_Device_ZYNNwFY.png
+
+162. Base: Speaker (5 files)
+     KEEP: Speaker_Dn5l0Yi.png
+     ✅ WOULD REMOVE: Speaker_JiX7FwJ.png
+     ✅ WOULD REMOVE: Speaker_JyCw7xT.png
+     ✅ WOULD REMOVE: Speaker_pOhlL9i.png
+     ✅ WOULD REMOVE: Speaker_vX5QatM.png
+
+163. Base: Steering (6 files)
+     KEEP: Steering_Column.png
+     ✅ WOULD REMOVE: Steering_EqXz98j.png
+     ✅ WOULD REMOVE: Steering_Jy627u0.png
+     ✅ WOULD REMOVE: Steering_WElY41F.png
+     ✅ WOULD REMOVE: Steering_jGCSXyh.png
+     ✅ WOULD REMOVE: Steering_jjwQVya.png
+
+164. Base: Steering_Column (5 files)
+     KEEP: Steering_Column_CAP3JPN.png
+     ✅ WOULD REMOVE: Steering_Column_N3EwOcG.png
+     ✅ WOULD REMOVE: Steering_Column_YDXTE0z.png
+     ✅ WOULD REMOVE: Steering_Column_m4sbXvR.png
+     ✅ WOULD REMOVE: Steering_Column_yhZhKzk.png
+
+165. Base: Steering_Wheel___AirBag (2 files)
+     KEEP: Steering_Wheel___AirBag_ASt4JYV.png
+     ✅ WOULD REMOVE: Steering_Wheel___AirBag_j72rp8w.png
+
+166. Base: Subdrivers_Integral_Double_Seat (3 files)
+     KEEP: Subdrivers_Integral_Double_Seat_3Xip2MU.png
+     ✅ WOULD REMOVE: Subdrivers_Integral_Double_Seat_65W0U7K.png
+     ✅ WOULD REMOVE: Subdrivers_Integral_Double_Seat_jpIAHtb.png
+
+167. Base: Subdrivers_Split_Double_Seat (3 files)
+     KEEP: Subdrivers_Split_Double_Seat_HMKhtjx.png
+     ✅ WOULD REMOVE: Subdrivers_Split_Double_Seat_LR6d1n5.png
+     ✅ WOULD REMOVE: Subdrivers_Split_Double_Seat_WMWN61P.png
+
+168. Base: Sump___Oil_Suction_Pipe___Dipstick (2 files)
+     KEEP: Sump___Oil_Suction_Pipe___Dipstick_GdymGUT.png
+     ✅ WOULD REMOVE: Sump___Oil_Suction_Pipe___Dipstick_d2hK6dn.png
+
+169. Base: Suspension (5 files)
+     KEEP: Suspension_Od4B9yE.png
+     ✅ WOULD REMOVE: Suspension_e5Zu32R.png
+     ✅ WOULD REMOVE: Suspension_mzReVY5.png
+     ✅ WOULD REMOVE: Suspension_qoJ9Sjf.png
+     ✅ WOULD REMOVE: Suspension_uKtHECv.png
+
+170. Base: Three_Seats_Arrangement_Chassis_Vehicle_UK_HK (3 files)
+     KEEP: Three_Seats_Arrangement_Chassis_Vehicle_UK_HK_0a8ZDk6.png
+     ✅ WOULD REMOVE: Three_Seats_Arrangement_Chassis_Vehicle_UK_HK_XrVLUU3.png
+     ✅ WOULD REMOVE: Three_Seats_Arrangement_Chassis_Vehicle_UK_HK_ndPxIG2.png
+
+171. Base: Three_Seats_Arrangement_VAN_Australia_NZ (3 files)
+     KEEP: Three_Seats_Arrangement_VAN_Australia_NZ_2CJZ6wN.png
+     ✅ WOULD REMOVE: Three_Seats_Arrangement_VAN_Australia_NZ_D2EcnGE.png
+     ✅ WOULD REMOVE: Three_Seats_Arrangement_VAN_Australia_NZ_N2R16Tg.png
+
+172. Base: Timing_Drive (5 files)
+     KEEP: Timing_Drive_GvSVfqW.png
+     ✅ WOULD REMOVE: Timing_Drive_Q9ealrS.png
+     ✅ WOULD REMOVE: Timing_Drive_QQH4me7.png
+     ✅ WOULD REMOVE: Timing_Drive_ScDtmUK.png
+     ✅ WOULD REMOVE: Timing_Drive_XrdeEYw.png
+
+173. Base: Tire_Wheels_Wheel_Trim (3 files)
+     KEEP: Tire_Wheels_Wheel_Trim_2ixsUSr.png
+     ✅ WOULD REMOVE: Tire_Wheels_Wheel_Trim_KIlDadE.png
+     ✅ WOULD REMOVE: Tire_Wheels_Wheel_Trim_lFE2umy.png
+
+174. Base: Tire_Wheel_Trim (3 files)
+     KEEP: Tire_Wheel_Trim_WpSiaZ6.png
+     ✅ WOULD REMOVE: Tire_Wheel_Trim_krZ9JZA.png
+     ✅ WOULD REMOVE: Tire_Wheel_Trim_vIGkYeW.png
+
+175. Base: TNK_FIL_DR (5 files)
+     KEEP: TNK_FIL_DR_9KXkRh6.png
+     ✅ WOULD REMOVE: TNK_FIL_DR_X3vSI8m.png
+     ✅ WOULD REMOVE: TNK_FIL_DR_jAZRGRF.png
+     ✅ WOULD REMOVE: TNK_FIL_DR_lEv6SaS.png
+     ✅ WOULD REMOVE: TNK_FIL_DR_pRe4iiD.png
+
+176. Base: Transmission_Shift_Actuation_AMT (3 files)
+     KEEP: Transmission_Shift_Actuation_AMT_2SKLtiO.png
+     ✅ WOULD REMOVE: Transmission_Shift_Actuation_AMT_AlCaDgi.png
+     ✅ WOULD REMOVE: Transmission_Shift_Actuation_AMT_fKlyq5N.png
+
+177. Base: Transmission_Shift_Actuation_AT___Electric_vehicle (3 files)
+     KEEP: Transmission_Shift_Actuation_AT___Electric_vehicle_3XvxJU7.png
+     ✅ WOULD REMOVE: Transmission_Shift_Actuation_AT___Electric_vehicle_6SEvuKS.png
+     ✅ WOULD REMOVE: Transmission_Shift_Actuation_AT___Electric_vehicle_Q7KKkmB.png
+
+178. Base: Transmission_Shift_Actuation_MT (3 files)
+     KEEP: Transmission_Shift_Actuation_MT_2q1Tban.png
+     ✅ WOULD REMOVE: Transmission_Shift_Actuation_MT_BRK0e4C.png
+     ✅ WOULD REMOVE: Transmission_Shift_Actuation_MT_g66nibp.png
+
+179. Base: Two_Three_Seats_Arrangement_Chassis_Vehicle_ (3 files)
+     KEEP: Two_Three_Seats_Arrangement_Chassis_Vehicle__fdWz1TR.png
+     ✅ WOULD REMOVE: Two_Three_Seats_Arrangement_Chassis_Vehicle__kEDxym8.png
+     ✅ WOULD REMOVE: Two_Three_Seats_Arrangement_Chassis_Vehicle__zX62jhn.png
+
+180. Base: Urea_System (3 files)
+     KEEP: Urea_System_971FDhN.png
+     ✅ WOULD REMOVE: Urea_System_oW15fDP.png
+     ✅ WOULD REMOVE: Urea_System_rd1GPGZ.png
+
+181. Base: Vehicle_Attachments___Tools (2 files)
+     KEEP: Vehicle_Attachments___Tools_5slpiu0.png
+     ✅ WOULD REMOVE: Vehicle_Attachments___Tools_qK39Vfv.png
+
+182. Base: Vehicle_Data_Recorder (3 files)
+     KEEP: Vehicle_Data_Recorder_4OsFI2O.png
+     ✅ WOULD REMOVE: Vehicle_Data_Recorder_F9fYgiT.png
+     ✅ WOULD REMOVE: Vehicle_Data_Recorder_lQfgFge.png
+
+183. Base: Vehicle_Tele-Communication (5 files)
+     KEEP: Vehicle_Tele-Communication_7tT9828.png
+     ✅ WOULD REMOVE: Vehicle_Tele-Communication_M6EXN8V.png
+     ✅ WOULD REMOVE: Vehicle_Tele-Communication_Puil33U.png
+     ✅ WOULD REMOVE: Vehicle_Tele-Communication_i2mHW9U.png
+     ✅ WOULD REMOVE: Vehicle_Tele-Communication_mLF7Lpy.png
+
+184. Base: Washer_System (5 files)
+     KEEP: Washer_System_6EwRG4J.png
+     ✅ WOULD REMOVE: Washer_System_WVYcDta.png
+     ✅ WOULD REMOVE: Washer_System_pKWlUGI.png
+     ✅ WOULD REMOVE: Washer_System_txg753D.png
+     ✅ WOULD REMOVE: Washer_System_wTpRSmk.png
+
+185. Base: Wheelhouse_Liner (5 files)
+     KEEP: Wheelhouse_Liner_2gR25Cr.png
+     ✅ WOULD REMOVE: Wheelhouse_Liner_YclWEW6.png
+     ✅ WOULD REMOVE: Wheelhouse_Liner_o3FwVR1.png
+     ✅ WOULD REMOVE: Wheelhouse_Liner_rBhXukV.png
+     ✅ WOULD REMOVE: Wheelhouse_Liner_rNxctLh.png
+
+186. Base: Window (5 files)
+     KEEP: Window_0CC3adv.png
+     ✅ WOULD REMOVE: Window_AD5KIKo.png
+     ✅ WOULD REMOVE: Window_RwglTYk.png
+     ✅ WOULD REMOVE: Window_TiAm5XY.png
+     ✅ WOULD REMOVE: Window_YboTrRQ.png
+
+187. Base: Window_Lift_Switch (5 files)
+     KEEP: Window_Lift_Switch_BzBU5eY.png
+     ✅ WOULD REMOVE: Window_Lift_Switch_DAP9OnF.png
+     ✅ WOULD REMOVE: Window_Lift_Switch_Wauvnen.png
+     ✅ WOULD REMOVE: Window_Lift_Switch_YYO7odW.png
+     ✅ WOULD REMOVE: Window_Lift_Switch_Z3idjjb.png
+
+188. Base: Wiper_LHD (3 files)
+     KEEP: Wiper_LHD_9zqZbXl.png
+     ✅ WOULD REMOVE: Wiper_LHD_nBCD3NY.png
+     ✅ WOULD REMOVE: Wiper_LHD_vfOfz8p.png
+
+189. Base: Wiper_RHD (3 files)
+     KEEP: Wiper_RHD_9sUZBHQ.png
+     ✅ WOULD REMOVE: Wiper_RHD_KDAgA3S.png
+     ✅ WOULD REMOVE: Wiper_RHD_USyAa43.png
+
+190. Base: Wiper__Washer (3 files)
+     KEEP: Wiper__Washer_fnqrSmz.png
+     ✅ WOULD REMOVE: Wiper__Washer_hTWl8gJ.png
+     ✅ WOULD REMOVE: Wiper__Washer_qZZi1Fr.png
+
+191. Base: Wiper___Washer (2 files)
+     KEEP: Wiper___Washer_mjYCXtP.png
+     ✅ WOULD REMOVE: Wiper___Washer_nzGlyHl.png
+
+================================================================================
+SUMMARY:
+================================================================================
+Files removed: 537/537
+Categories updated: 0
+Errors: 0
+Space saved: ~26850KB (estimated)
+
+⚠️ THIS WAS A DRY RUN - NO CHANGES WERE MADE
