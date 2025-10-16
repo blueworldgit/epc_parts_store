@@ -1,0 +1,1868 @@
+VPS Bulk Image Attachment & Move Report
+Generated: 2025-10-16 19:51:15
+Mode: DRY RUN
+Similarity threshold: 60%
+VPS Base Path: C:\pythonstuff\vansdirect\epc_parts_store
+Source Folder: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals
+Media Folder: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories
+================================================================================
+
+SUMMARY:
+Images available: 193
+Unique categories: 225
+Exact matches: 94
+Similarity matches: 89
+Total matches: 183
+
+PROCESSING RESULTS:
+==================================================
+
+  1. Image: Accelerator Pedal (EXACT MATCH)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Accelerator Pedal.png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Accelerator_Pedal.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Accelerator_Pedal.png
+         1. ✅ WOULD ATTACH: JE151A001 - Accelerator Pedal
+            ID: 371, Slug: serial-LSH14J7CXMA114599-parent-35-child-1
+         2. ✅ WOULD ATTACH: JE151A001 - Accelerator Pedal
+            ID: 692, Slug: serial-LSFAL11A4PA157987-parent-35-child-1
+
+  2. Image: Accessory & Accessory Drive → Accessory&AccessoryDrive (94.1%)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Accessory & Accessory Drive.png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Accessory___Accessory_Drive.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Accessory___Accessory_Drive.png
+         1. ✅ WOULD ATTACH: JE11CQ001 - Accessory&AccessoryDrive
+            ID: 325, Slug: serial-LSH14J7CXMA114599-parent-32-child-1
+         2. ✅ WOULD ATTACH: JE11CQ001 - Accessory&AccessoryDrive
+            ID: 621, Slug: serial-LSFAL11A4PA157987-parent-32-child-1
+
+  3. Image: Accessory Switches (EXACT MATCH)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Accessory Switches.png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Accessory_Switches.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Accessory_Switches.png
+         1. ✅ WOULD ATTACH: JE726A001 - Accessory Switches
+            ID: 254, Slug: serial-LSH14J7CXMA114599-parent-15-child-1
+         2. ✅ WOULD ATTACH: JE726A001 - Accessory Switches
+            ID: 502, Slug: serial-LSFAL11A4PA157987-parent-15-child-1
+
+  4. Image: Air Bag Control Unit (EXACT MATCH)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Air Bag Control Unit.png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Air_Bag_Control_Unit.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Air_Bag_Control_Unit.png
+         1. ✅ WOULD ATTACH: JE811A001 - Air Bag Control Unit
+            ID: 390, Slug: serial-LSH14J7CXMA114599-parent-41-child-1
+         2. ✅ WOULD ATTACH: JE811A001 - Air Bag Control Unit
+            ID: 722, Slug: serial-LSFAL11A4PA157987-parent-41-child-1
+
+  5. Image: Air Filter → Air filter (100.0%)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Air Filter.png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Air_Filter.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Air_Filter.png
+         1. ✅ WOULD ATTACH: JE140A001 - Air filter
+            ID: 208, Slug: serial-LSH14J7CXMA114599-parent-1-child-1
+         2. ✅ WOULD ATTACH: JE140A001 - Air filter
+            ID: 428, Slug: serial-LSFAL11A4PA157987-parent-1-child-1
+
+  6. Image: Air Intake System (EXACT MATCH)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Air Intake System.png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Air_Intake_System.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Air_Intake_System.png
+         1. ✅ WOULD ATTACH: Air Intake System
+            ID: 207, Slug: serial-LSH14J7CXMA114599-parent-1
+         2. ✅ WOULD ATTACH: Air Intake System
+            ID: 427, Slug: serial-LSFAL11A4PA157987-parent-1
+
+  7. Image: Airbag (EXACT MATCH)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Airbag.png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Airbag.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Airbag.png
+         1. ✅ WOULD ATTACH: Airbag
+            ID: 209, Slug: serial-LSH14J7CXMA114599-parent-2
+         2. ✅ WOULD ATTACH: Airbag
+            ID: 430, Slug: serial-LSFAL11A4PA157987-parent-2
+
+  8. Image: Antenna (EXACT MATCH)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Antenna.png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Antenna.png
+     Categories to update: 4
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Antenna.png
+         1. ✅ WOULD ATTACH: Antenna
+            ID: 211, Slug: serial-LSH14J7CXMA114599-parent-3
+         2. ✅ WOULD ATTACH: JE741A001 - Antenna
+            ID: 212, Slug: serial-LSH14J7CXMA114599-parent-3-child-1
+         3. ✅ WOULD ATTACH: Antenna
+            ID: 433, Slug: serial-LSFAL11A4PA157987-parent-3
+         4. ✅ WOULD ATTACH: JE741A001 - Antenna
+            ID: 434, Slug: serial-LSFAL11A4PA157987-parent-3-child-1
+
+  9. Image: Arrangement for VAN Vehicle (UK_HK) → Arrangement for VAN Vehicle (UK、Hong Kong) (88.3%)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Arrangement for VAN Vehicle (UK_HK).png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Arrangement_for_VAN_Vehicle_UK_HK.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Arrangement_for_VAN_Vehicle_UK_HK.png
+         1. ✅ WOULD ATTACH: JE421AH001 - Arrangement for VAN Vehicle (UK、Hong Kong)
+            ID: 393, Slug: serial-LSH14J7CXMA114599-parent-42-child-1
+         2. ✅ WOULD ATTACH: JE421AH001 - Arrangement for VAN Vehicle (UK、Hong Kong)
+            ID: 727, Slug: serial-LSFAL11A4PA157987-parent-42-child-1
+
+ 10. Image: Baffle Plate-Ware (EXACT MATCH)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Baffle Plate-Ware.png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Baffle_Plate-Ware.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Baffle_Plate-Ware.png
+         1. ✅ WOULD ATTACH: JE526A001 - Baffle Plate-Ware
+            ID: 224, Slug: serial-LSH14J7CXMA114599-parent-8-child-1
+         2. ✅ WOULD ATTACH: JE526A001 - Baffle Plate-Ware
+            ID: 449, Slug: serial-LSFAL11A4PA157987-parent-8-child-1
+
+ 11. Image: Battery & Electrical Energy Storage → Battery&Electrical Energy Storage (97.1%)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Battery & Electrical Energy Storage.png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Battery___Electrical_Energy_Storage.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Battery___Electrical_Energy_Storage.png
+         1. ✅ WOULD ATTACH: JE843A001 - Battery&Electrical Energy Storage
+            ID: 246, Slug: serial-LSH14J7CXMA114599-parent-12-child-1
+         2. ✅ WOULD ATTACH: JE843A001 - Battery&Electrical Energy Storage
+            ID: 489, Slug: serial-LSFAL11A4PA157987-parent-12-child-1
+
+ 12. Image: Battery Harnesses (EXACT MATCH)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Battery Harnesses.png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Battery_Harnesses.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Battery_Harnesses.png
+         1. ✅ WOULD ATTACH: JE869A001 - Battery Harnesses
+            ID: 316, Slug: serial-LSH14J7CXMA114599-parent-31-child-1
+         2. ✅ WOULD ATTACH: JE869A001 - Battery Harnesses
+            ID: 604, Slug: serial-LSFAL11A4PA157987-parent-31-child-1
+
+ 13. Image: Block Group (EXACT MATCH)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Block Group.png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Block_Group.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Block_Group.png
+         1. ✅ WOULD ATTACH: JE11CA002 - Block Group
+            ID: 326, Slug: serial-LSH14J7CXMA114599-parent-32-child-2
+         2. ✅ WOULD ATTACH: JE11CA002 - Block Group
+            ID: 622, Slug: serial-LSFAL11A4PA157987-parent-32-child-2
+
+ 14. Image: Body Exterior Trim (EXACT MATCH)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Body Exterior Trim.png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Body_Exterior_Trim.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Body_Exterior_Trim.png
+         1. ✅ WOULD ATTACH: JE691A001 - Body Exterior Trim
+            ID: 221, Slug: serial-LSH14J7CXMA114599-parent-7-child-1
+         2. ✅ WOULD ATTACH: JE691A001 - Body Exterior Trim
+            ID: 446, Slug: serial-LSFAL11A4PA157987-parent-7-child-1
+
+ 15. Image: Body Interior & Exterior Electronics (EXACT MATCH)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Body Interior & Exterior Electronics.png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Body_Interior___Exterior_Electronics.png
+     Categories to update: 4
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Body_Interior___Exterior_Electronics.png
+         1. ✅ WOULD ATTACH: Body Interior & Exterior Electronics
+            ID: 213, Slug: serial-LSH14J7CXMA114599-parent-4
+         2. ✅ WOULD ATTACH: JE830A001 - Body Interior & Exterior Electronics
+            ID: 214, Slug: serial-LSH14J7CXMA114599-parent-4-child-1
+         3. ✅ WOULD ATTACH: Body Interior & Exterior Electronics
+            ID: 436, Slug: serial-LSFAL11A4PA157987-parent-4
+         4. ✅ WOULD ATTACH: JE830A001 - Body Interior & Exterior Electronics
+            ID: 437, Slug: serial-LSFAL11A4PA157987-parent-4-child-1
+
+ 16. Image: Body Lower Exterior Trim (EXACT MATCH)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Body Lower Exterior Trim.png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Body_Lower_Exterior_Trim.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Body_Lower_Exterior_Trim.png
+         1. ✅ WOULD ATTACH: Body Lower Exterior Trim
+            ID: 215, Slug: serial-LSH14J7CXMA114599-parent-5
+         2. ✅ WOULD ATTACH: Body Lower Exterior Trim
+            ID: 439, Slug: serial-LSFAL11A4PA157987-parent-5
+
+ 17. Image: Body Lower Structure  → Body Lower Structure (97.6%)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Body Lower Structure .png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Body_Lower_Structure_.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Body_Lower_Structure_.png
+         1. ✅ WOULD ATTACH: Body Lower Structure
+            ID: 218, Slug: serial-LSH14J7CXMA114599-parent-6
+         2. ✅ WOULD ATTACH: Body Lower Structure
+            ID: 442, Slug: serial-LSFAL11A4PA157987-parent-6
+
+ 18. Image: Body Lower Structure (EXACT MATCH)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Body Lower Structure.png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Body_Lower_Structure.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Body_Lower_Structure.png
+         1. ✅ WOULD ATTACH: Body Lower Structure
+            ID: 218, Slug: serial-LSH14J7CXMA114599-parent-6
+         2. ✅ WOULD ATTACH: Body Lower Structure
+            ID: 442, Slug: serial-LSFAL11A4PA157987-parent-6
+
+ 19. Image: Body Upper Exterior Trim (EXACT MATCH)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Body Upper Exterior Trim.png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Body_Upper_Exterior_Trim.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Body_Upper_Exterior_Trim.png
+         1. ✅ WOULD ATTACH: Body Upper Exterior Trim
+            ID: 220, Slug: serial-LSH14J7CXMA114599-parent-7
+         2. ✅ WOULD ATTACH: Body Upper Exterior Trim
+            ID: 445, Slug: serial-LSFAL11A4PA157987-parent-7
+
+ 20. Image: Body Upper Structure (EXACT MATCH)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Body Upper Structure.png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Body_Upper_Structure.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Body_Upper_Structure.png
+         1. ✅ WOULD ATTACH: Body Upper Structure
+            ID: 223, Slug: serial-LSH14J7CXMA114599-parent-8
+         2. ✅ WOULD ATTACH: Body Upper Structure
+            ID: 448, Slug: serial-LSFAL11A4PA157987-parent-8
+
+ 21. Image: Body Window (EXACT MATCH)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Body Window.png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Body_Window.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Body_Window.png
+         1. ✅ WOULD ATTACH: Body Window
+            ID: 230, Slug: serial-LSH14J7CXMA114599-parent-9
+         2. ✅ WOULD ATTACH: Body Window
+            ID: 463, Slug: serial-LSFAL11A4PA157987-parent-9
+
+ 22. Image: Brake Apply (EXACT MATCH)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Brake Apply.png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Brake_Apply.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Brake_Apply.png
+         1. ✅ WOULD ATTACH: JE244A001 - Brake Apply
+            ID: 233, Slug: serial-LSH14J7CXMA114599-parent-10-child-1
+         2. ✅ WOULD ATTACH: JE244A001 - Brake Apply
+            ID: 467, Slug: serial-LSFAL11A4PA157987-parent-10-child-1
+
+ 23. Image: Brake Modulator (EXACT MATCH)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Brake Modulator.png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Brake_Modulator.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Brake_Modulator.png
+         1. ✅ WOULD ATTACH: JE245A001 - Brake Modulator
+            ID: 234, Slug: serial-LSH14J7CXMA114599-parent-10-child-2
+         2. ✅ WOULD ATTACH: JE245A001 - Brake Modulator
+            ID: 468, Slug: serial-LSFAL11A4PA157987-parent-10-child-2
+
+ 24. Image: Brake Pedal (EXACT MATCH)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Brake Pedal.png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Brake_Pedal.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Brake_Pedal.png
+         1. ✅ WOULD ATTACH: JE246A001 - Brake Pedal
+            ID: 235, Slug: serial-LSH14J7CXMA114599-parent-10-child-3
+         2. ✅ WOULD ATTACH: JE246A001 - Brake Pedal
+            ID: 469, Slug: serial-LSFAL11A4PA157987-parent-10-child-3
+
+ 25. Image: Brake Pipes (EXACT MATCH)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Brake Pipes.png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Brake_Pipes.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Brake_Pipes.png
+         1. ✅ WOULD ATTACH: JE247A001 - Brake Pipes
+            ID: 236, Slug: serial-LSH14J7CXMA114599-parent-10-child-4
+         2. ✅ WOULD ATTACH: JE247A001 - Brake Pipes
+            ID: 470, Slug: serial-LSFAL11A4PA157987-parent-10-child-4
+
+ 26. Image: Brakes (EXACT MATCH)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Brakes.png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Brakes.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Brakes.png
+         1. ✅ WOULD ATTACH: Brakes
+            ID: 232, Slug: serial-LSH14J7CXMA114599-parent-10
+         2. ✅ WOULD ATTACH: Brakes
+            ID: 466, Slug: serial-LSFAL11A4PA157987-parent-10
+
+ 27. Image: Bumpers, Fascia & Grille → Bumpers,Fascia & Grille (97.9%)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Bumpers, Fascia & Grille.png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Bumpers,_Fascia___Grille.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Bumpers,_Fascia___Grille.png
+         1. ✅ WOULD ATTACH: Bumpers,Fascia & Grille
+            ID: 240, Slug: serial-LSH14J7CXMA114599-parent-11
+         2. ✅ WOULD ATTACH: Bumpers,Fascia & Grille
+            ID: 481, Slug: serial-LSFAL11A4PA157987-parent-11
+
+ 28. Image: Charging & Energy Storage → Charging & Energystorage (98.0%)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Charging & Energy Storage.png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Charging___Energy_Storage.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Charging___Energy_Storage.png
+         1. ✅ WOULD ATTACH: Charging & Energystorage
+            ID: 245, Slug: serial-LSH14J7CXMA114599-parent-12
+         2. ✅ WOULD ATTACH: Charging & Energystorage
+            ID: 488, Slug: serial-LSFAL11A4PA157987-parent-12
+
+ 29. Image: Chassis Harnesses  → Chassis Harnesses (97.1%)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Chassis Harnesses .png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Chassis_Harnesses .png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Chassis_Harnesses .png
+         1. ✅ WOULD ATTACH: JE865A001 - Chassis Harnesses
+            ID: 318, Slug: serial-LSH14J7CXMA114599-parent-31-child-3
+         2. ✅ WOULD ATTACH: JE865A001 - Chassis Harnesses
+            ID: 606, Slug: serial-LSFAL11A4PA157987-parent-31-child-3
+
+ 30. Image: Chassis Structure (EXACT MATCH)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Chassis Structure.png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Chassis_Structure.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Chassis_Structure.png
+         1. ✅ WOULD ATTACH: Chassis Structure
+            ID: 248, Slug: serial-LSH14J7CXMA114599-parent-13
+         2. ✅ WOULD ATTACH: Chassis Structure
+            ID: 493, Slug: serial-LSFAL11A4PA157987-parent-13
+
+ 31. Image: Clusters (EXACT MATCH)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Clusters.png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Clusters.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Clusters.png
+         1. ✅ WOULD ATTACH: JE711A001 - Clusters
+            ID: 262, Slug: serial-LSH14J7CXMA114599-parent-16-child-2
+         2. ✅ WOULD ATTACH: JE711A001 - Clusters
+            ID: 513, Slug: serial-LSFAL11A4PA157987-parent-16-child-1
+
+ 32. Image: Clutch (MT) → Clutch(MT) (95.2%)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Clutch (MT).png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Clutch_MT.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Clutch_MT.png
+         1. ✅ WOULD ATTACH: JE122A001 - Clutch(MT)
+            ID: 349, Slug: serial-LSH14J7CXMA114599-parent-33-child-2
+         2. ✅ WOULD ATTACH: JE122A001 - Clutch(MT)
+            ID: 666, Slug: serial-LSFAL11A4PA157987-parent-33-child-1
+
+ 33. Image: Clutch (PHEV) → Clutch(PHEV) (96.0%)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Clutch (PHEV).png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Clutch_PHEV.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Clutch_PHEV.png
+         1. ✅ WOULD ATTACH: JE122A002 - Clutch(PHEV)
+            ID: 350, Slug: serial-LSH14J7CXMA114599-parent-33-child-3
+         2. ✅ WOULD ATTACH: JE122A002 - Clutch(PHEV)
+            ID: 667, Slug: serial-LSFAL11A4PA157987-parent-33-child-2
+
+ 34. Image: Clutch Apply (EXACT MATCH)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Clutch Apply.png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Clutch_Apply.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Clutch_Apply.png
+         1. ✅ WOULD ATTACH: JE153A001 - Clutch Apply
+            ID: 372, Slug: serial-LSH14J7CXMA114599-parent-35-child-2
+         2. ✅ WOULD ATTACH: JE153A001 - Clutch Apply
+            ID: 693, Slug: serial-LSFAL11A4PA157987-parent-35-child-2
+
+ 35. Image: Communication → Communicate (83.3%)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Communication.png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Communication.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Communication.png
+         1. ✅ WOULD ATTACH: Communicate
+            ID: 251, Slug: serial-LSH14J7CXMA114599-parent-14
+         2. ✅ WOULD ATTACH: Communicate
+            ID: 498, Slug: serial-LSFAL11A4PA157987-parent-14
+
+ 36. Image: Coolant Plumbing & Hardware (EV) → Coolant Plumbing & Hardware--EV (92.1%)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Coolant Plumbing & Hardware (EV).png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Coolant_Plumbing___Hardware_EV.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Coolant_Plumbing___Hardware_EV.png
+         1. ✅ WOULD ATTACH: JE313A003 - Coolant Plumbing & Hardware--EV
+            ID: 285, Slug: serial-LSH14J7CXMA114599-parent-24-child-1
+         2. ✅ WOULD ATTACH: JE313A003 - Coolant Plumbing & Hardware--EV
+            ID: 551, Slug: serial-LSFAL11A4PA157987-parent-24-child-1
+
+ 37. Image: Coolant Plumbing & Hardware (PHEV) → Coolant Plumbing & Hardware-PHEV (93.9%)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Coolant Plumbing & Hardware (PHEV).png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Coolant_Plumbing___Hardware_PHEV.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Coolant_Plumbing___Hardware_PHEV.png
+         1. ✅ WOULD ATTACH: JE313A004 - Coolant Plumbing & Hardware-PHEV
+            ID: 286, Slug: serial-LSH14J7CXMA114599-parent-24-child-2
+         2. ✅ WOULD ATTACH: JE313A004 - Coolant Plumbing & Hardware-PHEV
+            ID: 553, Slug: serial-LSFAL11A4PA157987-parent-24-child-3
+
+ 38. Image: Coolant Plumbing & Hardware (EXACT MATCH)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Coolant Plumbing & Hardware.png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Coolant_Plumbing___Hardware.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Coolant_Plumbing___Hardware.png
+         1. ✅ WOULD ATTACH: JE313A001 - Coolant Plumbing & Hardware
+            ID: 287, Slug: serial-LSH14J7CXMA114599-parent-24-child-3
+         2. ✅ WOULD ATTACH: JE313A001 - Coolant Plumbing & Hardware
+            ID: 554, Slug: serial-LSFAL11A4PA157987-parent-24-child-4
+
+ 39. Image: Coolant Pump and Inlet_Outlet Tube & Thermostat → Coolant Pump And Inl&OtltTube&Thermostat (89.7%)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Coolant Pump and Inlet_Outlet Tube & Thermostat.png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Coolant_Pump_and_Inlet_Outlet_Tube___Thermostat.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Coolant_Pump_and_Inlet_Outlet_Tube___Thermostat.png
+         1. ✅ WOULD ATTACH: JE11CL001 - Coolant Pump And Inl&OtltTube&Thermostat
+            ID: 327, Slug: serial-LSH14J7CXMA114599-parent-32-child-3
+         2. ✅ WOULD ATTACH: JE11CL001 - Coolant Pump And Inl&OtltTube&Thermostat
+            ID: 623, Slug: serial-LSFAL11A4PA157987-parent-32-child-3
+
+ 40. Image: Crankshaft Rod (EXACT MATCH)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Crankshaft Rod.png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Crankshaft_Rod.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Crankshaft_Rod.png
+         1. ✅ WOULD ATTACH: JE11CE001 - Crankshaft Rod
+            ID: 328, Slug: serial-LSH14J7CXMA114599-parent-32-child-4
+         2. ✅ WOULD ATTACH: JE11CE001 - Crankshaft Rod
+            ID: 624, Slug: serial-LSFAL11A4PA157987-parent-32-child-4
+
+ 41. Image: Customer Switches (EXACT MATCH)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Customer Switches.png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Customer_Switches.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Customer_Switches.png
+         1. ✅ WOULD ATTACH: Customer Switches
+            ID: 253, Slug: serial-LSH14J7CXMA114599-parent-15
+         2. ✅ WOULD ATTACH: Customer Switches
+            ID: 501, Slug: serial-LSFAL11A4PA157987-parent-15
+
+ 42. Image: Cylinder Block & Accessory → Cylinder Block&Accessory (96.0%)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Cylinder Block & Accessory.png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Cylinder_Block___Accessory.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Cylinder_Block___Accessory.png
+         1. ✅ WOULD ATTACH: JE11CB001 - Cylinder Block&Accessory
+            ID: 329, Slug: serial-LSH14J7CXMA114599-parent-32-child-5
+         2. ✅ WOULD ATTACH: JE11CB001 - Cylinder Block&Accessory
+            ID: 625, Slug: serial-LSFAL11A4PA157987-parent-32-child-5
+
+ 43. Image: Cylinder Head (EXACT MATCH)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Cylinder Head.png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Cylinder_Head.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Cylinder_Head.png
+         1. ✅ WOULD ATTACH: JE11CC001 - Cylinder Head
+            ID: 330, Slug: serial-LSH14J7CXMA114599-parent-32-child-6
+         2. ✅ WOULD ATTACH: JE11CC001 - Cylinder Head
+            ID: 626, Slug: serial-LSFAL11A4PA157987-parent-32-child-6
+
+ 44. Image: Damper Pulley & Gear Drive → Damper Pulley&GearDrive (93.9%)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Damper Pulley & Gear Drive.png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Damper_Pulley___Gear_Drive.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Damper_Pulley___Gear_Drive.png
+         1. ✅ WOULD ATTACH: JE11CM001 - Damper Pulley&GearDrive
+            ID: 331, Slug: serial-LSH14J7CXMA114599-parent-32-child-7
+         2. ✅ WOULD ATTACH: JE11CM001 - Damper Pulley&GearDrive
+            ID: 627, Slug: serial-LSFAL11A4PA157987-parent-32-child-7
+
+ 45. Image: Door Wire Harnesses → Door  Wire Harnesses (97.4%)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Door Wire Harnesses.png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Door_Wire_Harnesses.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Door_Wire_Harnesses.png
+         1. ✅ WOULD ATTACH: JE864A001 - Door  Wire Harnesses
+            ID: 319, Slug: serial-LSH14J7CXMA114599-parent-31-child-4
+         2. ✅ WOULD ATTACH: JE864A001 - Door  Wire Harnesses
+            ID: 607, Slug: serial-LSFAL11A4PA157987-parent-31-child-4
+
+ 46. Image: Driver Information (EXACT MATCH)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Driver Information.png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Driver_Information.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Driver_Information.png
+         1. ✅ WOULD ATTACH: Driver Information
+            ID: 260, Slug: serial-LSH14J7CXMA114599-parent-16
+         2. ✅ WOULD ATTACH: Driver Information
+            ID: 512, Slug: serial-LSFAL11A4PA157987-parent-16
+
+ 47. Image: EGR ASM (EXACT MATCH)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\EGR ASM.png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\EGR_ASM.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\EGR_ASM.png
+         1. ✅ WOULD ATTACH: JE11CS001 - EGR ASM
+            ID: 332, Slug: serial-LSH14J7CXMA114599-parent-32-child-8
+         2. ✅ WOULD ATTACH: JE11CS001 - EGR ASM
+            ID: 628, Slug: serial-LSFAL11A4PA157987-parent-32-child-8
+
+ 48. Image: Emission Exhaust System (EXACT MATCH)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Emission Exhaust System.png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Emission_Exhaust_System.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Emission_Exhaust_System.png
+         1. ✅ WOULD ATTACH: Emission Exhaust System
+            ID: 264, Slug: serial-LSH14J7CXMA114599-parent-17
+         2. ✅ WOULD ATTACH: Emission Exhaust System
+            ID: 517, Slug: serial-LSFAL11A4PA157987-parent-17
+
+ 49. Image: Engine Accessory (EXACT MATCH)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Engine Accessory.png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Engine_Accessory.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Engine_Accessory.png
+         1. ✅ WOULD ATTACH: JE11CT001 - Engine Accessory
+            ID: 333, Slug: serial-LSH14J7CXMA114599-parent-32-child-9
+         2. ✅ WOULD ATTACH: JE11CT001 - Engine Accessory
+            ID: 629, Slug: serial-LSFAL11A4PA157987-parent-32-child-9
+
+ 50. Image: Engine ASM (EXACT MATCH)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Engine ASM.png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Engine_ASM.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Engine_ASM.png
+         1. ✅ WOULD ATTACH: JE11CA001 - Engine ASM
+            ID: 334, Slug: serial-LSH14J7CXMA114599-parent-32-child-10
+         2. ✅ WOULD ATTACH: JE11CA001 - Engine ASM
+            ID: 630, Slug: serial-LSFAL11A4PA157987-parent-32-child-10
+
+ 51. Image: Engine Compartment Fuse Box (EXACT MATCH)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Engine Compartment Fuse Box.png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Engine_Compartment_Fuse_Box.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Engine_Compartment_Fuse_Box.png
+         1. ✅ WOULD ATTACH: JE867A001 - Engine Compartment Fuse Box
+            ID: 320, Slug: serial-LSH14J7CXMA114599-parent-31-child-5
+         2. ✅ WOULD ATTACH: JE867A001 - Engine Compartment Fuse Box
+            ID: 608, Slug: serial-LSFAL11A4PA157987-parent-31-child-5
+
+ 52. Image: Engine Compartment Harness → EngineCompartmentHarness (96.0%)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Engine Compartment Harness.png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Engine_Compartment_Harness.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Engine_Compartment_Harness.png
+         1. ✅ WOULD ATTACH: JE861A001 - EngineCompartmentHarness
+            ID: 321, Slug: serial-LSH14J7CXMA114599-parent-31-child-6
+         2. ✅ WOULD ATTACH: JE861A001 - EngineCompartmentHarness
+            ID: 609, Slug: serial-LSFAL11A4PA157987-parent-31-child-6
+
+ 53. Image: Engine Management (EXACT MATCH)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Engine Management.png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Engine_Management.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Engine_Management.png
+         1. ✅ WOULD ATTACH: JE131A001 - Engine Management
+            ID: 369, Slug: serial-LSH14J7CXMA114599-parent-34-child-1
+         2. ✅ WOULD ATTACH: JE131A001 - Engine Management
+            ID: 689, Slug: serial-LSFAL11A4PA157987-parent-34-child-1
+
+ 54. Image: Engine Shield → Engine shield (100.0%)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Engine Shield.png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Engine_Shield.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Engine_Shield.png
+         1. ✅ WOULD ATTACH: JE11CX001 - Engine shield
+            ID: 335, Slug: serial-LSH14J7CXMA114599-parent-32-child-11
+         2. ✅ WOULD ATTACH: JE11CX001 - Engine shield
+            ID: 631, Slug: serial-LSFAL11A4PA157987-parent-32-child-11
+
+ 55. Image: Engine Wiring Harness → Engine wiring harness (100.0%)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Engine Wiring Harness.png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Engine_Wiring_Harness.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Engine_Wiring_Harness.png
+         1. ✅ WOULD ATTACH: JE11CW001 - Engine wiring harness
+            ID: 336, Slug: serial-LSH14J7CXMA114599-parent-32-child-12
+         2. ✅ WOULD ATTACH: JE11CW001 - Engine wiring harness
+            ID: 632, Slug: serial-LSFAL11A4PA157987-parent-32-child-12
+
+ 56. Image: Entertainment (EXACT MATCH)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Entertainment.png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Entertainment.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Entertainment.png
+         1. ✅ WOULD ATTACH: Entertainment
+            ID: 266, Slug: serial-LSH14J7CXMA114599-parent-18
+         2. ✅ WOULD ATTACH: Entertainment
+            ID: 520, Slug: serial-LSFAL11A4PA157987-parent-18
+
+ 57. Image: Exhaust Elbow & Turbocharger → Exhaust Elbow&Turbocharger (96.3%)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Exhaust Elbow & Turbocharger.png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Exhaust_Elbow___Turbocharger.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Exhaust_Elbow___Turbocharger.png
+         1. ✅ WOULD ATTACH: JE11CH001 - Exhaust Elbow&Turbocharger
+            ID: 337, Slug: serial-LSH14J7CXMA114599-parent-32-child-13
+         2. ✅ WOULD ATTACH: JE11CH001 - Exhaust Elbow&Turbocharger
+            ID: 633, Slug: serial-LSFAL11A4PA157987-parent-32-child-13
+
+ 58. Image: Exhaust System → Exhaust system (100.0%)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Exhaust System.png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Exhaust_System.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Exhaust_System.png
+         1. ✅ WOULD ATTACH: JE160A001 - Exhaust system
+            ID: 265, Slug: serial-LSH14J7CXMA114599-parent-17-child-1
+         2. ✅ WOULD ATTACH: JE160A001 - Exhaust system
+            ID: 518, Slug: serial-LSFAL11A4PA157987-parent-17-child-1
+
+ 59. Image: fenders → Fenders (100.0%)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\fenders.png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\fenders.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\fenders.png
+         1. ✅ WOULD ATTACH: JE572A001 - Fenders
+            ID: 270, Slug: serial-LSH14J7CXMA114599-parent-19-child-1
+         2. ✅ WOULD ATTACH: JE572A001 - Fenders
+            ID: 526, Slug: serial-LSFAL11A4PA157987-parent-19-child-1
+
+ 60. Image: Floor Trim (EXACT MATCH)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Floor Trim.png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Floor_Trim.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Floor_Trim.png
+         1. ✅ WOULD ATTACH: JE437A001 - Floor Trim
+            ID: 303, Slug: serial-LSH14J7CXMA114599-parent-28-child-2
+         2. ✅ WOULD ATTACH: JE437A001 - Floor Trim
+            ID: 583, Slug: serial-LSFAL11A4PA157987-parent-28-child-1
+
+ 61. Image: Fluids and Lubrications (EXACT MATCH)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Fluids and Lubrications.png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Fluids_and_Lubrications.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Fluids_and_Lubrications.png
+         1. ✅ WOULD ATTACH: JE919A001 - Fluids and Lubrications
+            ID: 312, Slug: serial-LSH14J7CXMA114599-parent-30-child-1
+         2. ✅ WOULD ATTACH: JE919A001 - Fluids and Lubrications
+            ID: 597, Slug: serial-LSFAL11A4PA157987-parent-30-child-1
+
+ 62. Image: Front Brakes (EXACT MATCH)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Front Brakes.png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Front_Brakes.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Front_Brakes.png
+         1. ✅ WOULD ATTACH: JE241A001 - Front Brakes
+            ID: 237, Slug: serial-LSH14J7CXMA114599-parent-10-child-5
+         2. ✅ WOULD ATTACH: JE241A001 - Front Brakes
+            ID: 471, Slug: serial-LSFAL11A4PA157987-parent-10-child-5
+
+ 63. Image: Front Bumper (EXACT MATCH)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Front Bumper.png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Front_Bumper.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Front_Bumper.png
+         1. ✅ WOULD ATTACH: JE621A001 - Front Bumper
+            ID: 241, Slug: serial-LSH14J7CXMA114599-parent-11-child-1
+         2. ✅ WOULD ATTACH: JE621A001 - Front Bumper
+            ID: 482, Slug: serial-LSFAL11A4PA157987-parent-11-child-1
+
+ 64. Image: Front Closures & Sheetmetal → Front Closures Front End Sheetmetal (83.9%)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Front Closures & Sheetmetal.png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Front_Closures___Sheetmetal.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Front_Closures___Sheetmetal.png
+         1. ✅ WOULD ATTACH: Front Closures Front End Sheetmetal
+            ID: 269, Slug: serial-LSH14J7CXMA114599-parent-19
+         2. ✅ WOULD ATTACH: Front Closures Front End Sheetmetal
+            ID: 525, Slug: serial-LSFAL11A4PA157987-parent-19
+
+ 65. Image: Front Door Electric Glass Regulator (EXACT MATCH)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Front Door Electric Glass Regulator.png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Front_Door_Electric_Glass_Regulator.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Front_Door_Electric_Glass_Regulator.png
+         1. ✅ WOULD ATTACH: JE551C001 - Front Door Electric Glass Regulator
+            ID: 405, Slug: serial-LSH14J7CXMA114599-parent-43-child-1
+         2. ✅ WOULD ATTACH: JE551C001 - Front Door Electric Glass Regulator
+            ID: 750, Slug: serial-LSFAL11A4PA157987-parent-43-child-1
+
+ 66. Image: Front Door Handle & Lock → Front Door Handle and Lock (92.0%)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Front Door Handle & Lock.png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Front_Door_Handle___Lock.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Front_Door_Handle___Lock.png
+         1. ✅ WOULD ATTACH: JE551B001 - Front Door Handle and Lock
+            ID: 406, Slug: serial-LSH14J7CXMA114599-parent-43-child-2
+         2. ✅ WOULD ATTACH: JE551B001 - Front Door Handle and Lock
+            ID: 751, Slug: serial-LSFAL11A4PA157987-parent-43-child-2
+
+ 67. Image: Front End Exterior Airflow (EXACT MATCH)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Front End Exterior Airflow.png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Front_End_Exterior_Airflow.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Front_End_Exterior_Airflow.png
+         1. ✅ WOULD ATTACH: JE340A001 - Front End Exterior Airflow
+            ID: 276, Slug: serial-LSH14J7CXMA114599-parent-21-child-1
+         2. ✅ WOULD ATTACH: JE340A001 - Front End Exterior Airflow
+            ID: 536, Slug: serial-LSFAL11A4PA157987-parent-21-child-1
+
+ 68. Image: Front Exterior HVAC Airflow → Frontexterior Hvac Airflow (98.1%)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Front Exterior HVAC Airflow.png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Front_Exterior_HVAC_Airflow.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Front_Exterior_HVAC_Airflow.png
+         1. ✅ WOULD ATTACH: Frontexterior Hvac Airflow
+            ID: 275, Slug: serial-LSH14J7CXMA114599-parent-21
+         2. ✅ WOULD ATTACH: Frontexterior Hvac Airflow
+            ID: 535, Slug: serial-LSFAL11A4PA157987-parent-21
+
+ 69. Image: Front Interior Control (EXACT MATCH)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Front Interior Control.png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Front_Interior_Control.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Front_Interior_Control.png
+         1. ✅ WOULD ATTACH: JE322A001 - Front Interior Control
+            ID: 278, Slug: serial-LSH14J7CXMA114599-parent-22-child-1
+         2. ✅ WOULD ATTACH: JE322A001 - Front Interior Control
+            ID: 539, Slug: serial-LSFAL11A4PA157987-parent-22-child-1
+
+ 70. Image: Front Interior HVAC Airflow (EXACT MATCH)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Front Interior HVAC Airflow.png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Front_Interior_HVAC_Airflow.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Front_Interior_HVAC_Airflow.png
+         1. ✅ WOULD ATTACH: JE321A001 - Front Interior HVAC Airflow
+            ID: 279, Slug: serial-LSH14J7CXMA114599-parent-22-child-2
+         2. ✅ WOULD ATTACH: JE321A001 - Front Interior HVAC Airflow
+            ID: 540, Slug: serial-LSFAL11A4PA157987-parent-22-child-2
+
+ 71. Image: Front Lamp (EXACT MATCH)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Front Lamp.png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Front_Lamp.png
+     Categories to update: 4
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Front_Lamp.png
+         1. ✅ WOULD ATTACH: Front Lamp
+            ID: 273, Slug: serial-LSH14J7CXMA114599-parent-20
+         2. ✅ WOULD ATTACH: JE650A001 - Front Lamp
+            ID: 274, Slug: serial-LSH14J7CXMA114599-parent-20-child-1
+         3. ✅ WOULD ATTACH: Front Lamp
+            ID: 532, Slug: serial-LSFAL11A4PA157987-parent-20
+         4. ✅ WOULD ATTACH: JE650A001 - Front Lamp
+            ID: 533, Slug: serial-LSFAL11A4PA157987-parent-20-child-1
+
+ 72. Image: Front Seat (Left) → Front Seat（Left） (84.8%)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Front Seat (Left).png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Front_Seat_Left.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Front_Seat_Left.png
+         1. ✅ WOULD ATTACH: JE421B004 - Front Seat（Left）
+            ID: 396, Slug: serial-LSH14J7CXMA114599-parent-42-child-4
+         2. ✅ WOULD ATTACH: JE421B004 - Front Seat（Left）
+            ID: 730, Slug: serial-LSFAL11A4PA157987-parent-42-child-4
+
+ 73. Image: Front Seat (Right) → Front Seat（Right） (85.7%)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Front Seat (Right).png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Front_Seat_Right.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Front_Seat_Right.png
+         1. ✅ WOULD ATTACH: JE421B003 - Front Seat（Right）
+            ID: 397, Slug: serial-LSH14J7CXMA114599-parent-42-child-5
+         2. ✅ WOULD ATTACH: JE421B003 - Front Seat（Right）
+            ID: 731, Slug: serial-LSFAL11A4PA157987-parent-42-child-5
+
+ 74. Image: Front Shock Absorber (EXACT MATCH)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Front Shock Absorber.png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Front_Shock_Absorber.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Front_Shock_Absorber.png
+         1. ✅ WOULD ATTACH: JE224A001 - Front Shock Absorber
+            ID: 416, Slug: serial-LSH14J7CXMA114599-parent-45-child-1
+         2. ✅ WOULD ATTACH: JE224A001 - Front Shock Absorber
+            ID: 766, Slug: serial-LSFAL11A4PA157987-parent-45-child-1
+
+ 75. Image: Front Side Closure (EXACT MATCH)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Front Side Closure.png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Front_Side_Closure.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Front_Side_Closure.png
+         1. ✅ WOULD ATTACH: JE551A001 - Front Side Closure
+            ID: 407, Slug: serial-LSH14J7CXMA114599-parent-43-child-3
+         2. ✅ WOULD ATTACH: JE551A001 - Front Side Closure
+            ID: 752, Slug: serial-LSFAL11A4PA157987-parent-43-child-3
+
+ 76. Image: Front Sub-frame (EXACT MATCH)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Front Sub-frame.png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Front_Sub-frame.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Front_Sub-frame.png
+         1. ✅ WOULD ATTACH: JE251A001 - Front Sub-frame
+            ID: 249, Slug: serial-LSH14J7CXMA114599-parent-13-child-1
+         2. ✅ WOULD ATTACH: JE251A001 - Front Sub-frame
+            ID: 494, Slug: serial-LSFAL11A4PA157987-parent-13-child-1
+
+ 77. Image: Front Suspension (EXACT MATCH)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Front Suspension.png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Front_Suspension.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Front_Suspension.png
+         1. ✅ WOULD ATTACH: JE221A001 - Front Suspension
+            ID: 417, Slug: serial-LSH14J7CXMA114599-parent-45-child-2
+         2. ✅ WOULD ATTACH: JE221A001 - Front Suspension
+            ID: 767, Slug: serial-LSFAL11A4PA157987-parent-45-child-2
+
+ 78. Image: Fuel Plumbing & Hardware (EXACT MATCH)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Fuel Plumbing & Hardware.png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Fuel_Plumbing___Hardware.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Fuel_Plumbing___Hardware.png
+         1. ✅ WOULD ATTACH: JE183A001 - Fuel Plumbing & Hardware
+            ID: 281, Slug: serial-LSH14J7CXMA114599-parent-23-child-1
+         2. ✅ WOULD ATTACH: JE183A001 - Fuel Plumbing & Hardware
+            ID: 544, Slug: serial-LSFAL11A4PA157987-parent-23-child-1
+
+ 79. Image: Fuel Storage & Handling (EXACT MATCH)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Fuel Storage & Handling.png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Fuel_Storage___Handling.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Fuel_Storage___Handling.png
+         1. ✅ WOULD ATTACH: Fuel Storage & Handling
+            ID: 280, Slug: serial-LSH14J7CXMA114599-parent-23
+         2. ✅ WOULD ATTACH: Fuel Storage & Handling
+            ID: 543, Slug: serial-LSFAL11A4PA157987-parent-23
+
+ 80. Image: Fuel Tank & Canister (EXACT MATCH)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Fuel Tank & Canister.png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Fuel_Tank___Canister.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Fuel_Tank___Canister.png
+         1. ✅ WOULD ATTACH: JE181A001 - Fuel Tank & Canister
+            ID: 282, Slug: serial-LSH14J7CXMA114599-parent-23-child-2
+         2. ✅ WOULD ATTACH: JE181A001 - Fuel Tank & Canister
+            ID: 545, Slug: serial-LSFAL11A4PA157987-parent-23-child-2
+
+ 81. Image: Grille (EXACT MATCH)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Grille.png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Grille.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Grille.png
+         1. ✅ WOULD ATTACH: JE623A001 - Grille
+            ID: 242, Slug: serial-LSH14J7CXMA114599-parent-11-child-2
+         2. ✅ WOULD ATTACH: JE623A001 - Grille
+            ID: 483, Slug: serial-LSFAL11A4PA157987-parent-11-child-2
+
+ 82. Image: Head Cover & PCV → Head Cover&PCV (93.3%)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Head Cover & PCV.png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Head_Cover___PCV.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Head_Cover___PCV.png
+         1. ✅ WOULD ATTACH: JE11CD001 - Head Cover&PCV
+            ID: 339, Slug: serial-LSH14J7CXMA114599-parent-32-child-15
+         2. ✅ WOULD ATTACH: JE11CD001 - Head Cover&PCV
+            ID: 635, Slug: serial-LSFAL11A4PA157987-parent-32-child-15
+
+ 83. Image: Hood Lock (EXACT MATCH)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Hood Lock.png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Hood_Lock.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Hood_Lock.png
+         1. ✅ WOULD ATTACH: JE571B001 - Hood Lock
+            ID: 271, Slug: serial-LSH14J7CXMA114599-parent-19-child-2
+         2. ✅ WOULD ATTACH: JE571B001 - Hood Lock
+            ID: 527, Slug: serial-LSFAL11A4PA157987-parent-19-child-2
+
+ 84. Image: Hood (EXACT MATCH)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Hood.png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Hood.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Hood.png
+         1. ✅ WOULD ATTACH: JE571A001 - Hood
+            ID: 272, Slug: serial-LSH14J7CXMA114599-parent-19-child-3
+         2. ✅ WOULD ATTACH: JE571A001 - Hood
+            ID: 528, Slug: serial-LSFAL11A4PA157987-parent-19-child-3
+
+ 85. Image: HVAC & Powertrain Cooling → Hvac & Powertrain Coolingin (96.2%)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\HVAC & Powertrain Cooling.png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\HVAC___Powertrain_Cooling.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\HVAC___Powertrain_Cooling.png
+         1. ✅ WOULD ATTACH: Hvac & Powertrain Coolingin
+            ID: 284, Slug: serial-LSH14J7CXMA114599-parent-24
+         2. ✅ WOULD ATTACH: Hvac & Powertrain Coolingin
+            ID: 550, Slug: serial-LSFAL11A4PA157987-parent-24
+
+ 86. Image: Ignition Switch and Key _.png → Ignition Switch and Key (88.5%)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Ignition Switch and Key _.png.png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Ignition_Switch_and_Key__.png.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Ignition_Switch_and_Key__.png.png
+         1. ✅ WOULD ATTACH: JE725A001 - Ignition Switch and Key
+            ID: 256, Slug: serial-LSH14J7CXMA114599-parent-15-child-3
+         2. ✅ WOULD ATTACH: JE725A001 - Ignition Switch and Key
+            ID: 503, Slug: serial-LSFAL11A4PA157987-parent-15-child-2
+
+ 87. Image: Infotainment System (EXACT MATCH)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Infotainment System.png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Infotainment_System.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Infotainment_System.png
+         1. ✅ WOULD ATTACH: JE731A001 - Infotainment System
+            ID: 267, Slug: serial-LSH14J7CXMA114599-parent-18-child-1
+         2. ✅ WOULD ATTACH: JE731A001 - Infotainment System
+            ID: 521, Slug: serial-LSFAL11A4PA157987-parent-18-child-1
+
+ 88. Image: Inner Framing (left side) → inner framing(left side) (98.0%)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Inner Framing (left side).png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Inner_Framing_left_side.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Inner_Framing_left_side.png
+         1. ✅ WOULD ATTACH: JE521A001 - inner framing(left side)
+            ID: 225, Slug: serial-LSH14J7CXMA114599-parent-8-child-2
+         2. ✅ WOULD ATTACH: JE521A001 - inner framing(left side)
+            ID: 450, Slug: serial-LSFAL11A4PA157987-parent-8-child-2
+
+ 89. Image: Inner Framing (right side)  → inner framing(right side) (96.2%)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Inner Framing (right side) .png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Inner_Framing_right_side .png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Inner_Framing_right_side .png
+         1. ✅ WOULD ATTACH: JE521B001 - inner framing(right side)
+            ID: 226, Slug: serial-LSH14J7CXMA114599-parent-8-child-3
+         2. ✅ WOULD ATTACH: JE521B001 - inner framing(right side)
+            ID: 451, Slug: serial-LSFAL11A4PA157987-parent-8-child-3
+
+ 90. Image: Instrument Panel & Console (EXACT MATCH)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Instrument Panel & Console.png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Instrument_Panel___Console.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Instrument_Panel___Console.png
+         1. ✅ WOULD ATTACH: Instrument Panel & Console
+            ID: 292, Slug: serial-LSH14J7CXMA114599-parent-25
+         2. ✅ WOULD ATTACH: Instrument Panel & Console
+            ID: 567, Slug: serial-LSFAL11A4PA157987-parent-25
+
+ 91. Image: Instrument Panel (LHD) → Instrument Panel（LHD） (88.4%)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Instrument Panel (LHD).png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Instrument_Panel_LHD.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Instrument_Panel_LHD.png
+         1. ✅ WOULD ATTACH: JE411A001 - Instrument Panel（LHD）
+            ID: 295, Slug: serial-LSH14J7CXMA114599-parent-25-child-3
+         2. ✅ WOULD ATTACH: JE411A001 - Instrument Panel（LHD）
+            ID: 570, Slug: serial-LSFAL11A4PA157987-parent-25-child-3
+
+ 92. Image: Instrument Panel (RHD) → Instrument Panel（RHD） (88.4%)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Instrument Panel (RHD).png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Instrument_Panel_RHD.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Instrument_Panel_RHD.png
+         1. ✅ WOULD ATTACH: JE411A002 - Instrument Panel（RHD）
+            ID: 296, Slug: serial-LSH14J7CXMA114599-parent-25-child-4
+         2. ✅ WOULD ATTACH: JE411A002 - Instrument Panel（RHD）
+            ID: 571, Slug: serial-LSFAL11A4PA157987-parent-25-child-4
+
+ 93. Image: Instrument Panel Crossmember (LHD) → Instrument Panel Crossmember（LHD） (92.5%)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Instrument Panel Crossmember (LHD).png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Instrument_Panel_Crossmember_LHD.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Instrument_Panel_Crossmember_LHD.png
+         1. ✅ WOULD ATTACH: JE412A001 - Instrument Panel Crossmember（LHD）
+            ID: 293, Slug: serial-LSH14J7CXMA114599-parent-25-child-1
+         2. ✅ WOULD ATTACH: JE412A001 - Instrument Panel Crossmember（LHD）
+            ID: 568, Slug: serial-LSFAL11A4PA157987-parent-25-child-1
+
+ 94. Image: Instrument Panel Crossmember (RHD) → Instrument Panel Crossmember（RHD） (92.5%)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Instrument Panel Crossmember (RHD).png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Instrument_Panel_Crossmember_RHD.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Instrument_Panel_Crossmember_RHD.png
+         1. ✅ WOULD ATTACH: JE412A002 - Instrument Panel Crossmember（RHD）
+            ID: 294, Slug: serial-LSH14J7CXMA114599-parent-25-child-2
+         2. ✅ WOULD ATTACH: JE412A002 - Instrument Panel Crossmember（RHD）
+            ID: 569, Slug: serial-LSFAL11A4PA157987-parent-25-child-2
+
+ 95. Image: Instrument Panel Wire Harnesses → Instrument Panel  Wire Harnesses (98.4%)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Instrument Panel Wire Harnesses.png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Instrument_Panel_Wire_Harnesses.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Instrument_Panel_Wire_Harnesses.png
+         1. ✅ WOULD ATTACH: JE863A001 - Instrument Panel  Wire Harnesses
+            ID: 322, Slug: serial-LSH14J7CXMA114599-parent-31-child-7
+         2. ✅ WOULD ATTACH: JE863A001 - Instrument Panel  Wire Harnesses
+            ID: 610, Slug: serial-LSFAL11A4PA157987-parent-31-child-7
+
+ 96. Image: Interior Acoustic System → Interior Acoustic Syetem (95.8%)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Interior Acoustic System.png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Interior_Acoustic_System.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Interior_Acoustic_System.png
+         1. ✅ WOULD ATTACH: Interior Acoustic Syetem
+            ID: 297, Slug: serial-LSH14J7CXMA114599-parent-26
+         2. ✅ WOULD ATTACH: Interior Acoustic Syetem
+            ID: 576, Slug: serial-LSFAL11A4PA157987-parent-26
+
+ 97. Image: Interior Heating Pipe-FCV (EXACT MATCH)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Interior Heating Pipe-FCV.png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Interior_Heating_Pipe-FCV.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Interior_Heating_Pipe-FCV.png
+         1. ✅ WOULD ATTACH: JE334A002 - Interior Heating Pipe-FCV
+            ID: 384, Slug: serial-LSH14J7CXMA114599-parent-39-child-1
+         2. ✅ WOULD ATTACH: JE334A002 - Interior Heating Pipe-FCV
+            ID: 712, Slug: serial-LSFAL11A4PA157987-parent-39-child-1
+
+ 98. Image: Interior Heating Pipe (EXACT MATCH)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Interior Heating Pipe.png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Interior_Heating_Pipe.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Interior_Heating_Pipe.png
+         1. ✅ WOULD ATTACH: JE334A001 - Interior Heating Pipe
+            ID: 385, Slug: serial-LSH14J7CXMA114599-parent-39-child-2
+         2. ✅ WOULD ATTACH: JE334A001 - Interior Heating Pipe
+            ID: 713, Slug: serial-LSFAL11A4PA157987-parent-39-child-2
+
+ 99. Image: Interior Lamp (EXACT MATCH)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Interior Lamp.png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Interior_Lamp.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Interior_Lamp.png
+         1. ✅ WOULD ATTACH: Interior Lamp
+            ID: 299, Slug: serial-LSH14J7CXMA114599-parent-27
+         2. ✅ WOULD ATTACH: Interior Lamp
+            ID: 579, Slug: serial-LSFAL11A4PA157987-parent-27
+
+100. Image: Interior Trim (EXACT MATCH)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Interior Trim.png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Interior_Trim.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Interior_Trim.png
+         1. ✅ WOULD ATTACH: Interior Trim
+            ID: 301, Slug: serial-LSH14J7CXMA114599-parent-28
+         2. ✅ WOULD ATTACH: Interior Trim
+            ID: 582, Slug: serial-LSFAL11A4PA157987-parent-28
+
+101. Image: LP-EGR Intake Pipe & Accessory → LP-EGR intake pipe&Accessory (96.6%)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\LP-EGR Intake Pipe & Accessory.png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\LP-EGR_Intake_Pipe___Accessory.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\LP-EGR_Intake_Pipe___Accessory.png
+         1. ✅ WOULD ATTACH: JE11CU001 - LP-EGR intake pipe&Accessory
+            ID: 340, Slug: serial-LSH14J7CXMA114599-parent-32-child-16
+         2. ✅ WOULD ATTACH: JE11CU001 - LP-EGR intake pipe&Accessory
+            ID: 636, Slug: serial-LSFAL11A4PA157987-parent-32-child-16
+
+102. Image: Manifold ASM-INT → MANIFOLD ASM-INT (100.0%)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Manifold ASM-INT.png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Manifold_ASM-INT.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Manifold_ASM-INT.png
+         1. ✅ WOULD ATTACH: JE11CG001 - MANIFOLD ASM-INT
+            ID: 341, Slug: serial-LSH14J7CXMA114599-parent-32-child-17
+         2. ✅ WOULD ATTACH: JE11CG001 - MANIFOLD ASM-INT
+            ID: 637, Slug: serial-LSFAL11A4PA157987-parent-32-child-17
+
+103. Image: Manual Transmission Assembly (6MT Front_Back  → Manual transmission assembly（6MT Front/Back drive） (88.4%)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Manual Transmission Assembly (6MT Front_Back .png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Manual_Transmission_Assembly_6MT_Front_Back_.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Manual_Transmission_Assembly_6MT_Front_Back_.png
+         1. ✅ WOULD ATTACH: JE121A001 - Manual transmission assembly（6MT Front/Back drive）
+            ID: 351, Slug: serial-LSH14J7CXMA114599-parent-33-child-4
+         2. ✅ WOULD ATTACH: JE121A001 - Manual transmission assembly（6MT Front/Back drive）
+            ID: 668, Slug: serial-LSFAL11A4PA157987-parent-33-child-3
+
+104. Image: Mounts (EXACT MATCH)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Mounts.png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Mounts.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Mounts.png
+         1. ✅ WOULD ATTACH: Mounts
+            ID: 309, Slug: serial-LSH14J7CXMA114599-parent-29
+         2. ✅ WOULD ATTACH: Mounts
+            ID: 591, Slug: serial-LSFAL11A4PA157987-parent-29
+
+105. Image: Mud Guard (EXACT MATCH)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Mud Guard.png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Mud_Guard.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Mud_Guard.png
+         1. ✅ WOULD ATTACH: JE644A001 - Mud Guard
+            ID: 217, Slug: serial-LSH14J7CXMA114599-parent-5-child-2
+         2. ✅ WOULD ATTACH: JE644A001 - Mud Guard
+            ID: 440, Slug: serial-LSFAL11A4PA157987-parent-5-child-1
+
+106. Image: Multi-Function Column Switch  → Multi-Function Column Switch (98.2%)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Multi-Function Column Switch .png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Multi-Function_Column_Switch_.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Multi-Function_Column_Switch_.png
+         1. ✅ WOULD ATTACH: JE723A001 - Multi-Function Column Switch
+            ID: 257, Slug: serial-LSH14J7CXMA114599-parent-15-child-4
+         2. ✅ WOULD ATTACH: JE723A001 - Multi-Function Column Switch
+            ID: 504, Slug: serial-LSFAL11A4PA157987-parent-15-child-3
+
+107. Image: Oil Cooler and Inlet_Outlet Tube & Filter → Oil Cooler And Inl&OtltTube&Filter (88.0%)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Oil Cooler and Inlet_Outlet Tube & Filter.png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Oil_Cooler_and_Inlet_Outlet_Tube___Filter.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Oil_Cooler_and_Inlet_Outlet_Tube___Filter.png
+         1. ✅ WOULD ATTACH: JE11CJ001 - Oil Cooler And Inl&OtltTube&Filter
+            ID: 342, Slug: serial-LSH14J7CXMA114599-parent-32-child-18
+         2. ✅ WOULD ATTACH: JE11CJ001 - Oil Cooler And Inl&OtltTube&Filter
+            ID: 638, Slug: serial-LSFAL11A4PA157987-parent-32-child-18
+
+108. Image: On-Vehicle Attachments → On Vehicle Attachments (95.5%)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\On-Vehicle Attachments.png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\On-Vehicle_Attachments.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\On-Vehicle_Attachments.png
+         1. ✅ WOULD ATTACH: JE911A001 - On Vehicle Attachments
+            ID: 313, Slug: serial-LSH14J7CXMA114599-parent-30-child-2
+         2. ✅ WOULD ATTACH: JE911A001 - On Vehicle Attachments
+            ID: 598, Slug: serial-LSFAL11A4PA157987-parent-30-child-2
+
+109. Image: On-Vehicle Tools → On Vehicle Tools (93.8%)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\On-Vehicle Tools.png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\On-Vehicle_Tools.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\On-Vehicle_Tools.png
+         1. ✅ WOULD ATTACH: JE917A001 - On Vehicle Tools
+            ID: 314, Slug: serial-LSH14J7CXMA114599-parent-30-child-3
+         2. ✅ WOULD ATTACH: JE917A001 - On Vehicle Tools
+            ID: 599, Slug: serial-LSFAL11A4PA157987-parent-30-child-3
+
+110. Image: Outer Framing (left side) → Outer Framing(left side) (98.0%)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Outer Framing (left side).png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Outer_Framing_left_side.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Outer_Framing_left_side.png
+         1. ✅ WOULD ATTACH: JE522A001 - Outer Framing(left side)
+            ID: 227, Slug: serial-LSH14J7CXMA114599-parent-8-child-4
+         2. ✅ WOULD ATTACH: JE522A001 - Outer Framing(left side)
+            ID: 452, Slug: serial-LSFAL11A4PA157987-parent-8-child-4
+
+111. Image: Outer Framing (right side)  → Outer Framing(right side) (96.2%)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Outer Framing (right side) .png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Outer_Framing_right_side_.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Outer_Framing_right_side_.png
+         1. ✅ WOULD ATTACH: JE522B001 - Outer Framing(right side)
+            ID: 228, Slug: serial-LSH14J7CXMA114599-parent-8-child-5
+         2. ✅ WOULD ATTACH: JE522B001 - Outer Framing(right side)
+            ID: 453, Slug: serial-LSFAL11A4PA157987-parent-8-child-5
+
+112. Image: Park Brake (EXACT MATCH)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Park Brake.png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Park_Brake.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Park_Brake.png
+         1. ✅ WOULD ATTACH: JE243A001 - Park Brake
+            ID: 238, Slug: serial-LSH14J7CXMA114599-parent-10-child-6
+         2. ✅ WOULD ATTACH: JE243A001 - Park Brake
+            ID: 472, Slug: serial-LSFAL11A4PA157987-parent-10-child-6
+
+113. Image: Passive Entry Passive Start  → Passive Entry Passive Start (98.2%)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Passive Entry Passive Start .png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Passive_Entry_Passive_Start_.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Passive_Entry_Passive_Start_.png
+         1. ✅ WOULD ATTACH: JE821A001 - Passive Entry Passive Start
+            ID: 258, Slug: serial-LSH14J7CXMA114599-parent-15-child-5
+         2. ✅ WOULD ATTACH: JE821A001 - Passive Entry Passive Start
+            ID: 505, Slug: serial-LSFAL11A4PA157987-parent-15-child-4
+
+114. Image: Power & Signal Distribution → Power & Signaldistribution (98.1%)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Power & Signal Distribution.png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Power___Signal_Distribution.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Power___Signal_Distribution.png
+         1. ✅ WOULD ATTACH: Power & Signaldistribution
+            ID: 315, Slug: serial-LSH14J7CXMA114599-parent-31
+         2. ✅ WOULD ATTACH: Power & Signaldistribution
+            ID: 603, Slug: serial-LSFAL11A4PA157987-parent-31
+
+115. Image: Power Assembly Installation → Power assembly installation (100.0%)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Power Assembly Installation.png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Power_Assembly_Installation.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Power_Assembly_Installation.png
+         1. ✅ WOULD ATTACH: JE261A001 - Power assembly installation
+            ID: 310, Slug: serial-LSH14J7CXMA114599-parent-29-child-1
+         2. ✅ WOULD ATTACH: JE261A001 - Power assembly installation
+            ID: 592, Slug: serial-LSFAL11A4PA157987-parent-29-child-1
+
+116. Image: Power Inverter → PowerInverter (96.3%)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Power Inverter.png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Power_Inverter.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Power_Inverter.png
+         1. ✅ WOULD ATTACH: JE844A002 - PowerInverter
+            ID: 247, Slug: serial-LSH14J7CXMA114599-parent-12-child-2
+         2. ✅ WOULD ATTACH: JE844A002 - PowerInverter
+            ID: 490, Slug: serial-LSFAL11A4PA157987-parent-12-child-2
+
+117. Image: Power Outlet & Cigarette Lighter Device → Power Outlet & Cigarette Lighter HEvice (97.4%)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Power Outlet & Cigarette Lighter Device.png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Power_Outlet___Cigarette_Lighter_Device.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Power_Outlet___Cigarette_Lighter_Device.png
+         1. ✅ WOULD ATTACH: JE868A001 - Power Outlet & Cigarette Lighter HEvice
+            ID: 323, Slug: serial-LSH14J7CXMA114599-parent-31-child-8
+         2. ✅ WOULD ATTACH: JE868A001 - Power Outlet & Cigarette Lighter HEvice
+            ID: 611, Slug: serial-LSFAL11A4PA157987-parent-31-child-8
+
+118. Image: Power Transmission (EXACT MATCH)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Power Transmission.png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Power_Transmission.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Power_Transmission.png
+         1. ✅ WOULD ATTACH: Power Transmission
+            ID: 347, Slug: serial-LSH14J7CXMA114599-parent-33
+         2. ✅ WOULD ATTACH: Power Transmission
+            ID: 665, Slug: serial-LSFAL11A4PA157987-parent-33
+
+119. Image: Powertrain Control & Diagnostic → Powertrain Control&Diagnostic (96.7%)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Powertrain Control & Diagnostic.png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Powertrain_Control___Diagnostic.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Powertrain_Control___Diagnostic.png
+         1. ✅ WOULD ATTACH: Powertrain Control&Diagnostic
+            ID: 368, Slug: serial-LSH14J7CXMA114599-parent-34
+         2. ✅ WOULD ATTACH: Powertrain Control&Diagnostic
+            ID: 688, Slug: serial-LSFAL11A4PA157987-parent-34
+
+120. Image: Powertrain Driver Interface (EXACT MATCH)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Powertrain Driver Interface.png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Powertrain_Driver_Interface.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Powertrain_Driver_Interface.png
+         1. ✅ WOULD ATTACH: Powertrain Driver Interface
+            ID: 370, Slug: serial-LSH14J7CXMA114599-parent-35
+         2. ✅ WOULD ATTACH: Powertrain Driver Interface
+            ID: 691, Slug: serial-LSFAL11A4PA157987-parent-35
+
+121. Image: Powertrain Mounts (Electric vehicle) → Powertrain Mounts-Electric vehicle (94.3%)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Powertrain Mounts (Electric vehicle).png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Powertrain_Mounts_Electric_vehicle.png
+     Categories to update: 1
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Powertrain_Mounts_Electric_vehicle.png
+         1. ✅ WOULD ATTACH: JE261A002 - Powertrain Mounts-Electric vehicle
+            ID: 593, Slug: serial-LSFAL11A4PA157987-parent-29-child-2
+
+122. Image: Propeller Shaft (EXACT MATCH)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Propeller Shaft.png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Propeller_Shaft.png
+     Categories to update: 1
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Propeller_Shaft.png
+         1. ✅ WOULD ATTACH: JE123A001 - Propeller Shaft
+            ID: 669, Slug: serial-LSFAL11A4PA157987-parent-33-child-4
+
+123. Image: Rear Axle (Front drive vehicle) → Rear  Axle （Front drive vehicle） (92.1%)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Rear Axle (Front drive vehicle).png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Rear_Axle_Front_drive_vehicle.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Rear_Axle_Front_drive_vehicle.png
+         1. ✅ WOULD ATTACH: JE125A002 - Rear  Axle （Front drive vehicle）
+            ID: 353, Slug: serial-LSH14J7CXMA114599-parent-33-child-6
+         2. ✅ WOULD ATTACH: JE125A002 - Rear  Axle （Front drive vehicle）
+            ID: 670, Slug: serial-LSFAL11A4PA157987-parent-33-child-5
+
+124. Image: Rear Brakes (EXACT MATCH)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Rear Brakes.png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Rear_Brakes.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Rear_Brakes.png
+         1. ✅ WOULD ATTACH: JE242A001 - Rear Brakes
+            ID: 239, Slug: serial-LSH14J7CXMA114599-parent-10-child-7
+         2. ✅ WOULD ATTACH: JE242A001 - Rear Brakes
+            ID: 473, Slug: serial-LSFAL11A4PA157987-parent-10-child-7
+
+125. Image: Rear Drive Axle (YUE JIN) → Rear Drive Axle（YUE JIN） (89.8%)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Rear Drive Axle (YUE JIN).png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Rear_Drive_Axle_YUE_JIN.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Rear_Drive_Axle_YUE_JIN.png
+         1. ✅ WOULD ATTACH: JE125A003 - Rear Drive Axle（YUE JIN）
+            ID: 354, Slug: serial-LSH14J7CXMA114599-parent-33-child-7
+         2. ✅ WOULD ATTACH: JE125A003 - Rear Drive Axle（YUE JIN）
+            ID: 671, Slug: serial-LSFAL11A4PA157987-parent-33-child-6
+
+126. Image: Rear Drive Axle (EXACT MATCH)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Rear Drive Axle.png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Rear_Drive_Axle.png
+     Categories to update: 1
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Rear_Drive_Axle.png
+         1. ✅ WOULD ATTACH: JE125A001 - Rear Drive Axle
+            ID: 672, Slug: serial-LSFAL11A4PA157987-parent-33-child-7
+
+127. Image: Rear Electric Drive Axle → Rear Electric  Drive Axle (98.0%)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Rear Electric Drive Axle.png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Rear_Electric_Drive_Axle.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Rear_Electric_Drive_Axle.png
+         1. ✅ WOULD ATTACH: JE125A004 - Rear Electric  Drive Axle
+            ID: 355, Slug: serial-LSH14J7CXMA114599-parent-33-child-8
+         2. ✅ WOULD ATTACH: JE125A004 - Rear Electric  Drive Axle
+            ID: 673, Slug: serial-LSFAL11A4PA157987-parent-33-child-8
+
+128. Image: Rear Interior Airflow (EXACT MATCH)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Rear Interior Airflow.png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Rear_Interior_Airflow.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Rear_Interior_Airflow.png
+         1. ✅ WOULD ATTACH: JE331A001 - Rear Interior Airflow
+            ID: 386, Slug: serial-LSH14J7CXMA114599-parent-39-child-3
+         2. ✅ WOULD ATTACH: JE331A001 - Rear Interior Airflow
+            ID: 714, Slug: serial-LSFAL11A4PA157987-parent-39-child-3
+
+129. Image: Rear Interior HVAC Airflow → Rearinterior Hvac Airflow (98.0%)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Rear Interior HVAC Airflow.png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Rear_Interior_HVAC_Airflow.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Rear_Interior_HVAC_Airflow.png
+         1. ✅ WOULD ATTACH: Rearinterior Hvac Airflow
+            ID: 383, Slug: serial-LSH14J7CXMA114599-parent-39
+         2. ✅ WOULD ATTACH: Rearinterior Hvac Airflow
+            ID: 711, Slug: serial-LSFAL11A4PA157987-parent-39
+
+130. Image: Rear Lamp (EXACT MATCH)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Rear Lamp.png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Rear_Lamp.png
+     Categories to update: 4
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Rear_Lamp.png
+         1. ✅ WOULD ATTACH: Rear Lamp
+            ID: 379, Slug: serial-LSH14J7CXMA114599-parent-37
+         2. ✅ WOULD ATTACH: JE660A001 - Rear Lamp
+            ID: 380, Slug: serial-LSH14J7CXMA114599-parent-37-child-1
+         3. ✅ WOULD ATTACH: Rear Lamp
+            ID: 705, Slug: serial-LSFAL11A4PA157987-parent-37
+         4. ✅ WOULD ATTACH: JE660A001 - Rear Lamp
+            ID: 706, Slug: serial-LSFAL11A4PA157987-parent-37-child-1
+
+131. Image: Rear Panel (EXACT MATCH)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Rear Panel.png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Rear_Panel.png
+     Categories to update: 1
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Rear_Panel.png
+         1. ✅ WOULD ATTACH: JE524A001 - Rear Panel
+            ID: 454, Slug: serial-LSFAL11A4PA157987-parent-8-child-6
+
+132. Image: Rear Shock Absorber (EXACT MATCH)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Rear Shock Absorber.png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Rear_Shock_Absorber.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Rear_Shock_Absorber.png
+         1. ✅ WOULD ATTACH: JE225A001 - Rear Shock Absorber
+            ID: 418, Slug: serial-LSH14J7CXMA114599-parent-45-child-3
+         2. ✅ WOULD ATTACH: JE225A001 - Rear Shock Absorber
+            ID: 768, Slug: serial-LSFAL11A4PA157987-parent-45-child-3
+
+133. Image: Rear Suspension (EXACT MATCH)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Rear Suspension.png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Rear_Suspension.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Rear_Suspension.png
+         1. ✅ WOULD ATTACH: JE222A001 - Rear Suspension
+            ID: 419, Slug: serial-LSH14J7CXMA114599-parent-45-child-4
+         2. ✅ WOULD ATTACH: JE222A001 - Rear Suspension
+            ID: 769, Slug: serial-LSFAL11A4PA157987-parent-45-child-4
+
+134. Image: Rear View Mirror (EXACT MATCH)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Rear View Mirror.png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Rear_View_Mirror.png
+     Categories to update: 4
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Rear_View_Mirror.png
+         1. ✅ WOULD ATTACH: Rear View Mirror
+            ID: 381, Slug: serial-LSH14J7CXMA114599-parent-38
+         2. ✅ WOULD ATTACH: JE580A001 - Rear View Mirror
+            ID: 382, Slug: serial-LSH14J7CXMA114599-parent-38-child-1
+         3. ✅ WOULD ATTACH: Rear View Mirror
+            ID: 708, Slug: serial-LSFAL11A4PA157987-parent-38
+         4. ✅ WOULD ATTACH: JE580A001 - Rear View Mirror
+            ID: 709, Slug: serial-LSFAL11A4PA157987-parent-38-child-1
+
+135. Image: Refrigerant Plumbing & Hardware (Electric vehicle) → Refrigerant Plumbing & Hardware-Electric vehicle (95.9%)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Refrigerant Plumbing & Hardware (Electric vehicle).png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Refrigerant_Plumbing___Hardware_Electric_vehicle.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Refrigerant_Plumbing___Hardware_Electric_vehicle.png
+         1. ✅ WOULD ATTACH: JE312A002 - Refrigerant Plumbing & Hardware-Electric vehicle
+            ID: 288, Slug: serial-LSH14J7CXMA114599-parent-24-child-4
+         2. ✅ WOULD ATTACH: JE312A002 - Refrigerant Plumbing & Hardware-Electric vehicle
+            ID: 555, Slug: serial-LSFAL11A4PA157987-parent-24-child-5
+
+136. Image: Refrigerant Plumbing & Hardware (FCV) → Refrigerant Plumbing & Hardware-FCV (94.4%)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Refrigerant Plumbing & Hardware (FCV).png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Refrigerant_Plumbing___Hardware_FCV.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Refrigerant_Plumbing___Hardware_FCV.png
+         1. ✅ WOULD ATTACH: JE312A003 - Refrigerant Plumbing & Hardware-FCV
+            ID: 289, Slug: serial-LSH14J7CXMA114599-parent-24-child-5
+         2. ✅ WOULD ATTACH: JE312A003 - Refrigerant Plumbing & Hardware-FCV
+            ID: 556, Slug: serial-LSFAL11A4PA157987-parent-24-child-6
+
+137. Image: Refrigerant Plumbing & Hardware (PHEV) → Refrigerant Plumbing & Hardware-PHEV (94.6%)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Refrigerant Plumbing & Hardware (PHEV).png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Refrigerant_Plumbing___Hardware_PHEV.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Refrigerant_Plumbing___Hardware_PHEV.png
+         1. ✅ WOULD ATTACH: JE312A004 - Refrigerant Plumbing & Hardware-PHEV
+            ID: 290, Slug: serial-LSH14J7CXMA114599-parent-24-child-6
+         2. ✅ WOULD ATTACH: JE312A004 - Refrigerant Plumbing & Hardware-PHEV
+            ID: 557, Slug: serial-LSFAL11A4PA157987-parent-24-child-7
+
+138. Image: Refrigerant Plumbing & Hardware (EXACT MATCH)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Refrigerant Plumbing & Hardware.png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Refrigerant_Plumbing___Hardware.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Refrigerant_Plumbing___Hardware.png
+         1. ✅ WOULD ATTACH: JE312A001 - Refrigerant Plumbing & Hardware
+            ID: 291, Slug: serial-LSH14J7CXMA114599-parent-24-child-7
+         2. ✅ WOULD ATTACH: JE312A001 - Refrigerant Plumbing & Hardware
+            ID: 558, Slug: serial-LSFAL11A4PA157987-parent-24-child-8
+
+139. Image: Roof Framing  → Roof Framing (96.0%)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Roof Framing .png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Roof_Framing_.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Roof_Framing_.png
+         1. ✅ WOULD ATTACH: JE523A001 - Roof Framing
+            ID: 229, Slug: serial-LSH14J7CXMA114599-parent-8-child-6
+         2. ✅ WOULD ATTACH: JE523A001 - Roof Framing
+            ID: 455, Slug: serial-LSFAL11A4PA157987-parent-8-child-7
+
+140. Image: Roof Trim (EXACT MATCH)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Roof Trim.png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Roof_Trim.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Roof_Trim.png
+         1. ✅ WOULD ATTACH: JE436A001 - Roof Trim
+            ID: 306, Slug: serial-LSH14J7CXMA114599-parent-28-child-5
+         2. ✅ WOULD ATTACH: JE436A001 - Roof Trim
+            ID: 585, Slug: serial-LSFAL11A4PA157987-parent-28-child-3
+
+141. Image: Safety & Avoidance → Safety&Avoidance (94.1%)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Safety & Avoidance.png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Safety___Avoidance.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Safety___Avoidance.png
+         1. ✅ WOULD ATTACH: Safety&Avoidance
+            ID: 389, Slug: serial-LSH14J7CXMA114599-parent-41
+         2. ✅ WOULD ATTACH: Safety&Avoidance
+            ID: 721, Slug: serial-LSFAL11A4PA157987-parent-41
+
+142. Image: Safety Belt (EXACT MATCH)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Safety Belt.png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Safety_Belt.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Safety_Belt.png
+         1. ✅ WOULD ATTACH: Safety Belt
+            ID: 387, Slug: serial-LSH14J7CXMA114599-parent-40
+         2. ✅ WOULD ATTACH: Safety Belt
+            ID: 718, Slug: serial-LSFAL11A4PA157987-parent-40
+
+143. Image: Seat Arrangement of Shang Jie’s 11_12_14 Seats → Seat Arrangement of Shang Jie's 11 12and 14 Seats (Australia) (80.4%)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Seat Arrangement of Shang Jie’s 11_12_14 Seats.png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Seat_Arrangement_of_Shang_Jie’s_11_12_14_Seats.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Seat_Arrangement_of_Shang_Jie’s_11_12_14_Seats.png
+         1. ✅ WOULD ATTACH: JE421AE001 - Seat Arrangement of Shang Jie's 11 12and 14 Seats (Australia)
+            ID: 398, Slug: serial-LSH14J7CXMA114599-parent-42-child-6
+         2. ✅ WOULD ATTACH: JE421AE001 - Seat Arrangement of Shang Jie's 11 12and 14 Seats (Australia)
+            ID: 732, Slug: serial-LSFAL11A4PA157987-parent-42-child-6
+
+144. Image: Seats (EXACT MATCH)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Seats.png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Seats.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Seats.png
+         1. ✅ WOULD ATTACH: Seats
+            ID: 392, Slug: serial-LSH14J7CXMA114599-parent-42
+         2. ✅ WOULD ATTACH: Seats
+            ID: 726, Slug: serial-LSFAL11A4PA157987-parent-42
+
+145. Image: Sensor & Harness → Sensor&Harness (93.3%)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Sensor & Harness.png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Sensor___Harness.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Sensor___Harness.png
+         1. ✅ WOULD ATTACH: JE11CR001 - Sensor&Harness
+            ID: 343, Slug: serial-LSH14J7CXMA114599-parent-32-child-19
+         2. ✅ WOULD ATTACH: JE11CR001 - Sensor&Harness
+            ID: 639, Slug: serial-LSFAL11A4PA157987-parent-32-child-19
+
+146. Image: Shaft-Balancer → SHAFT-BALANCER (100.0%)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Shaft-Balancer.png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Shaft-Balancer.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Shaft-Balancer.png
+         1. ✅ WOULD ATTACH: JE11CF001 - SHAFT-BALANCER
+            ID: 344, Slug: serial-LSH14J7CXMA114599-parent-32-child-20
+         2. ✅ WOULD ATTACH: JE11CF001 - SHAFT-BALANCER
+            ID: 640, Slug: serial-LSFAL11A4PA157987-parent-32-child-20
+
+147. Image: Side Closures (EXACT MATCH)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Side Closures.png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Side_Closures.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Side_Closures.png
+         1. ✅ WOULD ATTACH: Side Closures
+            ID: 404, Slug: serial-LSH14J7CXMA114599-parent-43
+         2. ✅ WOULD ATTACH: Side Closures
+            ID: 749, Slug: serial-LSFAL11A4PA157987-parent-43
+
+148. Image: Side Panel & Roof Safety Belt → Side Panel&Roof Safety Belt (96.4%)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Side Panel & Roof Safety Belt.png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Side_Panel___Roof_Safety_Belt.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Side_Panel___Roof_Safety_Belt.png
+         1. ✅ WOULD ATTACH: JE460A001 - Side Panel&Roof Safety Belt
+            ID: 388, Slug: serial-LSH14J7CXMA114599-parent-40-child-1
+         2. ✅ WOULD ATTACH: JE460A001 - Side Panel&Roof Safety Belt
+            ID: 719, Slug: serial-LSFAL11A4PA157987-parent-40-child-1
+
+149. Image: Side Trim (EXACT MATCH)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Side Trim.png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Side_Trim.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Side_Trim.png
+         1. ✅ WOULD ATTACH: JE431A001 - Side Trim
+            ID: 308, Slug: serial-LSH14J7CXMA114599-parent-28-child-7
+         2. ✅ WOULD ATTACH: JE431A001 - Side Trim
+            ID: 586, Slug: serial-LSFAL11A4PA157987-parent-28-child-4
+
+150. Image: Sound Insulation & Heat Insulation → Sound Insulation、Heat Insulation (93.9%)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Sound Insulation & Heat Insulation.png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Sound_Insulation___Heat_Insulation.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Sound_Insulation___Heat_Insulation.png
+         1. ✅ WOULD ATTACH: JE451A001 - Sound Insulation、Heat Insulation
+            ID: 298, Slug: serial-LSH14J7CXMA114599-parent-26-child-1
+         2. ✅ WOULD ATTACH: JE451A001 - Sound Insulation、Heat Insulation
+            ID: 577, Slug: serial-LSFAL11A4PA157987-parent-26-child-1
+
+151. Image: Spare Tire Device (EXACT MATCH)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Spare Tire Device.png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Spare_Tire_Device.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Spare_Tire_Device.png
+         1. ✅ WOULD ATTACH: JE255A001 - Spare Tire Device
+            ID: 250, Slug: serial-LSH14J7CXMA114599-parent-13-child-2
+         2. ✅ WOULD ATTACH: JE255A001 - Spare Tire Device
+            ID: 495, Slug: serial-LSFAL11A4PA157987-parent-13-child-2
+
+152. Image: Speaker (EXACT MATCH)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Speaker.png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Speaker.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Speaker.png
+         1. ✅ WOULD ATTACH: JE732A001 - Speaker
+            ID: 268, Slug: serial-LSH14J7CXMA114599-parent-18-child-2
+         2. ✅ WOULD ATTACH: JE732A001 - Speaker
+            ID: 522, Slug: serial-LSFAL11A4PA157987-parent-18-child-2
+
+153. Image: Steering Column (EXACT MATCH)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Steering Column.png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Steering_Column.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Steering_Column.png
+         1. ✅ WOULD ATTACH: JE214A001 - Steering Column
+            ID: 414, Slug: serial-LSH14J7CXMA114599-parent-44-child-2
+         2. ✅ WOULD ATTACH: JE214A001 - Steering Column
+            ID: 762, Slug: serial-LSFAL11A4PA157987-parent-44-child-2
+
+154. Image: Steering Wheel & AirBag → Steering Wheel and AirBag (91.7%)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Steering Wheel & AirBag.png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Steering_Wheel___AirBag.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Steering_Wheel___AirBag.png
+         1. ✅ WOULD ATTACH: JE471A001 - Steering Wheel and AirBag
+            ID: 210, Slug: serial-LSH14J7CXMA114599-parent-2-child-1
+         2. ✅ WOULD ATTACH: JE471A001 - Steering Wheel and AirBag
+            ID: 431, Slug: serial-LSFAL11A4PA157987-parent-2-child-1
+
+155. Image: Steering (EXACT MATCH)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Steering.png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Steering.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Steering.png
+         1. ✅ WOULD ATTACH: Steering
+            ID: 412, Slug: serial-LSH14J7CXMA114599-parent-44
+         2. ✅ WOULD ATTACH: Steering
+            ID: 760, Slug: serial-LSFAL11A4PA157987-parent-44
+
+156. Image: Subdriver’s Integral Double Seat → Subdrivers Integral Double Seat (98.4%)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Subdriver’s Integral Double Seat.png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Subdriver’s_Integral_Double_Seat.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Subdriver’s_Integral_Double_Seat.png
+         1. ✅ WOULD ATTACH: JE421B005 - Subdrivers Integral Double Seat
+            ID: 399, Slug: serial-LSH14J7CXMA114599-parent-42-child-7
+         2. ✅ WOULD ATTACH: JE421B005 - Subdrivers Integral Double Seat
+            ID: 733, Slug: serial-LSFAL11A4PA157987-parent-42-child-7
+
+157. Image: Subdriver’s Split Double Seat → Subdrivers Split Double Seat (98.2%)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Subdriver’s Split Double Seat.png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Subdriver’s_Split_Double_Seat.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Subdriver’s_Split_Double_Seat.png
+         1. ✅ WOULD ATTACH: JE421B006 - Subdrivers Split Double Seat
+            ID: 400, Slug: serial-LSH14J7CXMA114599-parent-42-child-8
+         2. ✅ WOULD ATTACH: JE421B006 - Subdrivers Split Double Seat
+            ID: 734, Slug: serial-LSFAL11A4PA157987-parent-42-child-8
+
+158. Image: Sump & Oil Suction Pipe & Dipstick → Sump&Oil Suction Pipe&Dipstick (93.8%)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Sump & Oil Suction Pipe & Dipstick.png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Sump___Oil_Suction_Pipe___Dipstick.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Sump___Oil_Suction_Pipe___Dipstick.png
+         1. ✅ WOULD ATTACH: JE11CK001 - Sump&Oil Suction Pipe&Dipstick
+            ID: 345, Slug: serial-LSH14J7CXMA114599-parent-32-child-21
+         2. ✅ WOULD ATTACH: JE11CK001 - Sump&Oil Suction Pipe&Dipstick
+            ID: 641, Slug: serial-LSFAL11A4PA157987-parent-32-child-21
+
+159. Image: Suspension (EXACT MATCH)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Suspension.png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Suspension.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Suspension.png
+         1. ✅ WOULD ATTACH: Suspension
+            ID: 415, Slug: serial-LSH14J7CXMA114599-parent-45
+         2. ✅ WOULD ATTACH: Suspension
+            ID: 765, Slug: serial-LSFAL11A4PA157987-parent-45
+
+160. Image: Three Seats Arrangement (Chassis Vehicle, UK_HK) → Three Seats Arrangement for Chassis Vehicle (UK、Hong Kong) (84.9%)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Three Seats Arrangement (Chassis Vehicle, UK_HK).png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Three_Seats_Arrangement_Chassis_Vehicle,_UK_HK.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Three_Seats_Arrangement_Chassis_Vehicle,_UK_HK.png
+         1. ✅ WOULD ATTACH: JE421AI001 - Three Seats Arrangement for Chassis Vehicle (UK、Hong Kong)
+            ID: 401, Slug: serial-LSH14J7CXMA114599-parent-42-child-9
+         2. ✅ WOULD ATTACH: JE421AI001 - Three Seats Arrangement for Chassis Vehicle (UK、Hong Kong)
+            ID: 735, Slug: serial-LSFAL11A4PA157987-parent-42-child-9
+
+161. Image: Three Seats Arrangement (VAN, Australia_NZ) → Three Seats Arrangement for VAN Vehicle (Australia、New Zealand) (75.5%)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Three Seats Arrangement (VAN, Australia_NZ).png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Three_Seats_Arrangement_VAN,_Australia_NZ.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Three_Seats_Arrangement_VAN,_Australia_NZ.png
+         1. ✅ WOULD ATTACH: JE421AF001 - Three Seats Arrangement for VAN Vehicle (Australia、New Zealand)
+            ID: 402, Slug: serial-LSH14J7CXMA114599-parent-42-child-10
+         2. ✅ WOULD ATTACH: JE421AF001 - Three Seats Arrangement for VAN Vehicle (Australia、New Zealand)
+            ID: 736, Slug: serial-LSFAL11A4PA157987-parent-42-child-10
+
+162. Image: Timing Drive (EXACT MATCH)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Timing Drive.png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Timing_Drive.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Timing_Drive.png
+         1. ✅ WOULD ATTACH: JE11CP001 - Timing Drive
+            ID: 346, Slug: serial-LSH14J7CXMA114599-parent-32-child-22
+         2. ✅ WOULD ATTACH: JE11CP001 - Timing Drive
+            ID: 642, Slug: serial-LSFAL11A4PA157987-parent-32-child-22
+
+163. Image: Tire, Wheel, Trim → Tire,Wheel,Trim (93.8%)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Tire, Wheel, Trim.png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Tire,_Wheel,_Trim.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Tire,_Wheel,_Trim.png
+         1. ✅ WOULD ATTACH: JE230A001 - Tire,Wheel,Trim
+            ID: 421, Slug: serial-LSH14J7CXMA114599-parent-46-child-1
+         2. ✅ WOULD ATTACH: JE230A001 - Tire,Wheel,Trim
+            ID: 775, Slug: serial-LSFAL11A4PA157987-parent-46-child-1
+
+164. Image: Tire, Wheels, Wheel Trim → Tire,Wheels,Wheel Trim (95.7%)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Tire, Wheels, Wheel Trim.png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Tire,_Wheels,_Wheel_Trim.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Tire,_Wheels,_Wheel_Trim.png
+         1. ✅ WOULD ATTACH: Tire,Wheels,Wheel Trim
+            ID: 420, Slug: serial-LSH14J7CXMA114599-parent-46
+         2. ✅ WOULD ATTACH: Tire,Wheels,Wheel Trim
+            ID: 774, Slug: serial-LSFAL11A4PA157987-parent-46
+
+165. Image: TNK FIL DR (EXACT MATCH)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\TNK FIL DR.png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\TNK_FIL_DR.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\TNK_FIL_DR.png
+         1. ✅ WOULD ATTACH: JE557A001 - TNK FIL DR
+            ID: 411, Slug: serial-LSH14J7CXMA114599-parent-43-child-7
+         2. ✅ WOULD ATTACH: JE557A001 - TNK FIL DR
+            ID: 754, Slug: serial-LSFAL11A4PA157987-parent-43-child-5
+
+166. Image: Transmission CSC & Operating Mechanism (6MT back  → Transmission CSC and  Operating Mechanism(6MT back drive) (88.7%)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Transmission CSC & Operating Mechanism (6MT back .png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Transmission_CSC___Operating_Mechanism_6MT_back_.png
+     Categories to update: 1
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Transmission_CSC___Operating_Mechanism_6MT_back_.png
+         1. ✅ WOULD ATTACH: JE121B001 - Transmission CSC and  Operating Mechanism(6MT back drive)
+            ID: 674, Slug: serial-LSFAL11A4PA157987-parent-33-child-9
+
+167. Image: Transmission Fork Components (SAGW-6MT back  → Transmission Fork Components(SAGW-6MT back drive) (92.5%)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Transmission Fork Components (SAGW-6MT back .png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Transmission_Fork_Components_SAGW-6MT_back_.png
+     Categories to update: 1
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Transmission_Fork_Components_SAGW-6MT_back_.png
+         1. ✅ WOULD ATTACH: JE121C001 - Transmission Fork Components(SAGW-6MT back drive)
+            ID: 675, Slug: serial-LSFAL11A4PA157987-parent-33-child-10
+
+168. Image: Transmission Main Shaft & Gear (6MT back drive) → Transmission Main Shaft And Gear(6MT back drive) (94.7%)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Transmission Main Shaft & Gear (6MT back drive).png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Transmission_Main_Shaft___Gear_6MT_back_drive.png
+     Categories to update: 1
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Transmission_Main_Shaft___Gear_6MT_back_drive.png
+         1. ✅ WOULD ATTACH: JE121D001 - Transmission Main Shaft And Gear(6MT back drive)
+            ID: 676, Slug: serial-LSFAL11A4PA157987-parent-33-child-11
+
+169. Image: Transmission Shift Actuation (AMT) → Transmission Shift Actuation-AMT (93.9%)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Transmission Shift Actuation (AMT).png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Transmission_Shift_Actuation_AMT.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Transmission_Shift_Actuation_AMT.png
+         1. ✅ WOULD ATTACH: JE152A002 - Transmission Shift Actuation-AMT
+            ID: 373, Slug: serial-LSH14J7CXMA114599-parent-35-child-3
+         2. ✅ WOULD ATTACH: JE152A002 - Transmission Shift Actuation-AMT
+            ID: 694, Slug: serial-LSFAL11A4PA157987-parent-35-child-3
+
+170. Image: Transmission Shift Actuation (AT _ Electric vehicle) → Transmission Shift Actuation-AT、Electric vehicle (92.0%)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Transmission Shift Actuation (AT _ Electric vehicle).png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Transmission_Shift_Actuation_AT___Electric_vehicle.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Transmission_Shift_Actuation_AT___Electric_vehicle.png
+         1. ✅ WOULD ATTACH: JE152A003 - Transmission Shift Actuation-AT、Electric vehicle
+            ID: 374, Slug: serial-LSH14J7CXMA114599-parent-35-child-4
+         2. ✅ WOULD ATTACH: JE152A003 - Transmission Shift Actuation-AT、Electric vehicle
+            ID: 695, Slug: serial-LSFAL11A4PA157987-parent-35-child-4
+
+171. Image: Transmission Shift Actuation (MT) → Transmission Shift Actuation-MT (93.8%)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Transmission Shift Actuation (MT).png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Transmission_Shift_Actuation_MT.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Transmission_Shift_Actuation_MT.png
+         1. ✅ WOULD ATTACH: JE152A001 - Transmission Shift Actuation-MT
+            ID: 375, Slug: serial-LSH14J7CXMA114599-parent-35-child-5
+         2. ✅ WOULD ATTACH: JE152A001 - Transmission Shift Actuation-MT
+            ID: 696, Slug: serial-LSFAL11A4PA157987-parent-35-child-5
+
+172. Image: Two_Three Seats Arrangement (Chassis Vehicle,  → Three Seats Arrangement for Chassis Vehicle (UK、Hong Kong) (76.9%)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Two_Three Seats Arrangement (Chassis Vehicle, .png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Two_Three_Seats_Arrangement_Chassis_Vehicle,_.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Two_Three_Seats_Arrangement_Chassis_Vehicle,_.png
+         1. ✅ WOULD ATTACH: JE421AI001 - Three Seats Arrangement for Chassis Vehicle (UK、Hong Kong)
+            ID: 401, Slug: serial-LSH14J7CXMA114599-parent-42-child-9
+         2. ✅ WOULD ATTACH: JE421AI001 - Three Seats Arrangement for Chassis Vehicle (UK、Hong Kong)
+            ID: 735, Slug: serial-LSFAL11A4PA157987-parent-42-child-9
+
+173. Image: Urea System → Urea system (100.0%)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Urea System.png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Urea_System.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Urea_System.png
+         1. ✅ WOULD ATTACH: JE184A001 - Urea system
+            ID: 283, Slug: serial-LSH14J7CXMA114599-parent-23-child-3
+         2. ✅ WOULD ATTACH: JE184A001 - Urea system
+            ID: 546, Slug: serial-LSFAL11A4PA157987-parent-23-child-3
+
+174. Image: Vehicle Attachments & Tools → On Vehicle Attachments&Tools (90.9%)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Vehicle Attachments & Tools.png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Vehicle_Attachments___Tools.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Vehicle_Attachments___Tools.png
+         1. ✅ WOULD ATTACH: On Vehicle Attachments&Tools
+            ID: 311, Slug: serial-LSH14J7CXMA114599-parent-30
+         2. ✅ WOULD ATTACH: On Vehicle Attachments&Tools
+            ID: 596, Slug: serial-LSFAL11A4PA157987-parent-30
+
+175. Image: Vehicle Data Recorder → Vehicle Date Recorder (95.2%)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Vehicle Data Recorder.png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Vehicle_Data_Recorder.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Vehicle_Data_Recorder.png
+         1. ✅ WOULD ATTACH: JE716A001 - Vehicle Date Recorder
+            ID: 263, Slug: serial-LSH14J7CXMA114599-parent-16-child-3
+         2. ✅ WOULD ATTACH: JE716A001 - Vehicle Date Recorder
+            ID: 514, Slug: serial-LSFAL11A4PA157987-parent-16-child-2
+
+176. Image: Vehicle Tele-Communication (EXACT MATCH)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Vehicle Tele-Communication.png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Vehicle_Tele-Communication.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Vehicle_Tele-Communication.png
+         1. ✅ WOULD ATTACH: JE751A001 - Vehicle Tele-Communication
+            ID: 252, Slug: serial-LSH14J7CXMA114599-parent-14-child-1
+         2. ✅ WOULD ATTACH: JE751A001 - Vehicle Tele-Communication
+            ID: 499, Slug: serial-LSFAL11A4PA157987-parent-14-child-1
+
+177. Image: Washer System (EXACT MATCH)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Washer System.png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Washer_System.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Washer_System.png
+         1. ✅ WOULD ATTACH: JE682A001 - Washer System
+            ID: 423, Slug: serial-LSH14J7CXMA114599-parent-47-child-1
+         2. ✅ WOULD ATTACH: JE682A001 - Washer System
+            ID: 778, Slug: serial-LSFAL11A4PA157987-parent-47-child-1
+
+178. Image: Wheelhouse Liner (EXACT MATCH)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Wheelhouse Liner.png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Wheelhouse_Liner.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Wheelhouse_Liner.png
+         1. ✅ WOULD ATTACH: JE625A001 - Wheelhouse Liner
+            ID: 244, Slug: serial-LSH14J7CXMA114599-parent-11-child-4
+         2. ✅ WOULD ATTACH: JE625A001 - Wheelhouse Liner
+            ID: 484, Slug: serial-LSFAL11A4PA157987-parent-11-child-3
+
+179. Image: Window Lift Switch (EXACT MATCH)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Window Lift Switch.png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Window_Lift_Switch.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Window_Lift_Switch.png
+         1. ✅ WOULD ATTACH: JE721A001 - Window Lift Switch
+            ID: 259, Slug: serial-LSH14J7CXMA114599-parent-15-child-6
+         2. ✅ WOULD ATTACH: JE721A001 - Window Lift Switch
+            ID: 506, Slug: serial-LSFAL11A4PA157987-parent-15-child-5
+
+180. Image: Window (EXACT MATCH)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Window.png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Window.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Window.png
+         1. ✅ WOULD ATTACH: JE611A001 - Window
+            ID: 231, Slug: serial-LSH14J7CXMA114599-parent-9-child-1
+         2. ✅ WOULD ATTACH: JE611A001 - Window
+            ID: 464, Slug: serial-LSFAL11A4PA157987-parent-9-child-1
+
+181. Image: Wiper & Washer (EXACT MATCH)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Wiper & Washer.png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Wiper___Washer.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Wiper___Washer.png
+         1. ✅ WOULD ATTACH: Wiper & Washer
+            ID: 422, Slug: serial-LSH14J7CXMA114599-parent-47
+         2. ✅ WOULD ATTACH: Wiper & Washer
+            ID: 777, Slug: serial-LSFAL11A4PA157987-parent-47
+
+182. Image: Wiper (LHD)  → Wiper（LHD） (72.7%)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Wiper (LHD) .png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Wiper_LHD .png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Wiper_LHD .png
+         1. ✅ WOULD ATTACH: JE681A001 - Wiper（LHD）
+            ID: 424, Slug: serial-LSH14J7CXMA114599-parent-47-child-2
+         2. ✅ WOULD ATTACH: JE681A001 - Wiper（LHD）
+            ID: 779, Slug: serial-LSFAL11A4PA157987-parent-47-child-2
+
+183. Image: Wiper (RHD) → Wiper（RHD） (76.2%)
+     Source: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\Rentals\Wiper (RHD).png
+     Target: C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Wiper_RHD.png
+     Categories to update: 2
+       FILE: ✅ WOULD MOVE to C:\pythonstuff\vansdirect\epc_parts_store\epcdata\media\categories\Wiper_RHD.png
+         1. ✅ WOULD ATTACH: JE681A002 - Wiper（RHD）
+            ID: 425, Slug: serial-LSH14J7CXMA114599-parent-47-child-3
+         2. ✅ WOULD ATTACH: JE681A002 - Wiper（RHD）
+            ID: 780, Slug: serial-LSFAL11A4PA157987-parent-47-child-3
+
+================================================================================
+FINAL SUMMARY:
+================================================================================
+File move operations: 183
+Successful file moves: 183
+Category attachment operations: 369
+Successful attachments: 369
+Total errors: 0
+File move success rate: 100.0%
+Attachment success rate: 100.0% (if total > 0)
+
+⚠️  THIS WAS A DRY RUN - NO CHANGES WERE MADE
+To actually move files and attach images, run with dry_run=False

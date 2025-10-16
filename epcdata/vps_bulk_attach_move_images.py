@@ -38,6 +38,7 @@ def similarity(a, b):
 def vps_bulk_attach_and_move_images(dry_run=True, similarity_threshold=0.6):
     """
     VPS version: Attach images to categories AND move to production media folder
+    Auto-detects environment (Windows dev vs Linux VPS)
     """
     
     print(f"🚀 VPS Bulk Image Attachment & Move Script")
@@ -45,12 +46,24 @@ def vps_bulk_attach_and_move_images(dry_run=True, similarity_threshold=0.6):
     print(f"Similarity threshold: {similarity_threshold*100:.0f}%")
     print("="*70)
     
-    # VPS paths
-    vps_base_path = Path("/home/rentals/epc_parts_store")
-    rentals_folder = vps_base_path / "Rentals"  # Source: where images are
-    media_categories_folder = vps_base_path / "epcdata" / "media" / "categories"  # Target: where to move
+    # Auto-detect environment and set paths accordingly
+    import platform
+    current_os = platform.system()
     
-    print(f"📁 VPS Paths:")
+    if current_os == "Windows":
+        # Local Windows development paths
+        base_path = Path("C:/pythonstuff/vansdirect/epc_parts_store")
+        rentals_folder = base_path / "epcdata" / "Rentals"
+        media_categories_folder = base_path / "epcdata" / "media" / "categories"
+        print(f"🖥️ Environment: Windows (Local Development)")
+    else:
+        # Linux VPS paths
+        base_path = Path("/home/rentals/epc_parts_store")
+        rentals_folder = base_path / "epcdata" / "Rentals"
+        media_categories_folder = base_path / "epcdata" / "media" / "categories"
+        print(f"🐧 Environment: Linux (VPS Production)")
+    
+    print(f"📁 Paths:")
     print(f"   Source (Rentals): {rentals_folder}")
     print(f"   Target (Media): {media_categories_folder}")
     
@@ -155,7 +168,7 @@ def vps_bulk_attach_and_move_images(dry_run=True, similarity_threshold=0.6):
         report.write(f"Generated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
         report.write(f"Mode: {'DRY RUN' if dry_run else 'LIVE'}\n")
         report.write(f"Similarity threshold: {similarity_threshold*100:.0f}%\n")
-        report.write(f"VPS Base Path: {vps_base_path}\n")
+        report.write(f"VPS Base Path: {base_path}\n")
         report.write(f"Source Folder: {rentals_folder}\n")
         report.write(f"Media Folder: {media_categories_folder}\n")
         report.write("="*80 + "\n\n")
