@@ -1,0 +1,2234 @@
+Categories Without Images Report
+Generated: 2025-10-16 19:25:30
+================================================================================
+
+SUMMARY:
+Total unique category names: 225
+Categories WITH images: 181
+Categories WITHOUT images: 44
+Coverage: 80.4%
+
+================================================================================
+CATEGORIES WITHOUT IMAGES (Need attention!):
+================================================================================
+
+  1. Assist Step
+     Total instances: 1
+     Sample categories:
+       1. JE645A001 - Assist Step (ID: 216)
+
+  2. Auxiliary Information Electronics
+     Total instances: 1
+     Sample categories:
+       1. JE713A001 - Auxiliary Information Electronics (ID: 261)
+
+  3. Body Lower Structure Garnish Trim
+     Total instances: 1
+     Sample categories:
+       1. JE431B001 - Body Lower Structure Garnish Trim (ID: 302)
+
+  4. Body accessories harness
+     Total instances: 2
+     Sample categories:
+       1. JE862A001 - Body accessories harness (ID: 317)
+       2. JE862A001 - Body accessories harness (ID: 605)
+
+  5. CLUTCH HOUSING-6MT Front Drive&6AMT
+     Total instances: 1
+     Sample categories:
+       1. JE121O001 - CLUTCH HOUSING-6MT Front Drive&6AMT (ID: 348)
+
+  6. Coolant Plumbing & Hardware-FCV
+     Total instances: 1
+     Sample categories:
+       1. JE313A002 - Coolant Plumbing & Hardware-FCV (ID: 552)
+
+  7. Door Switches
+     Total instances: 1
+     Sample categories:
+       1. JE727A001 - Door Switches (ID: 255)
+
+  8. Exterior Emblem/Decal/Nameplate
+     Total instances: 1
+     Sample categories:
+       1. JE696A001 - Exterior Emblem/Decal/Nameplate (ID: 222)
+
+  9. Frong Seat（right ）
+     Total instances: 2
+     Sample categories:
+       1. JE421B002 - Frong Seat（right ） (ID: 394)
+       2. JE421B002 - Frong Seat（right ） (ID: 728)
+
+ 10. Front Door Trim
+     Total instances: 2
+     Sample categories:
+       1. JE432A001 - Front Door Trim (ID: 304)
+       2. JE432A001 - Front Door Trim (ID: 584)
+
+ 11. Front Seat（left ）
+     Total instances: 2
+     Sample categories:
+       1. JE421B001 - Front Seat（left ） (ID: 395)
+       2. JE421B001 - Front Seat（left ） (ID: 729)
+
+ 12. Frontinterior Hvac Airflow
+     Total instances: 2
+     Sample categories:
+       1. Frontinterior Hvac Airflow (ID: 277)
+       2. Frontinterior Hvac Airflow (ID: 538)
+
+ 13. Fuel System
+     Total instances: 2
+     Sample categories:
+       1. JE11CI001 - Fuel System (ID: 338)
+       2. JE11CI001 - Fuel System (ID: 634)
+
+ 14. InteriorLamp
+     Total instances: 2
+     Sample categories:
+       1. JE440A001 - InteriorLamp (ID: 300)
+       2. JE440A001 - InteriorLamp (ID: 580)
+
+ 15. Maxus
+     Total instances: 1
+     Sample categories:
+       1. Maxus (ID: 1)
+
+ 16. ParkDistanceControlSystem
+     Total instances: 2
+     Sample categories:
+       1. JE812A001 - ParkDistanceControlSystem (ID: 391)
+       2. JE812A001 - ParkDistanceControlSystem (ID: 723)
+
+ 17. Power Generation
+     Total instances: 2
+     Sample categories:
+       1. Power Generation (ID: 324)
+       2. Power Generation (ID: 620)
+
+ 18. Propshaft
+     Total instances: 1
+     Sample categories:
+       1. JE126A001 - Propshaft (ID: 352)
+
+ 19. Rear Bumper
+     Total instances: 1
+     Sample categories:
+       1. JE622A001 - Rear Bumper (ID: 243)
+
+ 20. Rear Closure
+     Total instances: 2
+     Sample categories:
+       1. Rear Closure (ID: 376)
+       2. Rear Closure (ID: 702)
+
+ 21. Rear Door
+     Total instances: 1
+     Sample categories:
+       1. JE561A001 - Rear Door (ID: 378)
+
+ 22. Rear Door Handle and Door Lock
+     Total instances: 2
+     Sample categories:
+       1. JE561C001 - Rear Door Handle and Door Lock (ID: 377)
+       2. JE561C001 - Rear Door Handle and Door Lock (ID: 703)
+
+ 23. Rear Door trim
+     Total instances: 1
+     Sample categories:
+       1. JE435A001 - Rear Door trim (ID: 305)
+
+ 24. Redirector
+     Total instances: 2
+     Sample categories:
+       1. JE215A001 - Redirector (ID: 413)
+       2. JE215A001 - Redirector (ID: 761)
+
+ 25. Serial LSFAL11A4PA157987
+     Total instances: 1
+     Sample categories:
+       1. Serial LSFAL11A4PA157987 (ID: 426)
+
+ 26. Serial LSH14J7CXMA11459
+     Total instances: 1
+     Sample categories:
+       1. Serial LSH14J7CXMA11459 (ID: 205)
+
+ 27. Serial LSH14J7CXMA114599
+     Total instances: 1
+     Sample categories:
+       1. Serial LSH14J7CXMA114599 (ID: 206)
+
+ 28. Side Sliding Door
+     Total instances: 1
+     Sample categories:
+       1. JE553A001 - Side Sliding Door (ID: 410)
+
+ 29. Side Sliding Door Handle and Door Lock
+     Total instances: 3
+     Sample categories:
+       1. JE553B001 - Side Sliding Door Handle and Door Lock (ID: 408)
+       2. JE553C001 - Side Sliding Door Handle and Door Lock (ID: 409)
+       3. JE553B001 - Side Sliding Door Handle and Door Lock (ID: 753)
+
+ 30. Side Sliding Door trim
+     Total instances: 1
+     Sample categories:
+       1. JE434A001 - Side Sliding Door trim (ID: 307)
+
+ 31. Transmission  operating mechanism(6AMT)
+     Total instances: 1
+     Sample categories:
+       1. JE121F002 - Transmission  operating mechanism(6AMT) (ID: 356)
+
+ 32. Transmission Differential-6MT Front Drive&6AMT
+     Total instances: 1
+     Sample categories:
+       1. JE121N001 - Transmission Differential-6MT Front Drive&6AMT (ID: 358)
+
+ 33. Transmission RVS Idler Shaft Gear-6MT Front Drive&6AMT
+     Total instances: 1
+     Sample categories:
+       1. JE121I001 - Transmission RVS Idler Shaft Gear-6MT Front Drive&6AMT (ID: 361)
+
+ 34. Transmission Shaft  OUTPUT（1,2,5,6）-6MT Front Drive&6AMT
+     Total instances: 1
+     Sample categories:
+       1. JE121L001 - Transmission Shaft  OUTPUT（1,2,5,6）-6MT Front Drive&6AMT (ID: 362)
+
+ 35. Transmission Shaft  OUTPUT（3,4,R）-6MT Front Drive&6AMT
+     Total instances: 1
+     Sample categories:
+       1. JE121M001 - Transmission Shaft  OUTPUT（3,4,R）-6MT Front Drive&6AMT (ID: 363)
+
+ 36. Transmission Shaft INPUT-6MT Front Drive&6AMT
+     Total instances: 1
+     Sample categories:
+       1. JE121K001 - Transmission Shaft INPUT-6MT Front Drive&6AMT (ID: 365)
+
+ 37. Transmission accessory-6MT Front Drive
+     Total instances: 1
+     Sample categories:
+       1. JE121E001 - Transmission accessory-6MT Front Drive (ID: 357)
+
+ 38. Transmission fork-6MT Front Drive&6MT
+     Total instances: 1
+     Sample categories:
+       1. JE121H001 - Transmission fork-6MT Front Drive&6MT (ID: 359)
+
+ 39. Transmission operating mechanism-6MT Front Drive
+     Total instances: 1
+     Sample categories:
+       1. JE121F001 - Transmission operating mechanism-6MT Front Drive (ID: 360)
+
+ 40. Transmission shaft ASM-6MT Front Drive&6AMT
+     Total instances: 1
+     Sample categories:
+       1. JE121J001 - Transmission shaft ASM-6MT Front Drive&6AMT (ID: 364)
+
+ 41. Transmission shell Bearing-6MT Front Drive & 6AMT
+     Total instances: 1
+     Sample categories:
+       1. JE121P001 - Transmission shell Bearing-6MT Front Drive & 6AMT (ID: 366)
+
+ 42. Transmission shell-6MT&6AMT
+     Total instances: 1
+     Sample categories:
+       1. JE121G001 - Transmission shell-6MT&6AMT (ID: 367)
+
+ 43. Two/Three Seats Arrangement for Chassis Vehicle (Australia、New Zealand)
+     Total instances: 2
+     Sample categories:
+       1. JE421AG001 - Two/Three Seats Arrangement for Chassis Vehicle (Australia、New Zealand) (ID: 403)
+       2. JE421AG001 - Two/Three Seats Arrangement for Chassis Vehicle (Australia、New Zealand) (ID: 737)
+
+ 44. body lower stucture
+     Total instances: 2
+     Sample categories:
+       1. JE510A001 - body lower stucture (ID: 219)
+       2. JE510A001 - body lower stucture (ID: 443)
+
+================================================================================
+CATEGORIES WITH IMAGES (Success!):
+================================================================================
+  1. Accelerator Pedal (all)
+  2. Accessory Switches (all)
+  3. Accessory&AccessoryDrive (all)
+  4. Air Bag Control Unit (all)
+  5. Air Intake System (all)
+  6. Air filter (all)
+  7. Airbag (all)
+  8. Antenna (all)
+  9. Arrangement for VAN Vehicle (UK、Hong Kong) (all)
+ 10. Baffle Plate-Ware (all)
+ 11. Battery Harnesses (all)
+ 12. Battery&Electrical Energy Storage (all)
+ 13. Block Group (all)
+ 14. Body Exterior Trim (all)
+ 15. Body Interior & Exterior Electronics (all)
+ 16. Body Lower Exterior Trim (all)
+ 17. Body Lower Structure (all)
+ 18. Body Upper Exterior Trim (all)
+ 19. Body Upper Structure (all)
+ 20. Body Window (all)
+ 21. Brake Apply (all)
+ 22. Brake Modulator (all)
+ 23. Brake Pedal (all)
+ 24. Brake Pipes (all)
+ 25. Brakes (all)
+ 26. Bumpers,Fascia & Grille (all)
+ 27. Charging & Energystorage (all)
+ 28. Chassis Harnesses (all)
+ 29. Chassis Structure (all)
+ 30. Clusters (all)
+ 31. Clutch Apply (all)
+ 32. Clutch(MT) (all)
+ 33. Clutch(PHEV) (all)
+ 34. Communicate (all)
+ 35. Coolant Plumbing & Hardware (all)
+ 36. Coolant Plumbing & Hardware--EV (all)
+ 37. Coolant Plumbing & Hardware-PHEV (all)
+ 38. Coolant Pump And Inl&OtltTube&Thermostat (all)
+ 39. Crankshaft Rod (all)
+ 40. Customer Switches (all)
+ 41. Cylinder Block&Accessory (all)
+ 42. Cylinder Head (all)
+ 43. Damper Pulley&GearDrive (all)
+ 44. Door  Wire Harnesses (all)
+ 45. Driver Information (all)
+ 46. EGR ASM (all)
+ 47. Emission Exhaust System (all)
+ 48. Engine ASM (all)
+ 49. Engine Accessory (all)
+ 50. Engine Compartment Fuse Box (all)
+ 51. Engine Management (all)
+ 52. Engine shield (all)
+ 53. Engine wiring harness (all)
+ 54. EngineCompartmentHarness (all)
+ 55. Entertainment (all)
+ 56. Exhaust Elbow&Turbocharger (all)
+ 57. Exhaust system (all)
+ 58. Fenders (all)
+ 59. Floor Trim (all)
+ 60. Fluids and Lubrications (all)
+ 61. Front Brakes (all)
+ 62. Front Bumper (all)
+ 63. Front Closures Front End Sheetmetal (all)
+ 64. Front Door Electric Glass Regulator (all)
+ 65. Front Door Handle and Lock (all)
+ 66. Front End Exterior Airflow (all)
+ 67. Front Interior Control (all)
+ 68. Front Interior HVAC Airflow (all)
+ 69. Front Lamp (all)
+ 70. Front Seat（Left） (all)
+ 71. Front Seat（Right） (all)
+ 72. Front Shock Absorber (all)
+ 73. Front Side Closure (all)
+ 74. Front Sub-frame (all)
+ 75. Front Suspension (all)
+ 76. Frontexterior Hvac Airflow (all)
+ 77. Fuel Plumbing & Hardware (all)
+ 78. Fuel Storage & Handling (all)
+ 79. Fuel Tank & Canister (all)
+ 80. Grille (all)
+ 81. Head Cover&PCV (all)
+ 82. Hood (all)
+ 83. Hood Lock (all)
+ 84. Hvac & Powertrain Coolingin (all)
+ 85. Ignition Switch and Key (all)
+ 86. Infotainment System (all)
+ 87. Instrument Panel  Wire Harnesses (all)
+ 88. Instrument Panel & Console (all)
+ 89. Instrument Panel Crossmember（LHD） (all)
+ 90. Instrument Panel Crossmember（RHD） (all)
+ 91. Instrument Panel（LHD） (all)
+ 92. Instrument Panel（RHD） (all)
+ 93. Interior Acoustic Syetem (all)
+ 94. Interior Heating Pipe (all)
+ 95. Interior Heating Pipe-FCV (all)
+ 96. Interior Lamp (all)
+ 97. Interior Trim (all)
+ 98. LP-EGR intake pipe&Accessory (all)
+ 99. MANIFOLD ASM-INT (all)
+100. Manual transmission assembly（6MT Front/Back drive） (all)
+101. Mounts (all)
+102. Mud Guard (all)
+103. Multi-Function Column Switch (all)
+104. Oil Cooler And Inl&OtltTube&Filter (all)
+105. On Vehicle Attachments (all)
+106. On Vehicle Attachments&Tools (all)
+107. On Vehicle Tools (all)
+108. Outer Framing(left side) (all)
+109. Outer Framing(right side) (all)
+110. Park Brake (all)
+111. Passive Entry Passive Start (all)
+112. Power & Signaldistribution (all)
+113. Power Outlet & Cigarette Lighter HEvice (all)
+114. Power Transmission (all)
+115. Power assembly installation (all)
+116. PowerInverter (all)
+117. Powertrain Control&Diagnostic (all)
+118. Powertrain Driver Interface (all)
+119. Powertrain Mounts-Electric vehicle (all)
+120. Propeller Shaft (all)
+121. Rear  Axle （Front drive vehicle） (all)
+122. Rear Brakes (all)
+123. Rear Drive Axle (all)
+124. Rear Drive Axle（YUE JIN） (all)
+125. Rear Electric  Drive Axle (all)
+126. Rear Interior Airflow (all)
+127. Rear Lamp (all)
+128. Rear Panel (all)
+129. Rear Shock Absorber (all)
+130. Rear Suspension (all)
+131. Rear View Mirror (all)
+132. Rearinterior Hvac Airflow (all)
+133. Refrigerant Plumbing & Hardware (all)
+134. Refrigerant Plumbing & Hardware-Electric vehicle (all)
+135. Refrigerant Plumbing & Hardware-FCV (all)
+136. Refrigerant Plumbing & Hardware-PHEV (all)
+137. Roof Framing (all)
+138. Roof Trim (all)
+139. SHAFT-BALANCER (all)
+140. Safety Belt (all)
+141. Safety&Avoidance (all)
+142. Seat Arrangement of Shang Jie's 11 12and 14 Seats (Australia) (all)
+143. Seats (all)
+144. Sensor&Harness (all)
+145. Side Closures (all)
+146. Side Panel&Roof Safety Belt (all)
+147. Side Trim (all)
+148. Sound Insulation、Heat Insulation (all)
+149. Spare Tire Device (all)
+150. Speaker (all)
+151. Steering (all)
+152. Steering Column (all)
+153. Steering Wheel and AirBag (all)
+154. Subdrivers Integral Double Seat (all)
+155. Subdrivers Split Double Seat (all)
+156. Sump&Oil Suction Pipe&Dipstick (all)
+157. Suspension (all)
+158. TNK FIL DR (all)
+159. Three Seats Arrangement for Chassis Vehicle (UK、Hong Kong) (all)
+160. Three Seats Arrangement for VAN Vehicle (Australia、New Zealand) (all)
+161. Timing Drive (all)
+162. Tire,Wheel,Trim (all)
+163. Tire,Wheels,Wheel Trim (all)
+164. Transmission CSC and  Operating Mechanism(6MT back drive) (all)
+165. Transmission Fork Components(SAGW-6MT back drive) (all)
+166. Transmission Main Shaft And Gear(6MT back drive) (all)
+167. Transmission Shift Actuation-AMT (all)
+168. Transmission Shift Actuation-AT、Electric vehicle (all)
+169. Transmission Shift Actuation-MT (all)
+170. Urea system (all)
+171. Vehicle Date Recorder (all)
+172. Vehicle Tele-Communication (all)
+173. Washer System (all)
+174. Wheelhouse Liner (all)
+175. Window (all)
+176. Window Lift Switch (all)
+177. Wiper & Washer (all)
+178. Wiper（LHD） (all)
+179. Wiper（RHD） (all)
+180. inner framing(left side) (all)
+181. inner framing(right side) (all)
+
+================================================================================
+DETAILED BREAKDOWN:
+================================================================================
+
+❌ NO IMAGES: Assist Step
+   Total categories: 1
+   With images: 0
+   Without images: 1
+   Sample categories:
+     ❌ JE645A001 - Assist Step
+
+❌ NO IMAGES: Auxiliary Information Electronics
+   Total categories: 1
+   With images: 0
+   Without images: 1
+   Sample categories:
+     ❌ JE713A001 - Auxiliary Information Electronics
+
+❌ NO IMAGES: Body Lower Structure Garnish Trim
+   Total categories: 1
+   With images: 0
+   Without images: 1
+   Sample categories:
+     ❌ JE431B001 - Body Lower Structure Garnish Trim
+
+❌ NO IMAGES: Body accessories harness
+   Total categories: 2
+   With images: 0
+   Without images: 2
+   Sample categories:
+     ❌ JE862A001 - Body accessories harness
+     ❌ JE862A001 - Body accessories harness
+
+❌ NO IMAGES: CLUTCH HOUSING-6MT Front Drive&6AMT
+   Total categories: 1
+   With images: 0
+   Without images: 1
+   Sample categories:
+     ❌ JE121O001 - CLUTCH HOUSING-6MT Front Drive&6AMT
+
+❌ NO IMAGES: Coolant Plumbing & Hardware-FCV
+   Total categories: 1
+   With images: 0
+   Without images: 1
+   Sample categories:
+     ❌ JE313A002 - Coolant Plumbing & Hardware-FCV
+
+❌ NO IMAGES: Door Switches
+   Total categories: 1
+   With images: 0
+   Without images: 1
+   Sample categories:
+     ❌ JE727A001 - Door Switches
+
+❌ NO IMAGES: Exterior Emblem/Decal/Nameplate
+   Total categories: 1
+   With images: 0
+   Without images: 1
+   Sample categories:
+     ❌ JE696A001 - Exterior Emblem/Decal/Nameplate
+
+❌ NO IMAGES: Frong Seat（right ）
+   Total categories: 2
+   With images: 0
+   Without images: 2
+   Sample categories:
+     ❌ JE421B002 - Frong Seat（right ）
+     ❌ JE421B002 - Frong Seat（right ）
+
+❌ NO IMAGES: Front Door Trim
+   Total categories: 2
+   With images: 0
+   Without images: 2
+   Sample categories:
+     ❌ JE432A001 - Front Door Trim
+     ❌ JE432A001 - Front Door Trim
+
+❌ NO IMAGES: Front Seat（left ）
+   Total categories: 2
+   With images: 0
+   Without images: 2
+   Sample categories:
+     ❌ JE421B001 - Front Seat（left ）
+     ❌ JE421B001 - Front Seat（left ）
+
+❌ NO IMAGES: Frontinterior Hvac Airflow
+   Total categories: 2
+   With images: 0
+   Without images: 2
+   Sample categories:
+     ❌ Frontinterior Hvac Airflow
+     ❌ Frontinterior Hvac Airflow
+
+❌ NO IMAGES: Fuel System
+   Total categories: 2
+   With images: 0
+   Without images: 2
+   Sample categories:
+     ❌ JE11CI001 - Fuel System
+     ❌ JE11CI001 - Fuel System
+
+❌ NO IMAGES: InteriorLamp
+   Total categories: 2
+   With images: 0
+   Without images: 2
+   Sample categories:
+     ❌ JE440A001 - InteriorLamp
+     ❌ JE440A001 - InteriorLamp
+
+❌ NO IMAGES: Maxus
+   Total categories: 1
+   With images: 0
+   Without images: 1
+   Sample categories:
+     ❌ Maxus
+
+❌ NO IMAGES: ParkDistanceControlSystem
+   Total categories: 2
+   With images: 0
+   Without images: 2
+   Sample categories:
+     ❌ JE812A001 - ParkDistanceControlSystem
+     ❌ JE812A001 - ParkDistanceControlSystem
+
+❌ NO IMAGES: Power Generation
+   Total categories: 2
+   With images: 0
+   Without images: 2
+   Sample categories:
+     ❌ Power Generation
+     ❌ Power Generation
+
+❌ NO IMAGES: Propshaft
+   Total categories: 1
+   With images: 0
+   Without images: 1
+   Sample categories:
+     ❌ JE126A001 - Propshaft
+
+❌ NO IMAGES: Rear Bumper
+   Total categories: 1
+   With images: 0
+   Without images: 1
+   Sample categories:
+     ❌ JE622A001 - Rear Bumper
+
+❌ NO IMAGES: Rear Closure
+   Total categories: 2
+   With images: 0
+   Without images: 2
+   Sample categories:
+     ❌ Rear Closure
+     ❌ Rear Closure
+
+❌ NO IMAGES: Rear Door
+   Total categories: 1
+   With images: 0
+   Without images: 1
+   Sample categories:
+     ❌ JE561A001 - Rear Door
+
+❌ NO IMAGES: Rear Door Handle and Door Lock
+   Total categories: 2
+   With images: 0
+   Without images: 2
+   Sample categories:
+     ❌ JE561C001 - Rear Door Handle and Door Lock
+     ❌ JE561C001 - Rear Door Handle and Door Lock
+
+❌ NO IMAGES: Rear Door trim
+   Total categories: 1
+   With images: 0
+   Without images: 1
+   Sample categories:
+     ❌ JE435A001 - Rear Door trim
+
+❌ NO IMAGES: Redirector
+   Total categories: 2
+   With images: 0
+   Without images: 2
+   Sample categories:
+     ❌ JE215A001 - Redirector
+     ❌ JE215A001 - Redirector
+
+❌ NO IMAGES: Serial LSFAL11A4PA157987
+   Total categories: 1
+   With images: 0
+   Without images: 1
+   Sample categories:
+     ❌ Serial LSFAL11A4PA157987
+
+❌ NO IMAGES: Serial LSH14J7CXMA11459
+   Total categories: 1
+   With images: 0
+   Without images: 1
+   Sample categories:
+     ❌ Serial LSH14J7CXMA11459
+
+❌ NO IMAGES: Serial LSH14J7CXMA114599
+   Total categories: 1
+   With images: 0
+   Without images: 1
+   Sample categories:
+     ❌ Serial LSH14J7CXMA114599
+
+❌ NO IMAGES: Side Sliding Door
+   Total categories: 1
+   With images: 0
+   Without images: 1
+   Sample categories:
+     ❌ JE553A001 - Side Sliding Door
+
+❌ NO IMAGES: Side Sliding Door Handle and Door Lock
+   Total categories: 3
+   With images: 0
+   Without images: 3
+   Sample categories:
+     ❌ JE553B001 - Side Sliding Door Handle and Door Lock
+     ❌ JE553C001 - Side Sliding Door Handle and Door Lock
+     ❌ JE553B001 - Side Sliding Door Handle and Door Lock
+
+❌ NO IMAGES: Side Sliding Door trim
+   Total categories: 1
+   With images: 0
+   Without images: 1
+   Sample categories:
+     ❌ JE434A001 - Side Sliding Door trim
+
+❌ NO IMAGES: Transmission  operating mechanism(6AMT)
+   Total categories: 1
+   With images: 0
+   Without images: 1
+   Sample categories:
+     ❌ JE121F002 - Transmission  operating mechanism(6AMT)
+
+❌ NO IMAGES: Transmission Differential-6MT Front Drive&6AMT
+   Total categories: 1
+   With images: 0
+   Without images: 1
+   Sample categories:
+     ❌ JE121N001 - Transmission Differential-6MT Front Drive&6AMT
+
+❌ NO IMAGES: Transmission RVS Idler Shaft Gear-6MT Front Drive&6AMT
+   Total categories: 1
+   With images: 0
+   Without images: 1
+   Sample categories:
+     ❌ JE121I001 - Transmission RVS Idler Shaft Gear-6MT Front Drive&6AMT
+
+❌ NO IMAGES: Transmission Shaft  OUTPUT（1,2,5,6）-6MT Front Drive&6AMT
+   Total categories: 1
+   With images: 0
+   Without images: 1
+   Sample categories:
+     ❌ JE121L001 - Transmission Shaft  OUTPUT（1,2,5,6）-6MT Front Drive&6AMT
+
+❌ NO IMAGES: Transmission Shaft  OUTPUT（3,4,R）-6MT Front Drive&6AMT
+   Total categories: 1
+   With images: 0
+   Without images: 1
+   Sample categories:
+     ❌ JE121M001 - Transmission Shaft  OUTPUT（3,4,R）-6MT Front Drive&6AMT
+
+❌ NO IMAGES: Transmission Shaft INPUT-6MT Front Drive&6AMT
+   Total categories: 1
+   With images: 0
+   Without images: 1
+   Sample categories:
+     ❌ JE121K001 - Transmission Shaft INPUT-6MT Front Drive&6AMT
+
+❌ NO IMAGES: Transmission accessory-6MT Front Drive
+   Total categories: 1
+   With images: 0
+   Without images: 1
+   Sample categories:
+     ❌ JE121E001 - Transmission accessory-6MT Front Drive
+
+❌ NO IMAGES: Transmission fork-6MT Front Drive&6MT
+   Total categories: 1
+   With images: 0
+   Without images: 1
+   Sample categories:
+     ❌ JE121H001 - Transmission fork-6MT Front Drive&6MT
+
+❌ NO IMAGES: Transmission operating mechanism-6MT Front Drive
+   Total categories: 1
+   With images: 0
+   Without images: 1
+   Sample categories:
+     ❌ JE121F001 - Transmission operating mechanism-6MT Front Drive
+
+❌ NO IMAGES: Transmission shaft ASM-6MT Front Drive&6AMT
+   Total categories: 1
+   With images: 0
+   Without images: 1
+   Sample categories:
+     ❌ JE121J001 - Transmission shaft ASM-6MT Front Drive&6AMT
+
+❌ NO IMAGES: Transmission shell Bearing-6MT Front Drive & 6AMT
+   Total categories: 1
+   With images: 0
+   Without images: 1
+   Sample categories:
+     ❌ JE121P001 - Transmission shell Bearing-6MT Front Drive & 6AMT
+
+❌ NO IMAGES: Transmission shell-6MT&6AMT
+   Total categories: 1
+   With images: 0
+   Without images: 1
+   Sample categories:
+     ❌ JE121G001 - Transmission shell-6MT&6AMT
+
+❌ NO IMAGES: Two/Three Seats Arrangement for Chassis Vehicle (Australia、New Zealand)
+   Total categories: 2
+   With images: 0
+   Without images: 2
+   Sample categories:
+     ❌ JE421AG001 - Two/Three Seats Arrangement for Chassis Vehicle (Australia、New Zealand)
+     ❌ JE421AG001 - Two/Three Seats Arrangement for Chassis Vehicle (Australia、New Zealand)
+
+❌ NO IMAGES: body lower stucture
+   Total categories: 2
+   With images: 0
+   Without images: 2
+   Sample categories:
+     ❌ JE510A001 - body lower stucture
+     ❌ JE510A001 - body lower stucture
+
+✅ HAS IMAGES: Accelerator Pedal
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 JE151A001 - Accelerator Pedal
+     📷 JE151A001 - Accelerator Pedal
+
+✅ HAS IMAGES: Accessory Switches
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 JE726A001 - Accessory Switches
+     📷 JE726A001 - Accessory Switches
+
+✅ HAS IMAGES: Accessory&AccessoryDrive
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 JE11CQ001 - Accessory&AccessoryDrive
+     📷 JE11CQ001 - Accessory&AccessoryDrive
+
+✅ HAS IMAGES: Air Bag Control Unit
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 JE811A001 - Air Bag Control Unit
+     📷 JE811A001 - Air Bag Control Unit
+
+✅ HAS IMAGES: Air Intake System
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 Air Intake System
+     📷 Air Intake System
+
+✅ HAS IMAGES: Air filter
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 JE140A001 - Air filter
+     📷 JE140A001 - Air filter
+
+✅ HAS IMAGES: Airbag
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 Airbag
+     📷 Airbag
+
+✅ HAS IMAGES: Antenna
+   Total categories: 4
+   With images: 4
+   Without images: 0
+   Sample categories:
+     📷 Antenna
+     📷 JE741A001 - Antenna
+     📷 Antenna
+     📷 JE741A001 - Antenna
+
+✅ HAS IMAGES: Arrangement for VAN Vehicle (UK、Hong Kong)
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 JE421AH001 - Arrangement for VAN Vehicle (UK、Hong Kong)
+     📷 JE421AH001 - Arrangement for VAN Vehicle (UK、Hong Kong)
+
+✅ HAS IMAGES: Baffle Plate-Ware
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 JE526A001 - Baffle Plate-Ware
+     📷 JE526A001 - Baffle Plate-Ware
+
+✅ HAS IMAGES: Battery Harnesses
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 JE869A001 - Battery Harnesses
+     📷 JE869A001 - Battery Harnesses
+
+✅ HAS IMAGES: Battery&Electrical Energy Storage
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 JE843A001 - Battery&Electrical Energy Storage
+     📷 JE843A001 - Battery&Electrical Energy Storage
+
+✅ HAS IMAGES: Block Group
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 JE11CA002 - Block Group
+     📷 JE11CA002 - Block Group
+
+✅ HAS IMAGES: Body Exterior Trim
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 JE691A001 - Body Exterior Trim
+     📷 JE691A001 - Body Exterior Trim
+
+✅ HAS IMAGES: Body Interior & Exterior Electronics
+   Total categories: 4
+   With images: 4
+   Without images: 0
+   Sample categories:
+     📷 Body Interior & Exterior Electronics
+     📷 JE830A001 - Body Interior & Exterior Electronics
+     📷 Body Interior & Exterior Electronics
+     📷 JE830A001 - Body Interior & Exterior Electronics
+
+✅ HAS IMAGES: Body Lower Exterior Trim
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 Body Lower Exterior Trim
+     📷 Body Lower Exterior Trim
+
+✅ HAS IMAGES: Body Lower Structure
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 Body Lower Structure
+     📷 Body Lower Structure
+
+✅ HAS IMAGES: Body Upper Exterior Trim
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 Body Upper Exterior Trim
+     📷 Body Upper Exterior Trim
+
+✅ HAS IMAGES: Body Upper Structure
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 Body Upper Structure
+     📷 Body Upper Structure
+
+✅ HAS IMAGES: Body Window
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 Body Window
+     📷 Body Window
+
+✅ HAS IMAGES: Brake Apply
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 JE244A001 - Brake Apply
+     📷 JE244A001 - Brake Apply
+
+✅ HAS IMAGES: Brake Modulator
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 JE245A001 - Brake Modulator
+     📷 JE245A001 - Brake Modulator
+
+✅ HAS IMAGES: Brake Pedal
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 JE246A001 - Brake Pedal
+     📷 JE246A001 - Brake Pedal
+
+✅ HAS IMAGES: Brake Pipes
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 JE247A001 - Brake Pipes
+     📷 JE247A001 - Brake Pipes
+
+✅ HAS IMAGES: Brakes
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 Brakes
+     📷 Brakes
+
+✅ HAS IMAGES: Bumpers,Fascia & Grille
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 Bumpers,Fascia & Grille
+     📷 Bumpers,Fascia & Grille
+
+✅ HAS IMAGES: Charging & Energystorage
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 Charging & Energystorage
+     📷 Charging & Energystorage
+
+✅ HAS IMAGES: Chassis Harnesses
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 JE865A001 - Chassis Harnesses
+     📷 JE865A001 - Chassis Harnesses
+
+✅ HAS IMAGES: Chassis Structure
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 Chassis Structure
+     📷 Chassis Structure
+
+✅ HAS IMAGES: Clusters
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 JE711A001 - Clusters
+     📷 JE711A001 - Clusters
+
+✅ HAS IMAGES: Clutch Apply
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 JE153A001 - Clutch Apply
+     📷 JE153A001 - Clutch Apply
+
+✅ HAS IMAGES: Clutch(MT)
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 JE122A001 - Clutch(MT)
+     📷 JE122A001 - Clutch(MT)
+
+✅ HAS IMAGES: Clutch(PHEV)
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 JE122A002 - Clutch(PHEV)
+     📷 JE122A002 - Clutch(PHEV)
+
+✅ HAS IMAGES: Communicate
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 Communicate
+     📷 Communicate
+
+✅ HAS IMAGES: Coolant Plumbing & Hardware
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 JE313A001 - Coolant Plumbing & Hardware
+     📷 JE313A001 - Coolant Plumbing & Hardware
+
+✅ HAS IMAGES: Coolant Plumbing & Hardware--EV
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 JE313A003 - Coolant Plumbing & Hardware--EV
+     📷 JE313A003 - Coolant Plumbing & Hardware--EV
+
+✅ HAS IMAGES: Coolant Plumbing & Hardware-PHEV
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 JE313A004 - Coolant Plumbing & Hardware-PHEV
+     📷 JE313A004 - Coolant Plumbing & Hardware-PHEV
+
+✅ HAS IMAGES: Coolant Pump And Inl&OtltTube&Thermostat
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 JE11CL001 - Coolant Pump And Inl&OtltTube&Thermostat
+     📷 JE11CL001 - Coolant Pump And Inl&OtltTube&Thermostat
+
+✅ HAS IMAGES: Crankshaft Rod
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 JE11CE001 - Crankshaft Rod
+     📷 JE11CE001 - Crankshaft Rod
+
+✅ HAS IMAGES: Customer Switches
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 Customer Switches
+     📷 Customer Switches
+
+✅ HAS IMAGES: Cylinder Block&Accessory
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 JE11CB001 - Cylinder Block&Accessory
+     📷 JE11CB001 - Cylinder Block&Accessory
+
+✅ HAS IMAGES: Cylinder Head
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 JE11CC001 - Cylinder Head
+     📷 JE11CC001 - Cylinder Head
+
+✅ HAS IMAGES: Damper Pulley&GearDrive
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 JE11CM001 - Damper Pulley&GearDrive
+     📷 JE11CM001 - Damper Pulley&GearDrive
+
+✅ HAS IMAGES: Door  Wire Harnesses
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 JE864A001 - Door  Wire Harnesses
+     📷 JE864A001 - Door  Wire Harnesses
+
+✅ HAS IMAGES: Driver Information
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 Driver Information
+     📷 Driver Information
+
+✅ HAS IMAGES: EGR ASM
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 JE11CS001 - EGR ASM
+     📷 JE11CS001 - EGR ASM
+
+✅ HAS IMAGES: Emission Exhaust System
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 Emission Exhaust System
+     📷 Emission Exhaust System
+
+✅ HAS IMAGES: Engine ASM
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 JE11CA001 - Engine ASM
+     📷 JE11CA001 - Engine ASM
+
+✅ HAS IMAGES: Engine Accessory
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 JE11CT001 - Engine Accessory
+     📷 JE11CT001 - Engine Accessory
+
+✅ HAS IMAGES: Engine Compartment Fuse Box
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 JE867A001 - Engine Compartment Fuse Box
+     📷 JE867A001 - Engine Compartment Fuse Box
+
+✅ HAS IMAGES: Engine Management
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 JE131A001 - Engine Management
+     📷 JE131A001 - Engine Management
+
+✅ HAS IMAGES: Engine shield
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 JE11CX001 - Engine shield
+     📷 JE11CX001 - Engine shield
+
+✅ HAS IMAGES: Engine wiring harness
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 JE11CW001 - Engine wiring harness
+     📷 JE11CW001 - Engine wiring harness
+
+✅ HAS IMAGES: EngineCompartmentHarness
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 JE861A001 - EngineCompartmentHarness
+     📷 JE861A001 - EngineCompartmentHarness
+
+✅ HAS IMAGES: Entertainment
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 Entertainment
+     📷 Entertainment
+
+✅ HAS IMAGES: Exhaust Elbow&Turbocharger
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 JE11CH001 - Exhaust Elbow&Turbocharger
+     📷 JE11CH001 - Exhaust Elbow&Turbocharger
+
+✅ HAS IMAGES: Exhaust system
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 JE160A001 - Exhaust system
+     📷 JE160A001 - Exhaust system
+
+✅ HAS IMAGES: Fenders
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 JE572A001 - Fenders
+     📷 JE572A001 - Fenders
+
+✅ HAS IMAGES: Floor Trim
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 JE437A001 - Floor Trim
+     📷 JE437A001 - Floor Trim
+
+✅ HAS IMAGES: Fluids and Lubrications
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 JE919A001 - Fluids and Lubrications
+     📷 JE919A001 - Fluids and Lubrications
+
+✅ HAS IMAGES: Front Brakes
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 JE241A001 - Front Brakes
+     📷 JE241A001 - Front Brakes
+
+✅ HAS IMAGES: Front Bumper
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 JE621A001 - Front Bumper
+     📷 JE621A001 - Front Bumper
+
+✅ HAS IMAGES: Front Closures Front End Sheetmetal
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 Front Closures Front End Sheetmetal
+     📷 Front Closures Front End Sheetmetal
+
+✅ HAS IMAGES: Front Door Electric Glass Regulator
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 JE551C001 - Front Door Electric Glass Regulator
+     📷 JE551C001 - Front Door Electric Glass Regulator
+
+✅ HAS IMAGES: Front Door Handle and Lock
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 JE551B001 - Front Door Handle and Lock
+     📷 JE551B001 - Front Door Handle and Lock
+
+✅ HAS IMAGES: Front End Exterior Airflow
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 JE340A001 - Front End Exterior Airflow
+     📷 JE340A001 - Front End Exterior Airflow
+
+✅ HAS IMAGES: Front Interior Control
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 JE322A001 - Front Interior Control
+     📷 JE322A001 - Front Interior Control
+
+✅ HAS IMAGES: Front Interior HVAC Airflow
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 JE321A001 - Front Interior HVAC Airflow
+     📷 JE321A001 - Front Interior HVAC Airflow
+
+✅ HAS IMAGES: Front Lamp
+   Total categories: 4
+   With images: 4
+   Without images: 0
+   Sample categories:
+     📷 Front Lamp
+     📷 JE650A001 - Front Lamp
+     📷 Front Lamp
+     📷 JE650A001 - Front Lamp
+
+✅ HAS IMAGES: Front Seat（Left）
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 JE421B004 - Front Seat（Left）
+     📷 JE421B004 - Front Seat（Left）
+
+✅ HAS IMAGES: Front Seat（Right）
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 JE421B003 - Front Seat（Right）
+     📷 JE421B003 - Front Seat（Right）
+
+✅ HAS IMAGES: Front Shock Absorber
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 JE224A001 - Front Shock Absorber
+     📷 JE224A001 - Front Shock Absorber
+
+✅ HAS IMAGES: Front Side Closure
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 JE551A001 - Front Side Closure
+     📷 JE551A001 - Front Side Closure
+
+✅ HAS IMAGES: Front Sub-frame
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 JE251A001 - Front Sub-frame
+     📷 JE251A001 - Front Sub-frame
+
+✅ HAS IMAGES: Front Suspension
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 JE221A001 - Front Suspension
+     📷 JE221A001 - Front Suspension
+
+✅ HAS IMAGES: Frontexterior Hvac Airflow
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 Frontexterior Hvac Airflow
+     📷 Frontexterior Hvac Airflow
+
+✅ HAS IMAGES: Fuel Plumbing & Hardware
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 JE183A001 - Fuel Plumbing & Hardware
+     📷 JE183A001 - Fuel Plumbing & Hardware
+
+✅ HAS IMAGES: Fuel Storage & Handling
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 Fuel Storage & Handling
+     📷 Fuel Storage & Handling
+
+✅ HAS IMAGES: Fuel Tank & Canister
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 JE181A001 - Fuel Tank & Canister
+     📷 JE181A001 - Fuel Tank & Canister
+
+✅ HAS IMAGES: Grille
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 JE623A001 - Grille
+     📷 JE623A001 - Grille
+
+✅ HAS IMAGES: Head Cover&PCV
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 JE11CD001 - Head Cover&PCV
+     📷 JE11CD001 - Head Cover&PCV
+
+✅ HAS IMAGES: Hood
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 JE571A001 - Hood
+     📷 JE571A001 - Hood
+
+✅ HAS IMAGES: Hood Lock
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 JE571B001 - Hood Lock
+     📷 JE571B001 - Hood Lock
+
+✅ HAS IMAGES: Hvac & Powertrain Coolingin
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 Hvac & Powertrain Coolingin
+     📷 Hvac & Powertrain Coolingin
+
+✅ HAS IMAGES: Ignition Switch and Key
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 JE725A001 - Ignition Switch and Key
+     📷 JE725A001 - Ignition Switch and Key
+
+✅ HAS IMAGES: Infotainment System
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 JE731A001 - Infotainment System
+     📷 JE731A001 - Infotainment System
+
+✅ HAS IMAGES: Instrument Panel  Wire Harnesses
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 JE863A001 - Instrument Panel  Wire Harnesses
+     📷 JE863A001 - Instrument Panel  Wire Harnesses
+
+✅ HAS IMAGES: Instrument Panel & Console
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 Instrument Panel & Console
+     📷 Instrument Panel & Console
+
+✅ HAS IMAGES: Instrument Panel Crossmember（LHD）
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 JE412A001 - Instrument Panel Crossmember（LHD）
+     📷 JE412A001 - Instrument Panel Crossmember（LHD）
+
+✅ HAS IMAGES: Instrument Panel Crossmember（RHD）
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 JE412A002 - Instrument Panel Crossmember（RHD）
+     📷 JE412A002 - Instrument Panel Crossmember（RHD）
+
+✅ HAS IMAGES: Instrument Panel（LHD）
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 JE411A001 - Instrument Panel（LHD）
+     📷 JE411A001 - Instrument Panel（LHD）
+
+✅ HAS IMAGES: Instrument Panel（RHD）
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 JE411A002 - Instrument Panel（RHD）
+     📷 JE411A002 - Instrument Panel（RHD）
+
+✅ HAS IMAGES: Interior Acoustic Syetem
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 Interior Acoustic Syetem
+     📷 Interior Acoustic Syetem
+
+✅ HAS IMAGES: Interior Heating Pipe
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 JE334A001 - Interior Heating Pipe
+     📷 JE334A001 - Interior Heating Pipe
+
+✅ HAS IMAGES: Interior Heating Pipe-FCV
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 JE334A002 - Interior Heating Pipe-FCV
+     📷 JE334A002 - Interior Heating Pipe-FCV
+
+✅ HAS IMAGES: Interior Lamp
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 Interior Lamp
+     📷 Interior Lamp
+
+✅ HAS IMAGES: Interior Trim
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 Interior Trim
+     📷 Interior Trim
+
+✅ HAS IMAGES: LP-EGR intake pipe&Accessory
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 JE11CU001 - LP-EGR intake pipe&Accessory
+     📷 JE11CU001 - LP-EGR intake pipe&Accessory
+
+✅ HAS IMAGES: MANIFOLD ASM-INT
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 JE11CG001 - MANIFOLD ASM-INT
+     📷 JE11CG001 - MANIFOLD ASM-INT
+
+✅ HAS IMAGES: Manual transmission assembly（6MT Front/Back drive）
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 JE121A001 - Manual transmission assembly（6MT Front/Back drive）
+     📷 JE121A001 - Manual transmission assembly（6MT Front/Back drive）
+
+✅ HAS IMAGES: Mounts
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 Mounts
+     📷 Mounts
+
+✅ HAS IMAGES: Mud Guard
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 JE644A001 - Mud Guard
+     📷 JE644A001 - Mud Guard
+
+✅ HAS IMAGES: Multi-Function Column Switch
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 JE723A001 - Multi-Function Column Switch
+     📷 JE723A001 - Multi-Function Column Switch
+
+✅ HAS IMAGES: Oil Cooler And Inl&OtltTube&Filter
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 JE11CJ001 - Oil Cooler And Inl&OtltTube&Filter
+     📷 JE11CJ001 - Oil Cooler And Inl&OtltTube&Filter
+
+✅ HAS IMAGES: On Vehicle Attachments
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 JE911A001 - On Vehicle Attachments
+     📷 JE911A001 - On Vehicle Attachments
+
+✅ HAS IMAGES: On Vehicle Attachments&Tools
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 On Vehicle Attachments&Tools
+     📷 On Vehicle Attachments&Tools
+
+✅ HAS IMAGES: On Vehicle Tools
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 JE917A001 - On Vehicle Tools
+     📷 JE917A001 - On Vehicle Tools
+
+✅ HAS IMAGES: Outer Framing(left side)
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 JE522A001 - Outer Framing(left side)
+     📷 JE522A001 - Outer Framing(left side)
+
+✅ HAS IMAGES: Outer Framing(right side)
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 JE522B001 - Outer Framing(right side)
+     📷 JE522B001 - Outer Framing(right side)
+
+✅ HAS IMAGES: Park Brake
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 JE243A001 - Park Brake
+     📷 JE243A001 - Park Brake
+
+✅ HAS IMAGES: Passive Entry Passive Start
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 JE821A001 - Passive Entry Passive Start
+     📷 JE821A001 - Passive Entry Passive Start
+
+✅ HAS IMAGES: Power & Signaldistribution
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 Power & Signaldistribution
+     📷 Power & Signaldistribution
+
+✅ HAS IMAGES: Power Outlet & Cigarette Lighter HEvice
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 JE868A001 - Power Outlet & Cigarette Lighter HEvice
+     📷 JE868A001 - Power Outlet & Cigarette Lighter HEvice
+
+✅ HAS IMAGES: Power Transmission
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 Power Transmission
+     📷 Power Transmission
+
+✅ HAS IMAGES: Power assembly installation
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 JE261A001 - Power assembly installation
+     📷 JE261A001 - Power assembly installation
+
+✅ HAS IMAGES: PowerInverter
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 JE844A002 - PowerInverter
+     📷 JE844A002 - PowerInverter
+
+✅ HAS IMAGES: Powertrain Control&Diagnostic
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 Powertrain Control&Diagnostic
+     📷 Powertrain Control&Diagnostic
+
+✅ HAS IMAGES: Powertrain Driver Interface
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 Powertrain Driver Interface
+     📷 Powertrain Driver Interface
+
+✅ HAS IMAGES: Powertrain Mounts-Electric vehicle
+   Total categories: 1
+   With images: 1
+   Without images: 0
+   Sample categories:
+     📷 JE261A002 - Powertrain Mounts-Electric vehicle
+
+✅ HAS IMAGES: Propeller Shaft
+   Total categories: 1
+   With images: 1
+   Without images: 0
+   Sample categories:
+     📷 JE123A001 - Propeller Shaft
+
+✅ HAS IMAGES: Rear  Axle （Front drive vehicle）
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 JE125A002 - Rear  Axle （Front drive vehicle）
+     📷 JE125A002 - Rear  Axle （Front drive vehicle）
+
+✅ HAS IMAGES: Rear Brakes
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 JE242A001 - Rear Brakes
+     📷 JE242A001 - Rear Brakes
+
+✅ HAS IMAGES: Rear Drive Axle
+   Total categories: 1
+   With images: 1
+   Without images: 0
+   Sample categories:
+     📷 JE125A001 - Rear Drive Axle
+
+✅ HAS IMAGES: Rear Drive Axle（YUE JIN）
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 JE125A003 - Rear Drive Axle（YUE JIN）
+     📷 JE125A003 - Rear Drive Axle（YUE JIN）
+
+✅ HAS IMAGES: Rear Electric  Drive Axle
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 JE125A004 - Rear Electric  Drive Axle
+     📷 JE125A004 - Rear Electric  Drive Axle
+
+✅ HAS IMAGES: Rear Interior Airflow
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 JE331A001 - Rear Interior Airflow
+     📷 JE331A001 - Rear Interior Airflow
+
+✅ HAS IMAGES: Rear Lamp
+   Total categories: 4
+   With images: 4
+   Without images: 0
+   Sample categories:
+     📷 Rear Lamp
+     📷 JE660A001 - Rear Lamp
+     📷 Rear Lamp
+     📷 JE660A001 - Rear Lamp
+
+✅ HAS IMAGES: Rear Panel
+   Total categories: 1
+   With images: 1
+   Without images: 0
+   Sample categories:
+     📷 JE524A001 - Rear Panel
+
+✅ HAS IMAGES: Rear Shock Absorber
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 JE225A001 - Rear Shock Absorber
+     📷 JE225A001 - Rear Shock Absorber
+
+✅ HAS IMAGES: Rear Suspension
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 JE222A001 - Rear Suspension
+     📷 JE222A001 - Rear Suspension
+
+✅ HAS IMAGES: Rear View Mirror
+   Total categories: 4
+   With images: 4
+   Without images: 0
+   Sample categories:
+     📷 Rear View Mirror
+     📷 JE580A001 - Rear View Mirror
+     📷 Rear View Mirror
+     📷 JE580A001 - Rear View Mirror
+
+✅ HAS IMAGES: Rearinterior Hvac Airflow
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 Rearinterior Hvac Airflow
+     📷 Rearinterior Hvac Airflow
+
+✅ HAS IMAGES: Refrigerant Plumbing & Hardware
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 JE312A001 - Refrigerant Plumbing & Hardware
+     📷 JE312A001 - Refrigerant Plumbing & Hardware
+
+✅ HAS IMAGES: Refrigerant Plumbing & Hardware-Electric vehicle
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 JE312A002 - Refrigerant Plumbing & Hardware-Electric vehicle
+     📷 JE312A002 - Refrigerant Plumbing & Hardware-Electric vehicle
+
+✅ HAS IMAGES: Refrigerant Plumbing & Hardware-FCV
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 JE312A003 - Refrigerant Plumbing & Hardware-FCV
+     📷 JE312A003 - Refrigerant Plumbing & Hardware-FCV
+
+✅ HAS IMAGES: Refrigerant Plumbing & Hardware-PHEV
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 JE312A004 - Refrigerant Plumbing & Hardware-PHEV
+     📷 JE312A004 - Refrigerant Plumbing & Hardware-PHEV
+
+✅ HAS IMAGES: Roof Framing
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 JE523A001 - Roof Framing
+     📷 JE523A001 - Roof Framing
+
+✅ HAS IMAGES: Roof Trim
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 JE436A001 - Roof Trim
+     📷 JE436A001 - Roof Trim
+
+✅ HAS IMAGES: SHAFT-BALANCER
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 JE11CF001 - SHAFT-BALANCER
+     📷 JE11CF001 - SHAFT-BALANCER
+
+✅ HAS IMAGES: Safety Belt
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 Safety Belt
+     📷 Safety Belt
+
+✅ HAS IMAGES: Safety&Avoidance
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 Safety&Avoidance
+     📷 Safety&Avoidance
+
+✅ HAS IMAGES: Seat Arrangement of Shang Jie's 11 12and 14 Seats (Australia)
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 JE421AE001 - Seat Arrangement of Shang Jie's 11 12and 14 Seats (Australia)
+     📷 JE421AE001 - Seat Arrangement of Shang Jie's 11 12and 14 Seats (Australia)
+
+✅ HAS IMAGES: Seats
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 Seats
+     📷 Seats
+
+✅ HAS IMAGES: Sensor&Harness
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 JE11CR001 - Sensor&Harness
+     📷 JE11CR001 - Sensor&Harness
+
+✅ HAS IMAGES: Side Closures
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 Side Closures
+     📷 Side Closures
+
+✅ HAS IMAGES: Side Panel&Roof Safety Belt
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 JE460A001 - Side Panel&Roof Safety Belt
+     📷 JE460A001 - Side Panel&Roof Safety Belt
+
+✅ HAS IMAGES: Side Trim
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 JE431A001 - Side Trim
+     📷 JE431A001 - Side Trim
+
+✅ HAS IMAGES: Sound Insulation、Heat Insulation
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 JE451A001 - Sound Insulation、Heat Insulation
+     📷 JE451A001 - Sound Insulation、Heat Insulation
+
+✅ HAS IMAGES: Spare Tire Device
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 JE255A001 - Spare Tire Device
+     📷 JE255A001 - Spare Tire Device
+
+✅ HAS IMAGES: Speaker
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 JE732A001 - Speaker
+     📷 JE732A001 - Speaker
+
+✅ HAS IMAGES: Steering
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 Steering
+     📷 Steering
+
+✅ HAS IMAGES: Steering Column
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 JE214A001 - Steering Column
+     📷 JE214A001 - Steering Column
+
+✅ HAS IMAGES: Steering Wheel and AirBag
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 JE471A001 - Steering Wheel and AirBag
+     📷 JE471A001 - Steering Wheel and AirBag
+
+✅ HAS IMAGES: Subdrivers Integral Double Seat
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 JE421B005 - Subdrivers Integral Double Seat
+     📷 JE421B005 - Subdrivers Integral Double Seat
+
+✅ HAS IMAGES: Subdrivers Split Double Seat
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 JE421B006 - Subdrivers Split Double Seat
+     📷 JE421B006 - Subdrivers Split Double Seat
+
+✅ HAS IMAGES: Sump&Oil Suction Pipe&Dipstick
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 JE11CK001 - Sump&Oil Suction Pipe&Dipstick
+     📷 JE11CK001 - Sump&Oil Suction Pipe&Dipstick
+
+✅ HAS IMAGES: Suspension
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 Suspension
+     📷 Suspension
+
+✅ HAS IMAGES: TNK FIL DR
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 JE557A001 - TNK FIL DR
+     📷 JE557A001 - TNK FIL DR
+
+✅ HAS IMAGES: Three Seats Arrangement for Chassis Vehicle (UK、Hong Kong)
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 JE421AI001 - Three Seats Arrangement for Chassis Vehicle (UK、Hong Kong)
+     📷 JE421AI001 - Three Seats Arrangement for Chassis Vehicle (UK、Hong Kong)
+
+✅ HAS IMAGES: Three Seats Arrangement for VAN Vehicle (Australia、New Zealand)
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 JE421AF001 - Three Seats Arrangement for VAN Vehicle (Australia、New Zealand)
+     📷 JE421AF001 - Three Seats Arrangement for VAN Vehicle (Australia、New Zealand)
+
+✅ HAS IMAGES: Timing Drive
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 JE11CP001 - Timing Drive
+     📷 JE11CP001 - Timing Drive
+
+✅ HAS IMAGES: Tire,Wheel,Trim
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 JE230A001 - Tire,Wheel,Trim
+     📷 JE230A001 - Tire,Wheel,Trim
+
+✅ HAS IMAGES: Tire,Wheels,Wheel Trim
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 Tire,Wheels,Wheel Trim
+     📷 Tire,Wheels,Wheel Trim
+
+✅ HAS IMAGES: Transmission CSC and  Operating Mechanism(6MT back drive)
+   Total categories: 1
+   With images: 1
+   Without images: 0
+   Sample categories:
+     📷 JE121B001 - Transmission CSC and  Operating Mechanism(6MT back drive)
+
+✅ HAS IMAGES: Transmission Fork Components(SAGW-6MT back drive)
+   Total categories: 1
+   With images: 1
+   Without images: 0
+   Sample categories:
+     📷 JE121C001 - Transmission Fork Components(SAGW-6MT back drive)
+
+✅ HAS IMAGES: Transmission Main Shaft And Gear(6MT back drive)
+   Total categories: 1
+   With images: 1
+   Without images: 0
+   Sample categories:
+     📷 JE121D001 - Transmission Main Shaft And Gear(6MT back drive)
+
+✅ HAS IMAGES: Transmission Shift Actuation-AMT
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 JE152A002 - Transmission Shift Actuation-AMT
+     📷 JE152A002 - Transmission Shift Actuation-AMT
+
+✅ HAS IMAGES: Transmission Shift Actuation-AT、Electric vehicle
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 JE152A003 - Transmission Shift Actuation-AT、Electric vehicle
+     📷 JE152A003 - Transmission Shift Actuation-AT、Electric vehicle
+
+✅ HAS IMAGES: Transmission Shift Actuation-MT
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 JE152A001 - Transmission Shift Actuation-MT
+     📷 JE152A001 - Transmission Shift Actuation-MT
+
+✅ HAS IMAGES: Urea system
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 JE184A001 - Urea system
+     📷 JE184A001 - Urea system
+
+✅ HAS IMAGES: Vehicle Date Recorder
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 JE716A001 - Vehicle Date Recorder
+     📷 JE716A001 - Vehicle Date Recorder
+
+✅ HAS IMAGES: Vehicle Tele-Communication
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 JE751A001 - Vehicle Tele-Communication
+     📷 JE751A001 - Vehicle Tele-Communication
+
+✅ HAS IMAGES: Washer System
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 JE682A001 - Washer System
+     📷 JE682A001 - Washer System
+
+✅ HAS IMAGES: Wheelhouse Liner
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 JE625A001 - Wheelhouse Liner
+     📷 JE625A001 - Wheelhouse Liner
+
+✅ HAS IMAGES: Window
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 JE611A001 - Window
+     📷 JE611A001 - Window
+
+✅ HAS IMAGES: Window Lift Switch
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 JE721A001 - Window Lift Switch
+     📷 JE721A001 - Window Lift Switch
+
+✅ HAS IMAGES: Wiper & Washer
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 Wiper & Washer
+     📷 Wiper & Washer
+
+✅ HAS IMAGES: Wiper（LHD）
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 JE681A001 - Wiper（LHD）
+     📷 JE681A001 - Wiper（LHD）
+
+✅ HAS IMAGES: Wiper（RHD）
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 JE681A002 - Wiper（RHD）
+     📷 JE681A002 - Wiper（RHD）
+
+✅ HAS IMAGES: inner framing(left side)
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 JE521A001 - inner framing(left side)
+     📷 JE521A001 - inner framing(left side)
+
+✅ HAS IMAGES: inner framing(right side)
+   Total categories: 2
+   With images: 2
+   Without images: 0
+   Sample categories:
+     📷 JE521B001 - inner framing(right side)
+     📷 JE521B001 - inner framing(right side)
+
+================================================================================
+RECOMMENDATIONS:
+================================================================================
+1. PRIORITY: Add images for 44 category types
+2. Focus on categories with multiple instances first
+3. Create/source images with names matching the category names
+4. Use the bulk_attach_images.py script to attach them
+5. Re-run this script to verify improvements
+
+TOP PRIORITY CATEGORIES (by instance count):
+   1. Side Sliding Door Handle and Door Lock (3 instances)
+   2. Body accessories harness (2 instances)
+   3. Frong Seat（right ） (2 instances)
+   4. Front Door Trim (2 instances)
+   5. Front Seat（left ） (2 instances)
+   6. Frontinterior Hvac Airflow (2 instances)
+   7. Fuel System (2 instances)
+   8. InteriorLamp (2 instances)
+   9. ParkDistanceControlSystem (2 instances)
+   10. Power Generation (2 instances)

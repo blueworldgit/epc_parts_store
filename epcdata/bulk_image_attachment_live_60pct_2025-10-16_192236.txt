@@ -1,0 +1,1493 @@
+Bulk Image Attachment Report
+Generated: 2025-10-16 19:22:36
+Mode: LIVE
+Similarity threshold: 60%
+================================================================================
+
+SUMMARY:
+Images available: 193
+Unique categories: 225
+Exact matches: 94
+Similarity matches: 89
+Total matches: 183
+
+PROCESSING RESULTS:
+==================================================
+
+  1. Image: Accelerator Pedal.png (EXACT MATCH)
+     Path: ..\Rentals\Accelerator Pedal.png
+     Categories to update: 2
+       1. ✅ ATTACHED: JE151A001 - Accelerator Pedal
+          ID: 371, Slug: serial-LSH14J7CXMA114599-parent-35-child-1
+       2. ✅ ATTACHED: JE151A001 - Accelerator Pedal
+          ID: 692, Slug: serial-LSFAL11A4PA157987-parent-35-child-1
+
+  2. Image: Accessory & Accessory Drive.png → Accessory&AccessoryDrive (94.1%)
+     Path: ..\Rentals\Accessory & Accessory Drive.png
+     Categories to update: 2
+       1. ✅ ATTACHED: JE11CQ001 - Accessory&AccessoryDrive
+          ID: 325, Slug: serial-LSH14J7CXMA114599-parent-32-child-1
+       2. ✅ ATTACHED: JE11CQ001 - Accessory&AccessoryDrive
+          ID: 621, Slug: serial-LSFAL11A4PA157987-parent-32-child-1
+
+  3. Image: Accessory Switches.png (EXACT MATCH)
+     Path: ..\Rentals\Accessory Switches.png
+     Categories to update: 2
+       1. ✅ ATTACHED: JE726A001 - Accessory Switches
+          ID: 254, Slug: serial-LSH14J7CXMA114599-parent-15-child-1
+       2. ✅ ATTACHED: JE726A001 - Accessory Switches
+          ID: 502, Slug: serial-LSFAL11A4PA157987-parent-15-child-1
+
+  4. Image: Air Bag Control Unit.png (EXACT MATCH)
+     Path: ..\Rentals\Air Bag Control Unit.png
+     Categories to update: 2
+       1. ✅ ATTACHED: JE811A001 - Air Bag Control Unit
+          ID: 390, Slug: serial-LSH14J7CXMA114599-parent-41-child-1
+       2. ✅ ATTACHED: JE811A001 - Air Bag Control Unit
+          ID: 722, Slug: serial-LSFAL11A4PA157987-parent-41-child-1
+
+  5. Image: Air Filter.png → Air filter (100.0%)
+     Path: ..\Rentals\Air Filter.png
+     Categories to update: 2
+       1. ✅ ATTACHED: JE140A001 - Air filter
+          ID: 208, Slug: serial-LSH14J7CXMA114599-parent-1-child-1
+       2. ✅ ATTACHED: JE140A001 - Air filter
+          ID: 428, Slug: serial-LSFAL11A4PA157987-parent-1-child-1
+
+  6. Image: Air Intake System.png (EXACT MATCH)
+     Path: ..\Rentals\Air Intake System.png
+     Categories to update: 2
+       1. ✅ ATTACHED: Air Intake System
+          ID: 207, Slug: serial-LSH14J7CXMA114599-parent-1
+       2. ✅ ATTACHED: Air Intake System
+          ID: 427, Slug: serial-LSFAL11A4PA157987-parent-1
+
+  7. Image: Airbag.png (EXACT MATCH)
+     Path: ..\Rentals\Airbag.png
+     Categories to update: 2
+       1. ✅ ATTACHED: Airbag
+          ID: 209, Slug: serial-LSH14J7CXMA114599-parent-2
+       2. ✅ ATTACHED: Airbag
+          ID: 430, Slug: serial-LSFAL11A4PA157987-parent-2
+
+  8. Image: Antenna.png (EXACT MATCH)
+     Path: ..\Rentals\Antenna.png
+     Categories to update: 4
+       1. ✅ ATTACHED: Antenna
+          ID: 211, Slug: serial-LSH14J7CXMA114599-parent-3
+       2. ✅ ATTACHED: JE741A001 - Antenna
+          ID: 212, Slug: serial-LSH14J7CXMA114599-parent-3-child-1
+       3. ✅ ATTACHED: Antenna
+          ID: 433, Slug: serial-LSFAL11A4PA157987-parent-3
+       4. ✅ ATTACHED: JE741A001 - Antenna
+          ID: 434, Slug: serial-LSFAL11A4PA157987-parent-3-child-1
+
+  9. Image: Arrangement for VAN Vehicle (UK_HK).png → Arrangement for VAN Vehicle (UK、Hong Kong) (88.3%)
+     Path: ..\Rentals\Arrangement for VAN Vehicle (UK_HK).png
+     Categories to update: 2
+       1. ✅ ATTACHED: JE421AH001 - Arrangement for VAN Vehicle (UK、Hong Kong)
+          ID: 393, Slug: serial-LSH14J7CXMA114599-parent-42-child-1
+       2. ✅ ATTACHED: JE421AH001 - Arrangement for VAN Vehicle (UK、Hong Kong)
+          ID: 727, Slug: serial-LSFAL11A4PA157987-parent-42-child-1
+
+ 10. Image: Baffle Plate-Ware.png (EXACT MATCH)
+     Path: ..\Rentals\Baffle Plate-Ware.png
+     Categories to update: 2
+       1. ✅ ATTACHED: JE526A001 - Baffle Plate-Ware
+          ID: 224, Slug: serial-LSH14J7CXMA114599-parent-8-child-1
+       2. ✅ ATTACHED: JE526A001 - Baffle Plate-Ware
+          ID: 449, Slug: serial-LSFAL11A4PA157987-parent-8-child-1
+
+ 11. Image: Battery & Electrical Energy Storage.png → Battery&Electrical Energy Storage (97.1%)
+     Path: ..\Rentals\Battery & Electrical Energy Storage.png
+     Categories to update: 2
+       1. ✅ ATTACHED: JE843A001 - Battery&Electrical Energy Storage
+          ID: 246, Slug: serial-LSH14J7CXMA114599-parent-12-child-1
+       2. ✅ ATTACHED: JE843A001 - Battery&Electrical Energy Storage
+          ID: 489, Slug: serial-LSFAL11A4PA157987-parent-12-child-1
+
+ 12. Image: Battery Harnesses.png (EXACT MATCH)
+     Path: ..\Rentals\Battery Harnesses.png
+     Categories to update: 2
+       1. ✅ ATTACHED: JE869A001 - Battery Harnesses
+          ID: 316, Slug: serial-LSH14J7CXMA114599-parent-31-child-1
+       2. ✅ ATTACHED: JE869A001 - Battery Harnesses
+          ID: 604, Slug: serial-LSFAL11A4PA157987-parent-31-child-1
+
+ 13. Image: Block Group.png (EXACT MATCH)
+     Path: ..\Rentals\Block Group.png
+     Categories to update: 2
+       1. ✅ ATTACHED: JE11CA002 - Block Group
+          ID: 326, Slug: serial-LSH14J7CXMA114599-parent-32-child-2
+       2. ✅ ATTACHED: JE11CA002 - Block Group
+          ID: 622, Slug: serial-LSFAL11A4PA157987-parent-32-child-2
+
+ 14. Image: Body Exterior Trim.png (EXACT MATCH)
+     Path: ..\Rentals\Body Exterior Trim.png
+     Categories to update: 2
+       1. ✅ ATTACHED: JE691A001 - Body Exterior Trim
+          ID: 221, Slug: serial-LSH14J7CXMA114599-parent-7-child-1
+       2. ✅ ATTACHED: JE691A001 - Body Exterior Trim
+          ID: 446, Slug: serial-LSFAL11A4PA157987-parent-7-child-1
+
+ 15. Image: Body Interior & Exterior Electronics.png (EXACT MATCH)
+     Path: ..\Rentals\Body Interior & Exterior Electronics.png
+     Categories to update: 4
+       1. ✅ ATTACHED: Body Interior & Exterior Electronics
+          ID: 213, Slug: serial-LSH14J7CXMA114599-parent-4
+       2. ✅ ATTACHED: JE830A001 - Body Interior & Exterior Electronics
+          ID: 214, Slug: serial-LSH14J7CXMA114599-parent-4-child-1
+       3. ✅ ATTACHED: Body Interior & Exterior Electronics
+          ID: 436, Slug: serial-LSFAL11A4PA157987-parent-4
+       4. ✅ ATTACHED: JE830A001 - Body Interior & Exterior Electronics
+          ID: 437, Slug: serial-LSFAL11A4PA157987-parent-4-child-1
+
+ 16. Image: Body Lower Exterior Trim.png (EXACT MATCH)
+     Path: ..\Rentals\Body Lower Exterior Trim.png
+     Categories to update: 2
+       1. ✅ ATTACHED: Body Lower Exterior Trim
+          ID: 215, Slug: serial-LSH14J7CXMA114599-parent-5
+       2. ✅ ATTACHED: Body Lower Exterior Trim
+          ID: 439, Slug: serial-LSFAL11A4PA157987-parent-5
+
+ 17. Image: Body Lower Structure .png → Body Lower Structure (97.6%)
+     Path: ..\Rentals\Body Lower Structure .png
+     Categories to update: 2
+       1. ✅ ATTACHED: Body Lower Structure
+          ID: 218, Slug: serial-LSH14J7CXMA114599-parent-6
+       2. ✅ ATTACHED: Body Lower Structure
+          ID: 442, Slug: serial-LSFAL11A4PA157987-parent-6
+
+ 18. Image: Body Lower Structure.png (EXACT MATCH)
+     Path: ..\Rentals\Body Lower Structure.png
+     Categories to update: 2
+       1. ✅ ATTACHED: Body Lower Structure
+          ID: 218, Slug: serial-LSH14J7CXMA114599-parent-6
+       2. ✅ ATTACHED: Body Lower Structure
+          ID: 442, Slug: serial-LSFAL11A4PA157987-parent-6
+
+ 19. Image: Body Upper Exterior Trim.png (EXACT MATCH)
+     Path: ..\Rentals\Body Upper Exterior Trim.png
+     Categories to update: 2
+       1. ✅ ATTACHED: Body Upper Exterior Trim
+          ID: 220, Slug: serial-LSH14J7CXMA114599-parent-7
+       2. ✅ ATTACHED: Body Upper Exterior Trim
+          ID: 445, Slug: serial-LSFAL11A4PA157987-parent-7
+
+ 20. Image: Body Upper Structure.png (EXACT MATCH)
+     Path: ..\Rentals\Body Upper Structure.png
+     Categories to update: 2
+       1. ✅ ATTACHED: Body Upper Structure
+          ID: 223, Slug: serial-LSH14J7CXMA114599-parent-8
+       2. ✅ ATTACHED: Body Upper Structure
+          ID: 448, Slug: serial-LSFAL11A4PA157987-parent-8
+
+ 21. Image: Body Window.png (EXACT MATCH)
+     Path: ..\Rentals\Body Window.png
+     Categories to update: 2
+       1. ✅ ATTACHED: Body Window
+          ID: 230, Slug: serial-LSH14J7CXMA114599-parent-9
+       2. ✅ ATTACHED: Body Window
+          ID: 463, Slug: serial-LSFAL11A4PA157987-parent-9
+
+ 22. Image: Brake Apply.png (EXACT MATCH)
+     Path: ..\Rentals\Brake Apply.png
+     Categories to update: 2
+       1. ✅ ATTACHED: JE244A001 - Brake Apply
+          ID: 233, Slug: serial-LSH14J7CXMA114599-parent-10-child-1
+       2. ✅ ATTACHED: JE244A001 - Brake Apply
+          ID: 467, Slug: serial-LSFAL11A4PA157987-parent-10-child-1
+
+ 23. Image: Brake Modulator.png (EXACT MATCH)
+     Path: ..\Rentals\Brake Modulator.png
+     Categories to update: 2
+       1. ✅ ATTACHED: JE245A001 - Brake Modulator
+          ID: 234, Slug: serial-LSH14J7CXMA114599-parent-10-child-2
+       2. ✅ ATTACHED: JE245A001 - Brake Modulator
+          ID: 468, Slug: serial-LSFAL11A4PA157987-parent-10-child-2
+
+ 24. Image: Brake Pedal.png (EXACT MATCH)
+     Path: ..\Rentals\Brake Pedal.png
+     Categories to update: 2
+       1. ✅ ATTACHED: JE246A001 - Brake Pedal
+          ID: 235, Slug: serial-LSH14J7CXMA114599-parent-10-child-3
+       2. ✅ ATTACHED: JE246A001 - Brake Pedal
+          ID: 469, Slug: serial-LSFAL11A4PA157987-parent-10-child-3
+
+ 25. Image: Brake Pipes.png (EXACT MATCH)
+     Path: ..\Rentals\Brake Pipes.png
+     Categories to update: 2
+       1. ✅ ATTACHED: JE247A001 - Brake Pipes
+          ID: 236, Slug: serial-LSH14J7CXMA114599-parent-10-child-4
+       2. ✅ ATTACHED: JE247A001 - Brake Pipes
+          ID: 470, Slug: serial-LSFAL11A4PA157987-parent-10-child-4
+
+ 26. Image: Brakes.png (EXACT MATCH)
+     Path: ..\Rentals\Brakes.png
+     Categories to update: 2
+       1. ✅ ATTACHED: Brakes
+          ID: 232, Slug: serial-LSH14J7CXMA114599-parent-10
+       2. ✅ ATTACHED: Brakes
+          ID: 466, Slug: serial-LSFAL11A4PA157987-parent-10
+
+ 27. Image: Bumpers, Fascia & Grille.png → Bumpers,Fascia & Grille (97.9%)
+     Path: ..\Rentals\Bumpers, Fascia & Grille.png
+     Categories to update: 2
+       1. ✅ ATTACHED: Bumpers,Fascia & Grille
+          ID: 240, Slug: serial-LSH14J7CXMA114599-parent-11
+       2. ✅ ATTACHED: Bumpers,Fascia & Grille
+          ID: 481, Slug: serial-LSFAL11A4PA157987-parent-11
+
+ 28. Image: Charging & Energy Storage.png → Charging & Energystorage (98.0%)
+     Path: ..\Rentals\Charging & Energy Storage.png
+     Categories to update: 2
+       1. ✅ ATTACHED: Charging & Energystorage
+          ID: 245, Slug: serial-LSH14J7CXMA114599-parent-12
+       2. ✅ ATTACHED: Charging & Energystorage
+          ID: 488, Slug: serial-LSFAL11A4PA157987-parent-12
+
+ 29. Image: Chassis Harnesses .png → Chassis Harnesses (97.1%)
+     Path: ..\Rentals\Chassis Harnesses .png
+     Categories to update: 2
+       1. ✅ ATTACHED: JE865A001 - Chassis Harnesses
+          ID: 318, Slug: serial-LSH14J7CXMA114599-parent-31-child-3
+       2. ✅ ATTACHED: JE865A001 - Chassis Harnesses
+          ID: 606, Slug: serial-LSFAL11A4PA157987-parent-31-child-3
+
+ 30. Image: Chassis Structure.png (EXACT MATCH)
+     Path: ..\Rentals\Chassis Structure.png
+     Categories to update: 2
+       1. ✅ ATTACHED: Chassis Structure
+          ID: 248, Slug: serial-LSH14J7CXMA114599-parent-13
+       2. ✅ ATTACHED: Chassis Structure
+          ID: 493, Slug: serial-LSFAL11A4PA157987-parent-13
+
+ 31. Image: Clusters.png (EXACT MATCH)
+     Path: ..\Rentals\Clusters.png
+     Categories to update: 2
+       1. ✅ ATTACHED: JE711A001 - Clusters
+          ID: 262, Slug: serial-LSH14J7CXMA114599-parent-16-child-2
+       2. ✅ ATTACHED: JE711A001 - Clusters
+          ID: 513, Slug: serial-LSFAL11A4PA157987-parent-16-child-1
+
+ 32. Image: Clutch (MT).png → Clutch(MT) (95.2%)
+     Path: ..\Rentals\Clutch (MT).png
+     Categories to update: 2
+       1. ✅ ATTACHED: JE122A001 - Clutch(MT)
+          ID: 349, Slug: serial-LSH14J7CXMA114599-parent-33-child-2
+       2. ✅ ATTACHED: JE122A001 - Clutch(MT)
+          ID: 666, Slug: serial-LSFAL11A4PA157987-parent-33-child-1
+
+ 33. Image: Clutch (PHEV).png → Clutch(PHEV) (96.0%)
+     Path: ..\Rentals\Clutch (PHEV).png
+     Categories to update: 2
+       1. ✅ ATTACHED: JE122A002 - Clutch(PHEV)
+          ID: 350, Slug: serial-LSH14J7CXMA114599-parent-33-child-3
+       2. ✅ ATTACHED: JE122A002 - Clutch(PHEV)
+          ID: 667, Slug: serial-LSFAL11A4PA157987-parent-33-child-2
+
+ 34. Image: Clutch Apply.png (EXACT MATCH)
+     Path: ..\Rentals\Clutch Apply.png
+     Categories to update: 2
+       1. ✅ ATTACHED: JE153A001 - Clutch Apply
+          ID: 372, Slug: serial-LSH14J7CXMA114599-parent-35-child-2
+       2. ✅ ATTACHED: JE153A001 - Clutch Apply
+          ID: 693, Slug: serial-LSFAL11A4PA157987-parent-35-child-2
+
+ 35. Image: Communication.png → Communicate (83.3%)
+     Path: ..\Rentals\Communication.png
+     Categories to update: 2
+       1. ✅ ATTACHED: Communicate
+          ID: 251, Slug: serial-LSH14J7CXMA114599-parent-14
+       2. ✅ ATTACHED: Communicate
+          ID: 498, Slug: serial-LSFAL11A4PA157987-parent-14
+
+ 36. Image: Coolant Plumbing & Hardware (EV).png → Coolant Plumbing & Hardware--EV (92.1%)
+     Path: ..\Rentals\Coolant Plumbing & Hardware (EV).png
+     Categories to update: 2
+       1. ✅ ATTACHED: JE313A003 - Coolant Plumbing & Hardware--EV
+          ID: 285, Slug: serial-LSH14J7CXMA114599-parent-24-child-1
+       2. ✅ ATTACHED: JE313A003 - Coolant Plumbing & Hardware--EV
+          ID: 551, Slug: serial-LSFAL11A4PA157987-parent-24-child-1
+
+ 37. Image: Coolant Plumbing & Hardware (PHEV).png → Coolant Plumbing & Hardware-PHEV (93.9%)
+     Path: ..\Rentals\Coolant Plumbing & Hardware (PHEV).png
+     Categories to update: 2
+       1. ✅ ATTACHED: JE313A004 - Coolant Plumbing & Hardware-PHEV
+          ID: 286, Slug: serial-LSH14J7CXMA114599-parent-24-child-2
+       2. ✅ ATTACHED: JE313A004 - Coolant Plumbing & Hardware-PHEV
+          ID: 553, Slug: serial-LSFAL11A4PA157987-parent-24-child-3
+
+ 38. Image: Coolant Plumbing & Hardware.png (EXACT MATCH)
+     Path: ..\Rentals\Coolant Plumbing & Hardware.png
+     Categories to update: 2
+       1. ✅ ATTACHED: JE313A001 - Coolant Plumbing & Hardware
+          ID: 287, Slug: serial-LSH14J7CXMA114599-parent-24-child-3
+       2. ✅ ATTACHED: JE313A001 - Coolant Plumbing & Hardware
+          ID: 554, Slug: serial-LSFAL11A4PA157987-parent-24-child-4
+
+ 39. Image: Coolant Pump and Inlet_Outlet Tube & Thermostat.png → Coolant Pump And Inl&OtltTube&Thermostat (89.7%)
+     Path: ..\Rentals\Coolant Pump and Inlet_Outlet Tube & Thermostat.png
+     Categories to update: 2
+       1. ✅ ATTACHED: JE11CL001 - Coolant Pump And Inl&OtltTube&Thermostat
+          ID: 327, Slug: serial-LSH14J7CXMA114599-parent-32-child-3
+       2. ✅ ATTACHED: JE11CL001 - Coolant Pump And Inl&OtltTube&Thermostat
+          ID: 623, Slug: serial-LSFAL11A4PA157987-parent-32-child-3
+
+ 40. Image: Crankshaft Rod.png (EXACT MATCH)
+     Path: ..\Rentals\Crankshaft Rod.png
+     Categories to update: 2
+       1. ✅ ATTACHED: JE11CE001 - Crankshaft Rod
+          ID: 328, Slug: serial-LSH14J7CXMA114599-parent-32-child-4
+       2. ✅ ATTACHED: JE11CE001 - Crankshaft Rod
+          ID: 624, Slug: serial-LSFAL11A4PA157987-parent-32-child-4
+
+ 41. Image: Customer Switches.png (EXACT MATCH)
+     Path: ..\Rentals\Customer Switches.png
+     Categories to update: 2
+       1. ✅ ATTACHED: Customer Switches
+          ID: 253, Slug: serial-LSH14J7CXMA114599-parent-15
+       2. ✅ ATTACHED: Customer Switches
+          ID: 501, Slug: serial-LSFAL11A4PA157987-parent-15
+
+ 42. Image: Cylinder Block & Accessory.png → Cylinder Block&Accessory (96.0%)
+     Path: ..\Rentals\Cylinder Block & Accessory.png
+     Categories to update: 2
+       1. ✅ ATTACHED: JE11CB001 - Cylinder Block&Accessory
+          ID: 329, Slug: serial-LSH14J7CXMA114599-parent-32-child-5
+       2. ✅ ATTACHED: JE11CB001 - Cylinder Block&Accessory
+          ID: 625, Slug: serial-LSFAL11A4PA157987-parent-32-child-5
+
+ 43. Image: Cylinder Head.png (EXACT MATCH)
+     Path: ..\Rentals\Cylinder Head.png
+     Categories to update: 2
+       1. ✅ ATTACHED: JE11CC001 - Cylinder Head
+          ID: 330, Slug: serial-LSH14J7CXMA114599-parent-32-child-6
+       2. ✅ ATTACHED: JE11CC001 - Cylinder Head
+          ID: 626, Slug: serial-LSFAL11A4PA157987-parent-32-child-6
+
+ 44. Image: Damper Pulley & Gear Drive.png → Damper Pulley&GearDrive (93.9%)
+     Path: ..\Rentals\Damper Pulley & Gear Drive.png
+     Categories to update: 2
+       1. ✅ ATTACHED: JE11CM001 - Damper Pulley&GearDrive
+          ID: 331, Slug: serial-LSH14J7CXMA114599-parent-32-child-7
+       2. ✅ ATTACHED: JE11CM001 - Damper Pulley&GearDrive
+          ID: 627, Slug: serial-LSFAL11A4PA157987-parent-32-child-7
+
+ 45. Image: Door Wire Harnesses.png → Door  Wire Harnesses (97.4%)
+     Path: ..\Rentals\Door Wire Harnesses.png
+     Categories to update: 2
+       1. ✅ ATTACHED: JE864A001 - Door  Wire Harnesses
+          ID: 319, Slug: serial-LSH14J7CXMA114599-parent-31-child-4
+       2. ✅ ATTACHED: JE864A001 - Door  Wire Harnesses
+          ID: 607, Slug: serial-LSFAL11A4PA157987-parent-31-child-4
+
+ 46. Image: Driver Information.png (EXACT MATCH)
+     Path: ..\Rentals\Driver Information.png
+     Categories to update: 2
+       1. ✅ ATTACHED: Driver Information
+          ID: 260, Slug: serial-LSH14J7CXMA114599-parent-16
+       2. ✅ ATTACHED: Driver Information
+          ID: 512, Slug: serial-LSFAL11A4PA157987-parent-16
+
+ 47. Image: EGR ASM.png (EXACT MATCH)
+     Path: ..\Rentals\EGR ASM.png
+     Categories to update: 2
+       1. ✅ ATTACHED: JE11CS001 - EGR ASM
+          ID: 332, Slug: serial-LSH14J7CXMA114599-parent-32-child-8
+       2. ✅ ATTACHED: JE11CS001 - EGR ASM
+          ID: 628, Slug: serial-LSFAL11A4PA157987-parent-32-child-8
+
+ 48. Image: Emission Exhaust System.png (EXACT MATCH)
+     Path: ..\Rentals\Emission Exhaust System.png
+     Categories to update: 2
+       1. ✅ ATTACHED: Emission Exhaust System
+          ID: 264, Slug: serial-LSH14J7CXMA114599-parent-17
+       2. ✅ ATTACHED: Emission Exhaust System
+          ID: 517, Slug: serial-LSFAL11A4PA157987-parent-17
+
+ 49. Image: Engine Accessory.png (EXACT MATCH)
+     Path: ..\Rentals\Engine Accessory.png
+     Categories to update: 2
+       1. ✅ ATTACHED: JE11CT001 - Engine Accessory
+          ID: 333, Slug: serial-LSH14J7CXMA114599-parent-32-child-9
+       2. ✅ ATTACHED: JE11CT001 - Engine Accessory
+          ID: 629, Slug: serial-LSFAL11A4PA157987-parent-32-child-9
+
+ 50. Image: Engine ASM.png (EXACT MATCH)
+     Path: ..\Rentals\Engine ASM.png
+     Categories to update: 2
+       1. ✅ ATTACHED: JE11CA001 - Engine ASM
+          ID: 334, Slug: serial-LSH14J7CXMA114599-parent-32-child-10
+       2. ✅ ATTACHED: JE11CA001 - Engine ASM
+          ID: 630, Slug: serial-LSFAL11A4PA157987-parent-32-child-10
+
+ 51. Image: Engine Compartment Fuse Box.png (EXACT MATCH)
+     Path: ..\Rentals\Engine Compartment Fuse Box.png
+     Categories to update: 2
+       1. ✅ ATTACHED: JE867A001 - Engine Compartment Fuse Box
+          ID: 320, Slug: serial-LSH14J7CXMA114599-parent-31-child-5
+       2. ✅ ATTACHED: JE867A001 - Engine Compartment Fuse Box
+          ID: 608, Slug: serial-LSFAL11A4PA157987-parent-31-child-5
+
+ 52. Image: Engine Compartment Harness.png → EngineCompartmentHarness (96.0%)
+     Path: ..\Rentals\Engine Compartment Harness.png
+     Categories to update: 2
+       1. ✅ ATTACHED: JE861A001 - EngineCompartmentHarness
+          ID: 321, Slug: serial-LSH14J7CXMA114599-parent-31-child-6
+       2. ✅ ATTACHED: JE861A001 - EngineCompartmentHarness
+          ID: 609, Slug: serial-LSFAL11A4PA157987-parent-31-child-6
+
+ 53. Image: Engine Management.png (EXACT MATCH)
+     Path: ..\Rentals\Engine Management.png
+     Categories to update: 2
+       1. ✅ ATTACHED: JE131A001 - Engine Management
+          ID: 369, Slug: serial-LSH14J7CXMA114599-parent-34-child-1
+       2. ✅ ATTACHED: JE131A001 - Engine Management
+          ID: 689, Slug: serial-LSFAL11A4PA157987-parent-34-child-1
+
+ 54. Image: Engine Shield.png → Engine shield (100.0%)
+     Path: ..\Rentals\Engine Shield.png
+     Categories to update: 2
+       1. ✅ ATTACHED: JE11CX001 - Engine shield
+          ID: 335, Slug: serial-LSH14J7CXMA114599-parent-32-child-11
+       2. ✅ ATTACHED: JE11CX001 - Engine shield
+          ID: 631, Slug: serial-LSFAL11A4PA157987-parent-32-child-11
+
+ 55. Image: Engine Wiring Harness.png → Engine wiring harness (100.0%)
+     Path: ..\Rentals\Engine Wiring Harness.png
+     Categories to update: 2
+       1. ✅ ATTACHED: JE11CW001 - Engine wiring harness
+          ID: 336, Slug: serial-LSH14J7CXMA114599-parent-32-child-12
+       2. ✅ ATTACHED: JE11CW001 - Engine wiring harness
+          ID: 632, Slug: serial-LSFAL11A4PA157987-parent-32-child-12
+
+ 56. Image: Entertainment.png (EXACT MATCH)
+     Path: ..\Rentals\Entertainment.png
+     Categories to update: 2
+       1. ✅ ATTACHED: Entertainment
+          ID: 266, Slug: serial-LSH14J7CXMA114599-parent-18
+       2. ✅ ATTACHED: Entertainment
+          ID: 520, Slug: serial-LSFAL11A4PA157987-parent-18
+
+ 57. Image: Exhaust Elbow & Turbocharger.png → Exhaust Elbow&Turbocharger (96.3%)
+     Path: ..\Rentals\Exhaust Elbow & Turbocharger.png
+     Categories to update: 2
+       1. ✅ ATTACHED: JE11CH001 - Exhaust Elbow&Turbocharger
+          ID: 337, Slug: serial-LSH14J7CXMA114599-parent-32-child-13
+       2. ✅ ATTACHED: JE11CH001 - Exhaust Elbow&Turbocharger
+          ID: 633, Slug: serial-LSFAL11A4PA157987-parent-32-child-13
+
+ 58. Image: Exhaust System.png → Exhaust system (100.0%)
+     Path: ..\Rentals\Exhaust System.png
+     Categories to update: 2
+       1. ✅ ATTACHED: JE160A001 - Exhaust system
+          ID: 265, Slug: serial-LSH14J7CXMA114599-parent-17-child-1
+       2. ✅ ATTACHED: JE160A001 - Exhaust system
+          ID: 518, Slug: serial-LSFAL11A4PA157987-parent-17-child-1
+
+ 59. Image: fenders.png → Fenders (100.0%)
+     Path: ..\Rentals\fenders.png
+     Categories to update: 2
+       1. ✅ ATTACHED: JE572A001 - Fenders
+          ID: 270, Slug: serial-LSH14J7CXMA114599-parent-19-child-1
+       2. ✅ ATTACHED: JE572A001 - Fenders
+          ID: 526, Slug: serial-LSFAL11A4PA157987-parent-19-child-1
+
+ 60. Image: Floor Trim.png (EXACT MATCH)
+     Path: ..\Rentals\Floor Trim.png
+     Categories to update: 2
+       1. ✅ ATTACHED: JE437A001 - Floor Trim
+          ID: 303, Slug: serial-LSH14J7CXMA114599-parent-28-child-2
+       2. ✅ ATTACHED: JE437A001 - Floor Trim
+          ID: 583, Slug: serial-LSFAL11A4PA157987-parent-28-child-1
+
+ 61. Image: Fluids and Lubrications.png (EXACT MATCH)
+     Path: ..\Rentals\Fluids and Lubrications.png
+     Categories to update: 2
+       1. ✅ ATTACHED: JE919A001 - Fluids and Lubrications
+          ID: 312, Slug: serial-LSH14J7CXMA114599-parent-30-child-1
+       2. ✅ ATTACHED: JE919A001 - Fluids and Lubrications
+          ID: 597, Slug: serial-LSFAL11A4PA157987-parent-30-child-1
+
+ 62. Image: Front Brakes.png (EXACT MATCH)
+     Path: ..\Rentals\Front Brakes.png
+     Categories to update: 2
+       1. ✅ ATTACHED: JE241A001 - Front Brakes
+          ID: 237, Slug: serial-LSH14J7CXMA114599-parent-10-child-5
+       2. ✅ ATTACHED: JE241A001 - Front Brakes
+          ID: 471, Slug: serial-LSFAL11A4PA157987-parent-10-child-5
+
+ 63. Image: Front Bumper.png (EXACT MATCH)
+     Path: ..\Rentals\Front Bumper.png
+     Categories to update: 2
+       1. ✅ ATTACHED: JE621A001 - Front Bumper
+          ID: 241, Slug: serial-LSH14J7CXMA114599-parent-11-child-1
+       2. ✅ ATTACHED: JE621A001 - Front Bumper
+          ID: 482, Slug: serial-LSFAL11A4PA157987-parent-11-child-1
+
+ 64. Image: Front Closures & Sheetmetal.png → Front Closures Front End Sheetmetal (83.9%)
+     Path: ..\Rentals\Front Closures & Sheetmetal.png
+     Categories to update: 2
+       1. ✅ ATTACHED: Front Closures Front End Sheetmetal
+          ID: 269, Slug: serial-LSH14J7CXMA114599-parent-19
+       2. ✅ ATTACHED: Front Closures Front End Sheetmetal
+          ID: 525, Slug: serial-LSFAL11A4PA157987-parent-19
+
+ 65. Image: Front Door Electric Glass Regulator.png (EXACT MATCH)
+     Path: ..\Rentals\Front Door Electric Glass Regulator.png
+     Categories to update: 2
+       1. ✅ ATTACHED: JE551C001 - Front Door Electric Glass Regulator
+          ID: 405, Slug: serial-LSH14J7CXMA114599-parent-43-child-1
+       2. ✅ ATTACHED: JE551C001 - Front Door Electric Glass Regulator
+          ID: 750, Slug: serial-LSFAL11A4PA157987-parent-43-child-1
+
+ 66. Image: Front Door Handle & Lock.png → Front Door Handle and Lock (92.0%)
+     Path: ..\Rentals\Front Door Handle & Lock.png
+     Categories to update: 2
+       1. ✅ ATTACHED: JE551B001 - Front Door Handle and Lock
+          ID: 406, Slug: serial-LSH14J7CXMA114599-parent-43-child-2
+       2. ✅ ATTACHED: JE551B001 - Front Door Handle and Lock
+          ID: 751, Slug: serial-LSFAL11A4PA157987-parent-43-child-2
+
+ 67. Image: Front End Exterior Airflow.png (EXACT MATCH)
+     Path: ..\Rentals\Front End Exterior Airflow.png
+     Categories to update: 2
+       1. ✅ ATTACHED: JE340A001 - Front End Exterior Airflow
+          ID: 276, Slug: serial-LSH14J7CXMA114599-parent-21-child-1
+       2. ✅ ATTACHED: JE340A001 - Front End Exterior Airflow
+          ID: 536, Slug: serial-LSFAL11A4PA157987-parent-21-child-1
+
+ 68. Image: Front Exterior HVAC Airflow.png → Frontexterior Hvac Airflow (98.1%)
+     Path: ..\Rentals\Front Exterior HVAC Airflow.png
+     Categories to update: 2
+       1. ✅ ATTACHED: Frontexterior Hvac Airflow
+          ID: 275, Slug: serial-LSH14J7CXMA114599-parent-21
+       2. ✅ ATTACHED: Frontexterior Hvac Airflow
+          ID: 535, Slug: serial-LSFAL11A4PA157987-parent-21
+
+ 69. Image: Front Interior Control.png (EXACT MATCH)
+     Path: ..\Rentals\Front Interior Control.png
+     Categories to update: 2
+       1. ✅ ATTACHED: JE322A001 - Front Interior Control
+          ID: 278, Slug: serial-LSH14J7CXMA114599-parent-22-child-1
+       2. ✅ ATTACHED: JE322A001 - Front Interior Control
+          ID: 539, Slug: serial-LSFAL11A4PA157987-parent-22-child-1
+
+ 70. Image: Front Interior HVAC Airflow.png (EXACT MATCH)
+     Path: ..\Rentals\Front Interior HVAC Airflow.png
+     Categories to update: 2
+       1. ✅ ATTACHED: JE321A001 - Front Interior HVAC Airflow
+          ID: 279, Slug: serial-LSH14J7CXMA114599-parent-22-child-2
+       2. ✅ ATTACHED: JE321A001 - Front Interior HVAC Airflow
+          ID: 540, Slug: serial-LSFAL11A4PA157987-parent-22-child-2
+
+ 71. Image: Front Lamp.png (EXACT MATCH)
+     Path: ..\Rentals\Front Lamp.png
+     Categories to update: 4
+       1. ✅ ATTACHED: Front Lamp
+          ID: 273, Slug: serial-LSH14J7CXMA114599-parent-20
+       2. ✅ ATTACHED: JE650A001 - Front Lamp
+          ID: 274, Slug: serial-LSH14J7CXMA114599-parent-20-child-1
+       3. ✅ ATTACHED: Front Lamp
+          ID: 532, Slug: serial-LSFAL11A4PA157987-parent-20
+       4. ✅ ATTACHED: JE650A001 - Front Lamp
+          ID: 533, Slug: serial-LSFAL11A4PA157987-parent-20-child-1
+
+ 72. Image: Front Seat (Left).png → Front Seat（Left） (84.8%)
+     Path: ..\Rentals\Front Seat (Left).png
+     Categories to update: 2
+       1. ✅ ATTACHED: JE421B004 - Front Seat（Left）
+          ID: 396, Slug: serial-LSH14J7CXMA114599-parent-42-child-4
+       2. ✅ ATTACHED: JE421B004 - Front Seat（Left）
+          ID: 730, Slug: serial-LSFAL11A4PA157987-parent-42-child-4
+
+ 73. Image: Front Seat (Right).png → Front Seat（Right） (85.7%)
+     Path: ..\Rentals\Front Seat (Right).png
+     Categories to update: 2
+       1. ✅ ATTACHED: JE421B003 - Front Seat（Right）
+          ID: 397, Slug: serial-LSH14J7CXMA114599-parent-42-child-5
+       2. ✅ ATTACHED: JE421B003 - Front Seat（Right）
+          ID: 731, Slug: serial-LSFAL11A4PA157987-parent-42-child-5
+
+ 74. Image: Front Shock Absorber.png (EXACT MATCH)
+     Path: ..\Rentals\Front Shock Absorber.png
+     Categories to update: 2
+       1. ✅ ATTACHED: JE224A001 - Front Shock Absorber
+          ID: 416, Slug: serial-LSH14J7CXMA114599-parent-45-child-1
+       2. ✅ ATTACHED: JE224A001 - Front Shock Absorber
+          ID: 766, Slug: serial-LSFAL11A4PA157987-parent-45-child-1
+
+ 75. Image: Front Side Closure.png (EXACT MATCH)
+     Path: ..\Rentals\Front Side Closure.png
+     Categories to update: 2
+       1. ✅ ATTACHED: JE551A001 - Front Side Closure
+          ID: 407, Slug: serial-LSH14J7CXMA114599-parent-43-child-3
+       2. ✅ ATTACHED: JE551A001 - Front Side Closure
+          ID: 752, Slug: serial-LSFAL11A4PA157987-parent-43-child-3
+
+ 76. Image: Front Sub-frame.png (EXACT MATCH)
+     Path: ..\Rentals\Front Sub-frame.png
+     Categories to update: 2
+       1. ✅ ATTACHED: JE251A001 - Front Sub-frame
+          ID: 249, Slug: serial-LSH14J7CXMA114599-parent-13-child-1
+       2. ✅ ATTACHED: JE251A001 - Front Sub-frame
+          ID: 494, Slug: serial-LSFAL11A4PA157987-parent-13-child-1
+
+ 77. Image: Front Suspension.png (EXACT MATCH)
+     Path: ..\Rentals\Front Suspension.png
+     Categories to update: 2
+       1. ✅ ATTACHED: JE221A001 - Front Suspension
+          ID: 417, Slug: serial-LSH14J7CXMA114599-parent-45-child-2
+       2. ✅ ATTACHED: JE221A001 - Front Suspension
+          ID: 767, Slug: serial-LSFAL11A4PA157987-parent-45-child-2
+
+ 78. Image: Fuel Plumbing & Hardware.png (EXACT MATCH)
+     Path: ..\Rentals\Fuel Plumbing & Hardware.png
+     Categories to update: 2
+       1. ✅ ATTACHED: JE183A001 - Fuel Plumbing & Hardware
+          ID: 281, Slug: serial-LSH14J7CXMA114599-parent-23-child-1
+       2. ✅ ATTACHED: JE183A001 - Fuel Plumbing & Hardware
+          ID: 544, Slug: serial-LSFAL11A4PA157987-parent-23-child-1
+
+ 79. Image: Fuel Storage & Handling.png (EXACT MATCH)
+     Path: ..\Rentals\Fuel Storage & Handling.png
+     Categories to update: 2
+       1. ✅ ATTACHED: Fuel Storage & Handling
+          ID: 280, Slug: serial-LSH14J7CXMA114599-parent-23
+       2. ✅ ATTACHED: Fuel Storage & Handling
+          ID: 543, Slug: serial-LSFAL11A4PA157987-parent-23
+
+ 80. Image: Fuel Tank & Canister.png (EXACT MATCH)
+     Path: ..\Rentals\Fuel Tank & Canister.png
+     Categories to update: 2
+       1. ✅ ATTACHED: JE181A001 - Fuel Tank & Canister
+          ID: 282, Slug: serial-LSH14J7CXMA114599-parent-23-child-2
+       2. ✅ ATTACHED: JE181A001 - Fuel Tank & Canister
+          ID: 545, Slug: serial-LSFAL11A4PA157987-parent-23-child-2
+
+ 81. Image: Grille.png (EXACT MATCH)
+     Path: ..\Rentals\Grille.png
+     Categories to update: 2
+       1. ✅ ATTACHED: JE623A001 - Grille
+          ID: 242, Slug: serial-LSH14J7CXMA114599-parent-11-child-2
+       2. ✅ ATTACHED: JE623A001 - Grille
+          ID: 483, Slug: serial-LSFAL11A4PA157987-parent-11-child-2
+
+ 82. Image: Head Cover & PCV.png → Head Cover&PCV (93.3%)
+     Path: ..\Rentals\Head Cover & PCV.png
+     Categories to update: 2
+       1. ✅ ATTACHED: JE11CD001 - Head Cover&PCV
+          ID: 339, Slug: serial-LSH14J7CXMA114599-parent-32-child-15
+       2. ✅ ATTACHED: JE11CD001 - Head Cover&PCV
+          ID: 635, Slug: serial-LSFAL11A4PA157987-parent-32-child-15
+
+ 83. Image: Hood Lock.png (EXACT MATCH)
+     Path: ..\Rentals\Hood Lock.png
+     Categories to update: 2
+       1. ✅ ATTACHED: JE571B001 - Hood Lock
+          ID: 271, Slug: serial-LSH14J7CXMA114599-parent-19-child-2
+       2. ✅ ATTACHED: JE571B001 - Hood Lock
+          ID: 527, Slug: serial-LSFAL11A4PA157987-parent-19-child-2
+
+ 84. Image: Hood.png (EXACT MATCH)
+     Path: ..\Rentals\Hood.png
+     Categories to update: 2
+       1. ✅ ATTACHED: JE571A001 - Hood
+          ID: 272, Slug: serial-LSH14J7CXMA114599-parent-19-child-3
+       2. ✅ ATTACHED: JE571A001 - Hood
+          ID: 528, Slug: serial-LSFAL11A4PA157987-parent-19-child-3
+
+ 85. Image: HVAC & Powertrain Cooling.png → Hvac & Powertrain Coolingin (96.2%)
+     Path: ..\Rentals\HVAC & Powertrain Cooling.png
+     Categories to update: 2
+       1. ✅ ATTACHED: Hvac & Powertrain Coolingin
+          ID: 284, Slug: serial-LSH14J7CXMA114599-parent-24
+       2. ✅ ATTACHED: Hvac & Powertrain Coolingin
+          ID: 550, Slug: serial-LSFAL11A4PA157987-parent-24
+
+ 86. Image: Ignition Switch and Key _.png.png → Ignition Switch and Key (88.5%)
+     Path: ..\Rentals\Ignition Switch and Key _.png.png
+     Categories to update: 2
+       1. ✅ ATTACHED: JE725A001 - Ignition Switch and Key
+          ID: 256, Slug: serial-LSH14J7CXMA114599-parent-15-child-3
+       2. ✅ ATTACHED: JE725A001 - Ignition Switch and Key
+          ID: 503, Slug: serial-LSFAL11A4PA157987-parent-15-child-2
+
+ 87. Image: Infotainment System.png (EXACT MATCH)
+     Path: ..\Rentals\Infotainment System.png
+     Categories to update: 2
+       1. ✅ ATTACHED: JE731A001 - Infotainment System
+          ID: 267, Slug: serial-LSH14J7CXMA114599-parent-18-child-1
+       2. ✅ ATTACHED: JE731A001 - Infotainment System
+          ID: 521, Slug: serial-LSFAL11A4PA157987-parent-18-child-1
+
+ 88. Image: Inner Framing (left side).png → inner framing(left side) (98.0%)
+     Path: ..\Rentals\Inner Framing (left side).png
+     Categories to update: 2
+       1. ✅ ATTACHED: JE521A001 - inner framing(left side)
+          ID: 225, Slug: serial-LSH14J7CXMA114599-parent-8-child-2
+       2. ✅ ATTACHED: JE521A001 - inner framing(left side)
+          ID: 450, Slug: serial-LSFAL11A4PA157987-parent-8-child-2
+
+ 89. Image: Inner Framing (right side) .png → inner framing(right side) (96.2%)
+     Path: ..\Rentals\Inner Framing (right side) .png
+     Categories to update: 2
+       1. ✅ ATTACHED: JE521B001 - inner framing(right side)
+          ID: 226, Slug: serial-LSH14J7CXMA114599-parent-8-child-3
+       2. ✅ ATTACHED: JE521B001 - inner framing(right side)
+          ID: 451, Slug: serial-LSFAL11A4PA157987-parent-8-child-3
+
+ 90. Image: Instrument Panel & Console.png (EXACT MATCH)
+     Path: ..\Rentals\Instrument Panel & Console.png
+     Categories to update: 2
+       1. ✅ ATTACHED: Instrument Panel & Console
+          ID: 292, Slug: serial-LSH14J7CXMA114599-parent-25
+       2. ✅ ATTACHED: Instrument Panel & Console
+          ID: 567, Slug: serial-LSFAL11A4PA157987-parent-25
+
+ 91. Image: Instrument Panel (LHD).png → Instrument Panel（LHD） (88.4%)
+     Path: ..\Rentals\Instrument Panel (LHD).png
+     Categories to update: 2
+       1. ✅ ATTACHED: JE411A001 - Instrument Panel（LHD）
+          ID: 295, Slug: serial-LSH14J7CXMA114599-parent-25-child-3
+       2. ✅ ATTACHED: JE411A001 - Instrument Panel（LHD）
+          ID: 570, Slug: serial-LSFAL11A4PA157987-parent-25-child-3
+
+ 92. Image: Instrument Panel (RHD).png → Instrument Panel（RHD） (88.4%)
+     Path: ..\Rentals\Instrument Panel (RHD).png
+     Categories to update: 2
+       1. ✅ ATTACHED: JE411A002 - Instrument Panel（RHD）
+          ID: 296, Slug: serial-LSH14J7CXMA114599-parent-25-child-4
+       2. ✅ ATTACHED: JE411A002 - Instrument Panel（RHD）
+          ID: 571, Slug: serial-LSFAL11A4PA157987-parent-25-child-4
+
+ 93. Image: Instrument Panel Crossmember (LHD).png → Instrument Panel Crossmember（LHD） (92.5%)
+     Path: ..\Rentals\Instrument Panel Crossmember (LHD).png
+     Categories to update: 2
+       1. ✅ ATTACHED: JE412A001 - Instrument Panel Crossmember（LHD）
+          ID: 293, Slug: serial-LSH14J7CXMA114599-parent-25-child-1
+       2. ✅ ATTACHED: JE412A001 - Instrument Panel Crossmember（LHD）
+          ID: 568, Slug: serial-LSFAL11A4PA157987-parent-25-child-1
+
+ 94. Image: Instrument Panel Crossmember (RHD).png → Instrument Panel Crossmember（RHD） (92.5%)
+     Path: ..\Rentals\Instrument Panel Crossmember (RHD).png
+     Categories to update: 2
+       1. ✅ ATTACHED: JE412A002 - Instrument Panel Crossmember（RHD）
+          ID: 294, Slug: serial-LSH14J7CXMA114599-parent-25-child-2
+       2. ✅ ATTACHED: JE412A002 - Instrument Panel Crossmember（RHD）
+          ID: 569, Slug: serial-LSFAL11A4PA157987-parent-25-child-2
+
+ 95. Image: Instrument Panel Wire Harnesses.png → Instrument Panel  Wire Harnesses (98.4%)
+     Path: ..\Rentals\Instrument Panel Wire Harnesses.png
+     Categories to update: 2
+       1. ✅ ATTACHED: JE863A001 - Instrument Panel  Wire Harnesses
+          ID: 322, Slug: serial-LSH14J7CXMA114599-parent-31-child-7
+       2. ✅ ATTACHED: JE863A001 - Instrument Panel  Wire Harnesses
+          ID: 610, Slug: serial-LSFAL11A4PA157987-parent-31-child-7
+
+ 96. Image: Interior Acoustic System.png → Interior Acoustic Syetem (95.8%)
+     Path: ..\Rentals\Interior Acoustic System.png
+     Categories to update: 2
+       1. ✅ ATTACHED: Interior Acoustic Syetem
+          ID: 297, Slug: serial-LSH14J7CXMA114599-parent-26
+       2. ✅ ATTACHED: Interior Acoustic Syetem
+          ID: 576, Slug: serial-LSFAL11A4PA157987-parent-26
+
+ 97. Image: Interior Heating Pipe-FCV.png (EXACT MATCH)
+     Path: ..\Rentals\Interior Heating Pipe-FCV.png
+     Categories to update: 2
+       1. ✅ ATTACHED: JE334A002 - Interior Heating Pipe-FCV
+          ID: 384, Slug: serial-LSH14J7CXMA114599-parent-39-child-1
+       2. ✅ ATTACHED: JE334A002 - Interior Heating Pipe-FCV
+          ID: 712, Slug: serial-LSFAL11A4PA157987-parent-39-child-1
+
+ 98. Image: Interior Heating Pipe.png (EXACT MATCH)
+     Path: ..\Rentals\Interior Heating Pipe.png
+     Categories to update: 2
+       1. ✅ ATTACHED: JE334A001 - Interior Heating Pipe
+          ID: 385, Slug: serial-LSH14J7CXMA114599-parent-39-child-2
+       2. ✅ ATTACHED: JE334A001 - Interior Heating Pipe
+          ID: 713, Slug: serial-LSFAL11A4PA157987-parent-39-child-2
+
+ 99. Image: Interior Lamp.png (EXACT MATCH)
+     Path: ..\Rentals\Interior Lamp.png
+     Categories to update: 2
+       1. ✅ ATTACHED: Interior Lamp
+          ID: 299, Slug: serial-LSH14J7CXMA114599-parent-27
+       2. ✅ ATTACHED: Interior Lamp
+          ID: 579, Slug: serial-LSFAL11A4PA157987-parent-27
+
+100. Image: Interior Trim.png (EXACT MATCH)
+     Path: ..\Rentals\Interior Trim.png
+     Categories to update: 2
+       1. ✅ ATTACHED: Interior Trim
+          ID: 301, Slug: serial-LSH14J7CXMA114599-parent-28
+       2. ✅ ATTACHED: Interior Trim
+          ID: 582, Slug: serial-LSFAL11A4PA157987-parent-28
+
+101. Image: LP-EGR Intake Pipe & Accessory.png → LP-EGR intake pipe&Accessory (96.6%)
+     Path: ..\Rentals\LP-EGR Intake Pipe & Accessory.png
+     Categories to update: 2
+       1. ✅ ATTACHED: JE11CU001 - LP-EGR intake pipe&Accessory
+          ID: 340, Slug: serial-LSH14J7CXMA114599-parent-32-child-16
+       2. ✅ ATTACHED: JE11CU001 - LP-EGR intake pipe&Accessory
+          ID: 636, Slug: serial-LSFAL11A4PA157987-parent-32-child-16
+
+102. Image: Manifold ASM-INT.png → MANIFOLD ASM-INT (100.0%)
+     Path: ..\Rentals\Manifold ASM-INT.png
+     Categories to update: 2
+       1. ✅ ATTACHED: JE11CG001 - MANIFOLD ASM-INT
+          ID: 341, Slug: serial-LSH14J7CXMA114599-parent-32-child-17
+       2. ✅ ATTACHED: JE11CG001 - MANIFOLD ASM-INT
+          ID: 637, Slug: serial-LSFAL11A4PA157987-parent-32-child-17
+
+103. Image: Manual Transmission Assembly (6MT Front_Back .png → Manual transmission assembly（6MT Front/Back drive） (88.4%)
+     Path: ..\Rentals\Manual Transmission Assembly (6MT Front_Back .png
+     Categories to update: 2
+       1. ✅ ATTACHED: JE121A001 - Manual transmission assembly（6MT Front/Back drive）
+          ID: 351, Slug: serial-LSH14J7CXMA114599-parent-33-child-4
+       2. ✅ ATTACHED: JE121A001 - Manual transmission assembly（6MT Front/Back drive）
+          ID: 668, Slug: serial-LSFAL11A4PA157987-parent-33-child-3
+
+104. Image: Mounts.png (EXACT MATCH)
+     Path: ..\Rentals\Mounts.png
+     Categories to update: 2
+       1. ✅ ATTACHED: Mounts
+          ID: 309, Slug: serial-LSH14J7CXMA114599-parent-29
+       2. ✅ ATTACHED: Mounts
+          ID: 591, Slug: serial-LSFAL11A4PA157987-parent-29
+
+105. Image: Mud Guard.png (EXACT MATCH)
+     Path: ..\Rentals\Mud Guard.png
+     Categories to update: 2
+       1. ✅ ATTACHED: JE644A001 - Mud Guard
+          ID: 217, Slug: serial-LSH14J7CXMA114599-parent-5-child-2
+       2. ✅ ATTACHED: JE644A001 - Mud Guard
+          ID: 440, Slug: serial-LSFAL11A4PA157987-parent-5-child-1
+
+106. Image: Multi-Function Column Switch .png → Multi-Function Column Switch (98.2%)
+     Path: ..\Rentals\Multi-Function Column Switch .png
+     Categories to update: 2
+       1. ✅ ATTACHED: JE723A001 - Multi-Function Column Switch
+          ID: 257, Slug: serial-LSH14J7CXMA114599-parent-15-child-4
+       2. ✅ ATTACHED: JE723A001 - Multi-Function Column Switch
+          ID: 504, Slug: serial-LSFAL11A4PA157987-parent-15-child-3
+
+107. Image: Oil Cooler and Inlet_Outlet Tube & Filter.png → Oil Cooler And Inl&OtltTube&Filter (88.0%)
+     Path: ..\Rentals\Oil Cooler and Inlet_Outlet Tube & Filter.png
+     Categories to update: 2
+       1. ✅ ATTACHED: JE11CJ001 - Oil Cooler And Inl&OtltTube&Filter
+          ID: 342, Slug: serial-LSH14J7CXMA114599-parent-32-child-18
+       2. ✅ ATTACHED: JE11CJ001 - Oil Cooler And Inl&OtltTube&Filter
+          ID: 638, Slug: serial-LSFAL11A4PA157987-parent-32-child-18
+
+108. Image: On-Vehicle Attachments.png → On Vehicle Attachments (95.5%)
+     Path: ..\Rentals\On-Vehicle Attachments.png
+     Categories to update: 2
+       1. ✅ ATTACHED: JE911A001 - On Vehicle Attachments
+          ID: 313, Slug: serial-LSH14J7CXMA114599-parent-30-child-2
+       2. ✅ ATTACHED: JE911A001 - On Vehicle Attachments
+          ID: 598, Slug: serial-LSFAL11A4PA157987-parent-30-child-2
+
+109. Image: On-Vehicle Tools.png → On Vehicle Tools (93.8%)
+     Path: ..\Rentals\On-Vehicle Tools.png
+     Categories to update: 2
+       1. ✅ ATTACHED: JE917A001 - On Vehicle Tools
+          ID: 314, Slug: serial-LSH14J7CXMA114599-parent-30-child-3
+       2. ✅ ATTACHED: JE917A001 - On Vehicle Tools
+          ID: 599, Slug: serial-LSFAL11A4PA157987-parent-30-child-3
+
+110. Image: Outer Framing (left side).png → Outer Framing(left side) (98.0%)
+     Path: ..\Rentals\Outer Framing (left side).png
+     Categories to update: 2
+       1. ✅ ATTACHED: JE522A001 - Outer Framing(left side)
+          ID: 227, Slug: serial-LSH14J7CXMA114599-parent-8-child-4
+       2. ✅ ATTACHED: JE522A001 - Outer Framing(left side)
+          ID: 452, Slug: serial-LSFAL11A4PA157987-parent-8-child-4
+
+111. Image: Outer Framing (right side) .png → Outer Framing(right side) (96.2%)
+     Path: ..\Rentals\Outer Framing (right side) .png
+     Categories to update: 2
+       1. ✅ ATTACHED: JE522B001 - Outer Framing(right side)
+          ID: 228, Slug: serial-LSH14J7CXMA114599-parent-8-child-5
+       2. ✅ ATTACHED: JE522B001 - Outer Framing(right side)
+          ID: 453, Slug: serial-LSFAL11A4PA157987-parent-8-child-5
+
+112. Image: Park Brake.png (EXACT MATCH)
+     Path: ..\Rentals\Park Brake.png
+     Categories to update: 2
+       1. ✅ ATTACHED: JE243A001 - Park Brake
+          ID: 238, Slug: serial-LSH14J7CXMA114599-parent-10-child-6
+       2. ✅ ATTACHED: JE243A001 - Park Brake
+          ID: 472, Slug: serial-LSFAL11A4PA157987-parent-10-child-6
+
+113. Image: Passive Entry Passive Start .png → Passive Entry Passive Start (98.2%)
+     Path: ..\Rentals\Passive Entry Passive Start .png
+     Categories to update: 2
+       1. ✅ ATTACHED: JE821A001 - Passive Entry Passive Start
+          ID: 258, Slug: serial-LSH14J7CXMA114599-parent-15-child-5
+       2. ✅ ATTACHED: JE821A001 - Passive Entry Passive Start
+          ID: 505, Slug: serial-LSFAL11A4PA157987-parent-15-child-4
+
+114. Image: Power & Signal Distribution.png → Power & Signaldistribution (98.1%)
+     Path: ..\Rentals\Power & Signal Distribution.png
+     Categories to update: 2
+       1. ✅ ATTACHED: Power & Signaldistribution
+          ID: 315, Slug: serial-LSH14J7CXMA114599-parent-31
+       2. ✅ ATTACHED: Power & Signaldistribution
+          ID: 603, Slug: serial-LSFAL11A4PA157987-parent-31
+
+115. Image: Power Assembly Installation.png → Power assembly installation (100.0%)
+     Path: ..\Rentals\Power Assembly Installation.png
+     Categories to update: 2
+       1. ✅ ATTACHED: JE261A001 - Power assembly installation
+          ID: 310, Slug: serial-LSH14J7CXMA114599-parent-29-child-1
+       2. ✅ ATTACHED: JE261A001 - Power assembly installation
+          ID: 592, Slug: serial-LSFAL11A4PA157987-parent-29-child-1
+
+116. Image: Power Inverter.png → PowerInverter (96.3%)
+     Path: ..\Rentals\Power Inverter.png
+     Categories to update: 2
+       1. ✅ ATTACHED: JE844A002 - PowerInverter
+          ID: 247, Slug: serial-LSH14J7CXMA114599-parent-12-child-2
+       2. ✅ ATTACHED: JE844A002 - PowerInverter
+          ID: 490, Slug: serial-LSFAL11A4PA157987-parent-12-child-2
+
+117. Image: Power Outlet & Cigarette Lighter Device.png → Power Outlet & Cigarette Lighter HEvice (97.4%)
+     Path: ..\Rentals\Power Outlet & Cigarette Lighter Device.png
+     Categories to update: 2
+       1. ✅ ATTACHED: JE868A001 - Power Outlet & Cigarette Lighter HEvice
+          ID: 323, Slug: serial-LSH14J7CXMA114599-parent-31-child-8
+       2. ✅ ATTACHED: JE868A001 - Power Outlet & Cigarette Lighter HEvice
+          ID: 611, Slug: serial-LSFAL11A4PA157987-parent-31-child-8
+
+118. Image: Power Transmission.png (EXACT MATCH)
+     Path: ..\Rentals\Power Transmission.png
+     Categories to update: 2
+       1. ✅ ATTACHED: Power Transmission
+          ID: 347, Slug: serial-LSH14J7CXMA114599-parent-33
+       2. ✅ ATTACHED: Power Transmission
+          ID: 665, Slug: serial-LSFAL11A4PA157987-parent-33
+
+119. Image: Powertrain Control & Diagnostic.png → Powertrain Control&Diagnostic (96.7%)
+     Path: ..\Rentals\Powertrain Control & Diagnostic.png
+     Categories to update: 2
+       1. ✅ ATTACHED: Powertrain Control&Diagnostic
+          ID: 368, Slug: serial-LSH14J7CXMA114599-parent-34
+       2. ✅ ATTACHED: Powertrain Control&Diagnostic
+          ID: 688, Slug: serial-LSFAL11A4PA157987-parent-34
+
+120. Image: Powertrain Driver Interface.png (EXACT MATCH)
+     Path: ..\Rentals\Powertrain Driver Interface.png
+     Categories to update: 2
+       1. ✅ ATTACHED: Powertrain Driver Interface
+          ID: 370, Slug: serial-LSH14J7CXMA114599-parent-35
+       2. ✅ ATTACHED: Powertrain Driver Interface
+          ID: 691, Slug: serial-LSFAL11A4PA157987-parent-35
+
+121. Image: Powertrain Mounts (Electric vehicle).png → Powertrain Mounts-Electric vehicle (94.3%)
+     Path: ..\Rentals\Powertrain Mounts (Electric vehicle).png
+     Categories to update: 1
+       1. ✅ ATTACHED: JE261A002 - Powertrain Mounts-Electric vehicle
+          ID: 593, Slug: serial-LSFAL11A4PA157987-parent-29-child-2
+
+122. Image: Propeller Shaft.png (EXACT MATCH)
+     Path: ..\Rentals\Propeller Shaft.png
+     Categories to update: 1
+       1. ✅ ATTACHED: JE123A001 - Propeller Shaft
+          ID: 669, Slug: serial-LSFAL11A4PA157987-parent-33-child-4
+
+123. Image: Rear Axle (Front drive vehicle).png → Rear  Axle （Front drive vehicle） (92.1%)
+     Path: ..\Rentals\Rear Axle (Front drive vehicle).png
+     Categories to update: 2
+       1. ✅ ATTACHED: JE125A002 - Rear  Axle （Front drive vehicle）
+          ID: 353, Slug: serial-LSH14J7CXMA114599-parent-33-child-6
+       2. ✅ ATTACHED: JE125A002 - Rear  Axle （Front drive vehicle）
+          ID: 670, Slug: serial-LSFAL11A4PA157987-parent-33-child-5
+
+124. Image: Rear Brakes.png (EXACT MATCH)
+     Path: ..\Rentals\Rear Brakes.png
+     Categories to update: 2
+       1. ✅ ATTACHED: JE242A001 - Rear Brakes
+          ID: 239, Slug: serial-LSH14J7CXMA114599-parent-10-child-7
+       2. ✅ ATTACHED: JE242A001 - Rear Brakes
+          ID: 473, Slug: serial-LSFAL11A4PA157987-parent-10-child-7
+
+125. Image: Rear Drive Axle (YUE JIN).png → Rear Drive Axle（YUE JIN） (89.8%)
+     Path: ..\Rentals\Rear Drive Axle (YUE JIN).png
+     Categories to update: 2
+       1. ✅ ATTACHED: JE125A003 - Rear Drive Axle（YUE JIN）
+          ID: 354, Slug: serial-LSH14J7CXMA114599-parent-33-child-7
+       2. ✅ ATTACHED: JE125A003 - Rear Drive Axle（YUE JIN）
+          ID: 671, Slug: serial-LSFAL11A4PA157987-parent-33-child-6
+
+126. Image: Rear Drive Axle.png (EXACT MATCH)
+     Path: ..\Rentals\Rear Drive Axle.png
+     Categories to update: 1
+       1. ✅ ATTACHED: JE125A001 - Rear Drive Axle
+          ID: 672, Slug: serial-LSFAL11A4PA157987-parent-33-child-7
+
+127. Image: Rear Electric Drive Axle.png → Rear Electric  Drive Axle (98.0%)
+     Path: ..\Rentals\Rear Electric Drive Axle.png
+     Categories to update: 2
+       1. ✅ ATTACHED: JE125A004 - Rear Electric  Drive Axle
+          ID: 355, Slug: serial-LSH14J7CXMA114599-parent-33-child-8
+       2. ✅ ATTACHED: JE125A004 - Rear Electric  Drive Axle
+          ID: 673, Slug: serial-LSFAL11A4PA157987-parent-33-child-8
+
+128. Image: Rear Interior Airflow.png (EXACT MATCH)
+     Path: ..\Rentals\Rear Interior Airflow.png
+     Categories to update: 2
+       1. ✅ ATTACHED: JE331A001 - Rear Interior Airflow
+          ID: 386, Slug: serial-LSH14J7CXMA114599-parent-39-child-3
+       2. ✅ ATTACHED: JE331A001 - Rear Interior Airflow
+          ID: 714, Slug: serial-LSFAL11A4PA157987-parent-39-child-3
+
+129. Image: Rear Interior HVAC Airflow.png → Rearinterior Hvac Airflow (98.0%)
+     Path: ..\Rentals\Rear Interior HVAC Airflow.png
+     Categories to update: 2
+       1. ✅ ATTACHED: Rearinterior Hvac Airflow
+          ID: 383, Slug: serial-LSH14J7CXMA114599-parent-39
+       2. ✅ ATTACHED: Rearinterior Hvac Airflow
+          ID: 711, Slug: serial-LSFAL11A4PA157987-parent-39
+
+130. Image: Rear Lamp.png (EXACT MATCH)
+     Path: ..\Rentals\Rear Lamp.png
+     Categories to update: 4
+       1. ✅ ATTACHED: Rear Lamp
+          ID: 379, Slug: serial-LSH14J7CXMA114599-parent-37
+       2. ✅ ATTACHED: JE660A001 - Rear Lamp
+          ID: 380, Slug: serial-LSH14J7CXMA114599-parent-37-child-1
+       3. ✅ ATTACHED: Rear Lamp
+          ID: 705, Slug: serial-LSFAL11A4PA157987-parent-37
+       4. ✅ ATTACHED: JE660A001 - Rear Lamp
+          ID: 706, Slug: serial-LSFAL11A4PA157987-parent-37-child-1
+
+131. Image: Rear Panel.png (EXACT MATCH)
+     Path: ..\Rentals\Rear Panel.png
+     Categories to update: 1
+       1. ✅ ATTACHED: JE524A001 - Rear Panel
+          ID: 454, Slug: serial-LSFAL11A4PA157987-parent-8-child-6
+
+132. Image: Rear Shock Absorber.png (EXACT MATCH)
+     Path: ..\Rentals\Rear Shock Absorber.png
+     Categories to update: 2
+       1. ✅ ATTACHED: JE225A001 - Rear Shock Absorber
+          ID: 418, Slug: serial-LSH14J7CXMA114599-parent-45-child-3
+       2. ✅ ATTACHED: JE225A001 - Rear Shock Absorber
+          ID: 768, Slug: serial-LSFAL11A4PA157987-parent-45-child-3
+
+133. Image: Rear Suspension.png (EXACT MATCH)
+     Path: ..\Rentals\Rear Suspension.png
+     Categories to update: 2
+       1. ✅ ATTACHED: JE222A001 - Rear Suspension
+          ID: 419, Slug: serial-LSH14J7CXMA114599-parent-45-child-4
+       2. ✅ ATTACHED: JE222A001 - Rear Suspension
+          ID: 769, Slug: serial-LSFAL11A4PA157987-parent-45-child-4
+
+134. Image: Rear View Mirror.png (EXACT MATCH)
+     Path: ..\Rentals\Rear View Mirror.png
+     Categories to update: 4
+       1. ✅ ATTACHED: Rear View Mirror
+          ID: 381, Slug: serial-LSH14J7CXMA114599-parent-38
+       2. ✅ ATTACHED: JE580A001 - Rear View Mirror
+          ID: 382, Slug: serial-LSH14J7CXMA114599-parent-38-child-1
+       3. ✅ ATTACHED: Rear View Mirror
+          ID: 708, Slug: serial-LSFAL11A4PA157987-parent-38
+       4. ✅ ATTACHED: JE580A001 - Rear View Mirror
+          ID: 709, Slug: serial-LSFAL11A4PA157987-parent-38-child-1
+
+135. Image: Refrigerant Plumbing & Hardware (Electric vehicle).png → Refrigerant Plumbing & Hardware-Electric vehicle (95.9%)
+     Path: ..\Rentals\Refrigerant Plumbing & Hardware (Electric vehicle).png
+     Categories to update: 2
+       1. ✅ ATTACHED: JE312A002 - Refrigerant Plumbing & Hardware-Electric vehicle
+          ID: 288, Slug: serial-LSH14J7CXMA114599-parent-24-child-4
+       2. ✅ ATTACHED: JE312A002 - Refrigerant Plumbing & Hardware-Electric vehicle
+          ID: 555, Slug: serial-LSFAL11A4PA157987-parent-24-child-5
+
+136. Image: Refrigerant Plumbing & Hardware (FCV).png → Refrigerant Plumbing & Hardware-FCV (94.4%)
+     Path: ..\Rentals\Refrigerant Plumbing & Hardware (FCV).png
+     Categories to update: 2
+       1. ✅ ATTACHED: JE312A003 - Refrigerant Plumbing & Hardware-FCV
+          ID: 289, Slug: serial-LSH14J7CXMA114599-parent-24-child-5
+       2. ✅ ATTACHED: JE312A003 - Refrigerant Plumbing & Hardware-FCV
+          ID: 556, Slug: serial-LSFAL11A4PA157987-parent-24-child-6
+
+137. Image: Refrigerant Plumbing & Hardware (PHEV).png → Refrigerant Plumbing & Hardware-PHEV (94.6%)
+     Path: ..\Rentals\Refrigerant Plumbing & Hardware (PHEV).png
+     Categories to update: 2
+       1. ✅ ATTACHED: JE312A004 - Refrigerant Plumbing & Hardware-PHEV
+          ID: 290, Slug: serial-LSH14J7CXMA114599-parent-24-child-6
+       2. ✅ ATTACHED: JE312A004 - Refrigerant Plumbing & Hardware-PHEV
+          ID: 557, Slug: serial-LSFAL11A4PA157987-parent-24-child-7
+
+138. Image: Refrigerant Plumbing & Hardware.png (EXACT MATCH)
+     Path: ..\Rentals\Refrigerant Plumbing & Hardware.png
+     Categories to update: 2
+       1. ✅ ATTACHED: JE312A001 - Refrigerant Plumbing & Hardware
+          ID: 291, Slug: serial-LSH14J7CXMA114599-parent-24-child-7
+       2. ✅ ATTACHED: JE312A001 - Refrigerant Plumbing & Hardware
+          ID: 558, Slug: serial-LSFAL11A4PA157987-parent-24-child-8
+
+139. Image: Roof Framing .png → Roof Framing (96.0%)
+     Path: ..\Rentals\Roof Framing .png
+     Categories to update: 2
+       1. ✅ ATTACHED: JE523A001 - Roof Framing
+          ID: 229, Slug: serial-LSH14J7CXMA114599-parent-8-child-6
+       2. ✅ ATTACHED: JE523A001 - Roof Framing
+          ID: 455, Slug: serial-LSFAL11A4PA157987-parent-8-child-7
+
+140. Image: Roof Trim.png (EXACT MATCH)
+     Path: ..\Rentals\Roof Trim.png
+     Categories to update: 2
+       1. ✅ ATTACHED: JE436A001 - Roof Trim
+          ID: 306, Slug: serial-LSH14J7CXMA114599-parent-28-child-5
+       2. ✅ ATTACHED: JE436A001 - Roof Trim
+          ID: 585, Slug: serial-LSFAL11A4PA157987-parent-28-child-3
+
+141. Image: Safety & Avoidance.png → Safety&Avoidance (94.1%)
+     Path: ..\Rentals\Safety & Avoidance.png
+     Categories to update: 2
+       1. ✅ ATTACHED: Safety&Avoidance
+          ID: 389, Slug: serial-LSH14J7CXMA114599-parent-41
+       2. ✅ ATTACHED: Safety&Avoidance
+          ID: 721, Slug: serial-LSFAL11A4PA157987-parent-41
+
+142. Image: Safety Belt.png (EXACT MATCH)
+     Path: ..\Rentals\Safety Belt.png
+     Categories to update: 2
+       1. ✅ ATTACHED: Safety Belt
+          ID: 387, Slug: serial-LSH14J7CXMA114599-parent-40
+       2. ✅ ATTACHED: Safety Belt
+          ID: 718, Slug: serial-LSFAL11A4PA157987-parent-40
+
+143. Image: Seat Arrangement of Shang Jie’s 11_12_14 Seats.png → Seat Arrangement of Shang Jie's 11 12and 14 Seats (Australia) (80.4%)
+     Path: ..\Rentals\Seat Arrangement of Shang Jie’s 11_12_14 Seats.png
+     Categories to update: 2
+       1. ✅ ATTACHED: JE421AE001 - Seat Arrangement of Shang Jie's 11 12and 14 Seats (Australia)
+          ID: 398, Slug: serial-LSH14J7CXMA114599-parent-42-child-6
+       2. ✅ ATTACHED: JE421AE001 - Seat Arrangement of Shang Jie's 11 12and 14 Seats (Australia)
+          ID: 732, Slug: serial-LSFAL11A4PA157987-parent-42-child-6
+
+144. Image: Seats.png (EXACT MATCH)
+     Path: ..\Rentals\Seats.png
+     Categories to update: 2
+       1. ✅ ATTACHED: Seats
+          ID: 392, Slug: serial-LSH14J7CXMA114599-parent-42
+       2. ✅ ATTACHED: Seats
+          ID: 726, Slug: serial-LSFAL11A4PA157987-parent-42
+
+145. Image: Sensor & Harness.png → Sensor&Harness (93.3%)
+     Path: ..\Rentals\Sensor & Harness.png
+     Categories to update: 2
+       1. ✅ ATTACHED: JE11CR001 - Sensor&Harness
+          ID: 343, Slug: serial-LSH14J7CXMA114599-parent-32-child-19
+       2. ✅ ATTACHED: JE11CR001 - Sensor&Harness
+          ID: 639, Slug: serial-LSFAL11A4PA157987-parent-32-child-19
+
+146. Image: Shaft-Balancer.png → SHAFT-BALANCER (100.0%)
+     Path: ..\Rentals\Shaft-Balancer.png
+     Categories to update: 2
+       1. ✅ ATTACHED: JE11CF001 - SHAFT-BALANCER
+          ID: 344, Slug: serial-LSH14J7CXMA114599-parent-32-child-20
+       2. ✅ ATTACHED: JE11CF001 - SHAFT-BALANCER
+          ID: 640, Slug: serial-LSFAL11A4PA157987-parent-32-child-20
+
+147. Image: Side Closures.png (EXACT MATCH)
+     Path: ..\Rentals\Side Closures.png
+     Categories to update: 2
+       1. ✅ ATTACHED: Side Closures
+          ID: 404, Slug: serial-LSH14J7CXMA114599-parent-43
+       2. ✅ ATTACHED: Side Closures
+          ID: 749, Slug: serial-LSFAL11A4PA157987-parent-43
+
+148. Image: Side Panel & Roof Safety Belt.png → Side Panel&Roof Safety Belt (96.4%)
+     Path: ..\Rentals\Side Panel & Roof Safety Belt.png
+     Categories to update: 2
+       1. ✅ ATTACHED: JE460A001 - Side Panel&Roof Safety Belt
+          ID: 388, Slug: serial-LSH14J7CXMA114599-parent-40-child-1
+       2. ✅ ATTACHED: JE460A001 - Side Panel&Roof Safety Belt
+          ID: 719, Slug: serial-LSFAL11A4PA157987-parent-40-child-1
+
+149. Image: Side Trim.png (EXACT MATCH)
+     Path: ..\Rentals\Side Trim.png
+     Categories to update: 2
+       1. ✅ ATTACHED: JE431A001 - Side Trim
+          ID: 308, Slug: serial-LSH14J7CXMA114599-parent-28-child-7
+       2. ✅ ATTACHED: JE431A001 - Side Trim
+          ID: 586, Slug: serial-LSFAL11A4PA157987-parent-28-child-4
+
+150. Image: Sound Insulation & Heat Insulation.png → Sound Insulation、Heat Insulation (93.9%)
+     Path: ..\Rentals\Sound Insulation & Heat Insulation.png
+     Categories to update: 2
+       1. ✅ ATTACHED: JE451A001 - Sound Insulation、Heat Insulation
+          ID: 298, Slug: serial-LSH14J7CXMA114599-parent-26-child-1
+       2. ✅ ATTACHED: JE451A001 - Sound Insulation、Heat Insulation
+          ID: 577, Slug: serial-LSFAL11A4PA157987-parent-26-child-1
+
+151. Image: Spare Tire Device.png (EXACT MATCH)
+     Path: ..\Rentals\Spare Tire Device.png
+     Categories to update: 2
+       1. ✅ ATTACHED: JE255A001 - Spare Tire Device
+          ID: 250, Slug: serial-LSH14J7CXMA114599-parent-13-child-2
+       2. ✅ ATTACHED: JE255A001 - Spare Tire Device
+          ID: 495, Slug: serial-LSFAL11A4PA157987-parent-13-child-2
+
+152. Image: Speaker.png (EXACT MATCH)
+     Path: ..\Rentals\Speaker.png
+     Categories to update: 2
+       1. ✅ ATTACHED: JE732A001 - Speaker
+          ID: 268, Slug: serial-LSH14J7CXMA114599-parent-18-child-2
+       2. ✅ ATTACHED: JE732A001 - Speaker
+          ID: 522, Slug: serial-LSFAL11A4PA157987-parent-18-child-2
+
+153. Image: Steering Column.png (EXACT MATCH)
+     Path: ..\Rentals\Steering Column.png
+     Categories to update: 2
+       1. ✅ ATTACHED: JE214A001 - Steering Column
+          ID: 414, Slug: serial-LSH14J7CXMA114599-parent-44-child-2
+       2. ✅ ATTACHED: JE214A001 - Steering Column
+          ID: 762, Slug: serial-LSFAL11A4PA157987-parent-44-child-2
+
+154. Image: Steering Wheel & AirBag.png → Steering Wheel and AirBag (91.7%)
+     Path: ..\Rentals\Steering Wheel & AirBag.png
+     Categories to update: 2
+       1. ✅ ATTACHED: JE471A001 - Steering Wheel and AirBag
+          ID: 210, Slug: serial-LSH14J7CXMA114599-parent-2-child-1
+       2. ✅ ATTACHED: JE471A001 - Steering Wheel and AirBag
+          ID: 431, Slug: serial-LSFAL11A4PA157987-parent-2-child-1
+
+155. Image: Steering.png (EXACT MATCH)
+     Path: ..\Rentals\Steering.png
+     Categories to update: 2
+       1. ✅ ATTACHED: Steering
+          ID: 412, Slug: serial-LSH14J7CXMA114599-parent-44
+       2. ✅ ATTACHED: Steering
+          ID: 760, Slug: serial-LSFAL11A4PA157987-parent-44
+
+156. Image: Subdriver’s Integral Double Seat.png → Subdrivers Integral Double Seat (98.4%)
+     Path: ..\Rentals\Subdriver’s Integral Double Seat.png
+     Categories to update: 2
+       1. ✅ ATTACHED: JE421B005 - Subdrivers Integral Double Seat
+          ID: 399, Slug: serial-LSH14J7CXMA114599-parent-42-child-7
+       2. ✅ ATTACHED: JE421B005 - Subdrivers Integral Double Seat
+          ID: 733, Slug: serial-LSFAL11A4PA157987-parent-42-child-7
+
+157. Image: Subdriver’s Split Double Seat.png → Subdrivers Split Double Seat (98.2%)
+     Path: ..\Rentals\Subdriver’s Split Double Seat.png
+     Categories to update: 2
+       1. ✅ ATTACHED: JE421B006 - Subdrivers Split Double Seat
+          ID: 400, Slug: serial-LSH14J7CXMA114599-parent-42-child-8
+       2. ✅ ATTACHED: JE421B006 - Subdrivers Split Double Seat
+          ID: 734, Slug: serial-LSFAL11A4PA157987-parent-42-child-8
+
+158. Image: Sump & Oil Suction Pipe & Dipstick.png → Sump&Oil Suction Pipe&Dipstick (93.8%)
+     Path: ..\Rentals\Sump & Oil Suction Pipe & Dipstick.png
+     Categories to update: 2
+       1. ✅ ATTACHED: JE11CK001 - Sump&Oil Suction Pipe&Dipstick
+          ID: 345, Slug: serial-LSH14J7CXMA114599-parent-32-child-21
+       2. ✅ ATTACHED: JE11CK001 - Sump&Oil Suction Pipe&Dipstick
+          ID: 641, Slug: serial-LSFAL11A4PA157987-parent-32-child-21
+
+159. Image: Suspension.png (EXACT MATCH)
+     Path: ..\Rentals\Suspension.png
+     Categories to update: 2
+       1. ✅ ATTACHED: Suspension
+          ID: 415, Slug: serial-LSH14J7CXMA114599-parent-45
+       2. ✅ ATTACHED: Suspension
+          ID: 765, Slug: serial-LSFAL11A4PA157987-parent-45
+
+160. Image: Three Seats Arrangement (Chassis Vehicle, UK_HK).png → Three Seats Arrangement for Chassis Vehicle (UK、Hong Kong) (84.9%)
+     Path: ..\Rentals\Three Seats Arrangement (Chassis Vehicle, UK_HK).png
+     Categories to update: 2
+       1. ✅ ATTACHED: JE421AI001 - Three Seats Arrangement for Chassis Vehicle (UK、Hong Kong)
+          ID: 401, Slug: serial-LSH14J7CXMA114599-parent-42-child-9
+       2. ✅ ATTACHED: JE421AI001 - Three Seats Arrangement for Chassis Vehicle (UK、Hong Kong)
+          ID: 735, Slug: serial-LSFAL11A4PA157987-parent-42-child-9
+
+161. Image: Three Seats Arrangement (VAN, Australia_NZ).png → Three Seats Arrangement for VAN Vehicle (Australia、New Zealand) (75.5%)
+     Path: ..\Rentals\Three Seats Arrangement (VAN, Australia_NZ).png
+     Categories to update: 2
+       1. ✅ ATTACHED: JE421AF001 - Three Seats Arrangement for VAN Vehicle (Australia、New Zealand)
+          ID: 402, Slug: serial-LSH14J7CXMA114599-parent-42-child-10
+       2. ✅ ATTACHED: JE421AF001 - Three Seats Arrangement for VAN Vehicle (Australia、New Zealand)
+          ID: 736, Slug: serial-LSFAL11A4PA157987-parent-42-child-10
+
+162. Image: Timing Drive.png (EXACT MATCH)
+     Path: ..\Rentals\Timing Drive.png
+     Categories to update: 2
+       1. ✅ ATTACHED: JE11CP001 - Timing Drive
+          ID: 346, Slug: serial-LSH14J7CXMA114599-parent-32-child-22
+       2. ✅ ATTACHED: JE11CP001 - Timing Drive
+          ID: 642, Slug: serial-LSFAL11A4PA157987-parent-32-child-22
+
+163. Image: Tire, Wheel, Trim.png → Tire,Wheel,Trim (93.8%)
+     Path: ..\Rentals\Tire, Wheel, Trim.png
+     Categories to update: 2
+       1. ✅ ATTACHED: JE230A001 - Tire,Wheel,Trim
+          ID: 421, Slug: serial-LSH14J7CXMA114599-parent-46-child-1
+       2. ✅ ATTACHED: JE230A001 - Tire,Wheel,Trim
+          ID: 775, Slug: serial-LSFAL11A4PA157987-parent-46-child-1
+
+164. Image: Tire, Wheels, Wheel Trim.png → Tire,Wheels,Wheel Trim (95.7%)
+     Path: ..\Rentals\Tire, Wheels, Wheel Trim.png
+     Categories to update: 2
+       1. ✅ ATTACHED: Tire,Wheels,Wheel Trim
+          ID: 420, Slug: serial-LSH14J7CXMA114599-parent-46
+       2. ✅ ATTACHED: Tire,Wheels,Wheel Trim
+          ID: 774, Slug: serial-LSFAL11A4PA157987-parent-46
+
+165. Image: TNK FIL DR.png (EXACT MATCH)
+     Path: ..\Rentals\TNK FIL DR.png
+     Categories to update: 2
+       1. ✅ ATTACHED: JE557A001 - TNK FIL DR
+          ID: 411, Slug: serial-LSH14J7CXMA114599-parent-43-child-7
+       2. ✅ ATTACHED: JE557A001 - TNK FIL DR
+          ID: 754, Slug: serial-LSFAL11A4PA157987-parent-43-child-5
+
+166. Image: Transmission CSC & Operating Mechanism (6MT back .png → Transmission CSC and  Operating Mechanism(6MT back drive) (88.7%)
+     Path: ..\Rentals\Transmission CSC & Operating Mechanism (6MT back .png
+     Categories to update: 1
+       1. ✅ ATTACHED: JE121B001 - Transmission CSC and  Operating Mechanism(6MT back drive)
+          ID: 674, Slug: serial-LSFAL11A4PA157987-parent-33-child-9
+
+167. Image: Transmission Fork Components (SAGW-6MT back .png → Transmission Fork Components(SAGW-6MT back drive) (92.5%)
+     Path: ..\Rentals\Transmission Fork Components (SAGW-6MT back .png
+     Categories to update: 1
+       1. ✅ ATTACHED: JE121C001 - Transmission Fork Components(SAGW-6MT back drive)
+          ID: 675, Slug: serial-LSFAL11A4PA157987-parent-33-child-10
+
+168. Image: Transmission Main Shaft & Gear (6MT back drive).png → Transmission Main Shaft And Gear(6MT back drive) (94.7%)
+     Path: ..\Rentals\Transmission Main Shaft & Gear (6MT back drive).png
+     Categories to update: 1
+       1. ✅ ATTACHED: JE121D001 - Transmission Main Shaft And Gear(6MT back drive)
+          ID: 676, Slug: serial-LSFAL11A4PA157987-parent-33-child-11
+
+169. Image: Transmission Shift Actuation (AMT).png → Transmission Shift Actuation-AMT (93.9%)
+     Path: ..\Rentals\Transmission Shift Actuation (AMT).png
+     Categories to update: 2
+       1. ✅ ATTACHED: JE152A002 - Transmission Shift Actuation-AMT
+          ID: 373, Slug: serial-LSH14J7CXMA114599-parent-35-child-3
+       2. ✅ ATTACHED: JE152A002 - Transmission Shift Actuation-AMT
+          ID: 694, Slug: serial-LSFAL11A4PA157987-parent-35-child-3
+
+170. Image: Transmission Shift Actuation (AT _ Electric vehicle).png → Transmission Shift Actuation-AT、Electric vehicle (92.0%)
+     Path: ..\Rentals\Transmission Shift Actuation (AT _ Electric vehicle).png
+     Categories to update: 2
+       1. ✅ ATTACHED: JE152A003 - Transmission Shift Actuation-AT、Electric vehicle
+          ID: 374, Slug: serial-LSH14J7CXMA114599-parent-35-child-4
+       2. ✅ ATTACHED: JE152A003 - Transmission Shift Actuation-AT、Electric vehicle
+          ID: 695, Slug: serial-LSFAL11A4PA157987-parent-35-child-4
+
+171. Image: Transmission Shift Actuation (MT).png → Transmission Shift Actuation-MT (93.8%)
+     Path: ..\Rentals\Transmission Shift Actuation (MT).png
+     Categories to update: 2
+       1. ✅ ATTACHED: JE152A001 - Transmission Shift Actuation-MT
+          ID: 375, Slug: serial-LSH14J7CXMA114599-parent-35-child-5
+       2. ✅ ATTACHED: JE152A001 - Transmission Shift Actuation-MT
+          ID: 696, Slug: serial-LSFAL11A4PA157987-parent-35-child-5
+
+172. Image: Two_Three Seats Arrangement (Chassis Vehicle, .png → Three Seats Arrangement for Chassis Vehicle (UK、Hong Kong) (76.9%)
+     Path: ..\Rentals\Two_Three Seats Arrangement (Chassis Vehicle, .png
+     Categories to update: 2
+       1. ✅ ATTACHED: JE421AI001 - Three Seats Arrangement for Chassis Vehicle (UK、Hong Kong)
+          ID: 401, Slug: serial-LSH14J7CXMA114599-parent-42-child-9
+       2. ✅ ATTACHED: JE421AI001 - Three Seats Arrangement for Chassis Vehicle (UK、Hong Kong)
+          ID: 735, Slug: serial-LSFAL11A4PA157987-parent-42-child-9
+
+173. Image: Urea System.png → Urea system (100.0%)
+     Path: ..\Rentals\Urea System.png
+     Categories to update: 2
+       1. ✅ ATTACHED: JE184A001 - Urea system
+          ID: 283, Slug: serial-LSH14J7CXMA114599-parent-23-child-3
+       2. ✅ ATTACHED: JE184A001 - Urea system
+          ID: 546, Slug: serial-LSFAL11A4PA157987-parent-23-child-3
+
+174. Image: Vehicle Attachments & Tools.png → On Vehicle Attachments&Tools (90.9%)
+     Path: ..\Rentals\Vehicle Attachments & Tools.png
+     Categories to update: 2
+       1. ✅ ATTACHED: On Vehicle Attachments&Tools
+          ID: 311, Slug: serial-LSH14J7CXMA114599-parent-30
+       2. ✅ ATTACHED: On Vehicle Attachments&Tools
+          ID: 596, Slug: serial-LSFAL11A4PA157987-parent-30
+
+175. Image: Vehicle Data Recorder.png → Vehicle Date Recorder (95.2%)
+     Path: ..\Rentals\Vehicle Data Recorder.png
+     Categories to update: 2
+       1. ✅ ATTACHED: JE716A001 - Vehicle Date Recorder
+          ID: 263, Slug: serial-LSH14J7CXMA114599-parent-16-child-3
+       2. ✅ ATTACHED: JE716A001 - Vehicle Date Recorder
+          ID: 514, Slug: serial-LSFAL11A4PA157987-parent-16-child-2
+
+176. Image: Vehicle Tele-Communication.png (EXACT MATCH)
+     Path: ..\Rentals\Vehicle Tele-Communication.png
+     Categories to update: 2
+       1. ✅ ATTACHED: JE751A001 - Vehicle Tele-Communication
+          ID: 252, Slug: serial-LSH14J7CXMA114599-parent-14-child-1
+       2. ✅ ATTACHED: JE751A001 - Vehicle Tele-Communication
+          ID: 499, Slug: serial-LSFAL11A4PA157987-parent-14-child-1
+
+177. Image: Washer System.png (EXACT MATCH)
+     Path: ..\Rentals\Washer System.png
+     Categories to update: 2
+       1. ✅ ATTACHED: JE682A001 - Washer System
+          ID: 423, Slug: serial-LSH14J7CXMA114599-parent-47-child-1
+       2. ✅ ATTACHED: JE682A001 - Washer System
+          ID: 778, Slug: serial-LSFAL11A4PA157987-parent-47-child-1
+
+178. Image: Wheelhouse Liner.png (EXACT MATCH)
+     Path: ..\Rentals\Wheelhouse Liner.png
+     Categories to update: 2
+       1. ✅ ATTACHED: JE625A001 - Wheelhouse Liner
+          ID: 244, Slug: serial-LSH14J7CXMA114599-parent-11-child-4
+       2. ✅ ATTACHED: JE625A001 - Wheelhouse Liner
+          ID: 484, Slug: serial-LSFAL11A4PA157987-parent-11-child-3
+
+179. Image: Window Lift Switch.png (EXACT MATCH)
+     Path: ..\Rentals\Window Lift Switch.png
+     Categories to update: 2
+       1. ✅ ATTACHED: JE721A001 - Window Lift Switch
+          ID: 259, Slug: serial-LSH14J7CXMA114599-parent-15-child-6
+       2. ✅ ATTACHED: JE721A001 - Window Lift Switch
+          ID: 506, Slug: serial-LSFAL11A4PA157987-parent-15-child-5
+
+180. Image: Window.png (EXACT MATCH)
+     Path: ..\Rentals\Window.png
+     Categories to update: 2
+       1. ✅ ATTACHED: JE611A001 - Window
+          ID: 231, Slug: serial-LSH14J7CXMA114599-parent-9-child-1
+       2. ✅ ATTACHED: JE611A001 - Window
+          ID: 464, Slug: serial-LSFAL11A4PA157987-parent-9-child-1
+
+181. Image: Wiper & Washer.png (EXACT MATCH)
+     Path: ..\Rentals\Wiper & Washer.png
+     Categories to update: 2
+       1. ✅ ATTACHED: Wiper & Washer
+          ID: 422, Slug: serial-LSH14J7CXMA114599-parent-47
+       2. ✅ ATTACHED: Wiper & Washer
+          ID: 777, Slug: serial-LSFAL11A4PA157987-parent-47
+
+182. Image: Wiper (LHD) .png → Wiper（LHD） (72.7%)
+     Path: ..\Rentals\Wiper (LHD) .png
+     Categories to update: 2
+       1. ✅ ATTACHED: JE681A001 - Wiper（LHD）
+          ID: 424, Slug: serial-LSH14J7CXMA114599-parent-47-child-2
+       2. ✅ ATTACHED: JE681A001 - Wiper（LHD）
+          ID: 779, Slug: serial-LSFAL11A4PA157987-parent-47-child-2
+
+183. Image: Wiper (RHD).png → Wiper（RHD） (76.2%)
+     Path: ..\Rentals\Wiper (RHD).png
+     Categories to update: 2
+       1. ✅ ATTACHED: JE681A002 - Wiper（RHD）
+          ID: 425, Slug: serial-LSH14J7CXMA114599-parent-47-child-3
+       2. ✅ ATTACHED: JE681A002 - Wiper（RHD）
+          ID: 780, Slug: serial-LSFAL11A4PA157987-parent-47-child-3
+
+================================================================================
+FINAL SUMMARY:
+================================================================================
+Total attachment operations: 369
+Successful: 369
+Errors: 0
+Success rate: 100.0%

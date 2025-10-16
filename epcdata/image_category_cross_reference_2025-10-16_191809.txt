@@ -1,0 +1,337 @@
+Image-Category Cross Reference Report
+Generated: 2025-10-16 19:18:09
+================================================================================
+
+SUMMARY:
+Total images: 193
+Total unique categories: 225
+Exact matches: 94
+Close matches (>70%): 89
+No good matches: 10
+
+================================================================================
+EXACT MATCHES (Ready to attach!):
+================================================================================
+  1. 'Accelerator Pedal.png' → 'Accelerator Pedal' (2 categories)
+  2. 'Accessory Switches.png' → 'Accessory Switches' (2 categories)
+  3. 'Air Bag Control Unit.png' → 'Air Bag Control Unit' (2 categories)
+  4. 'Air Intake System.png' → 'Air Intake System' (2 categories)
+  5. 'Airbag.png' → 'Airbag' (2 categories)
+  6. 'Antenna.png' → 'Antenna' (4 categories)
+  7. 'Baffle Plate-Ware.png' → 'Baffle Plate-Ware' (2 categories)
+  8. 'Battery Harnesses.png' → 'Battery Harnesses' (2 categories)
+  9. 'Block Group.png' → 'Block Group' (2 categories)
+ 10. 'Body Exterior Trim.png' → 'Body Exterior Trim' (2 categories)
+ 11. 'Body Interior & Exterior Electronics.png' → 'Body Interior & Exterior Electronics' (4 categories)
+ 12. 'Body Lower Exterior Trim.png' → 'Body Lower Exterior Trim' (2 categories)
+ 13. 'Body Lower Structure.png' → 'Body Lower Structure' (2 categories)
+ 14. 'Body Upper Exterior Trim.png' → 'Body Upper Exterior Trim' (2 categories)
+ 15. 'Body Upper Structure.png' → 'Body Upper Structure' (2 categories)
+ 16. 'Body Window.png' → 'Body Window' (2 categories)
+ 17. 'Brake Apply.png' → 'Brake Apply' (2 categories)
+ 18. 'Brake Modulator.png' → 'Brake Modulator' (2 categories)
+ 19. 'Brake Pedal.png' → 'Brake Pedal' (2 categories)
+ 20. 'Brake Pipes.png' → 'Brake Pipes' (2 categories)
+ 21. 'Brakes.png' → 'Brakes' (2 categories)
+ 22. 'Chassis Structure.png' → 'Chassis Structure' (2 categories)
+ 23. 'Clusters.png' → 'Clusters' (2 categories)
+ 24. 'Clutch Apply.png' → 'Clutch Apply' (2 categories)
+ 25. 'Coolant Plumbing & Hardware.png' → 'Coolant Plumbing & Hardware' (2 categories)
+ 26. 'Crankshaft Rod.png' → 'Crankshaft Rod' (2 categories)
+ 27. 'Customer Switches.png' → 'Customer Switches' (2 categories)
+ 28. 'Cylinder Head.png' → 'Cylinder Head' (2 categories)
+ 29. 'Driver Information.png' → 'Driver Information' (2 categories)
+ 30. 'EGR ASM.png' → 'EGR ASM' (2 categories)
+ 31. 'Emission Exhaust System.png' → 'Emission Exhaust System' (2 categories)
+ 32. 'Engine ASM.png' → 'Engine ASM' (2 categories)
+ 33. 'Engine Accessory.png' → 'Engine Accessory' (2 categories)
+ 34. 'Engine Compartment Fuse Box.png' → 'Engine Compartment Fuse Box' (2 categories)
+ 35. 'Engine Management.png' → 'Engine Management' (2 categories)
+ 36. 'Entertainment.png' → 'Entertainment' (2 categories)
+ 37. 'Floor Trim.png' → 'Floor Trim' (2 categories)
+ 38. 'Fluids and Lubrications.png' → 'Fluids and Lubrications' (2 categories)
+ 39. 'Front Brakes.png' → 'Front Brakes' (2 categories)
+ 40. 'Front Bumper.png' → 'Front Bumper' (2 categories)
+ 41. 'Front Door Electric Glass Regulator.png' → 'Front Door Electric Glass Regulator' (2 categories)
+ 42. 'Front End Exterior Airflow.png' → 'Front End Exterior Airflow' (2 categories)
+ 43. 'Front Interior Control.png' → 'Front Interior Control' (2 categories)
+ 44. 'Front Interior HVAC Airflow.png' → 'Front Interior HVAC Airflow' (2 categories)
+ 45. 'Front Lamp.png' → 'Front Lamp' (4 categories)
+ 46. 'Front Shock Absorber.png' → 'Front Shock Absorber' (2 categories)
+ 47. 'Front Side Closure.png' → 'Front Side Closure' (2 categories)
+ 48. 'Front Sub-frame.png' → 'Front Sub-frame' (2 categories)
+ 49. 'Front Suspension.png' → 'Front Suspension' (2 categories)
+ 50. 'Fuel Plumbing & Hardware.png' → 'Fuel Plumbing & Hardware' (2 categories)
+ 51. 'Fuel Storage & Handling.png' → 'Fuel Storage & Handling' (2 categories)
+ 52. 'Fuel Tank & Canister.png' → 'Fuel Tank & Canister' (2 categories)
+ 53. 'Grille.png' → 'Grille' (2 categories)
+ 54. 'Hood.png' → 'Hood' (2 categories)
+ 55. 'Hood Lock.png' → 'Hood Lock' (2 categories)
+ 56. 'Infotainment System.png' → 'Infotainment System' (2 categories)
+ 57. 'Instrument Panel & Console.png' → 'Instrument Panel & Console' (2 categories)
+ 58. 'Interior Heating Pipe.png' → 'Interior Heating Pipe' (2 categories)
+ 59. 'Interior Heating Pipe-FCV.png' → 'Interior Heating Pipe-FCV' (2 categories)
+ 60. 'Interior Lamp.png' → 'Interior Lamp' (2 categories)
+ 61. 'Interior Trim.png' → 'Interior Trim' (2 categories)
+ 62. 'Mounts.png' → 'Mounts' (2 categories)
+ 63. 'Mud Guard.png' → 'Mud Guard' (2 categories)
+ 64. 'Park Brake.png' → 'Park Brake' (2 categories)
+ 65. 'Power Transmission.png' → 'Power Transmission' (2 categories)
+ 66. 'Powertrain Driver Interface.png' → 'Powertrain Driver Interface' (2 categories)
+ 67. 'Propeller Shaft.png' → 'Propeller Shaft' (1 categories)
+ 68. 'Rear Brakes.png' → 'Rear Brakes' (2 categories)
+ 69. 'Rear Drive Axle.png' → 'Rear Drive Axle' (1 categories)
+ 70. 'Rear Interior Airflow.png' → 'Rear Interior Airflow' (2 categories)
+ 71. 'Rear Lamp.png' → 'Rear Lamp' (4 categories)
+ 72. 'Rear Panel.png' → 'Rear Panel' (1 categories)
+ 73. 'Rear Shock Absorber.png' → 'Rear Shock Absorber' (2 categories)
+ 74. 'Rear Suspension.png' → 'Rear Suspension' (2 categories)
+ 75. 'Rear View Mirror.png' → 'Rear View Mirror' (4 categories)
+ 76. 'Refrigerant Plumbing & Hardware.png' → 'Refrigerant Plumbing & Hardware' (2 categories)
+ 77. 'Roof Trim.png' → 'Roof Trim' (2 categories)
+ 78. 'Safety Belt.png' → 'Safety Belt' (2 categories)
+ 79. 'Seats.png' → 'Seats' (2 categories)
+ 80. 'Side Closures.png' → 'Side Closures' (2 categories)
+ 81. 'Side Trim.png' → 'Side Trim' (2 categories)
+ 82. 'Spare Tire Device.png' → 'Spare Tire Device' (2 categories)
+ 83. 'Speaker.png' → 'Speaker' (2 categories)
+ 84. 'Steering.png' → 'Steering' (2 categories)
+ 85. 'Steering Column.png' → 'Steering Column' (2 categories)
+ 86. 'Suspension.png' → 'Suspension' (2 categories)
+ 87. 'TNK FIL DR.png' → 'TNK FIL DR' (2 categories)
+ 88. 'Timing Drive.png' → 'Timing Drive' (2 categories)
+ 89. 'Vehicle Tele-Communication.png' → 'Vehicle Tele-Communication' (2 categories)
+ 90. 'Washer System.png' → 'Washer System' (2 categories)
+ 91. 'Wheelhouse Liner.png' → 'Wheelhouse Liner' (2 categories)
+ 92. 'Window.png' → 'Window' (2 categories)
+ 93. 'Window Lift Switch.png' → 'Window Lift Switch' (2 categories)
+ 94. 'Wiper & Washer.png' → 'Wiper & Washer' (2 categories)
+
+================================================================================
+CLOSE MATCHES (May need renaming):
+================================================================================
+  1. 'Accessory & Accessory Drive.png' → 'Accessory&AccessoryDrive' (similarity: 94.1%)
+     Will attach to 2 categories
+  2. 'Air Filter.png' → 'Air filter' (similarity: 100.0%)
+     Will attach to 2 categories
+  3. 'Arrangement for VAN Vehicle (UK_HK).png' → 'Arrangement for VAN Vehicle (UK、Hong Kong)' (similarity: 88.3%)
+     Will attach to 2 categories
+  4. 'Battery & Electrical Energy Storage.png' → 'Battery&Electrical Energy Storage' (similarity: 97.1%)
+     Will attach to 2 categories
+  5. 'Body Lower Structure .png' → 'Body Lower Structure' (similarity: 97.6%)
+     Will attach to 2 categories
+  6. 'Bumpers, Fascia & Grille.png' → 'Bumpers,Fascia & Grille' (similarity: 97.9%)
+     Will attach to 2 categories
+  7. 'Charging & Energy Storage.png' → 'Charging & Energystorage' (similarity: 98.0%)
+     Will attach to 2 categories
+  8. 'Chassis Harnesses .png' → 'Chassis Harnesses' (similarity: 97.1%)
+     Will attach to 2 categories
+  9. 'Clutch (MT).png' → 'Clutch(MT)' (similarity: 95.2%)
+     Will attach to 2 categories
+ 10. 'Clutch (PHEV).png' → 'Clutch(PHEV)' (similarity: 96.0%)
+     Will attach to 2 categories
+ 11. 'Communication.png' → 'Communicate' (similarity: 83.3%)
+     Will attach to 2 categories
+ 12. 'Coolant Plumbing & Hardware (EV).png' → 'Coolant Plumbing & Hardware--EV' (similarity: 92.1%)
+     Will attach to 2 categories
+ 13. 'Coolant Plumbing & Hardware (PHEV).png' → 'Coolant Plumbing & Hardware-PHEV' (similarity: 93.9%)
+     Will attach to 2 categories
+ 14. 'Coolant Pump and Inlet_Outlet Tube & Thermostat.png' → 'Coolant Pump And Inl&OtltTube&Thermostat' (similarity: 89.7%)
+     Will attach to 2 categories
+ 15. 'Cylinder Block & Accessory.png' → 'Cylinder Block&Accessory' (similarity: 96.0%)
+     Will attach to 2 categories
+ 16. 'Damper Pulley & Gear Drive.png' → 'Damper Pulley&GearDrive' (similarity: 93.9%)
+     Will attach to 2 categories
+ 17. 'Door Wire Harnesses.png' → 'Door  Wire Harnesses' (similarity: 97.4%)
+     Will attach to 2 categories
+ 18. 'Engine Compartment Harness.png' → 'EngineCompartmentHarness' (similarity: 96.0%)
+     Will attach to 2 categories
+ 19. 'Engine Shield.png' → 'Engine shield' (similarity: 100.0%)
+     Will attach to 2 categories
+ 20. 'Engine Wiring Harness.png' → 'Engine wiring harness' (similarity: 100.0%)
+     Will attach to 2 categories
+ 21. 'Exhaust Elbow & Turbocharger.png' → 'Exhaust Elbow&Turbocharger' (similarity: 96.3%)
+     Will attach to 2 categories
+ 22. 'Exhaust System.png' → 'Exhaust system' (similarity: 100.0%)
+     Will attach to 2 categories
+ 23. 'Front Closures & Sheetmetal.png' → 'Front Closures Front End Sheetmetal' (similarity: 83.9%)
+     Will attach to 2 categories
+ 24. 'Front Door Handle & Lock.png' → 'Front Door Handle and Lock' (similarity: 92.0%)
+     Will attach to 2 categories
+ 25. 'Front Exterior HVAC Airflow.png' → 'Frontexterior Hvac Airflow' (similarity: 98.1%)
+     Will attach to 2 categories
+ 26. 'Front Seat (Left).png' → 'Front Seat（Left）' (similarity: 84.8%)
+     Will attach to 2 categories
+ 27. 'Front Seat (Right).png' → 'Front Seat（Right）' (similarity: 85.7%)
+     Will attach to 2 categories
+ 28. 'HVAC & Powertrain Cooling.png' → 'Hvac & Powertrain Coolingin' (similarity: 96.2%)
+     Will attach to 2 categories
+ 29. 'Head Cover & PCV.png' → 'Head Cover&PCV' (similarity: 93.3%)
+     Will attach to 2 categories
+ 30. 'Ignition Switch and Key _.png.png' → 'Ignition Switch and Key' (similarity: 88.5%)
+     Will attach to 2 categories
+ 31. 'Inner Framing (left side).png' → 'inner framing(left side)' (similarity: 98.0%)
+     Will attach to 2 categories
+ 32. 'Inner Framing (right side) .png' → 'inner framing(right side)' (similarity: 96.2%)
+     Will attach to 2 categories
+ 33. 'Instrument Panel (LHD).png' → 'Instrument Panel（LHD）' (similarity: 88.4%)
+     Will attach to 2 categories
+ 34. 'Instrument Panel (RHD).png' → 'Instrument Panel（RHD）' (similarity: 88.4%)
+     Will attach to 2 categories
+ 35. 'Instrument Panel Crossmember (LHD).png' → 'Instrument Panel Crossmember（LHD）' (similarity: 92.5%)
+     Will attach to 2 categories
+ 36. 'Instrument Panel Crossmember (RHD).png' → 'Instrument Panel Crossmember（RHD）' (similarity: 92.5%)
+     Will attach to 2 categories
+ 37. 'Instrument Panel Wire Harnesses.png' → 'Instrument Panel  Wire Harnesses' (similarity: 98.4%)
+     Will attach to 2 categories
+ 38. 'Interior Acoustic System.png' → 'Interior Acoustic Syetem' (similarity: 95.8%)
+     Will attach to 2 categories
+ 39. 'LP-EGR Intake Pipe & Accessory.png' → 'LP-EGR intake pipe&Accessory' (similarity: 96.6%)
+     Will attach to 2 categories
+ 40. 'Manifold ASM-INT.png' → 'MANIFOLD ASM-INT' (similarity: 100.0%)
+     Will attach to 2 categories
+ 41. 'Manual Transmission Assembly (6MT Front_Back .png' → 'Manual transmission assembly（6MT Front/Back drive）' (similarity: 88.4%)
+     Will attach to 2 categories
+ 42. 'Multi-Function Column Switch .png' → 'Multi-Function Column Switch' (similarity: 98.2%)
+     Will attach to 2 categories
+ 43. 'Oil Cooler and Inlet_Outlet Tube & Filter.png' → 'Oil Cooler And Inl&OtltTube&Filter' (similarity: 88.0%)
+     Will attach to 2 categories
+ 44. 'On-Vehicle Attachments.png' → 'On Vehicle Attachments' (similarity: 95.5%)
+     Will attach to 2 categories
+ 45. 'On-Vehicle Tools.png' → 'On Vehicle Tools' (similarity: 93.8%)
+     Will attach to 2 categories
+ 46. 'Outer Framing (left side).png' → 'Outer Framing(left side)' (similarity: 98.0%)
+     Will attach to 2 categories
+ 47. 'Outer Framing (right side) .png' → 'Outer Framing(right side)' (similarity: 96.2%)
+     Will attach to 2 categories
+ 48. 'Passive Entry Passive Start .png' → 'Passive Entry Passive Start' (similarity: 98.2%)
+     Will attach to 2 categories
+ 49. 'Power & Signal Distribution.png' → 'Power & Signaldistribution' (similarity: 98.1%)
+     Will attach to 2 categories
+ 50. 'Power Assembly Installation.png' → 'Power assembly installation' (similarity: 100.0%)
+     Will attach to 2 categories
+ 51. 'Power Inverter.png' → 'PowerInverter' (similarity: 96.3%)
+     Will attach to 2 categories
+ 52. 'Power Outlet & Cigarette Lighter Device.png' → 'Power Outlet & Cigarette Lighter HEvice' (similarity: 97.4%)
+     Will attach to 2 categories
+ 53. 'Powertrain Control & Diagnostic.png' → 'Powertrain Control&Diagnostic' (similarity: 96.7%)
+     Will attach to 2 categories
+ 54. 'Powertrain Mounts (Electric vehicle).png' → 'Powertrain Mounts-Electric vehicle' (similarity: 94.3%)
+     Will attach to 1 categories
+ 55. 'Rear Axle (Front drive vehicle).png' → 'Rear  Axle （Front drive vehicle）' (similarity: 92.1%)
+     Will attach to 2 categories
+ 56. 'Rear Drive Axle (YUE JIN).png' → 'Rear Drive Axle（YUE JIN）' (similarity: 89.8%)
+     Will attach to 2 categories
+ 57. 'Rear Electric Drive Axle.png' → 'Rear Electric  Drive Axle' (similarity: 98.0%)
+     Will attach to 2 categories
+ 58. 'Rear Interior HVAC Airflow.png' → 'Rearinterior Hvac Airflow' (similarity: 98.0%)
+     Will attach to 2 categories
+ 59. 'Refrigerant Plumbing & Hardware (Electric vehicle).png' → 'Refrigerant Plumbing & Hardware-Electric vehicle' (similarity: 95.9%)
+     Will attach to 2 categories
+ 60. 'Refrigerant Plumbing & Hardware (FCV).png' → 'Refrigerant Plumbing & Hardware-FCV' (similarity: 94.4%)
+     Will attach to 2 categories
+ 61. 'Refrigerant Plumbing & Hardware (PHEV).png' → 'Refrigerant Plumbing & Hardware-PHEV' (similarity: 94.6%)
+     Will attach to 2 categories
+ 62. 'Roof Framing .png' → 'Roof Framing' (similarity: 96.0%)
+     Will attach to 2 categories
+ 63. 'Safety & Avoidance.png' → 'Safety&Avoidance' (similarity: 94.1%)
+     Will attach to 2 categories
+ 64. 'Seat Arrangement of Shang Jie’s 11_12_14 Seats.png' → 'Seat Arrangement of Shang Jie's 11 12and 14 Seats (Australia)' (similarity: 80.4%)
+     Will attach to 2 categories
+ 65. 'Sensor & Harness.png' → 'Sensor&Harness' (similarity: 93.3%)
+     Will attach to 2 categories
+ 66. 'Shaft-Balancer.png' → 'SHAFT-BALANCER' (similarity: 100.0%)
+     Will attach to 2 categories
+ 67. 'Side Panel & Roof Safety Belt.png' → 'Side Panel&Roof Safety Belt' (similarity: 96.4%)
+     Will attach to 2 categories
+ 68. 'Sound Insulation & Heat Insulation.png' → 'Sound Insulation、Heat Insulation' (similarity: 93.9%)
+     Will attach to 2 categories
+ 69. 'Steering Wheel & AirBag.png' → 'Steering Wheel and AirBag' (similarity: 91.7%)
+     Will attach to 2 categories
+ 70. 'Subdriver’s Integral Double Seat.png' → 'Subdrivers Integral Double Seat' (similarity: 98.4%)
+     Will attach to 2 categories
+ 71. 'Subdriver’s Split Double Seat.png' → 'Subdrivers Split Double Seat' (similarity: 98.2%)
+     Will attach to 2 categories
+ 72. 'Sump & Oil Suction Pipe & Dipstick.png' → 'Sump&Oil Suction Pipe&Dipstick' (similarity: 93.8%)
+     Will attach to 2 categories
+ 73. 'Three Seats Arrangement (Chassis Vehicle, UK_HK).png' → 'Three Seats Arrangement for Chassis Vehicle (UK、Hong Kong)' (similarity: 84.9%)
+     Will attach to 2 categories
+ 74. 'Three Seats Arrangement (VAN, Australia_NZ).png' → 'Three Seats Arrangement for VAN Vehicle (Australia、New Zealand)' (similarity: 75.5%)
+     Will attach to 2 categories
+ 75. 'Tire, Wheel, Trim.png' → 'Tire,Wheel,Trim' (similarity: 93.8%)
+     Will attach to 2 categories
+ 76. 'Tire, Wheels, Wheel Trim.png' → 'Tire,Wheels,Wheel Trim' (similarity: 95.7%)
+     Will attach to 2 categories
+ 77. 'Transmission CSC & Operating Mechanism (6MT back .png' → 'Transmission CSC and  Operating Mechanism(6MT back drive)' (similarity: 88.7%)
+     Will attach to 1 categories
+ 78. 'Transmission Fork Components (SAGW-6MT back .png' → 'Transmission Fork Components(SAGW-6MT back drive)' (similarity: 92.5%)
+     Will attach to 1 categories
+ 79. 'Transmission Main Shaft & Gear (6MT back drive).png' → 'Transmission Main Shaft And Gear(6MT back drive)' (similarity: 94.7%)
+     Will attach to 1 categories
+ 80. 'Transmission Shift Actuation (AMT).png' → 'Transmission Shift Actuation-AMT' (similarity: 93.9%)
+     Will attach to 2 categories
+ 81. 'Transmission Shift Actuation (AT _ Electric vehicle).png' → 'Transmission Shift Actuation-AT、Electric vehicle' (similarity: 92.0%)
+     Will attach to 2 categories
+ 82. 'Transmission Shift Actuation (MT).png' → 'Transmission Shift Actuation-MT' (similarity: 93.8%)
+     Will attach to 2 categories
+ 83. 'Two_Three Seats Arrangement (Chassis Vehicle, .png' → 'Three Seats Arrangement for Chassis Vehicle (UK、Hong Kong)' (similarity: 76.9%)
+     Will attach to 2 categories
+ 84. 'Urea System.png' → 'Urea system' (similarity: 100.0%)
+     Will attach to 2 categories
+ 85. 'Vehicle Attachments & Tools.png' → 'On Vehicle Attachments&Tools' (similarity: 90.9%)
+     Will attach to 2 categories
+ 86. 'Vehicle Data Recorder.png' → 'Vehicle Date Recorder' (similarity: 95.2%)
+     Will attach to 2 categories
+ 87. 'Wiper (LHD) .png' → 'Wiper（LHD）' (similarity: 72.7%)
+     Will attach to 2 categories
+ 88. 'Wiper (RHD).png' → 'Wiper（RHD）' (similarity: 76.2%)
+     Will attach to 2 categories
+ 89. 'fenders.png' → 'Fenders' (similarity: 100.0%)
+     Will attach to 2 categories
+
+================================================================================
+NO GOOD MATCHES (Need manual review):
+================================================================================
+  1. '12Front Seat (Left), 2025, 12_09_00 PM.png' (best: 'Front Seat（left ）' at 54.5%)
+  2. 'ChatGPT Image Oct 3, 2025, 09_27_38 PM.png' (best: 'Air Intake System' at 29.1%)
+  3. 'ChatGPT Image Oct 3, 2025, ChatGPT Image Oct 3, 2025, 09_31_45 PM PM.png' (best: 'Three Seats Arrangement for Chassis Vehicle (UK、Hong Kong)' at 27.0%)
+  4. 'ChatGPT Image Oct 4, 2025, 09_09_01 Customer Switches.png' (best: 'Customer Switches' at 48.6%)
+  5. 'ChatGPT Image Oct 4, 2025, 11_02_58 AM.png' (best: 'Air Intake System' at 29.1%)
+  6. 'ChatGPT Image Oct 4, 2025, 11_42_44 AM.png' (best: 'Air Intake System' at 29.1%)
+  7. 'ChatGPT Image Oct 4, 2025, 12_22_59 PM.png' (best: 'Air Intake System' at 29.1%)
+  8. 'ChatGPT Image Oct 4, 2025, 12_23_06 PM.png' (best: 'Air Intake System' at 29.1%)
+  9. 'ChatGPT Image Oct 9, 2025, 05_14_48 PM.png' (best: 'Air Intake System' at 29.1%)
+ 10. 'of redirector part of the sterring column.png' (best: 'Steering Column' at 50.0%)
+
+================================================================================
+CATEGORIES WITHOUT MATCHING IMAGES (44):
+================================================================================
+  1. Assist Step
+  2. Auxiliary Information Electronics
+  3. Body Lower Structure Garnish Trim
+  4. Body accessories harness
+  5. CLUTCH HOUSING-6MT Front Drive&6AMT
+  6. Coolant Plumbing & Hardware-FCV
+  7. Door Switches
+  8. Exterior Emblem/Decal/Nameplate
+  9. Frong Seat（right ）
+ 10. Front Door Trim
+ 11. Front Seat（left ）
+ 12. Frontinterior Hvac Airflow
+ 13. Fuel System
+ 14. InteriorLamp
+ 15. Maxus
+ 16. ParkDistanceControlSystem
+ 17. Power Generation
+ 18. Propshaft
+ 19. Rear Bumper
+ 20. Rear Closure
+... and 24 more
+
+================================================================================
+RECOMMENDATIONS:
+================================================================================
+1. READY TO ATTACH: 94 images can be attached immediately
+2. REVIEW CLOSE MATCHES: 89 images may need renaming for exact match
+3. MANUAL REVIEW: 10 images need manual review/renaming
+4. MISSING IMAGES: 44 categories still need images

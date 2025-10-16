@@ -1,0 +1,411 @@
+Rentals Folder Contents Report
+Generated: 2025-10-16 19:16:33
+Folder: C:\pythonstuff\vansdirect\epc_parts_store\Rentals
+Total files: 194
+Image files: 193
+================================================================================
+
+IMAGE FILES (for category matching):
+--------------------------------------------------
+  1. 12Front Seat (Left), 2025, 12_09_00 PM.png → matches '12Front Seat (Left), 2025, 12_09_00 PM'
+  2. Accelerator Pedal.png                    → matches 'Accelerator Pedal'
+  3. Accessory & Accessory Drive.png          → matches 'Accessory & Accessory Drive'
+  4. Accessory Switches.png                   → matches 'Accessory Switches'
+  5. Air Bag Control Unit.png                 → matches 'Air Bag Control Unit'
+  6. Air Filter.png                           → matches 'Air Filter'
+  7. Air Intake System.png                    → matches 'Air Intake System'
+  8. Airbag.png                               → matches 'Airbag'
+  9. Antenna.png                              → matches 'Antenna'
+ 10. Arrangement for VAN Vehicle (UK_HK).png  → matches 'Arrangement for VAN Vehicle (UK_HK)'
+ 11. Baffle Plate-Ware.png                    → matches 'Baffle Plate-Ware'
+ 12. Battery & Electrical Energy Storage.png  → matches 'Battery & Electrical Energy Storage'
+ 13. Battery Harnesses.png                    → matches 'Battery Harnesses'
+ 14. Block Group.png                          → matches 'Block Group'
+ 15. Body Exterior Trim.png                   → matches 'Body Exterior Trim'
+ 16. Body Interior & Exterior Electronics.png → matches 'Body Interior & Exterior Electronics'
+ 17. Body Lower Exterior Trim.png             → matches 'Body Lower Exterior Trim'
+ 18. Body Lower Structure .png                → matches 'Body Lower Structure '
+ 19. Body Lower Structure.png                 → matches 'Body Lower Structure'
+ 20. Body Upper Exterior Trim.png             → matches 'Body Upper Exterior Trim'
+ 21. Body Upper Structure.png                 → matches 'Body Upper Structure'
+ 22. Body Window.png                          → matches 'Body Window'
+ 23. Brake Apply.png                          → matches 'Brake Apply'
+ 24. Brake Modulator.png                      → matches 'Brake Modulator'
+ 25. Brake Pedal.png                          → matches 'Brake Pedal'
+ 26. Brake Pipes.png                          → matches 'Brake Pipes'
+ 27. Brakes.png                               → matches 'Brakes'
+ 28. Bumpers, Fascia & Grille.png             → matches 'Bumpers, Fascia & Grille'
+ 29. Charging & Energy Storage.png            → matches 'Charging & Energy Storage'
+ 30. Chassis Harnesses .png                   → matches 'Chassis Harnesses '
+ 31. Chassis Structure.png                    → matches 'Chassis Structure'
+ 32. ChatGPT Image Oct 3, 2025, 09_27_38 PM.png → matches 'ChatGPT Image Oct 3, 2025, 09_27_38 PM'
+ 33. ChatGPT Image Oct 3, 2025, ChatGPT Image Oct 3, 2025, 09_31_45 PM PM.png → matches 'ChatGPT Image Oct 3, 2025, ChatGPT Image Oct 3, 2025, 09_31_45 PM PM'
+ 34. ChatGPT Image Oct 4, 2025, 09_09_01 Customer Switches.png → matches 'ChatGPT Image Oct 4, 2025, 09_09_01 Customer Switches'
+ 35. ChatGPT Image Oct 4, 2025, 11_02_58 AM.png → matches 'ChatGPT Image Oct 4, 2025, 11_02_58 AM'
+ 36. ChatGPT Image Oct 4, 2025, 11_42_44 AM.png → matches 'ChatGPT Image Oct 4, 2025, 11_42_44 AM'
+ 37. ChatGPT Image Oct 4, 2025, 12_22_59 PM.png → matches 'ChatGPT Image Oct 4, 2025, 12_22_59 PM'
+ 38. ChatGPT Image Oct 4, 2025, 12_23_06 PM.png → matches 'ChatGPT Image Oct 4, 2025, 12_23_06 PM'
+ 39. ChatGPT Image Oct 9, 2025, 05_14_48 PM.png → matches 'ChatGPT Image Oct 9, 2025, 05_14_48 PM'
+ 40. Clusters.png                             → matches 'Clusters'
+ 41. Clutch (MT).png                          → matches 'Clutch (MT)'
+ 42. Clutch (PHEV).png                        → matches 'Clutch (PHEV)'
+ 43. Clutch Apply.png                         → matches 'Clutch Apply'
+ 44. Communication.png                        → matches 'Communication'
+ 45. Coolant Plumbing & Hardware (EV).png     → matches 'Coolant Plumbing & Hardware (EV)'
+ 46. Coolant Plumbing & Hardware (PHEV).png   → matches 'Coolant Plumbing & Hardware (PHEV)'
+ 47. Coolant Plumbing & Hardware.png          → matches 'Coolant Plumbing & Hardware'
+ 48. Coolant Pump and Inlet_Outlet Tube & Thermostat.png → matches 'Coolant Pump and Inlet_Outlet Tube & Thermostat'
+ 49. Crankshaft Rod.png                       → matches 'Crankshaft Rod'
+ 50. Customer Switches.png                    → matches 'Customer Switches'
+ 51. Cylinder Block & Accessory.png           → matches 'Cylinder Block & Accessory'
+ 52. Cylinder Head.png                        → matches 'Cylinder Head'
+ 53. Damper Pulley & Gear Drive.png           → matches 'Damper Pulley & Gear Drive'
+ 54. Door Wire Harnesses.png                  → matches 'Door Wire Harnesses'
+ 55. Driver Information.png                   → matches 'Driver Information'
+ 56. EGR ASM.png                              → matches 'EGR ASM'
+ 57. Emission Exhaust System.png              → matches 'Emission Exhaust System'
+ 58. Engine ASM.png                           → matches 'Engine ASM'
+ 59. Engine Accessory.png                     → matches 'Engine Accessory'
+ 60. Engine Compartment Fuse Box.png          → matches 'Engine Compartment Fuse Box'
+ 61. Engine Compartment Harness.png           → matches 'Engine Compartment Harness'
+ 62. Engine Management.png                    → matches 'Engine Management'
+ 63. Engine Shield.png                        → matches 'Engine Shield'
+ 64. Engine Wiring Harness.png                → matches 'Engine Wiring Harness'
+ 65. Entertainment.png                        → matches 'Entertainment'
+ 66. Exhaust Elbow & Turbocharger.png         → matches 'Exhaust Elbow & Turbocharger'
+ 67. Exhaust System.png                       → matches 'Exhaust System'
+ 68. Floor Trim.png                           → matches 'Floor Trim'
+ 69. Fluids and Lubrications.png              → matches 'Fluids and Lubrications'
+ 70. Front Brakes.png                         → matches 'Front Brakes'
+ 71. Front Bumper.png                         → matches 'Front Bumper'
+ 72. Front Closures & Sheetmetal.png          → matches 'Front Closures & Sheetmetal'
+ 73. Front Door Electric Glass Regulator.png  → matches 'Front Door Electric Glass Regulator'
+ 74. Front Door Handle & Lock.png             → matches 'Front Door Handle & Lock'
+ 75. Front End Exterior Airflow.png           → matches 'Front End Exterior Airflow'
+ 76. Front Exterior HVAC Airflow.png          → matches 'Front Exterior HVAC Airflow'
+ 77. Front Interior Control.png               → matches 'Front Interior Control'
+ 78. Front Interior HVAC Airflow.png          → matches 'Front Interior HVAC Airflow'
+ 79. Front Lamp.png                           → matches 'Front Lamp'
+ 80. Front Seat (Left).png                    → matches 'Front Seat (Left)'
+ 81. Front Seat (Right).png                   → matches 'Front Seat (Right)'
+ 82. Front Shock Absorber.png                 → matches 'Front Shock Absorber'
+ 83. Front Side Closure.png                   → matches 'Front Side Closure'
+ 84. Front Sub-frame.png                      → matches 'Front Sub-frame'
+ 85. Front Suspension.png                     → matches 'Front Suspension'
+ 86. Fuel Plumbing & Hardware.png             → matches 'Fuel Plumbing & Hardware'
+ 87. Fuel Storage & Handling.png              → matches 'Fuel Storage & Handling'
+ 88. Fuel Tank & Canister.png                 → matches 'Fuel Tank & Canister'
+ 89. Grille.png                               → matches 'Grille'
+ 90. HVAC & Powertrain Cooling.png            → matches 'HVAC & Powertrain Cooling'
+ 91. Head Cover & PCV.png                     → matches 'Head Cover & PCV'
+ 92. Hood Lock.png                            → matches 'Hood Lock'
+ 93. Hood.png                                 → matches 'Hood'
+ 94. Ignition Switch and Key _.png.png        → matches 'Ignition Switch and Key _.png'
+ 95. Infotainment System.png                  → matches 'Infotainment System'
+ 96. Inner Framing (left side).png            → matches 'Inner Framing (left side)'
+ 97. Inner Framing (right side) .png          → matches 'Inner Framing (right side) '
+ 98. Instrument Panel & Console.png           → matches 'Instrument Panel & Console'
+ 99. Instrument Panel (LHD).png               → matches 'Instrument Panel (LHD)'
+100. Instrument Panel (RHD).png               → matches 'Instrument Panel (RHD)'
+101. Instrument Panel Crossmember (LHD).png   → matches 'Instrument Panel Crossmember (LHD)'
+102. Instrument Panel Crossmember (RHD).png   → matches 'Instrument Panel Crossmember (RHD)'
+103. Instrument Panel Wire Harnesses.png      → matches 'Instrument Panel Wire Harnesses'
+104. Interior Acoustic System.png             → matches 'Interior Acoustic System'
+105. Interior Heating Pipe-FCV.png            → matches 'Interior Heating Pipe-FCV'
+106. Interior Heating Pipe.png                → matches 'Interior Heating Pipe'
+107. Interior Lamp.png                        → matches 'Interior Lamp'
+108. Interior Trim.png                        → matches 'Interior Trim'
+109. LP-EGR Intake Pipe & Accessory.png       → matches 'LP-EGR Intake Pipe & Accessory'
+110. Manifold ASM-INT.png                     → matches 'Manifold ASM-INT'
+111. Manual Transmission Assembly (6MT Front_Back .png → matches 'Manual Transmission Assembly (6MT Front_Back '
+112. Mounts.png                               → matches 'Mounts'
+113. Mud Guard.png                            → matches 'Mud Guard'
+114. Multi-Function Column Switch .png        → matches 'Multi-Function Column Switch '
+115. Oil Cooler and Inlet_Outlet Tube & Filter.png → matches 'Oil Cooler and Inlet_Outlet Tube & Filter'
+116. On-Vehicle Attachments.png               → matches 'On-Vehicle Attachments'
+117. On-Vehicle Tools.png                     → matches 'On-Vehicle Tools'
+118. Outer Framing (left side).png            → matches 'Outer Framing (left side)'
+119. Outer Framing (right side) .png          → matches 'Outer Framing (right side) '
+120. Park Brake.png                           → matches 'Park Brake'
+121. Passive Entry Passive Start .png         → matches 'Passive Entry Passive Start '
+122. Power & Signal Distribution.png          → matches 'Power & Signal Distribution'
+123. Power Assembly Installation.png          → matches 'Power Assembly Installation'
+124. Power Inverter.png                       → matches 'Power Inverter'
+125. Power Outlet & Cigarette Lighter Device.png → matches 'Power Outlet & Cigarette Lighter Device'
+126. Power Transmission.png                   → matches 'Power Transmission'
+127. Powertrain Control & Diagnostic.png      → matches 'Powertrain Control & Diagnostic'
+128. Powertrain Driver Interface.png          → matches 'Powertrain Driver Interface'
+129. Powertrain Mounts (Electric vehicle).png → matches 'Powertrain Mounts (Electric vehicle)'
+130. Propeller Shaft.png                      → matches 'Propeller Shaft'
+131. Rear Axle (Front drive vehicle).png      → matches 'Rear Axle (Front drive vehicle)'
+132. Rear Brakes.png                          → matches 'Rear Brakes'
+133. Rear Drive Axle (YUE JIN).png            → matches 'Rear Drive Axle (YUE JIN)'
+134. Rear Drive Axle.png                      → matches 'Rear Drive Axle'
+135. Rear Electric Drive Axle.png             → matches 'Rear Electric Drive Axle'
+136. Rear Interior Airflow.png                → matches 'Rear Interior Airflow'
+137. Rear Interior HVAC Airflow.png           → matches 'Rear Interior HVAC Airflow'
+138. Rear Lamp.png                            → matches 'Rear Lamp'
+139. Rear Panel.png                           → matches 'Rear Panel'
+140. Rear Shock Absorber.png                  → matches 'Rear Shock Absorber'
+141. Rear Suspension.png                      → matches 'Rear Suspension'
+142. Rear View Mirror.png                     → matches 'Rear View Mirror'
+143. Refrigerant Plumbing & Hardware (Electric vehicle).png → matches 'Refrigerant Plumbing & Hardware (Electric vehicle)'
+144. Refrigerant Plumbing & Hardware (FCV).png → matches 'Refrigerant Plumbing & Hardware (FCV)'
+145. Refrigerant Plumbing & Hardware (PHEV).png → matches 'Refrigerant Plumbing & Hardware (PHEV)'
+146. Refrigerant Plumbing & Hardware.png      → matches 'Refrigerant Plumbing & Hardware'
+147. Roof Framing .png                        → matches 'Roof Framing '
+148. Roof Trim.png                            → matches 'Roof Trim'
+149. Safety & Avoidance.png                   → matches 'Safety & Avoidance'
+150. Safety Belt.png                          → matches 'Safety Belt'
+151. Seat Arrangement of Shang Jie’s 11_12_14 Seats.png → matches 'Seat Arrangement of Shang Jie’s 11_12_14 Seats'
+152. Seats.png                                → matches 'Seats'
+153. Sensor & Harness.png                     → matches 'Sensor & Harness'
+154. Shaft-Balancer.png                       → matches 'Shaft-Balancer'
+155. Side Closures.png                        → matches 'Side Closures'
+156. Side Panel & Roof Safety Belt.png        → matches 'Side Panel & Roof Safety Belt'
+157. Side Trim.png                            → matches 'Side Trim'
+158. Sound Insulation & Heat Insulation.png   → matches 'Sound Insulation & Heat Insulation'
+159. Spare Tire Device.png                    → matches 'Spare Tire Device'
+160. Speaker.png                              → matches 'Speaker'
+161. Steering Column.png                      → matches 'Steering Column'
+162. Steering Wheel & AirBag.png              → matches 'Steering Wheel & AirBag'
+163. Steering.png                             → matches 'Steering'
+164. Subdriver’s Integral Double Seat.png     → matches 'Subdriver’s Integral Double Seat'
+165. Subdriver’s Split Double Seat.png        → matches 'Subdriver’s Split Double Seat'
+166. Sump & Oil Suction Pipe & Dipstick.png   → matches 'Sump & Oil Suction Pipe & Dipstick'
+167. Suspension.png                           → matches 'Suspension'
+168. TNK FIL DR.png                           → matches 'TNK FIL DR'
+169. Three Seats Arrangement (Chassis Vehicle, UK_HK).png → matches 'Three Seats Arrangement (Chassis Vehicle, UK_HK)'
+170. Three Seats Arrangement (VAN, Australia_NZ).png → matches 'Three Seats Arrangement (VAN, Australia_NZ)'
+171. Timing Drive.png                         → matches 'Timing Drive'
+172. Tire, Wheel, Trim.png                    → matches 'Tire, Wheel, Trim'
+173. Tire, Wheels, Wheel Trim.png             → matches 'Tire, Wheels, Wheel Trim'
+174. Transmission CSC & Operating Mechanism (6MT back .png → matches 'Transmission CSC & Operating Mechanism (6MT back '
+175. Transmission Fork Components (SAGW-6MT back .png → matches 'Transmission Fork Components (SAGW-6MT back '
+176. Transmission Main Shaft & Gear (6MT back drive).png → matches 'Transmission Main Shaft & Gear (6MT back drive)'
+177. Transmission Shift Actuation (AMT).png   → matches 'Transmission Shift Actuation (AMT)'
+178. Transmission Shift Actuation (AT _ Electric vehicle).png → matches 'Transmission Shift Actuation (AT _ Electric vehicle)'
+179. Transmission Shift Actuation (MT).png    → matches 'Transmission Shift Actuation (MT)'
+180. Two_Three Seats Arrangement (Chassis Vehicle, .png → matches 'Two_Three Seats Arrangement (Chassis Vehicle, '
+181. Urea System.png                          → matches 'Urea System'
+182. Vehicle Attachments & Tools.png          → matches 'Vehicle Attachments & Tools'
+183. Vehicle Data Recorder.png                → matches 'Vehicle Data Recorder'
+184. Vehicle Tele-Communication.png           → matches 'Vehicle Tele-Communication'
+185. Washer System.png                        → matches 'Washer System'
+186. Wheelhouse Liner.png                     → matches 'Wheelhouse Liner'
+187. Window Lift Switch.png                   → matches 'Window Lift Switch'
+188. Window.png                               → matches 'Window'
+189. Wiper & Washer.png                       → matches 'Wiper & Washer'
+190. Wiper (LHD) .png                         → matches 'Wiper (LHD) '
+191. Wiper (RHD).png                          → matches 'Wiper (RHD)'
+192. fenders.png                              → matches 'fenders'
+193. of redirector part of the sterring column.png → matches 'of redirector part of the sterring column'
+
+
+ALL FILES IN FOLDER:
+--------------------------------------------------
+  1. 12Front Seat (Left), 2025, 12_09_00 PM.png (1449.8 KB)
+  2. Accelerator Pedal.png                    (1990.9 KB)
+  3. Accessory & Accessory Drive.png          (2411.2 KB)
+  4. Accessory Switches.png                   (2186.8 KB)
+  5. Air Bag Control Unit.png                 (2293.3 KB)
+  6. Air Filter.png                           (1595.0 KB)
+  7. Air Intake System.png                    (1898.7 KB)
+  8. Airbag.png                               (2166.2 KB)
+  9. Antenna.png                              (1680.4 KB)
+ 10. Arrangement for VAN Vehicle (UK_HK).png  (2822.4 KB)
+ 11. Baffle Plate-Ware.png                    (2293.6 KB)
+ 12. Battery & Electrical Energy Storage.png  (3348.6 KB)
+ 13. Battery Harnesses.png                    (2062.0 KB)
+ 14. Block Group.png                          (2309.3 KB)
+ 15. Body Exterior Trim.png                   (0.5 KB)
+ 16. Body Interior & Exterior Electronics.png (2311.6 KB)
+ 17. Body Lower Exterior Trim.png             (2346.1 KB)
+ 18. Body Lower Structure .png                (2166.7 KB)
+ 19. Body Lower Structure.png                 (1461.2 KB)
+ 20. Body Upper Exterior Trim.png             (2174.8 KB)
+ 21. Body Upper Structure.png                 (2226.2 KB)
+ 22. Body Window.png                          (1988.4 KB)
+ 23. Brake Apply.png                          (1673.5 KB)
+ 24. Brake Modulator.png                      (2114.3 KB)
+ 25. Brake Pedal.png                          (1313.9 KB)
+ 26. Brake Pipes.png                          (2318.4 KB)
+ 27. Brakes.png                               (2394.0 KB)
+ 28. Bumpers, Fascia & Grille.png             (1834.0 KB)
+ 29. Charging & Energy Storage.png            (3263.3 KB)
+ 30. Chassis Harnesses .png                   (2321.4 KB)
+ 31. Chassis Structure.png                    (2069.4 KB)
+ 32. ChatGPT Image Oct 3, 2025, 09_27_38 PM.png (3274.2 KB)
+ 33. ChatGPT Image Oct 3, 2025, ChatGPT Image Oct 3, 2025, 09_31_45 PM PM.png (3749.5 KB)
+ 34. ChatGPT Image Oct 4, 2025, 09_09_01 Customer Switches.png (3342.0 KB)
+ 35. ChatGPT Image Oct 4, 2025, 11_02_58 AM.png (2321.4 KB)
+ 36. ChatGPT Image Oct 4, 2025, 11_42_44 AM.png (2454.0 KB)
+ 37. ChatGPT Image Oct 4, 2025, 12_22_59 PM.png (2372.7 KB)
+ 38. ChatGPT Image Oct 4, 2025, 12_23_06 PM.png (2372.7 KB)
+ 39. ChatGPT Image Oct 9, 2025, 05_14_48 PM.png (2289.2 KB)
+ 40. Clusters.png                             (2107.4 KB)
+ 41. Clutch (MT).png                          (2430.0 KB)
+ 42. Clutch (PHEV).png                        (2627.1 KB)
+ 43. Clutch Apply.png                         (2230.9 KB)
+ 44. Communication.png                        (1474.2 KB)
+ 45. Coolant Plumbing & Hardware (EV).png     (2129.2 KB)
+ 46. Coolant Plumbing & Hardware (PHEV).png   (1449.2 KB)
+ 47. Coolant Plumbing & Hardware.png          (0.5 KB)
+ 48. Coolant Pump and Inlet_Outlet Tube & Thermostat.png (2291.0 KB)
+ 49. Crankshaft Rod.png                       (2206.9 KB)
+ 50. Customer Switches.png                    (3342.0 KB)
+ 51. Cylinder Block & Accessory.png           (1811.9 KB)
+ 52. Cylinder Head.png                        (2520.6 KB)
+ 53. Damper Pulley & Gear Drive.png           (0.5 KB)
+ 54. Door Wire Harnesses.png                  (2071.4 KB)
+ 55. Driver Information.png                   (1885.6 KB)
+ 56. EGR ASM.png                              (2250.0 KB)
+ 57. Emission Exhaust System.png              (2105.3 KB)
+ 58. Engine ASM.png                           (2108.1 KB)
+ 59. Engine Accessory.png                     (2350.9 KB)
+ 60. Engine Compartment Fuse Box.png          (2217.7 KB)
+ 61. Engine Compartment Harness.png           (0.5 KB)
+ 62. Engine Management.png                    (2443.1 KB)
+ 63. Engine Shield.png                        (2249.7 KB)
+ 64. Engine Wiring Harness.png                (1648.5 KB)
+ 65. Entertainment.png                        (1923.6 KB)
+ 66. Exhaust Elbow & Turbocharger.png         (2407.1 KB)
+ 67. Exhaust System.png                       (1473.6 KB)
+ 68. Floor Trim.png                           (2392.5 KB)
+ 69. Fluids and Lubrications.png              (1949.6 KB)
+ 70. Front Brakes.png                         (2052.1 KB)
+ 71. Front Bumper.png                         (1873.1 KB)
+ 72. Front Closures & Sheetmetal.png          (2150.8 KB)
+ 73. Front Door Electric Glass Regulator.png  (1847.3 KB)
+ 74. Front Door Handle & Lock.png             (1868.5 KB)
+ 75. Front End Exterior Airflow.png           (2085.8 KB)
+ 76. Front Exterior HVAC Airflow.png          (2303.8 KB)
+ 77. Front Interior Control.png               (2027.7 KB)
+ 78. Front Interior HVAC Airflow.png          (1486.4 KB)
+ 79. Front Lamp.png                           (2214.2 KB)
+ 80. Front Seat (Left).png                    (1485.5 KB)
+ 81. Front Seat (Right).png                   (1812.7 KB)
+ 82. Front Shock Absorber.png                 (2758.6 KB)
+ 83. Front Side Closure.png                   (1753.4 KB)
+ 84. Front Sub-frame.png                      (2130.2 KB)
+ 85. Front Suspension.png                     (3274.2 KB)
+ 86. Fuel Plumbing & Hardware.png             (2115.6 KB)
+ 87. Fuel Storage & Handling.png              (2416.1 KB)
+ 88. Fuel Tank & Canister.png                 (2281.6 KB)
+ 89. Grille.png                               (1865.2 KB)
+ 90. HVAC & Powertrain Cooling.png            (1411.7 KB)
+ 91. Head Cover & PCV.png                     (2289.2 KB)
+ 92. Hood Lock.png                            (2190.7 KB)
+ 93. Hood.png                                 (1387.7 KB)
+ 94. Ignition Switch and Key _.png.png        (2103.3 KB)
+ 95. Infotainment System.png                  (2026.4 KB)
+ 96. Inner Framing (left side).png            (1987.7 KB)
+ 97. Inner Framing (right side) .png          (1965.3 KB)
+ 98. Instrument Panel & Console.png           (1930.0 KB)
+ 99. Instrument Panel (LHD).png               (2036.1 KB)
+100. Instrument Panel (RHD).png               (1228.5 KB)
+101. Instrument Panel Crossmember (LHD).png   (1785.0 KB)
+102. Instrument Panel Crossmember (RHD).png   (1766.0 KB)
+103. Instrument Panel Wire Harnesses.png      (2293.8 KB)
+104. Interior Acoustic System.png             (2288.5 KB)
+105. Interior Heating Pipe-FCV.png            (2157.0 KB)
+106. Interior Heating Pipe.png                (1789.0 KB)
+107. Interior Lamp.png                        (2163.2 KB)
+108. Interior Trim.png                        (2449.6 KB)
+109. LP-EGR Intake Pipe & Accessory.png       (2316.2 KB)
+110. Manifold ASM-INT.png                     (2544.6 KB)
+111. Manual Transmission Assembly (6MT Front_Back .png (2073.2 KB)
+112. Mounts.png                               (2372.7 KB)
+113. Mud Guard.png                            (1109.1 KB)
+114. Multi-Function Column Switch .png        (2235.6 KB)
+115. New Text Document.txt                    (0.0 KB)
+116. Oil Cooler and Inlet_Outlet Tube & Filter.png (2350.1 KB)
+117. On-Vehicle Attachments.png               (1980.9 KB)
+118. On-Vehicle Tools.png                     (2530.5 KB)
+119. Outer Framing (left side).png            (2237.8 KB)
+120. Outer Framing (right side) .png          (2201.6 KB)
+121. Park Brake.png                           (2122.9 KB)
+122. Passive Entry Passive Start .png         (2037.7 KB)
+123. Power & Signal Distribution.png          (1937.6 KB)
+124. Power Assembly Installation.png          (2148.6 KB)
+125. Power Inverter.png                       (3172.6 KB)
+126. Power Outlet & Cigarette Lighter Device.png (2129.1 KB)
+127. Power Transmission.png                   (2169.5 KB)
+128. Powertrain Control & Diagnostic.png      (2435.3 KB)
+129. Powertrain Driver Interface.png          (2192.6 KB)
+130. Powertrain Mounts (Electric vehicle).png (2392.9 KB)
+131. Propeller Shaft.png                      (1889.0 KB)
+132. Rear Axle (Front drive vehicle).png      (1901.5 KB)
+133. Rear Brakes.png                          (2163.8 KB)
+134. Rear Drive Axle (YUE JIN).png            (1307.7 KB)
+135. Rear Drive Axle.png                      (1596.4 KB)
+136. Rear Electric Drive Axle.png             (2079.4 KB)
+137. Rear Interior Airflow.png                (2016.6 KB)
+138. Rear Interior HVAC Airflow.png           (1968.3 KB)
+139. Rear Lamp.png                            (1975.4 KB)
+140. Rear Panel.png                           (1522.5 KB)
+141. Rear Shock Absorber.png                  (3749.5 KB)
+142. Rear Suspension.png                      (2521.1 KB)
+143. Rear View Mirror.png                     (1504.5 KB)
+144. Refrigerant Plumbing & Hardware (Electric vehicle).png (1429.4 KB)
+145. Refrigerant Plumbing & Hardware (FCV).png (2111.6 KB)
+146. Refrigerant Plumbing & Hardware (PHEV).png (1495.8 KB)
+147. Refrigerant Plumbing & Hardware.png      (1368.9 KB)
+148. Roof Framing .png                        (2923.4 KB)
+149. Roof Trim.png                            (2151.2 KB)
+150. Safety & Avoidance.png                   (1411.5 KB)
+151. Safety Belt.png                          (2336.5 KB)
+152. Seat Arrangement of Shang Jie’s 11_12_14 Seats.png (2402.6 KB)
+153. Seats.png                                (1445.8 KB)
+154. Sensor & Harness.png                     (2407.2 KB)
+155. Shaft-Balancer.png                       (2248.9 KB)
+156. Side Closures.png                        (1735.4 KB)
+157. Side Panel & Roof Safety Belt.png        (1491.8 KB)
+158. Side Trim.png                            (0.5 KB)
+159. Sound Insulation & Heat Insulation.png   (2816.3 KB)
+160. Spare Tire Device.png                    (1665.6 KB)
+161. Speaker.png                              (2213.6 KB)
+162. Steering Column.png                      (2003.4 KB)
+163. Steering Wheel & AirBag.png              (1784.0 KB)
+164. Steering.png                             (2270.8 KB)
+165. Subdriver’s Integral Double Seat.png     (1558.3 KB)
+166. Subdriver’s Split Double Seat.png        (1931.9 KB)
+167. Sump & Oil Suction Pipe & Dipstick.png   (2181.0 KB)
+168. Suspension.png                           (1736.3 KB)
+169. TNK FIL DR.png                           (1836.8 KB)
+170. Three Seats Arrangement (Chassis Vehicle, UK_HK).png (2320.3 KB)
+171. Three Seats Arrangement (VAN, Australia_NZ).png (2282.4 KB)
+172. Timing Drive.png                         (1856.4 KB)
+173. Tire, Wheel, Trim.png                    (2380.0 KB)
+174. Tire, Wheels, Wheel Trim.png             (2071.2 KB)
+175. Transmission CSC & Operating Mechanism (6MT back .png (2094.5 KB)
+176. Transmission Fork Components (SAGW-6MT back .png (1819.1 KB)
+177. Transmission Main Shaft & Gear (6MT back drive).png (2055.5 KB)
+178. Transmission Shift Actuation (AMT).png   (1843.5 KB)
+179. Transmission Shift Actuation (AT _ Electric vehicle).png (1964.2 KB)
+180. Transmission Shift Actuation (MT).png    (2123.9 KB)
+181. Two_Three Seats Arrangement (Chassis Vehicle, .png (2050.6 KB)
+182. Urea System.png                          (2215.8 KB)
+183. Vehicle Attachments & Tools.png          (2483.6 KB)
+184. Vehicle Data Recorder.png                (2404.1 KB)
+185. Vehicle Tele-Communication.png           (2245.2 KB)
+186. Washer System.png                        (2080.3 KB)
+187. Wheelhouse Liner.png                     (2104.0 KB)
+188. Window Lift Switch.png                   (2045.5 KB)
+189. Window.png                               (1791.3 KB)
+190. Wiper & Washer.png                       (2268.3 KB)
+191. Wiper (LHD) .png                         (1747.5 KB)
+192. Wiper (RHD).png                          (1933.7 KB)
+193. fenders.png                              (1729.2 KB)
+194. of redirector part of the sterring column.png (1989.3 KB)
+
+
+SUMMARY:
+--------------------
+Folder scanned: C:\pythonstuff\vansdirect\epc_parts_store\Rentals
+Total files: 194
+Image files: 193
+Supported extensions: .bmp, .gif, .jpeg, .jpg, .png, .tiff, .webp
+
+Next step: Compare these image names with category names
+from unique_category_names_*.txt to see matches
