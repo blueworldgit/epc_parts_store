@@ -24,12 +24,12 @@ def get_unique_category_names():
     
     for name in categories:
         if name:  # Skip empty/null names
-            # Clean up the name - remove serial-specific prefixes if any
+            # Clean up the name - remove technical codes like "JE241A001 - "
             clean_name = name.strip()
             
-            # You might want to clean up names further here
-            # For example, if names are like "Serial LSH14J7CXMA114599 - Airbag"
-            # You could extract just "Airbag"
+            # Remove everything before and including " - " (space-dash-space)
+            if " - " in clean_name:
+                clean_name = clean_name.split(" - ", 1)[1]  # Take everything after first " - "
             
             unique_names.add(clean_name)
     

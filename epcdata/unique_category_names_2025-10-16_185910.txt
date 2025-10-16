@@ -1,0 +1,230 @@
+Unique Category Names Report
+Generated: 2025-10-16 18:59:10
+Total unique categories: 225
+================================================================================
+
+  1. Accelerator Pedal
+  2. Accessory Switches
+  3. Accessory&AccessoryDrive
+  4. Air Bag Control Unit
+  5. Air Intake System
+  6. Air filter
+  7. Airbag
+  8. Antenna
+  9. Arrangement for VAN Vehicle (UK、Hong Kong)
+ 10. Assist Step
+ 11. Auxiliary Information Electronics
+ 12. Baffle Plate-Ware
+ 13. Battery Harnesses
+ 14. Battery&Electrical Energy Storage
+ 15. Block Group
+ 16. Body Exterior Trim
+ 17. Body Interior & Exterior Electronics
+ 18. Body Lower Exterior Trim
+ 19. Body Lower Structure
+ 20. Body Lower Structure Garnish Trim
+ 21. Body Upper Exterior Trim
+ 22. Body Upper Structure
+ 23. Body Window
+ 24. Body accessories harness
+ 25. Brake Apply
+ 26. Brake Modulator
+ 27. Brake Pedal
+ 28. Brake Pipes
+ 29. Brakes
+ 30. Bumpers,Fascia & Grille
+ 31. CLUTCH HOUSING-6MT Front Drive&6AMT
+ 32. Charging & Energystorage
+ 33. Chassis Harnesses
+ 34. Chassis Structure
+ 35. Clusters
+ 36. Clutch Apply
+ 37. Clutch(MT)
+ 38. Clutch(PHEV)
+ 39. Communicate
+ 40. Coolant Plumbing & Hardware
+ 41. Coolant Plumbing & Hardware--EV
+ 42. Coolant Plumbing & Hardware-FCV
+ 43. Coolant Plumbing & Hardware-PHEV
+ 44. Coolant Pump And Inl&OtltTube&Thermostat
+ 45. Crankshaft Rod
+ 46. Customer Switches
+ 47. Cylinder Block&Accessory
+ 48. Cylinder Head
+ 49. Damper Pulley&GearDrive
+ 50. Door  Wire Harnesses
+ 51. Door Switches
+ 52. Driver Information
+ 53. EGR ASM
+ 54. Emission Exhaust System
+ 55. Engine ASM
+ 56. Engine Accessory
+ 57. Engine Compartment Fuse Box
+ 58. Engine Management
+ 59. Engine shield
+ 60. Engine wiring harness
+ 61. EngineCompartmentHarness
+ 62. Entertainment
+ 63. Exhaust Elbow&Turbocharger
+ 64. Exhaust system
+ 65. Exterior Emblem/Decal/Nameplate
+ 66. Fenders
+ 67. Floor Trim
+ 68. Fluids and Lubrications
+ 69. Frong Seat（right ）
+ 70. Front Brakes
+ 71. Front Bumper
+ 72. Front Closures Front End Sheetmetal
+ 73. Front Door Electric Glass Regulator
+ 74. Front Door Handle and Lock
+ 75. Front Door Trim
+ 76. Front End Exterior Airflow
+ 77. Front Interior Control
+ 78. Front Interior HVAC Airflow
+ 79. Front Lamp
+ 80. Front Seat（Left）
+ 81. Front Seat（Right）
+ 82. Front Seat（left ）
+ 83. Front Shock Absorber
+ 84. Front Side Closure
+ 85. Front Sub-frame
+ 86. Front Suspension
+ 87. Frontexterior Hvac Airflow
+ 88. Frontinterior Hvac Airflow
+ 89. Fuel Plumbing & Hardware
+ 90. Fuel Storage & Handling
+ 91. Fuel System
+ 92. Fuel Tank & Canister
+ 93. Grille
+ 94. Head Cover&PCV
+ 95. Hood
+ 96. Hood Lock
+ 97. Hvac & Powertrain Coolingin
+ 98. Ignition Switch and Key
+ 99. Infotainment System
+100. Instrument Panel  Wire Harnesses
+101. Instrument Panel & Console
+102. Instrument Panel Crossmember（LHD）
+103. Instrument Panel Crossmember（RHD）
+104. Instrument Panel（LHD）
+105. Instrument Panel（RHD）
+106. Interior Acoustic Syetem
+107. Interior Heating Pipe
+108. Interior Heating Pipe-FCV
+109. Interior Lamp
+110. Interior Trim
+111. InteriorLamp
+112. LP-EGR intake pipe&Accessory
+113. MANIFOLD ASM-INT
+114. Manual transmission assembly（6MT Front/Back drive）
+115. Maxus
+116. Mounts
+117. Mud Guard
+118. Multi-Function Column Switch
+119. Oil Cooler And Inl&OtltTube&Filter
+120. On Vehicle Attachments
+121. On Vehicle Attachments&Tools
+122. On Vehicle Tools
+123. Outer Framing(left side)
+124. Outer Framing(right side)
+125. Park Brake
+126. ParkDistanceControlSystem
+127. Passive Entry Passive Start
+128. Power & Signaldistribution
+129. Power Generation
+130. Power Outlet & Cigarette Lighter HEvice
+131. Power Transmission
+132. Power assembly installation
+133. PowerInverter
+134. Powertrain Control&Diagnostic
+135. Powertrain Driver Interface
+136. Powertrain Mounts-Electric vehicle
+137. Propeller Shaft
+138. Propshaft
+139. Rear  Axle （Front drive vehicle）
+140. Rear Brakes
+141. Rear Bumper
+142. Rear Closure
+143. Rear Door
+144. Rear Door Handle and Door Lock
+145. Rear Door trim
+146. Rear Drive Axle
+147. Rear Drive Axle（YUE JIN）
+148. Rear Electric  Drive Axle
+149. Rear Interior Airflow
+150. Rear Lamp
+151. Rear Panel
+152. Rear Shock Absorber
+153. Rear Suspension
+154. Rear View Mirror
+155. Rearinterior Hvac Airflow
+156. Redirector
+157. Refrigerant Plumbing & Hardware
+158. Refrigerant Plumbing & Hardware-Electric vehicle
+159. Refrigerant Plumbing & Hardware-FCV
+160. Refrigerant Plumbing & Hardware-PHEV
+161. Roof Framing
+162. Roof Trim
+163. SHAFT-BALANCER
+164. Safety Belt
+165. Safety&Avoidance
+166. Seat Arrangement of Shang Jie's 11 12and 14 Seats (Australia)
+167. Seats
+168. Sensor&Harness
+169. Serial LSFAL11A4PA157987
+170. Serial LSH14J7CXMA11459
+171. Serial LSH14J7CXMA114599
+172. Side Closures
+173. Side Panel&Roof Safety Belt
+174. Side Sliding Door
+175. Side Sliding Door Handle and Door Lock
+176. Side Sliding Door trim
+177. Side Trim
+178. Sound Insulation、Heat Insulation
+179. Spare Tire Device
+180. Speaker
+181. Steering
+182. Steering Column
+183. Steering Wheel and AirBag
+184. Subdrivers Integral Double Seat
+185. Subdrivers Split Double Seat
+186. Sump&Oil Suction Pipe&Dipstick
+187. Suspension
+188. TNK FIL DR
+189. Three Seats Arrangement for Chassis Vehicle (UK、Hong Kong)
+190. Three Seats Arrangement for VAN Vehicle (Australia、New Zealand)
+191. Timing Drive
+192. Tire,Wheel,Trim
+193. Tire,Wheels,Wheel Trim
+194. Transmission  operating mechanism(6AMT)
+195. Transmission CSC and  Operating Mechanism(6MT back drive)
+196. Transmission Differential-6MT Front Drive&6AMT
+197. Transmission Fork Components(SAGW-6MT back drive)
+198. Transmission Main Shaft And Gear(6MT back drive)
+199. Transmission RVS Idler Shaft Gear-6MT Front Drive&6AMT
+200. Transmission Shaft  OUTPUT（1,2,5,6）-6MT Front Drive&6AMT
+201. Transmission Shaft  OUTPUT（3,4,R）-6MT Front Drive&6AMT
+202. Transmission Shaft INPUT-6MT Front Drive&6AMT
+203. Transmission Shift Actuation-AMT
+204. Transmission Shift Actuation-AT、Electric vehicle
+205. Transmission Shift Actuation-MT
+206. Transmission accessory-6MT Front Drive
+207. Transmission fork-6MT Front Drive&6MT
+208. Transmission operating mechanism-6MT Front Drive
+209. Transmission shaft ASM-6MT Front Drive&6AMT
+210. Transmission shell Bearing-6MT Front Drive & 6AMT
+211. Transmission shell-6MT&6AMT
+212. Two/Three Seats Arrangement for Chassis Vehicle (Australia、New Zealand)
+213. Urea system
+214. Vehicle Date Recorder
+215. Vehicle Tele-Communication
+216. Washer System
+217. Wheelhouse Liner
+218. Window
+219. Window Lift Switch
+220. Wiper & Washer
+221. Wiper（LHD）
+222. Wiper（RHD）
+223. body lower stucture
+224. inner framing(left side)
+225. inner framing(right side)
