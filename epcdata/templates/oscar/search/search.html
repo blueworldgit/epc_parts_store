@@ -159,10 +159,8 @@
                                         <div class="product-price mb-2">
                                             {% load purchase_info_tags %}
                                             {% purchase_info_for_product request product as session %}
-                                            {% if session.price.exists %}
+                                            {% if session.price.exists and session.price.incl_tax and session.price.incl_tax > 0 %}
                                                 <span class="price text-primary fw-bold">{{ session.price.incl_tax|currency }}</span>
-                                            {% else %}
-                                                <span class="text-warning">{% trans "Enquire" %}</span>
                                             {% endif %}
                                         </div>
                                         
@@ -171,7 +169,7 @@
                                             {% load purchase_info_tags %}
                                             {% purchase_info_for_product request product as session %}
                                             
-                                            {% if session.availability.is_available_to_buy and session.price.exists %}
+                                            {% if session.availability.is_available_to_buy and session.price.exists and session.price.incl_tax and session.price.incl_tax > 0 %}
                                                 <!-- Add to Cart Form using Oscar's proper basket form -->
                                                 {% basket_form request product 'single' as basket_form %}
                                                 <form method="post" action="{% url 'basket:add' pk=product.pk %}" class="add-to-basket">

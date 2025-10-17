@@ -329,10 +329,8 @@ html, body {
                                                 {% endif %}
                                                 
                                                 <div class="product-price mb-2">
-                                                    {% if product.stockrecords.first and product.stockrecords.first.price %}
+                                                    {% if product.stockrecords.first and product.stockrecords.first.price and product.stockrecords.first.price > 0 %}
                                                         <span class="new-price" style="color: #de8511; font-weight: bold;">£{{ product.stockrecords.first.price }}</span>
-                                                    {% else %}
-                                                        <span class="contact-price" style="color: #6c757d;">{% trans "Contact for Price" %}</span>
                                                     {% endif %}
                                                 </div>
                                                 
@@ -347,7 +345,7 @@ html, body {
                                                     {% load purchase_info_tags %}
                                                     {% purchase_info_for_product request product as session %}
                                                     
-                                                    {% if session.availability.is_available_to_buy and session.price.exists %}
+                                                    {% if session.availability.is_available_to_buy and session.price.exists and product.stockrecords.first.price and product.stockrecords.first.price > 0 %}
                                                         <!-- Add to Cart Form -->
                                                         {% basket_form request product 'single' as basket_form %}
                                                         <form method="post" action="{% url 'basket:add' pk=product.pk %}" class="add-to-basket mb-1">
