@@ -39,11 +39,13 @@ def vps_bulk_attach_and_move_images(dry_run=True, similarity_threshold=0.6):
     """
     VPS version: Attach images to categories AND move to production media folder
     Auto-detects environment (Windows dev vs Linux VPS)
+    OVERWRITES existing images and database references - fresh start every time
     """
     
-    print(f"🚀 VPS Bulk Image Attachment & Move Script")
+    print(f"🚀 VPS Bulk Image Attachment & Move Script (FRESH OVERWRITE MODE)")
     print(f"Mode: {'DRY RUN (preview only)' if dry_run else 'LIVE (will make changes)'}")
     print(f"Similarity threshold: {similarity_threshold*100:.0f}%")
+    print(f"🔄 OVERWRITE MODE: Will replace existing images and database references")
     print("="*70)
     
     # Auto-detect environment and set paths accordingly
@@ -77,6 +79,14 @@ def vps_bulk_attach_and_move_images(dry_run=True, similarity_threshold=0.6):
         print(f"📁 Creating media/categories folder: {media_categories_folder}")
         if not dry_run:
             media_categories_folder.mkdir(parents=True, exist_ok=True)
+    else:
+        # Count existing images that will be overwritten
+        existing_images = list(media_categories_folder.glob('*'))
+        existing_count = len([f for f in existing_images if f.is_file() and f.suffix.lower() in {'.jpg', '.jpeg', '.png', '.gif', '.bmp', '.tiff', '.webp'}])
+        if existing_count > 0:
+            print(f"🔄 Found {existing_count} existing images in media folder - will overwrite as needed")
+        else:
+            print(f"📁 Media folder exists but is empty")
     
     # Get image files from Rentals folder
     image_extensions = {'.jpg', '.jpeg', '.png', '.gif', '.bmp', '.tiff', '.webp'}
@@ -164,9 +174,10 @@ def vps_bulk_attach_and_move_images(dry_run=True, similarity_threshold=0.6):
     print(f"📝 Generating report: {report_filename}")
     
     with open(report_filename, 'w', encoding='utf-8') as report:
-        report.write(f"VPS Bulk Image Attachment & Move Report\n")
+        report.write(f"VPS Bulk Image Attachment & Move Report (OVERWRITE MODE)\n")
         report.write(f"Generated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
         report.write(f"Mode: {'DRY RUN' if dry_run else 'LIVE'}\n")
+        report.write(f"Overwrite Mode: ENABLED (replaces existing images and database references)\n")
         report.write(f"Similarity threshold: {similarity_threshold*100:.0f}%\n")
         report.write(f"VPS Base Path: {base_path}\n")
         report.write(f"Source Folder: {rentals_folder}\n")
@@ -207,21 +218,31 @@ def vps_bulk_attach_and_move_images(dry_run=True, similarity_threshold=0.6):
             report.write(f"     Target: {target_path}\n")
             report.write(f"     Categories to update: {len(categories)}\n")
             
-            # Step 1: Move/Copy file to media folder
+            # Step 1: Move/Copy file to media folder (OVERWRITE existing)
             total_file_moves += 1
             file_move_success = False
             
+            # Check if target file already exists
+            file_exists = target_path.exists()
+            
             try:
                 if not dry_run:
-                    # Copy file to media folder (keeping original in Rentals)
+                    # Always overwrite - copy file to media folder (keeping original in Rentals)
                     shutil.copy2(image_path, target_path)
-                    print(f"     📁 MOVED: {image_path.name} → {target_path}")
+                    if file_exists:
+                        print(f"     📁 OVERWRITTEN: {image_path.name} → {target_path}")
+                    else:
+                        print(f"     📁 MOVED: {image_path.name} → {target_path}")
                 else:
-                    print(f"     📁 WOULD MOVE: {image_path.name} → {target_path}")
+                    if file_exists:
+                        print(f"     📁 WOULD OVERWRITE: {image_path.name} → {target_path}")
+                    else:
+                        print(f"     📁 WOULD MOVE: {image_path.name} → {target_path}")
                 
                 successful_file_moves += 1
                 file_move_success = True
-                report.write(f"       FILE: {'✅ MOVED' if not dry_run else '✅ WOULD MOVE'} to {target_path}\n")
+                action = "OVERWRITTEN" if file_exists else "MOVED"
+                report.write(f"       FILE: {'✅ ' + action if not dry_run else '✅ WOULD ' + action} to {target_path}\n")
                 
             except Exception as e:
                 error_msg = f"Error moving file {image_path} to {target_path}: {str(e)}"
@@ -229,14 +250,27 @@ def vps_bulk_attach_and_move_images(dry_run=True, similarity_threshold=0.6):
                 print(f"     📁 ❌ FILE MOVE ERROR: {str(e)}")
                 report.write(f"       FILE: ❌ ERROR moving file: {str(e)}\n")
             
-            # Step 2: Attach to categories (only if file move succeeded or is dry run)
+            # Step 2: Attach to categories (OVERWRITE existing database references)
             if file_move_success or dry_run:
                 for j, category in enumerate(categories, 1):
                     total_attachments += 1
                     
+                    # Check if category already has an image
+                    had_image = bool(category.image)
+                    
                     try:
                         if not dry_run:
-                            # Attach using the moved file path
+                            # Clear existing image first (if any) to ensure clean attachment
+                            if category.image:
+                                try:
+                                    # Delete old image file if it exists and is different
+                                    old_image_path = category.image.path
+                                    if old_image_path != str(target_path) and os.path.exists(old_image_path):
+                                        os.remove(old_image_path)
+                                except:
+                                    pass  # Ignore errors deleting old files
+                            
+                            # Attach the new image (overwrites database reference)
                             with open(target_path, 'rb') as img_file:
                                 category.image.save(
                                     target_filename,
@@ -245,9 +279,14 @@ def vps_bulk_attach_and_move_images(dry_run=True, similarity_threshold=0.6):
                                 )
                         
                         successful_attachments += 1
-                        status = "✅ ATTACHED" if not dry_run else "✅ WOULD ATTACH"
-                        print(f"       {j}. {status}: {category.name[:60]}...")
-                        report.write(f"         {j}. {status}: {category.name}\n")
+                        if had_image:
+                            status = "✅ REPLACED" if not dry_run else "✅ WOULD REPLACE"
+                            print(f"       {j}. {status}: {category.name[:60]}...")
+                            report.write(f"         {j}. {status}: {category.name}\n")
+                        else:
+                            status = "✅ ATTACHED" if not dry_run else "✅ WOULD ATTACH"
+                            print(f"       {j}. {status}: {category.name[:60]}...")
+                            report.write(f"         {j}. {status}: {category.name}\n")
                         report.write(f"            ID: {category.id}, Slug: {category.slug}\n")
                         
                     except Exception as e:
@@ -280,7 +319,10 @@ def vps_bulk_attach_and_move_images(dry_run=True, similarity_threshold=0.6):
         
         if dry_run:
             report.write(f"\n⚠️  THIS WAS A DRY RUN - NO CHANGES WERE MADE\n")
-            report.write(f"To actually move files and attach images, run with dry_run=False\n")
+            report.write(f"To actually move files and attach images (OVERWRITING existing), run with --live\n")
+        else:
+            report.write(f"\n✅ LIVE RUN COMPLETED - IMAGES OVERWRITTEN/REPLACED\n")
+            report.write(f"All matching images have been moved to media folder and attached to categories\n")
     
     print(f"\n📊 Final Results:")
     print(f"   File moves: {successful_file_moves}/{total_file_moves}")
@@ -289,11 +331,12 @@ def vps_bulk_attach_and_move_images(dry_run=True, similarity_threshold=0.6):
     
     if dry_run:
         print(f"\n⚠️  THIS WAS A DRY RUN - NO CHANGES WERE MADE")
-        print(f"   Review the report and run with dry_run=False to actually process")
+        print(f"   Review the report and run with --live to actually process (WILL OVERWRITE existing)")
     else:
         print(f"\n✅ LIVE RUN COMPLETED!")
         print(f"   Images moved to: {media_categories_folder}")
         print(f"   Categories updated in database")
+        print(f"   🔄 OVERWRITE MODE: Existing images and references were replaced")
     
     print(f"\n📄 Full report saved to: {report_filename}")
     
@@ -352,7 +395,10 @@ Examples:
     if dry_run:
         print("💡 TIP: Add --live flag to actually make changes")
     else:
-        print("⚠️  WARNING: This will move files and modify the database!")
+        print("⚠️  WARNING: This will move files, modify the database, and OVERWRITE existing images!")
+        print("   - Existing image files will be replaced")
+        print("   - Database references will be updated")
+        print("   - This provides a fresh start every time")
         response = input("Continue? (y/N): ").strip().lower()
         if response not in ['y', 'yes']:
             print("Operation cancelled.")

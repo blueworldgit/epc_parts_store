@@ -56,10 +56,12 @@
 }
 
 .product-title {
-    font-size: 14px;
+    font-size: 10px;
     font-weight: 600;
-    line-height: 1.4;
+    line-height: 1.2;
     margin-bottom: 8px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 .product-price {
@@ -140,7 +142,7 @@
                                     <div class="product-info p-3">
                                         <h6 class="product-title mb-2">
                                             <a href="{{ product.get_absolute_url }}" class="text-decoration-none text-dark">
-                                                {{ product.title|truncatechars:40 }}
+                                                {{ product.title }}
                                             </a>
                                         </h6>
                                         
