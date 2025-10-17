@@ -196,8 +196,8 @@ urlpatterns = [
     # Move the current homepage to /backendstuff
     path('backendstuff/', homepage, name='backend_homepage'),
     
-    # Redirect root to catalogue
-    path('', lambda request: redirect('/catalogue/'), name='homepage'),
+    # Redirect root to maxus_1 category
+    path('', lambda request: redirect('/catalogue/category/maxus_1/'), name='homepage'),
 ]
 
 # Serve media and static files in development
