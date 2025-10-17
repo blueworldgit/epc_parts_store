@@ -60,7 +60,15 @@
 }
 
 .product-title {
-    font-size: 14px;
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 1.2;
+    height: 48px;
+    display: flex;
+    align-items: flex-start;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    overflow: hidden;
 }
 
 .svg-indicator {
@@ -202,7 +210,7 @@
                                     <div class="product-info p-3">
                                         <h6 class="product-title mb-2">
                                             <a href="{{ product.get_absolute_url }}" class="text-decoration-none text-dark">
-                                                {{ product.title|remove_part_number|truncatechars:25 }}
+                                                {{ product.title|remove_part_number }}
                                             </a>
                                         </h6>
                                         

@@ -55,6 +55,26 @@
                 <div class="product-details">
                     <h1 class="product-name">{{ product.title }}</h1>
                     
+                    {# Display call-out order prominently below title #}
+                    {% get_call_out_order product as call_out %}
+                    {% if call_out %}
+                        <style>
+                            .blinking-marker {
+                                animation: blink 1.5s infinite;
+                            }
+                            @keyframes blink {
+                                0%, 50% { opacity: 1; }
+                                51%, 100% { opacity: 0.3; }
+                            }
+                        </style>
+                        <div class="part-number-highlight" style="background: linear-gradient(135deg, #ff4757, #ff3742); color: white !important; padding: 12px 20px; border-radius: 8px; margin: 15px 0; box-shadow: 0 4px 12px rgba(255, 71, 87, 0.3); border-left: 4px solid #ff2d42;">
+                            <p class="mb-0" style="font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif; font-size: 16px; font-weight: bold; color: white !important; letter-spacing: 0.5px;">
+                                <i class="fa fa-map-marker blinking-marker" style="margin-right: 8px; font-size: 18px; color: white !important;"></i>
+                                <span style="color: white !important;">{% trans "This is part" %} #{{ call_out }} {% trans "from the diagram" %}</span>
+                            </p>
+                        </div>
+                    {% endif %}
+                    
                     <div class="rating-box pt-20">
                         <ul class="rating rating-with-review-item">
                             <li><i class="fa fa-star-o"></i></li>
@@ -78,12 +98,6 @@
                     
                     <div class="product-desc">
                         <p><span>{% trans "UPC:" %} {{ product.upc|default:"Not set" }}</span></p>
-                        
-                        {# Display call-out order if available #}
-                        {% get_call_out_order product as call_out %}
-                        {% if call_out %}
-                            <p class="text-info"><strong><i class="fa fa-map-marker"></i> {% trans "This is part" %} #{{ call_out }} {% trans "from the diagram" %}</strong></p>
-                        {% endif %}
                         
                         {# Display orientation if available #}
                         {% get_orientation product as orientation %}
