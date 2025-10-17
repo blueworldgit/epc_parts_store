@@ -128,6 +128,15 @@
                                         <input class="cart-plus-minus-box" name="quantity" value="1" type="text">
                                     </div>
                                 </div>
+                                
+                                <!-- Price display near Add to Cart -->
+                                {% if product.stockrecords.first and product.stockrecords.first.price %}
+                                <div class="product-price-cart mb-3">
+                                    <span class="price-label text-muted" style="font-size: 1.1em;">Price:</span>
+                                    <span class="cart-price" style="color: #de8511; font-weight: bold; font-size: 1.5em;">£{{ product.stockrecords.first.price }}</span>
+                                </div>
+                                {% endif %}
+                                
                                 <div class="product-option">
                                     <button class="btn uren-btn" type="submit">{% trans "Add to Cart" %}</button>
                                 </div>
