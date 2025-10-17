@@ -72,7 +72,7 @@
 .product-price {
     font-size: 16px;
     font-weight: bold;
-    color: #28a745;
+    color: #de8511;
     margin-bottom: 10px;
 }
 
@@ -223,7 +223,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="svg-indicator position-absolute" style="top: 5px; right: 5px; z-index: 10;">
-                                                        <span class="badge bg-success text-white small">
+                                                        <span class="badge text-white small" style="background-color: #de8511 !important;">
                                                             <i class="fa fa-cog"></i> Diagram
                                                         </span>
                                                     </div>
@@ -259,7 +259,7 @@
                                             
                                             <div class="product-price mb-2">
                                                 {% if product.stockrecords.first and product.stockrecords.first.price %}
-                                                    <span class="new-price" style="color: #28a745; font-weight: bold;">£{{ product.stockrecords.first.price }}</span>
+                                                    <span class="new-price" style="color: #de8511; font-weight: bold;">£{{ product.stockrecords.first.price }}</span>
                                                 {% else %}
                                                     <span class="contact-price" style="color: #6c757d;">{% trans "Contact for Price" %}</span>
                                                 {% endif %}
