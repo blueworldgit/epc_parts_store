@@ -57,13 +57,11 @@ html, body {
 }
 
 .svg-wrapper svg {
-    max-width: 100% !important;
-    max-height: 100% !important;
-    width: auto !important;
-    height: auto !important;
-    overflow: hidden;
-    transform: none !important;
-    object-fit: contain;
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    overflow: visible;
 }
 
 .svg-thumbnail-container {
@@ -72,15 +70,6 @@ html, body {
 
 .svg-indicator {
     opacity: 0.9;
-}
-
-/* Force SVG elements to be visible and properly sized */
-.svg-wrapper svg * {
-    vector-effect: non-scaling-stroke;
-}
-
-.svg-wrapper svg g {
-    transform: none !important;
 }
 
 .product-title {
