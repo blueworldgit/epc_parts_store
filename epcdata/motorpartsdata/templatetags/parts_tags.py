@@ -19,10 +19,21 @@ def get_product_svg(product):
             # Use filter instead of get to handle multiple parts with same number
             parts = Part.objects.select_related('child_title').filter(part_number=part_number)
             
-            # Return SVG from the first part that has SVG data
+            # First, try to find exact match by product title if available
+            if hasattr(product, 'title') and product.title:
+                for part in parts:
+                    if (part.child_title and part.child_title.svg_code and 
+                        part.title and product.title.lower().strip() in part.title.lower().strip()):
+                        return part.child_title.svg_code
+            
+            # Fallback: Return SVG from the first part that has SVG data
+            # but with additional validation
             for part in parts:
                 if part.child_title and part.child_title.svg_code:
-                    return part.child_title.svg_code
+                    # Additional check: ensure the part has meaningful SVG content
+                    svg_content = part.child_title.svg_code.strip()
+                    if len(svg_content) > 100:  # Basic validation for meaningful SVG
+                        return svg_content
                     
     except Exception as e:
         # For debugging, you can log the error
