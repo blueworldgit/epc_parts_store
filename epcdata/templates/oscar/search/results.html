@@ -79,6 +79,32 @@
 .product-description {
     font-size: 0.9em;
 }
+
+/* SVG handling styles */
+.svg-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+}
+
+.svg-wrapper svg {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    overflow: hidden;
+}
+
+.svg-thumbnail-container {
+    overflow: hidden !important;
+}
+
+.svg-indicator {
+    opacity: 0.9;
+}
 </style>
 {% endblock %}
 
@@ -316,7 +342,20 @@
                                 <div class="product-item h-100">
                                     <div class="product-thumbnail">
                                         <a href="{{ product.get_absolute_url }}">
-                                            {% if product.primary_image and product.primary_image.original.url %}
+                                            {% get_product_svg product as svg_content %}
+                                            {% if svg_content %}
+                                                <div class="svg-thumbnail-container" 
+                                                     style="position: relative; width: 100%; height: 200px; background-color: #f8f9fa; border: 1px solid #dee2e6; display: flex; align-items: center; justify-content: center;">
+                                                    <div class="svg-wrapper" style="width: 180px; height: 180px; position: relative;">
+                                                        {{ svg_content|safe }}
+                                                    </div>
+                                                </div>
+                                                <div class="svg-indicator position-absolute" style="top: 5px; right: 5px; z-index: 10;">
+                                                    <span class="badge text-white small" style="background-color: #de8511 !important;">
+                                                        <i class="fa fa-cog"></i> Diagram
+                                                    </span>
+                                                </div>
+                                            {% elif product.primary_image and product.primary_image.original.url %}
                                                 <img src="{{ product.primary_image.original.url }}" 
                                                      alt="{{ product.title }}" 
                                                      class="img-fluid product-img"
@@ -419,7 +458,20 @@
                                 <div class="product-item h-100">
                                     <div class="product-thumbnail">
                                         <a href="{{ product.get_absolute_url }}">
-                                            {% if product.primary_image and product.primary_image.original.url %}
+                                            {% get_product_svg product as svg_content %}
+                                            {% if svg_content %}
+                                                <div class="svg-thumbnail-container" 
+                                                     style="position: relative; width: 100%; height: 200px; background-color: #f8f9fa; border: 1px solid #dee2e6; display: flex; align-items: center; justify-content: center;">
+                                                    <div class="svg-wrapper" style="width: 180px; height: 180px; position: relative;">
+                                                        {{ svg_content|safe }}
+                                                    </div>
+                                                </div>
+                                                <div class="svg-indicator position-absolute" style="top: 5px; right: 5px; z-index: 10;">
+                                                    <span class="badge text-white small" style="background-color: #de8511 !important;">
+                                                        <i class="fa fa-cog"></i> Diagram
+                                                    </span>
+                                                </div>
+                                            {% elif product.primary_image and product.primary_image.original.url %}
                                                 <img src="{{ product.primary_image.original.url }}" 
                                                      alt="{{ product.title }}" 
                                                      class="img-fluid product-img"
