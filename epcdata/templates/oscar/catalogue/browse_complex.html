@@ -224,11 +224,22 @@
 }
 
 .svg-container svg {
-    max-width: 100%;
-    max-height: 100%;
-    width: auto;
-    height: auto;
+    max-width: 100% !important;
+    max-height: 100% !important;
+    width: auto !important;
+    height: auto !important;
     overflow: hidden;
+    transform: none !important;
+    object-fit: contain;
+}
+
+/* Force SVG elements to be visible and properly sized */
+.svg-container svg * {
+    vector-effect: non-scaling-stroke;
+}
+
+.svg-container svg g {
+    transform: none !important;
 }
 
 .product-badge {
