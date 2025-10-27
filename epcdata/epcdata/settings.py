@@ -35,7 +35,7 @@ def detect_production_server():
         local_ip = socket.gethostbyname(hostname)
         
         # Check if running on the production VPS IP
-        production_ips = ['80.95.207.42', '80.95.207.45', '127.0.1.1']  # External IPs and VPS internal IP
+        production_ips = ['80.95.207.42', '80.95.207.45']  # External IPs only (removed 127.0.1.1 as it's too generic)
         
         # Also check for environment variables that indicate VPS deployment
         vps_indicators = [
@@ -77,14 +77,7 @@ elif os.path.exists(BASE_DIR / '.prod'):
 
 if is_production:
     # Try to load production environment variables
-    # Priority order: .env.newserver -> .env.production -> .prod
-    if os.path.exists(BASE_DIR / '.env.newserver'):
-        load_dotenv(BASE_DIR / '.env.newserver', override=True)
-        print("🌐 Loading NEW SERVER environment from .env.newserver")
-    elif detect_production_server() and os.path.exists(BASE_DIR / '.env.production'):
-        load_dotenv(BASE_DIR / '.env.production', override=True)
-        print("🌐 Loading VPS PRODUCTION environment from .env.production (N0rfolk password)")
-    elif os.path.exists(BASE_DIR / '.prod'):
+    if os.path.exists(BASE_DIR / '.prod'):
         load_dotenv(BASE_DIR / '.prod', override=True)
         print("🌐 Loading PRODUCTION environment from .prod")
     elif os.path.exists(BASE_DIR / '.env.production'):

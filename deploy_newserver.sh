@@ -28,15 +28,14 @@ source env/bin/activate
 # Install Python dependencies
 pip install -r requirements.txt
 
-# Copy environment file
-cp .env.newserver .env.production
+# Environment file is already configured as .env.production
+echo "📋 Using .env.production for new server configuration"
 
 # Update environment file with actual server details
 echo "⚠️  Remember to update .env.production with:"
-echo "   - Actual server IP address"
-echo "   - Domain name"
-echo "   - Database password"
-echo "   - Secret key"
+echo "2. Update .env.production with your domain name"
+echo "   - Generate a new SECRET_KEY"
+echo "   - Server IP and database are already configured"
 
 # Collect static files
 python manage.py collectstatic --noinput
