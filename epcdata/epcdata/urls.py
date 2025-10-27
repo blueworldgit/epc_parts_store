@@ -196,13 +196,19 @@ urlpatterns = [
     # Move the current homepage to /backendstuff
     path('backendstuff/', homepage, name='backend_homepage'),
     
-    # Redirect root to maxus_1 category
-    path('', lambda request: redirect('/catalogue/category/maxus_1/'), name='homepage'),
+    # Redirect root to catalogue
+    path('', lambda request: redirect('/catalogue/'), name='homepage'),
 ]
 
-# Serve media and static files in development
-if settings.DEBUG:
+# Serve media and static files 
+# In development OR when running Django's development server (even in production mode for testing)
+import sys
+is_runserver = 'runserver' in sys.argv
+
+if settings.DEBUG or is_runserver:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-    # In development, serve static files from STATICFILES_DIRS
+    # Serve static files from STATICFILES_DIRS
     from django.contrib.staticfiles.urls import staticfiles_urlpatterns
     urlpatterns += staticfiles_urlpatterns()
+    print(f"📁 Media files will be served from: {settings.MEDIA_ROOT}")
+    print(f"📁 Static files will be served from: {settings.STATICFILES_DIRS}")
