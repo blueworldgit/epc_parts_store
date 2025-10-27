@@ -35,7 +35,7 @@ def detect_production_server():
         local_ip = socket.gethostbyname(hostname)
         
         # Check if running on the production VPS IP
-        production_ips = ['80.95.207.42', '127.0.1.1']  # External IP and VPS internal IP
+        production_ips = ['80.95.207.42', '80.95.207.45', '127.0.1.1']  # External IPs and VPS internal IP
         
         # Also check for environment variables that indicate VPS deployment
         vps_indicators = [
@@ -77,8 +77,11 @@ elif os.path.exists(BASE_DIR / '.prod'):
 
 if is_production:
     # Try to load production environment variables
-    # When running on VPS, prefer .env.production which has the N0rfolk password
-    if detect_production_server() and os.path.exists(BASE_DIR / '.env.production'):
+    # Priority order: .env.newserver -> .env.production -> .prod
+    if os.path.exists(BASE_DIR / '.env.newserver'):
+        load_dotenv(BASE_DIR / '.env.newserver', override=True)
+        print("🌐 Loading NEW SERVER environment from .env.newserver")
+    elif detect_production_server() and os.path.exists(BASE_DIR / '.env.production'):
         load_dotenv(BASE_DIR / '.env.production', override=True)
         print("🌐 Loading VPS PRODUCTION environment from .env.production (N0rfolk password)")
     elif os.path.exists(BASE_DIR / '.prod'):
@@ -112,7 +115,7 @@ SECRET_KEY = os.getenv('SECRET_KEY', 'django-insecure-aiqpmaxs^h@-@r#-nvtu)%p73-
 DEBUG = os.getenv('DEBUG', 'True').lower() == 'true'
 
 # Allow hosts from environment variable or use defaults
-ALLOWED_HOSTS_STR = os.getenv('ALLOWED_HOSTS', '80.95.207.42,vanparts-direct.co.uk,www.vanparts-direct.co.uk,localhost,127.0.0.1,[::1]')
+ALLOWED_HOSTS_STR = os.getenv('ALLOWED_HOSTS', '80.95.207.42,80.95.207.45,vanparts-direct.co.uk,www.vanparts-direct.co.uk,maxusparts.co.uk,www.maxusparts.co.uk,localhost,127.0.0.1,[::1]')
 ALLOWED_HOSTS = [host.strip() for host in ALLOWED_HOSTS_STR.split(',')]
 print(f"DEBUG: ALLOWED_HOSTS = {ALLOWED_HOSTS}")
 
@@ -126,6 +129,8 @@ X_FRAME_OPTIONS = 'DENY'
 CSRF_TRUSTED_ORIGINS = [
     'https://vanparts-direct.co.uk',
     'https://www.vanparts-direct.co.uk',
+    'https://maxusparts.co.uk',
+    'https://www.maxusparts.co.uk',
 ]
 
 # Additional CSRF settings for reverse proxy setups
