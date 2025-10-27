@@ -1,0 +1,38 @@
+# Systemd service file for vanparts-direct Django application
+# Place this file at: /etc/systemd/system/vanparts-direct.service
+# Then run:
+# sudo systemctl daemon-reload
+# sudo systemctl enable vanparts-direct
+# sudo systemctl start vanparts-direct
+# sudo systemctl status vanparts-direct
+
+[Unit]
+Description=vanparts-direct Django Application
+After=network.target postgresql.service
+Requires=postgresql.service
+
+[Service]
+Type=notify
+User=maxis
+Group=maxis
+WorkingDirectory=/home/maxis/epc_parts_store/epcdata
+Environment=DJANGO_ENV=production
+Environment=PATH=/home/maxis/epc_parts_store/epcdata/env/bin
+ExecStart=/home/maxis/epc_parts_store/epcdata/env/bin/gunicorn --config /home/maxis/epc_parts_store/gunicorn_config.py epcdata.wsgi:application
+ExecReload=/bin/kill -s HUP $MAINPID
+Restart=always
+RestartSec=3
+KillMode=mixed
+TimeoutStopSec=5
+PrivateTmp=true
+
+# Security settings
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/home/maxis/epc_parts_store/epcdata/media
+ReadWritePaths=/home/maxis/epc_parts_store/epcdata/staticfiles
+ReadWritePaths=/var/log/gunicorn
+
+[Install]
+WantedBy=multi-user.target

@@ -60,6 +60,11 @@ print(f"🔍 Debug: .env.production exists = {os.path.exists(BASE_DIR / '.env.pr
 print(f"🔍 Debug: .prod exists = {os.path.exists(BASE_DIR / '.prod')}")
 print(f"🔍 Debug: DJANGO_ENV = {os.environ.get('DJANGO_ENV', 'NOT SET')}")
 
+# Force production mode on VPS server
+# Set DJANGO_ENV in environment if not already set
+if not os.environ.get('DJANGO_ENV'):
+    os.environ['DJANGO_ENV'] = 'production'
+
 # Check if explicitly set to production via environment variable
 if os.environ.get('DJANGO_ENV') == 'production':
     is_production = True
