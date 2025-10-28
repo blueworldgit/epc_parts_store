@@ -212,8 +212,16 @@ is_runserver = (
     os.environ.get('RUN_MAIN') == 'true'  # Django autoreloader sets this
 )
 
-# Always serve media files when using Django's development server
-if settings.DEBUG or is_runserver or 'runserver' in ' '.join(sys.argv):
+# SIMPLIFIED: Always serve media files when using development server or for testing
+# Check multiple conditions to detect development server
+should_serve_media = (
+    settings.DEBUG or  # Debug mode
+    'runserver' in ' '.join(sys.argv) or  # Command line contains runserver
+    is_runserver or  # Our custom detection
+    os.environ.get('DJANGO_SERVE_MEDIA') == 'true'  # Environment override
+)
+
+if should_serve_media:
     from django.contrib.staticfiles.urls import staticfiles_urlpatterns
     
     media_patterns = static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
@@ -229,7 +237,6 @@ if settings.DEBUG or is_runserver or 'runserver' in ' '.join(sys.argv):
     print(f"📁 Added {len(media_patterns)} media URL patterns")
     print(f"📁 Added {len(static_patterns)} static URL patterns")
 
-# Force media serving for testing (remove this later)
-if not settings.DEBUG:
-    print("🔧 FORCING media serving for testing...")
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+# ALWAYS force media serving for development testing (can be removed later)
+print("🔧 FORCE-ENABLING media serving for development testing...")
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
