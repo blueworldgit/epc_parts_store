@@ -203,12 +203,21 @@ urlpatterns = [
 # Serve media and static files 
 # In development OR when running Django's development server (even in production mode for testing)
 import sys
-is_runserver = 'runserver' in sys.argv
+import os
 
-if settings.DEBUG or is_runserver:
+# Check if we're running the development server
+is_runserver = (
+    'runserver' in sys.argv or 
+    'WSGIServer' in os.environ.get('SERVER_SOFTWARE', '') or
+    os.environ.get('RUN_MAIN') == 'true'  # Django autoreloader sets this
+)
+
+# Always serve media files when using Django's development server
+if settings.DEBUG or is_runserver or 'runserver' in ' '.join(sys.argv):
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
     # Serve static files from STATICFILES_DIRS
     from django.contrib.staticfiles.urls import staticfiles_urlpatterns
     urlpatterns += staticfiles_urlpatterns()
     print(f"📁 Media files will be served from: {settings.MEDIA_ROOT}")
     print(f"📁 Static files will be served from: {settings.STATICFILES_DIRS}")
+    print(f"📁 Media serving enabled (DEBUG={settings.DEBUG}, is_runserver={is_runserver})")
