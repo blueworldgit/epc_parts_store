@@ -112,7 +112,7 @@ SECRET_KEY = os.getenv('SECRET_KEY', 'django-insecure-aiqpmaxs^h@-@r#-nvtu)%p73-
 DEBUG = os.getenv('DEBUG', 'True').lower() == 'true'
 
 # Allow hosts from environment variable or use defaults
-ALLOWED_HOSTS_STR = os.getenv('ALLOWED_HOSTS', '80.95.207.42,vanparts-direct.co.uk,www.vanparts-direct.co.uk,localhost,127.0.0.1,[::1]')
+ALLOWED_HOSTS_STR = os.getenv('ALLOWED_HOSTS', '80.95.207.42,maxusparts.co.uk,www.maxusparts.co.uk,localhost,127.0.0.1,[::1]')
 ALLOWED_HOSTS = [host.strip() for host in ALLOWED_HOSTS_STR.split(',')]
 print(f"DEBUG: ALLOWED_HOSTS = {ALLOWED_HOSTS}")
 
@@ -124,8 +124,8 @@ X_FRAME_OPTIONS = 'DENY'
 
 # CSRF settings for HTTPS
 CSRF_TRUSTED_ORIGINS = [
-    'https://vanparts-direct.co.uk',
-    'https://www.vanparts-direct.co.uk',
+    'https://maxusparts.co.uk',
+    'https://www.maxusparts.co.uk',
 ]
 
 # Additional CSRF settings for reverse proxy setups
