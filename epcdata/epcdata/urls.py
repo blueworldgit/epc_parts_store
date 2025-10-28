@@ -239,4 +239,24 @@ if should_serve_media:
 
 # ALWAYS force media serving for development testing (can be removed later)
 print("🔧 FORCE-ENABLING media serving for development testing...")
-urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+try:
+    from django.views.static import serve
+    from django.urls import re_path
+    
+    # Add media URL pattern manually
+    media_pattern = re_path(r'^media/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT})
+    urlpatterns.append(media_pattern)
+    print(f"✅ FORCED: Added media URL pattern: {media_pattern.pattern.pattern}")
+    
+    # Also try the static() method as backup
+    media_static_patterns = static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    if media_static_patterns:
+        urlpatterns += media_static_patterns
+        print(f"✅ STATIC: Added {len(media_static_patterns)} additional media patterns")
+    else:
+        print("⚠️ static() returned 0 patterns")
+        
+except Exception as e:
+    print(f"❌ Error adding media patterns: {e}")
+    import traceback
+    traceback.print_exc()
