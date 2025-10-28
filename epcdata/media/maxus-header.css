@@ -1,0 +1,261 @@
+/* Maxus Parts Direct Header Styling */
+
+/* Top banner styling for contact info - applies to existing header too */
+.maxus-top-banner {
+    background-color: #f8f9fa;
+    padding: 8px 0;
+    border-bottom: 1px solid #dee2e6;
+    font-size: 14px;
+}
+
+.maxus-top-banner .contact-info {
+    text-align: center;
+    color: #666;
+}
+
+.maxus-top-banner .contact-info a {
+    color: #0c2a5c;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.maxus-top-banner .contact-info a:hover {
+    text-decoration: underline;
+}
+
+/* Logo styling for both headers */
+.maxus-logo {
+    font-size: 28px;
+    font-weight: bold;
+    color: #0c2a5c !important;
+    text-decoration: none !important;
+    font-family: 'Arial', sans-serif;
+}
+
+.maxus-logo:hover {
+    color: #0c2a5c !important;
+    text-decoration: none !important;
+}
+
+/* Header brand colors to match Maxus Parts Direct */
+.maxus-header {
+    background-color: #0c2a5c; /* Keep the sapphire blue */
+}
+
+/* Header middle section */
+.maxus-header-middle {
+    background-color: #fff;
+    padding: 20px 0;
+    border-bottom: 3px solid #0c2a5c;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Navigation styling to match WordPress theme */
+.maxus-nav {
+    background-color: #0c2a5c;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.maxus-nav .navbar {
+    padding: 0;
+}
+
+.maxus-nav .nav-item a {
+    color: #fff !important;
+    font-weight: 500;
+    padding: 15px 20px;
+    transition: background-color 0.3s ease;
+    border: none;
+    text-transform: uppercase;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+}
+
+.maxus-nav .nav-item a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fff !important;
+}
+
+.maxus-nav .dropdown-menu {
+    background-color: #0c2a5c;
+    border: none;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.maxus-nav .dropdown-item {
+    color: #fff;
+    padding: 10px 20px;
+}
+
+.maxus-nav .dropdown-item:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fff;
+}
+
+/* Cart and contact styling */
+.maxus-contact-phone {
+    background-color: #28a745;
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-weight: 500;
+    text-decoration: none;
+    display: inline-block;
+    margin-bottom: 5px;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.maxus-contact-phone:hover {
+    background-color: #218838;
+    color: #fff;
+    text-decoration: none;
+}
+
+.maxus-cart-widget {
+    background-color: #ffc107;
+    color: #212529;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-weight: 500;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.maxus-cart-widget:hover {
+    background-color: #e0a800;
+    color: #212529;
+    text-decoration: none;
+}
+
+/* Company tagline */
+.maxus-tagline {
+    font-size: 12px;
+    color: #666;
+    font-style: italic;
+    margin-top: 5px;
+    font-weight: normal;
+}
+
+/* Search form styling */
+.search-form .form-control {
+    border: 2px solid #dee2e6;
+    padding: 10px 15px;
+}
+
+.search-form .btn-primary {
+    background-color: #0c2a5c;
+    border-color: #0c2a5c;
+    padding: 10px 20px;
+    font-weight: 500;
+}
+
+.search-form .btn-primary:hover {
+    background-color: #094a94;
+    border-color: #094a94;
+}
+
+/* Header actions alignment */
+.header-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 5px;
+}
+
+/* Mobile navbar toggler */
+.maxus-nav .navbar-toggler {
+    border-color: rgba(255, 255, 255, 0.5);
+    margin: 10px;
+}
+
+.maxus-nav .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.75%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+/* Enhanced header styling for existing header structure */
+.header-main_area.bg--sapphire {
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.header-middle_area {
+    background-color: #ffffff;
+    padding: 20px 0;
+    border-bottom: 3px solid #0c2a5c;
+}
+
+/* Make existing contact button match Maxus style */
+.contact-us_wrap a {
+    background-color: #28a745;
+    color: #fff !important;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.contact-us_wrap a:hover {
+    background-color: #218838;
+    color: #fff !important;
+    text-decoration: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .maxus-top-banner {
+        text-align: center;
+        font-size: 12px;
+    }
+    
+    .maxus-logo {
+        font-size: 22px;
+        text-align: center;
+        display: block;
+        margin-bottom: 10px;
+    }
+    
+    .maxus-nav .nav-item a {
+        padding: 12px 15px;
+    }
+    
+    .header-actions {
+        text-align: center;
+        align-items: center;
+        margin-top: 15px;
+    }
+    
+    .maxus-contact-phone,
+    .maxus-cart-widget {
+        margin: 5px;
+        display: block;
+        text-align: center;
+    }
+    
+    .search-area {
+        margin: 15px 0;
+    }
+}
+
+@media (max-width: 576px) {
+    .maxus-logo {
+        font-size: 20px;
+    }
+    
+    .maxus-tagline {
+        font-size: 11px;
+    }
+    
+    .maxus-contact-phone,
+    .maxus-cart-widget {
+        font-size: 13px;
+        padding: 8px 12px;
+    }
+    
+    .contact-us_wrap a {
+        font-size: 13px;
+        padding: 6px 12px;
+    }
+}
