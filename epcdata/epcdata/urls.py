@@ -214,10 +214,22 @@ is_runserver = (
 
 # Always serve media files when using Django's development server
 if settings.DEBUG or is_runserver or 'runserver' in ' '.join(sys.argv):
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-    # Serve static files from STATICFILES_DIRS
     from django.contrib.staticfiles.urls import staticfiles_urlpatterns
-    urlpatterns += staticfiles_urlpatterns()
+    
+    media_patterns = static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    static_patterns = staticfiles_urlpatterns()
+    
+    # Add patterns and show debug info
+    urlpatterns += media_patterns
+    urlpatterns += static_patterns
+    
     print(f"📁 Media files will be served from: {settings.MEDIA_ROOT}")
     print(f"📁 Static files will be served from: {settings.STATICFILES_DIRS}")
     print(f"📁 Media serving enabled (DEBUG={settings.DEBUG}, is_runserver={is_runserver})")
+    print(f"📁 Added {len(media_patterns)} media URL patterns")
+    print(f"📁 Added {len(static_patterns)} static URL patterns")
+
+# Force media serving for testing (remove this later)
+if not settings.DEBUG:
+    print("🔧 FORCING media serving for testing...")
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
