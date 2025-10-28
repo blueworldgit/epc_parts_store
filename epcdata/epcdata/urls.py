@@ -246,7 +246,7 @@ try:
     # Add media URL pattern manually
     media_pattern = re_path(r'^media/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT})
     urlpatterns.append(media_pattern)
-    print(f"✅ FORCED: Added media URL pattern: {media_pattern.pattern.pattern}")
+    print(f"✅ FORCED: Added media URL pattern for /media/ serving")
     
     # Also try the static() method as backup
     media_static_patterns = static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
