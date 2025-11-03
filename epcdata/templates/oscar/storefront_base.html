@@ -179,6 +179,38 @@
             padding-bottom: 5px;
         }
         
+        /* Category Grid Styles */
+        .category-grid-area .category-card {
+            transition: all 0.3s ease !important;
+        }
+        
+        .category-grid-area .category-card:hover {
+            transform: translateY(-5px) !important;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15) !important;
+            border-color: #ff8005 !important;
+        }
+        
+        .category-grid-area .category-card:hover .category-info h3 {
+            color: #ff8005 !important;
+        }
+        
+        .category-grid-area .section-title {
+            font-weight: 600 !important;
+            position: relative !important;
+        }
+        
+        .category-grid-area .section-title::after {
+            content: '' !important;
+            position: absolute !important;
+            bottom: -10px !important;
+            left: 50% !important;
+            transform: translateX(-50%) !important;
+            width: 60px !important;
+            height: 3px !important;
+            background: linear-gradient(90deg, #ff8005, #ff9020) !important;
+            border-radius: 2px !important;
+        }
+        
         /* Make contact-us_wrap background fully black */
         .contact-us_wrap {
             background: #000 !important;
@@ -457,6 +489,49 @@
         </div>
         {% endif %}
         <!-- End Vehicle Brand Navigation -->
+
+        <!-- Category Grid Section -->
+        {% block category_grid %}
+        <div class="category-grid-area" style="padding: 40px 0; background-color: #f8f9fa;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <h2 class="section-title text-center" style="margin-bottom: 30px; font-size: 2rem; color: #333;">Shop by Category</h2>
+                    </div>
+                </div>
+                <div class="row">
+                    {% for category in categories %}
+                        {% if category.depth == 1 %}
+                        <div class="col-6 col-md-4 col-lg-3 mb-4">
+                            <div class="category-card" style="border: 1px solid #e0e0e0; border-radius: 8px; overflow: hidden; transition: transform 0.3s ease, box-shadow 0.3s ease; background: white;">
+                                <a href="{% url 'catalogue:category' category_slug=category.slug pk=category.pk %}" style="text-decoration: none; color: inherit; display: block;">
+                                    <div class="category-image" style="height: 200px; overflow: hidden; background-color: #f5f5f5; display: flex; align-items: center; justify-content: center;">
+                                        {% load static %}
+                                        {% if category.image and category.image.url %}
+                                            <img src="{{ category.image.url }}" alt="{{ category.name }}" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.parentElement.innerHTML='<div style=\'text-align: center; color: #999;\'><i class=\'fa fa-exclamation-triangle\' style=\'font-size: 2rem;\'></i><p style=\'margin: 5px 0; font-size: 0.8rem;\'>Image Error</p><small>{{ category.image.url }}</small></div>';">
+                                        {% elif category.image %}
+                                            <img src="/media/{{ category.image }}" alt="{{ category.name }}" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.parentElement.innerHTML='<div style=\'text-align: center; color: #999;\'><i class=\'fa fa-exclamation-triangle\' style=\'font-size: 2rem;\'></i><p style=\'margin: 5px 0; font-size: 0.8rem;\'>Image Error</p><small>/media/{{ category.image }}</small></div>';">
+                                        {% else %}
+                                            <div style="text-align: center; color: #999;">
+                                                <i class="fa fa-cogs" style="font-size: 3rem; margin-bottom: 10px;"></i>
+                                                <p style="margin: 0; font-size: 0.9rem;">No Image</p>
+                                            </div>
+                                        {% endif %}
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        {% endif %}
+                    {% empty %}
+                        <div class="col-12">
+                            <p class="text-center" style="color: #666;">No categories available</p>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        {% endblock %}
+        <!-- End Category Grid -->
 
         <!-- Main Content -->
         {% block content %}{% endblock %}
