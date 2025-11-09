@@ -8,13 +8,27 @@ ORDER DETAILS:
 --------------
 Order Number: {{ order.number }}
 Order Date: {{ order.date_placed|date:"F d, Y" }}
+VAT Number: 490 9953 39
 Order Total: £{{ order.total_incl_tax }}
 
 ITEMS ORDERED:
 --------------
 {% for line in lines %}
-- {{ line.product.title }} (Qty: {{ line.quantity }}) - £{{ line.line_price_incl_tax }}
+- {{ line.product.title }}{% if line.product.upc %} (Part #{{ line.product.upc }}){% elif line.product.get_product_class.slug == 'motor-part' and line.product.attr.part_number %} (Part #{{ line.product.attr.part_number }}){% endif %} (Qty: {{ line.quantity }}) - £{{ line.line_price_incl_tax }}
 {% endfor %}
+
+PRICE BREAKDOWN:
+----------------
+{% for line in lines %}
+{{ line.product.title }}{% if line.product.upc %} (Part #{{ line.product.upc }}){% elif line.product.get_product_class.slug == 'motor-part' and line.product.attr.part_number %} (Part #{{ line.product.attr.part_number }}){% endif %} (Qty: {{ line.quantity }}) - £{{ line.line_price_incl_tax }}
+{% endfor %}
+{% if order.shipping_incl_tax %}
+Shipping - £{{ order.shipping_incl_tax }}
+{% endif %}
+
+Subtotal (ex VAT): £{{ order.total_incl_tax|subtotal_from_total }}
+VAT (20%): £{{ order.total_incl_tax|vat_from_total }}
+TOTAL (inc VAT): £{{ order.total_incl_tax }}
 
 BILLING ADDRESS:
 ----------------
@@ -45,6 +59,7 @@ Thank you for choosing RapidFit!
 Best regards,
 The RapidFit Team
 Your trusted motor parts supplier
+VAT No: 490 9953 39
 
 ---
 This email was sent automatically. Please do not reply to this email.

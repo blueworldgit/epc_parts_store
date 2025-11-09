@@ -147,6 +147,8 @@
             <div class="order-info">
                 <h2>📋 Order Details</h2>
                 <div class="order-details">
+                    
+                    <div><strong>VAT No: 490 9953 39</strong></div>
                     <div><strong>Order Number:</strong> {{ order.number }}</div>
                     <div><strong>Order Date:</strong> {{ order.date_placed|date:"F d, Y" }}</div>
                     <div><strong>Status:</strong> <span style="color: #de8511;">Confirmed</span></div>
@@ -159,7 +161,7 @@
                     <div class="price-breakdown" style="font-size: 14px;">
                         {% for line in lines %}
                         <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
-                            <span>{{ line.product.title }} (Qty: {{ line.quantity }})</span>
+                            <span>{{ line.product.title }}{% if line.product.upc %} (Part #{{ line.product.upc }}){% elif line.product.get_product_class.slug == 'motor-part' and line.product.attr.part_number %} (Part #{{ line.product.attr.part_number }}){% endif %} (Qty: {{ line.quantity }})</span>
                             <span>£{{ line.line_price_incl_tax }}</span>
                         </div>
                         {% endfor %}
@@ -196,6 +198,7 @@
                 <thead>
                     <tr>
                         <th>Product</th>
+                        <th>Part No.</th>
                         <th>Quantity</th>
                         <th>Price</th>
                     </tr>
@@ -204,6 +207,7 @@
                     {% for line in lines %}
                     <tr>
                         <td>{{ line.product.title }}</td>
+                        <td>{% if line.product.upc %}#{{ line.product.upc }}{% elif line.product.get_product_class.slug == 'motor-part' and line.product.attr.part_number %}#{{ line.product.attr.part_number }}{% else %}-{% endif %}</td>
                         <td>{{ line.quantity }}</td>
                         <td>£{{ line.line_price_incl_tax }}</td>
                     </tr>
@@ -256,6 +260,7 @@
         <div class="footer">
             <p><strong>RapidFit</strong></p>
             <p>Your trusted motor parts supplier</p>
+            <p><small>VAT No: 490 9953 39</small></p>
             <p>This email was sent automatically. For customer service, contact us at <a href="mailto:info@rapidfit.co.uk">info@rapidfit.co.uk</a></p>
         </div>
     </div>
