@@ -177,12 +177,12 @@
                         
                         <div style="display: flex; justify-content: space-between; margin-bottom: 5px; font-weight: normal;">
                             <span>Subtotal (ex VAT)</span>
-                            <span>£{{ order.total_incl_tax|subtotal_from_total }}</span>
+                            <span>£{% widthratio order.total_incl_tax 6 5 %}</span>
                         </div>
                         
                         <div style="display: flex; justify-content: space-between; margin-bottom: 10px; color: #007bff;">
                             <span>VAT (20%)</span>
-                            <span>£{{ order.total_incl_tax|vat_from_total }}</span>
+                            <span>£{% widthratio order.total_incl_tax 6 1 %}</span>
                         </div>
                     </div>
                 </div>

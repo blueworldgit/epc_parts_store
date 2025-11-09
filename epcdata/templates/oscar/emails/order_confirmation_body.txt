@@ -26,8 +26,8 @@ PRICE BREAKDOWN:
 Shipping - £{{ order.shipping_incl_tax }}
 {% endif %}
 
-Subtotal (ex VAT): £{{ order.total_incl_tax|subtotal_from_total }}
-VAT (20%): £{{ order.total_incl_tax|vat_from_total }}
+Subtotal (ex VAT): £{% widthratio order.total_incl_tax 6 5 %}
+VAT (20%): £{% widthratio order.total_incl_tax 6 1 %}
 TOTAL (inc VAT): £{{ order.total_incl_tax }}
 
 BILLING ADDRESS:
