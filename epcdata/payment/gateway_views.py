@@ -105,6 +105,7 @@ class WorldpayGatewayRedirectView(OrderPlacementMixin, CheckoutSessionMixin, Vie
                     'shipping_address_id': shipping_address_id,
                     'billing_address_id': billing_address_id,
                     'shipping_method_code': shipping_method_code,
+                    'shipping_charge': float(shipping_total),  # Store the actual shipping charge!
                 }
             }
             
@@ -447,23 +448,26 @@ class WorldpayGatewayCardFormView(CheckoutSessionMixin, View):
                     billing_address.save()  # Save to database first
                     logger.info("ℹ️ Using shipping address as billing address")
             
-            # Get shipping method
+            # Get shipping method with correct charge from session
             shipping_method = None
+            shipping_charge = Decimal(str(submission_data.get('shipping_charge', '0.00')))
+            logger.info(f"💰 Shipping charge from session: £{shipping_charge}")
+            
             if submission_data.get('shipping_method_code'):
                 try:
-                    # Try to reconstruct shipping method
+                    # Reconstruct shipping method with the stored charge
                     from oscar.apps.shipping.methods import FixedPrice
                     from decimal import Decimal
-                    shipping_method = FixedPrice(charge_excl_tax=Decimal('0'), charge_incl_tax=Decimal('0'))
-                    logger.info(f"✅ Using default shipping method")
+                    shipping_method = FixedPrice(charge_excl_tax=shipping_charge, charge_incl_tax=shipping_charge)
+                    logger.info(f"✅ Using shipping method with charge £{shipping_charge}")
                 except Exception as e:
                     logger.warning(f"⚠️ Could not create shipping method: {str(e)}")
             
             if not shipping_method:
                 from oscar.apps.shipping.methods import FixedPrice
                 from decimal import Decimal
-                shipping_method = FixedPrice(charge_excl_tax=Decimal('0'), charge_incl_tax=Decimal('0'))
-                logger.info("ℹ️ Using fallback free shipping method")
+                shipping_method = FixedPrice(charge_excl_tax=shipping_charge, charge_incl_tax=shipping_charge)
+                logger.info(f"ℹ️ Using fallback shipping method with charge £{shipping_charge}")
             
             # Try different order creation approaches
             logger.info("🔨 Attempting order creation...")
@@ -544,6 +548,12 @@ class WorldpayGatewayCardFormView(CheckoutSessionMixin, View):
                 logger.info(f"  - User: {user}")
                 logger.info(f"  - Order number: {session_data['order_number']}")
                 
+                # Log the shipping details before order creation
+                logger.info(f"🚚 Final shipping details for order creation:")
+                logger.info(f"  - Shipping method: {shipping_method}")
+                logger.info(f"  - Shipping charge: {shipping_total}")
+                logger.info(f"  - Shipping method charge_incl_tax: {getattr(shipping_method, 'charge_incl_tax', 'N/A')}")
+                
                 order = order_creator.place_order(
                     basket=basket,
                     total=order_total,
@@ -556,6 +566,7 @@ class WorldpayGatewayCardFormView(CheckoutSessionMixin, View):
                 )
                 
                 logger.info(f"✅ Successfully created order {order.number}")
+                logger.info(f"📦 Order shipping cost: £{order.shipping_incl_tax}")
                 return order
                 
             except Exception as e:

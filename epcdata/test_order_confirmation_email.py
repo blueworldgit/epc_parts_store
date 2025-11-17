@@ -40,7 +40,7 @@ def create_test_email():
         line4 = "London"
         postcode = "SW1A 1AA"
     
-    # Create mock product and line
+    # Create mock product and line - Simulating part #C00098945
     class MockProduct:
         title = "SENSOR—TIRE PRESSURE MOTOR"
         upc = "C00098945"
@@ -49,19 +49,26 @@ def create_test_email():
             class MockProductClass:
                 slug = "motor-part"
             return MockProductClass()
+        
+        # Simulate weight attribute for shipping calculation
+        class MockAttr:
+            weight = 15.5  # 15.5kg - falls in first weight band (0-24.9kg = £11.95)
+        
+        attr = MockAttr()
     
     class MockLine:
         def __init__(self):
             self.product = MockProduct()
-            self.quantity = 2
-            self.line_price_incl_tax = Decimal('45.99')
+            self.quantity = 2  # 2 units of 15.5kg each = 31kg total
+            self.line_price_incl_tax = Decimal('89.98')  # £44.99 each × 2
     
-    # Create mock order
+    # Create mock order with realistic weight-based shipping
+    # 31kg total weight falls in 25-49.9kg bracket = £23.90 shipping
     class MockOrder:
-        number = "TEST-12345"
+        number = "VAN-20251113-001"
         date_placed = datetime.now()
-        total_incl_tax = Decimal('55.99')
-        shipping_incl_tax = Decimal('10.00')
+        total_incl_tax = Decimal('113.88')  # Products £89.98 + Shipping £23.90
+        shipping_incl_tax = Decimal('23.90')  # Weight-based shipping for 31kg
     
     # Create test data
     user = MockUser()
