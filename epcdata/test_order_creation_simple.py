@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 """
-Test order creation to debug the payment gateway issue
+Simple test for order creation debugging
 """
 import os
 import sys
@@ -44,6 +44,21 @@ def test_order_creation():
         # Create a test basket with products
         basket = Basket.objects.create(owner=user)
         
+        # CRITICAL: Assign strategy to basket
+        from oscar.core.loading import get_class
+        try:
+            DefaultStrategy = get_class('partner.strategy', 'Default')
+            strategy = DefaultStrategy()
+            basket.strategy = strategy
+            print(f"✅ Strategy assigned to basket: {strategy}")
+        except Exception as strategy_error:
+            print(f"⚠️ Could not get Default strategy: {strategy_error}")
+            # Fallback: create a minimal strategy manually
+            from oscar.apps.partner.strategy import Default as FallbackStrategy
+            strategy = FallbackStrategy()
+            basket.strategy = strategy
+            print(f"✅ Fallback strategy assigned to basket: {strategy}")
+        
         # Add a product to basket
         products = Product.objects.all()[:1]
         if products:
@@ -61,6 +76,7 @@ def test_order_creation():
         shipping_method.name = 'Standard Shipping'
         shipping_method.description = 'Weight-based shipping'
         
+        # Create shipping total (Price object)
         shipping_total = prices.Price(
             currency=basket.currency,
             excl_tax=shipping_charge,
@@ -68,6 +84,7 @@ def test_order_creation():
         )
         
         print(f"🚚 Shipping method: {shipping_method.name} - £{shipping_charge}")
+        print(f"🏷️ Shipping total type: {type(shipping_total)}")
         
         # Create order total
         order_total = prices.Price(
@@ -78,18 +95,48 @@ def test_order_creation():
         
         print(f"💰 Order total: £{order_total.incl_tax}")
         
-        # Test OrderCreator approach
+        # Test OrderCreator approach - exact same call as gateway_views.py
         try:
             print("\n🔨 Testing OrderCreator approach...")
             order_creator = OrderCreator()
             
-            # Test the exact call from gateway_views.py
+            # This is the EXACT call from gateway_views.py line 557-565
             order = order_creator.place_order(
                 basket=basket,
                 total=order_total,
                 shipping_method=shipping_method,
+                shipping_charge=shipping_total,  # This was missing!
                 user=user,
                 order_number='TEST-ORDER-001'
             )
             
-            print(f"✅ OrderCreator succeeded: {order.number}")\n            print(f\"📦 Order shipping: £{getattr(order, 'shipping_incl_tax', 'N/A')}\")\n            \n            # Clean up\n            order.delete()\n            \n        except Exception as e:\n            print(f\"❌ OrderCreator failed: {e}\")\n            print(f\"Exception type: {type(e).__name__}\")\n            import traceback\n            traceback.print_exc()\n            \n            # Test direct order creation\n            try:\n                print(\"\\n🔄 Testing direct Order creation...\")\n                \n                # Check what fields Order model has\n                field_names = [f.name for f in Order._meta.get_fields()]\n                print(f\"📋 Order model fields: {', '.join(sorted(field_names))}\")\n                \n                # Create order data\n                order_data = {\n                    'number': 'TEST-DIRECT-001',\n                    'user': user,\n                    'total_incl_tax': basket.total_incl_tax + shipping_charge,\n                    'total_excl_tax': basket.total_excl_tax + shipping_charge,\n                    'currency': basket.currency,\n                    'status': 'Pending'\n                }\n                \n                # Add shipping fields if they exist\n                if 'shipping_incl_tax' in field_names:\n                    order_data['shipping_incl_tax'] = shipping_charge\n                if 'shipping_excl_tax' in field_names:\n                    order_data['shipping_excl_tax'] = shipping_charge\n                if 'shipping_method' in field_names:\n                    order_data['shipping_method'] = shipping_method.name\n                \n                order = Order.objects.create(**order_data)\n                \n                print(f\"✅ Direct creation succeeded: {order.number}\")\n                print(f\"💰 Order total: £{order.total_incl_tax}\")\n                print(f\"🚚 Order shipping: £{getattr(order, 'shipping_incl_tax', 'N/A')}\")\n                \n                # Clean up\n                order.delete()\n                \n            except Exception as e2:\n                print(f\"❌ Direct creation failed: {e2}\")\n                import traceback\n                traceback.print_exc()\n        \n        # Clean up basket\n        basket.delete()\n        \n        print(\"\\n✅ Order creation test completed\")\n        \n    except Exception as e:\n        print(f\"❌ Test failed: {e}\")\n        import traceback\n        traceback.print_exc()\n\nif __name__ == \"__main__\":\n    test_order_creation()
+            print(f"✅ OrderCreator succeeded: {order.number}")
+            print(f"📦 Order shipping: £{getattr(order, 'shipping_incl_tax', 'N/A')}")
+            
+            # Clean up
+            order.delete()
+            
+        except Exception as e:
+            print(f"❌ OrderCreator failed: {e}")
+            print(f"Exception type: {type(e).__name__}")
+            import traceback
+            traceback.print_exc()
+            
+            # Check OrderCreator method signature
+            print("\n🔍 Checking OrderCreator.place_order signature...")
+            import inspect
+            sig = inspect.signature(order_creator.place_order)
+            print(f"Method signature: {sig}")
+        
+        # Clean up basket
+        basket.delete()
+        
+        print("\n✅ Order creation test completed")
+        
+    except Exception as e:
+        print(f"❌ Test failed: {e}")
+        import traceback
+        traceback.print_exc()
+
+if __name__ == "__main__":
+    test_order_creation()

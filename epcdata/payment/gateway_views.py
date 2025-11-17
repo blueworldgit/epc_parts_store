@@ -2,6 +2,7 @@
 Gateway API views for Worldpay direct payment processing
 """
 import logging
+from decimal import Decimal
 from django.contrib import messages
 from django.http import HttpResponseRedirect, JsonResponse
 from django.shortcuts import render, redirect, get_object_or_404
@@ -457,7 +458,6 @@ class WorldpayGatewayCardFormView(CheckoutSessionMixin, View):
                 try:
                     # Reconstruct shipping method with the stored charge
                     from oscar.apps.shipping.methods import FixedPrice
-                    from decimal import Decimal
                     shipping_method = FixedPrice(charge_excl_tax=shipping_charge, charge_incl_tax=shipping_charge)
                     logger.info(f"✅ Using shipping method with charge £{shipping_charge}")
                 except Exception as e:
@@ -465,7 +465,6 @@ class WorldpayGatewayCardFormView(CheckoutSessionMixin, View):
             
             if not shipping_method:
                 from oscar.apps.shipping.methods import FixedPrice
-                from decimal import Decimal
                 shipping_method = FixedPrice(charge_excl_tax=shipping_charge, charge_incl_tax=shipping_charge)
                 logger.info(f"ℹ️ Using fallback shipping method with charge £{shipping_charge}")
             
@@ -527,7 +526,6 @@ class WorldpayGatewayCardFormView(CheckoutSessionMixin, View):
                 
                 # Create proper Price object for order total using VAT-calculated amount from session
                 from oscar.core import prices
-                from decimal import Decimal
                 
                 # Use the VAT-inclusive total that was calculated and stored in the session
                 vat_inclusive_amount = Decimal(str(session_data['order_total']))
