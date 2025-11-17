@@ -581,18 +581,37 @@ class WorldpayGatewayCardFormView(CheckoutSessionMixin, View):
                     from oscar.core.loading import get_model
                     Order = get_model('order', 'Order')
                     
-                    order = Order.objects.create(
-                        number=session_data['order_number'],
-                        user=user,
-                        billing_address=billing_address,
-                        shipping_address=shipping_address,
-                        total_incl_tax=basket.total_incl_tax,
-                        total_excl_tax=basket.total_excl_tax,
-                        currency=basket.currency,
-                        status='Pending'
-                    )
+                    # Calculate total including shipping
+                    shipping_amount = shipping_total.incl_tax if shipping_total else Decimal('0.00')
+                    order_total_with_shipping = basket.total_incl_tax + shipping_amount
+                    
+                    # Create basic order data
+                    order_data = {
+                        'number': session_data['order_number'],
+                        'user': user,
+                        'billing_address': billing_address,
+                        'shipping_address': shipping_address,
+                        'total_incl_tax': order_total_with_shipping,
+                        'total_excl_tax': basket.total_excl_tax + shipping_amount,
+                        'currency': basket.currency,
+                        'status': 'Pending'
+                    }
+                    
+                    # Only add shipping fields if they exist on the model
+                    Order_model = Order
+                    if hasattr(Order_model, '_meta'):
+                        field_names = [f.name for f in Order_model._meta.get_fields()]
+                        if 'shipping_incl_tax' in field_names:
+                            order_data['shipping_incl_tax'] = shipping_amount
+                        if 'shipping_excl_tax' in field_names:
+                            order_data['shipping_excl_tax'] = shipping_amount
+                        if 'shipping_method' in field_names and shipping_method:
+                            order_data['shipping_method'] = shipping_method.name
+                    
+                    order = Order.objects.create(**order_data)
                     
                     logger.info(f"✅ Successfully created order via direct model: {order.number}")
+                    logger.info(f"📦 Order total: £{order.total_incl_tax}")
                     return order
                     
                 except Exception as e2:
