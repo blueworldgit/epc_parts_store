@@ -164,12 +164,24 @@
                         </div>
                         {% endfor %}
                         
-                        {% if order.shipping_incl_tax %}
-                        <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
-                            <span>Shipping</span>
-                            <span>£{{ order.shipping_incl_tax }}</span>
+                        <!-- Shipping Cost Display -->
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 5px; padding: 5px 0; background-color: #f8f9fa; margin: 5px -5px;">
+                            <span>
+                                <strong>Shipping</strong>
+                                {% if shipping_method_name and shipping_method_name != 'Not specified' %}
+                                    <br><small style="color: #666;">{{ shipping_method_name }}</small>
+                                {% endif %}
+                            </span>
+                            <span><strong>
+                                {% if order.shipping_incl_tax %}
+                                    £{{ order.shipping_incl_tax }}
+                                {% elif shipping_cost %}
+                                    £{{ shipping_cost }}
+                                {% else %}
+                                    £0.00
+                                {% endif %}
+                            </strong></span>
                         </div>
-                        {% endif %}
                         
                         <hr style="margin: 10px 0; border: none; border-top: 1px solid #ddd;">
                         

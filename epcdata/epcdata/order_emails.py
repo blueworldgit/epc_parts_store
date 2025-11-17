@@ -36,6 +36,20 @@ def send_order_confirmation_email(sender, order, user, **kwargs):
             logger.warning(f"No email found for order {order.number}")
             return
             
+        # Calculate shipping information for email
+        shipping_cost = Decimal('0.00')
+        shipping_method_name = 'Not specified'
+        
+        # Try to get shipping info from order
+        if hasattr(order, 'shipping_incl_tax') and order.shipping_incl_tax:
+            shipping_cost = order.shipping_incl_tax
+        elif hasattr(order, 'shipping_excl_tax') and order.shipping_excl_tax:
+            shipping_cost = order.shipping_excl_tax
+        
+        # Try to get shipping method name
+        if hasattr(order, 'shipping_method') and order.shipping_method:
+            shipping_method_name = order.shipping_method
+        
         # Prepare email context
         context = {
             'order': order,
@@ -45,6 +59,9 @@ def send_order_confirmation_email(sender, order, user, **kwargs):
             'shipping_address': order.shipping_address,
             'site_name': getattr(settings, 'OSCAR_SHOP_NAME', 'EPC Parts Store'),
             'shop_tagline': getattr(settings, 'OSCAR_SHOP_TAGLINE', 'Your trusted motor parts supplier'),
+            'shipping_cost': shipping_cost,
+            'shipping_method_name': shipping_method_name,
+            'has_shipping_cost': shipping_cost > 0,
         }
         
         # Render email templates

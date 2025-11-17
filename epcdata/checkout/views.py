@@ -44,6 +44,48 @@ class ShippingMethodView(BaseShippingMethodView):
         logger.info(f"ShippingMethodView context: available_methods = {context.get('available_methods')}")
         return context
 
+    def post(self, request, *args, **kwargs):
+        """
+        Handle shipping method selection and ensure it's properly saved to session
+        """
+        logger.info("🚚 Custom ShippingMethodView.post called")
+        logger.info(f"POST data: {request.POST}")
+        
+        # Let the parent handle the main logic
+        response = super().post(request, *args, **kwargs)
+        
+        # After successful processing, ensure shipping details are in session
+        try:
+            # Get the selected shipping method from checkout session
+            if hasattr(self, 'checkout_session') and hasattr(self.checkout_session, 'shipping_method'):
+                shipping_method = self.checkout_session.shipping_method()
+                logger.info(f"📦 Shipping method from checkout session: {shipping_method}")
+                
+                if shipping_method:
+                    # Calculate the actual charge for this basket
+                    basket = request.basket
+                    if hasattr(shipping_method, 'calculate') and basket:
+                        try:
+                            charge = shipping_method.calculate(basket)
+                            logger.info(f"💰 Calculated shipping charge: £{charge.incl_tax}")
+                            
+                            # Store shipping info in session for order creation
+                            request.session['shipping_method_details'] = {
+                                'code': getattr(shipping_method, 'code', 'weight_based'),
+                                'name': getattr(shipping_method, 'name', 'Standard Shipping'),
+                                'charge_incl_tax': float(charge.incl_tax) if charge else 0.00,
+                                'charge_excl_tax': float(charge.excl_tax) if charge else 0.00,
+                            }
+                            logger.info(f"✅ Stored shipping details in session: {request.session['shipping_method_details']}")
+                            
+                        except Exception as e:
+                            logger.warning(f"⚠️ Could not calculate shipping charge: {e}")
+                    
+        except Exception as e:
+            logger.warning(f"⚠️ Error saving shipping method to session: {e}")
+        
+        return response
+
 
 class PaymentDetailsView(PaymentDetailsView):
     """

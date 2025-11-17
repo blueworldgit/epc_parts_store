@@ -451,14 +451,25 @@ class WorldpayGatewayCardFormView(CheckoutSessionMixin, View):
             # Get shipping method with correct charge from session
             shipping_method = None
             shipping_charge = Decimal(str(submission_data.get('shipping_charge', '0.00')))
-            logger.info(f"💰 Shipping charge from session: £{shipping_charge}")
             
-            if submission_data.get('shipping_method_code'):
+            # Try to get shipping details from new session storage first
+            shipping_details = request.session.get('shipping_method_details', {})
+            if shipping_details:
+                shipping_charge = Decimal(str(shipping_details.get('charge_incl_tax', '0.00')))
+                logger.info(f"💰 Shipping charge from new session storage: £{shipping_charge}")
+                logger.info(f"🚚 Shipping method details: {shipping_details}")
+            else:
+                logger.info(f"💰 Shipping charge from old session storage: £{shipping_charge}")
+            
+            if submission_data.get('shipping_method_code') or shipping_details:
                 try:
                     # Reconstruct shipping method with the stored charge
                     from oscar.apps.shipping.methods import FixedPrice
                     from decimal import Decimal
                     shipping_method = FixedPrice(charge_excl_tax=shipping_charge, charge_incl_tax=shipping_charge)
+                    shipping_method.code = shipping_details.get('code', submission_data.get('shipping_method_code', 'weight_based'))
+                    shipping_method.name = shipping_details.get('name', 'Standard Shipping')
+                    shipping_method.description = 'Weight-based shipping'
                     logger.info(f"✅ Using shipping method with charge £{shipping_charge}")
                 except Exception as e:
                     logger.warning(f"⚠️ Could not create shipping method: {str(e)}")
@@ -467,6 +478,9 @@ class WorldpayGatewayCardFormView(CheckoutSessionMixin, View):
                 from oscar.apps.shipping.methods import FixedPrice
                 from decimal import Decimal
                 shipping_method = FixedPrice(charge_excl_tax=shipping_charge, charge_incl_tax=shipping_charge)
+                shipping_method.code = 'weight_based'
+                shipping_method.name = 'Standard Shipping'
+                shipping_method.description = 'Weight-based shipping'
                 logger.info(f"ℹ️ Using fallback shipping method with charge £{shipping_charge}")
             
             # Try different order creation approaches
@@ -552,6 +566,13 @@ class WorldpayGatewayCardFormView(CheckoutSessionMixin, View):
                 logger.info(f"  - Shipping method: {shipping_method}")
                 logger.info(f"  - Shipping charge: {shipping_total}")
                 logger.info(f"  - Shipping method charge_incl_tax: {getattr(shipping_method, 'charge_incl_tax', 'N/A')}")
+                logger.info(f"  - Shipping charge incl_tax: {shipping_total.incl_tax if shipping_total else 0}")
+                
+                # Ensure shipping method has the correct attributes for Oscar
+                if shipping_method and shipping_total:
+                    shipping_method.code = getattr(shipping_method, 'code', 'weight_based')
+                    shipping_method.name = getattr(shipping_method, 'name', 'Standard Shipping')
+                    shipping_method.description = getattr(shipping_method, 'description', 'Weight-based shipping')
                 
                 order = order_creator.place_order(
                     basket=basket,
@@ -574,24 +595,32 @@ class WorldpayGatewayCardFormView(CheckoutSessionMixin, View):
                 import traceback
                 logger.error(f"Full traceback: {traceback.format_exc()}")
                 
-                # Method 2: Try simple Order model creation
+                # Method 2: Try simple Order model creation with shipping included
                 try:
                     logger.info("🔄 Trying direct Order model creation...")
                     from oscar.core.loading import get_model
                     Order = get_model('order', 'Order')
+                    
+                    # Include shipping in the order totals
+                    shipping_amount = shipping_total.incl_tax if shipping_total else Decimal('0.00')
+                    total_with_shipping = basket.total_incl_tax + shipping_amount
                     
                     order = Order.objects.create(
                         number=session_data['order_number'],
                         user=user,
                         billing_address=billing_address,
                         shipping_address=shipping_address,
-                        total_incl_tax=basket.total_incl_tax,
-                        total_excl_tax=basket.total_excl_tax,
+                        total_incl_tax=total_with_shipping,
+                        total_excl_tax=basket.total_excl_tax + shipping_amount,  # Assuming no VAT on shipping
+                        shipping_incl_tax=shipping_amount,
+                        shipping_excl_tax=shipping_amount,
+                        shipping_method=shipping_method.name if shipping_method else 'Standard Shipping',
                         currency=basket.currency,
                         status='Pending'
                     )
                     
                     logger.info(f"✅ Successfully created order via direct model: {order.number}")
+                    logger.info(f"📦 Order shipping cost: £{order.shipping_incl_tax}")
                     return order
                     
                 except Exception as e2:
