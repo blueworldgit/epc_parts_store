@@ -274,6 +274,111 @@ class WorldpayGatewayFacade:
                 'error_message': f'3DS authentication failed: {str(e)}'
             }
     
+    def get_authentication_result(self, challenge_reference):
+        """
+        Retrieve final authentication data after 3DS challenge completion
+        
+        Args:
+            challenge_reference: The challenge reference from the initial 3DS authentication
+            
+        Returns:
+            Dict with:
+            - success: True/False
+            - outcome: authenticated/authenticationFailed/unavailable
+            - authentication: Dict with eci, authenticationValue, transactionId, version
+            - error_message: Error description if failed
+        """
+        try:
+            # Prepare headers for 3DS API v3
+            auth_header = self._get_auth_header()
+            if not auth_header:
+                return {'success': False, 'error_message': 'Authentication header generation failed'}
+                
+            headers = {
+                'Authorization': auth_header,
+                'Accept': 'application/vnd.worldpay.verifications.customers-v3.hal+json'
+            }
+            
+            # Construct URL to retrieve authentication result
+            url = f"{self.threeds_url}/{challenge_reference}"
+            
+            logger.info(f"🔍 Retrieving final 3DS authentication result")
+            logger.info(f"   Challenge reference: {challenge_reference}")
+            logger.info(f"   URL: {url}")
+            
+            # Make GET request to retrieve authentication result
+            response = requests.get(
+                url,
+                headers=headers,
+                timeout=30,
+                verify=self.verify_ssl
+            )
+            
+            logger.info(f"Authentication result API response status: {response.status_code}")
+            
+            if response.status_code == 200:
+                response_data = response.json()
+                outcome = response_data.get('outcome')
+                
+                logger.info(f"Final 3DS outcome: {outcome}")
+                
+                if outcome == 'authenticated':
+                    auth_data = response_data.get('authentication', {})
+                    logger.info(f"✅ 3DS challenge completed successfully")
+                    logger.info(f"   ECI: {auth_data.get('eci')}, Version: {auth_data.get('version')}")
+                    logger.debug(f"   Full authentication data: {json.dumps(auth_data, indent=2)}")
+                    
+                    return {
+                        'success': True,
+                        'outcome': 'authenticated',
+                        'authentication': auth_data,
+                        'response_data': response_data
+                    }
+                    
+                elif outcome == 'authenticationFailed':
+                    logger.warning("❌ 3DS challenge authentication failed")
+                    return {
+                        'success': False,
+                        'outcome': 'authenticationFailed',
+                        'error_message': '3DS challenge was not completed successfully'
+                    }
+                    
+                elif outcome == 'unavailable':
+                    logger.warning("⚠️ 3DS authentication unavailable after challenge")
+                    return {
+                        'success': False,
+                        'outcome': 'unavailable',
+                        'error_message': '3DS authentication result is unavailable'
+                    }
+                    
+                else:
+                    logger.warning(f"Unknown 3DS outcome: {outcome}")
+                    return {
+                        'success': False,
+                        'outcome': outcome,
+                        'error_message': f'Unexpected 3DS outcome: {outcome}'
+                    }
+                    
+            else:
+                error_data = response.json() if response.text else {}
+                logger.error(f"Authentication result API error: {response.status_code}")
+                logger.error(f"Error data: {json.dumps(error_data, indent=2)}")
+                
+                return {
+                    'success': False,
+                    'error_message': f'Failed to retrieve authentication result: {error_data.get("message", "Unknown error")}',
+                    'status_code': response.status_code
+                }
+                
+        except Exception as e:
+            logger.error(f"Get authentication result exception: {str(e)}")
+            import traceback
+            traceback.print_exc()
+            return {
+                'success': False,
+                'error_message': f'Failed to retrieve authentication result: {str(e)}'
+            }
+    
     def process_payment(self, order, card_data, authentication_data=None):
         """
         Process a direct payment using Worldpay Gateway API v6

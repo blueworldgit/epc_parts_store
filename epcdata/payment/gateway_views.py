@@ -816,12 +816,34 @@ class ThreeDSCallbackView(CheckoutSessionMixin, View):
             # Get the order
             order = Order.objects.get(id=challenge_data['order_id'])
             
-            # Get card data and authentication
+            # Get card data
             card_data = challenge_data['card_data']
-            authentication_data = challenge_data['authentication']
+            challenge_reference = challenge_data.get('challenge_reference')
+            
+            # Retrieve final authentication data from Worldpay after challenge completion
+            facade = WorldpayGatewayFacade()
+            
+            if challenge_reference:
+                logger.info(f"🔍 Retrieving final authentication data for challenge: {challenge_reference}")
+                auth_result = facade.get_authentication_result(challenge_reference)
+                
+                if auth_result and auth_result.get('success'):
+                    authentication_data = auth_result.get('authentication', {})
+                    logger.info(f"✅ Retrieved final authentication data:")
+                    logger.info(f"   ECI: {authentication_data.get('eci')}")
+                    logger.info(f"   Version: {authentication_data.get('version')}")
+                else:
+                    logger.error(f"❌ Failed to retrieve authentication result")
+                    error_msg = auth_result.get('error_message', 'Failed to verify 3DS authentication') if auth_result else 'Authentication verification error'
+                    messages.error(request, _("Payment failed: {error}").format(error=error_msg))
+                    request.session.pop('threeds_challenge', None)
+                    return HttpResponseRedirect(reverse('checkout:payment-details'))
+            else:
+                # Fallback to stored authentication (should not happen)
+                logger.warning("⚠️ No challenge reference found, using stored authentication data")
+                authentication_data = challenge_data.get('authentication', {})
             
             # Process payment with the authenticated 3DS data
-            facade = WorldpayGatewayFacade()
             logger.info(f"💰 Processing payment after 3DS challenge for order {order.number}")
             
             payment_result = facade.process_payment(order, card_data, authentication_data)
