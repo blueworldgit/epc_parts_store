@@ -147,7 +147,7 @@ class WorldpayGatewayFacade:
                 "challenge": {
                     "windowSize": "600x400",
                     "preference": "noPreference",
-                    "returnUrl": request.build_absolute_uri(reverse('payment:worldpay-gateway-success')) if request else "http://localhost:8000/payment/success"
+                    "returnUrl": request.build_absolute_uri(reverse('payment:threeds-callback')) if request else "http://localhost:8000/payment/gateway/threeds-callback/"
                 }
             }
             

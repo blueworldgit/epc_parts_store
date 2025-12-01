@@ -712,6 +712,14 @@ class ThreeDSCallbackView(CheckoutSessionMixin, View):
         Handle callback after 3DS challenge
         """
         logger.info("🔄 3DS challenge callback received")
+        logger.info(f"   User-Agent: {request.META.get('HTTP_USER_AGENT', 'Unknown')}")
+        logger.info(f"   Referer: {request.META.get('HTTP_REFERER', 'None')}")
+        
+        # Check if this is being loaded in an iframe (from Cardinal Commerce)
+        # If so, return a simple page that notifies parent window
+        if request.GET.get('iframe') == '1' or 'cardinalcommerce' in request.META.get('HTTP_REFERER', '').lower():
+            logger.info("   Loading callback in iframe mode")
+            return render(request, 'payment/threeds_callback_frame.html')
         
         # Get stored challenge data from session
         challenge_data = request.session.get('threeds_challenge')

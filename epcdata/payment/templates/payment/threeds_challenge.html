@@ -104,27 +104,21 @@
         // Automatically submit the JWT form to load the 3DS challenge in the iframe
         document.getElementById('step-up-form').submit();
         
-        // Listen for 3DS challenge completion from Cardinal Commerce
+        // Listen for 3DS challenge completion from Cardinal Commerce or callback iframe
         window.addEventListener('message', function(event) {
-            console.log('Received message from 3DS iframe:', event);
+            console.log('Received message from iframe:', event);
             console.log('Event origin:', event.origin);
             console.log('Event data:', event.data);
             
-            // Cardinal Commerce sends the result via postMessage
-            // The event should come from centinelapi.cardinalcommerce.com
-            if (event.origin.indexOf('cardinalcommerce.com') !== -1 || 
-                event.origin.indexOf('worldpay.com') !== -1) {
+            // Check for completion status from our callback iframe or Cardinal
+            var data = event.data;
+            
+            if (data && (data.Status || data.status)) {
+                var status = data.Status || data.status;
+                console.log('3DS Challenge completed with status:', status);
                 
-                // Check for completion status
-                var data = event.data;
-                
-                // Cardinal sends: {Status: "SUCCESS"} or similar
-                if (data && (data.Status || data.status)) {
-                    console.log('3DS Challenge completed with status:', data.Status || data.status);
-                    
-                    // Redirect to callback URL to complete payment
-                    window.location.href = '{% url "payment:threeds-callback" %}';
-                }
+                // Redirect to callback URL to complete payment (not iframe mode)
+                window.location.href = '{% url "payment:threeds-callback" %}';
             }
         }, false);
         
