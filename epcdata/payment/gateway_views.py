@@ -229,6 +229,10 @@ class WorldpayGatewayCardFormView(CheckoutSessionMixin, View):
                     'authentication': threeds_result.get('authentication', {}),
                     'challenge_reference': threeds_result.get('challenge_reference')
                 }
+                # Force save session immediately
+                request.session.modified = True
+                request.session.save()
+                logger.info(f"   Session saved with challenge data for order {order.number}")
                 
                 # Render challenge page with iframe
                 context = {
@@ -726,12 +730,17 @@ class ThreeDSCallbackView(CheckoutSessionMixin, View):
         logger.info(f"   Method: {request.method}")
         logger.info(f"   User-Agent: {request.META.get('HTTP_USER_AGENT', 'Unknown')}")
         logger.info(f"   Referer: {request.META.get('HTTP_REFERER', 'None')}")
+        logger.info(f"   GET params: {dict(request.GET)}")
+        logger.info(f"   POST params: {dict(request.POST)}")
         
-        # Check if this is being loaded in an iframe (from Cardinal Commerce)
-        # If so, return a simple page that notifies parent window
-        if request.GET.get('iframe') == '1' or 'cardinalcommerce' in request.META.get('HTTP_REFERER', '').lower():
-            logger.info("   Loading callback in iframe mode")
+        # Cardinal Commerce posts back to this URL after challenge
+        # We need to show iframe-friendly page that notifies parent
+        if 'cardinalcommerce' in request.META.get('HTTP_REFERER', '').lower():
+            logger.info("   Loading callback in iframe mode (from Cardinal)")
             return render(request, 'payment/threeds_callback_frame.html')
+        
+        # If called directly (from parent page after postMessage), process payment
+        return None
     
     def get(self, request, *args, **kwargs):
         """
@@ -743,8 +752,12 @@ class ThreeDSCallbackView(CheckoutSessionMixin, View):
         
         # Get stored challenge data from session
         challenge_data = request.session.get('threeds_challenge')
+        logger.info(f"   Session keys: {list(request.session.keys())}")
+        logger.info(f"   Challenge data present: {challenge_data is not None}")
+        
         if not challenge_data:
             logger.error("❌ No challenge data in session")
+            logger.error(f"   Available session data: {dict(request.session)}")
             messages.error(request, _("Your payment session has expired. Please try again."))
             return HttpResponseRedirect(reverse('checkout:payment-details'))
         
