@@ -36,5 +36,17 @@ sudo journalctl -u vanparts-direct --no-pager --since "5 minutes ago" -n 100 --n
 
 echo ""
 echo "============================================================"
+echo "DJANGO DEBUG LOG FILE - Last 200 lines"
+echo "============================================================"
+if [ -f "/home/rentals/epc_parts_store/django_debug.log" ]; then
+    sudo tail -200 /home/rentals/epc_parts_store/django_debug.log
+else
+    echo "Log file not found at /home/rentals/epc_parts_store/django_debug.log"
+    echo "Run: sudo touch /home/rentals/epc_parts_store/django_debug.log"
+    echo "Then: sudo chown rentals:rentals /home/rentals/epc_parts_store/django_debug.log"
+fi
+
+echo ""
+echo "============================================================"
 echo "DONE - Copy all output above"
 echo "============================================================"
