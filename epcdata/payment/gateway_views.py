@@ -718,11 +718,12 @@ class ThreeDSCallbackView(CheckoutSessionMixin, View):
             response.xframe_options_exempt = True
         return response
     
-    def get(self, request, *args, **kwargs):
+    def _handle_callback(self, request):
         """
-        Handle callback after 3DS challenge
+        Common callback handling for both GET and POST
         """
         logger.info("🔄 3DS challenge callback received")
+        logger.info(f"   Method: {request.method}")
         logger.info(f"   User-Agent: {request.META.get('HTTP_USER_AGENT', 'Unknown')}")
         logger.info(f"   Referer: {request.META.get('HTTP_REFERER', 'None')}")
         
@@ -731,6 +732,14 @@ class ThreeDSCallbackView(CheckoutSessionMixin, View):
         if request.GET.get('iframe') == '1' or 'cardinalcommerce' in request.META.get('HTTP_REFERER', '').lower():
             logger.info("   Loading callback in iframe mode")
             return render(request, 'payment/threeds_callback_frame.html')
+    
+    def get(self, request, *args, **kwargs):
+        """
+        Handle GET callback after 3DS challenge
+        """
+        iframe_response = self._handle_callback(request)
+        if iframe_response:
+            return iframe_response
         
         # Get stored challenge data from session
         challenge_data = request.session.get('threeds_challenge')
@@ -782,6 +791,17 @@ class ThreeDSCallbackView(CheckoutSessionMixin, View):
             
             messages.error(request, _("An error occurred processing your payment. Please try again."))
             return HttpResponseRedirect(reverse('checkout:payment-details'))
+    
+    def post(self, request, *args, **kwargs):
+        """
+        Handle POST callback after 3DS challenge (Cardinal Commerce posts back)
+        """
+        iframe_response = self._handle_callback(request)
+        if iframe_response:
+            return iframe_response
+        
+        # If not iframe mode, handle same as GET
+        return self.get(request, *args, **kwargs)
 
 
 class WorldpayDebugConfigView(View):
