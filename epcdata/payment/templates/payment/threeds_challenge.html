@@ -101,29 +101,57 @@
     </div>
     
     <script>
+        console.log('='.repeat(60));
+        console.log('3DS CHALLENGE PAGE LOADED');
+        console.log('='.repeat(60));
+        console.log('Challenge URL:', '{{ challenge_url }}');
+        console.log('JWT present:', {{ challenge_jwt|yesno:"true,false" }});
+        
         // Automatically submit the JWT form to load the 3DS challenge in the iframe
+        console.log('Submitting JWT form to Cardinal Commerce...');
         document.getElementById('step-up-form').submit();
+        console.log('Form submitted - waiting for iframe to load...');
         
         // Listen for 3DS challenge completion from Cardinal Commerce or callback iframe
         window.addEventListener('message', function(event) {
-            console.log('Received message from iframe:', event);
+            console.log('='.repeat(60));
+            console.log('MESSAGE RECEIVED FROM IFRAME');
+            console.log('='.repeat(60));
             console.log('Event origin:', event.origin);
-            console.log('Event data:', event.data);
+            console.log('Event data:', JSON.stringify(event.data, null, 2));
+            console.log('Event source:', event.source);
             
             // Check for completion status from our callback iframe or Cardinal
             var data = event.data;
             
             if (data && (data.Status || data.status)) {
                 var status = data.Status || data.status;
-                console.log('3DS Challenge completed with status:', status);
+                console.log('✅ 3DS Challenge completed with status:', status);
+                console.log('Redirecting to callback URL to process payment...');
                 
                 // Redirect to callback URL to complete payment (not iframe mode)
-                window.location.href = '{% url "payment:threeds-callback" %}';
+                var callbackUrl = '{% url "payment:threeds-callback" %}';
+                console.log('Callback URL:', callbackUrl);
+                window.location.href = callbackUrl;
+            } else {
+                console.log('⚠️ Message received but no Status field found');
             }
         }, false);
         
+        // Log iframe events
+        var iframe = document.getElementById('threeds-frame');
+        iframe.addEventListener('load', function() {
+            console.log('✅ Iframe loaded');
+        });
+        iframe.addEventListener('error', function() {
+            console.error('❌ Iframe error');
+        });
+        
+        console.log('Message listener registered - waiting for 3DS completion...');
+        
         // Timeout after 10 minutes
         setTimeout(function() {
+            console.error('❌ Timeout - no 3DS completion received');
             alert('{% trans "Authentication timed out. Please try again." %}');
             window.location.href = '{% url "checkout:payment-details" %}';
         }, 600000);
