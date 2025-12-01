@@ -222,7 +222,7 @@ class WorldpayGatewayCardFormView(CheckoutSessionMixin, View):
                 logger.info(f"   Challenge JWT: {challenge_jwt[:50]}..." if challenge_jwt else "No JWT")
                 
                 # Store order info and card data in session for after challenge
-                request.session['threeds_challenge'] = {
+                challenge_session_data = {
                     'order_id': order.id,
                     'order_number': order.number,
                     'card_data': {
@@ -235,10 +235,25 @@ class WorldpayGatewayCardFormView(CheckoutSessionMixin, View):
                     'authentication': threeds_result.get('authentication', {}),
                     'challenge_reference': threeds_result.get('challenge_reference')
                 }
-                # Force save session immediately
+                
+                request.session['threeds_challenge'] = challenge_session_data
                 request.session.modified = True
+                
+                logger.info(f"   💾 Saving session data for order {order.number}")
+                logger.info(f"   Session key before save: {request.session.session_key}")
+                logger.info(f"   Session data keys before save: {list(request.session.keys())}")
+                
+                # Force save
                 request.session.save()
-                logger.info(f"   Session saved with challenge data for order {order.number}")
+                
+                logger.info(f"   ✅ Session saved")
+                logger.info(f"   Session key after save: {request.session.session_key}")
+                
+                # Verify it was saved
+                test_data = request.session.get('threeds_challenge')
+                logger.info(f"   Verification - threeds_challenge present: {test_data is not None}")
+                if test_data:
+                    logger.info(f"   Verification - order_id: {test_data.get('order_id')}")
                 
                 # Render challenge page with iframe
                 context = {
@@ -765,10 +780,24 @@ class ThreeDSCallbackView(CheckoutSessionMixin, View):
         
         # Get stored challenge data from session
         logger.info(f"   Session ID: {request.session.session_key}")
+        logger.info(f"   Session age: {request.session.get_expiry_age()} seconds")
         logger.info(f"   Session keys: {list(request.session.keys())}")
         
+        # Try to access session directly from database
+        from django.contrib.sessions.models import Session
+        try:
+            session_obj = Session.objects.get(session_key=request.session.session_key)
+            logger.info(f"   📊 Database session expires: {session_obj.expire_date}")
+            session_data = session_obj.get_decoded()
+            logger.info(f"   📊 Database session keys: {list(session_data.keys())}")
+            logger.info(f"   📊 Database has threeds_challenge: {'threeds_challenge' in session_data}")
+        except Session.DoesNotExist:
+            logger.error("   ❌ Session not found in database!")
+        except Exception as e:
+            logger.error(f"   ❌ Error reading session from database: {e}")
+        
         challenge_data = request.session.get('threeds_challenge')
-        logger.info(f"   Challenge data present: {challenge_data is not None}")
+        logger.info(f"   Challenge data present in request.session: {challenge_data is not None}")
         
         if challenge_data:
             logger.info(f"   Challenge data keys: {list(challenge_data.keys())}")
