@@ -183,15 +183,21 @@ class WorldpayGatewayCardFormView(CheckoutSessionMixin, View):
         logger.info("✅ Form is valid, proceeding with payment")
         
         try:
-            # Create the order first
-            logger.info("🏗️ Creating order from session...")
-            order = self._create_order_from_session(request, session_data)
-            
-            if not order:
-                logger.error("❌ Failed to create order")
-                raise Exception("Failed to create order")
-            
-            logger.info(f"✅ Order created successfully: {order.number}")
+            # Check if order already exists (e.g., after reload/retry)
+            order_number = session_data.get('order_number')
+            try:
+                order = Order.objects.get(number=order_number)
+                logger.info(f"♻️ Order {order_number} already exists, reusing it")
+            except Order.DoesNotExist:
+                # Create the order first
+                logger.info("🏗️ Creating order from session...")
+                order = self._create_order_from_session(request, session_data)
+                
+                if not order:
+                    logger.error("❌ Failed to create order")
+                    raise Exception("Failed to create order")
+                
+                logger.info(f"✅ Order created successfully: {order.number}")
             
             # Process payment with Gateway API (with 3DS)
             facade = WorldpayGatewayFacade()
@@ -746,18 +752,32 @@ class ThreeDSCallbackView(CheckoutSessionMixin, View):
         """
         Handle GET callback after 3DS challenge
         """
+        logger.info("="*60)
+        logger.info("GET CALLBACK STARTED")
+        logger.info("="*60)
+        
         iframe_response = self._handle_callback(request)
         if iframe_response:
+            logger.info("   Returning iframe response")
             return iframe_response
         
+        logger.info("   Not iframe mode - processing payment")
+        
         # Get stored challenge data from session
-        challenge_data = request.session.get('threeds_challenge')
+        logger.info(f"   Session ID: {request.session.session_key}")
         logger.info(f"   Session keys: {list(request.session.keys())}")
+        
+        challenge_data = request.session.get('threeds_challenge')
         logger.info(f"   Challenge data present: {challenge_data is not None}")
         
+        if challenge_data:
+            logger.info(f"   Challenge data keys: {list(challenge_data.keys())}")
+            logger.info(f"   Order ID: {challenge_data.get('order_id')}")
+            logger.info(f"   Order number: {challenge_data.get('order_number')}")
+        
         if not challenge_data:
-            logger.error("❌ No challenge data in session")
-            logger.error(f"   Available session data: {dict(request.session)}")
+            logger.error("❌ No challenge data in session - PAYMENT WILL FAIL")
+            logger.error(f"   All session data: {dict(request.session)}")
             messages.error(request, _("Your payment session has expired. Please try again."))
             return HttpResponseRedirect(reverse('checkout:payment-details'))
         
