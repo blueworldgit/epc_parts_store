@@ -1,0 +1,138 @@
+{% load i18n %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% trans "Payment Authentication" %}</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: #f5f5f5;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            padding: 30px;
+        }
+        h1 {
+            color: #333;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        .info {
+            color: #666;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+        .order-info {
+            background: #f9f9f9;
+            padding: 15px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+        }
+        .order-info p {
+            margin: 5px 0;
+            color: #333;
+        }
+        .iframe-container {
+            width: 100%;
+            height: 500px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            overflow: hidden;
+            background: white;
+        }
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #666;
+        }
+        .spinner {
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #3498db;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔒 {% trans "Payment Authentication Required" %}</h1>
+        
+        <div class="info">
+            {% trans "Your bank requires additional verification to complete this payment. Please complete the authentication in the frame below." %}
+        </div>
+        
+        <div class="order-info">
+            <p><strong>{% trans "Order:" %}</strong> {{ order.number }}</p>
+            <p><strong>{% trans "Amount:" %}</strong> {{ currency }}{{ order_total|floatformat:2 }}</p>
+        </div>
+        
+        <div class="iframe-container">
+            <iframe 
+                id="threeds-frame"
+                name="threeds-frame"
+                allow="payment"
+            ></iframe>
+        </div>
+        
+        <!-- Hidden form to POST JWT to Cardinal Commerce -->
+        <form id="step-up-form" method="POST" action="{{ challenge_url }}" target="threeds-frame" style="display:none;">
+            <input type="hidden" name="JWT" value="{{ challenge_jwt }}">
+        </form>
+    </div>
+    
+    <script>
+        // Automatically submit the JWT form to load the 3DS challenge in the iframe
+        document.getElementById('step-up-form').submit();
+        
+        // Listen for 3DS challenge completion from Cardinal Commerce
+        window.addEventListener('message', function(event) {
+            console.log('Received message from 3DS iframe:', event);
+            console.log('Event origin:', event.origin);
+            console.log('Event data:', event.data);
+            
+            // Cardinal Commerce sends the result via postMessage
+            // The event should come from centinelapi.cardinalcommerce.com
+            if (event.origin.indexOf('cardinalcommerce.com') !== -1 || 
+                event.origin.indexOf('worldpay.com') !== -1) {
+                
+                // Check for completion status
+                var data = event.data;
+                
+                // Cardinal sends: {Status: "SUCCESS"} or similar
+                if (data && (data.Status || data.status)) {
+                    console.log('3DS Challenge completed with status:', data.Status || data.status);
+                    
+                    // Redirect to callback URL to complete payment
+                    window.location.href = '{% url "payment:threeds-callback" %}';
+                }
+            }
+        }, false);
+        
+        // Timeout after 10 minutes
+        setTimeout(function() {
+            alert('{% trans "Authentication timed out. Please try again." %}');
+            window.location.href = '{% url "checkout:payment-details" %}';
+        }, 600000);
+    </script>
+</body>
+</html>

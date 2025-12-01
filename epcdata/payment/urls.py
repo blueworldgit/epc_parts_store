@@ -6,7 +6,8 @@ from .gateway_views import (
     WorldpayGatewayCardFormView,
     WorldpayGatewaySuccessView,
     WorldpayGatewayFailureView,
-    WorldpayDebugConfigView
+    WorldpayDebugConfigView,
+    ThreeDSCallbackView
 )
 from .debug_gateway import PaymentSessionDebugView, PaymentTestOrderCreationView
 from .debug_checkout import CheckoutDebugView, PaymentMethodTestView
@@ -29,6 +30,7 @@ urlpatterns = [
     path('gateway/card-form/', WorldpayGatewayCardFormView.as_view(), name='worldpay-gateway-card-form'),
     path('gateway/success/', WorldpayGatewaySuccessView.as_view(), name='worldpay-gateway-success'),
     path('gateway/failure/', WorldpayGatewayFailureView.as_view(), name='worldpay-gateway-failure'),
+    path('gateway/threeds-callback/', ThreeDSCallbackView.as_view(), name='threeds-callback'),
     
     # Access Checkout Session payment endpoint
     path('checkout-session/', process_checkout_session_payment, name='checkout-session-payment'),

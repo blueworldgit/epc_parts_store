@@ -204,24 +204,45 @@ class WorldpayGatewayCardFormView(CheckoutSessionMixin, View):
             logger.info(f"🔒 Step 1: Performing 3DS authentication for order {order.number}")
             threeds_result = facade.authenticate_3ds(order, card_data, request)
             
+            outcome = threeds_result.get('outcome')
+            
+            if outcome == 'challenged':
+                # Challenge required - show 3DS challenge iframe
+                challenge_url = threeds_result.get('challenge_url')
+                challenge_jwt = threeds_result.get('challenge_jwt')
+                logger.info(f"⚠️ 3DS challenge required for order {order.number}")
+                logger.info(f"   Challenge URL: {challenge_url}")
+                logger.info(f"   Challenge JWT: {challenge_jwt[:50]}..." if challenge_jwt else "No JWT")
+                
+                # Store order info and card data in session for after challenge
+                request.session['threeds_challenge'] = {
+                    'order_id': order.id,
+                    'order_number': order.number,
+                    'card_data': {
+                        'card_number': card_data['card_number'],
+                        'expiry_month': card_data['expiry_month'],
+                        'expiry_year': card_data['expiry_year'],
+                        'cvc': card_data['cvc'],
+                        'cardholder_name': card_data['cardholder_name']
+                    },
+                    'authentication': threeds_result.get('authentication', {}),
+                    'challenge_reference': threeds_result.get('challenge_reference')
+                }
+                
+                # Render challenge page with iframe
+                context = {
+                    'challenge_url': challenge_url,
+                    'challenge_jwt': challenge_jwt,
+                    'order': order,
+                    'order_total': session_data['order_total'],
+                    'currency': session_data['currency']
+                }
+                return render(request, 'payment/threeds_challenge.html', context)
+            
             if not threeds_result.get('success'):
                 outcome = threeds_result.get('outcome')
-                
-                if outcome == 'challenged':
-                    # Challenge required - redirect to challenge page
-                    # TODO: Implement challenge flow with iframe
-                    logger.warning(f"⚠️ 3DS challenge required for order {order.number}")
-                    messages.error(request, _("Additional authentication required. 3D Secure challenge flow not yet implemented."))
-                    context = {
-                        'form': form,
-                        'order_total': session_data['order_total'],
-                        'currency': session_data['currency'],
-                        'order_number': session_data['order_number'],
-                        'payment_error': '3DS challenge required'
-                    }
-                    return render(request, self.template_name, context)
                     
-                elif outcome == 'unavailable':
+                if outcome == 'unavailable':
                     # 3DS not available - proceed without it (may get soft decline)
                     logger.warning(f"⚠️ 3DS unavailable for order {order.number} - proceeding without 3DS")
                     authentication_data = None
@@ -680,6 +701,68 @@ class WorldpayGatewayFailureView(TemplateView):
     Failure page for Gateway payment
     """
     template_name = 'payment/worldpay_gateway_failure.html'
+
+
+class ThreeDSCallbackView(CheckoutSessionMixin, View):
+    """
+    Callback view after 3DS challenge completion
+    """
+    def get(self, request, *args, **kwargs):
+        """
+        Handle callback after 3DS challenge
+        """
+        logger.info("🔄 3DS challenge callback received")
+        
+        # Get stored challenge data from session
+        challenge_data = request.session.get('threeds_challenge')
+        if not challenge_data:
+            logger.error("❌ No challenge data in session")
+            messages.error(request, _("Your payment session has expired. Please try again."))
+            return HttpResponseRedirect(reverse('checkout:payment-details'))
+        
+        logger.info(f"✅ Found challenge data for order: {challenge_data['order_number']}")
+        
+        try:
+            # Get the order
+            order = Order.objects.get(id=challenge_data['order_id'])
+            
+            # Get card data and authentication
+            card_data = challenge_data['card_data']
+            authentication_data = challenge_data['authentication']
+            
+            # Process payment with the authenticated 3DS data
+            facade = WorldpayGatewayFacade()
+            logger.info(f"💰 Processing payment after 3DS challenge for order {order.number}")
+            
+            payment_result = facade.process_payment(order, card_data, authentication_data)
+            
+            if payment_result and payment_result.get('success'):
+                logger.info(f"✅ Payment successful after 3DS challenge for order {order.number}")
+                
+                # Clear session data
+                request.session.pop('threeds_challenge', None)
+                request.session.pop('worldpay_gateway_submission', None)
+                request.session['checkout_order_id'] = order.id
+                
+                messages.success(request, _("Payment successful! Your order has been placed."))
+                return HttpResponseRedirect(reverse('checkout:thank-you'))
+            
+            else:
+                logger.error(f"❌ Payment failed after 3DS challenge for order {order.number}")
+                error_msg = payment_result.get('error_message', 'Payment failed') if payment_result else 'Payment processing error'
+                messages.error(request, _("Payment failed: {error}").format(error=error_msg))
+                
+                # Clear challenge data but keep order for retry
+                request.session.pop('threeds_challenge', None)
+                return HttpResponseRedirect(reverse('checkout:payment-details'))
+                
+        except Exception as e:
+            logger.error(f"❌ Error in 3DS callback: {str(e)}")
+            import traceback
+            logger.error(traceback.format_exc())
+            
+            messages.error(request, _("An error occurred processing your payment. Please try again."))
+            return HttpResponseRedirect(reverse('checkout:payment-details'))
 
 
 class WorldpayDebugConfigView(View):

@@ -206,15 +206,28 @@ class WorldpayGatewayFacade:
                     
                 elif outcome == 'challenged':
                     # Challenge required - user needs to complete step-up authentication
-                    challenge_url = response_data.get('_links', {}).get('3ds:challenge', {}).get('href')
                     logger.info(f"⚠️ 3DS challenge required")
-                    logger.info(f"   Challenge URL: {challenge_url}")
                     
+                    # Get challenge data from the 'challenge' object (NOT from _links)
+                    challenge_data = response_data.get('challenge', {})
+                    challenge_url = challenge_data.get('url')
+                    challenge_jwt = challenge_data.get('jwt')
+                    challenge_payload = challenge_data.get('payload')
+                    challenge_reference = challenge_data.get('reference')
+                    
+                    logger.info(f"   Challenge URL: {challenge_url}")
+                    logger.info(f"   Challenge reference: {challenge_reference}")
+                    
+                    # Return success=True with challenged outcome so view can handle it
                     return {
-                        'success': False,
+                        'success': True,
                         'outcome': 'challenged',
                         'challenge_url': challenge_url,
-                        'error_message': '3DS challenge required - redirect user to complete authentication'
+                        'challenge_jwt': challenge_jwt,
+                        'challenge_payload': challenge_payload,
+                        'challenge_reference': challenge_reference,
+                        'authentication': response_data.get('authentication', {}),
+                        'response_data': response_data
                     }
                     
                 elif outcome == 'authenticationFailed':
