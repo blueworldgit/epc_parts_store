@@ -222,9 +222,13 @@ class WorldpayGatewayCardFormView(CheckoutSessionMixin, View):
                 logger.info(f"   Challenge JWT: {challenge_jwt[:50]}..." if challenge_jwt else "No JWT")
                 
                 # Store order info and card data in session for after challenge
+                # Extract transaction reference from the 3DS result for verification
+                transaction_ref = threeds_result.get('response_data', {}).get('transactionReference', f"3DS-{order.number}")
+                
                 challenge_session_data = {
                     'order_id': order.id,
                     'order_number': order.number,
+                    'transaction_reference': transaction_ref,
                     'card_data': {
                         'card_number': card_data['card_number'],
                         'expiry_month': card_data['expiry_month'],
@@ -232,9 +236,7 @@ class WorldpayGatewayCardFormView(CheckoutSessionMixin, View):
                         'cvc': card_data['cvc'],
                         'cardholder_name': card_data['cardholder_name']
                     },
-                    'authentication': threeds_result.get('authentication', {}),
-                    'challenge_reference': threeds_result.get('challenge_reference'),
-                    'authentication_result_url': threeds_result.get('authentication_result_url')
+                    'challenge_reference': threeds_result.get('challenge_reference')
                 }
                 
                 request.session['threeds_challenge'] = challenge_session_data
@@ -817,36 +819,39 @@ class ThreeDSCallbackView(CheckoutSessionMixin, View):
             # Get the order
             order = Order.objects.get(id=challenge_data['order_id'])
             
-            # Get card data
+            # Get card data and references for verification
             card_data = challenge_data['card_data']
             challenge_reference = challenge_data.get('challenge_reference')
-            auth_result_url = challenge_data.get('authentication_result_url')
+            transaction_reference = challenge_data.get('transaction_reference')
             
-            # Retrieve final authentication data from Worldpay after challenge completion
+            # Verify challenge result with Worldpay after Cardinal Commerce completion
             facade = WorldpayGatewayFacade()
             
-            if challenge_reference:
-                logger.info(f"🔍 Retrieving final authentication data for challenge: {challenge_reference}")
-                if auth_result_url:
-                    logger.info(f"   Using authentication result URL: {auth_result_url}")
+            if challenge_reference and transaction_reference:
+                logger.info(f"🔍 Verifying 3DS challenge result")
+                logger.info(f"   Challenge reference: {challenge_reference}")
+                logger.info(f"   Transaction reference: {transaction_reference}")
                 
-                auth_result = facade.get_authentication_result(challenge_reference, auth_result_url)
+                verification_result = facade.verify_challenge_result(challenge_reference, transaction_reference)
                 
-                if auth_result and auth_result.get('success'):
-                    authentication_data = auth_result.get('authentication', {})
-                    logger.info(f"✅ Retrieved final authentication data:")
+                if verification_result and verification_result.get('success'):
+                    authentication_data = verification_result.get('authentication', {})
+                    logger.info(f"✅ Challenge verification successful:")
                     logger.info(f"   ECI: {authentication_data.get('eci')}")
                     logger.info(f"   Version: {authentication_data.get('version')}")
+                    logger.info(f"   Transaction ID: {authentication_data.get('transactionId')}")
                 else:
-                    logger.error(f"❌ Failed to retrieve authentication result")
-                    error_msg = auth_result.get('error_message', 'Failed to verify 3DS authentication') if auth_result else 'Authentication verification error'
+                    logger.error(f"❌ Challenge verification failed")
+                    error_msg = verification_result.get('error_message', 'Failed to verify 3DS challenge') if verification_result else 'Challenge verification error'
                     messages.error(request, _("Payment failed: {error}").format(error=error_msg))
                     request.session.pop('threeds_challenge', None)
                     return HttpResponseRedirect(reverse('checkout:payment-details'))
             else:
-                # Fallback to stored authentication (should not happen)
-                logger.warning("⚠️ No challenge reference found, using stored authentication data")
-                authentication_data = challenge_data.get('authentication', {})
+                # Missing required references
+                logger.error("❌ Missing challenge_reference or transaction_reference")
+                messages.error(request, _("Payment session invalid. Please try again."))
+                request.session.pop('threeds_challenge', None)
+                return HttpResponseRedirect(reverse('checkout:payment-details'))
             
             # Process payment with the authenticated 3DS data
             logger.info(f"💰 Processing payment after 3DS challenge for order {order.number}")

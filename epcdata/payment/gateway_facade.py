@@ -282,13 +282,14 @@ class WorldpayGatewayFacade:
                 'error_message': f'3DS authentication failed: {str(e)}'
             }
     
-    def get_authentication_result(self, challenge_reference, auth_result_url=None):
+    def verify_challenge_result(self, challenge_reference, transaction_reference):
         """
-        Retrieve final authentication data after 3DS challenge completion
+        Verify the 3DS challenge result after user completes challenge with Cardinal Commerce
+        This calls the /verifications/customers/3ds/verification endpoint per Worldpay docs
         
         Args:
             challenge_reference: The challenge reference from the initial 3DS authentication
-            auth_result_url: Optional URL from _links.verifications:authentication
+            transaction_reference: The original transaction reference used in authentication
             
         Returns:
             Dict with:
@@ -305,40 +306,52 @@ class WorldpayGatewayFacade:
                 
             headers = {
                 'Authorization': auth_header,
+                'Content-Type': 'application/vnd.worldpay.verifications.customers-v3.hal+json',
                 'Accept': 'application/vnd.worldpay.verifications.customers-v3.hal+json'
             }
             
-            # Use provided URL or construct from challenge reference
-            if auth_result_url:
-                url = auth_result_url
-            else:
-                # Try alternative endpoint format - use the challenge reference as a query param
-                url = f"{self.threeds_url}?reference={challenge_reference}"
+            # Prepare verification request payload
+            payload = {
+                "transactionReference": transaction_reference,
+                "merchant": {
+                    "entity": self.entity_id
+                },
+                "challenge": {
+                    "reference": challenge_reference
+                }
+            }
             
-            logger.info(f"🔍 Retrieving final 3DS authentication result")
+            # Construct verification URL - replace /authentication with /verification
+            verification_url = self.threeds_url.replace('/authentication', '/verification')
+            
+            logger.info(f"🔍 Verifying 3DS challenge result")
             logger.info(f"   Challenge reference: {challenge_reference}")
-            logger.info(f"   URL: {url}")
+            logger.info(f"   Transaction reference: {transaction_reference}")
+            logger.info(f"   URL: {verification_url}")
+            logger.debug(f"Verification payload: {json.dumps(payload, indent=2)}")
             
-            # Make GET request to retrieve authentication result
-            response = requests.get(
-                url,
+            # Make POST request to verify challenge result
+            response = requests.post(
+                verification_url,
                 headers=headers,
+                json=payload,
                 timeout=30,
                 verify=self.verify_ssl
             )
             
-            logger.info(f"Authentication result API response status: {response.status_code}")
+            logger.info(f"Verification API response status: {response.status_code}")
             
             if response.status_code == 200:
                 response_data = response.json()
                 outcome = response_data.get('outcome')
                 
-                logger.info(f"Final 3DS outcome: {outcome}")
+                logger.info(f"Final 3DS outcome after challenge: {outcome}")
                 
                 if outcome == 'authenticated':
                     auth_data = response_data.get('authentication', {})
-                    logger.info(f"✅ 3DS challenge completed successfully")
+                    logger.info(f"✅ 3DS challenge verified successfully")
                     logger.info(f"   ECI: {auth_data.get('eci')}, Version: {auth_data.get('version')}")
+                    logger.info(f"   Transaction ID: {auth_data.get('transactionId')}")
                     logger.debug(f"   Full authentication data: {json.dumps(auth_data, indent=2)}")
                     
                     return {
@@ -374,17 +387,17 @@ class WorldpayGatewayFacade:
                     
             else:
                 error_data = response.json() if response.text else {}
-                logger.error(f"Authentication result API error: {response.status_code}")
+                logger.error(f"Verification API error: {response.status_code}")
                 logger.error(f"Error data: {json.dumps(error_data, indent=2)}")
                 
                 return {
                     'success': False,
-                    'error_message': f'Failed to retrieve authentication result: {error_data.get("message", "Unknown error")}',
+                    'error_message': f'Failed to verify challenge: {error_data.get("message", "Unknown error")}',
                     'status_code': response.status_code
                 }
                 
         except Exception as e:
-            logger.error(f"Get authentication result exception: {str(e)}")
+            logger.error(f"Challenge verification exception: {str(e)}")
             import traceback
             traceback.print_exc()
             return {
@@ -443,17 +456,26 @@ class WorldpayGatewayFacade:
             # Add 3DS authentication data in customer.authentication (Gateway API v6 schema)
             # CRITICAL: v6 uses customer.authentication, v7 uses root-level authentication
             if authentication_data:
-                payload['customer'] = {
-                    'authentication': {
-                        'type': '3DS',
-                        'version': authentication_data.get('version'),
-                        'eci': authentication_data.get('eci'),
-                        'authenticationValue': authentication_data.get('authenticationValue'),
-                        'transactionId': authentication_data.get('transactionId')
-                    }
-                }
+                # Build authentication object, only including non-null values
+                auth_obj = {'type': '3DS'}
+                
+                if authentication_data.get('version'):
+                    auth_obj['version'] = authentication_data.get('version')
+                if authentication_data.get('eci') is not None:
+                    auth_obj['eci'] = str(authentication_data.get('eci'))  # Must be string
+                if authentication_data.get('authenticationValue'):
+                    auth_obj['authenticationValue'] = authentication_data.get('authenticationValue')
+                if authentication_data.get('transactionId'):
+                    auth_obj['transactionId'] = authentication_data.get('transactionId')
+                
+                # If we have a challenge reference, include it
+                if authentication_data.get('challenge_reference'):
+                    auth_obj['challengeReference'] = authentication_data.get('challenge_reference')
+                    logger.info(f"📎 Including challenge reference in payment request")
+                
+                payload["customer"] = {"authentication": auth_obj}
                 logger.info(f"✅ 3DS authentication data included in customer.authentication (v6 schema)")
-                logger.info(f"   ECI: {authentication_data.get('eci')}, Version: {authentication_data.get('version')}")
+                logger.info(f"   Fields included: {list(auth_obj.keys())}")
             else:
                 logger.warning("⚠️ No 3DS authentication data - payment may be declined by issuer")
             
