@@ -36,7 +36,7 @@ ALLOWED_HOSTS = ['80.95.207.42', 'localhost', '127.0.0.1', '[::1]']
 SECURE_CROSS_ORIGIN_OPENER_POLICY = None  # Fix the COOP header warning
 SECURE_BROWSER_XSS_FILTER = True
 SECURE_CONTENT_TYPE_NOSNIFF = True
-X_FRAME_OPTIONS = 'DENY'
+X_FRAME_OPTIONS = 'SAMEORIGIN'
 
 
 # Application definition

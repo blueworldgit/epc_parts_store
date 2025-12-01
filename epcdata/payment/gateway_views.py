@@ -10,6 +10,7 @@ from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
 from django.views.generic import View, TemplateView
 from django.views.decorators.csrf import csrf_exempt
+from django.views.decorators.clickjacking import xframe_options_exempt
 from django.utils.decorators import method_decorator
 from oscar.apps.checkout.session import CheckoutSessionMixin
 from oscar.core.loading import get_model, get_class
@@ -703,10 +704,20 @@ class WorldpayGatewayFailureView(TemplateView):
     template_name = 'payment/worldpay_gateway_failure.html'
 
 
+@method_decorator(csrf_exempt, name='dispatch')
 class ThreeDSCallbackView(CheckoutSessionMixin, View):
     """
     Callback view after 3DS challenge completion
+    This view must be frameable for Cardinal Commerce 3DS return
     """
+    @method_decorator(lambda view_func: lambda request, *args, **kwargs: view_func(request, *args, **kwargs))
+    def dispatch(self, *args, **kwargs):
+        response = super().dispatch(*args, **kwargs)
+        # Allow this page to be loaded in iframe (remove X-Frame-Options)
+        if hasattr(response, 'xframe_options_exempt'):
+            response.xframe_options_exempt = True
+        return response
+    
     def get(self, request, *args, **kwargs):
         """
         Handle callback after 3DS challenge
