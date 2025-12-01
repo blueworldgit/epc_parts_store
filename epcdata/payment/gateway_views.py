@@ -233,7 +233,8 @@ class WorldpayGatewayCardFormView(CheckoutSessionMixin, View):
                         'cardholder_name': card_data['cardholder_name']
                     },
                     'authentication': threeds_result.get('authentication', {}),
-                    'challenge_reference': threeds_result.get('challenge_reference')
+                    'challenge_reference': threeds_result.get('challenge_reference'),
+                    'authentication_result_url': threeds_result.get('authentication_result_url')
                 }
                 
                 request.session['threeds_challenge'] = challenge_session_data
@@ -819,13 +820,17 @@ class ThreeDSCallbackView(CheckoutSessionMixin, View):
             # Get card data
             card_data = challenge_data['card_data']
             challenge_reference = challenge_data.get('challenge_reference')
+            auth_result_url = challenge_data.get('authentication_result_url')
             
             # Retrieve final authentication data from Worldpay after challenge completion
             facade = WorldpayGatewayFacade()
             
             if challenge_reference:
                 logger.info(f"🔍 Retrieving final authentication data for challenge: {challenge_reference}")
-                auth_result = facade.get_authentication_result(challenge_reference)
+                if auth_result_url:
+                    logger.info(f"   Using authentication result URL: {auth_result_url}")
+                
+                auth_result = facade.get_authentication_result(challenge_reference, auth_result_url)
                 
                 if auth_result and auth_result.get('success'):
                     authentication_data = auth_result.get('authentication', {})

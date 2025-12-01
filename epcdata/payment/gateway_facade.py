@@ -218,6 +218,13 @@ class WorldpayGatewayFacade:
                     logger.info(f"   Challenge URL: {challenge_url}")
                     logger.info(f"   Challenge reference: {challenge_reference}")
                     
+                    # Get the self link for retrieving updated authentication status
+                    links = response_data.get('_links', {})
+                    self_link = links.get('self', {}).get('href') if links else None
+                    
+                    logger.info(f"   Self link for status check: {self_link}")
+                    logger.debug(f"   Full 3DS response: {json.dumps(response_data, indent=2)}")
+                    
                     # Return success=True with challenged outcome so view can handle it
                     return {
                         'success': True,
@@ -226,6 +233,7 @@ class WorldpayGatewayFacade:
                         'challenge_jwt': challenge_jwt,
                         'challenge_payload': challenge_payload,
                         'challenge_reference': challenge_reference,
+                        'authentication_result_url': self_link,
                         'authentication': response_data.get('authentication', {}),
                         'response_data': response_data
                     }
@@ -274,12 +282,13 @@ class WorldpayGatewayFacade:
                 'error_message': f'3DS authentication failed: {str(e)}'
             }
     
-    def get_authentication_result(self, challenge_reference):
+    def get_authentication_result(self, challenge_reference, auth_result_url=None):
         """
         Retrieve final authentication data after 3DS challenge completion
         
         Args:
             challenge_reference: The challenge reference from the initial 3DS authentication
+            auth_result_url: Optional URL from _links.verifications:authentication
             
         Returns:
             Dict with:
@@ -299,8 +308,12 @@ class WorldpayGatewayFacade:
                 'Accept': 'application/vnd.worldpay.verifications.customers-v3.hal+json'
             }
             
-            # Construct URL to retrieve authentication result
-            url = f"{self.threeds_url}/{challenge_reference}"
+            # Use provided URL or construct from challenge reference
+            if auth_result_url:
+                url = auth_result_url
+            else:
+                # Try alternative endpoint format - use the challenge reference as a query param
+                url = f"{self.threeds_url}?reference={challenge_reference}"
             
             logger.info(f"🔍 Retrieving final 3DS authentication result")
             logger.info(f"   Challenge reference: {challenge_reference}")
