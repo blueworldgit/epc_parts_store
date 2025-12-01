@@ -30,11 +30,21 @@ class WorldpayGatewayFacade:
     """
     
     def __init__(self):
-        # Use the working Gateway API endpoint discovered in testing
-        self.api_url = getattr(settings, 'WORLDPAY_GATEWAY_URL', 'https://try.access.worldpay.com/payments/authorizations')
+        # Determine test mode and base URL
+        self.test_mode = getattr(settings, 'WORLDPAY_TEST_MODE', True)
+        self.base_url = "https://try.access.worldpay.com" if self.test_mode else "https://access.worldpay.com"
+        
+        # Set API endpoints
+        self.api_url = f"{self.base_url}/payments/authorizations"
+        self.threeds_url = f"{self.base_url}/verifications/customers/3ds/authentication"
+        
+        # Credentials
         self.username = getattr(settings, 'WORLDPAY_USERNAME', '')
         self.password = getattr(settings, 'WORLDPAY_PASSWORD', '')
-        self.entity_id = getattr(settings, 'WORLDPAY_ENTITY_ID', 'PO4080334630')  # Working entity ID
+        self.entity_id = getattr(settings, 'WORLDPAY_ENTITY_ID', 'PO4080334630')
+        
+        # SSL verification - ALWAYS verify in production
+        self.verify_ssl = not self.test_mode or getattr(settings, 'WORLDPAY_VERIFY_SSL', True)
         
         # 🔍 DEBUG: Log Worldpay configuration on initialization
         self._log_worldpay_config()
@@ -42,7 +52,8 @@ class WorldpayGatewayFacade:
     def _log_worldpay_config(self):
         """Log the current Worldpay configuration for debugging"""
         logger.info("🌍 WORLDPAY GATEWAY CONFIGURATION:")
-        logger.info(f"   📍 API URL: {self.api_url}")
+        logger.info(f"   📍 Payment API URL: {self.api_url}")
+        logger.info(f"   🔒 3DS API URL: {self.threeds_url}")
         logger.info(f"   👤 Username: {self.username}")
         logger.info(f"   🔑 Password: {'*' * (len(self.password) - 4) + self.password[-4:] if len(self.password) > 4 else '*' * len(self.password)}")
         logger.info(f"   🏢 Entity ID: {self.entity_id}")
@@ -78,29 +89,206 @@ class WorldpayGatewayFacade:
         encoded_credentials = base64.b64encode(credentials.encode()).decode()
         return f"Basic {encoded_credentials}"
     
-    def process_payment(self, order, card_data):
+    def authenticate_3ds(self, order, card_data, request=None):
         """
-        Process a direct payment using Worldpay Gateway API v6
-        Uses the exact schema format that was successfully tested
+        Perform 3D Secure authentication using Worldpay 3DS API v3
+        This MUST be called before process_payment to get authentication data
         
-        card_data should contain:
-        - card_number
-        - expiry_month
-        - expiry_year
-        - cvc
-        - cardholder_name
+        Args:
+            order: Oscar Order object
+            card_data: Dict with card details (card_number, expiry_month, expiry_year, cardholder_name)
+            request: Django request object (optional, for device data collection)
+            
+        Returns:
+            Dict with:
+            - success: True/False
+            - outcome: authenticated/challenged/authenticationFailed/unavailable
+            - authentication: Dict with eci, authenticationValue, transactionId, version
+            - challenge_url: URL for challenge if outcome=challenged
+            - error_message: Error description if failed
         """
         try:
             # Generate unique transaction reference
-            transaction_ref = f"ORDER-{order.number}-{uuid.uuid4().hex[:8]}"
+            transaction_ref = f"3DS-{order.number}-{uuid.uuid4().hex[:8]}"
             
-            # Prepare payment request payload using proven v6 schema
+            # Prepare 3DS authentication request
             payload = {
                 "transactionReference": transaction_ref,
                 "merchant": {
                     "entity": self.entity_id
                 },
                 "instruction": {
+                    "paymentInstrument": {
+                        "type": "card/front",
+                        "cardHolderName": card_data['cardholder_name'],
+                        "cardNumber": card_data['card_number'].replace(' ', ''),
+                        "cardExpiryDate": {
+                            "month": int(card_data['expiry_month']),
+                            "year": int(card_data['expiry_year'])
+                        }
+                    },
+                    "value": {
+                        "currency": str(order.currency),
+                        "amount": int(order.total_incl_tax * 100)
+                    }
+                },
+                "deviceData": {
+                    "acceptHeader": "text/html",
+                    "userAgentHeader": request.META.get('HTTP_USER_AGENT', 'Mozilla/5.0') if request else 'Mozilla/5.0',
+                    "browserLanguage": "en-GB",
+                    "browserJavaEnabled": False,
+                    "browserColorDepth": "24",
+                    "browserScreenHeight": 1080,
+                    "browserScreenWidth": 1920,
+                    "timeZone": "0",
+                    "browserJavascriptEnabled": True,
+                    "ipAddress": request.META.get('REMOTE_ADDR', '127.0.0.1') if request else '127.0.0.1'
+                },
+                "challenge": {
+                    "windowSize": "600x400",
+                    "preference": "noPreference",
+                    "returnUrl": request.build_absolute_uri(reverse('payment:worldpay-gateway-success')) if request else "http://localhost:8000/payment/success"
+                }
+            }
+            
+            # Add billing address if available
+            if order.billing_address:
+                payload["instruction"]["paymentInstrument"]["billingAddress"] = {
+                    "address1": order.billing_address.line1,
+                    "postalCode": order.billing_address.postcode,
+                    "city": order.billing_address.line4,
+                    "countryCode": str(order.billing_address.country.code)
+                }
+            
+            # Prepare headers for 3DS API v3
+            auth_header = self._get_auth_header()
+            if not auth_header:
+                return {'success': False, 'error_message': 'Authentication header generation failed'}
+                
+            headers = {
+                'Authorization': auth_header,
+                'Content-Type': 'application/vnd.worldpay.verifications.customers-v3.hal+json',
+                'Accept': 'application/vnd.worldpay.verifications.customers-v3.hal+json'
+            }
+            
+            logger.info(f"🔒 Initiating 3DS authentication for order {order.number}")
+            logger.debug(f"3DS payload: {json.dumps(payload, indent=2)}")
+            
+            # Make 3DS authentication request
+            response = requests.post(
+                self.threeds_url,
+                headers=headers,
+                json=payload,
+                timeout=30,
+                verify=self.verify_ssl
+            )
+            
+            logger.info(f"3DS API response status: {response.status_code}")
+            
+            if response.status_code == 200:
+                response_data = response.json()
+                outcome = response_data.get('outcome')
+                
+                logger.info(f"3DS outcome: {outcome}")
+                
+                if outcome == 'authenticated':
+                    # Frictionless authentication - success!
+                    auth_data = response_data.get('authentication', {})
+                    logger.info(f"✅ 3DS authenticated successfully (frictionless)")
+                    logger.info(f"   ECI: {auth_data.get('eci')}, Version: {auth_data.get('version')}")
+                    
+                    return {
+                        'success': True,
+                        'outcome': 'authenticated',
+                        'authentication': auth_data,
+                        'response_data': response_data
+                    }
+                    
+                elif outcome == 'challenged':
+                    # Challenge required - user needs to complete step-up authentication
+                    challenge_url = response_data.get('_links', {}).get('3ds:challenge', {}).get('href')
+                    logger.info(f"⚠️ 3DS challenge required")
+                    logger.info(f"   Challenge URL: {challenge_url}")
+                    
+                    return {
+                        'success': False,
+                        'outcome': 'challenged',
+                        'challenge_url': challenge_url,
+                        'error_message': '3DS challenge required - redirect user to complete authentication'
+                    }
+                    
+                elif outcome == 'authenticationFailed':
+                    logger.warning("❌ 3DS authentication failed")
+                    return {
+                        'success': False,
+                        'outcome': 'authenticationFailed',
+                        'error_message': '3DS authentication was rejected by the card issuer'
+                    }
+                    
+                elif outcome == 'unavailable':
+                    logger.warning("⚠️ 3DS authentication unavailable")
+                    return {
+                        'success': False,
+                        'outcome': 'unavailable',
+                        'error_message': '3DS authentication is not available for this card'
+                    }
+                    
+                else:
+                    logger.warning(f"Unknown 3DS outcome: {outcome}")
+                    return {
+                        'success': False,
+                        'outcome': outcome,
+                        'error_message': f'Unexpected 3DS outcome: {outcome}'
+                    }
+                    
+            else:
+                error_data = response.json() if response.text else {}
+                logger.error(f"3DS API error: {response.status_code}")
+                logger.error(f"Error data: {json.dumps(error_data, indent=2)}")
+                
+                return {
+                    'success': False,
+                    'error_message': f'3DS API error: {error_data.get("message", "Unknown error")}',
+                    'status_code': response.status_code
+                }
+                
+        except Exception as e:
+            logger.error(f"3DS authentication exception: {str(e)}")
+            import traceback
+            traceback.print_exc()
+            return {
+                'success': False,
+                'error_message': f'3DS authentication failed: {str(e)}'
+            }
+    
+    def process_payment(self, order, card_data, authentication_data=None):
+        """
+        Process a direct payment using Worldpay Gateway API v6
+        Uses the exact schema format that was successfully tested
+        
+        Args:
+            order: Oscar Order object
+            card_data: Dict with card details (card_number, expiry_month, expiry_year, cvc, cardholder_name)
+            authentication_data: Dict from authenticate_3ds() containing eci, authenticationValue, transactionId, version
+        
+        Returns:
+            Dict with success status and payment details or error information
+        """
+        try:
+            # Generate unique transaction reference
+            transaction_ref = f"ORDER-{order.number}-{uuid.uuid4().hex[:8]}"
+            
+            # Prepare payment request payload using Gateway API v6 schema
+            # v6 field names: cardExpiryDate, cardSecurityCode (NO channel field)
+            payload = {
+                "transactionReference": transaction_ref,
+                "merchant": {
+                    "entity": self.entity_id
+                },
+                "instruction": {
+                    "requestAutoSettlement": {
+                        "enabled": False  # Manual settlement
+                    },
                     "value": {
                         "currency": str(order.currency),
                         "amount": int(order.total_incl_tax * 100)  # Convert to pence/cents
@@ -111,19 +299,36 @@ class WorldpayGatewayFacade:
                     "paymentInstrument": {
                         "type": "card/plain",
                         "cardNumber": card_data['card_number'].replace(' ', ''),
-                        "cardExpiryDate": {
+                        "cardExpiryDate": {  # v6 field name
                             "month": int(card_data['expiry_month']),
                             "year": int(card_data['expiry_year'])
                         },
                         "cardHolderName": card_data['cardholder_name'],
-                        "cardSecurityCode": card_data['cvc']
+                        "cardSecurityCode": card_data['cvc']  # v6 field name
                     }
                 }
             }
             
-            # Add billing address if available - TEMPORARILY DISABLED FOR TESTING
-            # This is to test if address validation is causing JASON PINK redirect issues
-            if False and order.billing_address:
+            # Add 3DS authentication data in customer.authentication (Gateway API v6 schema)
+            # CRITICAL: v6 uses customer.authentication, v7 uses root-level authentication
+            if authentication_data:
+                payload['customer'] = {
+                    'authentication': {
+                        'type': '3DS',
+                        'version': authentication_data.get('version'),
+                        'eci': authentication_data.get('eci'),
+                        'authenticationValue': authentication_data.get('authenticationValue'),
+                        'transactionId': authentication_data.get('transactionId')
+                    }
+                }
+                logger.info(f"✅ 3DS authentication data included in customer.authentication (v6 schema)")
+                logger.info(f"   ECI: {authentication_data.get('eci')}, Version: {authentication_data.get('version')}")
+            else:
+                logger.warning("⚠️ No 3DS authentication data - payment may be declined by issuer")
+            
+            # Add billing address for AVS (Address Verification Service)
+            # Critical for commercial cards - helps prevent refusal code 6
+            if order.billing_address:
                 payload["instruction"]["paymentInstrument"]["billingAddress"] = {
                     "address1": order.billing_address.line1,
                     "address2": order.billing_address.line2 or "",
@@ -133,8 +338,9 @@ class WorldpayGatewayFacade:
                     "state": order.billing_address.state,
                     "countryCode": str(order.billing_address.country.code)
                 }
+                logger.info(f"✅ Billing address included for AVS verification")
             
-            # Prepare headers using proven working format
+            # Prepare headers using Gateway API v6 format
             auth_header = self._get_auth_header()
             if not auth_header:
                 logger.error("Failed to generate authentication header")
@@ -142,7 +348,7 @@ class WorldpayGatewayFacade:
                 
             headers = {
                 'Authorization': auth_header,
-                'Content-Type': 'application/vnd.worldpay.payments-v6+json',  # Proven working content type
+                'Content-Type': 'application/vnd.worldpay.payments-v6+json',
                 'Accept': 'application/vnd.worldpay.payments-v6+json'
             }
             
@@ -159,7 +365,7 @@ class WorldpayGatewayFacade:
                 headers=headers,
                 json=payload,
                 timeout=30,
-                verify=False  # For testing - should be True in production
+                verify=self.verify_ssl
             )
             
             logger.info(f"Worldpay Gateway API response status: {response.status_code}")
@@ -168,49 +374,74 @@ class WorldpayGatewayFacade:
             logger.info(f"🔍 DEBUG: Checking response status code: {response.status_code}")
             
             if response.status_code == 201:
-                logger.info("🎯 DEBUG: Payment response status is 201 - SUCCESS")
                 response_data = response.json()
-                logger.info("Payment authorized successfully")
+                outcome = response_data.get('outcome')
+                
+                logger.info(f"🎯 Payment response: status=201, outcome={outcome}")
                 logger.debug(f"Response data: {json.dumps(response_data, indent=2)}")
                 
-                # Extract payment details from response
-                payment_id = response_data.get('paymentId')
-                authorization_code = response_data.get('issuer', {}).get('authorizationCode')
-                card_scheme = response_data.get('paymentInstrument', {}).get('card', {}).get('brand')
-                
-                logger.info(f"🎯 DEBUG: About to call _create_payment_records for order {order.number}")
-                
-                # Create payment source and transaction records
-                logger.info(f"🔄 Creating payment records for order {order.number}")
-                try:
-                    self._create_payment_records(order, response_data, transaction_ref)
-                    logger.info(f"✅ Payment records creation completed for order {order.number}")
-                except Exception as record_error:
-                    logger.error(f"❌ Payment records creation failed, but payment succeeded in Worldpay")
-                    logger.error(f"Record creation error: {str(record_error)}")
-                    # At minimum, update the order status even if other records fail
+                # Check if payment was actually authorized (outcome must be "authorized")
+                if outcome == 'authorized':
+                    logger.info("✅ Payment authorized successfully")
+                    
+                    # Extract payment details from response
+                    payment_id = response_data.get('paymentId')
+                    authorization_code = response_data.get('issuer', {}).get('authorizationCode')
+                    card_scheme = response_data.get('paymentInstrument', {}).get('card', {}).get('brand')
+                    
+                    # Create payment source and transaction records
+                    logger.info(f"🔄 Creating payment records for order {order.number}")
                     try:
-                        status_options = ['Being processed', 'Processing', 'Pending']
-                        for status_option in status_options:
-                            try:
-                                order.set_status(status_option)
-                                logger.info(f"✅ Fallback: Order status set to {status_option}")
-                                break
-                            except:
-                                continue
-                    except Exception as status_error:
-                        logger.error(f"❌ Even fallback status update failed: {status_error}")
-                
-                logger.info(f"🎯 DEBUG: Payment records creation finished, returning success")
-                
-                return {
-                    'success': True,
-                    'payment_id': payment_id,
-                    'authorization_code': authorization_code,
-                    'card_scheme': card_scheme,
-                    'transaction_ref': transaction_ref,
-                    'response_data': response_data
-                }
+                        self._create_payment_records(order, response_data, transaction_ref)
+                        logger.info(f"✅ Payment records creation completed for order {order.number}")
+                    except Exception as record_error:
+                        logger.error(f"❌ Payment records creation failed, but payment succeeded in Worldpay")
+                        logger.error(f"Record creation error: {str(record_error)}")
+                        # At minimum, update the order status even if other records fail
+                        try:
+                            status_options = ['Being processed', 'Processing', 'Pending']
+                            for status_option in status_options:
+                                try:
+                                    order.set_status(status_option)
+                                    logger.info(f"✅ Fallback: Order status set to {status_option}")
+                                    break
+                                except:
+                                    continue
+                        except Exception as status_error:
+                            logger.error(f"❌ Even fallback status update failed: {status_error}")
+                    
+                    return {
+                        'success': True,
+                        'payment_id': payment_id,
+                        'authorization_code': authorization_code,
+                        'card_scheme': card_scheme,
+                        'transaction_ref': transaction_ref,
+                        'response_data': response_data
+                    }
+                    
+                elif outcome == 'refused':
+                    # Payment was refused by bank/issuer
+                    logger.error(f"❌ Payment refused by issuer")
+                    refusal_code = response_data.get('code')
+                    refusal_description = response_data.get('description')
+                    logger.error(f"   Refusal code: {refusal_code} - {refusal_description}")
+                    
+                    return {
+                        'success': False,
+                        'error_code': f"REFUSED_{refusal_code}",
+                        'error_message': refusal_description or 'Payment refused by bank',
+                        'response_data': response_data
+                    }
+                    
+                else:
+                    # Unexpected outcome
+                    logger.error(f"⚠️ Unexpected payment outcome: {outcome}")
+                    return {
+                        'success': False,
+                        'error_code': 'UNEXPECTED_OUTCOME',
+                        'error_message': f'Unexpected payment outcome: {outcome}',
+                        'response_data': response_data
+                    }
             else:
                 logger.error(f"❌ DEBUG: Payment response status is {response.status_code} - FAILURE")
                 logger.error(f"Payment failed: {response.status_code}")
@@ -382,7 +613,7 @@ class WorldpayGatewayFacade:
                 headers=headers,
                 json=payload,
                 timeout=30,
-                verify=False
+                verify=self.verify_ssl
             )
             
             if response.status_code == 201:

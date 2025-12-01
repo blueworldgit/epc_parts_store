@@ -192,17 +192,60 @@ class WorldpayGatewayCardFormView(CheckoutSessionMixin, View):
             
             logger.info(f"✅ Order created successfully: {order.number}")
             
-            # Process payment with Gateway API
+            # Process payment with Gateway API (with 3DS)
             facade = WorldpayGatewayFacade()
             card_data = form.cleaned_data
             
             logger.info(f"💳 Processing Gateway payment for order {order.number}")
-            logger.info(f"🔍 DEBUG: Facade object: {facade}")
-            logger.info(f"🔍 DEBUG: Has _create_payment_records method: {hasattr(facade, '_create_payment_records')}")
             logger.info(f"Card data keys: {list(card_data.keys())}")
             logger.info(f"Card number (masked): {card_data['card_number'][:4]}****{card_data['card_number'][-4:]}")
             
-            payment_result = facade.process_payment(order, card_data)
+            # Step 1: Perform 3DS authentication
+            logger.info(f"🔒 Step 1: Performing 3DS authentication for order {order.number}")
+            threeds_result = facade.authenticate_3ds(order, card_data, request)
+            
+            if not threeds_result.get('success'):
+                outcome = threeds_result.get('outcome')
+                
+                if outcome == 'challenged':
+                    # Challenge required - redirect to challenge page
+                    # TODO: Implement challenge flow with iframe
+                    logger.warning(f"⚠️ 3DS challenge required for order {order.number}")
+                    messages.error(request, _("Additional authentication required. 3D Secure challenge flow not yet implemented."))
+                    context = {
+                        'form': form,
+                        'order_total': session_data['order_total'],
+                        'currency': session_data['currency'],
+                        'order_number': session_data['order_number'],
+                        'payment_error': '3DS challenge required'
+                    }
+                    return render(request, self.template_name, context)
+                    
+                elif outcome == 'unavailable':
+                    # 3DS not available - proceed without it (may get soft decline)
+                    logger.warning(f"⚠️ 3DS unavailable for order {order.number} - proceeding without 3DS")
+                    authentication_data = None
+                    
+                else:
+                    # 3DS failed
+                    logger.error(f"❌ 3DS authentication failed for order {order.number}: {threeds_result.get('error_message')}")
+                    messages.error(request, _("Card authentication failed: {error}").format(error=threeds_result.get('error_message')))
+                    context = {
+                        'form': form,
+                        'order_total': session_data['order_total'],
+                        'currency': session_data['currency'],
+                        'order_number': session_data['order_number'],
+                        'payment_error': threeds_result.get('error_message')
+                    }
+                    return render(request, self.template_name, context)
+            else:
+                # 3DS authenticated successfully
+                authentication_data = threeds_result.get('authentication')
+                logger.info(f"✅ 3DS authentication successful for order {order.number}")
+            
+            # Step 2: Process payment with 3DS authentication data
+            logger.info(f"💰 Step 2: Processing payment authorization for order {order.number}")
+            payment_result = facade.process_payment(order, card_data, authentication_data)
             
             logger.info(f"💰 Payment result: {payment_result}")
             logger.info(f"💰 Payment result type: {type(payment_result)}")

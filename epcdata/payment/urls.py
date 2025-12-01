@@ -11,6 +11,8 @@ from .gateway_views import (
 from .debug_gateway import PaymentSessionDebugView, PaymentTestOrderCreationView
 from .debug_checkout import CheckoutDebugView, PaymentMethodTestView
 from .simple_test import SimpleGatewayTestView
+from .checkout_session_view import process_checkout_session_payment
+from django.views.generic import TemplateView
 
 app_name = 'payment'
 
@@ -27,6 +29,11 @@ urlpatterns = [
     path('gateway/card-form/', WorldpayGatewayCardFormView.as_view(), name='worldpay-gateway-card-form'),
     path('gateway/success/', WorldpayGatewaySuccessView.as_view(), name='worldpay-gateway-success'),
     path('gateway/failure/', WorldpayGatewayFailureView.as_view(), name='worldpay-gateway-failure'),
+    
+    # Access Checkout Session payment endpoint
+    path('checkout-session/', process_checkout_session_payment, name='checkout-session-payment'),
+    path('test-checkout/', TemplateView.as_view(template_name='payment/test_checkout.html'), name='test-checkout'),
+    path('test-checkout-debug/', TemplateView.as_view(template_name='payment/test_checkout_debug.html'), name='test-checkout-debug'),
     
     # Debug URLs
     path('debug/', PaymentDebugView.as_view(), name='debug'),

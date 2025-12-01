@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Access Checkout Test - Jason Pink Card</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 30px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #555;
+        }
+        .field {
+            height: 40px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #0066cc;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #0052a3;
+        }
+        button:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+        .message {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 4px;
+            display: none;
+        }
+        .success {
+            background-color: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+        }
+        .error {
+            background-color: #f8d7da;
+            border: 1px solid #f5c6cb;
+            color: #721c24;
+        }
+        .info {
+            background-color: #d1ecf1;
+            border: 1px solid #bee5eb;
+            color: #0c5460;
+            margin-bottom: 20px;
+        }
+        .loading {
+            display: none;
+            text-align: center;
+            margin-top: 20px;
+        }
+        .spinner {
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #0066cc;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        pre {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 4px;
+            overflow-x: auto;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔐 Access Checkout v2 Test</h1>
+        
+        <div class="message info" style="display: block;">
+            <strong>Test Details:</strong><br>
+            Enter Jason Pink's card: 4745590025636822<br>
+            Expiry: 12/28, CVC: 123<br>
+            Amount: £0.52<br>
+            3DS: Handled automatically by Worldpay
+        </div>
+
+        <form id="payment-form">
+            <div class="form-group">
+                <label>Card Number</label>
+                <div id="card-pan" class="field"></div>
+            </div>
+
+            <div class="form-group">
+                <label>Expiry Date (MM/YY)</label>
+                <div id="card-expiry" class="field"></div>
+            </div>
+
+            <div class="form-group">
+                <label>CVC</label>
+                <div id="card-cvv" class="field"></div>
+            </div>
+
+            <button type="submit" id="pay-button">Pay £0.52</button>
+        </form>
+
+        <div class="loading" id="loading">
+            <div class="spinner"></div>
+            <p>Processing payment...</p>
+        </div>
+
+        <div class="message" id="result-message"></div>
+        <pre id="result-details" style="display: none;"></pre>
+    </div>
+
+    <!-- Access Checkout SDK v2 -->
+    <script src="https://access.worldpay.com/access-checkout/v2/checkout.js"></script>
+    
+    <script>
+        // Worldpay Configuration
+        const CHECKOUT_ID = 'fef2d93b-6d26-4e58-be09-cb9c6477494e';
+        const BASE_URL = 'https://access.worldpay.com';
+        
+        // Your backend credentials
+        const API_USERNAME = '2UfzfFhGOus54k5G';
+        const API_PASSWORD = 'FGx4t8u73n6G';
+        const ENTITY_ID = 'PO4080334630';
+
+        const form = document.getElementById('payment-form');
+        const payButton = document.getElementById('pay-button');
+        const loading = document.getElementById('loading');
+        const resultMessage = document.getElementById('result-message');
+        const resultDetails = document.getElementById('result-details');
+
+        function showMessage(message, type) {
+            resultMessage.textContent = message;
+            resultMessage.className = `message ${type}`;
+            resultMessage.style.display = 'block';
+        }
+
+        function showDetails(data) {
+            resultDetails.textContent = JSON.stringify(data, null, 2);
+            resultDetails.style.display = 'block';
+        }
+
+        // Initialize Access Checkout v2
+        let checkout;
+        Worldpay.checkout.init(
+            {
+                id: CHECKOUT_ID,
+                form: "#payment-form",
+                fields: {
+                    pan: {
+                        selector: "#card-pan",
+                        placeholder: "4444 3333 2222 1111"
+                    },
+                    expiry: {
+                        selector: "#card-expiry",
+                        placeholder: "MM/YY"
+                    },
+                    cvv: {
+                        selector: "#card-cvv",
+                        placeholder: "123"
+                    }
+                }
+            },
+            function(error, checkoutInstance) {
+                if (error) {
+                    console.error('❌ Failed to initialize SDK:', error);
+                    showMessage('Failed to initialize payment system: ' + error.message, 'error');
+                    return;
+                }
+                checkout = checkoutInstance;
+                console.log('✅ Access Checkout SDK v2 initialized');
+            }
+        );
+
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            if (!checkout) {
+                showMessage('Payment system not ready. Please refresh the page.', 'error');
+                return;
+            }
+
+            // Disable form and show loading
+            payButton.disabled = true;
+            loading.style.display = 'block';
+            resultMessage.style.display = 'none';
+            resultDetails.style.display = 'none';
+
+            // Generate session
+            checkout.generateSessionState(function(error, sessionState) {
+                if (error) {
+                    console.error('❌ Session generation failed:', error);
+                    loading.style.display = 'none';
+                    payButton.disabled = false;
+                    showMessage('Failed to generate session: ' + error.message, 'error');
+                    return;
+                }
+                
+                console.log('✅ Session created:', sessionState);
+
+                // Process payment with session
+                processPayment(sessionState);
+            });
+        });
+
+        async function processPayment(sessionState) {
+            try {
+                console.log('Step 2: Processing payment with session...');
+                
+                const paymentPayload = {
+                    transactionReference: `TEST-SESSION-${Date.now()}`,
+                    merchant: {
+                        entity: ENTITY_ID
+                    },
+                    instruction: {
+                        narrative: {
+                            line1: "EPC Parts Store"
+                        },
+                        value: {
+                            currency: "GBP",
+                            amount: 52
+                        },
+                        paymentInstrument: {
+                            type: "card/checkout+session",
+                            sessionHref: sessionState,
+                            billingAddress: {
+                                address1: "28-29 Bertie Ward Way",
+                                address2: "Rashes Green Ind. Est.",
+                                postalCode: "NR19 1TE",
+                                city: "Dereham",
+                                state: "Norfolk",
+                                countryCode: "GB"
+                            }
+                        }
+                    }
+                };
+
+                const authHeader = 'Basic ' + btoa(API_USERNAME + ':' + API_PASSWORD);
+                
+                const paymentResponse = await fetch(BASE_URL + '/payments/authorizations', {
+                    method: 'POST',
+                    headers: {
+                        'Authorization': authHeader,
+                        'Content-Type': 'application/vnd.worldpay.payments-v6+json',
+                        'Accept': 'application/vnd.worldpay.payments-v6+json'
+                    },
+                    body: JSON.stringify(paymentPayload)
+                });
+
+                const paymentResult = await paymentResponse.json();
+                console.log('Payment response:', paymentResult);
+
+                loading.style.display = 'none';
+                payButton.disabled = false;
+
+                // Check for 3DS challenge
+                if (paymentResult.outcome === 'threeDSChallengeRequired') {
+                    console.log('🔐 3DS Challenge required - redirecting...');
+                    showMessage('3DS Authentication required - redirecting...', 'info');
+                    showDetails(paymentResult);
+                    
+                    if (paymentResult._links && paymentResult._links['3ds:authenticate']) {
+                        setTimeout(() => {
+                            window.location.href = paymentResult._links['3ds:authenticate'].href;
+                        }, 2000);
+                    }
+                    return;
+                }
+
+                // Check result
+                if (paymentResult.outcome === 'authorized') {
+                    showMessage('✅ Payment Authorized Successfully!', 'success');
+                    showDetails(paymentResult);
+                } else if (paymentResult.outcome === 'refused') {
+                    const refusalCode = paymentResult.refusalCode || 'unknown';
+                    const refusalDescription = paymentResult.description || 'Payment refused';
+                    showMessage(`❌ Payment Refused (Code ${refusalCode}): ${refusalDescription}`, 'error');
+                    showDetails(paymentResult);
+                } else {
+                    showMessage(`⚠️ Payment Status: ${paymentResult.outcome}`, 'error');
+                    showDetails(paymentResult);
+                }
+
+            } catch (error) {
+                console.error('Payment error:', error);
+                loading.style.display = 'none';
+                payButton.disabled = false;
+                showMessage('❌ Payment error: ' + error.message, 'error');
+                showDetails({ error: error.message, stack: error.stack });
+            }
+        }
+    </script>
+</body>
+</html>
