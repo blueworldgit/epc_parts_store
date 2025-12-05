@@ -431,7 +431,7 @@ class WorldpayGatewayFacade:
                 },
                 "instruction": {
                     "requestAutoSettlement": {
-                        "enabled": False  # Manual settlement
+                        "enabled": True  # Automatically settle payments
                     },
                     "value": {
                         "currency": str(order.currency),
