@@ -196,10 +196,10 @@ class Repository(object):
         
         methods_list.append(method)
         
-        # TEMPORARY FOR TESTING: Add free shipping option for all users
-        # TODO: Remove this later - only for testing to avoid card charges
-        free_method = FreeShippingMethod()
-        methods_list.append(free_method)
+        # REMOVED: Test shipping option (FreeShippingMethod at 20p)
+        # Can be re-enabled by uncommenting below:
+        # free_method = FreeShippingMethod()
+        # methods_list.append(free_method)
         
         # Add express shipping option (will be hidden with CSS)
         express_method = ExpressShippingMethod()
