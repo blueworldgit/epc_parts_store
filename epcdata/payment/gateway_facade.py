@@ -35,7 +35,7 @@ class WorldpayGatewayFacade:
         self.base_url = "https://try.access.worldpay.com" if self.test_mode else "https://access.worldpay.com"
         
         # Set API endpoints
-        self.api_url = f"{self.base_url}/payments"  # Purchase flow (auth + capture)
+        self.api_url = f"{self.base_url}/payments/authorizations"  # Authorize first, then capture
         self.threeds_url = f"{self.base_url}/verifications/customers/3ds/authentication"
         
         # Credentials
@@ -544,6 +544,24 @@ class WorldpayGatewayFacade:
                     authorization_code = response_data.get('issuer', {}).get('authorizationCode')
                     card_scheme = response_data.get('paymentInstrument', {}).get('card', {}).get('brand')
                     
+                    # Immediately capture the authorized payment
+                    logger.info(f"🔄 Attempting to capture authorized payment {payment_id}")
+                    capture_result = self.capture_payment(
+                        payment_id=payment_id,
+                        amount=order.total_incl_tax,
+                        order_reference=order.number
+                    )
+                    
+                    if not capture_result.get('success'):
+                        logger.error(f"❌ Capture failed: {capture_result.get('error_message')}")
+                        return {
+                            'success': False,
+                            'error_message': f"Payment authorized but capture failed: {capture_result.get('error_message')}",
+                            'payment_id': payment_id
+                        }
+                    
+                    logger.info(f"✅ Payment captured successfully - will settle automatically")
+                    
                     # Create payment source and transaction records
                     logger.info(f"🔄 Creating payment records for order {order.number}")
                     try:
@@ -571,7 +589,8 @@ class WorldpayGatewayFacade:
                         'authorization_code': authorization_code,
                         'card_scheme': card_scheme,
                         'transaction_ref': transaction_ref,
-                        'response_data': response_data
+                        'response_data': response_data,
+                        'capture_result': capture_result
                     }
                     
                 elif outcome == 'refused':
@@ -739,7 +758,7 @@ class WorldpayGatewayFacade:
         """
         try:
             # Use environment-aware base URL
-            base_url = self.api_url.replace('/payments/authorizations', '')
+            base_url = self.api_url.replace('/payments', '').rstrip('/')
             refund_url = f"{base_url}/payments/{payment_id}/refunds"
             
             payload = {
@@ -792,6 +811,74 @@ class WorldpayGatewayFacade:
             return {
                 'success': False,
                 'error_message': 'Network error during refund'
+            }
+    
+    def capture_payment(self, payment_id, amount, order_reference):
+        """
+        Capture an authorized payment using Worldpay Gateway API
+        This converts an authorization into an actual charge
+        """
+        try:
+            # Use environment-aware base URL
+            base_url = self.api_url.replace('/payments/authorizations', '').rstrip('/')
+            capture_url = f"{base_url}/payments/{payment_id}/captures"
+            
+            logger.info(f"🔄 Capturing payment {payment_id} for order {order_reference}")
+            logger.info(f"Capture URL: {capture_url}")
+            
+            payload = {
+                "reference": f"CAPTURE-{order_reference}",
+                "value": {
+                    "currency": "GBP",
+                    "amount": int(amount * 100)
+                }
+            }
+            
+            auth_header = self._get_auth_header()
+            if not auth_header:
+                logger.error("❌ Authentication failed for capture")
+                return {'success': False, 'error_message': 'Authentication failed'}
+                
+            headers = {
+                'Authorization': auth_header,
+                'Content-Type': 'application/vnd.worldpay.payments-v6+json',
+                'Accept': 'application/vnd.worldpay.payments-v6+json'
+            }
+            
+            logger.info(f"Capture payload: {json.dumps(payload, indent=2)}")
+            
+            response = requests.post(capture_url, json=payload, headers=headers, timeout=30)
+            
+            logger.info(f"Worldpay Capture API response status: {response.status_code}")
+            
+            if response.status_code in [200, 201]:
+                response_data = response.json()
+                logger.info(f"✅ Capture successful for payment {payment_id}")
+                logger.info(f"Capture response: {json.dumps(response_data, indent=2)[:500]}")
+                
+                return {
+                    'success': True,
+                    'capture_id': response_data.get('captureId'),
+                    'outcome': response_data.get('outcome'),
+                    'response_data': response_data
+                }
+            else:
+                error_data = response.json() if response.content else {}
+                logger.error(f"❌ Capture failed with status {response.status_code}")
+                logger.error(f"Error response: {json.dumps(error_data, indent=2)}")
+                
+                return {
+                    'success': False,
+                    'error_message': error_data.get('message', 'Capture failed'),
+                    'error_code': error_data.get('errorCode'),
+                    'status_code': response.status_code
+                }
+                
+        except requests.RequestException as e:
+            logger.error(f"❌ Network error during capture: {str(e)}")
+            return {
+                'success': False,
+                'error_message': 'Network error during capture'
             }
     
     def _is_test_card_error(self, error_data, status_code):
