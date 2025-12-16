@@ -196,10 +196,9 @@ class Repository(object):
         
         methods_list.append(method)
         
-        # REMOVED: Test shipping option (FreeShippingMethod at 20p)
-        # Can be re-enabled by uncommenting below:
-        # free_method = FreeShippingMethod()
-        # methods_list.append(free_method)
+        # TEMPORARY: Test shipping option (FreeShippingMethod at 20p)
+        free_method = FreeShippingMethod()
+        methods_list.append(free_method)
         
         # Add express shipping option (will be hidden with CSS)
         express_method = ExpressShippingMethod()

@@ -35,7 +35,7 @@ class WorldpayGatewayFacade:
         self.base_url = "https://try.access.worldpay.com" if self.test_mode else "https://access.worldpay.com"
         
         # Set API endpoints
-        self.api_url = f"{self.base_url}/payments/authorizations"
+        self.api_url = f"{self.base_url}/payments"  # Purchase flow (auth + capture)
         self.threeds_url = f"{self.base_url}/verifications/customers/3ds/authentication"
         
         # Credentials
