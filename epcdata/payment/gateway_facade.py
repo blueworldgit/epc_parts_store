@@ -544,6 +544,10 @@ class WorldpayGatewayFacade:
                     authorization_code = response_data.get('issuer', {}).get('authorizationCode')
                     card_scheme = response_data.get('paymentInstrument', {}).get('card', {}).get('brand')
                     
+                    # Log the full authorization response to see payment ID
+                    logger.info(f"🔍 DEBUG: Full authorization response: {json.dumps(response_data, indent=2)[:1000]}")
+                    logger.info(f"🔍 DEBUG: Extracted payment_id: {payment_id}")
+                    
                     # Immediately capture the authorized payment
                     logger.info(f"🔄 Attempting to capture authorized payment {payment_id}")
                     capture_result = self.capture_payment(
@@ -850,6 +854,7 @@ class WorldpayGatewayFacade:
             response = requests.post(capture_url, json=payload, headers=headers, timeout=30)
             
             logger.info(f"Worldpay Capture API response status: {response.status_code}")
+            logger.info(f"🔍 DEBUG: Capture response content: {response.text[:500]}")
             
             if response.status_code in [200, 201]:
                 response_data = response.json()
@@ -865,12 +870,12 @@ class WorldpayGatewayFacade:
             else:
                 error_data = response.json() if response.content else {}
                 logger.error(f"❌ Capture failed with status {response.status_code}")
-                logger.error(f"Error response: {json.dumps(error_data, indent=2)}")
+                logger.error(f"Error response: {json.dumps(error_data, indent=2) if error_data else response.text}")
                 
                 return {
                     'success': False,
-                    'error_message': error_data.get('message', 'Capture failed'),
-                    'error_code': error_data.get('errorCode'),
+                    'error_message': error_data.get('message', 'Capture failed') if error_data else response.text,
+                    'error_code': error_data.get('errorCode') if error_data else None,
                     'status_code': response.status_code
                 }
                 
@@ -878,7 +883,14 @@ class WorldpayGatewayFacade:
             logger.error(f"❌ Network error during capture: {str(e)}")
             return {
                 'success': False,
-                'error_message': 'Network error during capture'
+                'error_message': f'Network error during capture: {str(e)}'
+            }
+        except json.JSONDecodeError as e:
+            logger.error(f"❌ JSON decode error during capture: {str(e)}")
+            logger.error(f"Response was: {response.text[:500] if 'response' in locals() else 'No response'}")
+            return {
+                'success': False,
+                'error_message': f'Invalid JSON response from capture endpoint'
             }
     
     def _is_test_card_error(self, error_data, status_code):
