@@ -523,14 +523,16 @@ class WorldpayGatewayFacade:
             
             logger.info(f"Worldpay Gateway API response status: {response.status_code}")
             logger.info(f"📡 Response headers: {dict(response.headers)}")
+            logger.info(f"🔍 DEBUG: Full response text: {response.text[:500]}")  # Log first 500 chars
             
             logger.info(f"🔍 DEBUG: Checking response status code: {response.status_code}")
             
-            if response.status_code == 201:
+            # Handle both 200 (purchase) and 201 (authorization) success codes
+            if response.status_code in [200, 201]:
                 response_data = response.json()
                 outcome = response_data.get('outcome')
                 
-                logger.info(f"🎯 Payment response: status=201, outcome={outcome}")
+                logger.info(f"🎯 Payment response: status={response.status_code}, outcome={outcome}")
                 logger.debug(f"Response data: {json.dumps(response_data, indent=2)}")
                 
                 # Check if payment was actually authorized (outcome must be "authorized")
