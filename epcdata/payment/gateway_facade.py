@@ -548,23 +548,24 @@ class WorldpayGatewayFacade:
                     logger.info(f"🔍 DEBUG: Full authorization response: {json.dumps(response_data, indent=2)[:1000]}")
                     logger.info(f"🔍 DEBUG: Extracted payment_id: {payment_id}")
                     
-                    # Immediately capture the authorized payment
-                    logger.info(f"🔄 Attempting to capture authorized payment {payment_id}")
-                    capture_result = self.capture_payment(
-                        payment_id=payment_id,
-                        amount=order.total_incl_tax,
-                        order_reference=order.number
-                    )
+                    # Immediately settle the authorized payment using the HATEOAS link
+                    settle_url = response_data.get('_links', {}).get('payments:settle', {}).get('href')
                     
-                    if not capture_result.get('success'):
-                        logger.error(f"❌ Capture failed: {capture_result.get('error_message')}")
-                        return {
-                            'success': False,
-                            'error_message': f"Payment authorized but capture failed: {capture_result.get('error_message')}",
-                            'payment_id': payment_id
-                        }
-                    
-                    logger.info(f"✅ Payment captured successfully - will settle automatically")
+                    if settle_url:
+                        logger.info(f"🔄 Attempting to settle authorized payment using: {settle_url}")
+                        settle_result = self.settle_payment(settle_url, order.total_incl_tax, order.number)
+                        
+                        if not settle_result.get('success'):
+                            logger.error(f"❌ Settlement failed: {settle_result.get('error_message')}")
+                            return {
+                                'success': False,
+                                'error_message': f"Payment authorized but settlement failed: {settle_result.get('error_message')}",
+                                'payment_id': payment_id
+                            }
+                        
+                        logger.info(f"✅ Payment settled successfully")
+                    else:
+                        logger.warning("⚠️ No settlement link in response - relying on requestAutoSettlement")
                     
                     # Create payment source and transaction records
                     logger.info(f"🔄 Creating payment records for order {order.number}")
@@ -594,7 +595,7 @@ class WorldpayGatewayFacade:
                         'card_scheme': card_scheme,
                         'transaction_ref': transaction_ref,
                         'response_data': response_data,
-                        'capture_result': capture_result
+                        'settle_result': settle_result if settle_url else None
                     }
                     
                 elif outcome == 'refused':
@@ -815,6 +816,78 @@ class WorldpayGatewayFacade:
             return {
                 'success': False,
                 'error_message': 'Network error during refund'
+            }
+    
+    def settle_payment(self, settle_url, amount, order_reference):
+        """
+        Settle an authorized payment using Worldpay Gateway API
+        Uses the HATEOAS link from authorization response
+        """
+        try:
+            logger.info(f"🔄 Settling payment for order {order_reference}")
+            logger.info(f"Settlement URL: {settle_url}")
+            
+            payload = {
+                "reference": f"SETTLE-{order_reference}",
+                "value": {
+                    "currency": "GBP",
+                    "amount": int(amount * 100)
+                }
+            }
+            
+            auth_header = self._get_auth_header()
+            if not auth_header:
+                logger.error("❌ Authentication failed for settlement")
+                return {'success': False, 'error_message': 'Authentication failed'}
+                
+            headers = {
+                'Authorization': auth_header,
+                'Content-Type': 'application/vnd.worldpay.payments-v6+json',
+                'Accept': 'application/vnd.worldpay.payments-v6+json'
+            }
+            
+            logger.info(f"Settlement payload: {json.dumps(payload, indent=2)}")
+            
+            response = requests.post(settle_url, json=payload, headers=headers, timeout=30)
+            
+            logger.info(f"Worldpay Settlement API response status: {response.status_code}")
+            logger.info(f"🔍 DEBUG: Settlement response content: {response.text[:500]}")
+            
+            if response.status_code in [200, 201]:
+                response_data = response.json()
+                logger.info(f"✅ Settlement successful")
+                logger.info(f"Settlement response: {json.dumps(response_data, indent=2)[:500]}")
+                
+                return {
+                    'success': True,
+                    'settlement_id': response_data.get('settlementId'),
+                    'outcome': response_data.get('outcome'),
+                    'response_data': response_data
+                }
+            else:
+                error_data = response.json() if response.content else {}
+                logger.error(f"❌ Settlement failed with status {response.status_code}")
+                logger.error(f"Error response: {json.dumps(error_data, indent=2) if error_data else response.text}")
+                
+                return {
+                    'success': False,
+                    'error_message': error_data.get('message', 'Settlement failed') if error_data else response.text,
+                    'error_code': error_data.get('errorCode') if error_data else None,
+                    'status_code': response.status_code
+                }
+                
+        except requests.RequestException as e:
+            logger.error(f"❌ Network error during settlement: {str(e)}")
+            return {
+                'success': False,
+                'error_message': f'Network error during settlement: {str(e)}'
+            }
+        except json.JSONDecodeError as e:
+            logger.error(f"❌ JSON decode error during settlement: {str(e)}")
+            logger.error(f"Response was: {response.text[:500] if 'response' in locals() else 'No response'}")
+            return {
+                'success': False,
+                'error_message': f'Invalid JSON response from settlement endpoint'
             }
     
     def capture_payment(self, payment_id, amount, order_reference):
