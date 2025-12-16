@@ -827,14 +827,7 @@ class WorldpayGatewayFacade:
             logger.info(f"🔄 Settling payment for order {order_reference}")
             logger.info(f"Settlement URL: {settle_url}")
             
-            payload = {
-                "reference": f"SETTLE-{order_reference}",
-                "value": {
-                    "currency": "GBP",
-                    "amount": int(amount * 100)
-                }
-            }
-            
+            # Settlement endpoint doesn't accept a payload - the URL is tokenized with all info
             auth_header = self._get_auth_header()
             if not auth_header:
                 logger.error("❌ Authentication failed for settlement")
@@ -846,9 +839,9 @@ class WorldpayGatewayFacade:
                 'Accept': 'application/vnd.worldpay.payments-v6+json'
             }
             
-            logger.info(f"Settlement payload: {json.dumps(payload, indent=2)}")
+            logger.info(f"Posting to settlement URL with no body (tokenized URL)")
             
-            response = requests.post(settle_url, json=payload, headers=headers, timeout=30)
+            response = requests.post(settle_url, headers=headers, timeout=30)
             
             logger.info(f"Worldpay Settlement API response status: {response.status_code}")
             logger.info(f"🔍 DEBUG: Settlement response content: {response.text[:500]}")
