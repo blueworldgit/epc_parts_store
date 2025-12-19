@@ -196,9 +196,9 @@ class Repository(object):
         
         methods_list.append(method)
         
-        # TEMPORARY: Test shipping option (FreeShippingMethod at 20p)
-        free_method = FreeShippingMethod()
-        methods_list.append(free_method)
+        # TEMPORARY: Test shipping option (FreeShippingMethod at 20p) - DISABLED
+        # free_method = FreeShippingMethod()
+        # methods_list.append(free_method)
         
         # Add express shipping option (will be hidden with CSS)
         express_method = ExpressShippingMethod()
