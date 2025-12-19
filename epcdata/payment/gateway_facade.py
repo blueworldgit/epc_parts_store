@@ -846,9 +846,9 @@ class WorldpayGatewayFacade:
             logger.info(f"Worldpay Settlement API response status: {response.status_code}")
             logger.info(f"🔍 DEBUG: Settlement response content: {response.text[:500]}")
             
-            if response.status_code in [200, 201]:
+            if response.status_code in [200, 201, 202]:
                 response_data = response.json()
-                logger.info(f"✅ Settlement successful")
+                logger.info(f"✅ Settlement successful (status {response.status_code} - queued for settlement)")
                 logger.info(f"Settlement response: {json.dumps(response_data, indent=2)[:500]}")
                 
                 return {
