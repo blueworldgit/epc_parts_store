@@ -177,6 +177,9 @@ class Command(BaseCommand):
             # Print final statistics
             self._print_final_stats()
             
+            # DISABLED: Automatic price and weight updates after import
+            # Uncomment the section below if you want to re-enable automatic price and weight updates
+            """
             # Automatically update prices in Oscar after import
             if not self.dry_run:
                 self.stdout.write("🔄 Running price update to synchronize with Oscar...")
@@ -198,6 +201,7 @@ class Command(BaseCommand):
             else:
                 self.stdout.write("🏃 Skipping price update (dry-run mode)")
                 self.stdout.write("🏃 Skipping weight update (dry-run mode)")
+            """
             
             # Show final completion summary (after price update)
             self._print_completion_summary()

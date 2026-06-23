@@ -1,0 +1,510 @@
+{
+  "files_processed": 3,
+  "successful_extractions": 3,
+  "failed_extractions": 0,
+  "extraction_details": {
+    "air intake system/Air filter.html": {
+      "file_path": "c:\\pythonstuff\\vansdirect\\epc_parts_store\\epcdata\\LSH14C4C5NA129710\\air intake system\\Air filter.html",
+      "success": true,
+      "errors": [],
+      "extracted_data": {
+        "title": "JE140A001 - Air filter",
+        "svg_length": 96945,
+        "extra_info_count": 14,
+        "parts": [
+          {
+            "index": 1,
+            "call_out_order": "N/A",
+            "part_number": "N/A",
+            "usage_name": "N/A",
+            "unit_qty": "1",
+            "lr": "",
+            "remark": "",
+            "valid": false
+          },
+          {
+            "index": 2,
+            "call_out_order": "N/A",
+            "part_number": "N/A",
+            "usage_name": "N/A",
+            "unit_qty": "1",
+            "lr": "",
+            "remark": "",
+            "valid": false
+          },
+          {
+            "index": 3,
+            "call_out_order": "N/A",
+            "part_number": "N/A",
+            "usage_name": "N/A",
+            "unit_qty": "1",
+            "lr": "",
+            "remark": "",
+            "valid": false
+          },
+          {
+            "index": 4,
+            "call_out_order": "N/A",
+            "part_number": "N/A",
+            "usage_name": "N/A",
+            "unit_qty": "1",
+            "lr": "",
+            "remark": "",
+            "valid": false
+          },
+          {
+            "index": 5,
+            "call_out_order": "N/A",
+            "part_number": "N/A",
+            "usage_name": "N/A",
+            "unit_qty": "1",
+            "lr": "",
+            "remark": "",
+            "valid": false
+          },
+          {
+            "index": 6,
+            "call_out_order": "N/A",
+            "part_number": "N/A",
+            "usage_name": "N/A",
+            "unit_qty": "1",
+            "lr": "",
+            "remark": "",
+            "valid": false
+          },
+          {
+            "index": 7,
+            "call_out_order": "N/A",
+            "part_number": "N/A",
+            "usage_name": "N/A",
+            "unit_qty": "1",
+            "lr": "",
+            "remark": "",
+            "valid": false
+          },
+          {
+            "index": 8,
+            "call_out_order": "N/A",
+            "part_number": "N/A",
+            "usage_name": "N/A",
+            "unit_qty": "1",
+            "lr": "",
+            "remark": "",
+            "valid": false
+          },
+          {
+            "index": 9,
+            "call_out_order": "N/A",
+            "part_number": "N/A",
+            "usage_name": "N/A",
+            "unit_qty": "1",
+            "lr": "",
+            "remark": "",
+            "valid": false
+          },
+          {
+            "index": 10,
+            "call_out_order": "N/A",
+            "part_number": "N/A",
+            "usage_name": "N/A",
+            "unit_qty": "1",
+            "lr": "",
+            "remark": "",
+            "valid": false
+          },
+          {
+            "index": 11,
+            "call_out_order": "N/A",
+            "part_number": "N/A",
+            "usage_name": "N/A",
+            "unit_qty": "1",
+            "lr": "",
+            "remark": "",
+            "valid": false
+          },
+          {
+            "index": 12,
+            "call_out_order": "N/A",
+            "part_number": "N/A",
+            "usage_name": "N/A",
+            "unit_qty": "1",
+            "lr": "",
+            "remark": "",
+            "valid": false
+          },
+          {
+            "index": 13,
+            "call_out_order": "N/A",
+            "part_number": "N/A",
+            "usage_name": "N/A",
+            "unit_qty": "1",
+            "lr": "",
+            "remark": "",
+            "valid": false
+          },
+          {
+            "index": 14,
+            "call_out_order": "N/A",
+            "part_number": "N/A",
+            "usage_name": "N/A",
+            "unit_qty": "1",
+            "lr": "",
+            "remark": "",
+            "valid": false
+          },
+          {
+            "index": 15,
+            "call_out_order": "1",
+            "part_number": "C00041192",
+            "usage_name": "MOUNT-AIR CLEANER",
+            "unit_qty": "2.0",
+            "lr": "N/A",
+            "remark": "N/A",
+            "valid": true
+          },
+          {
+            "index": 16,
+            "call_out_order": "2",
+            "part_number": "C00017370",
+            "usage_name": "BOLT-AIR CLEANER OUTLET HOSE BRACKET",
+            "unit_qty": "1.0",
+            "lr": "N/A",
+            "remark": "N/A",
+            "valid": true
+          },
+          {
+            "index": 17,
+            "call_out_order": "2",
+            "part_number": "C00017370",
+            "usage_name": "BOLT-AIR CLEANER ASSEMBLY",
+            "unit_qty": "1.0",
+            "lr": "N/A",
+            "remark": "N/A",
+            "valid": true
+          },
+          {
+            "index": 18,
+            "call_out_order": "3",
+            "part_number": "C00074268",
+            "usage_name": "FILTER ASSEMBLY-AIR",
+            "unit_qty": "1.0",
+            "lr": "N/A",
+            "remark": "N/A",
+            "valid": true
+          },
+          {
+            "index": 19,
+            "call_out_order": "4",
+            "part_number": "C00176662",
+            "usage_name": "AIR CLEANER-LOWER",
+            "unit_qty": "1.0",
+            "lr": "N/A",
+            "remark": "N/A",
+            "valid": true
+          },
+          {
+            "index": 20,
+            "call_out_order": "5",
+            "part_number": "C00176661",
+            "usage_name": "FILTER-AIR CLEANER",
+            "unit_qty": "1.0",
+            "lr": "N/A",
+            "remark": "N/A",
+            "valid": true
+          },
+          {
+            "index": 21,
+            "call_out_order": "6",
+            "part_number": "C00176660",
+            "usage_name": "AIR CLEANER-UPPER",
+            "unit_qty": "1.0",
+            "lr": "N/A",
+            "remark": "N/A",
+            "valid": true
+          },
+          {
+            "index": 22,
+            "call_out_order": "7",
+            "part_number": "C00050803",
+            "usage_name": "SENSOR-MAF",
+            "unit_qty": "1.0",
+            "lr": "N/A",
+            "remark": "N/A",
+            "valid": true
+          },
+          {
+            "index": 23,
+            "call_out_order": "8",
+            "part_number": "B00005370",
+            "usage_name": "TAPPING SCREW-MAF SENSOR TO AIR CLEANER",
+            "unit_qty": "2.0",
+            "lr": "N/A",
+            "remark": "N/A",
+            "valid": true
+          },
+          {
+            "index": 24,
+            "call_out_order": "9",
+            "part_number": "C00074269",
+            "usage_name": "HOSE ASSEMBLY-AIR CLEANER OUTLET",
+            "unit_qty": "1.0",
+            "lr": "N/A",
+            "remark": "N/A",
+            "valid": true
+          },
+          {
+            "index": 25,
+            "call_out_order": "10",
+            "part_number": "C00134346",
+            "usage_name": "HOSE-CRANKCASE",
+            "unit_qty": "1.0",
+            "lr": "N/A",
+            "remark": "N/A",
+            "valid": true
+          },
+          {
+            "index": 26,
+            "call_out_order": "11",
+            "part_number": "C00074267",
+            "usage_name": "HOSE-AIR CLEANER INLET",
+            "unit_qty": "1.0",
+            "lr": "N/A",
+            "remark": "N/A",
+            "valid": true
+          },
+          {
+            "index": 27,
+            "call_out_order": "12",
+            "part_number": "C00130628",
+            "usage_name": "AIR INLET-BODY TO INLET PIPE",
+            "unit_qty": "1.0",
+            "lr": "N/A",
+            "remark": "N/A",
+            "valid": true
+          },
+          {
+            "index": 28,
+            "call_out_order": "13",
+            "part_number": "B00004683",
+            "usage_name": "BOLT-AIR CLEANER INLET HOSE ASSEMBLY",
+            "unit_qty": "2.0",
+            "lr": "N/A",
+            "remark": "N/A",
+            "valid": true
+          }
+        ],
+        "valid_parts_count": 14,
+        "invalid_parts_count": 14
+      }
+    },
+    "airbag/AirBag.html": {
+      "file_path": "c:\\pythonstuff\\vansdirect\\epc_parts_store\\epcdata\\LSH14C4C5NA129710\\airbag\\AirBag.html",
+      "success": true,
+      "errors": [],
+      "extracted_data": {
+        "title": "FE471A001 - AirBag",
+        "svg_length": 59658,
+        "extra_info_count": 5,
+        "parts": [
+          {
+            "index": 1,
+            "call_out_order": "N/A",
+            "part_number": "N/A",
+            "usage_name": "N/A",
+            "unit_qty": "1",
+            "lr": "",
+            "remark": "",
+            "valid": false
+          },
+          {
+            "index": 2,
+            "call_out_order": "N/A",
+            "part_number": "N/A",
+            "usage_name": "N/A",
+            "unit_qty": "1",
+            "lr": "",
+            "remark": "",
+            "valid": false
+          },
+          {
+            "index": 3,
+            "call_out_order": "N/A",
+            "part_number": "N/A",
+            "usage_name": "N/A",
+            "unit_qty": "1",
+            "lr": "",
+            "remark": "",
+            "valid": false
+          },
+          {
+            "index": 4,
+            "call_out_order": "N/A",
+            "part_number": "N/A",
+            "usage_name": "N/A",
+            "unit_qty": "1",
+            "lr": "Left",
+            "remark": "",
+            "valid": false
+          },
+          {
+            "index": 5,
+            "call_out_order": "N/A",
+            "part_number": "N/A",
+            "usage_name": "N/A",
+            "unit_qty": "1",
+            "lr": "Right",
+            "remark": "",
+            "valid": false
+          },
+          {
+            "index": 6,
+            "call_out_order": "1",
+            "part_number": "C00173421",
+            "usage_name": "STEERING WHEEL ASSEMBLY",
+            "unit_qty": "1.0",
+            "lr": "N/A",
+            "remark": "N/A",
+            "valid": true
+          },
+          {
+            "index": 7,
+            "call_out_order": "2",
+            "part_number": "C00082271",
+            "usage_name": "AIRBAG ASSEMBLY-DRIVER SIDE",
+            "unit_qty": "1.0",
+            "lr": "N/A",
+            "remark": "N/A",
+            "valid": true
+          },
+          {
+            "index": 8,
+            "call_out_order": "3",
+            "part_number": "C00204388",
+            "usage_name": "AIRBAG ASSEMBLY-FRONT PASSENGER SIDE",
+            "unit_qty": "1.0",
+            "lr": "N/A",
+            "remark": "N/A",
+            "valid": true
+          },
+          {
+            "index": 9,
+            "call_out_order": "6",
+            "part_number": "C00107138",
+            "usage_name": "SWITCH-STEERING WHEEL",
+            "unit_qty": "1.0",
+            "lr": "N/A",
+            "remark": "N/A",
+            "valid": true
+          },
+          {
+            "index": 10,
+            "call_out_order": "7",
+            "part_number": "C00141745",
+            "usage_name": "SWITCH-STEERING WHEEL",
+            "unit_qty": "1.0",
+            "lr": "N/A",
+            "remark": "N/A",
+            "valid": true
+          }
+        ],
+        "valid_parts_count": 5,
+        "invalid_parts_count": 5
+      }
+    },
+    "antenna/Antenna.html": {
+      "file_path": "c:\\pythonstuff\\vansdirect\\epc_parts_store\\epcdata\\LSH14C4C5NA129710\\antenna\\Antenna.html",
+      "success": true,
+      "errors": [],
+      "extracted_data": {
+        "title": "FE741A001 - Antenna",
+        "svg_length": 26544,
+        "extra_info_count": 4,
+        "parts": [
+          {
+            "index": 1,
+            "call_out_order": "N/A",
+            "part_number": "N/A",
+            "usage_name": "N/A",
+            "unit_qty": "1",
+            "lr": "",
+            "remark": "",
+            "valid": false
+          },
+          {
+            "index": 2,
+            "call_out_order": "N/A",
+            "part_number": "N/A",
+            "usage_name": "N/A",
+            "unit_qty": "1",
+            "lr": "",
+            "remark": "",
+            "valid": false
+          },
+          {
+            "index": 3,
+            "call_out_order": "N/A",
+            "part_number": "N/A",
+            "usage_name": "N/A",
+            "unit_qty": "1",
+            "lr": "",
+            "remark": "",
+            "valid": false
+          },
+          {
+            "index": 4,
+            "call_out_order": "N/A",
+            "part_number": "N/A",
+            "usage_name": "N/A",
+            "unit_qty": "1",
+            "lr": "",
+            "remark": "",
+            "valid": false
+          },
+          {
+            "index": 5,
+            "call_out_order": "1",
+            "part_number": "C00180125",
+            "usage_name": "AMPLIFIER ASSEMBLY-PRINTED ANTENNA",
+            "unit_qty": "1.0",
+            "lr": "N/A",
+            "remark": "N/A",
+            "valid": true
+          },
+          {
+            "index": 6,
+            "call_out_order": "2",
+            "part_number": "B00004097",
+            "usage_name": "BOLT/SCREW-PRINTED ANTENNA AMPLIFIER ASSEMBLY",
+            "unit_qty": "1.0",
+            "lr": "N/A",
+            "remark": "N/A",
+            "valid": true
+          },
+          {
+            "index": 7,
+            "call_out_order": "2",
+            "part_number": "B00004878",
+            "usage_name": "BOLT/SCREW-PRINTED ANTENNA AMPLIFIER ASSEMBLY",
+            "unit_qty": "1.0",
+            "lr": "N/A",
+            "remark": "N/A",
+            "valid": true
+          },
+          {
+            "index": 8,
+            "call_out_order": "3",
+            "part_number": "B00004151",
+            "usage_name": "STRAP-ANTENNA ASSEMBLY",
+            "unit_qty": "4.0",
+            "lr": "N/A",
+            "remark": "N/A",
+            "valid": true
+          }
+        ],
+        "valid_parts_count": 4,
+        "invalid_parts_count": 4
+      }
+    }
+  },
+  "validation_errors": []
+}

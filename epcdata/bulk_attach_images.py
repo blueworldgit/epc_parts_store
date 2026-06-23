@@ -227,9 +227,9 @@ if __name__ == "__main__":
     print("="*50)
     
     try:
-        # First run with 60% similarity threshold
-        print("🚀 Running LIVE MODE to attach images (≥60% similarity)...")
-        report_file, success, errors = bulk_attach_images(dry_run=False, similarity_threshold=0.6)
+        # First run with 30% similarity threshold (much more permissive)
+        print("🚀 Running LIVE MODE to attach images (≥30% similarity)...")
+        report_file, success, errors = bulk_attach_images(dry_run=False, similarity_threshold=0.3)
         
         if success > 0:
             print(f"\n💡 LIVE RUN completed successfully!")

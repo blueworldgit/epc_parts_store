@@ -23,12 +23,12 @@ PRICE BREAKDOWN:
 {{ line.product.title }}{% if line.product.upc %} (Part #{{ line.product.upc }}){% elif line.product.get_product_class.slug == 'motor-part' and line.product.attr.part_number %} (Part #{{ line.product.attr.part_number }}){% endif %} (Qty: {{ line.quantity }}) - £{{ line.line_price_incl_tax }}
 {% endfor %}
 {% if order.shipping_incl_tax %}
-Shipping - £{{ order.shipping_incl_tax }}
+Shipping - £{{ order_shipping_amount|floatformat:2 }}
 {% endif %}
 
-Subtotal (ex VAT): £{% widthratio order.total_incl_tax 6 5 %}
-VAT (20%): £{% widthratio order.total_incl_tax 6 1 %}
-TOTAL (inc VAT): £{{ order.total_incl_tax }}
+Subtotal (ex VAT): £{{ order_subtotal_excl_tax|floatformat:2 }}
+VAT (20%): £{{ order_vat_amount|floatformat:2 }}
+TOTAL (inc VAT): £{{ order.total_incl_tax|floatformat:2 }}
 
 BILLING ADDRESS:
 ----------------

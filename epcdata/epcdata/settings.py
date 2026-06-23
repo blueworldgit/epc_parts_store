@@ -112,7 +112,7 @@ SECRET_KEY = os.getenv('SECRET_KEY', 'django-insecure-aiqpmaxs^h@-@r#-nvtu)%p73-
 DEBUG = os.getenv('DEBUG', 'True').lower() == 'true'
 
 # Allow hosts from environment variable or use defaults
-ALLOWED_HOSTS_STR = os.getenv('ALLOWED_HOSTS', '80.95.207.42,maxusparts.co.uk,www.maxusparts.co.uk,localhost,127.0.0.1,[::1]')
+ALLOWED_HOSTS_STR = os.getenv('ALLOWED_HOSTS', '80.95.207.42,vanparts-direct.co.uk,www.vanparts-direct.co.uk,maxusparts.co.uk,www.maxusparts.co.uk,localhost,127.0.0.1,[::1]')
 ALLOWED_HOSTS = [host.strip() for host in ALLOWED_HOSTS_STR.split(',')]
 print(f"DEBUG: ALLOWED_HOSTS = {ALLOWED_HOSTS}")
 
@@ -120,11 +120,12 @@ print(f"DEBUG: ALLOWED_HOSTS = {ALLOWED_HOSTS}")
 SECURE_CROSS_ORIGIN_OPENER_POLICY = None  # Fix the COOP header warning
 SECURE_BROWSER_XSS_FILTER = True
 SECURE_CONTENT_TYPE_NOSNIFF = True
-X_FRAME_OPTIONS = 'SAMEORIGIN'
-print(f"🖼️  X_FRAME_OPTIONS = {X_FRAME_OPTIONS} (iframes {'ALLOWED from same origin' if X_FRAME_OPTIONS == 'SAMEORIGIN' else 'BLOCKED' if X_FRAME_OPTIONS == 'DENY' else 'configuration: ' + str(X_FRAME_OPTIONS)})")
+X_FRAME_OPTIONS = 'DENY'
 
 # CSRF settings for HTTPS
 CSRF_TRUSTED_ORIGINS = [
+    'https://vanparts-direct.co.uk',
+    'https://www.vanparts-direct.co.uk',
     'https://maxusparts.co.uk',
     'https://www.maxusparts.co.uk',
 ]
@@ -369,43 +370,27 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
-    'formatters': {
-        'verbose': {
-            'format': '{levelname} {asctime} {module} {message}',
-            'style': '{',
-        },
-    },
     'handlers': {
         'console': {
             'class': 'logging.StreamHandler',
-            'formatter': 'verbose',
-        },
-        'file': {
-            'class': 'logging.FileHandler',
-            'filename': '/home/rentals/epc_parts_store/django_debug.log',
-            'formatter': 'verbose',
         },
     },
     'loggers': {
         'django': {
-            'handlers': ['console', 'file'],
+            'handlers': ['console'],
             'level': 'INFO',
         },
         'oscar': {
-            'handlers': ['console', 'file'],
+            'handlers': ['console'],
             'level': 'INFO',
-        },
-        'payment': {
-            'handlers': ['console', 'file'],
-            'level': 'DEBUG',
         },
         'django.contrib.staticfiles': {
             'handlers': ['console'],
-            'level': 'INFO',
+            'level': 'DEBUG',
         },
         'whitenoise': {
             'handlers': ['console'],
-            'level': 'INFO',
+            'level': 'DEBUG',
         },
     },
 }

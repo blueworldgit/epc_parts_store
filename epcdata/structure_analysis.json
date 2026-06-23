@@ -1,0 +1,93 @@
+{
+  "directory_analysis": {
+    "root_directory": "LSH14C4C5NA129710",
+    "total_directories": 3,
+    "total_html_files": 3,
+    "categories": {
+      "air intake system": {
+        "html_files": 1,
+        "other_files": 0,
+        "file_list": [
+          "Air filter.html"
+        ]
+      },
+      "airbag": {
+        "html_files": 1,
+        "other_files": 0,
+        "file_list": [
+          "AirBag.html"
+        ]
+      },
+      "antenna": {
+        "html_files": 1,
+        "other_files": 0,
+        "file_list": [
+          "Antenna.html"
+        ]
+      }
+    },
+    "file_sizes": {
+      "air intake system/Air filter.html": 155264,
+      "airbag/AirBag.html": 102380,
+      "antenna/Antenna.html": 44050,
+      "commands.txt": 43
+    },
+    "html_structure_summary": {},
+    "root_files": [
+      "commands.txt"
+    ]
+  },
+  "html_file_analyses": {
+    "air intake system/Air filter.html": {
+      "file_path": "c:\\pythonstuff\\vansdirect\\epc_parts_store\\epcdata\\LSH14C4C5NA129710\\air intake system\\Air filter.html",
+      "file_size": 152520,
+      "legend_title": "JE140A001 - Air filter",
+      "has_svg": true,
+      "svg_dimensions": "680.3px x 856.1px",
+      "total_parts": 58,
+      "visible_parts": 30,
+      "hidden_parts": 28,
+      "callout_numbers": [],
+      "part_numbers": [],
+      "sample_parts": [
+        {},
+        {},
+        {}
+      ]
+    },
+    "airbag/AirBag.html": {
+      "file_path": "c:\\pythonstuff\\vansdirect\\epc_parts_store\\epcdata\\LSH14C4C5NA129710\\airbag\\AirBag.html",
+      "file_size": 100646,
+      "legend_title": "FE471A001 - AirBag",
+      "has_svg": true,
+      "svg_dimensions": "595.281px x 841.891px",
+      "total_parts": 40,
+      "visible_parts": 12,
+      "hidden_parts": 28,
+      "callout_numbers": [],
+      "part_numbers": [],
+      "sample_parts": [
+        {},
+        {},
+        {}
+      ]
+    },
+    "antenna/Antenna.html": {
+      "file_path": "c:\\pythonstuff\\vansdirect\\epc_parts_store\\epcdata\\LSH14C4C5NA129710\\antenna\\Antenna.html",
+      "file_size": 43263,
+      "legend_title": "FE741A001 - Antenna",
+      "has_svg": true,
+      "svg_dimensions": "595.28px x 841.89px",
+      "total_parts": 16,
+      "visible_parts": 10,
+      "hidden_parts": 6,
+      "callout_numbers": [],
+      "part_numbers": [],
+      "sample_parts": [
+        {},
+        {},
+        {}
+      ]
+    }
+  }
+}

@@ -169,7 +169,7 @@
                         {% if order.shipping_incl_tax %}
                         <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
                             <span>Shipping</span>
-                            <span>£{{ order.shipping_incl_tax }}</span>
+                            <span>£{{ order_shipping_amount|floatformat:2 }}</span>
                         </div>
                         {% endif %}
                         
@@ -177,18 +177,18 @@
                         
                         <div style="display: flex; justify-content: space-between; margin-bottom: 5px; font-weight: normal;">
                             <span>Subtotal (ex VAT)</span>
-                            <span>£{% widthratio order.total_incl_tax 6 5 %}</span>
+                            <span>£{{ order_subtotal_excl_tax|floatformat:2 }}</span>
                         </div>
                         
                         <div style="display: flex; justify-content: space-between; margin-bottom: 10px; color: #007bff;">
                             <span>VAT (20%)</span>
-                            <span>£{% widthratio order.total_incl_tax 6 1 %}</span>
+                            <span>£{{ order_vat_amount|floatformat:2 }}</span>
                         </div>
                     </div>
                 </div>
                 
                 <div class="total-amount">
-                    <strong>Total (inc VAT): £{{ order.total_incl_tax }}</strong>
+                    <strong>Total (inc VAT): £{{ order.total_incl_tax|floatformat:2 }}</strong>
                 </div>
             </div>
 

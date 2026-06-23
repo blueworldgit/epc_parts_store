@@ -1,0 +1,249 @@
+{
+  "Air filter.html": {
+    "file_info": {
+      "path": "c:\\pythonstuff\\vansdirect\\epc_parts_store\\epcdata\\LSH14C4C5NA129710\\air intake system\\Air filter.html",
+      "size_bytes": 152520,
+      "size_mb": 0.14545440673828125
+    },
+    "structure_analysis": {
+      "total_elements": 1300,
+      "unique_tags": 16,
+      "tag_distribution": {
+        "span": 333,
+        "path": 271,
+        "div": 190,
+        "line": 150,
+        "a": 124,
+        "i": 78,
+        "text": 49,
+        "polyline": 46,
+        "g": 35,
+        "ellipse": 15
+      },
+      "top_css_classes": {
+        "column": 232,
+        "text-link": 90,
+        "text-column": 84,
+        "iconfont": 78,
+        "parts-item": 58,
+        "text-column-note": 56,
+        "secondary": 34,
+        "ordernumber": 29,
+        "operate": 29,
+        "number": 29
+      }
+    },
+    "key_elements": {
+      "legend_title": "JE140A001 - Air filter",
+      "main_containers": 2,
+      "parts_tables": 2,
+      "unique_part_numbers": 28,
+      "callout_range": "1 - 9"
+    },
+    "parts_table_structure": {
+      "total_parts": 58,
+      "visible_parts": 30,
+      "hidden_parts": 28,
+      "columns_per_part": 3,
+      "column_classes": [
+        "column",
+        "column",
+        "column"
+      ],
+      "data_attributes": {}
+    },
+    "svg_analysis": {
+      "svg_count": 1,
+      "attributes": {
+        "version": "1.1",
+        "xmlns": "http://www.w3.org/2000/svg",
+        "xmlns:xlink": "http://www.w3.org/1999/xlink",
+        "x": "0px",
+        "y": "0px",
+        "width": "680.3px",
+        "height": "856.1px",
+        "viewbox": "0 0 680.3 856.1",
+        "enable-background": "new 0 0 680.3 856.1",
+        "xml:space": "preserve"
+      },
+      "child_elements": 573,
+      "child_tag_distribution": {
+        "g": 35,
+        "rect": 1,
+        "text": 49,
+        "path": 271,
+        "polyline": 46,
+        "ellipse": 15,
+        "line": 150,
+        "polygon": 4,
+        "desc": 1,
+        "defs": 1
+      }
+    }
+  },
+  "AirBag.html": {
+    "file_info": {
+      "path": "c:\\pythonstuff\\vansdirect\\epc_parts_store\\epcdata\\LSH14C4C5NA129710\\airbag\\AirBag.html",
+      "size_bytes": 100646,
+      "size_mb": 0.09598350524902344
+    },
+    "structure_analysis": {
+      "total_elements": 817,
+      "unique_tags": 16,
+      "tag_distribution": {
+        "span": 225,
+        "div": 136,
+        "path": 128,
+        "a": 101,
+        "i": 64,
+        "polyline": 62,
+        "line": 54,
+        "g": 15,
+        "ellipse": 13,
+        "text": 9
+      },
+      "top_css_classes": {
+        "column": 160,
+        "text-link": 76,
+        "iconfont": 64,
+        "text-column": 57,
+        "parts-item": 40,
+        "text-column-note": 38,
+        "secondary": 38,
+        "dn": 28,
+        "ordernumber": 20,
+        "operate": 20
+      }
+    },
+    "key_elements": {
+      "legend_title": "FE471A001 - AirBag",
+      "main_containers": 2,
+      "parts_tables": 2,
+      "unique_part_numbers": 19,
+      "callout_range": "1 - 7"
+    },
+    "parts_table_structure": {
+      "total_parts": 40,
+      "visible_parts": 12,
+      "hidden_parts": 28,
+      "columns_per_part": 3,
+      "column_classes": [
+        "column",
+        "column",
+        "column"
+      ],
+      "data_attributes": {}
+    },
+    "svg_analysis": {
+      "svg_count": 1,
+      "attributes": {
+        "version": "1.1",
+        "xmlns": "http://www.w3.org/2000/svg",
+        "xmlns:xlink": "http://www.w3.org/1999/xlink",
+        "x": "0px",
+        "y": "0px",
+        "width": "595.281px",
+        "height": "841.891px",
+        "viewbox": "0 0 595.281 841.891",
+        "enable-background": "new 0 0 595.281 841.891",
+        "xml:space": "preserve"
+      },
+      "child_elements": 289,
+      "child_tag_distribution": {
+        "g": 15,
+        "rect": 2,
+        "text": 9,
+        "path": 128,
+        "ellipse": 13,
+        "polyline": 62,
+        "line": 54,
+        "polygon": 4,
+        "desc": 1,
+        "defs": 1
+      }
+    }
+  },
+  "Antenna.html": {
+    "file_info": {
+      "path": "c:\\pythonstuff\\vansdirect\\epc_parts_store\\epcdata\\LSH14C4C5NA129710\\antenna\\Antenna.html",
+      "size_bytes": 43263,
+      "size_mb": 0.041258811950683594
+    },
+    "structure_analysis": {
+      "total_elements": 398,
+      "unique_tags": 17,
+      "tag_distribution": {
+        "path": 96,
+        "span": 92,
+        "div": 64,
+        "a": 39,
+        "line": 28,
+        "i": 25,
+        "polyline": 16,
+        "polygon": 12,
+        "g": 8,
+        "ellipse": 8
+      },
+      "top_css_classes": {
+        "st9": 65,
+        "column": 64,
+        "st3": 40,
+        "st2": 27,
+        "st0": 27,
+        "text-link": 26,
+        "iconfont": 25,
+        "text-column": 21,
+        "parts-item": 16,
+        "text-column-note": 14
+      }
+    },
+    "key_elements": {
+      "legend_title": "FE741A001 - Antenna",
+      "main_containers": 2,
+      "parts_tables": 2,
+      "unique_part_numbers": 8,
+      "callout_range": "1 - 3"
+    },
+    "parts_table_structure": {
+      "total_parts": 16,
+      "visible_parts": 10,
+      "hidden_parts": 6,
+      "columns_per_part": 3,
+      "column_classes": [
+        "column",
+        "column",
+        "column"
+      ],
+      "data_attributes": {}
+    },
+    "svg_analysis": {
+      "svg_count": 1,
+      "attributes": {
+        "version": "1.1",
+        "xmlns": "http://www.w3.org/2000/svg",
+        "xmlns:xlink": "http://www.w3.org/1999/xlink",
+        "x": "0px",
+        "y": "0px",
+        "width": "595.28px",
+        "height": "841.89px",
+        "viewbox": "0 0 595.28 841.89",
+        "style": "enable-background:new 0 0 595.28 841.89;",
+        "xml:space": "preserve"
+      },
+      "child_elements": 176,
+      "child_tag_distribution": {
+        "g": 8,
+        "style": 1,
+        "text": 4,
+        "rect": 1,
+        "polygon": 12,
+        "path": 96,
+        "polyline": 16,
+        "line": 28,
+        "ellipse": 8,
+        "desc": 1,
+        "defs": 1
+      }
+    }
+  }
+}
