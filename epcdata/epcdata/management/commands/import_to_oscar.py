@@ -15,6 +15,7 @@ from django.core.management.base import BaseCommand, CommandError
 from django.core.management import call_command
 from django.db import transaction, connection
 from django.db.models import Q
+from django.db.models.signals import post_save
 from django.utils import timezone
 import logging
 import argparse
@@ -28,6 +29,14 @@ from oscar.core.loading import get_model
 
 # Set up logging
 logger = logging.getLogger(__name__)
+
+# Try to import Oscar's customer alerts signal (might not be enabled in all installations)
+try:
+    from oscar.apps.customer.alerts import receivers as alerts_receivers
+    OSCAR_ALERTS_AVAILABLE = True
+except ImportError:
+    OSCAR_ALERTS_AVAILABLE = False
+    alerts_receivers = None
 
 class Command(BaseCommand):
     help = 'Import data from motorpartsdata models to Oscar e-commerce models'
@@ -144,6 +153,17 @@ class Command(BaseCommand):
                 self.stdout.write(f"Would reset {reset_count} parts to unprocessed")
             return
 
+        # Disconnect Oscar customer alerts signal to prevent performance issues during import
+        signal_was_connected = False
+        if OSCAR_ALERTS_AVAILABLE and hasattr(alerts_receivers, 'send_product_alerts'):
+            try:
+                post_save.disconnect(alerts_receivers.send_product_alerts, sender=StockRecord)
+                signal_was_connected = True
+                self.stdout.write("🔕 Disabled Oscar product alerts during import for better performance")
+                logger.info("Disconnected Oscar product alerts signal")
+            except Exception as e:
+                logger.warning(f"Could not disconnect alerts signal: {e}")
+
         try:
             # Log command start
             logger.info(f"Import command started with options: {options}")
@@ -213,6 +233,15 @@ class Command(BaseCommand):
             logger.error(f"Import failed: {e}")
             self.stdout.write(f"❌ Error logged to: {log_file}")
             raise CommandError(f"Import failed: {e}")
+        finally:
+            # Reconnect Oscar customer alerts signal if it was disconnected
+            if signal_was_connected and OSCAR_ALERTS_AVAILABLE:
+                try:
+                    post_save.connect(alerts_receivers.send_product_alerts, sender=StockRecord)
+                    self.stdout.write("🔔 Re-enabled Oscar product alerts")
+                    logger.info("Reconnected Oscar product alerts signal")
+                except Exception as e:
+                    logger.warning(f"Could not reconnect alerts signal: {e}")
 
     def _show_existing_data_summary(self):
         """Show summary of existing data to help identify potential duplicates"""
